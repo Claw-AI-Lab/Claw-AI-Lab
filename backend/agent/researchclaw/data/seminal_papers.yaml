@@ -1,0 +1,228 @@
+# Foundational ML papers that should be cited when discussing specific topics.
+# Indexed by keyword/technique for automatic injection into literature candidates.
+# Format: each entry has title, authors, year, venue, cite_key, and keywords.
+
+papers:
+  # --- Normalization ---
+  - title: "Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift"
+    authors: "Ioffe and Szegedy"
+    year: 2015
+    venue: "ICML"
+    cite_key: "ioffe2015batch"
+    keywords: ["batch normalization", "normalization", "BN", "internal covariate shift"]
+
+  - title: "Layer Normalization"
+    authors: "Ba et al."
+    year: 2016
+    venue: "arXiv"
+    cite_key: "ba2016layer"
+    keywords: ["layer normalization", "normalization", "LN"]
+
+  - title: "Group Normalization"
+    authors: "Wu and He"
+    year: 2018
+    venue: "ECCV"
+    cite_key: "wu2018group"
+    keywords: ["group normalization", "normalization", "GN"]
+
+  - title: "Instance Normalization: The Missing Ingredient for Fast Stylization"
+    authors: "Ulyanov et al."
+    year: 2016
+    venue: "arXiv"
+    cite_key: "ulyanov2016instance"
+    keywords: ["instance normalization", "normalization", "style transfer"]
+
+  # --- Residual Networks ---
+  - title: "Deep Residual Learning for Image Recognition"
+    authors: "He et al."
+    year: 2016
+    venue: "CVPR"
+    cite_key: "he2016deep"
+    keywords: ["ResNet", "residual network", "residual learning", "skip connection", "deep learning"]
+
+  - title: "Identity Mappings in Deep Residual Networks"
+    authors: "He et al."
+    year: 2016
+    venue: "ECCV"
+    cite_key: "he2016identity"
+    keywords: ["ResNet", "residual network", "pre-activation"]
+
+  # --- Transformers / Attention ---
+  - title: "Attention Is All You Need"
+    authors: "Vaswani et al."
+    year: 2017
+    venue: "NeurIPS"
+    cite_key: "vaswani2017attention"
+    keywords: ["transformer", "attention", "self-attention", "multi-head attention"]
+
+  - title: "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale"
+    authors: "Dosovitskiy et al."
+    year: 2021
+    venue: "ICLR"
+    cite_key: "dosovitskiy2021image"
+    keywords: ["ViT", "vision transformer", "image transformer"]
+
+  - title: "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding"
+    authors: "Devlin et al."
+    year: 2019
+    venue: "NAACL"
+    cite_key: "devlin2019bert"
+    keywords: ["BERT", "pre-training", "language model", "NLP", "transformer"]
+
+  # --- Optimization ---
+  - title: "Adam: A Method for Stochastic Optimization"
+    authors: "Kingma and Ba"
+    year: 2015
+    venue: "ICLR"
+    cite_key: "kingma2015adam"
+    keywords: ["Adam", "optimizer", "stochastic optimization", "adaptive learning rate"]
+
+  - title: "Decoupled Weight Decay Regularization"
+    authors: "Loshchilov and Hutter"
+    year: 2019
+    venue: "ICLR"
+    cite_key: "loshchilov2019decoupled"
+    keywords: ["AdamW", "weight decay", "optimizer", "regularization"]
+
+  - title: "SGD with Momentum"
+    authors: "Sutskever et al."
+    year: 2013
+    venue: "ICML"
+    cite_key: "sutskever2013importance"
+    keywords: ["SGD", "momentum", "optimization", "learning rate"]
+
+  # --- Regularization ---
+  - title: "Dropout: A Simple Way to Prevent Neural Networks from Overfitting"
+    authors: "Srivastava et al."
+    year: 2014
+    venue: "JMLR"
+    cite_key: "srivastava2014dropout"
+    keywords: ["dropout", "regularization", "overfitting"]
+
+  # --- Distribution Shift / Domain Adaptation ---
+  - title: "Benchmarking Neural Network Robustness to Common Corruptions and Perturbations"
+    authors: "Hendrycks and Dietterich"
+    year: 2019
+    venue: "ICLR"
+    cite_key: "hendrycks2019benchmarking"
+    keywords: ["distribution shift", "corruption", "robustness", "CIFAR-C", "ImageNet-C"]
+
+  - title: "Domain Adaptation for Object Recognition: An Unsupervised Approach"
+    authors: "Saenko et al."
+    year: 2010
+    venue: "ECCV"
+    cite_key: "saenko2010adapting"
+    keywords: ["domain adaptation", "transfer learning", "distribution shift"]
+
+  - title: "In Search of Lost Domain Generalization"
+    authors: "Gulrajani and Lopez-Paz"
+    year: 2021
+    venue: "ICLR"
+    cite_key: "gulrajani2021search"
+    keywords: ["domain generalization", "distribution shift", "benchmark"]
+
+  # --- Reinforcement Learning ---
+  - title: "Proximal Policy Optimization Algorithms"
+    authors: "Schulman et al."
+    year: 2017
+    venue: "arXiv"
+    cite_key: "schulman2017proximal"
+    keywords: ["PPO", "policy gradient", "reinforcement learning", "RL"]
+
+  - title: "Playing Atari with Deep Reinforcement Learning"
+    authors: "Mnih et al."
+    year: 2013
+    venue: "NIPS Workshop"
+    cite_key: "mnih2013playing"
+    keywords: ["DQN", "deep reinforcement learning", "Atari", "RL"]
+
+  - title: "Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor"
+    authors: "Haarnoja et al."
+    year: 2018
+    venue: "ICML"
+    cite_key: "haarnoja2018soft"
+    keywords: ["SAC", "soft actor-critic", "entropy", "RL", "continuous control"]
+
+  # --- Generative Models ---
+  - title: "Generative Adversarial Nets"
+    authors: "Goodfellow et al."
+    year: 2014
+    venue: "NeurIPS"
+    cite_key: "goodfellow2014generative"
+    keywords: ["GAN", "generative adversarial", "generative model"]
+
+  - title: "Denoising Diffusion Probabilistic Models"
+    authors: "Ho et al."
+    year: 2020
+    venue: "NeurIPS"
+    cite_key: "ho2020denoising"
+    keywords: ["diffusion model", "denoising", "generative model", "DDPM"]
+
+  - title: "Auto-Encoding Variational Bayes"
+    authors: "Kingma and Welling"
+    year: 2014
+    venue: "ICLR"
+    cite_key: "kingma2014auto"
+    keywords: ["VAE", "variational autoencoder", "generative model", "latent variable"]
+
+  # --- Graph Neural Networks ---
+  - title: "Semi-Supervised Classification with Graph Convolutional Networks"
+    authors: "Kipf and Welling"
+    year: 2017
+    venue: "ICLR"
+    cite_key: "kipf2017semi"
+    keywords: ["GCN", "graph neural network", "graph convolution", "GNN"]
+
+  - title: "Neural Ordinary Differential Equations"
+    authors: "Chen et al."
+    year: 2018
+    venue: "NeurIPS"
+    cite_key: "chen2018neural"
+    keywords: ["neural ODE", "ODE", "differential equation", "continuous depth"]
+
+  # --- Continual Learning ---
+  - title: "Overcoming Catastrophic Forgetting in Neural Networks"
+    authors: "Kirkpatrick et al."
+    year: 2017
+    venue: "PNAS"
+    cite_key: "kirkpatrick2017overcoming"
+    keywords: ["EWC", "elastic weight consolidation", "continual learning", "catastrophic forgetting"]
+
+  - title: "Continual Lifelong Learning with Neural Networks: A Review"
+    authors: "Parisi et al."
+    year: 2019
+    venue: "Neural Networks"
+    cite_key: "parisi2019continual"
+    keywords: ["continual learning", "lifelong learning", "catastrophic forgetting"]
+
+  # --- Meta-Learning ---
+  - title: "Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks"
+    authors: "Finn et al."
+    year: 2017
+    venue: "ICML"
+    cite_key: "finn2017model"
+    keywords: ["MAML", "meta-learning", "few-shot", "fast adaptation"]
+
+  # --- Contrastive / Self-supervised ---
+  - title: "A Simple Framework for Contrastive Learning of Visual Representations"
+    authors: "Chen et al."
+    year: 2020
+    venue: "ICML"
+    cite_key: "chen2020simple"
+    keywords: ["SimCLR", "contrastive learning", "self-supervised", "representation learning"]
+
+  # --- Multi-agent Systems ---
+  - title: "Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments"
+    authors: "Lowe et al."
+    year: 2017
+    venue: "NeurIPS"
+    cite_key: "lowe2017multi"
+    keywords: ["multi-agent", "MADDPG", "cooperative", "competitive", "multi-agent RL"]
+
+  # --- Bayesian Optimization ---
+  - title: "A Tutorial on Bayesian Optimization"
+    authors: "Frazier"
+    year: 2018
+    venue: "arXiv"
+    cite_key: "frazier2018tutorial"
+    keywords: ["Bayesian optimization", "surrogate model", "acquisition function", "hyperparameter tuning"]

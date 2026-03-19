@@ -1,0 +1,65 @@
+% icml2025.sty — ICML 2025 style file
+% Based on the official ICML submission template structure.
+% Bundled by AutoResearchClaw for offline compilation.
+% Official source: https://icml.cc/Conferences/2025/StyleAuthorInstructions
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{icml2025}[2025/01/15 ICML 2025 submission style]
+
+\newif\if@icml@accepted  \@icml@acceptedfalse
+\newif\if@icml@preprint  \@icml@preprintfalse
+\DeclareOption{accepted}{\@icml@acceptedtrue}
+\DeclareOption{preprint}{\@icml@preprinttrue}
+\ProcessOptions\relax
+
+\RequirePackage{geometry}
+\geometry{textwidth=6.875in,textheight=9.25in,columnsep=0.25in,top=0.75in,headheight=12pt,headsep=12pt,footskip=20pt}
+\twocolumn
+
+\RequirePackage{times}
+\renewcommand{\baselinestretch}{1.0}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{1em}
+
+\renewcommand{\section}{\@startsection{section}{1}{0mm}{-2.0ex plus -0.5ex minus -.2ex}{0.8ex plus .2ex}{\normalfont\large\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{0mm}{-1.5ex plus -0.5ex minus -.2ex}{0.5ex plus .2ex}{\normalfont\normalsize\bfseries}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{0mm}{-1.0ex plus -0.5ex minus -.2ex}{0.3ex plus .2ex}{\normalfont\normalsize\bfseries}}
+
+\newenvironment{icmlauthorlist}{\begin{center}\large}{\end{center}}
+\newcommand{\icmlauthor}[2]{#1\textsuperscript{#2}}
+\newcommand{\icmlaffiliation}[2]{\par\normalsize\textsuperscript{#1}#2}
+\newcommand{\icmltitlerunning}[1]{\def\@icml@runningtitle{#1}}
+\def\@icml@runningtitle{}
+
+\def\@maketitle{%
+  \twocolumn[%
+    \vskip -0.3in
+    \begin{center}%
+      {\LARGE\bfseries \@title \par}\vskip 0.2in
+      \if@icml@accepted
+        {\large\lineskip .5em\begin{tabular}[t]{c}\@author\end{tabular}\par}%
+      \else\if@icml@preprint
+        {\large\lineskip .5em\begin{tabular}[t]{c}\@author\end{tabular}\par}%
+      \else
+        {\large Anonymous submission\par}%
+      \fi\fi
+      \vskip 0.2in
+    \end{center}%
+  ]%
+}
+
+\renewenvironment{abstract}{\centerline{\bfseries Abstract}\vspace{0.5ex}\begin{quote}\small}{\par\end{quote}\vskip 1ex}
+
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}\fancyhf{}
+\if@icml@accepted
+  \fancyhead[C]{\small Proceedings of the $42^{nd}$ International Conference on Machine Learning, 2025}
+\else
+  \fancyhead[C]{\small\@icml@runningtitle}
+\fi
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+\RequirePackage[numbers,sort&compress]{natbib}
+
+\endinput

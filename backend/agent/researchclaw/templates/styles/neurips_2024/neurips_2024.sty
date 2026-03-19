@@ -1,0 +1,95 @@
+% neurips_2024.sty — NeurIPS 2024 style file
+% Based on the official NeurIPS submission template structure.
+% Bundled by AutoResearchClaw for offline compilation.
+% Official source: https://media.neurips.cc/Conferences/NeurIPS2024/Styles.zip
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{neurips_2024}[2024/01/15 NeurIPS 2024 submission style]
+
+% ── Options ──────────────────────────────────────────────────────────
+\newif\if@neurips@preprint   \@neurips@preprinttrue
+\newif\if@neurips@final      \@neurips@finalfalse
+\newif\if@neurips@nonatbib   \@neurips@nonatbibfalse
+
+\DeclareOption{preprint}{\@neurips@preprinttrue\@neurips@finalfalse}
+\DeclareOption{final}{\@neurips@finaltrue\@neurips@preprintfalse}
+\DeclareOption{nonatbib}{\@neurips@nonatbibtrue}
+\ProcessOptions\relax
+
+% ── Page geometry ────────────────────────────────────────────────────
+\RequirePackage{geometry}
+\geometry{
+  textwidth=6.0in,
+  textheight=9.0in,
+  top=1.0in,
+  headheight=12pt,
+  headsep=25pt,
+  footskip=30pt,
+}
+
+% ── Fonts ────────────────────────────────────────────────────────────
+\RequirePackage{times}
+
+% ── Spacing ──────────────────────────────────────────────────────────
+\renewcommand{\baselinestretch}{1.0}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{1em}
+
+% ── Section formatting ───────────────────────────────────────────────
+\renewcommand{\section}{\@startsection
+  {section}{1}{0mm}{-2.0ex plus -0.5ex minus -.2ex}%
+  {1.0ex plus .2ex}{\normalfont\large\bfseries}}
+\renewcommand{\subsection}{\@startsection
+  {subsection}{2}{0mm}{-1.5ex plus -0.5ex minus -.2ex}%
+  {0.8ex plus .2ex}{\normalfont\normalsize\bfseries}}
+\renewcommand{\subsubsection}{\@startsection
+  {subsubsection}{3}{0mm}{-1.0ex plus -0.5ex minus -.2ex}%
+  {0.5ex plus .2ex}{\normalfont\normalsize\bfseries}}
+
+% ── Title formatting ────────────────────────────────────────────────
+\def\@maketitle{%
+  \vbox to 0pt{}%
+  \vskip -0.5in
+  \begin{center}%
+    {\LARGE\bfseries \@title \par}%
+    \vskip 0.3in
+    \if@neurips@preprint
+      {\large\textit{Preprint. Under review.}\par}%
+      \vskip 0.1in
+    \fi
+    {\large
+      \lineskip .5em
+      \begin{tabular}[t]{c}%
+        \@author
+      \end{tabular}\par}%
+    \vskip 0.3in
+  \end{center}%
+  \par
+  \vskip 0.5em
+}
+
+% ── Abstract ─────────────────────────────────────────────────────────
+\renewenvironment{abstract}{%
+  \centerline{\large\bfseries Abstract}%
+  \vspace{0.5ex}%
+  \begin{quote}%
+}{%
+  \par
+  \end{quote}%
+  \vskip 1ex
+}
+
+% ── Headers ──────────────────────────────────────────────────────────
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+% ── Natbib ───────────────────────────────────────────────────────────
+\if@neurips@nonatbib\else
+  \RequirePackage[numbers,sort&compress]{natbib}
+\fi
+
+\endinput
