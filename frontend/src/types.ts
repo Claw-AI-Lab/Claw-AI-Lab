@@ -19,6 +19,10 @@ export const RCStage = {
   RESULT_ANALYSIS: 16,
   RESEARCH_DECISION: 17,
   KNOWLEDGE_SUMMARY: 18,
+  PAPER_OUTLINE: 19,
+  PAPER_DRAFT: 20,
+  PEER_REVIEW: 21,
+  PAPER_REVISION: 22,
 } as const;
 
 export type RCStage = (typeof RCStage)[keyof typeof RCStage];
@@ -49,6 +53,10 @@ export const STAGE_META: Record<RCStage, StageMeta> = {
   16: { id: 16, name: '结果分析',     key: 'RESULT_ANALYSIS',     outputs: ['analysis.md', 'experiment_summary.json', 'charts/'] },
   17: { id: 17, name: '研究决策',     key: 'RESEARCH_DECISION',   outputs: ['decision.md'] },
   18: { id: 18, name: '知识归纳',     key: 'KNOWLEDGE_SUMMARY',   outputs: ['knowledge_entry.json'] },
+  19: { id: 19, name: '论文大纲',     key: 'PAPER_OUTLINE',       outputs: ['outline.md'] },
+  20: { id: 20, name: '论文初稿',     key: 'PAPER_DRAFT',         outputs: ['paper_draft.md'] },
+  21: { id: 21, name: '同行评审',     key: 'PEER_REVIEW',         outputs: ['reviews.md'] },
+  22: { id: 22, name: '论文修订',     key: 'PAPER_REVISION',      outputs: ['paper_revised.md'] },
 };
 
 // ===================== Pyramid Layer Definitions =====================
@@ -58,6 +66,7 @@ export const AgentLayer = {
   EXPERIMENT: 'experiment',
   CODING: 'coding',
   EXECUTION: 'execution',
+  WRITING: 'writing',
 } as const;
 
 export type AgentLayer = (typeof AgentLayer)[keyof typeof AgentLayer];
@@ -94,6 +103,12 @@ export const LAYER_META: Record<AgentLayer, LayerMeta> = {
     desc: 'Phase E→F: 实验执行 → 迭代优化 → 结果分析 → 决策',
     stages: [14, 15, 16, 17, 18],
   },
+  [AgentLayer.WRITING]: {
+    name: '第五层 · 论文写作',
+    color: '#a855f7',
+    desc: 'Phase G: 论文大纲 → 初稿 → 同行评审 → 修订',
+    stages: [19, 20, 21, 22],
+  },
 };
 
 export const ALL_LAYERS: readonly AgentLayer[] = [
@@ -101,6 +116,7 @@ export const ALL_LAYERS: readonly AgentLayer[] = [
   AgentLayer.EXPERIMENT,
   AgentLayer.CODING,
   AgentLayer.EXECUTION,
+  AgentLayer.WRITING,
 ];
 
 // ===================== Shared Data Repositories =====================
@@ -111,6 +127,7 @@ export const RepoId = {
   CODEBASE: 'codebase',
   RESULTS: 'results',
   INSIGHTS: 'insights',
+  PAPERS: 'papers',
 } as const;
 
 export type RepoId = (typeof RepoId)[keyof typeof RepoId];
@@ -165,6 +182,14 @@ export const REPO_META: Record<RepoId, RepoMeta> = {
     toLayer: AgentLayer.IDEA,
     artifacts: ['knowledge_entry.json'],
   },
+  [RepoId.PAPERS]: {
+    name: '论文仓库',
+    icon: '📝',
+    desc: '论文大纲、初稿、评审、修订稿',
+    fromLayer: AgentLayer.WRITING,
+    toLayer: null,
+    artifacts: ['outline.md', 'paper_draft.md', 'reviews.md', 'paper_revised.md'],
+  },
 };
 
 export const ALL_REPOS: readonly RepoId[] = [
@@ -173,6 +198,7 @@ export const ALL_REPOS: readonly RepoId[] = [
   RepoId.CODEBASE,
   RepoId.RESULTS,
   RepoId.INSIGHTS,
+  RepoId.PAPERS,
 ];
 
 // ===================== Agent & Runtime Types =====================

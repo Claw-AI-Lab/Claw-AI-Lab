@@ -304,6 +304,11 @@ class ExperimentConfig:
     metric_key: str = "primary_metric"
     metric_direction: str = "minimize"
     keep_threshold: float = 0.0
+    datasets_dir: str = ""
+    checkpoints_dir: str = ""
+    codebases_dir: str = ""
+    shared_results_dir: str = ""
+    paper_length: str = "medium"
     sandbox: SandboxConfig = field(default_factory=SandboxConfig)
     docker: DockerSandboxConfig = field(default_factory=DockerSandboxConfig)
     ssh_remote: SshRemoteConfig = field(default_factory=SshRemoteConfig)
@@ -619,6 +624,11 @@ def _parse_experiment_config(data: dict[str, Any]) -> ExperimentConfig:
         metric_key=data.get("metric_key", "primary_metric"),
         metric_direction=data.get("metric_direction", "minimize"),
         keep_threshold=float(data.get("keep_threshold", 0.0)),
+        datasets_dir=data.get("datasets_dir", ""),
+        checkpoints_dir=data.get("checkpoints_dir", ""),
+        codebases_dir=data.get("codebases_dir", ""),
+        shared_results_dir=data.get("shared_results_dir", ""),
+        paper_length=data.get("paper_length", "medium"),
         sandbox=SandboxConfig(
             python_path=sandbox_data.get("python_path", ".venv/bin/python3"),
             gpu_required=bool(sandbox_data.get("gpu_required", False)),

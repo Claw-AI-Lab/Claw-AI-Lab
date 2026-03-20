@@ -332,6 +332,140 @@
 .qc.completed { background: #064e3b; color: #6ee7b7; }
 .qc.empty { color: var(--text-muted); font-weight: 400; }
 
+/* ==================== DATA FLOW ARROWS ==================== */
+.pyramid-tier { display: contents; }
+
+.flow-arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 20px;
+  opacity: 0.3;
+  transition: opacity 0.3s;
+}
+.flow-arrow.active { opacity: 1; }
+
+.flow-line {
+  width: 2px;
+  flex: 1;
+  background: var(--border);
+  position: relative;
+  overflow: hidden;
+  border-radius: 1px;
+}
+
+.flow-arrow.active .flow-line { background: #3b82f644; }
+
+.flow-pulse {
+  position: absolute;
+  width: 100%;
+  height: 8px;
+  border-radius: 1px;
+  background: #3b82f6;
+  opacity: 0;
+}
+
+.flow-arrow.active .flow-pulse {
+  animation: flowDown 1.5s ease-in-out infinite;
+}
+
+.flow-tip {
+  width: 0; height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid var(--border);
+  transition: border-color 0.3s;
+}
+.flow-arrow.active .flow-tip { border-top-color: #3b82f6; }
+
+@keyframes flowDown {
+  0% { top: -8px; opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* ==================== FEEDBACK LOOP (L4 → L1, right side) ==================== */
+.pyramid-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 920px;
+  padding-right: 28px;
+}
+
+.feedback-loop {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 28px;
+  opacity: 0.2;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+.feedback-loop.active { opacity: 1; }
+
+.fb-line {
+  position: absolute;
+  background: var(--border);
+  border-radius: 1px;
+}
+.feedback-loop.active .fb-line { background: #8b5cf644; }
+
+/* horizontal: exits L4 right side (not bottom of pyramid) */
+.fb-bottom {
+  bottom: 22%;
+  left: -8px;
+  right: 10px;
+  height: 2px;
+}
+/* vertical: right edge going up from L4 to L1 */
+.fb-side {
+  right: 10px;
+  top: 12px;
+  bottom: 22%;
+  width: 2px;
+  overflow: hidden;
+}
+/* horizontal: enters L1 top-right */
+.fb-top {
+  top: 12px;
+  left: -8px;
+  right: 10px;
+  height: 2px;
+}
+
+.fb-pulse {
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  background: #8b5cf6;
+  border-radius: 1px;
+  opacity: 0;
+}
+.feedback-loop.active .fb-pulse {
+  animation: flowUp 2.5s ease-in-out infinite;
+}
+
+/* arrow tip pointing left into L1 */
+.fb-tip {
+  position: absolute;
+  top: 8px;
+  left: -12px;
+  width: 0; height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 6px solid var(--border);
+}
+.feedback-loop.active .fb-tip { border-right-color: #8b5cf6; }
+
+@keyframes flowUp {
+  0% { bottom: -10px; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { bottom: 100%; opacity: 0; }
+}
+
 /* ==================== ANIMATIONS ==================== */
 @keyframes pulse {
   0%, 100% { opacity: 1; }

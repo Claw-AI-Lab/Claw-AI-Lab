@@ -43,20 +43,23 @@ STAGE_TO_LAYER: dict[int, str] = {
     9: "experiment",
     10: "coding", 11: "coding", 12: "coding", 13: "coding",
     14: "execution", 15: "execution", 16: "execution", 17: "execution", 18: "execution",
+    19: "writing", 20: "writing", 21: "writing", 22: "writing",
 }
 
 LAYER_STAGES: dict[str, list[int]] = {
     "idea": [1, 2, 3, 4, 5, 6, 7, 8],
     "experiment": [9],
-    "coding": [10, 11, 12, 13],  # S10 codebase + S11 codegen + S12 sanity + S13 resource
+    "coding": [10, 11, 12, 13],
     "execution": [14, 15, 16, 17, 18],
+    "writing": [19, 20, 21, 22],
 }
 
 LAYER_RANGE: dict[str, tuple[int, int]] = {
     "idea": (1, 8),
     "experiment": (9, 9),
-    "coding": (10, 13),          # S10→S13
-    "execution": (14, 18),       # S14→S18
+    "coding": (10, 13),
+    "execution": (14, 18),
+    "writing": (19, 22),
 }
 
 PASSTHROUGH_LAYERS: set[str] = set()
@@ -68,6 +71,7 @@ STAGE_NAMES: dict[int, str] = {
     10: "CODEBASE_SEARCH", 11: "CODE_GENERATION", 12: "SANITY_CHECK",
     13: "RESOURCE_PLANNING", 14: "EXPERIMENT_RUN", 15: "ITERATIVE_REFINE",
     16: "RESULT_ANALYSIS", 17: "RESEARCH_DECISION", 18: "KNOWLEDGE_SUMMARY",
+    19: "PAPER_OUTLINE", 20: "PAPER_DRAFT", 21: "PEER_REVIEW", 22: "PAPER_REVISION",
 }
 
 STAGE_OUTPUTS: dict[int, list[str]] = {
@@ -79,6 +83,7 @@ STAGE_OUTPUTS: dict[int, list[str]] = {
     13: ["schedule.json"], 14: ["runs/"],
     15: ["refinement_log.json", "experiment_final/"],
     16: ["analysis.md", "experiment_summary.json", "charts/"], 17: ["decision.md"], 18: ["knowledge_entry.json"],
+    19: ["outline.md"], 20: ["paper_draft.md"], 21: ["reviews.md"], 22: ["paper_revised.md"],
 }
 
 REPO_FOR_STAGE: dict[int, str] = {
@@ -87,6 +92,7 @@ REPO_FOR_STAGE: dict[int, str] = {
     9: "exp_design",
     10: "codebase", 11: "codebase", 12: "codebase", 13: "codebase",
     14: "results", 15: "results", 16: "results", 17: "results", 18: "insights",
+    19: "papers", 20: "papers", 21: "papers", 22: "papers",
 }
 
 # Queue names between layers
@@ -94,6 +100,7 @@ QUEUE_NAMES: dict[str, tuple[str, str]] = {
     "idea_to_experiment":     ("idea",       "experiment"),
     "experiment_to_coding":   ("experiment", "coding"),
     "coding_to_execution":    ("coding",     "execution"),
+    "execution_to_writing":   ("execution",  "writing"),
     "execution_feedback":     ("execution",  "idea"),
 }
 
@@ -102,7 +109,8 @@ LAYER_OUTPUT_QUEUE: dict[str, str] = {
     "idea":       "idea_to_experiment",
     "experiment": "experiment_to_coding",
     "coding":     "coding_to_execution",
-    "execution":  "execution_feedback",
+    "execution":  "execution_to_writing",
+    "writing":    "execution_feedback",
 }
 
 # Which queue a layer pulls tasks from
@@ -110,6 +118,7 @@ LAYER_INPUT_QUEUE: dict[str, str] = {
     "experiment": "idea_to_experiment",
     "coding":     "experiment_to_coding",
     "execution":  "coding_to_execution",
+    "writing":    "execution_to_writing",
     "idea":       "execution_feedback",
 }
 
@@ -312,6 +321,12 @@ class BridgeState:
     runs_base_dir: str = ""
     gpu_allocator: GpuAllocator = field(default_factory=GpuAllocator)
     result_registry: "ResultRegistry | None" = None
+    auto_loop: bool = False
+    # Idea factory: L1 idle → produce ideas via S7+S8
+    idea_factory_topic: str = ""
+    idea_factory_config: str = ""
+    idea_factory_remaining: int = 0  # 0=disabled, -1=infinite, N=count
+    idea_factory_produced: int = 0
 
     def projects_dir(self) -> Path:
         return Path(self.runs_base_dir) / "projects"
@@ -630,23 +645,35 @@ def on_agent_done(state: BridgeState, agent: LobsterAgent) -> list[dict]:
     # Create follow-up task in the next queue
     output_queue_name = LAYER_OUTPUT_QUEUE.get(agent.layer)
     if output_queue_name and output_queue_name in state.queues and agent.project_id:
-        _, target_layer = QUEUE_NAMES[output_queue_name]
-        follow_task = Task(
-            id=f"task-{_uid()}",
-            project_id=agent.project_id,
-            run_dir=agent.run_dir,
-            config_path=agent.config_path,
-            topic=getattr(agent, '_topic', ''),
-            source_layer=agent.layer,
-            target_layer=target_layer,
-            created_at=_now_ms(),
-        )
-        state.queues[output_queue_name].push(follow_task)
-        messages.append(msg_log(
-            agent,
-            f"任务完成 → 项目 [{agent.project_id}] 已加入 {output_queue_name} 队列",
-            "success",
-        ))
+        # L4→L5: only push to writing queue if S17 decision is PROCEED
+        if agent.layer == "execution" and output_queue_name == "execution_to_writing":
+            _decision_file = Path(agent.run_dir) / "stage-17" / "decision.md"
+            _is_proceed = False
+            if _decision_file.exists():
+                _dec_text = _decision_file.read_text(encoding="utf-8").upper()
+                _is_proceed = "PROCEED" in _dec_text and "REFINE" not in _dec_text.split("PROCEED")[0][-50:]
+            if not _is_proceed:
+                messages.append(msg_log(agent, f"S17 决策非 PROCEED，跳过论文写作", "info"))
+                output_queue_name = None
+
+        if output_queue_name and output_queue_name in state.queues:
+            _, target_layer = QUEUE_NAMES[output_queue_name]
+            follow_task = Task(
+                id=f"task-{_uid()}",
+                project_id=agent.project_id,
+                run_dir=agent.run_dir,
+                config_path=agent.config_path,
+                topic=getattr(agent, '_topic', ''),
+                source_layer=agent.layer,
+                target_layer=target_layer,
+                created_at=_now_ms(),
+            )
+            state.queues[output_queue_name].push(follow_task)
+            messages.append(msg_log(
+                agent,
+                f"任务完成 → 项目 [{agent.project_id}] 已加入 {output_queue_name} 队列",
+                "success",
+            ))
 
     # Release GPU allocation for execution layer
     if agent.layer == "execution" and agent.project_id:
@@ -665,6 +692,169 @@ def on_agent_done(state: BridgeState, agent: LobsterAgent) -> list[dict]:
     return messages
 
 
+def _launch_idea_factory_run(state: BridgeState, agent: LobsterAgent) -> list[dict]:
+    """Launch L1 agent to produce ideas via S7+S8 only."""
+    messages: list[dict] = []
+
+    idea_id = f"idea-{_uid()}"
+    run_dir = str(Path(state.runs_base_dir).parent / "shared_results" / "idea_runs" / idea_id)
+    os.makedirs(run_dir, exist_ok=True)
+
+    # Need prior synthesis for S7. Copy from any existing project or create minimal.
+    # Write a minimal synthesis.md from topic for S7 to build on.
+    _synth = (
+        f"# Literature Synthesis\n\n"
+        f"Research topic: {state.idea_factory_topic}\n\n"
+        f"This is an automated idea generation run. Generate novel hypotheses "
+        f"related to the topic above, considering existing knowledge.\n"
+    )
+    _s6_dir = Path(run_dir) / "stage-07"
+    # S7 reads synthesis from stage-07 or prior stages; we pre-seed stage-06 with cards
+    _s6_seed = Path(run_dir) / "stage-06"
+    _s6_seed.mkdir(parents=True, exist_ok=True)
+    (_s6_seed / "cards").mkdir(exist_ok=True)
+
+    # Pre-seed a minimal synthesis for S7 to use
+    _s7_seed = Path(run_dir) / "stage-07"
+    _s7_seed.mkdir(parents=True, exist_ok=True)
+
+    task = Task(
+        id=f"task-{_uid()}",
+        project_id=idea_id,
+        run_dir=run_dir,
+        config_path=state.idea_factory_config,
+        topic=state.idea_factory_topic,
+        source_layer="idea_factory",
+        target_layer="idea",
+        created_at=_now_ms(),
+    )
+
+    _assign_task_to_agent(agent, task)
+    agent._is_idea_factory = True  # type: ignore[attr-defined]
+
+    layer_range = (7, 8)  # Only S7 SYNTHESIS + S8 HYPOTHESIS_GEN
+    fs, ts = layer_range
+
+    cmd = [
+        state.python_path, "-m", "researchclaw", "run",
+        "--config", task.config_path,
+        "--output", task.run_dir,
+        "--from-stage", STAGE_NAMES.get(fs, str(fs)),
+        "--to-stage", STAGE_NAMES.get(ts, str(ts)),
+        "--auto-approve",
+        "--skip-preflight",
+        "--topic", state.idea_factory_topic,
+    ]
+
+    try:
+        log_path = Path(run_dir) / f"agent_{agent.id}.log"
+        log_file = open(log_path, "w", encoding="utf-8")
+        proc = subprocess.Popen(
+            cmd, cwd=state.agent_package_dir,
+            stdout=log_file, stderr=subprocess.STDOUT,
+            env={**os.environ, "PYTHONUNBUFFERED": "1"},
+        )
+        agent.process = proc
+        n = state.idea_factory_produced + 1
+        agent.current_task = f"Idea 工厂 #{n}"
+        messages.append(msg_agent_update(agent))
+        messages.append(msg_log(agent, f"Idea 工厂 #{n}: 生成假设中 (S7→S8)", "info"))
+    except Exception as e:
+        agent.status = "error"
+        agent.current_task = f"Idea 工厂启动失败: {e}"
+        messages.append(msg_agent_update(agent))
+
+    return messages
+
+
+def _on_idea_factory_done(state: BridgeState, agent: LobsterAgent) -> list[dict]:
+    """Handle idea factory run completion: extract hypotheses, push to idea pool + L2 queue."""
+    messages: list[dict] = []
+    run_dir = Path(agent.run_dir)
+
+    # Read hypotheses
+    hyp_file = None
+    for sd in sorted(run_dir.glob("stage-08*"), reverse=True):
+        f = sd / "hypotheses.md"
+        if f.exists():
+            hyp_file = f
+            break
+
+    if hyp_file:
+        hyp_text = hyp_file.read_text(encoding="utf-8")
+
+        # Write to idea pool
+        pool_dir = Path(state.runs_base_dir).parent / "shared_results" / "idea_pool"
+        pool_dir.mkdir(parents=True, exist_ok=True)
+        pool_file = pool_dir / "ideas.jsonl"
+
+        entry = {
+            "id": agent.project_id,
+            "topic": state.idea_factory_topic,
+            "hypotheses": hyp_text[:2000],
+            "timestamp": _now_ms(),
+            "status": "pending",
+        }
+        with open(pool_file, "a", encoding="utf-8") as f:
+            f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+
+        # Create L2 task from this idea
+        idea_run_dir = str(Path(state.runs_base_dir) / "projects" / agent.project_id)
+        os.makedirs(idea_run_dir, exist_ok=True)
+
+        # Copy hypotheses to the project run dir so L2 can find it
+        s8_dir = Path(idea_run_dir) / "stage-08"
+        s8_dir.mkdir(parents=True, exist_ok=True)
+        (s8_dir / "hypotheses.md").write_text(hyp_text, encoding="utf-8")
+
+        # Also copy synthesis if available
+        for sd in sorted(run_dir.glob("stage-07*"), reverse=True):
+            sf = sd / "synthesis.md"
+            if sf.exists():
+                s7_dir = Path(idea_run_dir) / "stage-07"
+                s7_dir.mkdir(parents=True, exist_ok=True)
+                (s7_dir / "synthesis.md").write_text(sf.read_text(encoding="utf-8"), encoding="utf-8")
+                break
+
+        # Push to idea_to_experiment queue
+        queue = state.queues.get("idea_to_experiment")
+        if queue:
+            follow_task = Task(
+                id=f"task-{_uid()}",
+                project_id=agent.project_id,
+                run_dir=idea_run_dir,
+                config_path=state.idea_factory_config,
+                topic=state.idea_factory_topic,
+                source_layer="idea",
+                target_layer="experiment",
+                created_at=_now_ms(),
+            )
+            queue.push(follow_task)
+            messages.append(msg_log(agent, f"Idea #{state.idea_factory_produced + 1} → 实验设计队列", "success"))
+
+        state.idea_factory_produced += 1
+        if state.idea_factory_remaining > 0:
+            state.idea_factory_remaining -= 1
+
+        messages.append(msg_log(
+            agent,
+            f"Idea 工厂: 已产出 {state.idea_factory_produced} 个, 剩余 {'无限' if state.idea_factory_remaining == -1 else state.idea_factory_remaining}",
+            "info",
+        ))
+    else:
+        messages.append(msg_log(agent, "Idea 工厂: 未生成假设", "warning"))
+
+    # Reset agent
+    agent.assigned_task_id = None
+    agent.project_id = ""
+    agent.status = "idle"
+    agent.current_task = "等待任务..."
+    agent._is_idea_factory = False  # type: ignore[attr-defined]
+    messages.append(msg_agent_update(agent))
+
+    return messages
+
+
 def schedule_idle_agents(state: BridgeState) -> list[dict]:
     """Assign pending tasks to idle agents (FIFO pull)."""
     messages: list[dict] = []
@@ -679,13 +869,16 @@ def schedule_idle_agents(state: BridgeState) -> list[dict]:
         if agent.layer == "execution" and not state.gpu_allocator.can_allocate():
             continue
 
-        # Idea agents pull from init_to_idea AND execution_feedback
+        # Idea agents pull from init_to_idea, and optionally execution_feedback (auto-loop)
         if agent.layer == "idea":
-            candidate_queues = ["init_to_idea", "execution_feedback"]
+            candidate_queues = ["init_to_idea"]
+            if state.auto_loop:
+                candidate_queues.append("execution_feedback")
         else:
             q_name = LAYER_INPUT_QUEUE.get(agent.layer, "")
             candidate_queues = [q_name] if q_name else []
 
+        assigned = False
         for queue_name in candidate_queues:
             queue = state.queues.get(queue_name)
             if not queue:
@@ -697,7 +890,14 @@ def schedule_idle_agents(state: BridgeState) -> list[dict]:
             queue.assign(task.id, agent.id)
             messages.extend(launch_agent_for_task(state, agent, task))
             messages.append(msg_queue_update(state.queues))
+            assigned = True
             break
+
+        # Idea factory: L1 idle with no queued tasks → produce ideas via S7+S8
+        if not assigned and agent.layer == "idea" and state.idea_factory_remaining != 0:
+            if state.idea_factory_topic and state.idea_factory_config:
+                messages.extend(_launch_idea_factory_run(state, agent))
+                continue
 
     return messages
 
@@ -763,6 +963,20 @@ async def handle_command(state: BridgeState, data: dict) -> list[dict]:
                 "payload": {"message": json.dumps(state.result_registry.summary(), ensure_ascii=False)},
             })
 
+    elif cmd == "start_idea_factory":
+        state.idea_factory_topic = data.get("topic", "")
+        state.idea_factory_config = data.get("configPath", "")
+        state.idea_factory_remaining = int(data.get("ideaCount", 0))
+        state.idea_factory_produced = 0
+        _sys_a = LobsterAgent(id="system", name="系统", layer="idea", run_id="", run_dir="", config_path="")
+        label = "无限" if state.idea_factory_remaining == -1 else str(state.idea_factory_remaining)
+        messages.append(msg_log(_sys_a, f"Idea 工厂已启动: topic={state.idea_factory_topic[:50]}... count={label}", "info"))
+
+    elif cmd == "stop_idea_factory":
+        state.idea_factory_remaining = 0
+        _sys_a = LobsterAgent(id="system", name="系统", layer="idea", run_id="", run_dir="", config_path="")
+        messages.append(msg_log(_sys_a, f"Idea 工厂已停止 (已产出 {state.idea_factory_produced} 个)", "info"))
+
     return messages
 
 
@@ -803,7 +1017,10 @@ async def poll_loop(state: BridgeState, interval: float):
 
             # Detect layer completion → feed task queue
             if prev_status == "working" and agent.status == "done":
-                all_messages.extend(on_agent_done(state, agent))
+                if getattr(agent, '_is_idea_factory', False):
+                    all_messages.extend(_on_idea_factory_done(state, agent))
+                else:
+                    all_messages.extend(on_agent_done(state, agent))
 
             # Detect failure → mark task failed, release GPU
             if prev_status == "working" and agent.status == "error":
@@ -835,6 +1052,10 @@ async def main(args: argparse.Namespace):
         agent_package_dir=args.agent_dir,
         runs_base_dir=args.runs_dir,
         gpu_allocator=GpuAllocator(args.total_gpus, args.gpus_per_project),
+        auto_loop=args.auto_loop,
+        idea_factory_topic=args.idea_topic,
+        idea_factory_config=args.idea_config,
+        idea_factory_remaining=args.idea_count,
     )
 
     # Initialize shared results registry
@@ -856,8 +1077,9 @@ async def main(args: argparse.Namespace):
 
     # Create default lobster pool (configurable via --pool)
     pool_sizes = {"idea": args.pool_idea, "experiment": args.pool_exp,
-                  "coding": args.pool_code, "execution": args.pool_exec}
-    pool_names = {"idea": "调研", "experiment": "实验", "coding": "码农", "execution": "执行"}
+                  "coding": args.pool_code, "execution": args.pool_exec,
+                  "writing": args.pool_write}
+    pool_names = {"idea": "调研", "experiment": "实验", "coding": "码农", "execution": "执行", "writing": "写作"}
     default_pool = []
     for layer, count in pool_sizes.items():
         for i in range(count):
@@ -874,6 +1096,7 @@ async def main(args: argparse.Namespace):
     print(f"   Python:        {args.python}")
     print(f"   Lobsters:      {len(state.agents)}")
     print(f"   GPUs:          {args.total_gpus}x ({args.gpus_per_project}/project, max {args.total_gpus // max(args.gpus_per_project, 1)} parallel)")
+    print(f"   Auto-loop:     {'ON' if args.auto_loop else 'OFF'}")
     print(f"   Queued tasks:  {queued_tasks}")
     print()
 
@@ -895,9 +1118,18 @@ if __name__ == "__main__":
     parser.add_argument("--pool-exp", type=int, default=2)
     parser.add_argument("--pool-code", type=int, default=3)
     parser.add_argument("--pool-exec", type=int, default=4)
+    parser.add_argument("--pool-write", type=int, default=2)
     parser.add_argument("--total-gpus", type=int, default=8,
                         help="Total number of GPUs available")
     parser.add_argument("--gpus-per-project", type=int, default=2,
                         help="GPUs allocated per project in execution layer")
+    parser.add_argument("--auto-loop", action="store_true", default=False,
+                        help="Enable auto-loop: L4 completion feeds back to L1 for new research cycle")
+    parser.add_argument("--idea-count", type=int, default=0,
+                        help="Idea factory: number of ideas to produce (0=disabled, -1=infinite)")
+    parser.add_argument("--idea-topic", default="",
+                        help="Idea factory: research topic for idea generation")
+    parser.add_argument("--idea-config", default="",
+                        help="Idea factory: config file path")
     args = parser.parse_args()
     asyncio.run(main(args))

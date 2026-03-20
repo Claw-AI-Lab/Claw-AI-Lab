@@ -7,6 +7,7 @@ import DataShelf from './components/DataShelf';
 import ResourceMonitor from './components/ResourceMonitor';
 import LogPanel from './components/LogPanel';
 import QueuePanel from './components/QueuePanel';
+import DataFlowArrow from './components/DataFlowArrow';
 import './App.css';
 
 type Action =
@@ -213,33 +214,38 @@ export default function App() {
   const expAgents = useMemo(() => state.agents.filter((a) => a.layer === AgentLayer.EXPERIMENT), [state.agents]);
   const codeAgents = useMemo(() => state.agents.filter((a) => a.layer === AgentLayer.CODING), [state.agents]);
   const execAgents = useMemo(() => state.agents.filter((a) => a.layer === AgentLayer.EXECUTION), [state.agents]);
+  const writeAgents = useMemo(() => state.agents.filter((a) => a.layer === AgentLayer.WRITING), [state.agents]);
   const agentMap = useMemo(() => ({
     [AgentLayer.IDEA]: ideaAgents,
     [AgentLayer.EXPERIMENT]: expAgents,
     [AgentLayer.CODING]: codeAgents,
     [AgentLayer.EXECUTION]: execAgents,
-  }), [ideaAgents, expAgents, codeAgents, execAgents]);
+    [AgentLayer.WRITING]: writeAgents,
+  }), [ideaAgents, expAgents, codeAgents, execAgents, writeAgents]);
 
   const ideaLogs = useMemo(() => state.logs.filter((l) => l.layer === AgentLayer.IDEA), [state.logs]);
   const expLogs = useMemo(() => state.logs.filter((l) => l.layer === AgentLayer.EXPERIMENT), [state.logs]);
   const codeLogs = useMemo(() => state.logs.filter((l) => l.layer === AgentLayer.CODING), [state.logs]);
   const execLogs = useMemo(() => state.logs.filter((l) => l.layer === AgentLayer.EXECUTION), [state.logs]);
+  const writeLogs = useMemo(() => state.logs.filter((l) => l.layer === AgentLayer.WRITING), [state.logs]);
   const logMap = useMemo(() => ({
     [AgentLayer.IDEA]: ideaLogs,
     [AgentLayer.EXPERIMENT]: expLogs,
     [AgentLayer.CODING]: codeLogs,
     [AgentLayer.EXECUTION]: execLogs,
-  }), [ideaLogs, expLogs, codeLogs, execLogs]);
+    [AgentLayer.WRITING]: writeLogs,
+  }), [ideaLogs, expLogs, codeLogs, execLogs, writeLogs]);
 
   const knowledgeArt = useMemo(() => state.artifacts.filter((a) => a.repoId === 'knowledge'), [state.artifacts]);
   const expDesignArt = useMemo(() => state.artifacts.filter((a) => a.repoId === 'exp_design'), [state.artifacts]);
   const codebaseArt = useMemo(() => state.artifacts.filter((a) => a.repoId === 'codebase'), [state.artifacts]);
   const resultsArt = useMemo(() => state.artifacts.filter((a) => a.repoId === 'results'), [state.artifacts]);
   const insightsArt = useMemo(() => state.artifacts.filter((a) => a.repoId === 'insights'), [state.artifacts]);
+  const papersArt = useMemo(() => state.artifacts.filter((a) => a.repoId === 'papers'), [state.artifacts]);
   const artMap = useMemo(() => ({
     knowledge: knowledgeArt, exp_design: expDesignArt,
-    codebase: codebaseArt, results: resultsArt, insights: insightsArt,
-  }), [knowledgeArt, expDesignArt, codebaseArt, resultsArt, insightsArt]);
+    codebase: codebaseArt, results: resultsArt, insights: insightsArt, papers: papersArt,
+  }), [knowledgeArt, expDesignArt, codebaseArt, resultsArt, insightsArt, papersArt]);
 
   const workingCount = useMemo(() => state.agents.filter((a) => a.status === 'working').length, [state.agents]);
   const errorCount = useMemo(() => state.agents.filter((a) => a.status === 'error').length, [state.agents]);
@@ -288,16 +294,31 @@ export default function App() {
 
         <div className="pyramid-container">
           <ResourceMonitor stats={state.resources} connected={state.resConnected} />
-          <div className="pyramid">
-            {ALL_LAYERS.map((layer, idx) => (
-              <LayerPanel
-                key={layer}
-                layer={layer}
-                agents={agentMap[layer]}
-                logs={logMap[layer]}
-                tierIndex={idx}
-              />
-            ))}
+          <div className="pyramid-wrapper">
+            <div className="pyramid">
+              {ALL_LAYERS.map((layer, idx) => {
+                const hasWorking = agentMap[layer].some((a) => a.status === 'working');
+                return (
+                  <div key={layer} className="pyramid-tier">
+                    <LayerPanel
+                      layer={layer}
+                      agents={agentMap[layer]}
+                      logs={logMap[layer]}
+                      tierIndex={idx}
+                    />
+                    {idx < ALL_LAYERS.length - 1 && (
+                      <DataFlowArrow active={hasWorking} />
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+            <div className={`feedback-loop ${agentMap[AgentLayer.EXECUTION].some((a) => a.status === 'done') ? 'active' : ''}`}>
+              <div className="fb-line fb-bottom" />
+              <div className="fb-line fb-side"><div className="fb-pulse" /></div>
+              <div className="fb-line fb-top" />
+              <div className="fb-tip" />
+            </div>
           </div>
         </div>
 
