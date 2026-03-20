@@ -1,0 +1,96 @@
+% iclr2026_conference.sty — ICLR 2026 conference style file
+% Based on the official ICLR submission template structure.
+% Bundled by AutoResearchClaw for offline compilation.
+% Official source: https://github.com/ICLR/Master-Template
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{iclr2026_conference}[2026/01/15 ICLR 2026 conference style]
+
+% ── Options ──────────────────────────────────────────────────────────
+\newif\if@iclr@final      \@iclr@finalfalse
+\newif\if@iclr@preprint   \@iclr@preprintfalse
+
+\DeclareOption{final}{\@iclr@finaltrue}
+\DeclareOption{preprint}{\@iclr@preprinttrue}
+\ProcessOptions\relax
+
+% ── Page geometry ────────────────────────────────────────────────────
+\RequirePackage{geometry}
+\geometry{
+  textwidth=5.5in,
+  textheight=9.0in,
+  top=1.0in,
+  headheight=12pt,
+  headsep=25pt,
+  footskip=30pt,
+}
+
+% ── Fonts ────────────────────────────────────────────────────────────
+\RequirePackage{times}
+
+% ── Spacing ──────────────────────────────────────────────────────────
+\renewcommand{\baselinestretch}{1.0}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{1em}
+
+% ── Section formatting ───────────────────────────────────────────────
+\renewcommand{\section}{\@startsection
+  {section}{1}{0mm}{-2.0ex plus -0.5ex minus -.2ex}%
+  {1.0ex plus .2ex}{\normalfont\large\bfseries}}
+\renewcommand{\subsection}{\@startsection
+  {subsection}{2}{0mm}{-1.5ex plus -0.5ex minus -.2ex}%
+  {0.8ex plus .2ex}{\normalfont\normalsize\bfseries}}
+\renewcommand{\subsubsection}{\@startsection
+  {subsubsection}{3}{0mm}{-1.0ex plus -0.5ex minus -.2ex}%
+  {0.5ex plus .2ex}{\normalfont\normalsize\bfseries}}
+
+% ── Title formatting ────────────────────────────────────────────────
+\def\@maketitle{%
+  \vbox to 0pt{}%
+  \vskip -0.5in
+  \begin{center}%
+    {\LARGE\bfseries \@title \par}%
+    \vskip 0.3in
+    \if@iclr@final
+      {\large
+        \lineskip .5em
+        \begin{tabular}[t]{c}%
+          \@author
+        \end{tabular}\par}%
+    \else
+      {\large Anonymous authors\par}%
+      {\normalsize Paper under double-blind review\par}%
+    \fi
+    \vskip 0.3in
+  \end{center}%
+  \par
+  \vskip 0.5em
+}
+
+% ── Abstract ─────────────────────────────────────────────────────────
+\renewenvironment{abstract}{%
+  \centerline{\large\bfseries Abstract}%
+  \vspace{0.5ex}%
+  \begin{quote}%
+}{%
+  \par
+  \end{quote}%
+  \vskip 1ex
+}
+
+% ── Headers ──────────────────────────────────────────────────────────
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\if@iclr@final
+  \fancyhead[C]{Published as a conference paper at ICLR 2026}
+\else
+  \fancyhead[C]{}
+\fi
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+% ── Natbib ───────────────────────────────────────────────────────────
+\RequirePackage[numbers,sort&compress]{natbib}
+
+\endinput

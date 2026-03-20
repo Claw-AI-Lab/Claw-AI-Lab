@@ -1,0 +1,1 @@
+"""Knowledge management — base, adapters."""

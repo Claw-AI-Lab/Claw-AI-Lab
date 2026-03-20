@@ -1,0 +1,161 @@
+# ResearchClaw Dataset Registry
+# Tiers:
+#   1 = pre-cached in Docker image (no network needed)
+#   2 = downloadable via setup.py (network during setup phase)
+#   3 = too large for in-experiment download (use alternatives)
+
+# ── Tier 1: Pre-cached ──────────────────────────────────────────
+- name: CIFAR-10
+  tier: 1
+  domain: image_classification
+  size_mb: 170
+  classes: 10
+  samples: 60000
+  api: "torchvision.datasets.CIFAR10(root='/workspace/data', download=False)"
+
+- name: CIFAR-100
+  tier: 1
+  domain: image_classification
+  size_mb: 170
+  classes: 100
+  samples: 60000
+  api: "torchvision.datasets.CIFAR100(root='/workspace/data', download=False)"
+
+- name: MNIST
+  tier: 1
+  domain: image_classification
+  size_mb: 50
+  classes: 10
+  samples: 70000
+  api: "torchvision.datasets.MNIST(root='/workspace/data', download=False)"
+
+- name: FashionMNIST
+  tier: 1
+  domain: image_classification
+  size_mb: 50
+  classes: 10
+  samples: 70000
+  api: "torchvision.datasets.FashionMNIST(root='/workspace/data', download=False)"
+
+- name: STL-10
+  tier: 1
+  domain: image_classification
+  size_mb: 2640
+  classes: 10
+  samples: 113000
+  api: "torchvision.datasets.STL10(root='/workspace/data', download=False)"
+
+- name: SVHN
+  tier: 1
+  domain: image_classification
+  size_mb: 450
+  classes: 10
+  samples: 99289
+  api: "torchvision.datasets.SVHN(root='/workspace/data', download=False)"
+
+# ── Tier 2: Downloadable ────────────────────────────────────────
+- name: Tiny-ImageNet
+  tier: 2
+  domain: image_classification
+  size_mb: 237
+  classes: 200
+  samples: 110000
+  download: "setup.py with torchvision or direct URL download"
+  note: "Best proxy for ImageNet experiments"
+
+- name: Caltech-101
+  tier: 2
+  domain: image_classification
+  size_mb: 131
+  classes: 101
+  samples: 9146
+  api: "torchvision.datasets.Caltech101(root='/workspace/data', download=True)"
+
+- name: Flowers-102
+  tier: 2
+  domain: image_classification
+  size_mb: 340
+  classes: 102
+  samples: 8189
+  api: "torchvision.datasets.Flowers102(root='/workspace/data', download=True)"
+
+- name: IMDB
+  tier: 2
+  domain: nlp_sentiment
+  size_mb: 80
+  classes: 2
+  samples: 50000
+  api: "datasets.load_dataset('imdb', cache_dir='/workspace/data/hf')"
+
+- name: AG News
+  tier: 2
+  domain: nlp_classification
+  size_mb: 30
+  classes: 4
+  samples: 127600
+  api: "datasets.load_dataset('ag_news', cache_dir='/workspace/data/hf')"
+
+- name: WikiText-103
+  tier: 2
+  domain: language_modeling
+  size_mb: 500
+  samples: 28000
+  api: "datasets.load_dataset('wikitext', 'wikitext-103-v1', cache_dir='/workspace/data/hf')"
+
+- name: SST-2
+  tier: 2
+  domain: nlp_sentiment
+  size_mb: 7
+  classes: 2
+  samples: 70000
+  api: "datasets.load_dataset('glue', 'sst2', cache_dir='/workspace/data/hf')"
+
+- name: SQuAD v2
+  tier: 2
+  domain: question_answering
+  size_mb: 45
+  samples: 150000
+  api: "datasets.load_dataset('squad_v2', cache_dir='/workspace/data/hf')"
+
+- name: ogbg-molhiv
+  tier: 2
+  domain: graph_classification
+  size_mb: 50
+  samples: 41127
+  api: "PygGraphPropPredDataset(name='ogbg-molhiv', root='/workspace/data')"
+  note: "Requires ogb and torch-geometric"
+
+- name: ogbn-arxiv
+  tier: 2
+  domain: node_classification
+  size_mb: 200
+  samples: 169343
+  api: "PygNodePropPredDataset(name='ogbn-arxiv', root='/workspace/data')"
+
+# ── Tier 3: Too large ───────────────────────────────────────────
+- name: ImageNet-1K
+  tier: 3
+  domain: image_classification
+  size_mb: 168000
+  classes: 1000
+  samples: 1281167
+  alternatives:
+    - "Tiny-ImageNet (200 classes, 237MB)"
+    - "CIFAR-100 (100 classes, 170MB)"
+    - "STL-10 (10 classes, 96x96 images)"
+
+- name: LAION-400M
+  tier: 3
+  domain: vision_language
+  size_mb: 1000000
+  alternatives:
+    - "COCO Captions (HuggingFace, ~1GB)"
+    - "Flickr30K (HuggingFace)"
+
+- name: The Pile
+  tier: 3
+  domain: language_modeling
+  size_mb: 825000
+  alternatives:
+    - "WikiText-103 (500MB)"
+    - "C4 subset via HuggingFace streaming"

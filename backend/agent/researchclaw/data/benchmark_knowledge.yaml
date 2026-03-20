@@ -1,0 +1,842 @@
+# BenchmarkAgent Knowledge Base
+# Domain-indexed registry of standard benchmarks, datasets, and baselines
+# for automated experiment design.
+#
+# Fields:
+#   - standard_benchmarks: canonical datasets for the domain
+#     - tier: 1 (pre-cached) | 2 (downloadable) | 3 (too large)
+#     - api: Python one-liner to load the dataset
+#     - size_mb: approximate download size
+#     - metrics: standard evaluation metrics
+#   - common_baselines: well-known methods with open-source implementations
+#     - source: Python code to instantiate the model/method
+#     - paper: original paper citation
+#     - pip: additional pip packages needed (if any)
+
+domains:
+
+  # ── Computer Vision ─────────────────────────────────────────────
+
+  image_classification:
+    keywords:
+      - image classification
+      - visual recognition
+      - object recognition
+      - image categorization
+    standard_benchmarks:
+      - name: CIFAR-10
+        tier: 1
+        domain: image_classification
+        size_mb: 170
+        classes: 10
+        samples: 60000
+        metrics: [accuracy, top1_accuracy]
+        api: "torchvision.datasets.CIFAR10(root='/workspace/data', download=False, transform=transform)"
+      - name: CIFAR-100
+        tier: 1
+        domain: image_classification
+        size_mb: 170
+        classes: 100
+        samples: 60000
+        metrics: [accuracy, top1_accuracy, top5_accuracy]
+        api: "torchvision.datasets.CIFAR100(root='/workspace/data', download=False, transform=transform)"
+      - name: FashionMNIST
+        tier: 1
+        domain: image_classification
+        size_mb: 50
+        classes: 10
+        samples: 70000
+        metrics: [accuracy]
+        api: "torchvision.datasets.FashionMNIST(root='/workspace/data', download=False, transform=transform)"
+      - name: STL-10
+        tier: 1
+        domain: image_classification
+        size_mb: 2640
+        classes: 10
+        samples: 113000
+        metrics: [accuracy]
+        api: "torchvision.datasets.STL10(root='/workspace/data', split='train', download=False, transform=transform)"
+      - name: Tiny-ImageNet
+        tier: 2
+        domain: image_classification
+        size_mb: 237
+        classes: 200
+        samples: 110000
+        metrics: [top1_accuracy, top5_accuracy]
+        api: "datasets.load_dataset('Maysee/tiny-imagenet', cache_dir='/workspace/data/hf')"
+      - name: Caltech-101
+        tier: 2
+        domain: image_classification
+        size_mb: 131
+        classes: 101
+        samples: 9146
+        metrics: [accuracy]
+        api: "torchvision.datasets.Caltech101(root='/workspace/data', download=True, transform=transform)"
+      - name: ImageNet-1K
+        tier: 3
+        domain: image_classification
+        size_mb: 168000
+        classes: 1000
+        samples: 1281167
+        metrics: [top1_accuracy, top5_accuracy]
+        alternatives: ["Tiny-ImageNet", "CIFAR-100", "STL-10"]
+    common_baselines:
+      - name: ResNet-18
+        source: "torchvision.models.resnet18(weights='IMAGENET1K_V1')"
+        paper: "He et al., Deep Residual Learning, CVPR 2016"
+        pip: []
+      - name: ResNet-50
+        source: "torchvision.models.resnet50(weights='IMAGENET1K_V2')"
+        paper: "He et al., Deep Residual Learning, CVPR 2016"
+        pip: []
+      - name: ViT-B/16
+        source: "timm.create_model('vit_base_patch16_224', pretrained=True)"
+        paper: "Dosovitskiy et al., An Image is Worth 16x16 Words, ICLR 2021"
+        pip: [timm]
+      - name: EfficientNet-B0
+        source: "torchvision.models.efficientnet_b0(weights='IMAGENET1K_V1')"
+        paper: "Tan & Le, EfficientNet, ICML 2019"
+        pip: []
+      - name: MobileNetV3
+        source: "torchvision.models.mobilenet_v3_small(weights='IMAGENET1K_V1')"
+        paper: "Howard et al., MobileNetV3, ICCV 2019"
+        pip: []
+
+  knowledge_distillation:
+    keywords:
+      - knowledge distillation
+      - model compression
+      - teacher student
+      - dark knowledge
+      - distill
+    standard_benchmarks:
+      - name: CIFAR-100
+        tier: 1
+        domain: image_classification
+        size_mb: 170
+        classes: 100
+        samples: 60000
+        metrics: [accuracy, top1_accuracy]
+        api: "torchvision.datasets.CIFAR100(root='/workspace/data', download=False, transform=transform)"
+        note: "Most common KD benchmark — 100 classes provides rich teacher knowledge"
+      - name: CIFAR-10
+        tier: 1
+        domain: image_classification
+        size_mb: 170
+        classes: 10
+        samples: 60000
+        metrics: [accuracy]
+        api: "torchvision.datasets.CIFAR10(root='/workspace/data', download=False, transform=transform)"
+      - name: Tiny-ImageNet
+        tier: 2
+        domain: image_classification
+        size_mb: 237
+        classes: 200
+        samples: 110000
+        metrics: [top1_accuracy, top5_accuracy]
+        api: "datasets.load_dataset('Maysee/tiny-imagenet', cache_dir='/workspace/data/hf')"
+    common_baselines:
+      - name: KD (Hinton)
+        source: "Custom: KL-divergence on softened logits (temperature=4)"
+        paper: "Hinton et al., Distilling the Knowledge in a Neural Network, 2015"
+        pip: []
+      - name: FitNet
+        source: "Custom: Feature map regression (intermediate layers)"
+        paper: "Romero et al., FitNets, ICLR 2015"
+        pip: []
+      - name: CRD
+        source: "Custom: Contrastive representation distillation"
+        paper: "Tian et al., Contrastive Representation Distillation, ICLR 2020"
+        pip: []
+      - name: DKD
+        source: "Custom: Decoupled knowledge distillation (target + non-target)"
+        paper: "Zhao et al., Decoupled Knowledge Distillation, CVPR 2022"
+        pip: []
+
+  continual_learning:
+    keywords:
+      - continual learning
+      - lifelong learning
+      - catastrophic forgetting
+      - incremental learning
+      - class-incremental
+    standard_benchmarks:
+      - name: Split CIFAR-100
+        tier: 1
+        domain: continual_learning
+        size_mb: 170
+        classes: 100
+        samples: 60000
+        metrics: [average_accuracy, forgetting_rate, backward_transfer]
+        api: "torchvision.datasets.CIFAR100(root='/workspace/data', download=False)"
+        note: "Split into 10 or 20 tasks (10 or 5 classes each)"
+      - name: Split MNIST
+        tier: 1
+        domain: continual_learning
+        size_mb: 50
+        classes: 10
+        samples: 70000
+        metrics: [average_accuracy, forgetting_rate]
+        api: "torchvision.datasets.MNIST(root='/workspace/data', download=False)"
+        note: "Split into 5 tasks (2 classes each)"
+      - name: Permuted MNIST
+        tier: 1
+        domain: continual_learning
+        size_mb: 50
+        classes: 10
+        samples: 70000
+        metrics: [average_accuracy, backward_transfer]
+        api: "torchvision.datasets.MNIST(root='/workspace/data', download=False)"
+        note: "Each task applies a random pixel permutation"
+    common_baselines:
+      - name: EWC
+        source: "Custom: Elastic Weight Consolidation (Fisher penalty)"
+        paper: "Kirkpatrick et al., Overcoming catastrophic forgetting, PNAS 2017"
+        pip: []
+      - name: SI (Synaptic Intelligence)
+        source: "Custom: Path integral of parameter importance"
+        paper: "Zenke et al., Continual Learning Through Synaptic Intelligence, ICML 2017"
+        pip: []
+      - name: PackNet
+        source: "Custom: Progressive pruning and re-training"
+        paper: "Mallya & Lazebnik, PackNet, CVPR 2018"
+        pip: []
+      - name: Experience Replay
+        source: "Custom: Maintain memory buffer of past examples"
+        paper: "Chaudhry et al., Continual Learning with Tiny Episodic Memories, 2019"
+        pip: []
+
+  # ── Natural Language Processing ─────────────────────────────────
+
+  text_classification:
+    keywords:
+      - text classification
+      - sentiment analysis
+      - document classification
+      - topic classification
+      - natural language understanding
+      - nlu
+    standard_benchmarks:
+      - name: IMDB
+        tier: 2
+        domain: nlp_sentiment
+        size_mb: 80
+        classes: 2
+        samples: 50000
+        metrics: [accuracy, f1_score]
+        api: "datasets.load_dataset('imdb', cache_dir='/workspace/data/hf')"
+      - name: SST-2
+        tier: 2
+        domain: nlp_sentiment
+        size_mb: 7
+        classes: 2
+        samples: 70000
+        metrics: [accuracy]
+        api: "datasets.load_dataset('glue', 'sst2', cache_dir='/workspace/data/hf')"
+      - name: AG News
+        tier: 2
+        domain: nlp_classification
+        size_mb: 30
+        classes: 4
+        samples: 127600
+        metrics: [accuracy, f1_macro]
+        api: "datasets.load_dataset('ag_news', cache_dir='/workspace/data/hf')"
+      - name: MNLI
+        tier: 2
+        domain: nlp_nli
+        size_mb: 310
+        classes: 3
+        samples: 433000
+        metrics: [accuracy]
+        api: "datasets.load_dataset('glue', 'mnli', cache_dir='/workspace/data/hf')"
+    common_baselines:
+      - name: BERT-base
+        source: "transformers.AutoModelForSequenceClassification.from_pretrained('bert-base-uncased')"
+        paper: "Devlin et al., BERT, NAACL 2019"
+        pip: [transformers]
+      - name: RoBERTa-base
+        source: "transformers.AutoModelForSequenceClassification.from_pretrained('roberta-base')"
+        paper: "Liu et al., RoBERTa, 2019"
+        pip: [transformers]
+      - name: DistilBERT
+        source: "transformers.AutoModelForSequenceClassification.from_pretrained('distilbert-base-uncased')"
+        paper: "Sanh et al., DistilBERT, 2019"
+        pip: [transformers]
+
+  language_modeling:
+    keywords:
+      - language modeling
+      - language model
+      - perplexity
+      - text generation
+      - causal language model
+      - autoregressive
+    standard_benchmarks:
+      - name: WikiText-103
+        tier: 2
+        domain: language_modeling
+        size_mb: 500
+        samples: 28000
+        metrics: [perplexity, bits_per_character]
+        api: "datasets.load_dataset('wikitext', 'wikitext-103-v1', cache_dir='/workspace/data/hf')"
+      - name: WikiText-2
+        tier: 2
+        domain: language_modeling
+        size_mb: 12
+        samples: 2000
+        metrics: [perplexity]
+        api: "datasets.load_dataset('wikitext', 'wikitext-2-v1', cache_dir='/workspace/data/hf')"
+      - name: Penn Treebank
+        tier: 2
+        domain: language_modeling
+        size_mb: 5
+        metrics: [perplexity]
+        api: "datasets.load_dataset('ptb_text_only', cache_dir='/workspace/data/hf')"
+    common_baselines:
+      - name: GPT-2 Small
+        source: "transformers.AutoModelForCausalLM.from_pretrained('gpt2')"
+        paper: "Radford et al., Language Models are Unsupervised Multitask Learners, 2019"
+        pip: [transformers]
+      - name: LSTM LM
+        source: "Custom: 2-layer LSTM with tied embeddings"
+        paper: "Merity et al., AWD-LSTM, ICLR 2018"
+        pip: []
+
+  question_answering:
+    keywords:
+      - question answering
+      - reading comprehension
+      - qa
+      - extractive qa
+    standard_benchmarks:
+      - name: SQuAD v2
+        tier: 2
+        domain: question_answering
+        size_mb: 45
+        samples: 150000
+        metrics: [exact_match, f1_score]
+        api: "datasets.load_dataset('squad_v2', cache_dir='/workspace/data/hf')"
+      - name: SQuAD v1.1
+        tier: 2
+        domain: question_answering
+        size_mb: 35
+        samples: 100000
+        metrics: [exact_match, f1_score]
+        api: "datasets.load_dataset('squad', cache_dir='/workspace/data/hf')"
+    common_baselines:
+      - name: BERT-base QA
+        source: "transformers.AutoModelForQuestionAnswering.from_pretrained('bert-base-uncased')"
+        paper: "Devlin et al., BERT, NAACL 2019"
+        pip: [transformers]
+
+  # ── Reinforcement Learning ──────────────────────────────────────
+
+  reinforcement_learning:
+    keywords:
+      - reinforcement learning
+      - reward shaping
+      - policy gradient
+      - value function
+      - q-learning
+      - actor-critic
+      - markov decision process
+      - mdp
+    standard_benchmarks:
+      - name: CartPole-v1
+        tier: 1
+        domain: classic_control
+        size_mb: 0
+        metrics: [episode_reward, episode_length]
+        api: "gymnasium.make('CartPole-v1')"
+        note: "Simple baseline environment — episodic, discrete action"
+      - name: LunarLander-v3
+        tier: 1
+        domain: classic_control
+        size_mb: 0
+        metrics: [episode_reward]
+        api: "gymnasium.make('LunarLander-v3')"
+      - name: Acrobot-v1
+        tier: 1
+        domain: classic_control
+        size_mb: 0
+        metrics: [episode_reward, steps_to_solve]
+        api: "gymnasium.make('Acrobot-v1')"
+      - name: HalfCheetah-v5
+        tier: 2
+        domain: mujoco
+        size_mb: 50
+        metrics: [average_return, episode_reward]
+        api: "gymnasium.make('HalfCheetah-v5')"
+        pip: ["gymnasium[mujoco]"]
+      - name: Hopper-v5
+        tier: 2
+        domain: mujoco
+        size_mb: 50
+        metrics: [average_return]
+        api: "gymnasium.make('Hopper-v5')"
+        pip: ["gymnasium[mujoco]"]
+    common_baselines:
+      - name: PPO
+        source: "stable_baselines3.PPO('MlpPolicy', env)"
+        paper: "Schulman et al., PPO, 2017"
+        pip: [stable-baselines3]
+      - name: SAC
+        source: "stable_baselines3.SAC('MlpPolicy', env)"
+        paper: "Haarnoja et al., Soft Actor-Critic, ICML 2018"
+        pip: [stable-baselines3]
+      - name: DQN
+        source: "stable_baselines3.DQN('MlpPolicy', env)"
+        paper: "Mnih et al., Playing Atari with Deep RL, 2015"
+        pip: [stable-baselines3]
+      - name: A2C
+        source: "stable_baselines3.A2C('MlpPolicy', env)"
+        paper: "Mnih et al., Asynchronous Methods for Deep RL, ICML 2016"
+        pip: [stable-baselines3]
+
+  # ── Graph Neural Networks ───────────────────────────────────────
+
+  graph_neural_networks:
+    keywords:
+      - graph neural network
+      - gnn
+      - node classification
+      - graph classification
+      - link prediction
+      - message passing
+      - graph convolution
+      - gcn
+      - graph attention
+    standard_benchmarks:
+      - name: Cora
+        tier: 2
+        domain: node_classification
+        size_mb: 5
+        classes: 7
+        samples: 2708
+        metrics: [accuracy, f1_macro]
+        api: "torch_geometric.datasets.Planetoid(root='/workspace/data', name='Cora')"
+        pip: [torch-geometric]
+      - name: CiteSeer
+        tier: 2
+        domain: node_classification
+        size_mb: 5
+        classes: 6
+        samples: 3327
+        metrics: [accuracy]
+        api: "torch_geometric.datasets.Planetoid(root='/workspace/data', name='CiteSeer')"
+        pip: [torch-geometric]
+      - name: PubMed
+        tier: 2
+        domain: node_classification
+        size_mb: 20
+        classes: 3
+        samples: 19717
+        metrics: [accuracy]
+        api: "torch_geometric.datasets.Planetoid(root='/workspace/data', name='PubMed')"
+        pip: [torch-geometric]
+      - name: ogbn-arxiv
+        tier: 2
+        domain: node_classification
+        size_mb: 200
+        samples: 169343
+        metrics: [accuracy]
+        api: "ogb.nodeproppred.PygNodePropPredDataset(name='ogbn-arxiv', root='/workspace/data')"
+        pip: [ogb, torch-geometric]
+      - name: ogbg-molhiv
+        tier: 2
+        domain: graph_classification
+        size_mb: 50
+        samples: 41127
+        metrics: [auroc]
+        api: "ogb.graphproppred.PygGraphPropPredDataset(name='ogbg-molhiv', root='/workspace/data')"
+        pip: [ogb, torch-geometric]
+    common_baselines:
+      - name: GCN
+        source: "torch_geometric.nn.GCNConv"
+        paper: "Kipf & Welling, Semi-Supervised Classification with GCN, ICLR 2017"
+        pip: [torch-geometric]
+      - name: GAT
+        source: "torch_geometric.nn.GATConv"
+        paper: "Velickovic et al., Graph Attention Networks, ICLR 2018"
+        pip: [torch-geometric]
+      - name: GraphSAGE
+        source: "torch_geometric.nn.SAGEConv"
+        paper: "Hamilton et al., Inductive Representation Learning, NeurIPS 2017"
+        pip: [torch-geometric]
+      - name: GIN
+        source: "torch_geometric.nn.GINConv"
+        paper: "Xu et al., How Powerful are GNNs?, ICLR 2019"
+        pip: [torch-geometric]
+
+  # ── Meta-Learning ───────────────────────────────────────────────
+
+  meta_learning:
+    keywords:
+      - meta-learning
+      - few-shot learning
+      - learning to learn
+      - meta learning
+      - few shot
+      - n-way k-shot
+    standard_benchmarks:
+      - name: Omniglot
+        tier: 2
+        domain: few_shot_classification
+        size_mb: 17
+        classes: 1623
+        samples: 32460
+        metrics: [accuracy]
+        api: "torchvision.datasets.Omniglot(root='/workspace/data', download=True)"
+      - name: Mini-ImageNet
+        tier: 2
+        domain: few_shot_classification
+        size_mb: 2900
+        classes: 100
+        samples: 60000
+        metrics: [accuracy]
+        api: "datasets.load_dataset('nielsr/mini-imagenet', cache_dir='/workspace/data/hf')"
+        note: "Standard 5-way 1-shot and 5-way 5-shot evaluation"
+      - name: CIFAR-FS
+        tier: 1
+        domain: few_shot_classification
+        size_mb: 170
+        classes: 100
+        samples: 60000
+        metrics: [accuracy]
+        api: "torchvision.datasets.CIFAR100(root='/workspace/data', download=False)"
+        note: "CIFAR-100 re-split into 64/16/20 base/val/novel classes"
+    common_baselines:
+      - name: MAML
+        source: "Custom: Model-Agnostic Meta-Learning with inner/outer loop"
+        paper: "Finn et al., MAML, ICML 2017"
+        pip: []
+      - name: Prototypical Networks
+        source: "Custom: Prototype-based classification in embedding space"
+        paper: "Snell et al., Prototypical Networks, NeurIPS 2017"
+        pip: []
+      - name: Matching Networks
+        source: "Custom: Attention-based few-shot classifier"
+        paper: "Vinyals et al., Matching Networks, NeurIPS 2016"
+        pip: []
+
+  # ── Generative Models ──────────────────────────────────────────
+
+  generative_models:
+    keywords:
+      - generative model
+      - gan
+      - vae
+      - variational autoencoder
+      - generative adversarial
+      - diffusion model
+      - image generation
+      - score matching
+    standard_benchmarks:
+      - name: CIFAR-10
+        tier: 1
+        domain: image_generation
+        size_mb: 170
+        metrics: [fid, inception_score, is]
+        api: "torchvision.datasets.CIFAR10(root='/workspace/data', download=False)"
+      - name: MNIST
+        tier: 1
+        domain: image_generation
+        size_mb: 50
+        metrics: [fid, reconstruction_error]
+        api: "torchvision.datasets.MNIST(root='/workspace/data', download=False)"
+      - name: CelebA
+        tier: 2
+        domain: image_generation
+        size_mb: 1400
+        samples: 202599
+        metrics: [fid, lpips]
+        api: "torchvision.datasets.CelebA(root='/workspace/data', split='train', download=True)"
+    common_baselines:
+      - name: DCGAN
+        source: "Custom: Deep Convolutional GAN"
+        paper: "Radford et al., Unsupervised Representation Learning, ICLR 2016"
+        pip: []
+      - name: VAE
+        source: "Custom: Variational Autoencoder with KL divergence"
+        paper: "Kingma & Welling, Auto-Encoding Variational Bayes, ICLR 2014"
+        pip: []
+      - name: DDPM
+        source: "Custom: Denoising Diffusion Probabilistic Model"
+        paper: "Ho et al., Denoising Diffusion Probabilistic Models, NeurIPS 2020"
+        pip: []
+
+  # ── Transfer Learning & Domain Adaptation ───────────────────────
+
+  transfer_learning:
+    keywords:
+      - transfer learning
+      - domain adaptation
+      - domain shift
+      - distribution shift
+      - covariate shift
+      - domain generalization
+      - out-of-distribution
+      - ood
+    standard_benchmarks:
+      - name: CIFAR-10-C
+        tier: 2
+        domain: robustness
+        size_mb: 2700
+        classes: 10
+        metrics: [accuracy, mean_corruption_error]
+        api: "datasets.load_dataset('cifar10_corrupted', cache_dir='/workspace/data/hf')"
+        note: "15 corruption types × 5 severity levels"
+      - name: CIFAR-10
+        tier: 1
+        domain: image_classification
+        size_mb: 170
+        classes: 10
+        metrics: [accuracy]
+        api: "torchvision.datasets.CIFAR10(root='/workspace/data', download=False)"
+        note: "Source domain for corruption/shift experiments"
+      - name: Office-31
+        tier: 2
+        domain: domain_adaptation
+        size_mb: 800
+        classes: 31
+        samples: 4652
+        metrics: [accuracy]
+        api: "Custom download from official source"
+    common_baselines:
+      - name: DANN
+        source: "Custom: Domain-Adversarial Neural Network (gradient reversal)"
+        paper: "Ganin et al., Domain-Adversarial Training, JMLR 2016"
+        pip: []
+      - name: CORAL
+        source: "Custom: Correlation alignment loss"
+        paper: "Sun & Saenko, Deep CORAL, ECCV 2016"
+        pip: []
+      - name: AugMax
+        source: "Custom: Adversarial data augmentation"
+        paper: "Wang et al., AugMax, NeurIPS 2021"
+        pip: []
+
+  # ── Neural Architecture Search ──────────────────────────────────
+
+  neural_architecture_search:
+    keywords:
+      - neural architecture search
+      - nas
+      - architecture search
+      - automl architecture
+    standard_benchmarks:
+      - name: CIFAR-10
+        tier: 1
+        domain: image_classification
+        size_mb: 170
+        classes: 10
+        metrics: [accuracy, params, flops]
+        api: "torchvision.datasets.CIFAR10(root='/workspace/data', download=False)"
+      - name: NAS-Bench-201
+        tier: 2
+        domain: nas_benchmark
+        size_mb: 2100
+        metrics: [accuracy, latency]
+        api: "Custom: nats_bench.create('/workspace/data/NATS-tss-v1_0-3ffb9-simple', 'tss', fast_mode=True)"
+        pip: [nats_bench]
+    common_baselines:
+      - name: DARTS
+        source: "Custom: Differentiable Architecture Search"
+        paper: "Liu et al., DARTS, ICLR 2019"
+        pip: []
+      - name: Random Search
+        source: "Custom: Random architecture sampling + training"
+        paper: "Li & Talwalkar, Random Search and Reproducibility, UAI 2020"
+        pip: []
+
+  # ── Self-Supervised Learning ────────────────────────────────────
+
+  self_supervised_learning:
+    keywords:
+      - self-supervised
+      - contrastive learning
+      - self supervised
+      - pretext task
+      - representation learning
+      - unsupervised representation
+      - simclr
+      - byol
+      - moco
+    standard_benchmarks:
+      - name: CIFAR-10
+        tier: 1
+        domain: image_classification
+        size_mb: 170
+        classes: 10
+        metrics: [linear_probe_accuracy, knn_accuracy]
+        api: "torchvision.datasets.CIFAR10(root='/workspace/data', download=False)"
+      - name: STL-10
+        tier: 1
+        domain: image_classification
+        size_mb: 2640
+        classes: 10
+        metrics: [linear_probe_accuracy]
+        api: "torchvision.datasets.STL10(root='/workspace/data', split='unlabeled', download=False)"
+        note: "100K unlabeled images for pre-training, 13K labeled for evaluation"
+    common_baselines:
+      - name: SimCLR
+        source: "Custom: Contrastive learning with NT-Xent loss"
+        paper: "Chen et al., SimCLR, ICML 2020"
+        pip: []
+      - name: BYOL
+        source: "Custom: Bootstrap Your Own Latent (no negatives)"
+        paper: "Grill et al., BYOL, NeurIPS 2020"
+        pip: []
+      - name: MoCo v2
+        source: "Custom: Momentum Contrast with MLP head"
+        paper: "Chen et al., Improved Baselines for MoCo, 2020"
+        pip: []
+
+  # ── Optimizer Research ──────────────────────────────────────────
+  # NOTE: This domain is specifically for research ON optimizers/learning
+  # rate schedules. Do NOT match generic topics that merely USE optimization.
+  # Keywords are narrow to avoid false matches (e.g., "combinatorial
+  # optimization" or "PDE optimization" should NOT match this domain).
+
+  optimizer_research:
+    keywords:
+      - optimizer design
+      - learning rate schedule
+      - adaptive learning rate
+      - gradient descent method
+      - second-order optimization
+      - optimizer convergence
+    standard_benchmarks:
+      - name: CIFAR-10
+        tier: 1
+        domain: image_classification
+        size_mb: 170
+        metrics: [accuracy, convergence_speed, final_loss]
+        api: "torchvision.datasets.CIFAR10(root='/workspace/data', download=False)"
+      - name: CIFAR-100
+        tier: 1
+        domain: image_classification
+        size_mb: 170
+        metrics: [accuracy, convergence_speed]
+        api: "torchvision.datasets.CIFAR100(root='/workspace/data', download=False)"
+      - name: FashionMNIST
+        tier: 1
+        domain: image_classification
+        size_mb: 50
+        metrics: [accuracy, convergence_speed]
+        api: "torchvision.datasets.FashionMNIST(root='/workspace/data', download=False)"
+    common_baselines:
+      - name: AdamW
+        source: "torch.optim.AdamW(params, lr=1e-3, weight_decay=0.01)"
+        paper: "Loshchilov & Hutter, Decoupled Weight Decay, ICLR 2019"
+        pip: []
+      - name: SGD + Cosine Annealing
+        source: "torch.optim.SGD + CosineAnnealingLR"
+        paper: "Loshchilov & Hutter, SGDR, ICLR 2017"
+        pip: []
+      - name: LAMB
+        source: "Custom: Layer-wise Adaptive Moments for Batch Training"
+        paper: "You et al., Large Batch Optimization, ICLR 2020"
+        pip: []
+      - name: SAM (Sharpness-Aware Minimization)
+        source: "Custom: Sharpness-Aware Minimization"
+        paper: "Foret et al., SAM, ICLR 2021"
+        pip: []
+
+  # ── LLM Fine-Tuning ────────────────────────────────────────────
+
+  llm_finetuning:
+    keywords:
+      - fine-tuning
+      - fine tuning
+      - finetuning
+      - instruction tuning
+      - alignment
+      - rlhf
+      - dpo
+      - lora
+      - qlora
+      - adapter tuning
+    standard_benchmarks:
+      - name: Alpaca
+        tier: 2
+        domain: instruction_following
+        size_mb: 25
+        samples: 52000
+        metrics: [loss, perplexity]
+        api: "datasets.load_dataset('tatsu-lab/alpaca', cache_dir='/workspace/data/hf')"
+      - name: MMLU
+        tier: 2
+        domain: general_knowledge
+        size_mb: 12
+        classes: 57
+        metrics: [accuracy]
+        api: "datasets.load_dataset('cais/mmlu', 'all', cache_dir='/workspace/data/hf')"
+      - name: HellaSwag
+        tier: 2
+        domain: commonsense_reasoning
+        size_mb: 70
+        metrics: [accuracy]
+        api: "datasets.load_dataset('Rowan/hellaswag', cache_dir='/workspace/data/hf')"
+    common_baselines:
+      - name: Full Fine-Tuning
+        source: "Standard supervised fine-tuning on all parameters"
+        paper: "Baseline approach"
+        pip: [transformers]
+      - name: LoRA
+        source: "peft.LoraConfig(r=16, lora_alpha=32, target_modules=['q_proj', 'v_proj'])"
+        paper: "Hu et al., LoRA, ICLR 2022"
+        pip: [peft]
+      - name: QLoRA
+        source: "BitsAndBytesConfig(load_in_4bit=True) + LoRA"
+        paper: "Dettmers et al., QLoRA, NeurIPS 2023"
+        pip: [peft, bitsandbytes]
+
+  # ── Tabular / Classical ML ──────────────────────────────────────
+
+  tabular_learning:
+    keywords:
+      - tabular
+      - tabular data
+      - tabular learning
+      - structured data
+      - feature engineering
+      - gradient boosting
+      - xgboost
+    standard_benchmarks:
+      - name: UCI Adult
+        tier: 2
+        domain: binary_classification
+        size_mb: 5
+        classes: 2
+        samples: 48842
+        metrics: [accuracy, auroc, f1_score]
+        api: "datasets.load_dataset('scikit-learn/adult-census-income', cache_dir='/workspace/data/hf')"
+      - name: California Housing
+        tier: 2
+        domain: regression
+        size_mb: 1
+        samples: 20640
+        metrics: [rmse, mae, r2]
+        api: "sklearn.datasets.fetch_california_housing()"
+      - name: Forest Cover Type
+        tier: 2
+        domain: multiclass_classification
+        size_mb: 75
+        classes: 7
+        samples: 581012
+        metrics: [accuracy, f1_macro]
+        api: "sklearn.datasets.fetch_covtype()"
+    common_baselines:
+      - name: XGBoost
+        source: "xgboost.XGBClassifier(n_estimators=100, max_depth=6)"
+        paper: "Chen & Guestrin, XGBoost, KDD 2016"
+        pip: [xgboost]
+      - name: Random Forest
+        source: "sklearn.ensemble.RandomForestClassifier(n_estimators=100)"
+        paper: "Breiman, Random Forests, Machine Learning 2001"
+        pip: []
+      - name: MLP
+        source: "sklearn.neural_network.MLPClassifier(hidden_layer_sizes=(256, 128))"
+        paper: "Standard neural network baseline"
+        pip: []
