@@ -20,7 +20,7 @@ from typing import Iterable
 
 
 class Stage(IntEnum):
-    """23-stage research pipeline."""
+    """25-stage research pipeline."""
 
     # Phase A: Research Scoping
     TOPIC_INIT = 1
@@ -38,28 +38,30 @@ class Stage(IntEnum):
 
     # Phase D: Experiment Design
     EXPERIMENT_DESIGN = 9  # GATE
-    CODE_GENERATION = 10  # NEW
-    RESOURCE_PLANNING = 11
+    CODEBASE_SEARCH = 10
+    CODE_GENERATION = 11
+    SANITY_CHECK = 12      # Quick smoke test before resource planning
+    RESOURCE_PLANNING = 13
 
     # Phase E: Experiment Execution
-    EXPERIMENT_RUN = 12
-    ITERATIVE_REFINE = 13  # NEW
+    EXPERIMENT_RUN = 14
+    ITERATIVE_REFINE = 15
 
     # Phase F: Analysis & Decision
-    RESULT_ANALYSIS = 14
-    RESEARCH_DECISION = 15
+    RESULT_ANALYSIS = 16
+    RESEARCH_DECISION = 17
 
     # Phase G: Paper Writing
-    PAPER_OUTLINE = 16
-    PAPER_DRAFT = 17
-    PEER_REVIEW = 18
-    PAPER_REVISION = 19  # NEW
+    PAPER_OUTLINE = 18
+    PAPER_DRAFT = 19
+    PEER_REVIEW = 20
+    PAPER_REVISION = 21
 
     # Phase H: Finalization
-    QUALITY_GATE = 20  # GATE
-    KNOWLEDGE_ARCHIVE = 21
-    EXPORT_PUBLISH = 22
-    CITATION_VERIFY = 23
+    QUALITY_GATE = 22  # GATE
+    KNOWLEDGE_ARCHIVE = 23
+    EXPORT_PUBLISH = 24
+    CITATION_VERIFY = 25
 
 
 class StageStatus(str, Enum):
@@ -159,7 +161,9 @@ PHASE_MAP: dict[str, tuple[Stage, ...]] = {
     "C: Knowledge Synthesis": (Stage.SYNTHESIS, Stage.HYPOTHESIS_GEN),
     "D: Experiment Design": (
         Stage.EXPERIMENT_DESIGN,
+        Stage.CODEBASE_SEARCH,
         Stage.CODE_GENERATION,
+        Stage.SANITY_CHECK,
         Stage.RESOURCE_PLANNING,
     ),
     "E: Experiment Execution": (Stage.EXPERIMENT_RUN, Stage.ITERATIVE_REFINE),

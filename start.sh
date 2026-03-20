@@ -39,6 +39,7 @@ do_start() {
             --agent-dir "$BASE/backend/agent" \
             --runs-dir "$BASE/backend/runs" \
             --pool-idea 2 --pool-exp 2 --pool-code 3 --pool-exec 4 \
+            --total-gpus 8 --gpus-per-project 2 \
             > "$LOG/agent_bridge.log" 2>&1 &
         echo $! > "$PIDF/agent_bridge.pid"
         sleep 1

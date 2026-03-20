@@ -247,7 +247,7 @@ export default function App() {
     <div className="app">
       <header className="app-header">
         <div className="header-left">
-          <h1>🦞 Pyramid Research Team</h1>
+          <h1>🦞 Claw AI Lab</h1>
           <span className="header-subtitle">1.0.0</span>
         </div>
         <div className="header-stats">

@@ -40,23 +40,23 @@ import websockets
 STAGE_TO_LAYER: dict[int, str] = {
     1: "idea", 2: "idea", 3: "idea", 4: "idea",
     5: "idea", 6: "idea", 7: "idea", 8: "idea",
-    9: "experiment", 11: "experiment",
-    10: "coding",
-    12: "execution", 13: "execution", 14: "execution", 15: "execution",
+    9: "experiment",
+    10: "coding", 11: "coding", 12: "coding", 13: "coding",
+    14: "execution", 15: "execution", 16: "execution", 17: "execution",
 }
 
 LAYER_STAGES: dict[str, list[int]] = {
     "idea": [1, 2, 3, 4, 5, 6, 7, 8],
     "experiment": [9],
-    "coding": [10, 11],
-    "execution": [12, 13, 14, 15],
+    "coding": [10, 11, 12, 13],  # S10 codebase + S11 codegen + S12 sanity + S13 resource
+    "execution": [14, 15, 16, 17],
 }
 
 LAYER_RANGE: dict[str, tuple[int, int]] = {
     "idea": (1, 8),
-    "experiment": (9, 9),    # L2 runs S9 only (experiment design)
-    "coding": (10, 11),      # L3 runs S10 (code gen) + S11 (resource planning)
-    "execution": (12, 15),
+    "experiment": (9, 9),
+    "coding": (10, 13),          # S10→S13
+    "execution": (14, 17),       # S14→S17
 }
 
 PASSTHROUGH_LAYERS: set[str] = set()
@@ -65,25 +65,28 @@ STAGE_NAMES: dict[int, str] = {
     1: "TOPIC_INIT", 2: "PROBLEM_DECOMPOSE", 3: "SEARCH_STRATEGY",
     4: "LITERATURE_COLLECT", 5: "LITERATURE_SCREEN", 6: "KNOWLEDGE_EXTRACT",
     7: "SYNTHESIS", 8: "HYPOTHESIS_GEN", 9: "EXPERIMENT_DESIGN",
-    10: "CODE_GENERATION", 11: "RESOURCE_PLANNING", 12: "EXPERIMENT_RUN",
-    13: "ITERATIVE_REFINE", 14: "RESULT_ANALYSIS", 15: "RESEARCH_DECISION",
+    10: "CODEBASE_SEARCH", 11: "CODE_GENERATION", 12: "SANITY_CHECK",
+    13: "RESOURCE_PLANNING", 14: "EXPERIMENT_RUN", 15: "ITERATIVE_REFINE",
+    16: "RESULT_ANALYSIS", 17: "RESEARCH_DECISION",
 }
 
 STAGE_OUTPUTS: dict[int, list[str]] = {
     1: ["goal.md", "hardware_profile.json"], 2: ["problem_tree.md"],
     3: ["search_plan.yaml", "sources.json", "queries.json"], 4: ["candidates.jsonl"],
     5: ["shortlist.jsonl"], 6: ["cards/"], 7: ["synthesis.md"], 8: ["hypotheses.md"],
-    9: ["exp_plan.yaml"], 10: ["experiment/", "experiment_spec.md"],
-    11: ["schedule.json"], 12: ["runs/"],
-    13: ["refinement_log.json", "experiment_final/"],
-    14: ["analysis.md", "experiment_summary.json", "charts/"], 15: ["decision.md"],
+    9: ["exp_plan.yaml"], 10: ["codebase_candidates.json"],
+    11: ["experiment/", "experiment_spec.md"], 12: ["sanity_report.json"],
+    13: ["schedule.json"], 14: ["runs/"],
+    15: ["refinement_log.json", "experiment_final/"],
+    16: ["analysis.md", "experiment_summary.json", "charts/"], 17: ["decision.md"],
 }
 
 REPO_FOR_STAGE: dict[int, str] = {
     1: "knowledge", 2: "knowledge", 3: "knowledge", 4: "knowledge",
     5: "knowledge", 6: "knowledge", 7: "knowledge", 8: "knowledge",
-    9: "exp_design", 11: "exp_design", 10: "codebase",
-    12: "results", 13: "results", 14: "results", 15: "results",
+    9: "exp_design",
+    10: "codebase", 11: "codebase", 12: "codebase", 13: "codebase",
+    14: "results", 15: "results", 16: "results", 17: "results",
 }
 
 # Queue names between layers
@@ -256,6 +259,49 @@ class LobsterAgent:
         }
 
 
+class GpuAllocator:
+    """Manages GPU assignment across concurrent projects."""
+
+    def __init__(self, total_gpus: int = 8, gpus_per_project: int = 2):
+        self.total_gpus = total_gpus
+        self.gpus_per_project = gpus_per_project
+        self.assignments: dict[str, list[int]] = {}  # project_id -> [gpu_ids]
+        self._occupied: set[int] = set()
+
+    def available_count(self) -> int:
+        return self.total_gpus - len(self._occupied)
+
+    def can_allocate(self) -> bool:
+        return self.available_count() >= self.gpus_per_project
+
+    def allocate(self, project_id: str) -> list[int] | None:
+        if project_id in self.assignments:
+            return self.assignments[project_id]
+        if not self.can_allocate():
+            return None
+        free = sorted(set(range(self.total_gpus)) - self._occupied)
+        assigned = free[:self.gpus_per_project]
+        self.assignments[project_id] = assigned
+        self._occupied.update(assigned)
+        return assigned
+
+    def release(self, project_id: str) -> list[int]:
+        gpus = self.assignments.pop(project_id, [])
+        self._occupied -= set(gpus)
+        return gpus
+
+    def get(self, project_id: str) -> list[int] | None:
+        return self.assignments.get(project_id)
+
+    def summary(self) -> dict:
+        return {
+            "total": self.total_gpus,
+            "per_project": self.gpus_per_project,
+            "free": self.available_count(),
+            "assignments": {k: v for k, v in self.assignments.items()},
+        }
+
+
 @dataclass
 class BridgeState:
     agents: dict[str, LobsterAgent] = field(default_factory=dict)
@@ -264,6 +310,8 @@ class BridgeState:
     python_path: str = ""
     agent_package_dir: str = ""
     runs_base_dir: str = ""
+    gpu_allocator: GpuAllocator = field(default_factory=GpuAllocator)
+    result_registry: "ResultRegistry | None" = None
 
     def projects_dir(self) -> Path:
         return Path(self.runs_base_dir) / "projects"
@@ -478,12 +526,23 @@ def launch_agent_for_task(state: BridgeState, agent: LobsterAgent, task: Task) -
         cmd.extend(["--topic", task.topic])
 
     try:
+        proc_env = {**os.environ, "PYTHONUNBUFFERED": "1"}
+
+        # L4 execution layer: allocate GPUs
+        if agent.layer == "execution":
+            gpu_ids = state.gpu_allocator.allocate(task.project_id)
+            if gpu_ids is not None:
+                proc_env["CUDA_VISIBLE_DEVICES"] = ",".join(str(g) for g in gpu_ids)
+                messages.append(msg_log(agent, f"GPU 分配: {gpu_ids} → CUDA_VISIBLE_DEVICES={proc_env['CUDA_VISIBLE_DEVICES']}", "info"))
+            else:
+                messages.append(msg_log(agent, "GPU 不足，使用默认分配", "warning"))
+
         log_path = Path(task.run_dir) / f"agent_{agent.id}.log"
         log_file = open(log_path, "w", encoding="utf-8")
         proc = subprocess.Popen(
             cmd, cwd=state.agent_package_dir,
             stdout=log_file, stderr=subprocess.STDOUT,
-            env={**os.environ, "PYTHONUNBUFFERED": "1"},
+            env=proc_env,
         )
         agent.process = proc
         agent.current_task = f"项目 {task.project_id} · PID={proc.pid}"
@@ -568,6 +627,12 @@ def on_agent_done(state: BridgeState, agent: LobsterAgent) -> list[dict]:
             "success",
         ))
 
+    # Release GPU allocation for execution layer
+    if agent.layer == "execution" and agent.project_id:
+        released = state.gpu_allocator.release(agent.project_id)
+        if released:
+            messages.append(msg_log(agent, f"GPU {released} 已释放", "info"))
+
     # Reset agent for next task
     agent.assigned_task_id = None
     agent.project_id = ""
@@ -587,6 +652,10 @@ def schedule_idle_agents(state: BridgeState) -> list[dict]:
         if agent.status != "idle" or agent.process is not None:
             continue
         if agent.assigned_task_id:
+            continue
+
+        # L4 execution layer: skip if no GPU available
+        if agent.layer == "execution" and not state.gpu_allocator.can_allocate():
             continue
 
         # Idea agents pull from init_to_idea AND execution_feedback
@@ -666,6 +735,13 @@ async def handle_command(state: BridgeState, data: dict) -> list[dict]:
     elif cmd == "get_queues":
         messages.append(msg_queue_update(state.queues))
 
+    elif cmd == "get_shared_results":
+        if state.result_registry:
+            messages.append({
+                "type": "system",
+                "payload": {"message": json.dumps(state.result_registry.summary(), ensure_ascii=False)},
+            })
+
     return messages
 
 
@@ -708,12 +784,17 @@ async def poll_loop(state: BridgeState, interval: float):
             if prev_status == "working" and agent.status == "done":
                 all_messages.extend(on_agent_done(state, agent))
 
-            # Detect failure → mark task failed
+            # Detect failure → mark task failed, release GPU
             if prev_status == "working" and agent.status == "error":
                 if agent.assigned_task_id:
                     for q in state.queues.values():
                         q.fail(agent.assigned_task_id)
+                if agent.layer == "execution" and agent.project_id:
+                    released = state.gpu_allocator.release(agent.project_id)
+                    if released:
+                        all_messages.append(msg_log(agent, f"GPU {released} 已释放 (错误后)", "warning"))
                 agent.assigned_task_id = None
+                agent.project_id = ""
                 agent.status = "idle"
                 agent.current_task = "等待任务..."
                 all_messages.append(msg_agent_update(agent))
@@ -732,7 +813,17 @@ async def main(args: argparse.Namespace):
         python_path=args.python,
         agent_package_dir=args.agent_dir,
         runs_base_dir=args.runs_dir,
+        gpu_allocator=GpuAllocator(args.total_gpus, args.gpus_per_project),
     )
+
+    # Initialize shared results registry
+    _shared_results_path = Path(state.runs_base_dir).parent / "shared_results"
+    try:
+        from result_registry import ResultRegistry
+        state.result_registry = ResultRegistry(str(_shared_results_path))
+    except Exception:
+        pass
+
     state.projects_dir().mkdir(parents=True, exist_ok=True)
     state.queues_dir().mkdir(parents=True, exist_ok=True)
 
@@ -761,6 +852,7 @@ async def main(args: argparse.Namespace):
     print(f"   Runs base:     {args.runs_dir}")
     print(f"   Python:        {args.python}")
     print(f"   Lobsters:      {len(state.agents)}")
+    print(f"   GPUs:          {args.total_gpus}x ({args.gpus_per_project}/project, max {args.total_gpus // max(args.gpus_per_project, 1)} parallel)")
     print(f"   Queued tasks:  {queued_tasks}")
     print()
 
@@ -782,5 +874,9 @@ if __name__ == "__main__":
     parser.add_argument("--pool-exp", type=int, default=2)
     parser.add_argument("--pool-code", type=int, default=3)
     parser.add_argument("--pool-exec", type=int, default=4)
+    parser.add_argument("--total-gpus", type=int, default=8,
+                        help="Total number of GPUs available")
+    parser.add_argument("--gpus-per-project", type=int, default=2,
+                        help="GPUs allocated per project in execution layer")
     args = parser.parse_args()
     asyncio.run(main(args))

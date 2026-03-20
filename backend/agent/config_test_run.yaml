@@ -1,0 +1,81 @@
+project:
+  name: "cpu-optimization-test"
+  mode: "full-auto"
+
+research:
+  topic: "Comparing gradient-free optimization algorithms (Nelder-Mead, Powell, CMA-ES) for non-convex benchmark functions using only CPU computation with NumPy"
+  domains:
+    - "optimization"
+    - "numerical-methods"
+  daily_paper_count: 5
+  quality_threshold: 3.0
+
+runtime:
+  timezone: "Asia/Shanghai"
+  max_parallel_tasks: 2
+  approval_timeout_hours: 1
+  retry_limit: 2
+
+notifications:
+  channel: "console"
+  target: ""
+  on_stage_start: true
+  on_stage_fail: true
+  on_gate_required: true
+
+knowledge_base:
+  backend: "markdown"
+  root: "docs/kb"
+
+openclaw_bridge:
+  use_cron: false
+  use_message: false
+  use_memory: false
+  use_sessions_spawn: false
+  use_web_fetch: false
+  use_browser: false
+
+llm:
+  provider: "openai-compatible"
+  base_url: "https://openai-api.shenmishajing.workers.dev/v1"
+  api_key: "r685RxDQ3lYYWC8nOH5SUDlLZEkutddM"
+  api_key_env: "RESEARCHCLAW_API_KEY"
+  primary_model: "gpt-4o"
+  fallback_models:
+    - "gpt-4.1"
+
+security:
+  hitl_required_stages: []
+  allow_publish_without_approval: true
+  redact_sensitive_logs: false
+
+experiment:
+  mode: "sandbox"
+  time_budget_sec: 120
+  max_iterations: 5
+  metric_key: "primary_metric"
+  metric_direction: "minimize"
+  sandbox:
+    python_path: "/opt/anaconda3/bin/python3"
+    gpu_required: false
+    max_memory_mb: 4096
+    allowed_imports:
+      - "numpy"
+      - "scipy"
+      - "matplotlib"
+      - "json"
+      - "time"
+      - "os"
+      - "sys"
+      - "math"
+      - "random"
+      - "collections"
+      - "itertools"
+      - "functools"
+      - "typing"
+      - "dataclasses"
+      - "pathlib"
+      - "csv"
+
+prompts:
+  custom_file: ""

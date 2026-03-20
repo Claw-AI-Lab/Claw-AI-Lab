@@ -278,6 +278,7 @@ class LLMClient:
                 # (Azure OpenAI) return 400 during overload / rate-limit.
                 # Retry if the body hints at a transient issue.
                 if status == 400:
+                    print(f"[LLM 400] model={model} body={body[:300]}", flush=True)
                     _transient_400 = any(
                         kw in body.lower()
                         for kw in ("rate limit", "ratelimit", "overloaded",
@@ -350,10 +351,15 @@ class LLMClient:
                 body["max_tokens"] = max_tokens
 
             if json_mode:
-                # Many OpenAI-compatible proxies serving Claude models don't
-                # support the response_format parameter and return HTTP 400.
+                # Many OpenAI-compatible providers (Claude, DeepSeek, etc.)
+                # don't support the response_format parameter and return 400.
                 # Fall back to a system-prompt injection for non-OpenAI models.
-                if model.startswith("claude"):
+                _use_prompt_injection = (
+                    model.startswith("claude")
+                    or model.startswith("deepseek")
+                    or "deepseek" in self.config.base_url.lower()
+                )
+                if _use_prompt_injection:
                     _json_hint = (
                         "You MUST respond with valid JSON only. "
                         "Do not include any text outside the JSON object."

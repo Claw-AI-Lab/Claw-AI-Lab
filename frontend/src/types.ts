@@ -10,12 +10,14 @@ export const RCStage = {
   SYNTHESIS: 7,
   HYPOTHESIS_GEN: 8,
   EXPERIMENT_DESIGN: 9,
-  CODE_GENERATION: 10,
-  RESOURCE_PLANNING: 11,
-  EXPERIMENT_RUN: 12,
-  ITERATIVE_REFINE: 13,
-  RESULT_ANALYSIS: 14,
-  RESEARCH_DECISION: 15,
+  CODEBASE_SEARCH: 10,
+  CODE_GENERATION: 11,
+  SANITY_CHECK: 12,
+  RESOURCE_PLANNING: 13,
+  EXPERIMENT_RUN: 14,
+  ITERATIVE_REFINE: 15,
+  RESULT_ANALYSIS: 16,
+  RESEARCH_DECISION: 17,
 } as const;
 
 export type RCStage = (typeof RCStage)[keyof typeof RCStage];
@@ -37,12 +39,14 @@ export const STAGE_META: Record<RCStage, StageMeta> = {
   7:  { id: 7,  name: '知识综合',     key: 'SYNTHESIS',           outputs: ['synthesis.md'] },
   8:  { id: 8,  name: '假设生成',     key: 'HYPOTHESIS_GEN',      outputs: ['hypotheses.md'] },
   9:  { id: 9,  name: '实验设计 ⛩',  key: 'EXPERIMENT_DESIGN',   outputs: ['exp_plan.yaml'] },
-  10: { id: 10, name: '代码生成',     key: 'CODE_GENERATION',     outputs: ['experiment/', 'experiment_spec.md'] },
-  11: { id: 11, name: '资源规划',     key: 'RESOURCE_PLANNING',   outputs: ['schedule.json'] },
-  12: { id: 12, name: '实验执行',     key: 'EXPERIMENT_RUN',      outputs: ['runs/'] },
-  13: { id: 13, name: '迭代优化',     key: 'ITERATIVE_REFINE',    outputs: ['refinement_log.json', 'experiment_final/'] },
-  14: { id: 14, name: '结果分析',     key: 'RESULT_ANALYSIS',     outputs: ['analysis.md', 'experiment_summary.json', 'charts/'] },
-  15: { id: 15, name: '研究决策',     key: 'RESEARCH_DECISION',   outputs: ['decision.md'] },
+  10: { id: 10, name: '代码库检索',   key: 'CODEBASE_SEARCH',     outputs: ['codebase_candidates.json'] },
+  11: { id: 11, name: '代码生成',     key: 'CODE_GENERATION',     outputs: ['experiment/', 'experiment_spec.md'] },
+  12: { id: 12, name: '代码检验',     key: 'SANITY_CHECK',        outputs: ['sanity_report.json'] },
+  13: { id: 13, name: '资源规划',     key: 'RESOURCE_PLANNING',   outputs: ['schedule.json'] },
+  14: { id: 14, name: '实验执行',     key: 'EXPERIMENT_RUN',      outputs: ['runs/'] },
+  15: { id: 15, name: '迭代优化',     key: 'ITERATIVE_REFINE',    outputs: ['refinement_log.json', 'experiment_final/'] },
+  16: { id: 16, name: '结果分析',     key: 'RESULT_ANALYSIS',     outputs: ['analysis.md', 'experiment_summary.json', 'charts/'] },
+  17: { id: 17, name: '研究决策',     key: 'RESEARCH_DECISION',   outputs: ['decision.md'] },
 };
 
 // ===================== Pyramid Layer Definitions =====================
@@ -79,14 +83,14 @@ export const LAYER_META: Record<AgentLayer, LayerMeta> = {
   [AgentLayer.CODING]: {
     name: '第三层 · 代码与资源',
     color: '#10b981',
-    desc: 'Phase D: 代码生成 + 资源规划',
-    stages: [10, 11],
+    desc: 'Phase D: 代码库检索 + 代码生成 + 资源规划',
+    stages: [10, 11, 12, 13],
   },
   [AgentLayer.EXECUTION]: {
     name: '第四层 · 执行与修正',
     color: '#ef4444',
     desc: 'Phase E→F: 实验执行 → 迭代优化 → 结果分析 → 决策',
-    stages: [12, 13, 14, 15],
+    stages: [14, 15, 16, 17],
   },
 };
 

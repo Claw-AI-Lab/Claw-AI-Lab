@@ -132,6 +132,7 @@ class LlmConfig:
     api_key_env: str = ""
     api_key: str = ""
     primary_model: str = ""
+    coding_model: str = ""
     fallback_models: tuple[str, ...] = ()
     s2_api_key: str = ""
     notes: str = ""
@@ -591,6 +592,7 @@ def _parse_llm_config(data: dict[str, Any]) -> LlmConfig:
         api_key_env=data.get("api_key_env", ""),
         api_key=data.get("api_key", ""),
         primary_model=data.get("primary_model", ""),
+        coding_model=data.get("coding_model", ""),
         fallback_models=tuple(data.get("fallback_models") or ()),
         s2_api_key=data.get("s2_api_key", ""),
         notes=data.get("notes", ""),

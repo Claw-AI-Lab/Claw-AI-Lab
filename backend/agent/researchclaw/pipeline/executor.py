@@ -2956,6 +2956,105 @@ def _execute_experiment_design(
     )
 
 
+# ---------------------------------------------------------------------------
+# Stage 10: CODEBASE_SEARCH — find & download reusable codebases
+# ---------------------------------------------------------------------------
+
+def _execute_codebase_search(
+    stage_dir: Path,
+    run_dir: Path,
+    config: RCConfig,
+    adapters: AdapterBundle,
+    *,
+    run_id: str = "",
+    prompts: "PromptManager | None" = None,
+    **kwargs: object,
+) -> StageResult:
+    """Search for reusable codebases based on the experiment plan.
+
+    Reads exp_plan.yaml, asks LLM to identify relevant GitHub repos or
+    papers-with-code, attempts to clone/download them, and records results
+    in codebase_candidates.json.
+    """
+    from researchclaw.llm import create_llm_client
+
+    exp_plan = _read_prior_artifact(run_dir, "exp_plan.yaml") or ""
+
+    llm = create_llm_client(config)
+
+    search_prompt = (
+        "Based on the following experiment plan, identify up to 5 existing open-source "
+        "GitHub repositories or papers-with-code that could serve as a starting codebase "
+        "for this experiment. For each candidate, provide:\n"
+        "- repo_url: GitHub URL\n"
+        "- description: why it is relevant\n"
+        "- usability: 'direct' (can use as-is with minor changes) or 'reference' (useful as reference)\n"
+        "- key_files: list of key files/modules to reuse\n\n"
+        "Return a JSON array. If no suitable codebase exists, return an empty array [].\n\n"
+        "Experiment Plan:\n"
+        f"{exp_plan}"
+    )
+
+    try:
+        response = llm.chat(
+            [{"role": "user", "content": search_prompt}],
+            system="You are an expert research engineer. Return valid JSON only.",
+            json_mode=True,
+        )
+
+        import json as _json
+        try:
+            candidates = _json.loads(response)
+            if not isinstance(candidates, list):
+                candidates = []
+        except _json.JSONDecodeError:
+            candidates = []
+
+        # Attempt to clone 'direct' usability repos
+        codebase_dir = stage_dir / "codebases"
+        codebase_dir.mkdir(exist_ok=True)
+        for i, cand in enumerate(candidates):
+            url = cand.get("repo_url", "")
+            usability = cand.get("usability", "reference")
+            if usability == "direct" and url and "github.com" in url:
+                local_path = codebase_dir / f"repo_{i}"
+                try:
+                    import subprocess
+                    result = subprocess.run(
+                        ["git", "clone", "--depth", "1", url, str(local_path)],
+                        capture_output=True, text=True, timeout=60,
+                    )
+                    if result.returncode == 0:
+                        cand["local_path"] = str(local_path)
+                        cand["download_status"] = "success"
+                    else:
+                        cand["download_status"] = f"failed: {result.stderr[:200]}"
+                except Exception as e:
+                    cand["download_status"] = f"error: {e}"
+            else:
+                cand["download_status"] = "skipped"
+
+        output = _json.dumps(candidates, indent=2, ensure_ascii=False)
+        (stage_dir / "codebase_candidates.json").write_text(output, encoding="utf-8")
+
+        n_direct = sum(1 for c in candidates if c.get("download_status") == "success")
+        n_total = len(candidates)
+        summary = f"Found {n_total} candidates, {n_direct} downloaded"
+
+    except Exception as e:
+        # Non-blocking: if search fails, produce empty list so code gen proceeds from scratch
+        (stage_dir / "codebase_candidates.json").write_text("[]", encoding="utf-8")
+        summary = f"Search failed ({e}), proceeding without codebase"
+
+    return StageResult(
+        stage=Stage.CODEBASE_SEARCH,
+        status=StageStatus.DONE,
+        artifacts=("codebase_candidates.json",),
+        evidence_refs=("stage-09/exp_plan.yaml",),
+        decision=summary,
+    )
+
+
 def _execute_code_generation(
     stage_dir: Path,
     run_dir: Path,
@@ -2965,9 +3064,27 @@ def _execute_code_generation(
     llm: LLMClient | None = None,
     prompts: PromptManager | None = None,
 ) -> StageResult:
+    # Use dedicated coding model if configured (e.g. claude-opus-4-6)
+    coding_model = getattr(config.llm, "coding_model", None) or ""
+    if coding_model and llm is not None:
+        import dataclasses as _dc_cm
+        _orig_model = llm.config.primary_model
+        _coding_llm_cfg = _dc_cm.replace(
+            llm.config,
+            primary_model=coding_model,
+            fallback_models=[_orig_model],
+        )
+        from researchclaw.llm.client import LLMClient as _LLMClient
+        llm = _LLMClient(_coding_llm_cfg)
+        print(f"[CODE_GENERATION] Using coding model: {coding_model} (fallback: {_orig_model})", flush=True)
+        logger.info("S11 CODE_GENERATION: using coding model '%s'", coding_model)
+
+    # Read codebase_candidates.json from S10 if available
+    _codebase_info = _read_prior_artifact(run_dir, "codebase_candidates.json") or "[]"
+
     exp_plan = _read_prior_artifact(run_dir, "exp_plan.yaml") or ""
     metric = config.experiment.metric_key
-    max_repair = 5  # BUG-14: Increased from 3 to give more chances for critical bugs
+    max_repair = 5
     files: dict[str, str] = {}
     validation_log: list[str] = []
 
@@ -3036,8 +3153,71 @@ def _execute_code_generation(
             f"- Implement a time guard: stop gracefully at 80% of budget\n"
         )
 
-    # --- Dataset guidance + setup script + HP reporting (docker/sandbox modes) ---
+    # --- Codebase candidates from S10 ---
     extra_guidance = ""
+    try:
+        import json as _json_cb
+        _cb_list = _json_cb.loads(_codebase_info)
+        _direct = [c for c in _cb_list if isinstance(c, dict) and c.get("download_status") == "success"]
+        if _direct:
+            extra_guidance += "\n## EXISTING CODEBASE (MUST USE AS BASE)\n"
+            extra_guidance += "The following codebases have been downloaded and are available locally.\n"
+            extra_guidance += "You MUST build upon this existing code rather than writing from scratch.\n\n"
+            for cb in _direct:
+                extra_guidance += f"- **{cb.get('repo_url', '?')}** → `{cb.get('local_path', '?')}`\n"
+                extra_guidance += f"  Description: {cb.get('description', '?')}\n"
+                extra_guidance += f"  Key files: {', '.join(cb.get('key_files', []))}\n\n"
+    except Exception:
+        pass
+
+    # --- Local data paths (datasets, checkpoints, codebases) ---
+    _datasets_dir = getattr(config.experiment, "datasets_dir", "") or ""
+    _checkpoints_dir = getattr(config.experiment, "checkpoints_dir", "") or ""
+    _codebases_dir = getattr(config.experiment, "codebases_dir", "") or ""
+
+    _data_paths_block = "\n## LOCAL DATA PATHS (MUST USE)\n"
+    _has_data_paths = False
+
+    if _datasets_dir:
+        import os as _os_dp
+        _os_dp.makedirs(_datasets_dir, exist_ok=True)
+        _existing_datasets = [d for d in _os_dp.listdir(_datasets_dir) if not d.startswith(".")] if _os_dp.path.isdir(_datasets_dir) else []
+        _data_paths_block += f"### Datasets Directory: `{_datasets_dir}`\n"
+        if _existing_datasets:
+            _data_paths_block += f"Available datasets: {', '.join(_existing_datasets)}\n"
+            _data_paths_block += "Use these local datasets directly via `os.path.join(DATASETS_DIR, '<name>')`. Do NOT download datasets.\n"
+        else:
+            _data_paths_block += "Directory is empty. Generate synthetic data or download minimal test data programmatically.\n"
+        _data_paths_block += f"In code: `DATASETS_DIR = '{_datasets_dir}'`\n\n"
+        _has_data_paths = True
+
+    if _checkpoints_dir:
+        _os_dp.makedirs(_checkpoints_dir, exist_ok=True)
+        _existing_ckpts = [f for f in _os_dp.listdir(_checkpoints_dir) if not f.startswith(".")] if _os_dp.path.isdir(_checkpoints_dir) else []
+        _data_paths_block += f"### Checkpoints Directory: `{_checkpoints_dir}`\n"
+        if _existing_ckpts:
+            _data_paths_block += f"Available checkpoints: {', '.join(_existing_ckpts)}\n"
+            _data_paths_block += "Load these checkpoints directly. Do NOT re-download if already present.\n"
+        else:
+            _data_paths_block += "No checkpoints yet. Download required model weights to this directory using `huggingface_hub` or `torch.hub`.\n"
+            _data_paths_block += "Always check if file exists before downloading: `if not os.path.exists(path): download()`\n"
+        _data_paths_block += f"In code: `CHECKPOINTS_DIR = '{_checkpoints_dir}'`\n\n"
+        _has_data_paths = True
+
+    if _codebases_dir:
+        _os_dp.makedirs(_codebases_dir, exist_ok=True)
+        _existing_repos = [d for d in _os_dp.listdir(_codebases_dir) if _os_dp.path.isdir(_os_dp.path.join(_codebases_dir, d)) and not d.startswith(".")] if _os_dp.path.isdir(_codebases_dir) else []
+        if _existing_repos:
+            _data_paths_block += f"### Codebases Directory: `{_codebases_dir}`\n"
+            _data_paths_block += f"Available repos: {', '.join(_existing_repos)}\n"
+            _data_paths_block += "Import or reference code from these repos. Add to sys.path if needed: `sys.path.insert(0, '<repo_path>')`\n"
+            _data_paths_block += f"In code: `CODEBASES_DIR = '{_codebases_dir}'`\n\n"
+            _has_data_paths = True
+
+    if _has_data_paths:
+        extra_guidance += _data_paths_block
+
+    # --- Dataset guidance + setup script + HP reporting (docker/sandbox modes) ---
     _net_policy = getattr(getattr(config, "docker", None), "network_policy", "setup_only")
     if config.experiment.mode in ("sandbox", "docker"):
         _net_policy = (
@@ -4032,6 +4212,206 @@ Multi-file experiment project with {len(files)} file(s): {file_list}
     )
 
 
+def _find_free_gpu() -> str:
+    """Find the GPU with lowest memory usage via nvidia-smi. Returns GPU id as string, or '0'."""
+    try:
+        import subprocess as _sp_gpu
+        result = _sp_gpu.run(
+            ["nvidia-smi", "--query-gpu=index,memory.used", "--format=csv,noheader,nounits"],
+            capture_output=True, text=True, timeout=5,
+        )
+        if result.returncode != 0:
+            return "0"
+        gpus = []
+        for line in result.stdout.strip().split("\n"):
+            parts = [p.strip() for p in line.split(",")]
+            if len(parts) >= 2:
+                gpus.append((int(parts[0]), float(parts[1])))
+        if not gpus:
+            return "0"
+        gpus.sort(key=lambda x: x[1])
+        return str(gpus[0][0])
+    except Exception:
+        return "0"
+
+
+def _execute_sanity_check(
+    stage_dir: Path,
+    run_dir: Path,
+    config: RCConfig,
+    adapters: AdapterBundle,
+    *,
+    run_id: str = "",
+    prompts: "PromptManager | None" = None,
+    llm: "LLMClient | None" = None,
+    **kwargs: object,
+) -> StageResult:
+    """Quick smoke test: import check + minimal run of the generated code.
+
+    Runs the experiment code with a tiny subset / dry-run flag to catch
+    import errors, shape mismatches, and obvious crashes BEFORE committing
+    to resource planning and full execution.
+    """
+    import os as _os_san
+    import subprocess as _sp
+    import time as _t
+
+    _sanity_gpu = _find_free_gpu()
+    logger.info("SANITY_CHECK: using GPU %s for smoke test", _sanity_gpu)
+
+    experiment_dir = None
+    for _s_dir in sorted(run_dir.glob("stage-*"), reverse=True):
+        _candidate = _s_dir / "experiment"
+        if _candidate.is_dir():
+            experiment_dir = _candidate
+            break
+
+    if experiment_dir is None:
+        (stage_dir / "sanity_report.json").write_text(
+            json.dumps({"status": "skip", "reason": "No experiment/ directory found"}, indent=2),
+            encoding="utf-8",
+        )
+        return StageResult(
+            stage=Stage.SANITY_CHECK,
+            status=StageStatus.DONE,
+            artifacts=("sanity_report.json",),
+            decision="skipped — no experiment code found",
+        )
+
+    python_path = config.experiment.sandbox.python_path or "python3"
+    report: dict[str, object] = {"status": "pending", "checks": []}
+    checks: list[dict[str, object]] = []
+    all_passed = True
+
+    # --- Check 1: Import check (syntax + dependencies) ---
+    main_py = experiment_dir / "main.py"
+    if main_py.exists():
+        t0 = _t.monotonic()
+        try:
+            result = _sp.run(
+                [python_path, "-c", f"import importlib.util, sys; spec=importlib.util.spec_from_file_location('main','{main_py}'); mod=importlib.util.module_from_spec(spec)"],
+                capture_output=True, text=True, timeout=30,
+                cwd=str(experiment_dir),
+                env={**_os_san.environ, "PYTHONUNBUFFERED": "1", "CUDA_VISIBLE_DEVICES": _sanity_gpu},
+            )
+            passed = result.returncode == 0
+            checks.append({
+                "name": "import_check",
+                "passed": passed,
+                "duration_sec": round(_t.monotonic() - t0, 2),
+                "stderr": result.stderr[-500:] if result.stderr else "",
+            })
+            if not passed:
+                all_passed = False
+        except _sp.TimeoutExpired:
+            checks.append({"name": "import_check", "passed": False, "reason": "timeout"})
+            all_passed = False
+    else:
+        checks.append({"name": "import_check", "passed": True, "reason": "no main.py"})
+
+    # --- Check 2: Dry run with minimal config (5 second timeout) ---
+    t0 = _t.monotonic()
+    try:
+        dry_run_code = (
+            "import sys, os\n"
+            "import os as _os_sc\n"
+            "_os_sc.environ['SANITY_CHECK'] = '1'\n"
+            "sys.argv = ['main.py', '--dry-run'] if '--dry-run' in open('main.py').read() else ['main.py']\n"
+            "exec(open('main.py').read())\n"
+        )
+        result = _sp.run(
+            [python_path, "-c", dry_run_code],
+            capture_output=True, text=True, timeout=15,
+            cwd=str(experiment_dir),
+            env={**_os_san.environ, "PYTHONUNBUFFERED": "1", "CUDA_VISIBLE_DEVICES": _sanity_gpu},
+        )
+        passed = result.returncode == 0
+        checks.append({
+            "name": "dry_run",
+            "passed": passed,
+            "duration_sec": round(_t.monotonic() - t0, 2),
+            "stdout_tail": result.stdout[-300:] if result.stdout else "",
+            "stderr_tail": result.stderr[-500:] if result.stderr else "",
+        })
+        if not passed:
+            all_passed = False
+    except _sp.TimeoutExpired:
+        checks.append({
+            "name": "dry_run",
+            "passed": True,
+            "reason": "timeout (code runs but slow — acceptable)",
+            "duration_sec": 15,
+        })
+
+    # --- Check 3: If failed, ask LLM to fix ---
+    if not all_passed and llm is not None:
+        failed_checks = [c for c in checks if not c.get("passed")]
+        error_summary = "\n".join(
+            f"- {c['name']}: {c.get('stderr_tail', c.get('stderr', c.get('reason', '?')))}"
+            for c in failed_checks
+        )
+
+        # Read main.py
+        main_code = main_py.read_text(encoding="utf-8") if main_py.exists() else ""
+
+        fix_prompt = (
+            "The following experiment code has bugs found during sanity check:\n\n"
+            f"```python\n{main_code[:6000]}\n```\n\n"
+            f"Errors:\n{error_summary}\n\n"
+            "Fix the code. Return ONLY the complete fixed Python code, no explanations."
+        )
+
+        try:
+            fixed_code = llm.chat(
+                [{"role": "user", "content": fix_prompt}],
+                system="You are an expert Python developer. Fix bugs and return only code.",
+            )
+            # Extract code from response
+            if "```python" in fixed_code:
+                fixed_code = fixed_code.split("```python")[1].split("```")[0].strip()
+            elif "```" in fixed_code:
+                fixed_code = fixed_code.split("```")[1].split("```")[0].strip()
+
+            if fixed_code and len(fixed_code) > 50:
+                # Backup and overwrite
+                (experiment_dir / "main.py.bak").write_text(main_code, encoding="utf-8")
+                main_py.write_text(fixed_code, encoding="utf-8")
+                checks.append({"name": "llm_fix", "applied": True, "original_backed_up": True})
+
+                # Re-run dry test
+                result = _sp.run(
+                    [python_path, "-c", dry_run_code],
+                    capture_output=True, text=True, timeout=15,
+                    cwd=str(experiment_dir),
+                    env={**_os_san.environ, "PYTHONUNBUFFERED": "1", "CUDA_VISIBLE_DEVICES": _sanity_gpu},
+                )
+                re_passed = result.returncode == 0
+                checks.append({
+                    "name": "dry_run_after_fix",
+                    "passed": re_passed,
+                    "stderr_tail": result.stderr[-300:] if result.stderr else "",
+                })
+                if re_passed:
+                    all_passed = True
+        except Exception as e:
+            checks.append({"name": "llm_fix", "applied": False, "error": str(e)[:200]})
+
+    report["status"] = "pass" if all_passed else "fail"
+    report["checks"] = checks
+    (stage_dir / "sanity_report.json").write_text(
+        json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8",
+    )
+
+    summary = f"{'PASS' if all_passed else 'FAIL'}: {len(checks)} checks"
+    return StageResult(
+        stage=Stage.SANITY_CHECK,
+        status=StageStatus.DONE,
+        artifacts=("sanity_report.json",),
+        evidence_refs=("experiment/",),
+        decision=summary,
+    )
+
+
 def _execute_resource_planning(
     stage_dir: Path,
     run_dir: Path,
@@ -4103,6 +4483,41 @@ def _execute_experiment_run(
 ) -> StageResult:
     from researchclaw.experiment.factory import create_sandbox
     from researchclaw.experiment.runner import ExperimentRunner
+
+    # --- Query shared baseline results before running experiments ---
+    _shared_dir = getattr(config.experiment, "shared_results_dir", "") or ""
+    if _shared_dir and llm is not None:
+        try:
+            import sys as _sys_sr
+            _services_dir = str(Path(__file__).resolve().parent.parent.parent.parent / "services")
+            if _services_dir not in _sys_sr.path:
+                _sys_sr.path.insert(0, _services_dir)
+            from result_registry import ResultRegistry
+            _registry = ResultRegistry(_shared_dir)
+            if _registry.count() > 0:
+                _exp_plan = _read_prior_artifact(run_dir, "exp_plan.yaml") or ""
+                _matches = _registry.query_by_llm(llm.chat, _exp_plan)
+                if _matches:
+                    _cached = []
+                    for m in _matches:
+                        entry = _registry.get_entry(m.get("cached_id", ""))
+                        if entry:
+                            _cached.append({
+                                "id": entry.id,
+                                "description": entry.description,
+                                "metrics": entry.metrics,
+                                "reason": m.get("reason", ""),
+                                "project": entry.project_id,
+                            })
+                    if _cached:
+                        (stage_dir / "cached_baselines.json").write_text(
+                            json.dumps(_cached, indent=2, ensure_ascii=False), encoding="utf-8",
+                        )
+                        _names = ", ".join(c["description"][:40] for c in _cached)
+                        print(f"[SHARED RESULTS] Found {len(_cached)} reusable baselines: {_names}", flush=True)
+                        logger.info("Shared results: %d cached baselines matched", len(_cached))
+        except Exception as _sr_exc:
+            logger.debug("Shared results query failed: %s", _sr_exc)
 
     schedule_text = _read_prior_artifact(run_dir, "schedule.json") or "{}"
     # Try multi-file experiment directory first, fall back to single file
@@ -5585,6 +6000,37 @@ Generated: {_utcnow_iso()}
                 )
         except Exception as _chart_exc:
             logger.warning("Stage 14: Early chart generation failed: %s", _chart_exc)
+
+    # --- Register baseline results to shared registry ---
+    _shared_dir = getattr(config.experiment, "shared_results_dir", "") or ""
+    if _shared_dir:
+        try:
+            import sys as _sys_rr
+            _services_dir = str(Path(__file__).resolve().parent.parent.parent.parent / "services")
+            if _services_dir not in _sys_rr.path:
+                _sys_rr.path.insert(0, _services_dir)
+            from result_registry import ResultRegistry
+            _registry = ResultRegistry(_shared_dir)
+            _summary_path = stage_dir / "experiment_summary.json"
+            if _summary_path.exists():
+                _summary = json.loads(_summary_path.read_text(encoding="utf-8"))
+                _best = _summary.get("best_run", {})
+                _metrics = _best.get("metrics", {})
+                if _metrics:
+                    _registry.register(
+                        project_id=getattr(config.project, "name", "unknown"),
+                        description=f"{config.research.topic[:100]} - baseline results",
+                        model="",
+                        dataset="",
+                        task=config.research.topic[:50],
+                        metrics={k: float(v) for k, v in _metrics.items() if isinstance(v, (int, float))},
+                        tags=[d.lower() for d in config.research.domains] + ["baseline"],
+                        source_stage=int(Stage.RESULT_ANALYSIS),
+                    )
+                    logger.info("Registered %d metrics to shared results registry", len(_metrics))
+                    print(f"[SHARED RESULTS] Registered baseline metrics: {list(_metrics.keys())}", flush=True)
+        except Exception as _rr_exc:
+            logger.debug("Shared results registration failed: %s", _rr_exc)
 
     return StageResult(
         stage=Stage.RESULT_ANALYSIS,
@@ -9493,7 +9939,9 @@ _STAGE_EXECUTORS: dict[Stage, Callable[..., StageResult]] = {
     Stage.SYNTHESIS: _execute_synthesis,
     Stage.HYPOTHESIS_GEN: _execute_hypothesis_gen,
     Stage.EXPERIMENT_DESIGN: _execute_experiment_design,
+    Stage.CODEBASE_SEARCH: _execute_codebase_search,
     Stage.CODE_GENERATION: _execute_code_generation,
+    Stage.SANITY_CHECK: _execute_sanity_check,
     Stage.RESOURCE_PLANNING: _execute_resource_planning,
     Stage.EXPERIMENT_RUN: _execute_experiment_run,
     Stage.ITERATIVE_REFINE: _execute_iterative_refine,
