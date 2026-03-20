@@ -226,6 +226,20 @@
 }
 .folder-arrow.open { transform: rotate(90deg); }
 .shelf-artifacts { display: flex; flex-direction: column; gap: 1px; }
+.artifact-row.clickable { cursor: pointer; }
+.artifact-row.clickable:hover .artifact-name { color: #60a5fa; }
+.artifact-expand {
+  font-size: 0.45rem; color: var(--text-muted); transition: transform 0.15s; flex-shrink: 0; margin-left: 2px;
+}
+.artifact-expand.open { transform: rotate(90deg); }
+.artifact-content {
+  background: var(--bg); border: 1px solid var(--border); border-radius: 4px;
+  padding: 4px 6px; margin: 2px 0 2px 16px; max-height: 200px; overflow-y: auto;
+}
+.artifact-content pre {
+  margin: 0; font-size: 0.58rem; line-height: 1.4; color: var(--text);
+  white-space: pre-wrap; word-break: break-word; font-family: monospace;
+}
 .artifact-row {
   display: flex; align-items: center; gap: 4px; font-size: 0.62rem;
   padding: 1px 4px; border-radius: 4px; animation: fadeIn 0.3s;

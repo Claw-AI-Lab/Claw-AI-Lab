@@ -235,10 +235,11 @@ export default function App() {
   const expDesignArt = useMemo(() => state.artifacts.filter((a) => a.repoId === 'exp_design'), [state.artifacts]);
   const codebaseArt = useMemo(() => state.artifacts.filter((a) => a.repoId === 'codebase'), [state.artifacts]);
   const resultsArt = useMemo(() => state.artifacts.filter((a) => a.repoId === 'results'), [state.artifacts]);
+  const insightsArt = useMemo(() => state.artifacts.filter((a) => a.repoId === 'insights'), [state.artifacts]);
   const artMap = useMemo(() => ({
     knowledge: knowledgeArt, exp_design: expDesignArt,
-    codebase: codebaseArt, results: resultsArt,
-  }), [knowledgeArt, expDesignArt, codebaseArt, resultsArt]);
+    codebase: codebaseArt, results: resultsArt, insights: insightsArt,
+  }), [knowledgeArt, expDesignArt, codebaseArt, resultsArt, insightsArt]);
 
   const workingCount = useMemo(() => state.agents.filter((a) => a.status === 'working').length, [state.agents]);
   const errorCount = useMemo(() => state.agents.filter((a) => a.status === 'error').length, [state.agents]);

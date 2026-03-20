@@ -50,18 +50,19 @@ class Stage(IntEnum):
     # Phase F: Analysis & Decision
     RESULT_ANALYSIS = 16
     RESEARCH_DECISION = 17
+    KNOWLEDGE_SUMMARY = 18   # Summarize findings into shared knowledge base
 
     # Phase G: Paper Writing
-    PAPER_OUTLINE = 18
-    PAPER_DRAFT = 19
-    PEER_REVIEW = 20
-    PAPER_REVISION = 21
+    PAPER_OUTLINE = 19
+    PAPER_DRAFT = 20
+    PEER_REVIEW = 21
+    PAPER_REVISION = 22
 
     # Phase H: Finalization
-    QUALITY_GATE = 22  # GATE
-    KNOWLEDGE_ARCHIVE = 23
-    EXPORT_PUBLISH = 24
-    CITATION_VERIFY = 25
+    QUALITY_GATE = 23  # GATE
+    KNOWLEDGE_ARCHIVE = 24
+    EXPORT_PUBLISH = 25
+    CITATION_VERIFY = 26
 
 
 class StageStatus(str, Enum):
@@ -167,7 +168,7 @@ PHASE_MAP: dict[str, tuple[Stage, ...]] = {
         Stage.RESOURCE_PLANNING,
     ),
     "E: Experiment Execution": (Stage.EXPERIMENT_RUN, Stage.ITERATIVE_REFINE),
-    "F: Analysis & Decision": (Stage.RESULT_ANALYSIS, Stage.RESEARCH_DECISION),
+    "F: Analysis & Decision": (Stage.RESULT_ANALYSIS, Stage.RESEARCH_DECISION, Stage.KNOWLEDGE_SUMMARY),
     "G: Paper Writing": (
         Stage.PAPER_OUTLINE,
         Stage.PAPER_DRAFT,

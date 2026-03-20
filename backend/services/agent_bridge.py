@@ -42,21 +42,21 @@ STAGE_TO_LAYER: dict[int, str] = {
     5: "idea", 6: "idea", 7: "idea", 8: "idea",
     9: "experiment",
     10: "coding", 11: "coding", 12: "coding", 13: "coding",
-    14: "execution", 15: "execution", 16: "execution", 17: "execution",
+    14: "execution", 15: "execution", 16: "execution", 17: "execution", 18: "execution",
 }
 
 LAYER_STAGES: dict[str, list[int]] = {
     "idea": [1, 2, 3, 4, 5, 6, 7, 8],
     "experiment": [9],
     "coding": [10, 11, 12, 13],  # S10 codebase + S11 codegen + S12 sanity + S13 resource
-    "execution": [14, 15, 16, 17],
+    "execution": [14, 15, 16, 17, 18],
 }
 
 LAYER_RANGE: dict[str, tuple[int, int]] = {
     "idea": (1, 8),
     "experiment": (9, 9),
     "coding": (10, 13),          # S10→S13
-    "execution": (14, 17),       # S14→S17
+    "execution": (14, 18),       # S14→S18
 }
 
 PASSTHROUGH_LAYERS: set[str] = set()
@@ -67,7 +67,7 @@ STAGE_NAMES: dict[int, str] = {
     7: "SYNTHESIS", 8: "HYPOTHESIS_GEN", 9: "EXPERIMENT_DESIGN",
     10: "CODEBASE_SEARCH", 11: "CODE_GENERATION", 12: "SANITY_CHECK",
     13: "RESOURCE_PLANNING", 14: "EXPERIMENT_RUN", 15: "ITERATIVE_REFINE",
-    16: "RESULT_ANALYSIS", 17: "RESEARCH_DECISION",
+    16: "RESULT_ANALYSIS", 17: "RESEARCH_DECISION", 18: "KNOWLEDGE_SUMMARY",
 }
 
 STAGE_OUTPUTS: dict[int, list[str]] = {
@@ -78,7 +78,7 @@ STAGE_OUTPUTS: dict[int, list[str]] = {
     11: ["experiment/", "experiment_spec.md"], 12: ["sanity_report.json"],
     13: ["schedule.json"], 14: ["runs/"],
     15: ["refinement_log.json", "experiment_final/"],
-    16: ["analysis.md", "experiment_summary.json", "charts/"], 17: ["decision.md"],
+    16: ["analysis.md", "experiment_summary.json", "charts/"], 17: ["decision.md"], 18: ["knowledge_entry.json"],
 }
 
 REPO_FOR_STAGE: dict[int, str] = {
@@ -86,7 +86,7 @@ REPO_FOR_STAGE: dict[int, str] = {
     5: "knowledge", 6: "knowledge", 7: "knowledge", 8: "knowledge",
     9: "exp_design",
     10: "codebase", 11: "codebase", 12: "codebase", 13: "codebase",
-    14: "results", 15: "results", 16: "results", 17: "results",
+    14: "results", 15: "results", 16: "results", 17: "results", 18: "insights",
 }
 
 # Queue names between layers
@@ -328,11 +328,14 @@ def msg_agent_update(agent: LobsterAgent) -> dict:
 def msg_stage_update(agent_id: str, stage: int, status: str) -> dict:
     return {"type": "stage_update", "payload": {"agentId": agent_id, "stage": stage, "status": status}}
 
-def msg_artifact(repo_id: str, filename: str, agent_name: str, size: str, project_id: str = "") -> dict:
-    return {"type": "artifact_produced", "payload": {
+def msg_artifact(repo_id: str, filename: str, agent_name: str, size: str, project_id: str = "", content: str = "") -> dict:
+    payload: dict = {
         "id": _uid(), "repoId": repo_id, "projectId": project_id, "filename": filename,
         "producedBy": agent_name, "timestamp": _now_ms(), "size": size, "status": "fresh",
-    }}
+    }
+    if content:
+        payload["content"] = content
+    return {"type": "artifact_produced", "payload": payload}
 
 def msg_log(agent: LobsterAgent, message: str, level: str = "info", stage: int | None = None) -> dict:
     return {"type": "log", "payload": {
@@ -368,8 +371,26 @@ def _sync_completed_stages(
                 if key not in agent._known_artifacts and artifact_path.exists():
                     agent._known_artifacts.add(key)
                     size = "dir" if artifact_path.is_dir() else f"{artifact_path.stat().st_size / 1024:.1f} KB"
+                    content = ""
+                    if expected.endswith(".json") and artifact_path.is_file() and REPO_FOR_STAGE.get(s) == "insights":
+                        try:
+                            _entry = json.loads(artifact_path.read_text(encoding="utf-8"))
+                            _parts = []
+                            if _entry.get("topic"): _parts.append(f"Topic: {_entry['topic']}")
+                            for c in (_entry.get("conclusions") or [])[:5]: _parts.append(f"  - {c}")
+                            if _entry.get("insights"):
+                                _parts.append("Insights:")
+                                for i in (_entry.get("insights") or [])[:3]: _parts.append(f"  * {i}")
+                            if _entry.get("suggested_directions"):
+                                _parts.append("Directions:")
+                                for d in (_entry.get("suggested_directions") or [])[:3]: _parts.append(f"  > {d}")
+                            if _entry.get("results"):
+                                _parts.append(f"Results: {json.dumps(_entry['results'])}")
+                            content = "\n".join(_parts)
+                        except Exception:
+                            pass
                     messages.append(msg_artifact(
-                        REPO_FOR_STAGE.get(s, "knowledge"), expected, agent.name, size, agent.project_id,
+                        REPO_FOR_STAGE.get(s, "knowledge"), expected, agent.name, size, agent.project_id, content,
                     ))
     return messages
 

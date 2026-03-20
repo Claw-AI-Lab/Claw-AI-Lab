@@ -7,6 +7,30 @@ interface Props {
   artifacts: Artifact[];
 }
 
+function ArtifactItem({ a }: { a: Artifact }) {
+  const [expanded, setExpanded] = useState(false);
+  const hasContent = !!a.content;
+
+  return (
+    <div className={`artifact-item status-${a.status}`}>
+      <div
+        className={`artifact-row ${hasContent ? 'clickable' : ''}`}
+        onClick={() => hasContent && setExpanded(!expanded)}
+      >
+        <span className="artifact-icon">{a.filename.endsWith('/') ? '📁' : hasContent ? (expanded ? '📖' : '📄') : '📄'}</span>
+        <span className="artifact-name">{a.filename}</span>
+        <span className="artifact-size">{a.size}</span>
+        {hasContent && <span className={`artifact-expand ${expanded ? 'open' : ''}`}>▶</span>}
+      </div>
+      {expanded && a.content && (
+        <div className="artifact-content">
+          <pre>{a.content}</pre>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function ProjectFolder({ pid, files }: { pid: string; files: Artifact[] }) {
   const [open, setOpen] = useState(false);
   return (
@@ -20,11 +44,7 @@ function ProjectFolder({ pid, files }: { pid: string; files: Artifact[] }) {
       {open && (
         <div className="shelf-artifacts">
           {files.map((a) => (
-            <div key={a.id} className={`artifact-row status-${a.status}`}>
-              <span className="artifact-icon">{a.filename.endsWith('/') ? '📁' : '📄'}</span>
-              <span className="artifact-name">{a.filename}</span>
-              <span className="artifact-size">{a.size}</span>
-            </div>
+            <ArtifactItem key={a.id} a={a} />
           ))}
         </div>
       )}

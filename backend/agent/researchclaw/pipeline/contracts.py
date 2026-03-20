@@ -158,7 +158,15 @@ CONTRACTS: dict[Stage, StageContract] = {
         input_files=("analysis.md",),
         output_files=("decision.md",),
         dod="PROCEED/PIVOT decision with evidence-based justification",
-        error_code="E15_DECISION_FAIL",
+        error_code="E17_DECISION_FAIL",
+    ),
+    Stage.KNOWLEDGE_SUMMARY: StageContract(
+        stage=Stage.KNOWLEDGE_SUMMARY,
+        input_files=("analysis.md", "decision.md", "exp_plan.yaml"),
+        output_files=("knowledge_entry.json",),
+        dod="Structured summary of findings written to shared knowledge base",
+        error_code="E18_KNOWLEDGE_SUMMARY_FAIL",
+        max_retries=1,
     ),
     # Phase G: Paper Writing
     Stage.PAPER_OUTLINE: StageContract(

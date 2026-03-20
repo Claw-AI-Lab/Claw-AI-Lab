@@ -18,6 +18,7 @@ export const RCStage = {
   ITERATIVE_REFINE: 15,
   RESULT_ANALYSIS: 16,
   RESEARCH_DECISION: 17,
+  KNOWLEDGE_SUMMARY: 18,
 } as const;
 
 export type RCStage = (typeof RCStage)[keyof typeof RCStage];
@@ -47,6 +48,7 @@ export const STAGE_META: Record<RCStage, StageMeta> = {
   15: { id: 15, name: '迭代优化',     key: 'ITERATIVE_REFINE',    outputs: ['refinement_log.json', 'experiment_final/'] },
   16: { id: 16, name: '结果分析',     key: 'RESULT_ANALYSIS',     outputs: ['analysis.md', 'experiment_summary.json', 'charts/'] },
   17: { id: 17, name: '研究决策',     key: 'RESEARCH_DECISION',   outputs: ['decision.md'] },
+  18: { id: 18, name: '知识归纳',     key: 'KNOWLEDGE_SUMMARY',   outputs: ['knowledge_entry.json'] },
 };
 
 // ===================== Pyramid Layer Definitions =====================
@@ -90,7 +92,7 @@ export const LAYER_META: Record<AgentLayer, LayerMeta> = {
     name: '第四层 · 执行与修正',
     color: '#ef4444',
     desc: 'Phase E→F: 实验执行 → 迭代优化 → 结果分析 → 决策',
-    stages: [14, 15, 16, 17],
+    stages: [14, 15, 16, 17, 18],
   },
 };
 
@@ -108,6 +110,7 @@ export const RepoId = {
   EXP_DESIGN: 'exp_design',
   CODEBASE: 'codebase',
   RESULTS: 'results',
+  INSIGHTS: 'insights',
 } as const;
 
 export type RepoId = (typeof RepoId)[keyof typeof RepoId];
@@ -154,6 +157,14 @@ export const REPO_META: Record<RepoId, RepoMeta> = {
     toLayer: null,
     artifacts: ['runs/', 'analysis.md', 'experiment_summary.json', 'charts/', 'decision.md'],
   },
+  [RepoId.INSIGHTS]: {
+    name: '知识库',
+    icon: '🧠',
+    desc: '跨项目研究结论、洞察、后续方向',
+    fromLayer: AgentLayer.EXECUTION,
+    toLayer: AgentLayer.IDEA,
+    artifacts: ['knowledge_entry.json'],
+  },
 };
 
 export const ALL_REPOS: readonly RepoId[] = [
@@ -161,6 +172,7 @@ export const ALL_REPOS: readonly RepoId[] = [
   RepoId.EXP_DESIGN,
   RepoId.CODEBASE,
   RepoId.RESULTS,
+  RepoId.INSIGHTS,
 ];
 
 // ===================== Agent & Runtime Types =====================
@@ -188,6 +200,7 @@ export interface Artifact {
   timestamp: number;
   size: string;
   status: 'fresh' | 'stale' | 'error';
+  content?: string;
 }
 
 export interface LogEntry {
