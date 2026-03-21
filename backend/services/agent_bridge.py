@@ -953,6 +953,28 @@ async def handle_command(state: BridgeState, data: dict) -> list[dict]:
         if agent:
             messages.extend(stop_agent(agent))
 
+    elif cmd == "inject_task":
+        _queue_name = data.get("queue", "execution_to_writing")
+        _proj_id = data.get("projectId", f"inject-{_uid()}")
+        _run_dir = data.get("runDir", str(state.projects_dir() / _proj_id))
+        _config = data.get("configPath", "")
+        _topic = data.get("topic", "")
+        os.makedirs(_run_dir, exist_ok=True)
+        if _queue_name in state.queues:
+            _, tgt = QUEUE_NAMES.get(_queue_name, ("", ""))
+            _t = Task(id=f"task-{_uid()}", project_id=_proj_id, run_dir=_run_dir,
+                      config_path=_config, topic=_topic,
+                      source_layer="inject", target_layer=tgt or "writing",
+                      created_at=_now_ms())
+            state.queues[_queue_name].push(_t)
+            sys_a = LobsterAgent(id="system", name="系统", layer="idea", run_id="", run_dir="", config_path="")
+            messages.append(msg_log(sys_a, f"注入任务 [{_proj_id}] → {_queue_name} 队列", "info"))
+            messages.append(msg_queue_update(state.queues))
+            messages.extend(schedule_idle_agents(state))
+        else:
+            sys_a = LobsterAgent(id="system", name="系统", layer="idea", run_id="", run_dir="", config_path="")
+            messages.append(msg_log(sys_a, f"队列 {_queue_name} 不存在", "error"))
+
     elif cmd == "get_queues":
         messages.append(msg_queue_update(state.queues))
 

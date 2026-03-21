@@ -150,6 +150,7 @@ class SecurityConfig:
 class SandboxConfig:
     python_path: str = ".venv/bin/python3"
     gpu_required: bool = False
+    network_policy: str = "full"
     allowed_imports: tuple[str, ...] = (
         "math",
         "random",

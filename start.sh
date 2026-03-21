@@ -15,7 +15,8 @@ mkdir -p "$LOG" "$PIDF"
 
 G='\033[0;32m'; R='\033[0;31m'; Y='\033[0;33m'; N='\033[0m'
 
-IDEA_COUNT=5
+# 禁用idea factory
+IDEA_COUNT=
 IDEA_TOPIC="Training-free image generation using attention manipulation"
 IDEA_CONFIG="/home/user/PyramidResearchTeam/backend/agent/config_gpu_project.yaml"
 
@@ -42,7 +43,7 @@ do_start() {
             --port 8766 --python "$PY" \
             --agent-dir "$BASE/backend/agent" \
             --runs-dir "$BASE/backend/runs" \
-            --pool-idea 1 --pool-exp 1 --pool-code 1 --pool-exec 1 --pool-write 1 \
+            --pool-idea 2 --pool-exp 2 --pool-code 3 --pool-exec 4 --pool-write 4 \
             --total-gpus 8 --gpus-per-project 1 \
             ${AUTO_LOOP:+--auto-loop} \
             ${IDEA_COUNT:+--idea-count $IDEA_COUNT} \

@@ -3139,8 +3139,20 @@ def _execute_code_generation(
             else:
                 pkg_extras = _base_pkgs + ", and additional pip-installable packages (auto-detected from imports)"
         else:
-            pkg_prefix = "sandbox mode"
-            pkg_extras = ""
+            pkg_prefix = "sandbox mode (local subprocess — full filesystem access)"
+            _sandbox_net = getattr(config.experiment.sandbox, "network_policy", "full")
+            _base_pkgs_sb = (
+                ", torchvision, torchaudio, matplotlib, seaborn, scipy, "
+                "tqdm, gymnasium, networkx, PyYAML, Pillow, "
+                "transformers, datasets, accelerate, peft, bitsandbytes, "
+                "timm, einops, torchmetrics, h5py, diffusers, safetensors, huggingface_hub"
+            )
+            if _sandbox_net == "full":
+                pkg_extras = _base_pkgs_sb + ", and any pip-installable packages"
+            elif _sandbox_net == "none":
+                pkg_extras = _base_pkgs_sb + " (ONLY pre-installed packages — NO pip install available)"
+            else:
+                pkg_extras = _base_pkgs_sb
         if hw_profile and hw_profile.get("has_gpu"):
             gpu_type = hw_profile.get("gpu_type", "cuda")
             gpu_name = hw_profile.get("gpu_name", "GPU")
@@ -3237,9 +3249,20 @@ def _execute_code_generation(
         _os_dp.makedirs(_codebases_dir, exist_ok=True)
         _existing_repos = [d for d in _os_dp.listdir(_codebases_dir) if _os_dp.path.isdir(_os_dp.path.join(_codebases_dir, d)) and not d.startswith(".")] if _os_dp.path.isdir(_codebases_dir) else []
         if _existing_repos:
+            from researchclaw.utils.codebase_manifest import generate_manifest, manifest_to_prompt
             _data_paths_block += f"### Codebases Directory: `{_codebases_dir}`\n"
-            _data_paths_block += f"Available repos: {', '.join(_existing_repos)}\n"
-            _data_paths_block += "Import or reference code from these repos. Add to sys.path if needed: `sys.path.insert(0, '<repo_path>')`\n"
+            _data_paths_block += (
+                "**CRITICAL**: You MUST build your experiment code ON TOP of these existing codebases. "
+                "Do NOT write everything from scratch. Import, extend, or wrap the existing code.\n\n"
+            )
+            for _repo_name in _existing_repos:
+                _repo_path = _os_dp.path.join(_codebases_dir, _repo_name)
+                try:
+                    _manifest = generate_manifest(_repo_path)
+                    _data_paths_block += manifest_to_prompt(_manifest) + "\n\n"
+                except Exception as _e:
+                    _data_paths_block += f"#### Codebase: `{_repo_name}` (manifest generation failed: {_e})\n"
+                    _data_paths_block += f"Path: `{_repo_path}` — add to sys.path and explore manually.\n\n"
             _data_paths_block += f"In code: `CODEBASES_DIR = '{_codebases_dir}'`\n\n"
             _has_data_paths = True
 
@@ -3252,7 +3275,7 @@ def _execute_code_generation(
         _net_policy = (
             config.experiment.docker.network_policy
             if config.experiment.mode == "docker"
-            else "none"  # sandbox mode has no network
+            else getattr(config.experiment.sandbox, "network_policy", "full")
         )
         if _net_policy == "none":
             # Network disabled: inject strict offline-only guidance
@@ -3261,6 +3284,11 @@ def _execute_code_generation(
             except Exception:  # noqa: BLE001
                 pass
         elif _net_policy == "full":
+            if config.experiment.mode == "sandbox":
+                try:
+                    extra_guidance += _pm.block("sandbox_local_guidance")
+                except Exception:  # noqa: BLE001
+                    pass
             try:
                 extra_guidance += _pm.block("dataset_guidance")
                 extra_guidance += _pm.block("network_full_guidance")
@@ -7456,6 +7484,48 @@ def _execute_paper_draft(
     prompts: PromptManager | None = None,
 ) -> StageResult:
     outline = _read_prior_artifact(run_dir, "outline.md") or ""
+
+    # ── SHORT paper fast-path: skip heavy validation, single LLM call ──
+    _paper_len = getattr(config.experiment, "paper_length", "") or "full"
+    if _paper_len == "short" and llm is not None:
+        preamble = _build_context_preamble(
+            config, run_dir, include_analysis=True, include_experiment_data=True,
+        )
+        analysis = _read_prior_artifact(run_dir, "analysis.md") or ""
+        exp_summary_text = _read_prior_artifact(run_dir, "experiment_summary.json") or ""
+        _extra = ""
+        if exp_summary_text:
+            _extra = f"\n\nExperiment Summary JSON:\n```json\n{exp_summary_text[:3000]}\n```\n"
+        _short_user = (
+            f"{preamble}\n\n{_extra}\n\nOutline:\n{outline}\n\n"
+            "Write a SHORT WORKSHOP PAPER (2-3 pages, ~1500-2000 words total) "
+            "in markdown. Include these sections:\n"
+            "1. **Title** (catchy, <=14 words)\n"
+            "2. **Abstract** (100-150 words)\n"
+            "3. **Introduction** (300-400 words): motivation, gap, approach, contributions\n"
+            "4. **Method** (300-400 words): concise method description\n"
+            "5. **Experiments** (300-400 words): setup, results with real numbers from data above\n"
+            "6. **Conclusion** (100-150 words)\n\n"
+            "Use ## headers. Be concise and direct. "
+            "Do NOT include a References section. "
+            "Start DIRECTLY with '## Title'."
+        )
+        _short_sys = (
+            "You are an academic writer producing a concise short/workshop paper. "
+            "Use formal academic tone. Report only real experimental numbers."
+        )
+        resp = _chat_with_prompt(llm, _short_sys, _short_user, max_tokens=4000)
+        draft = resp.content
+        logger.info("Stage 20: Short paper mode — single LLM call (%d words)", len(draft.split()))
+        (stage_dir / "paper_draft.md").write_text(draft, encoding="utf-8")
+        return StageResult(
+            stage=Stage.PAPER_DRAFT,
+            status=StageStatus.DONE,
+            artifacts=("paper_draft.md",),
+            evidence_refs=("stage-20/paper_draft.md",),
+        )
+    # ── END short fast-path ──
+
     preamble = _build_context_preamble(
         config,
         run_dir,
@@ -8129,7 +8199,7 @@ def _execute_paper_draft(
         ref_match = ref_pattern.search(draft)
         if ref_match:
             draft = draft[:ref_match.start()].rstrip()
-            logger.info("Stage 17: Stripped LLM-generated References section (R7 fix)")
+            logger.info("Stage 20: Stripped LLM-generated References section (R7 fix)")
     else:
         # Build template with real data if available
         results_section = "Template results summary."

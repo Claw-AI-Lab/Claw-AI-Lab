@@ -39,9 +39,10 @@ llm:
   base_url: "https://api.vectorengine.ai/v1"
   api_key: "sk-QLo52KgqSRHiI3H3JydKzJJJw4W0URzsNnGy8d3QB1yYtFqM"
   api_key_env: "RESEARCHCLAW_API_KEY"
-  primary_model: "gpt-4o"
+  primary_model: "gpt-5.4"
   coding_model: "claude-opus-4-6"
   fallback_models:
+    - "gpt-4o"
     - "gpt-4.1"
 
 security:
@@ -59,11 +60,12 @@ experiment:
   checkpoints_dir: "/home/user/PyramidResearchTeam/backend/checkpoints"
   codebases_dir: "/home/user/PyramidResearchTeam/backend/codebases"
   shared_results_dir: "/home/user/PyramidResearchTeam/backend/shared_results"
-  paper_length: "short"   # short (2-3 pages) | medium (5-6 pages) | full (8+ pages NeurIPS style)
+  paper_length: "medium"  # short (2-3 pages) | medium (5-6 pages) | full (8+ pages NeurIPS style)
   sandbox:
     python_path: "/home/user/miniforge3/bin/python3"
     gpu_required: true
-    gpus_per_project: 2
+    network_policy: "full"
+    gpus_per_project: 1
     max_memory_mb: 16384
     allowed_imports:
       - "numpy"

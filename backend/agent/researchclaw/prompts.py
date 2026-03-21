@@ -507,6 +507,26 @@ _DEFAULT_BLOCKS: dict[str, str] = {
         "throughout ALL execution phases (setup, pip install, and main experiment).\n"
         "You may download datasets, install packages, and make HTTP requests at any time.\n"
     ),
+    "sandbox_local_guidance": (
+        "\n## 🖥️ LOCAL SANDBOX ENVIRONMENT — FULL ACCESS\n"
+        "This experiment runs as a **local Python subprocess** with FULL access to:\n"
+        "- **Local filesystem**: read/write any path, including codebases/ and datasets/ directories\n"
+        "- **Pre-installed packages**: torch, torchvision, torchaudio, diffusers, transformers,\n"
+        "  accelerate, safetensors, huggingface_hub, numpy, scipy, sklearn, matplotlib, pandas,\n"
+        "  seaborn, tqdm, Pillow, timm, einops, torchmetrics, h5py, peft, bitsandbytes, datasets\n"
+        "- **GPU acceleration**: CUDA is available, use `torch.device('cuda')`\n"
+        "- **Network access**: pip install and HTTP downloads are allowed if needed\n\n"
+        "### CRITICAL RULES:\n"
+        "1. **USE REAL FRAMEWORKS** — import torch, diffusers, transformers etc. Do NOT simulate\n"
+        "   with numpy. Generate REAL model training/inference code.\n"
+        "2. **USE PROVIDED CODEBASES** — if codebases are listed above, you MUST import and\n"
+        "   build upon them. Add the codebase path to sys.path and import its modules.\n"
+        "3. **USE PROVIDED DATASETS** — if dataset paths are listed above, load data from those\n"
+        "   paths. Do NOT generate synthetic/random data when real data is available.\n"
+        "4. **NEVER write numpy-only simulation code** when torch/diffusers/transformers are\n"
+        "   available and the task requires deep learning.\n"
+        "5. If a codebase provides a training pipeline, EXTEND it rather than rewriting from scratch.\n"
+    ),
     "hp_reporting": (
         "\n## Hyperparameter Reporting (MANDATORY)\n"
         "At the TOP of main.py, define a HYPERPARAMETERS dictionary containing ALL "
