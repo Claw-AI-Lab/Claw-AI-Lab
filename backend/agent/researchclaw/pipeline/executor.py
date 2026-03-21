@@ -3024,6 +3024,27 @@ def _execute_codebase_search(
         f"{exp_plan}"
     )
 
+    import json as _json
+    import os as _os_s10
+
+    candidates: list[dict] = []
+
+    # ── Phase 1: Index LOCAL codebases already on disk ────────────────
+    _local_codebases_dir = getattr(config.experiment, "codebases_dir", "") or ""
+    if _local_codebases_dir and _os_s10.path.isdir(_local_codebases_dir):
+        for name in sorted(_os_s10.listdir(_local_codebases_dir)):
+            full = _os_s10.path.join(_local_codebases_dir, name)
+            if _os_s10.path.isdir(full) and not name.startswith("."):
+                candidates.append({
+                    "repo_url": f"local://{full}",
+                    "description": f"Local codebase: {name}",
+                    "usability": "direct",
+                    "key_files": [],
+                    "local_path": full,
+                    "download_status": "success",
+                })
+
+    # ── Phase 2: LLM-based GitHub search ──────────────────────────────
     try:
         response = llm.chat(
             [{"role": "user", "content": search_prompt}],
@@ -3031,18 +3052,16 @@ def _execute_codebase_search(
             json_mode=True,
         )
 
-        import json as _json
         try:
-            candidates = _json.loads(response)
-            if not isinstance(candidates, list):
-                candidates = []
+            remote_candidates = _json.loads(response.content)
+            if not isinstance(remote_candidates, list):
+                remote_candidates = []
         except _json.JSONDecodeError:
-            candidates = []
+            remote_candidates = []
 
-        # Attempt to clone 'direct' usability repos
         codebase_dir = stage_dir / "codebases"
         codebase_dir.mkdir(exist_ok=True)
-        for i, cand in enumerate(candidates):
+        for i, cand in enumerate(remote_candidates):
             url = cand.get("repo_url", "")
             usability = cand.get("usability", "reference")
             if usability == "direct" and url and "github.com" in url:
@@ -3062,18 +3081,22 @@ def _execute_codebase_search(
                     cand["download_status"] = f"error: {e}"
             else:
                 cand["download_status"] = "skipped"
-
-        output = _json.dumps(candidates, indent=2, ensure_ascii=False)
-        (stage_dir / "codebase_candidates.json").write_text(output, encoding="utf-8")
-
-        n_direct = sum(1 for c in candidates if c.get("download_status") == "success")
-        n_total = len(candidates)
-        summary = f"Found {n_total} candidates, {n_direct} downloaded"
+        candidates.extend(remote_candidates)
 
     except Exception as e:
-        # Non-blocking: if search fails, produce empty list so code gen proceeds from scratch
+        logger.warning("LLM codebase search failed: %s", e)
+
+    # ── Phase 3: Persist results ──────────────────────────────────────
+    try:
+        output = _json.dumps(candidates, indent=2, ensure_ascii=False)
+        (stage_dir / "codebase_candidates.json").write_text(output, encoding="utf-8")
+    except Exception:
         (stage_dir / "codebase_candidates.json").write_text("[]", encoding="utf-8")
-        summary = f"Search failed ({e}), proceeding without codebase"
+
+    n_local = sum(1 for c in candidates if str(c.get("repo_url", "")).startswith("local://"))
+    n_remote = sum(1 for c in candidates if c.get("download_status") == "success") - n_local
+    n_total = len(candidates)
+    summary = f"Found {n_total} candidates ({n_local} local, {n_remote} remote downloaded)"
 
     return StageResult(
         stage=Stage.CODEBASE_SEARCH,
@@ -3434,6 +3457,38 @@ def _execute_code_generation(
             logger.info("Injected domain-specific guidance for %s", _dp.domain_id)
     except Exception:  # noqa: BLE001
         logger.debug("Domain guidance injection skipped", exc_info=True)
+
+    # --- PRIORITY OVERRIDE: Local data paths trump BenchmarkAgent selections ---
+    if _has_data_paths:
+        _override = "\n\n## ⚠️ MANDATORY DATA OVERRIDE (HIGHEST PRIORITY)\n"
+        _override += (
+            "**The LOCAL DATA PATHS listed above OVERRIDE any dataset/checkpoint "
+            "selections from BenchmarkAgent or other sections.**\n\n"
+            "Specifically:\n"
+        )
+        if _datasets_dir and _os_dp.path.isdir(_datasets_dir):
+            _local_ds = [d for d in _os_dp.listdir(_datasets_dir) if not d.startswith(".")]
+            if _local_ds:
+                _override += (
+                    f"- **Datasets**: Use ONLY the datasets in `{_datasets_dir}` "
+                    f"({', '.join(_local_ds)}). Do NOT download CelebA, CIFAR, "
+                    f"ImageNet, or any other external dataset. Load data directly "
+                    f"from the local directory.\n"
+                )
+        if _checkpoints_dir and _os_dp.path.isdir(_checkpoints_dir):
+            _local_ck = [f for f in _os_dp.listdir(_checkpoints_dir) if not f.startswith(".")]
+            if _local_ck:
+                _override += (
+                    f"- **Checkpoints**: Use ONLY the checkpoints in `{_checkpoints_dir}` "
+                    f"({', '.join(_local_ck)}). Load model weights from this local "
+                    f"directory. Do NOT download from HuggingFace Hub.\n"
+                )
+        _override += (
+            "\nIf BenchmarkAgent above suggests a different dataset (e.g. CelebA), "
+            "**IGNORE that suggestion** and adapt the experiment design to work with "
+            "the local data instead. The local data is already on disk and ready to use.\n"
+        )
+        extra_guidance += _override
 
     # --- Code generation: Beast Mode → CodeAgent → Legacy single-shot ---
     _code_agent_active = False
@@ -4303,11 +4358,14 @@ def _execute_sanity_check(
     llm: "LLMClient | None" = None,
     **kwargs: object,
 ) -> StageResult:
-    """Quick smoke test: import check + minimal run of the generated code.
+    """Phased sanity check with iterative LLM-driven fix loop.
 
-    Runs the experiment code with a tiny subset / dry-run flag to catch
-    import errors, shape mismatches, and obvious crashes BEFORE committing
-    to resource planning and full execution.
+    Runs 4 mini-tests in order: (1) import, (2) data loading,
+    (3) checkpoint loading + metric calc, (4) end-to-end mini run.
+    On failure, the coding model receives ALL relevant source files and
+    the error, produces targeted patches, and the test is re-run.
+    Loops up to ``max_fix_iterations`` (default 3, configurable via
+    ``config.experiment.sanity_check_max_iterations``).
     """
     import os as _os_san
     import subprocess as _sp
@@ -4336,131 +4394,346 @@ def _execute_sanity_check(
         )
 
     python_path = config.experiment.sandbox.python_path or "python3"
-    report: dict[str, object] = {"status": "pending", "checks": []}
-    checks: list[dict[str, object]] = []
-    all_passed = True
+    max_fix_iters = int(getattr(config.experiment, "sanity_check_max_iterations", 3))
+    report: dict[str, object] = {"status": "pending", "max_fix_iterations": max_fix_iters}
+    all_iterations: list[dict[str, object]] = []
 
-    # --- Check 1: Import check (syntax + dependencies) ---
-    main_py = experiment_dir / "main.py"
-    if main_py.exists():
-        t0 = _t.monotonic()
+    env_base = {**_os_san.environ, "PYTHONUNBUFFERED": "1", "CUDA_VISIBLE_DEVICES": _sanity_gpu}
+
+    # ── Helpers ────────────────────────────────────────────────────────────
+
+    def _read_all_sources() -> dict[str, str]:
+        """Read every .py file in the experiment directory."""
+        sources: dict[str, str] = {}
+        for py_file in sorted(experiment_dir.glob("*.py")):
+            try:
+                sources[py_file.name] = py_file.read_text(encoding="utf-8")
+            except OSError:
+                pass
+        return sources
+
+    def _run_snippet(code: str, timeout: int = 60) -> tuple[bool, str, str]:
+        """Run a Python snippet, return (passed, stdout_tail, stderr_tail)."""
         try:
-            result = _sp.run(
-                [python_path, "-c", f"import importlib.util, sys; spec=importlib.util.spec_from_file_location('main','{main_py}'); mod=importlib.util.module_from_spec(spec)"],
-                capture_output=True, text=True, timeout=30,
-                cwd=str(experiment_dir),
-                env={**_os_san.environ, "PYTHONUNBUFFERED": "1", "CUDA_VISIBLE_DEVICES": _sanity_gpu},
+            r = _sp.run(
+                [python_path, "-c", code],
+                capture_output=True, text=True, timeout=timeout,
+                cwd=str(experiment_dir), env=env_base,
             )
-            passed = result.returncode == 0
-            checks.append({
-                "name": "import_check",
-                "passed": passed,
-                "duration_sec": round(_t.monotonic() - t0, 2),
-                "stderr": result.stderr[-500:] if result.stderr else "",
-            })
-            if not passed:
-                all_passed = False
+            return (
+                r.returncode == 0,
+                (r.stdout or "")[-500:],
+                (r.stderr or "")[-1000:],
+            )
         except _sp.TimeoutExpired:
-            checks.append({"name": "import_check", "passed": False, "reason": "timeout"})
-            all_passed = False
-    else:
-        checks.append({"name": "import_check", "passed": True, "reason": "no main.py"})
+            return True, "", "timeout (code runs but slow — acceptable)"
 
-    # --- Check 2: Dry run with minimal config (5 second timeout) ---
-    t0 = _t.monotonic()
-    try:
-        dry_run_code = (
-            "import sys, os\n"
-            "import os as _os_sc\n"
-            "_os_sc.environ['SANITY_CHECK'] = '1'\n"
-            "sys.argv = ['main.py', '--dry-run'] if '--dry-run' in open('main.py').read() else ['main.py']\n"
-            "exec(open('main.py').read())\n"
-        )
-        result = _sp.run(
-            [python_path, "-c", dry_run_code],
-            capture_output=True, text=True, timeout=15,
-            cwd=str(experiment_dir),
-            env={**_os_san.environ, "PYTHONUNBUFFERED": "1", "CUDA_VISIBLE_DEVICES": _sanity_gpu},
-        )
-        passed = result.returncode == 0
-        checks.append({
-            "name": "dry_run",
-            "passed": passed,
-            "duration_sec": round(_t.monotonic() - t0, 2),
-            "stdout_tail": result.stdout[-300:] if result.stdout else "",
-            "stderr_tail": result.stderr[-500:] if result.stderr else "",
-        })
-        if not passed:
-            all_passed = False
-    except _sp.TimeoutExpired:
-        checks.append({
-            "name": "dry_run",
-            "passed": True,
-            "reason": "timeout (code runs but slow — acceptable)",
-            "duration_sec": 15,
-        })
+    # ── Mini-test definitions ─────────────────────────────────────────────
+    # Each test is (name, code_snippet, timeout_sec).  Tests run in order;
+    # later tests depend on earlier ones passing.
 
-    # --- Check 3: If failed, ask LLM to fix ---
-    if not all_passed and llm is not None:
-        failed_checks = [c for c in checks if not c.get("passed")]
-        error_summary = "\n".join(
-            f"- {c['name']}: {c.get('stderr_tail', c.get('stderr', c.get('reason', '?')))}"
-            for c in failed_checks
-        )
+    _mini_tests: list[tuple[str, str, int]] = [
+        (
+            "import_check",
+            (
+                "import sys, os, glob, importlib\n"
+                "sys.path.insert(0, '.')\n"
+                "py_files = sorted(glob.glob('*.py'))\n"
+                "print(f'  found {len(py_files)} .py files: {py_files}')\n"
+                "for fname in py_files:\n"
+                "    mod_name = fname[:-3]\n"
+                "    if mod_name.startswith('_'):\n"
+                "        continue\n"
+                "    print(f'  importing {mod_name} ...')\n"
+                "    importlib.import_module(mod_name)\n"
+                "print('IMPORT_OK')\n"
+            ),
+            60,
+        ),
+        (
+            "data_loading",
+            (
+                "import sys, os, glob, importlib, torch\n"
+                "sys.path.insert(0, '.')\n"
+                "# Auto-discover data loading from any module\n"
+                "loader_names = ['load_freecustom_splits', 'load_celeba_splits',\n"
+                "                'load_splits', 'get_datasets', 'load_data',\n"
+                "                'load_dataset', 'prepare_data', 'get_dataloaders']\n"
+                "loader = None\n"
+                "loader_mod = None\n"
+                "for fname in sorted(glob.glob('*.py')):\n"
+                "    mod_name = fname[:-3]\n"
+                "    if mod_name.startswith('_') or mod_name == 'setup':\n"
+                "        continue\n"
+                "    try:\n"
+                "        mod = importlib.import_module(mod_name)\n"
+                "    except Exception:\n"
+                "        continue\n"
+                "    for ln in loader_names:\n"
+                "        fn = getattr(mod, ln, None)\n"
+                "        if callable(fn):\n"
+                "            loader = fn\n"
+                "            loader_mod = mod_name\n"
+                "            break\n"
+                "    if loader:\n"
+                "        break\n"
+                "if loader is None:\n"
+                "    # If no standard loader, check if datasets dir is referenced\n"
+                "    datasets_dir = os.environ.get('DATASETS_DIR', '')\n"
+                "    if datasets_dir and os.path.isdir(datasets_dir):\n"
+                "        print(f'  No loader func found, but datasets dir exists: {datasets_dir}')\n"
+                "        print(f'  contents: {os.listdir(datasets_dir)[:5]}')\n"
+                "        print('DATA_LOAD_OK')\n"
+                "    else:\n"
+                "        print('  No data loader found, skipping (will test in e2e)')\n"
+                "        print('DATA_LOAD_OK')\n"
+                "else:\n"
+                "    print(f'  found loader: {loader_mod}.{loader.__name__}')\n"
+                "    result = loader()\n"
+                "    if isinstance(result, dict):\n"
+                "        for k, v in result.items():\n"
+                "            print(f'  split={k} len={len(v) if hasattr(v, \"__len__\") else \"?\"}')\n"
+                "    else:\n"
+                "        print(f'  result type={type(result).__name__}')\n"
+                "    print('DATA_LOAD_OK')\n"
+            ),
+            60,
+        ),
+        (
+            "checkpoint_and_metrics",
+            (
+                "import sys, os, glob, importlib, torch\n"
+                "sys.path.insert(0, '.')\n"
+                "device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')\n"
+                "print(f'  device={device}')\n"
+                "# Scan all modules for CLIP/metric loading functions\n"
+                "clip_loaders = ['load_clip_bundle', 'load_clip', 'get_clip_model']\n"
+                "metric_fns = ['compute_metrics', 'calculate_metrics', 'eval_metrics']\n"
+                "vae_fns = ['load_vae', 'get_vae', 'load_model']\n"
+                "found_any = False\n"
+                "for fname in sorted(glob.glob('*.py')):\n"
+                "    mod_name = fname[:-3]\n"
+                "    if mod_name.startswith('_') or mod_name == 'setup':\n"
+                "        continue\n"
+                "    try:\n"
+                "        mod = importlib.import_module(mod_name)\n"
+                "    except Exception:\n"
+                "        continue\n"
+                "    for fn_name in clip_loaders:\n"
+                "        fn = getattr(mod, fn_name, None)\n"
+                "        if callable(fn):\n"
+                "            print(f'  calling {mod_name}.{fn_name}(device)...')\n"
+                "            result = fn(device)\n"
+                "            print(f'  → {type(result).__name__}')\n"
+                "            found_any = True\n"
+                "            break\n"
+                "    for fn_name in vae_fns:\n"
+                "        fn = getattr(mod, fn_name, None)\n"
+                "        if callable(fn):\n"
+                "            try:\n"
+                "                print(f'  calling {mod_name}.{fn_name}(device)...')\n"
+                "                result = fn(device)\n"
+                "                print(f'  → {type(result).__name__}')\n"
+                "                found_any = True\n"
+                "            except Exception as e:\n"
+                "                print(f'  → skipped: {e}')\n"
+                "            break\n"
+                "# Check checkpoints dir\n"
+                "ckpt_dir = os.environ.get('CHECKPOINTS_DIR', '/home/user/PyramidResearchTeam/backend/checkpoints')\n"
+                "if os.path.isdir(ckpt_dir):\n"
+                "    print(f'  checkpoints dir: {os.listdir(ckpt_dir)[:5]}')\n"
+                "    found_any = True\n"
+                "if not found_any:\n"
+                "    print('  No checkpoint/metric loaders found, will test in e2e')\n"
+                "print('CKPT_METRICS_OK')\n"
+            ),
+            90,
+        ),
+        (
+            "mini_e2e_run",
+            (
+                "import sys, os\n"
+                "os.environ['SANITY_CHECK'] = '1'\n"
+                "sys.path.insert(0, '.')\n"
+                "sys.argv = ['main.py']\n"
+                "exec(open('main.py').read())\n"
+                "print('E2E_RUN_OK')\n"
+            ),
+            120,
+        ),
+    ]
 
-        # Read main.py
-        main_code = main_py.read_text(encoding="utf-8") if main_py.exists() else ""
+    # ── LLM fix helper ────────────────────────────────────────────────────
+
+    def _ask_llm_fix(
+        test_name: str,
+        test_code: str,
+        stderr: str,
+        sources: dict[str, str],
+        iteration: int,
+    ) -> list[dict[str, str]]:
+        """Ask the coding model to fix files.  Returns list of {file, code}."""
+        if llm is None:
+            return []
+
+        source_block = ""
+        for fname, code in sources.items():
+            source_block += f"\n### {fname}\n```python\n{code[:4000]}\n```\n"
 
         fix_prompt = (
-            "The following experiment code has bugs found during sanity check:\n\n"
-            f"```python\n{main_code[:6000]}\n```\n\n"
-            f"Errors:\n{error_summary}\n\n"
-            "Fix the code. Return ONLY the complete fixed Python code, no explanations."
+            f"## Sanity Check Failure (iteration {iteration + 1}/{max_fix_iters})\n\n"
+            f"**Failed test:** `{test_name}`\n\n"
+            f"**Test code that was executed:**\n```python\n{test_code}\n```\n\n"
+            f"**Error output (stderr tail):**\n```\n{stderr[-2000:]}\n```\n\n"
+            f"## All source files in the experiment directory:\n{source_block}\n\n"
+            "## Instructions\n"
+            "Analyze the error and fix the RELEVANT source file(s).\n"
+            "Return ONE OR MORE file blocks in this exact format:\n\n"
+            "### FILENAME.py\n"
+            "```python\n"
+            "...complete fixed file content...\n"
+            "```\n\n"
+            "Rules:\n"
+            "- Return the COMPLETE file content for each file you modify.\n"
+            "- Do NOT change files that are not related to the error.\n"
+            "- Do NOT change function signatures or class APIs unless necessary to fix the bug.\n"
+            "- Do NOT add new dependencies that are not already imported.\n"
+            "- Focus on the specific error; do not refactor or restructure.\n"
         )
 
         try:
-            _fix_resp = llm.chat(
+            coding_model = getattr(config.llm, "coding_model", "") or None
+            resp = llm.chat(
                 [{"role": "user", "content": fix_prompt}],
-                system="You are an expert Python developer. Fix bugs and return only code.",
+                system=(
+                    "You are an expert Python ML engineer. "
+                    "Fix the exact bug described.  Return only the fixed file(s) "
+                    "in the requested format.  No explanations outside code blocks."
+                ),
+                model=coding_model,
+                max_tokens=16384,
             )
-            fixed_code = _fix_resp.content if hasattr(_fix_resp, 'content') else str(_fix_resp)
-            # Extract code from response
-            if "```python" in fixed_code:
-                fixed_code = fixed_code.split("```python")[1].split("```")[0].strip()
-            elif "```" in fixed_code:
-                fixed_code = fixed_code.split("```")[1].split("```")[0].strip()
+            raw = resp.content if hasattr(resp, "content") else str(resp)
+        except Exception as exc:
+            logger.warning("SANITY_CHECK: LLM fix call failed: %s", exc)
+            return []
 
-            if fixed_code and len(fixed_code) > 50:
-                # Backup and overwrite
-                (experiment_dir / "main.py.bak").write_text(main_code, encoding="utf-8")
-                main_py.write_text(fixed_code, encoding="utf-8")
-                checks.append({"name": "llm_fix", "applied": True, "original_backed_up": True})
+        # Parse "### filename.py\n```python\n...\n```" blocks
+        patches: list[dict[str, str]] = []
+        import re as _re_fix
+        blocks = _re_fix.split(r"###\s+(\S+\.py)\s*\n", raw)
+        # blocks = ['', 'data.py', '```python\n...\n```\n', 'metrics.py', ...]
+        for i in range(1, len(blocks) - 1, 2):
+            fname = blocks[i].strip()
+            code_block = blocks[i + 1]
+            if "```python" in code_block:
+                code = code_block.split("```python", 1)[1].split("```", 1)[0].strip()
+            elif "```" in code_block:
+                code = code_block.split("```", 1)[1].split("```", 1)[0].strip()
+            else:
+                code = code_block.strip()
+            if code and len(code) > 30:
+                patches.append({"file": fname, "code": code})
 
-                # Re-run dry test
-                result = _sp.run(
-                    [python_path, "-c", dry_run_code],
-                    capture_output=True, text=True, timeout=15,
-                    cwd=str(experiment_dir),
-                    env={**_os_san.environ, "PYTHONUNBUFFERED": "1", "CUDA_VISIBLE_DEVICES": _sanity_gpu},
-                )
-                re_passed = result.returncode == 0
-                checks.append({
-                    "name": "dry_run_after_fix",
-                    "passed": re_passed,
-                    "stderr_tail": result.stderr[-300:] if result.stderr else "",
-                })
-                if re_passed:
-                    all_passed = True
-        except Exception as e:
-            checks.append({"name": "llm_fix", "applied": False, "error": str(e)[:200]})
+        return patches
 
-    report["status"] = "pass" if all_passed else "fail"
-    report["checks"] = checks
+    # ── Main iteration loop ───────────────────────────────────────────────
+
+    final_passed = False
+
+    for iteration in range(max_fix_iters + 1):  # iteration 0 = first run, then up to N fixes
+        iter_record: dict[str, object] = {
+            "iteration": iteration,
+            "is_fix_attempt": iteration > 0,
+            "checks": [],
+        }
+        iter_checks: list[dict[str, object]] = []
+        failed_test = None
+
+        for test_name, test_code, timeout in _mini_tests:
+            t0 = _t.monotonic()
+            passed, stdout_tail, stderr_tail = _run_snippet(test_code, timeout)
+            check_record: dict[str, object] = {
+                "name": test_name,
+                "passed": passed,
+                "duration_sec": round(_t.monotonic() - t0, 2),
+                "stdout_tail": stdout_tail[-300:],
+                "stderr_tail": stderr_tail[-500:] if not passed else "",
+            }
+            iter_checks.append(check_record)
+            logger.info(
+                "SANITY_CHECK iter=%d test=%s passed=%s (%.1fs)",
+                iteration, test_name, passed, check_record["duration_sec"],
+            )
+
+            if not passed:
+                failed_test = (test_name, test_code, stderr_tail)
+                break  # stop at first failure; fix before continuing
+
+        iter_record["checks"] = iter_checks
+        all_tests_passed = failed_test is None
+
+        if all_tests_passed:
+            iter_record["result"] = "all_passed"
+            all_iterations.append(iter_record)
+            final_passed = True
+            logger.info("SANITY_CHECK: all %d tests passed on iteration %d", len(_mini_tests), iteration)
+            break
+
+        # If this was the last allowed iteration, record and break
+        if iteration >= max_fix_iters:
+            iter_record["result"] = "failed_max_iterations"
+            all_iterations.append(iter_record)
+            logger.warning(
+                "SANITY_CHECK: giving up after %d fix iterations. Last failure: %s",
+                max_fix_iters, failed_test[0],
+            )
+            break
+
+        # ── Ask coding model to fix ──────────────────────────────────────
+        sources = _read_all_sources()
+        patches = _ask_llm_fix(
+            test_name=failed_test[0],
+            test_code=failed_test[1],
+            stderr=failed_test[2],
+            sources=sources,
+            iteration=iteration,
+        )
+
+        applied_patches: list[str] = []
+        for patch in patches:
+            target = experiment_dir / patch["file"]
+            # Backup original on first iteration only
+            bak = experiment_dir / f"{patch['file']}.bak_iter0"
+            if not bak.exists() and target.exists():
+                bak.write_text(target.read_text(encoding="utf-8"), encoding="utf-8")
+            target.write_text(patch["code"], encoding="utf-8")
+            applied_patches.append(patch["file"])
+            logger.info("SANITY_CHECK: patched %s (%d chars)", patch["file"], len(patch["code"]))
+
+        iter_record["result"] = "fix_applied"
+        iter_record["patches"] = applied_patches
+        iter_record["failed_test"] = failed_test[0]
+        all_iterations.append(iter_record)
+
+        if not applied_patches:
+            logger.warning("SANITY_CHECK: LLM returned no patches, stopping iteration")
+            break
+
+    # ── Write report ──────────────────────────────────────────────────────
+
+    report["status"] = "pass" if final_passed else "fail"
+    report["iterations"] = all_iterations
+    report["total_iterations"] = len(all_iterations)
     (stage_dir / "sanity_report.json").write_text(
         json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8",
     )
 
-    summary = f"{'PASS' if all_passed else 'FAIL'}: {len(checks)} checks"
+    summary = (
+        f"{'PASS' if final_passed else 'FAIL'}: "
+        f"{len(all_iterations)} iteration(s), "
+        f"{len(_mini_tests)} test phases"
+    )
     return StageResult(
         stage=Stage.SANITY_CHECK,
         status=StageStatus.DONE,

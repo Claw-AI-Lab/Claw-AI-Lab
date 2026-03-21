@@ -462,16 +462,21 @@ class OpenCodeBridge:
         if self._api_key_env:
             api_key = os.environ.get(self._api_key_env, "")
             if api_key:
-                # OpenCode reads AZURE_API_KEY for azure provider,
-                # OPENAI_API_KEY for openai provider
                 if self._is_azure():
                     env["AZURE_API_KEY"] = api_key
                 else:
                     env["OPENAI_API_KEY"] = api_key
+        # OpenCode v1.2+ needs stdin closed to avoid hanging on TTY detection
+        env["DO_NOT_TRACK"] = "1"
 
-        # Use -m flag to specify model (more reliable than opencode.json)
         resolved_model = self._resolve_opencode_model()
-        cmd = ["opencode", "run", "-m", resolved_model, "--format", "json", prompt]
+        cmd = [
+            "opencode", "run",
+            "-m", resolved_model,
+            "--format", "json",
+            "--dir", str(workspace),
+            prompt,
+        ]
 
         t0 = time.monotonic()
         try:
@@ -482,6 +487,7 @@ class OpenCodeBridge:
                 text=True,
                 timeout=self._timeout_sec,
                 env=env,
+                stdin=subprocess.DEVNULL,
             )
             elapsed = time.monotonic() - t0
             log = result.stdout + "\n" + result.stderr
@@ -595,25 +601,22 @@ class OpenCodeBridge:
 
             success, log, elapsed = self._invoke_opencode(workspace, prompt)
 
-            if success:
-                files = self._collect_files(workspace)
-                if "main.py" not in files:
-                    logger.warning(
-                        "Beast mode: OpenCode succeeded but no main.py found "
-                        "(files: %s)", list(files.keys()),
-                    )
-                    last_error = "No main.py in OpenCode output"
-                    # Cleanup failed workspace
-                    if self._workspace_cleanup and workspace.exists():
-                        shutil.rmtree(workspace, ignore_errors=True)
-                    continue
+            # Collect files regardless of exit status — OpenCode may have
+            # written valid code before a timeout or non-zero exit.
+            files = self._collect_files(workspace) if workspace.exists() else {}
 
-                # Write log
+            if "main.py" in files:
+                if not success:
+                    logger.info(
+                        "Beast mode: OpenCode exited non-zero / timed out but "
+                        "main.py found (%d files) — treating as success",
+                        len(files),
+                    )
+
                 (stage_dir / "opencode_log.txt").write_text(
                     log, encoding="utf-8",
                 )
 
-                # Cleanup workspace if configured
                 if self._workspace_cleanup and workspace.exists():
                     shutil.rmtree(workspace, ignore_errors=True)
 
@@ -624,14 +627,14 @@ class OpenCodeBridge:
                     elapsed_sec=elapsed,
                 )
 
-            last_error = log
+            last_error = log if not success else "No main.py in OpenCode output"
             logger.warning(
-                "Beast mode: OpenCode attempt %d failed (%.1fs): %s",
+                "Beast mode: OpenCode attempt %d failed (%.1fs, files=%s): %s",
                 attempt + 1,
                 elapsed,
-                log[:500],
+                list(files.keys()),
+                last_error[:500],
             )
-            # Cleanup failed workspace
             if self._workspace_cleanup and workspace and workspace.exists():
                 shutil.rmtree(workspace, ignore_errors=True)
 

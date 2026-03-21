@@ -318,6 +318,7 @@ class ExperimentConfig:
     opencode: OpenCodeConfig = field(default_factory=OpenCodeConfig)
     benchmark_agent: BenchmarkAgentConfig = field(default_factory=BenchmarkAgentConfig)
     figure_agent: FigureAgentConfig = field(default_factory=FigureAgentConfig)
+    sanity_check_max_iterations: int = 3
 
 
 @dataclass(frozen=True)
@@ -684,6 +685,7 @@ def _parse_experiment_config(data: dict[str, Any]) -> ExperimentConfig:
             data.get("benchmark_agent") or {}
         ),
         figure_agent=_parse_figure_agent_config(data.get("figure_agent") or {}),
+        sanity_check_max_iterations=int(data.get("sanity_check_max_iterations", 3)),
     )
 
 

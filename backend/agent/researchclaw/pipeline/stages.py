@@ -133,7 +133,7 @@ DECISION_ROLLBACK: dict[str, Stage] = {
     "refine": Stage.ITERATIVE_REFINE,    # Keep hypotheses, re-run experiments
 }
 
-MAX_DECISION_PIVOTS: int = 2  # Prevent infinite loops
+MAX_DECISION_PIVOTS: int = 0  # Disable pivot/refine loops
 
 # ---------------------------------------------------------------------------
 # Noncritical stages — can be skipped on failure without aborting pipeline

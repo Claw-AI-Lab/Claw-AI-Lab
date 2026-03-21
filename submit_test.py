@@ -27,7 +27,7 @@ PROJECTS = [
 ]
 
 CONFIG = "/home/user/PyramidResearchTeam/backend/agent/config_gpu_project.yaml"
-WS_URL = "ws://localhost:8766"
+WS_URL = "ws://localhost:8866"
 
 
 async def main():
@@ -63,7 +63,7 @@ async def main():
 
         print("=" * 50)
         print(f"📋 已提交 {len(PROJECTS)} 个 GPU 项目")
-        print("   打开 http://localhost:5173/ 查看进度")
+        print("   打开 http://localhost:5273/ 查看进度")
         print("=" * 50)
 
 

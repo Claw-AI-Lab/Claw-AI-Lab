@@ -13,6 +13,9 @@ eval "$(/home/user/.local/share/fnm/fnm env 2>/dev/null)" 2>/dev/null
 
 mkdir -p "$LOG" "$PIDF"
 
+# OpenCode Beast Mode needs the API key in the environment
+export RESEARCHCLAW_API_KEY="sk-QLo52KgqSRHiI3H3JydKzJJJw4W0URzsNnGy8d3QB1yYtFqM"
+
 G='\033[0;32m'; R='\033[0;31m'; Y='\033[0;33m'; N='\033[0m'
 
 # 禁用idea factory
@@ -25,10 +28,10 @@ do_start() {
     echo ""
 
     # 1) Resource Monitor
-    if ss -tlnp 2>/dev/null | grep -q ":8765 "; then
+    if ss -tlnp 2>/dev/null | grep -q ":8865 "; then
         echo -e "  ${Y}⏭ resource_monitor 已在运行${N}"
     else
-        nohup $PY -u "$BASE/backend/services/resource_monitor.py" --port 8765 \
+        nohup $PY -u "$BASE/backend/services/resource_monitor.py" --port 8865 \
             > "$LOG/resource_monitor.log" 2>&1 &
         echo $! > "$PIDF/resource_monitor.pid"
         sleep 1
@@ -36,11 +39,11 @@ do_start() {
     fi
 
     # 2) Agent Bridge
-    if ss -tlnp 2>/dev/null | grep -q ":8766 "; then
+    if ss -tlnp 2>/dev/null | grep -q ":8866 "; then
         echo -e "  ${Y}⏭ agent_bridge 已在运行${N}"
     else
         nohup $PY -u "$BASE/backend/services/agent_bridge.py" \
-            --port 8766 --python "$PY" \
+            --port 8866 --python "$PY" \
             --agent-dir "$BASE/backend/agent" \
             --runs-dir "$BASE/backend/runs" \
             --pool-idea 2 --pool-exp 2 --pool-code 3 --pool-exec 4 --pool-write 4 \
@@ -56,11 +59,11 @@ do_start() {
     fi
 
     # 3) Frontend Vite
-    if ss -tlnp 2>/dev/null | grep -q ":5173 "; then
+    if ss -tlnp 2>/dev/null | grep -q ":5273 "; then
         echo -e "  ${Y}⏭ frontend 已在运行${N}"
     else
         cd "$FE"
-        nohup npx vite --host 0.0.0.0 --port 5173 \
+        nohup npx vite --host 0.0.0.0 --port 5273 \
             > "$LOG/frontend.log" 2>&1 &
         echo $! > "$PIDF/frontend.pid"
         sleep 2
@@ -70,9 +73,9 @@ do_start() {
 
     echo ""
     echo "📍 服务地址:"
-    echo -e "   ${G}前端 UI:      http://localhost:5173/${N}"
-    echo "   资源监控 WS:  ws://localhost:8765"
-    echo "   Agent Bridge: ws://localhost:8766"
+    echo -e "   ${G}前端 UI:      http://localhost:5273/${N}"
+    echo "   资源监控 WS:  ws://localhost:8865"
+    echo "   Agent Bridge: ws://localhost:8866"
     echo ""
 }
 
@@ -89,7 +92,7 @@ do_stop() {
         fi
     done
     # Also kill by port in case PID file was stale
-    for port in 5173 8765 8766; do
+    for port in 5273 8865 8866; do
         lsof -ti:$port 2>/dev/null | xargs -r kill -9 2>/dev/null
     done
     echo ""
@@ -97,7 +100,7 @@ do_stop() {
 
 do_status() {
     echo "📊 服务状态:"
-    for pair in "resource_monitor:8765" "agent_bridge:8766" "frontend:5173"; do
+    for pair in "resource_monitor:8865" "agent_bridge:8866" "frontend:5273"; do
         svc="${pair%%:*}"; port="${pair##*:}"
         if ss -tlnp 2>/dev/null | grep -q ":$port "; then
             echo -e "  ${G}● $svc${N} (port $port)"
