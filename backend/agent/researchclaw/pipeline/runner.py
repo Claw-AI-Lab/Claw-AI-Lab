@@ -757,6 +757,11 @@ def _check_experiment_quality(
     except (json.JSONDecodeError, OSError):
         return False, "experiment_summary.json is malformed"
 
+    # Check 0 (ZERO-TOLERANCE): Experiment explicitly marked invalid
+    if data.get("experiment_valid") is False:
+        reason = data.get("validity_reason", "experiment marked invalid")
+        return False, f"INTEGRITY FAILURE: {reason}"
+
     # Check 1: Are all metrics zero?
     ms = data.get("metrics_summary", {})
     if isinstance(ms, dict):
@@ -795,6 +800,26 @@ def _check_experiment_quality(
     quality = data.get("analysis_quality", data.get("quality_score"))
     if isinstance(quality, (int, float)) and quality < 3.0:
         return False, f"Analysis quality score {quality}/10 — below minimum threshold"
+
+    # Check 5 (ZERO-TOLERANCE): Verify refinement log has valid (non-rejected) metrics
+    for _refine_ver in ["", "_v1", "_v2", "_v3"]:
+        _rl_path = run_dir / f"stage-13{_refine_ver}" / "refinement_log.json"
+        if not _rl_path.exists():
+            continue
+        try:
+            _rl = json.loads(_rl_path.read_text(encoding="utf-8"))
+            _iters = _rl.get("iterations", [])
+            _has_valid = any(
+                isinstance(it, dict) and it.get("metric") is not None and not it.get("rejected")
+                for it in _iters
+            )
+            if _iters and not _has_valid:
+                return False, (
+                    f"All metrics in {_rl_path.parent.name}/refinement_log.json were "
+                    f"rejected as fraudulent — no valid experimental data exists"
+                )
+        except (json.JSONDecodeError, OSError):
+            pass
 
     return True, "Quality checks passed"
 

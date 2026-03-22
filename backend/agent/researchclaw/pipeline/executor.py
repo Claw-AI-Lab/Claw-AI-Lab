@@ -1291,9 +1291,26 @@ def _parse_metrics_from_stdout(stdout: str) -> dict[str, Any]:
 
 
 def _extract_code_block(content: str) -> str:
+    # Try to find a properly closed code block first
     match = re.search(r"```(?:python)?\s*(.*?)\s*```", content, flags=re.DOTALL)
     if match is not None:
         return match.group(1).strip()
+    # Handle unclosed code blocks (LLM output truncated by max_tokens)
+    # Find the last ```python opening and take everything after it
+    open_match = re.search(r"```(?:python)?\s*\n", content)
+    if open_match is not None:
+        code = content[open_match.end():].strip()
+        # Remove any trailing ``` if partially present
+        if code.endswith("`"):
+            code = code.rstrip("`").strip()
+        return code
+    # No code fences at all — check if content starts with explanation text
+    # before actual Python code (common LLM pattern)
+    lines = content.split("\n")
+    for i, line in enumerate(lines):
+        stripped = line.strip()
+        if stripped.startswith(("import ", "from ", '"""', "def ", "class ", "#!")):
+            return "\n".join(lines[i:]).strip()
     return content.strip()
 
 
@@ -2000,6 +2017,41 @@ def _execute_literature_collect(
     queries_data = _safe_json_loads(queries_text or "{}", {})
     queries: list[str] = queries_data.get("queries", [topic])
     year_min: int = queries_data.get("year_min", 2020)
+
+    # --- Pre-flight: probe all external services ---
+    try:
+        from researchclaw.web.connectivity import probe_all, ConnectivityReport
+        connectivity = probe_all()
+        logger.info("S4 connectivity: %s", connectivity.summary())
+        # Persist report for debugging
+        (stage_dir / "connectivity_report.json").write_text(
+            json.dumps({
+                "reachable": connectivity.reachable,
+                "latency_ms": connectivity.latency_ms,
+                "elapsed_sec": round(connectivity.elapsed_sec, 2),
+            }, indent=2),
+            encoding="utf-8",
+        )
+        # Disable unreachable services in web search / scholar clients
+        if not connectivity.is_up("duckduckgo"):
+            try:
+                from researchclaw.web.search import WebSearchClient
+                WebSearchClient._ddg_reachable = False
+                logger.info("S4: DuckDuckGo disabled (unreachable)")
+            except ImportError:
+                pass
+        if not connectivity.is_up("google_scholar"):
+            try:
+                from researchclaw.web.scholar import GoogleScholarClient
+                GoogleScholarClient._reachable = False
+                logger.info("S4: Google Scholar disabled (unreachable)")
+            except ImportError:
+                pass
+        # Override web_search config flags based on connectivity
+        if not connectivity.is_up("duckduckgo") and not connectivity.is_up("tavily"):
+            logger.warning("S4: No web search engine reachable — web search will be skipped")
+    except Exception:  # noqa: BLE001
+        logger.debug("S4 connectivity probe failed", exc_info=True)
 
     # --- Try real API search first ---
     candidates: list[dict[str, Any]] = []
@@ -3180,12 +3232,36 @@ def _execute_code_generation(
             gpu_type = hw_profile.get("gpu_type", "cuda")
             gpu_name = hw_profile.get("gpu_name", "GPU")
             tier = hw_profile.get("tier", "limited")
+            # NPU-specific guidance
+            _npu_hint = ""
+            if gpu_type == "npu":
+                _npu_hint = (
+                    "\n## CRITICAL: Huawei Ascend NPU Device\n"
+                    "This machine uses Ascend NPU, NOT NVIDIA CUDA.\n"
+                    "You MUST follow these rules:\n"
+                    "1. Add `import torch_npu` at the top of main.py (BEFORE any torch.npu calls)\n"
+                    "2. Use `device = torch.device('npu')` instead of 'cuda'\n"
+                    "3. Use `torch.npu.is_available()` instead of `torch.cuda.is_available()`\n"
+                    "4. NEVER use `torch.cuda.*` APIs — they will fail\n"
+                    "5. DataLoader MUST use `pin_memory=False` and `num_workers=0`\n"
+                    "   (pin_memory is CUDA-only; multi-worker has high overhead on NPU)\n"
+                    "6. Example device setup:\n"
+                    "   ```python\n"
+                    "   import torch\n"
+                    "   import torch_npu  # MUST import before using torch.npu\n"
+                    "   device = torch.device('npu' if torch.npu.is_available() else 'cpu')\n"
+                    "   # DataLoader: NO pin_memory, NO multi-worker\n"
+                    "   loader = DataLoader(dataset, batch_size=128, shuffle=True,\n"
+                    "                       num_workers=0, pin_memory=False)\n"
+                    "   ```\n"
+                )
             if tier == "high":
                 device_hint = f"torch.device('{gpu_type}')"
                 pkg_hint = (
                     f"\nAVAILABLE PACKAGES ({pkg_prefix}): Python stdlib, numpy, torch, sklearn, scipy, pandas{pkg_extras}.\n"
                     f"GPU: {gpu_name} ({gpu_type}). You MAY use PyTorch with GPU acceleration.\n"
                     f"Use `device = {device_hint}` for tensor operations.\n"
+                    f"{_npu_hint}"
                 )
             else:  # limited (low VRAM NVIDIA or MPS)
                 device_hint = f"torch.device('{gpu_type}')"
@@ -3197,6 +3273,7 @@ def _execute_code_generation(
                     f"- Few epochs (<=20)\n"
                     f"- Small datasets (<=10K samples)\n"
                     f"- Avoid large batch sizes\n"
+                    f"{_npu_hint}"
                 )
         else:
             pkg_hint = _pm.block("pkg_hint_sandbox")
@@ -4578,7 +4655,7 @@ def _execute_sanity_check(
 
         source_block = ""
         for fname, code in sources.items():
-            source_block += f"\n### {fname}\n```python\n{code[:4000]}\n```\n"
+            source_block += f"\n### {fname} ({len(code.splitlines())} lines)\n```python\n{code}\n```\n"
 
         fix_prompt = (
             f"## Sanity Check Failure (iteration {iteration + 1}/{max_fix_iters})\n\n"
@@ -4595,10 +4672,14 @@ def _execute_sanity_check(
             "```\n\n"
             "Rules:\n"
             "- Return the COMPLETE file content for each file you modify.\n"
+            "  CRITICAL: The returned file MUST contain ALL original functions, classes,\n"
+            "  and the if __name__ == '__main__' block. Do NOT omit any code.\n"
+            "  If the original file has N lines, your fixed version must have approximately\n"
+            "  N lines (+-20%). Truncated files will be REJECTED.\n"
+            "- Only fix the specific error — do NOT rewrite, simplify, or remove\n"
+            "  unrelated code. Keep every function, class, and import intact.\n"
             "- Do NOT change files that are not related to the error.\n"
-            "- Do NOT change function signatures or class APIs unless necessary to fix the bug.\n"
             "- Do NOT add new dependencies that are not already imported.\n"
-            "- Focus on the specific error; do not refactor or restructure.\n"
         )
 
         try:
@@ -4707,6 +4788,24 @@ def _execute_sanity_check(
             bak = experiment_dir / f"{patch['file']}.bak_iter0"
             if not bak.exists() and target.exists():
                 bak.write_text(target.read_text(encoding="utf-8"), encoding="utf-8")
+
+            # SAFEGUARD: Reject patches that truncate the file (>40% shorter)
+            if target.exists():
+                original_lines = len(target.read_text(encoding="utf-8").splitlines())
+                patched_lines = len(patch["code"].splitlines())
+                if original_lines > 50 and patched_lines < original_lines * 0.6:
+                    logger.warning(
+                        "SANITY_CHECK: REJECTED patch for %s — file would shrink "
+                        "from %d to %d lines (%.0f%% loss). LLM likely truncated the file.",
+                        patch["file"], original_lines, patched_lines,
+                        (1 - patched_lines / original_lines) * 100,
+                    )
+                    iter_record.setdefault("rejected_patches", []).append({
+                        "file": patch["file"],
+                        "reason": f"truncation: {original_lines} → {patched_lines} lines",
+                    })
+                    continue
+
             target.write_text(patch["code"], encoding="utf-8")
             applied_patches.append(patch["file"])
             logger.info("SANITY_CHECK: patched %s (%d chars)", patch["file"], len(patch["code"]))
@@ -4937,6 +5036,36 @@ def _execute_experiment_run(
                 "Consider increasing task difficulty.",
                 result.elapsed_sec,
             )
+
+        # --- ZERO-TOLERANCE: Validate S14 metrics integrity ---
+        if run_status == "completed" and effective_metrics:
+            metric_key = config.experiment.metric_key
+            _s14_pm_vals = [
+                v for k, v in effective_metrics.items()
+                if k.endswith(f"/{metric_key}") and isinstance(v, (int, float))
+            ]
+            _s14_integrity_warnings: list[str] = []
+            if len(_s14_pm_vals) >= 2 and len(set(_s14_pm_vals)) == 1:
+                _s14_integrity_warnings.append(
+                    f"ABLATION_INVALID: All {len(_s14_pm_vals)} conditions produced "
+                    f"identical {metric_key}={_s14_pm_vals[0]}"
+                )
+            if result.elapsed_sec < 2.0 and len(_s14_pm_vals) >= 2:
+                _s14_integrity_warnings.append(
+                    f"SYNTHETIC_DATA: {len(_s14_pm_vals)} conditions completed in "
+                    f"{result.elapsed_sec:.2f}s — likely not real computation"
+                )
+            if _s14_pm_vals and all(v in (0.0, 1.0) for v in _s14_pm_vals):
+                _s14_integrity_warnings.append(
+                    f"DUMMY_METRIC: All values are trivial (0.0 or 1.0)"
+                )
+            if _s14_integrity_warnings:
+                run_payload["integrity_warnings"] = _s14_integrity_warnings
+                run_payload["metrics_trustworthy"] = False
+                logger.warning(
+                    "Stage 12: METRICS INTEGRITY FAILURE: %s",
+                    "; ".join(_s14_integrity_warnings),
+                )
 
         run_payload: dict[str, Any] = {
             "run_id": "run-1",
@@ -5481,6 +5610,16 @@ def _execute_iterative_refine(
                 "```yaml\n" + _exp_plan_text[:4000] + "\n```\n"
                 "You MUST preserve ALL condition names from this plan.\n\n"
             )
+        # NPU device hint for refinement
+        _hw_refine = _load_hardware_profile(run_dir)
+        if _hw_refine and _hw_refine.get("gpu_type") == "npu":
+            _exp_plan_anchor += (
+                "\n## DEVICE: Huawei Ascend NPU (NOT CUDA)\n"
+                "- `import torch_npu` at top of main.py\n"
+                "- `device = torch.device('npu')`\n"
+                "- NEVER use `torch.cuda.*`\n"
+                "- DataLoader: `pin_memory=False, num_workers=0` (CRITICAL for NPU performance)\n\n"
+            )
         ip = _pm.sub_prompt(
             "iterative_improve",
             metric_key=metric_key,
@@ -5622,8 +5761,37 @@ def _execute_iterative_refine(
                             len(partial),
                         )
 
-            # --- Detect runtime issues (NaN/Inf, stderr warnings) ---
+            # --- Detect runtime issues (NaN/Inf, stderr warnings, rejected metrics) ---
             runtime_issues = _detect_runtime_issues(rerun)
+            if _metric_rejected and not runtime_issues:
+                _rej_reason = iter_record.get("rejected", "unknown")
+                runtime_issues = (
+                    "## Runtime Issues Detected\n\n"
+                    "The experiment code ran but produced INVALID results. "
+                    "Fix the ROOT CAUSE of these issues in the code:\n\n"
+                    f"- REJECTED: {_rej_reason}. "
+                )
+                if _rej_reason == "ablation_invalid":
+                    runtime_issues += (
+                        "All experiment conditions produce identical metrics. "
+                        "Each condition MUST execute a DIFFERENT algorithm or configuration. "
+                        "Check that the condition name is actually used to select different "
+                        "code paths, hyperparameters, or model architectures."
+                    )
+                elif _rej_reason == "suspicious_speed":
+                    runtime_issues += (
+                        "The experiment completed in under 2 seconds with multiple conditions. "
+                        "This strongly suggests synthetic/random data is used instead of real "
+                        "computation. You MUST use real data and real model inference. "
+                        "If no dataset is available, design an experiment that can run with "
+                        "pre-cached datasets (CIFAR-10, MNIST, etc.) or generate meaningful "
+                        "synthetic benchmarks that require actual computation."
+                    )
+                elif _rej_reason == "dummy_metric":
+                    runtime_issues += (
+                        "All metric values are trivially 0.0 or 1.0 — this is a placeholder. "
+                        "Implement real measurement logic that produces meaningful values."
+                    )
             if runtime_issues:
                 iter_record["runtime_issues"] = runtime_issues
                 logger.info(
@@ -5665,6 +5833,53 @@ def _execute_iterative_refine(
                     }
                     iter_record["metric"] = metric_val
                     iter_record["runtime_repaired"] = True
+                    # Re-validate repaired metrics through the same checks
+                    rerun = rerun2  # so the rejection checks below use the fixed run
+
+            # --- NPU/Quality: Reject dummy/suspicious metrics ---
+            _metric_rejected = False
+            if metric_val is not None and rerun.metrics:
+                # Check 1: All per-condition primary_metric values identical → ablation invalid
+                _pm_vals = [
+                    v for k, v in rerun.metrics.items()
+                    if k.endswith(f"/{metric_key}") and isinstance(v, (int, float))
+                ]
+                if len(_pm_vals) >= 2 and len(set(_pm_vals)) == 1:
+                    logger.warning(
+                        "Stage 13 iteration %d: ABLATION INVALID — all %d conditions "
+                        "produced identical %s=%.4f. Rejecting metric.",
+                        iteration, len(_pm_vals), metric_key, _pm_vals[0],
+                    )
+                    iter_record["rejected"] = "ablation_invalid"
+                    _metric_rejected = True
+
+                # Check 2: Suspiciously fast execution (< 2s) with many metrics → synthetic data
+                if not _metric_rejected and rerun.elapsed_sec < 2.0 and len(_pm_vals) >= 2:
+                    logger.warning(
+                        "Stage 13 iteration %d: SUSPICIOUS — %d conditions completed "
+                        "in %.2fs (likely synthetic data). Rejecting metric.",
+                        iteration, len(_pm_vals), rerun.elapsed_sec,
+                    )
+                    iter_record["rejected"] = "suspicious_speed"
+                    _metric_rejected = True
+
+                # Check 3: All metrics exactly 1.0 or 0.0 → dummy placeholder
+                if not _metric_rejected and metric_val in (0.0, 1.0):
+                    _all_trivial = all(
+                        v in (0.0, 1.0) for v in _pm_vals
+                    ) if _pm_vals else False
+                    if _all_trivial and len(_pm_vals) >= 2:
+                        logger.warning(
+                            "Stage 13 iteration %d: DUMMY METRIC — all values are "
+                            "trivial (0.0 or 1.0). Rejecting.",
+                            iteration,
+                        )
+                        iter_record["rejected"] = "dummy_metric"
+                        _metric_rejected = True
+
+            if _metric_rejected:
+                metric_val = None
+                iter_record["metric"] = None
 
             if metric_val is not None:
                 consecutive_no_metrics = 0
@@ -6126,6 +6341,22 @@ def _execute_result_analysis(
 
     if _ablation_warnings:
         summary_payload["ablation_warnings"] = _ablation_warnings
+        # ZERO-TOLERANCE: If ALL condition pairs are ablation-invalid, mark entire experiment
+        _n_conditions = len(_condition_summaries) if _condition_summaries else 0
+        _max_possible_pairs = _n_conditions * (_n_conditions - 1) // 2
+        _ablation_failure_count = sum(
+            1 for w in _ablation_warnings if "ABLATION FAILURE" in w
+        )
+        if _max_possible_pairs > 0 and _ablation_failure_count >= _max_possible_pairs:
+            summary_payload["experiment_valid"] = False
+            summary_payload["validity_reason"] = (
+                "ALL condition pairs produce identical outputs — "
+                "no valid ablation comparison exists"
+            )
+            logger.error(
+                "ZERO-TOLERANCE: Experiment marked INVALID — %d/%d ablation pairs failed",
+                _ablation_failure_count, _max_possible_pairs,
+            )
     if _all_paired:
         summary_payload["paired_comparisons"] = _all_paired
     if _condition_summaries:
@@ -6452,6 +6683,27 @@ def _execute_research_decision(
                     "than REFINE again.\n"
                 )
                 logger.warning("P6: Degenerate refine cycle detected, injecting PROCEED hint")
+
+            # ZERO-TOLERANCE: Check if ALL metrics were rejected (no valid data)
+            _rejected_count = sum(
+                1 for it in _iters
+                if isinstance(it, dict) and it.get("rejected")
+            )
+            _total_with_metric = sum(
+                1 for it in _iters
+                if isinstance(it, dict) and (it.get("metric") is not None or it.get("rejected"))
+            )
+            if _rejected_count > 0 and not _valid:
+                _degenerate_hint += (
+                    "\n\nCRITICAL — ALL METRICS REJECTED AS FRAUDULENT:\n"
+                    f"Out of {_total_with_metric} iterations that produced metrics, "
+                    f"{_rejected_count} were rejected (ablation invalid / synthetic data / "
+                    f"dummy values). ZERO valid metrics exist.\n"
+                    "You MUST choose REFINE to force code regeneration, or PIVOT to "
+                    "change the experimental approach entirely. Do NOT choose PROCEED — "
+                    "there is NO valid data to write a paper about.\n"
+                )
+                logger.warning("ZERO-TOLERANCE: All metrics rejected, forcing REFINE/PIVOT hint")
         except (json.JSONDecodeError, OSError):
             pass
 

@@ -3,25 +3,28 @@
 # Usage: ./start.sh [start|stop|restart|status]
 
 BASE="$(cd "$(dirname "$0")" && pwd)"
-PY="/home/user/miniforge3/bin/python3"
+PY="/var/lib/paascontainer/zty/miniconda3/bin/python3"
 FE="$BASE/frontend"
 LOG="$BASE/logs"
 PIDF="$BASE/.pids"
 
-export PATH="/home/user/.local/share/fnm:$PATH"
-eval "$(/home/user/.local/share/fnm/fnm env 2>/dev/null)" 2>/dev/null
+export PATH="/home/zty/node20/bin:$PATH"
 
 mkdir -p "$LOG" "$PIDF"
 
 # OpenCode Beast Mode needs the API key in the environment
-export RESEARCHCLAW_API_KEY="sk-QLo52KgqSRHiI3H3JydKzJJJw4W0URzsNnGy8d3QB1yYtFqM"
+export RESEARCHCLAW_API_KEY="cr_f5a61f2e3c99bd75a6b819c8317fa2b2782d81e802a988464043bdf591ffceea"
+export RC_API_KEY="$RESEARCHCLAW_API_KEY"
+
+# Ascend NPU CANN environment
+source /usr/local/Ascend/ascend-toolkit/set_env.sh 2>/dev/null
 
 G='\033[0;32m'; R='\033[0;31m'; Y='\033[0;33m'; N='\033[0m'
 
 # 禁用idea factory
 IDEA_COUNT=
 IDEA_TOPIC="Training-free image generation using attention manipulation"
-IDEA_CONFIG="/home/user/PyramidResearchTeam/backend/agent/config_gpu_project.yaml"
+IDEA_CONFIG="/var/lib/paascontainer/zty/Claw-AI-Lab/backend/agent/config.arc.yaml"
 
 do_start() {
     echo "🦞 启动龙虾 Agent 军团..."

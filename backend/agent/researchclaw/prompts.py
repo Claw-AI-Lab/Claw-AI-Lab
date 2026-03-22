@@ -1109,11 +1109,14 @@ _DEFAULT_SUB_PROMPTS: dict[str, dict[str, Any]] = {
     "iterative_improve": {
         "system": (
             "You improve experiment projects and return valid executable Python code. "
-            "Use ```filename:xxx.py format for each file."
+            "Use ```filename:xxx.py format for each file. "
+            "Return ONLY code blocks — NO explanations, NO commentary before or after the code."
         ),
         "user": (
             "Improve the experiment code based on prior run results.\n"
             "Return the improved files using ```filename:xxx.py format for each file.\n"
+            "IMPORTANT: Start your response DIRECTLY with the code block. "
+            "Do NOT write any explanation before the code.\n"
             "Primary metric key: {metric_key}\n"
             "Metric direction: {metric_direction}\n"
             "Do not use subprocess, os.system, eval, exec, or any network/shell calls.\n"
@@ -1135,7 +1138,7 @@ _DEFAULT_SUB_PROMPTS: dict[str, dict[str, Any]] = {
             "Current project files:\n{files_context}\n"
             "Run summaries (JSON):\n{run_summaries}"
         ),
-        "max_tokens": 8192,
+        "max_tokens": 327680,
     },
     "iterative_repair": {
         "system": "You fix Python validation issues without adding unsafe behavior.",

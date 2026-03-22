@@ -188,10 +188,26 @@ class WebSearchClient:
     # DuckDuckGo fallback (no API key needed)
     # ------------------------------------------------------------------
 
+    _ddg_reachable: bool | None = None  # cached reachability check
+
     def _search_duckduckgo(
         self, query: str, limit: int, t0: float
     ) -> WebSearchResponse:
         """Fallback: scrape DuckDuckGo HTML search results."""
+        # Quick reachability check (cached) — skip immediately if unreachable
+        if WebSearchClient._ddg_reachable is None:
+            try:
+                urlopen(Request("https://html.duckduckgo.com/", headers={  # noqa: S310
+                    "User-Agent": "Mozilla/5.0",
+                }), timeout=5)
+                WebSearchClient._ddg_reachable = True
+            except Exception:
+                WebSearchClient._ddg_reachable = False
+                logger.warning("DuckDuckGo unreachable — disabling for this session")
+        if not WebSearchClient._ddg_reachable:
+            elapsed = time.monotonic() - t0
+            return WebSearchResponse(query=query, elapsed_seconds=elapsed, source="duckduckgo")
+
         encoded = quote_plus(query)
         url = f"https://html.duckduckgo.com/html/?q={encoded}"
         req = Request(url, headers={
@@ -206,6 +222,7 @@ class WebSearchClient:
         except Exception as exc:  # noqa: BLE001
             elapsed = time.monotonic() - t0
             logger.warning("DuckDuckGo search failed: %s", exc)
+            WebSearchClient._ddg_reachable = False  # disable further attempts
             return WebSearchResponse(query=query, elapsed_seconds=elapsed, source="duckduckgo")
 
         results = self._parse_ddg_html(html, limit)

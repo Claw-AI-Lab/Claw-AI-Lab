@@ -327,6 +327,23 @@ class BridgeState:
     idea_factory_config: str = ""
     idea_factory_remaining: int = 0  # 0=disabled, -1=infinite, N=count
     idea_factory_produced: int = 0
+    # History ring buffers — new clients receive these on connect
+    _log_history: list = field(default_factory=list)
+    _artifact_history: list = field(default_factory=list)
+    _LOG_HISTORY_MAX: int = 200
+    _ARTIFACT_HISTORY_MAX: int = 100
+
+    def record_message(self, msg: dict) -> None:
+        """Store log/artifact messages for late-joining clients."""
+        msg_type = msg.get("type")
+        if msg_type == "log":
+            self._log_history.append(msg)
+            if len(self._log_history) > self._LOG_HISTORY_MAX:
+                self._log_history = self._log_history[-self._LOG_HISTORY_MAX:]
+        elif msg_type == "artifact_produced":
+            self._artifact_history.append(msg)
+            if len(self._artifact_history) > self._ARTIFACT_HISTORY_MAX:
+                self._artifact_history = self._artifact_history[-self._ARTIFACT_HISTORY_MAX:]
 
     def projects_dir(self) -> Path:
         return Path(self.runs_base_dir) / "projects"
@@ -905,7 +922,12 @@ def schedule_idle_agents(state: BridgeState) -> list[dict]:
 # ── WebSocket server ────────────────────────────────────────────────────────
 
 async def broadcast(state: BridgeState, messages: list[dict]):
-    if not messages or not state.clients:
+    if not messages:
+        return
+    # Record to history (even if no clients connected)
+    for msg in messages:
+        state.record_message(msg)
+    if not state.clients:
         return
     dead = set()
     for msg in messages:
@@ -1005,6 +1027,7 @@ async def handle_command(state: BridgeState, data: dict) -> list[dict]:
 async def ws_handler(state: BridgeState, websocket: websockets.ServerConnection):
     state.clients.add(websocket)
     print(f"[+] Client connected (total: {len(state.clients)})")
+    # Send current agent states
     for agent in state.agents.values():
         try:
             await websocket.send(json.dumps(msg_agent_update(agent), ensure_ascii=False))
@@ -1014,6 +1037,17 @@ async def ws_handler(state: BridgeState, websocket: websockets.ServerConnection)
         await websocket.send(json.dumps(msg_queue_update(state.queues), ensure_ascii=False))
     except websockets.ConnectionClosed:
         pass
+    # Replay history: artifacts first, then logs (chronological)
+    for msg in state._artifact_history:
+        try:
+            await websocket.send(json.dumps(msg, ensure_ascii=False))
+        except websockets.ConnectionClosed:
+            break
+    for msg in state._log_history:
+        try:
+            await websocket.send(json.dumps(msg, ensure_ascii=False))
+        except websockets.ConnectionClosed:
+            break
 
     try:
         async for raw in websocket:

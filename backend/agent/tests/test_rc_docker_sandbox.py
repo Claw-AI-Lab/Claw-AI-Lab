@@ -37,7 +37,7 @@ def test_sandbox_result_fields():
 
 def test_build_run_command_network_none(tmp_path: Path):
     """network_policy='none' → --network none, --user UID:GID."""
-    cfg = DockerSandboxConfig(network_policy="none")
+    cfg = DockerSandboxConfig(network_policy="none", accelerator_type="cuda")
     sandbox = DockerSandbox(cfg, tmp_path / "work")
     cmd = sandbox._build_run_command(
         tmp_path / "staging",
@@ -106,7 +106,7 @@ def test_build_run_command_no_gpu(tmp_path: Path):
 
 
 def test_build_run_command_specific_gpus(tmp_path: Path):
-    cfg = DockerSandboxConfig(gpu_device_ids=(0, 2), network_policy="none")
+    cfg = DockerSandboxConfig(gpu_device_ids=(0, 2), network_policy="none", accelerator_type="cuda")
     sandbox = DockerSandbox(cfg, tmp_path / "work")
     cmd = sandbox._build_run_command(
         tmp_path / "staging",
