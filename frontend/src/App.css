@@ -152,6 +152,12 @@
   animation: pulse 1.5s infinite;
 }
 .stage-chip.stage-done { background: #064e3b; color: #6ee7b7; border-color: #10b98144; }
+.stage-chip.stage-discussion { border-color: #8b5cf655; }
+.stage-chip.stage-discussion.stage-running {
+  background: #4c1d95; color: #c4b5fd; border-color: #8b5cf6;
+  animation: pulse 1s infinite;
+}
+.stage-chip.stage-discussion.stage-done { background: #312e81; color: #a5b4fc; border-color: #6366f155; }
 
 /* ==================== AGENT CARDS ==================== */
 .agent-row { display: flex; flex-wrap: wrap; gap: 4px; padding: 3px 8px 6px; }
@@ -163,6 +169,8 @@
 .agent-card.status-working { border-color: #f59e0b55; }
 .agent-card.status-error { border-color: #ef444488; }
 .agent-card.status-done { border-color: #10b98155; }
+.agent-card.status-waiting_discussion { border-color: #8b5cf655; }
+.agent-card.status-discussing { border-color: #6366f155; }
 
 .agent-card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1px; }
 .agent-name { font-weight: 600; font-size: 0.7rem; }
@@ -175,11 +183,16 @@
   font-size: 0.58rem; background: #1e3a5f; color: #60a5fa;
   padding: 0px 4px; border-radius: 5px; margin-left: 3px; font-family: monospace;
 }
+.agent-stage-badge.discussion-badge {
+  background: #4c1d95; color: #c4b5fd;
+}
 .status-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
 .status-dot.idle { background: #6b7280; }
 .status-dot.working { background: #f59e0b; animation: pulse 1.2s infinite; }
 .status-dot.error { background: #ef4444; }
 .status-dot.done { background: #10b981; }
+.status-dot.waiting_discussion { background: #8b5cf6; animation: pulse 1.2s infinite; }
+.status-dot.discussing { background: #6366f1; animation: pulse 0.8s infinite; }
 .agent-task {
   margin-top: 2px; font-size: 0.63rem; color: var(--text-muted); font-style: italic;
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
@@ -260,6 +273,7 @@
 .log-time { color: var(--text-muted); flex-shrink: 0; font-family: monospace; font-size: 0.6rem; }
 .log-agent { color: var(--text-muted); flex-shrink: 0; }
 .log-stage { font-size: 0.58rem; color: #60a5fa; font-family: monospace; }
+.log-stage-discussion { color: #c4b5fd; }
 .log-msg { flex: 1; }
 .log-item.level-success .log-msg { color: #6ee7b7; }
 .log-item.level-warning .log-msg { color: #fcd34d; }
@@ -289,6 +303,7 @@
 .glog-time { color: var(--text-muted); font-family: monospace; font-size: 0.58rem; flex-shrink: 0; }
 .glog-layer { font-weight: 600; font-size: 0.6rem; flex-shrink: 0; }
 .glog-stage { font-size: 0.56rem; color: #60a5fa; font-family: monospace; flex-shrink: 0; }
+.glog-stage-discussion { color: #c4b5fd; }
 .glog-msg { flex: 1; }
 .glog-item.level-success .glog-msg { color: #6ee7b7; }
 .glog-item.level-warning .glog-msg { color: #fcd34d; }

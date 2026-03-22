@@ -474,6 +474,19 @@ def check_code_complexity(code: str) -> list[str]:
         if re.search(pattern, code):
             warnings.append(f"Possible hardcoded metric: {desc}")
 
+    # Check for fake metrics: random values used as metrics
+    fake_metric_patterns = [
+        (r"(?:metric|score|accuracy|loss|fid|clip_score)\s*=\s*(?:np\.random|random\.)\w+",
+         "random value assigned to metric variable"),
+        (r"print\(.*(?:np\.random|random\.)\w+.*\)", "random value in print output"),
+        (r"(?:metric|score|accuracy|loss)\s*=\s*[\d.]+\s*[+\-*/]\s*(?:seed|idx|i)\s*\*\s*[\d.]+",
+         "formulaic metric from loop variable"),
+        (r"sum\(ord\(c\)\s+for\s+c\s+in", "deterministic fake metric from string hash"),
+    ]
+    for pattern, desc in fake_metric_patterns:
+        if re.search(pattern, code, re.IGNORECASE):
+            warnings.append(f"Possible fake metric: {desc}")
+
     # Check for trivial computation patterns
     trivial_patterns = [
         ("sum(x**2)", "trivial sum-of-squares computation"),
@@ -490,6 +503,52 @@ def check_code_complexity(code: str) -> list[str]:
 # ---------------------------------------------------------------------------
 # Deep code quality analysis (Phase 1 / P1.1 + P1.2)
 # ---------------------------------------------------------------------------
+
+
+def check_main_entry_point(code: str) -> list[str]:
+    """Check that main.py has a runnable entry point.
+
+    Returns a list of critical warning strings.
+    """
+    warnings: list[str] = []
+    try:
+        tree = ast.parse(code)
+    except SyntaxError:
+        return warnings
+
+    has_main_func = any(
+        isinstance(n, ast.FunctionDef) and n.name == "main"
+        for n in ast.walk(tree)
+    )
+    has_entry_guard = "if __name__" in code
+    has_main_call = "main()" in code
+
+    if not has_main_func:
+        warnings.append(
+            "[main.py] Missing main() function — experiment code will not execute"
+        )
+    if not has_entry_guard and not has_main_call:
+        warnings.append(
+            "[main.py] Missing entry point: needs 'if __name__ == \"__main__\": main()'"
+        )
+
+    # Check main() is not trivially empty (e.g. `def main(): pass`)
+    if has_main_func:
+        for node in ast.walk(tree):
+            if isinstance(node, ast.FunctionDef) and node.name == "main":
+                stmt_count = sum(
+                    1 for _ in ast.walk(node)
+                    if isinstance(_, (ast.Assign, ast.AugAssign, ast.For, ast.While,
+                                     ast.If, ast.Call, ast.Return, ast.Try))
+                )
+                if stmt_count < 3:
+                    warnings.append(
+                        "[main.py] main() function is trivially empty — "
+                        "needs experiment execution logic"
+                    )
+                break
+
+    return warnings
 
 
 def check_class_quality(all_files: dict[str, str]) -> list[str]:
