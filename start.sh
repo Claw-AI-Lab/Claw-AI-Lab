@@ -20,10 +20,10 @@ do_start() {
     echo ""
 
     # 1) Resource Monitor
-    if ss -tlnp 2>/dev/null | grep -q ":8765 "; then
+    if ss -tlnp 2>/dev/null | grep -q ":8785 "; then
         echo -e "  ${Y}⏭ resource_monitor 已在运行${N}"
     else
-        nohup $PY -u "$BASE/backend/services/resource_monitor.py" --port 8765 \
+        nohup $PY -u "$BASE/backend/services/resource_monitor.py" --port 8785 \
             > "$LOG/resource_monitor.log" 2>&1 &
         echo $! > "$PIDF/resource_monitor.pid"
         sleep 1
@@ -31,14 +31,20 @@ do_start() {
     fi
 
     # 2) Agent Bridge
-    if ss -tlnp 2>/dev/null | grep -q ":8766 "; then
+    if ss -tlnp 2>/dev/null | grep -q ":8786 "; then
         echo -e "  ${Y}⏭ agent_bridge 已在运行${N}"
     else
+        LLM_CFG=""
+        for _cfg in "$BASE/backend/agent/config_gpu_project.yaml" \
+                     "$BASE/backend/agent/config.researchclaw.yaml"; do
+            [ -f "$_cfg" ] && LLM_CFG="--llm-config $_cfg" && break
+        done
         nohup $PY -u "$BASE/backend/services/agent_bridge.py" \
-            --port 8766 --python "$PY" \
+            --port 8786 --python "$PY" \
             --agent-dir "$BASE/backend/agent" \
             --runs-dir "$BASE/backend/runs" \
             --pool-idea 2 --pool-exp 2 --pool-code 3 --pool-exec 4 \
+            $LLM_CFG \
             > "$LOG/agent_bridge.log" 2>&1 &
         echo $! > "$PIDF/agent_bridge.pid"
         sleep 1
@@ -46,11 +52,11 @@ do_start() {
     fi
 
     # 3) Frontend Vite
-    if ss -tlnp 2>/dev/null | grep -q ":5173 "; then
+    if ss -tlnp 2>/dev/null | grep -q ":5190 "; then
         echo -e "  ${Y}⏭ frontend 已在运行${N}"
     else
         cd "$FE"
-        nohup npx vite --host 0.0.0.0 --port 5173 \
+        nohup npx vite --host 0.0.0.0 --port 5190 \
             > "$LOG/frontend.log" 2>&1 &
         echo $! > "$PIDF/frontend.pid"
         sleep 2
@@ -60,9 +66,9 @@ do_start() {
 
     echo ""
     echo "📍 服务地址:"
-    echo -e "   ${G}前端 UI:      http://localhost:5173/${N}"
-    echo "   资源监控 WS:  ws://localhost:8765"
-    echo "   Agent Bridge: ws://localhost:8766"
+    echo -e "   ${G}前端 UI:      http://localhost:5190/${N}"
+    echo "   资源监控 WS:  ws://localhost:8785"
+    echo "   Agent Bridge: ws://localhost:8786"
     echo ""
 }
 
@@ -72,22 +78,41 @@ do_stop() {
         f="$PIDF/$svc.pid"
         if [ -f "$f" ]; then
             pid=$(cat "$f")
-            kill "$pid" 2>/dev/null && sleep 0.5
-            kill -0 "$pid" 2>/dev/null && kill -9 "$pid" 2>/dev/null
+            # Verify the PID actually belongs to our service before killing
+            if kill -0 "$pid" 2>/dev/null; then
+                proc_cmd=$(ps -p "$pid" -o args= 2>/dev/null || true)
+                case "$proc_cmd" in
+                    *resource_monitor*|*agent_bridge*|*vite*|*npm*)
+                        kill "$pid" 2>/dev/null && sleep 0.5
+                        kill -0 "$pid" 2>/dev/null && kill -9 "$pid" 2>/dev/null
+                        echo -e "  ${G}⏹ $svc (PID=$pid)${N}"
+                        ;;
+                    *)
+                        echo -e "  ${Y}⏭ $svc PID=$pid belongs to another process, skipping${N}"
+                        ;;
+                esac
+            fi
             rm -f "$f"
-            echo -e "  ${G}⏹ $svc (PID=$pid)${N}"
         fi
     done
-    # Also kill by port in case PID file was stale
-    for port in 5173 8765 8766; do
-        lsof -ti:$port 2>/dev/null | xargs -r kill -9 2>/dev/null
+    # Fallback: kill only LISTENING server processes on our ports (not clients/SSH)
+    for port in 5190 8785 8786; do
+        ss -tlnp 2>/dev/null | grep ":$port " | grep -oP 'pid=\K[0-9]+' | while read pid; do
+            proc_cmd=$(ps -p "$pid" -o args= 2>/dev/null || true)
+            case "$proc_cmd" in
+                *resource_monitor*|*agent_bridge*|*vite*|*node*)
+                    kill "$pid" 2>/dev/null
+                    echo -e "  ${G}⏹ port $port (PID=$pid)${N}"
+                    ;;
+            esac
+        done
     done
     echo ""
 }
 
 do_status() {
     echo "📊 服务状态:"
-    for pair in "resource_monitor:8765" "agent_bridge:8766" "frontend:5173"; do
+    for pair in "resource_monitor:8785" "agent_bridge:8786" "frontend:5190"; do
         svc="${pair%%:*}"; port="${pair##*:}"
         if ss -tlnp 2>/dev/null | grep -q ":$port "; then
             echo -e "  ${G}● $svc${N} (port $port)"

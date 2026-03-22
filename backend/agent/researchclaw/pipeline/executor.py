@@ -487,6 +487,62 @@ def _safe_json_loads(text: str, default: Any) -> Any:
 _METACLAW_SKILLS_DIR = str(Path.home() / ".metaclaw" / "skills")
 
 
+def _load_human_feedback(run_dir: Path | None, stage: "Stage") -> str:
+    """Load pending human feedback from ``run_dir/human_feedback.jsonl``.
+
+    Reads all feedback entries, formats them chronologically, and marks
+    them as consumed by recording the current stage number in a stamp file.
+    Returns empty string if no new feedback exists.
+    """
+    if run_dir is None:
+        return ""
+    fb_path = run_dir / "human_feedback.jsonl"
+    if not fb_path.exists():
+        return ""
+    try:
+        stamp_path = run_dir / ".feedback_consumed_up_to"
+        consumed_ts = 0
+        if stamp_path.exists():
+            try:
+                consumed_ts = int(stamp_path.read_text(encoding="utf-8").strip())
+            except (ValueError, OSError):
+                pass
+
+        entries = []
+        for line in fb_path.read_text(encoding="utf-8").strip().splitlines():
+            if not line.strip():
+                continue
+            try:
+                entry = json.loads(line)
+                entries.append(entry)
+            except json.JSONDecodeError:
+                continue
+
+        if not entries:
+            return ""
+
+        new_entries = [e for e in entries if e.get("timestamp", 0) > consumed_ts]
+        if not new_entries:
+            all_text = "\n".join(
+                f"- [{e.get('targetLayer', 'all')}] {e['content']}"
+                for e in entries[-5:]
+            )
+            return f"(Previous feedback, still relevant)\n{all_text}"
+
+        parts = []
+        for e in new_entries:
+            layer_tag = e.get("targetLayer", "all")
+            content = e.get("content", "")
+            parts.append(f"- [{layer_tag}] {content}")
+
+        latest_ts = max(e.get("timestamp", 0) for e in new_entries)
+        stamp_path.write_text(str(latest_ts), encoding="utf-8")
+
+        return "\n".join(parts)
+    except (OSError, json.JSONDecodeError):
+        return ""
+
+
 def _get_evolution_overlay(run_dir: Path | None, stage_name: str) -> str:
     """Load evolution lessons + MetaClaw skills for prompt injection.
 
@@ -9565,6 +9621,12 @@ def execute_stage(
         _ = advance(stage, StageStatus.PENDING, TransitionEvent.START)
         executor = _STAGE_EXECUTORS[stage]
         prompts = PromptManager(config.prompts.custom_file or None)  # type: ignore[attr-defined]
+
+        human_fb = _load_human_feedback(run_dir, stage)
+        if human_fb:
+            prompts.set_human_feedback(human_fb)
+            logger.info("Stage %s: injecting human feedback (%d chars)", stage.name, len(human_fb))
+
         try:
             result = executor(
                 stage_dir, run_dir, config, adapters, llm=llm, prompts=prompts

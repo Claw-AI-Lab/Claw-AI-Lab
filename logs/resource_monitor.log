@@ -1,0 +1,62 @@
+🦞 Resource Monitor WS server starting on ws://0.0.0.0:8785
+   Broadcast interval: 2.0s
+   Detected 8 GPU(s): NVIDIA A800-SXM4-80GB
+   System RAM: 1007.5 GiB
+   CPU cores: 128
+
+[+] Client connected: ('127.0.0.1', 47786)  (total: 1)
+[+] Client connected: ('127.0.0.1', 47796)  (total: 2)
+[+] Client connected: ('127.0.0.1', 47798)  (total: 3)
+[+] Client connected: ('127.0.0.1', 55332)  (total: 4)
+[-] Client disconnected: ('127.0.0.1', 47798)  (total: 3)
+connection handler failed
+Traceback (most recent call last):
+  File "/home/user/miniforge3/lib/python3.12/site-packages/websockets/asyncio/server.py", line 376, in conn_handler
+    await self.handler(connection)
+  File "/home/user/gdc/Claw-AI-Lab/backend/services/resource_monitor.py", line 74, in handler
+    async for _ in websocket:
+  File "/home/user/miniforge3/lib/python3.12/site-packages/websockets/asyncio/connection.py", line 244, in __aiter__
+    yield await self.recv()
+          ^^^^^^^^^^^^^^^^^
+  File "/home/user/miniforge3/lib/python3.12/site-packages/websockets/asyncio/connection.py", line 324, in recv
+    raise self.protocol.close_exc from self.recv_exc
+websockets.exceptions.ConnectionClosedError: sent 1011 (internal error) keepalive ping timeout; no close frame received
+[-] Client disconnected: ('127.0.0.1', 55332)  (total: 2)
+connection handler failed
+Traceback (most recent call last):
+  File "/home/user/miniforge3/lib/python3.12/site-packages/websockets/asyncio/server.py", line 376, in conn_handler
+    await self.handler(connection)
+  File "/home/user/gdc/Claw-AI-Lab/backend/services/resource_monitor.py", line 74, in handler
+    async for _ in websocket:
+  File "/home/user/miniforge3/lib/python3.12/site-packages/websockets/asyncio/connection.py", line 244, in __aiter__
+    yield await self.recv()
+          ^^^^^^^^^^^^^^^^^
+  File "/home/user/miniforge3/lib/python3.12/site-packages/websockets/asyncio/connection.py", line 324, in recv
+    raise self.protocol.close_exc from self.recv_exc
+websockets.exceptions.ConnectionClosedError: sent 1011 (internal error) keepalive ping timeout; no close frame received
+[-] Client disconnected: ('127.0.0.1', 47786)  (total: 1)
+connection handler failed
+Traceback (most recent call last):
+  File "/home/user/miniforge3/lib/python3.12/site-packages/websockets/asyncio/server.py", line 376, in conn_handler
+    await self.handler(connection)
+  File "/home/user/gdc/Claw-AI-Lab/backend/services/resource_monitor.py", line 74, in handler
+    async for _ in websocket:
+  File "/home/user/miniforge3/lib/python3.12/site-packages/websockets/asyncio/connection.py", line 244, in __aiter__
+    yield await self.recv()
+          ^^^^^^^^^^^^^^^^^
+  File "/home/user/miniforge3/lib/python3.12/site-packages/websockets/asyncio/connection.py", line 324, in recv
+    raise self.protocol.close_exc from self.recv_exc
+websockets.exceptions.ConnectionClosedError: sent 1011 (internal error) keepalive ping timeout; no close frame received
+[-] Client disconnected: ('127.0.0.1', 47796)  (total: 0)
+connection handler failed
+Traceback (most recent call last):
+  File "/home/user/miniforge3/lib/python3.12/site-packages/websockets/asyncio/server.py", line 376, in conn_handler
+    await self.handler(connection)
+  File "/home/user/gdc/Claw-AI-Lab/backend/services/resource_monitor.py", line 74, in handler
+    async for _ in websocket:
+  File "/home/user/miniforge3/lib/python3.12/site-packages/websockets/asyncio/connection.py", line 244, in __aiter__
+    yield await self.recv()
+          ^^^^^^^^^^^^^^^^^
+  File "/home/user/miniforge3/lib/python3.12/site-packages/websockets/asyncio/connection.py", line 324, in recv
+    raise self.protocol.close_exc from self.recv_exc
+websockets.exceptions.ConnectionClosedError: sent 1011 (internal error) keepalive ping timeout; no close frame received

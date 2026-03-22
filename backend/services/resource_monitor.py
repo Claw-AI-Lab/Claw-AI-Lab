@@ -4,7 +4,7 @@ Real-time system resource monitor via WebSocket.
 Sends CPU, memory, and GPU stats to the frontend every 2 seconds.
 
 Usage:
-    python resource_monitor.py [--port 8765] [--interval 2]
+    python resource_monitor.py [--port 8785] [--interval 2]
 """
 
 import argparse
@@ -115,7 +115,7 @@ async def main(host: str, port: int, interval: float):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Resource Monitor WebSocket Server")
     parser.add_argument("--host", default="0.0.0.0")
-    parser.add_argument("--port", type=int, default=8765)
+    parser.add_argument("--port", type=int, default=8785)
     parser.add_argument("--interval", type=float, default=2.0)
     args = parser.parse_args()
     asyncio.run(main(args.host, args.port, args.interval))

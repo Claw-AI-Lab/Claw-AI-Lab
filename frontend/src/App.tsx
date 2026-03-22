@@ -1,12 +1,13 @@
 import { useReducer, useEffect, useCallback, useRef, useState, useMemo } from 'react';
 import { AgentLayer, ALL_LAYERS, ALL_REPOS } from './types';
-import type { AppState, WSMessage, ResourceStats, LobsterAgent, QueueMap } from './types';
-import { INITIAL_AGENTS, createMockMessageGenerator } from './mock';
+import type { AppState, WSMessage, ResourceStats, LobsterAgent, QueueMap, ChatMessage } from './types';
+import { INITIAL_AGENTS, createMockMessageGenerator, createMockFeedbackAck, createMockLLMAnalysis } from './mock';
 import LayerPanel from './components/LayerPanel';
 import DataShelf from './components/DataShelf';
 import ResourceMonitor from './components/ResourceMonitor';
 import LogPanel from './components/LogPanel';
 import QueuePanel from './components/QueuePanel';
+import HumanFeedbackPanel from './components/HumanFeedbackPanel';
 import './App.css';
 
 type Action =
@@ -14,7 +15,8 @@ type Action =
   | { type: 'set_connected'; payload: boolean }
   | { type: 'set_mock'; payload: boolean }
   | { type: 'set_res_connected'; payload: boolean }
-  | { type: 'clear_agents' };
+  | { type: 'clear_agents' }
+  | { type: 'add_chat_message'; payload: ChatMessage };
 
 function upsertAgent(agents: LobsterAgent[], payload: LobsterAgent): LobsterAgent[] {
   const idx = agents.findIndex((a) => a.id === payload.id);
@@ -68,6 +70,11 @@ function reducer(state: AppState, action: Action): AppState {
       return { ...state, mockMode: action.payload };
     case 'clear_agents':
       return { ...state, agents: [], artifacts: [], logs: [], queues: {} };
+    case 'add_chat_message':
+      return { ...state, chatMessages: [...state.chatMessages, action.payload] };
+    case 'feedback_ack':
+    case 'plan_update':
+      return { ...state, chatMessages: [...state.chatMessages, action.payload] };
     case 'system':
       return state;
     default:
@@ -82,6 +89,7 @@ const INITIAL_STATE: AppState = {
   artifacts: [],
   logs: [],
   queues: {},
+  chatMessages: [],
   resources: null,
   resConnected: false,
   connected: false,
@@ -243,6 +251,39 @@ export default function App() {
   const workingCount = useMemo(() => state.agents.filter((a) => a.status === 'working').length, [state.agents]);
   const errorCount = useMemo(() => state.agents.filter((a) => a.status === 'error').length, [state.agents]);
 
+  const sendFeedback = useCallback((content: string, targetLayer?: string) => {
+    const msg: ChatMessage = {
+      id: `chat-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
+      sender: 'human',
+      content,
+      timestamp: Date.now(),
+      targetLayer: (targetLayer as ChatMessage['targetLayer']) || 'all',
+    };
+    dispatch({ type: 'add_chat_message', payload: msg });
+
+    const ws = agentWsRef.current;
+    if (ws && ws.readyState === WebSocket.OPEN) {
+      ws.send(JSON.stringify({
+        command: 'human_feedback',
+        content,
+        targetLayer: msg.targetLayer,
+        messageId: msg.id,
+      }));
+    }
+
+    if (mockModeRef.current) {
+      setTimeout(() => {
+        const ack = createMockFeedbackAck(targetLayer || 'all');
+        dispatch({ type: 'add_chat_message', payload: ack });
+      }, 300 + Math.random() * 500);
+
+      setTimeout(() => {
+        const analysis = createMockLLMAnalysis(content, targetLayer || 'all');
+        dispatch({ type: 'add_chat_message', payload: analysis });
+      }, 2500 + Math.random() * 3000);
+    }
+  }, []);
+
   return (
     <div className="app">
       <header className="app-header">
@@ -302,6 +343,12 @@ export default function App() {
 
         <LogPanel logs={state.logs} />
       </div>
+
+      <HumanFeedbackPanel
+        messages={state.chatMessages}
+        onSend={sendFeedback}
+        connected={state.connected}
+      />
     </div>
   );
 }

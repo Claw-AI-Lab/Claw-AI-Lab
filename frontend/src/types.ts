@@ -228,6 +228,20 @@ export interface QueueSummary {
 
 export type QueueMap = Record<string, QueueSummary>;
 
+// ===================== Human Feedback / Chat =====================
+
+export type ChatSender = 'human' | 'system';
+
+export interface ChatMessage {
+  id: string;
+  sender: ChatSender;
+  content: string;
+  timestamp: number;
+  targetLayer?: AgentLayer | 'all';
+  relatedStage?: RCStage;
+  planUpdate?: string;
+}
+
 // ===================== WebSocket Protocol =====================
 
 export type WSMessage =
@@ -237,7 +251,9 @@ export type WSMessage =
   | { type: 'stage_update'; payload: { agentId: string; stage: RCStage; status: StageStatus } }
   | { type: 'resource_stats'; payload: ResourceStats }
   | { type: 'queue_update'; payload: QueueMap }
-  | { type: 'system'; payload: { message: string } };
+  | { type: 'system'; payload: { message: string } }
+  | { type: 'feedback_ack'; payload: ChatMessage }
+  | { type: 'plan_update'; payload: ChatMessage };
 
 // ===================== App State =====================
 
@@ -246,6 +262,7 @@ export interface AppState {
   artifacts: Artifact[];
   logs: LogEntry[];
   queues: QueueMap;
+  chatMessages: ChatMessage[];
   resources: ResourceStats | null;
   resConnected: boolean;
   connected: boolean;

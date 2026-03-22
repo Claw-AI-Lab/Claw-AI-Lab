@@ -1,5 +1,5 @@
 import { AgentLayer, STAGE_META, LAYER_META, RepoId } from './types';
-import type { LobsterAgent, WSMessage, Artifact, RCStage as RCStageT } from './types';
+import type { LobsterAgent, WSMessage, Artifact, RCStage as RCStageT, ChatMessage } from './types';
 
 let counter = 0;
 const uid = () => `m-${++counter}-${Date.now()}`;
@@ -180,4 +180,60 @@ export function createMockMessageGenerator(onMessage: (msg: WSMessage) => void):
   setTimeout(emitAgentActivity, 800);
 
   return () => intervals.forEach(clearInterval);
+}
+
+const MOCK_FEEDBACK_RESPONSES: Record<string, string[]> = {
+  all: [
+    '已收到全局反馈，将在后续阶段调整研究方向。',
+    '全局计划已更新：将优先处理你提到的关键点。',
+    '反馈已记录，所有层级的 Agent 将在下一轮迭代中参考。',
+  ],
+  [AgentLayer.IDEA]: [
+    '已通知调研层，文献搜索策略将根据反馈调整。',
+    '调研方向已更新，将增加你建议的关键词搜索。',
+  ],
+  [AgentLayer.EXPERIMENT]: [
+    '实验设计层已收到反馈，将重新评估实验方案。',
+    '已调整实验参数，将在下一轮实验中体现。',
+  ],
+  [AgentLayer.CODING]: [
+    '代码层已收到反馈，将优化实现方案。',
+    '代码生成策略已更新，将按你的建议调整。',
+  ],
+  [AgentLayer.EXECUTION]: [
+    '执行层已收到反馈，将调整运行配置。',
+    '已记录执行层反馈，下一轮迭代将调整执行策略。',
+  ],
+};
+
+export function createMockFeedbackAck(targetLayer: string): ChatMessage {
+  return {
+    id: `mock-ack-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
+    sender: 'system',
+    content: '正在分析你的反馈，请稍候...',
+    timestamp: Date.now(),
+    targetLayer: targetLayer as ChatMessage['targetLayer'],
+  };
+}
+
+const MOCK_LLM_ANALYSES: string[] = [
+  '收到你的反馈。根据当前 pipeline 状态分析：\n\n1. 当前调研层 Agent 正在执行文献检索阶段，你的反馈将在该阶段完成后注入下一阶段\n2. 建议优先调整检索关键词策略，增加你提到的方向\n3. 实验设计层将参考更新后的文献综合结果重新规划\n\n这些调整将在下一个阶段开始时自动生效。',
+  '已分析你的反馈，计划调整如下：\n\n1. 调研方向将增加你建议的新维度\n2. 当前运行中的实验不会被中断，但下一轮迭代会体现调整\n3. 代码层 Agent 将在下次生成时参考你的要求\n\n反馈已写入所有相关项目的上下文中。',
+  '理解了你的指示。结合当前运行情况：\n\n1. 当前有 2 个项目在执行中，反馈已注入两个项目\n2. 执行层的当前阶段即将完成，下一阶段会立即采纳你的建议\n3. 建议关注实验结果分析阶段的输出，确认调整效果\n\n你可以继续发送反馈来进一步细化方向。',
+];
+
+export function createMockLLMAnalysis(
+  content: string,
+  targetLayer: string,
+): ChatMessage {
+  const analysis = MOCK_LLM_ANALYSES[Math.floor(Math.random() * MOCK_LLM_ANALYSES.length)];
+  const planUpdate = `针对「${content.slice(0, 30)}${content.length > 30 ? '...' : ''}」的分析完成`;
+  return {
+    id: `mock-llm-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
+    sender: 'system',
+    content: analysis,
+    timestamp: Date.now(),
+    targetLayer: targetLayer as ChatMessage['targetLayer'],
+    planUpdate,
+  };
 }

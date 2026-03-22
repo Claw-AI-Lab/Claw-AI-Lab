@@ -17,7 +17,7 @@ Architecture:
       └── execution_feedback.json
 
 Usage:
-    python agent_bridge.py [--port 8766] [--agent-dir /path/to/agent]
+    python agent_bridge.py [--port 8786] [--agent-dir /path/to/agent]
 """
 
 from __future__ import annotations
@@ -127,6 +127,50 @@ def _read_json(path: Path) -> dict | None:
 def _write_json(path: Path, data: object) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+
+def _save_feedback(state: "BridgeState", content: str, target_layer: str, message_id: str) -> None:
+    """Persist human feedback to disk so running agents can pick it up.
+
+    Writes to:
+    1. Global ``runs_base/feedback/feedback_log.jsonl`` — full audit trail
+    2. Each matching project's ``run_dir/human_feedback.jsonl`` — consumed by
+       the executor's ``_load_human_feedback()`` before each pipeline stage
+    """
+    feedback_dir = Path(state.runs_base_dir) / "feedback"
+    feedback_dir.mkdir(parents=True, exist_ok=True)
+    entry = {
+        "id": message_id,
+        "content": content,
+        "targetLayer": target_layer,
+        "timestamp": _now_ms(),
+    }
+    log_path = feedback_dir / "feedback_log.jsonl"
+    with open(log_path, "a", encoding="utf-8") as f:
+        f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+
+    latest_path = feedback_dir / "latest_feedback.json"
+    _write_json(latest_path, entry)
+
+    injected_to: list[str] = []
+    for agent in state.agents.values():
+        if not agent.run_dir or agent.status not in ("working", "idle"):
+            continue
+        if target_layer != "all" and agent.layer != target_layer:
+            continue
+        run_dir = Path(agent.run_dir)
+        if not run_dir.exists():
+            continue
+        fb_path = run_dir / "human_feedback.jsonl"
+        try:
+            with open(fb_path, "a", encoding="utf-8") as f:
+                f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+            injected_to.append(f"{agent.name}({agent.project_id})")
+        except OSError:
+            pass
+
+    if injected_to:
+        print(f"[feedback] Injected to {len(injected_to)} project(s): {', '.join(injected_to)}")
+
 
 # ── Data structures ─────────────────────────────────────────────────────────
 
@@ -264,12 +308,143 @@ class BridgeState:
     python_path: str = ""
     agent_package_dir: str = ""
     runs_base_dir: str = ""
+    llm_client: object | None = field(default=None, repr=False)
+    llm_config_path: str = ""
 
     def projects_dir(self) -> Path:
         return Path(self.runs_base_dir) / "projects"
 
     def queues_dir(self) -> Path:
         return Path(self.runs_base_dir) / "queues"
+
+
+# ── LLM integration for feedback analysis ───────────────────────────────────
+
+def _init_llm_client(agent_package_dir: str, config_path: str = "") -> object | None:
+    """Try to initialize an LLM client from the ResearchClaw config."""
+    try:
+        _agent_dir = Path(agent_package_dir)
+        if str(_agent_dir) not in sys.path:
+            sys.path.insert(0, str(_agent_dir))
+
+        from researchclaw.config import load_config
+        from researchclaw.llm.client import LLMClient, LLMConfig
+
+        if config_path and Path(config_path).exists():
+            rc_config = load_config(config_path, check_paths=False)
+            client = LLMClient.from_rc_config(rc_config)
+        else:
+            candidates = [
+                _agent_dir / "config_gpu_project.yaml",
+                _agent_dir / "config.researchclaw.yaml",
+                _agent_dir / "config.researchclaw.example.yaml",
+            ]
+            for c in candidates:
+                if c.exists():
+                    rc_config = load_config(str(c), check_paths=False)
+                    client = LLMClient.from_rc_config(rc_config)
+                    print(f"   LLM config: {c}")
+                    return client
+            return None
+
+        return client
+    except Exception as e:
+        print(f"[warn] LLM client init failed: {e}")
+        return None
+
+
+def _gather_pipeline_context(state: BridgeState, target_layer: str) -> str:
+    """Collect current pipeline state for LLM analysis."""
+    parts: list[str] = []
+
+    for agent in state.agents.values():
+        if target_layer != "all" and agent.layer != target_layer:
+            continue
+        status_cn = {"idle": "空闲", "working": "运行中", "error": "出错", "done": "完成"}.get(agent.status, agent.status)
+        line = f"- {agent.name} [{agent.layer}层] 状态={status_cn}"
+        if agent.current_stage:
+            sname = STAGE_NAMES.get(agent.current_stage, f"S{agent.current_stage}")
+            line += f" 当前阶段=S{agent.current_stage}({sname})"
+        if agent.current_task:
+            line += f" 任务={agent.current_task}"
+        if agent.project_id:
+            line += f" 项目={agent.project_id}"
+        parts.append(line)
+
+        if agent.run_dir and Path(agent.run_dir).exists():
+            cp = _read_json(Path(agent.run_dir) / "checkpoint.json")
+            if cp:
+                parts.append(f"  checkpoint: 已完成到 S{cp.get('last_completed_stage', '?')} ({cp.get('last_completed_name', '')})")
+
+    for qname, q in state.queues.items():
+        s = q.summary()
+        if s["total"] > 0:
+            parts.append(f"- 队列 {qname}: 总={s['total']} 待处理={s['pending']} 进行中={s['assigned']} 完成={s['completed']}")
+
+    return "\n".join(parts) if parts else "当前无活跃的 Agent 或任务。"
+
+
+_FEEDBACK_SYSTEM_PROMPT = """\
+你是「Pyramid Research Team」的智能调度助手。用户（人类研究员）通过前端对话框提供了反馈或指令。
+
+你需要：
+1. 理解用户的反馈意图
+2. 结合当前 pipeline 运行状态，分析反馈对研究计划的影响
+3. 给出具体的计划调整建议（哪些阶段需要重新执行、参数如何调整、方向是否需要改变等）
+4. 用简洁明确的中文回复
+
+回复格式要求：
+- 先用一句话确认理解了用户的反馈
+- 然后给出具体的计划调整建议
+- 最后说明这些调整将如何生效
+"""
+
+
+async def _process_feedback_with_llm(
+    state: BridgeState,
+    content: str,
+    target_layer: str,
+    message_id: str,
+) -> dict | None:
+    """Call LLM to analyze human feedback and generate plan update."""
+    if state.llm_client is None:
+        return None
+
+    context = _gather_pipeline_context(state, target_layer)
+    target_desc = "全局" if target_layer == "all" else f"{target_layer}层"
+
+    user_prompt = (
+        f"## 当前 Pipeline 状态\n{context}\n\n"
+        f"## 人类研究员反馈\n"
+        f"目标层级: {target_desc}\n"
+        f"反馈内容: {content}\n\n"
+        f"请分析这条反馈并给出计划调整建议。"
+    )
+
+    try:
+        loop = asyncio.get_event_loop()
+        resp = await loop.run_in_executor(
+            None,
+            lambda: state.llm_client.chat(
+                [{"role": "user", "content": user_prompt}],
+                system=_FEEDBACK_SYSTEM_PROMPT,
+                max_tokens=1024,
+            ),
+        )
+        reply_text = resp.content.strip()
+
+        plan_lines = []
+        for line in reply_text.split("\n"):
+            stripped = line.strip()
+            if stripped.startswith(("-", "•", "·", "1", "2", "3", "4", "5")) or "调整" in stripped or "建议" in stripped:
+                plan_lines.append(stripped)
+        plan_summary = "\n".join(plan_lines[:5]) if plan_lines else reply_text[:200]
+
+        return msg_plan_update(reply_text, target_layer, plan_summary)
+
+    except Exception as e:
+        print(f"[warn] LLM feedback analysis failed: {e}")
+        return None
 
 
 # ── Message builders ────────────────────────────────────────────────────────
@@ -295,6 +470,18 @@ def msg_log(agent: LobsterAgent, message: str, level: str = "info", stage: int |
 
 def msg_queue_update(queues: dict[str, TaskQueue]) -> dict:
     return {"type": "queue_update", "payload": {name: q.summary() for name, q in queues.items()}}
+
+def msg_feedback_ack(message_id: str, content: str, target_layer: str = "all", plan_update: str = "") -> dict:
+    return {"type": "feedback_ack", "payload": {
+        "id": f"sys-{_uid()}", "sender": "system", "content": content,
+        "timestamp": _now_ms(), "targetLayer": target_layer, "planUpdate": plan_update,
+    }}
+
+def msg_plan_update(content: str, target_layer: str = "all", plan_update: str = "") -> dict:
+    return {"type": "plan_update", "payload": {
+        "id": f"plan-{_uid()}", "sender": "system", "content": content,
+        "timestamp": _now_ms(), "targetLayer": target_layer, "planUpdate": plan_update,
+    }}
 
 
 # ── File monitoring ─────────────────────────────────────────────────────────
@@ -666,7 +853,78 @@ async def handle_command(state: BridgeState, data: dict) -> list[dict]:
     elif cmd == "get_queues":
         messages.append(msg_queue_update(state.queues))
 
+    elif cmd == "human_feedback":
+        content = data.get("content", "")
+        target_layer = data.get("targetLayer", "all")
+        message_id = data.get("messageId", "")
+
+        sys_agent = LobsterAgent(
+            id="system", name="系统", layer=target_layer if target_layer != "all" else "idea",
+            run_id="", run_dir="", config_path="",
+        )
+        messages.append(msg_log(sys_agent, f"收到人工反馈: {content[:80]}{'...' if len(content) > 80 else ''}", "info"))
+
+        _save_feedback(state, content, target_layer, message_id)
+
+        injected_projects = []
+        for agent in state.agents.values():
+            if not agent.run_dir or agent.status not in ("working", "idle"):
+                continue
+            if target_layer != "all" and agent.layer != target_layer:
+                continue
+            if agent.project_id:
+                injected_projects.append(agent.project_id)
+
+        if state.llm_client is not None:
+            ack_text = "正在分析你的反馈，请稍候..."
+            if injected_projects:
+                unique = sorted(set(injected_projects))
+                ack_text = f"已注入 {len(unique)} 个项目，正在调用大模型分析反馈..."
+            messages.append(msg_feedback_ack(message_id, ack_text, target_layer, ""))
+            asyncio.ensure_future(_async_llm_feedback(state, content, target_layer, message_id))
+        else:
+            target_desc = "全局" if target_layer == "all" else STAGE_NAMES.get(
+                LAYER_STAGES.get(target_layer, [0])[0], target_layer
+            )
+            if injected_projects:
+                unique = sorted(set(injected_projects))
+                plan_hint = (
+                    f"已将反馈注入 {len(unique)} 个项目的 prompt 上下文中 "
+                    f"({', '.join(unique)})。"
+                    f"当前阶段完成后，下一个阶段的 LLM 将读取并参考你的反馈来调整执行计划。"
+                    f"\n(未配置 LLM，无法提供即时智能分析)"
+                )
+            else:
+                plan_hint = (
+                    f"已记录针对 [{target_desc}] 的反馈。"
+                    f"当前无匹配的运行中项目，反馈将在新任务启动时生效。"
+                )
+            messages.append(msg_feedback_ack(message_id, plan_hint, target_layer, plan_hint))
+
     return messages
+
+
+async def _async_llm_feedback(state: BridgeState, content: str, target_layer: str, message_id: str):
+    """Background task: call LLM to analyze feedback, then broadcast the result."""
+    try:
+        result = await _process_feedback_with_llm(state, content, target_layer, message_id)
+        if result:
+            await broadcast(state, [result])
+        else:
+            fallback = msg_plan_update(
+                "LLM 分析暂不可用，你的反馈已保存并将在下一个阶段自动注入 prompt 中。",
+                target_layer,
+                "反馈已保存，等待下一阶段执行时生效。",
+            )
+            await broadcast(state, [fallback])
+    except Exception as e:
+        print(f"[error] Async LLM feedback failed: {e}")
+        fallback = msg_plan_update(
+            f"分析反馈时出错: {e}。你的反馈已保存，将在下一个阶段自动生效。",
+            target_layer,
+            "反馈已保存，分析出错。",
+        )
+        await broadcast(state, [fallback])
 
 
 async def ws_handler(state: BridgeState, websocket: websockets.ServerConnection):
@@ -756,12 +1014,17 @@ async def main(args: argparse.Namespace):
 
     queued_tasks = sum(q.pending_count() for q in state.queues.values())
 
+    state.llm_config_path = args.llm_config
+    llm = _init_llm_client(args.agent_dir, args.llm_config)
+    state.llm_client = llm
+
     print(f"🦞 Agent Bridge v2 starting on ws://0.0.0.0:{args.port}")
     print(f"   Agent package: {args.agent_dir}")
     print(f"   Runs base:     {args.runs_dir}")
     print(f"   Python:        {args.python}")
     print(f"   Lobsters:      {len(state.agents)}")
     print(f"   Queued tasks:  {queued_tasks}")
+    print(f"   LLM feedback:  {'✅ 已启用' if llm else '❌ 未配置 (--llm-config)'}")
     print()
 
     handler = lambda ws: ws_handler(state, ws)
@@ -771,7 +1034,7 @@ async def main(args: argparse.Namespace):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Agent Bridge v2")
-    parser.add_argument("--port", type=int, default=8766)
+    parser.add_argument("--port", type=int, default=8786)
     parser.add_argument("--interval", type=float, default=2.0)
     parser.add_argument("--python", default=sys.executable)
     parser.add_argument("--agent-dir",
@@ -782,5 +1045,7 @@ if __name__ == "__main__":
     parser.add_argument("--pool-exp", type=int, default=2)
     parser.add_argument("--pool-code", type=int, default=3)
     parser.add_argument("--pool-exec", type=int, default=4)
+    parser.add_argument("--llm-config", default="",
+                        help="Path to ResearchClaw YAML config for feedback LLM")
     args = parser.parse_args()
     asyncio.run(main(args))
