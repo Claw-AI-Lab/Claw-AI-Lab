@@ -6,6 +6,7 @@ import LayerPanel from './components/LayerPanel';
 import DataShelf from './components/DataShelf';
 import ResourceMonitor from './components/ResourceMonitor';
 import LogPanel from './components/LogPanel';
+import HumanFeedbackPanel from './components/HumanFeedbackPanel';
 import QueuePanel from './components/QueuePanel';
 import DataFlowArrow from './components/DataFlowArrow';
 import './App.css';
@@ -56,6 +57,8 @@ function reducer(state: AppState, action: Action): AppState {
       return { ...state, resources: action.payload, resConnected: true };
     case 'log':
       return { ...state, logs: [...state.logs, action.payload] };
+    case 'chat_message':
+      return { ...state, chatMessages: [...state.chatMessages, action.payload] };
     case 'set_connected':
       return { ...state, connected: action.payload };
     case 'set_res_connected':
@@ -83,6 +86,7 @@ const INITIAL_STATE: AppState = {
   artifacts: [],
   logs: [],
   queues: {},
+  chatMessages: [],
   resources: null,
   resConnected: false,
   connected: false,
@@ -323,6 +327,30 @@ export default function App() {
         </div>
 
         <LogPanel logs={state.logs} />
+        <HumanFeedbackPanel
+          messages={state.chatMessages}
+          connected={state.connected}
+          onSend={(content, targetLayer) => {
+            const ws = agentWsRef.current;
+            if (ws && ws.readyState === WebSocket.OPEN) {
+              ws.send(JSON.stringify({
+                command: 'human_feedback',
+                content,
+                targetLayer: targetLayer || 'all',
+              }));
+              dispatch({
+                type: 'chat_message',
+                payload: {
+                  id: `user-${Date.now()}`,
+                  role: 'user',
+                  content,
+                  targetLayer: targetLayer || 'all',
+                  timestamp: Date.now(),
+                },
+              });
+            }
+          }}
+        />
       </div>
     </div>
   );

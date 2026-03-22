@@ -219,6 +219,16 @@ def execute_pipeline(
 
         stage_num = int(stage)
         prefix = f"[{run_id}] Stage {stage_num:02d}/{total_stages}"
+
+        fb_path = run_dir / "human_feedback.jsonl"
+        if fb_path.exists():
+            try:
+                lines = [l for l in fb_path.read_text(encoding="utf-8").strip().splitlines() if l.strip()]
+                if lines:
+                    print(f"{prefix} {stage.name} — {len(lines)} human feedback item(s) pending")
+            except OSError:
+                pass
+
         print(f"{prefix} {stage.name} — running...")
         t0 = _time.monotonic()
 

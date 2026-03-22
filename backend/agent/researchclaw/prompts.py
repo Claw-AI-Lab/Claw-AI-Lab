@@ -96,8 +96,13 @@ class PromptManager:
         self._sub_prompts: dict[str, dict[str, Any]] = {
             k: dict(v) for k, v in _DEFAULT_SUB_PROMPTS.items()
         }
+        self._human_feedback: str = ""
         if overrides_path:
             self._load_overrides(Path(overrides_path))
+
+    def set_human_feedback(self, feedback: str) -> None:
+        """Set accumulated human feedback to inject into all subsequent prompts."""
+        self._human_feedback = feedback
 
     # -- loading ----------------------------------------------------------
 
@@ -146,6 +151,15 @@ class PromptManager:
         user_text = _render(entry["user"], kw)
         if evolution_overlay:
             user_text = f"{user_text}\n\n{evolution_overlay}"
+        if self._human_feedback:
+            user_text = (
+                f"{user_text}\n\n"
+                "## Human Researcher Feedback\n"
+                "The following feedback was provided by the human researcher. "
+                "Carefully consider these instructions and adjust your approach, "
+                "priorities, and output accordingly:\n\n"
+                f"{self._human_feedback}"
+            )
         return RenderedPrompt(
             system=_render(entry["system"], kw),
             user=user_text,
