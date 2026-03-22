@@ -31,8 +31,8 @@ class HardwareProfile:
     """Detected hardware capabilities of the local machine."""
 
     has_gpu: bool
-    gpu_type: str  # "cuda" | "mps" | "cpu"
-    gpu_name: str  # e.g. "NVIDIA RTX 4090" / "Apple M3 Pro" / "CPU only"
+    gpu_type: str  # "cuda" | "npu" | "mps" | "cpu"
+    gpu_name: str  # e.g. "NVIDIA RTX 4090" / "Ascend 910B2" / "Apple M3 Pro" / "CPU only"
     vram_mb: int | None  # NVIDIA only; None for MPS/CPU
     tier: str  # "high" | "limited" | "cpu_only"
     warning: str  # User-facing warning message (empty if tier=high)
@@ -51,6 +51,11 @@ def detect_hardware() -> HardwareProfile:
     """
     # --- Try NVIDIA ---
     profile = _detect_nvidia()
+    if profile is not None:
+        return profile
+
+    # --- Try Ascend NPU ---
+    profile = _detect_ascend()
     if profile is not None:
         return profile
 
@@ -120,6 +125,45 @@ def _detect_nvidia() -> HardwareProfile | None:
             vram_mb=vram_mb,
             tier=tier,
             warning=warning,
+        )
+    except (FileNotFoundError, subprocess.TimeoutExpired, OSError):
+        return None
+
+
+def _detect_ascend() -> HardwareProfile | None:
+    """Detect Huawei Ascend NPU via npu-smi."""
+    try:
+        result = subprocess.run(
+            ["npu-smi", "info"], capture_output=True, text=True, timeout=10, check=False,
+        )
+        if result.returncode != 0:
+            return None
+        output = result.stdout
+        import re as _re
+        gpu_name = "Ascend NPU"
+        name_match = _re.search(r"\|\s*\d+\s+(\w+)", output)
+        if name_match:
+            gpu_name = f"Ascend {name_match.group(1)}"
+        vram_mb = 0
+        hbm_matches = _re.findall(r"(\d+)\s*/\s*(\d+)\s*\|?\s*$", output, _re.MULTILINE)
+        if hbm_matches:
+            for used, total in hbm_matches:
+                total_int = int(total)
+                if total_int > 0:
+                    vram_mb = total_int
+                    break
+        if vram_mb >= _HIGH_VRAM_THRESHOLD_MB:
+            tier, warning = "high", ""
+        else:
+            tier = "limited" if vram_mb > 0 else "high"
+            warning = (
+                f"Ascend NPU ({gpu_name}) detected but could not determine HBM size."
+                if vram_mb == 0 else
+                f"Ascend NPU ({gpu_name}, {vram_mb} MB HBM) has limited memory."
+            )
+        return HardwareProfile(
+            has_gpu=True, gpu_type="npu", gpu_name=gpu_name,
+            vram_mb=vram_mb if vram_mb > 0 else None, tier=tier, warning=warning,
         )
     except (FileNotFoundError, subprocess.TimeoutExpired, OSError):
         return None

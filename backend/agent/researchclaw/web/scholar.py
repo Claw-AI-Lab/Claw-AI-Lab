@@ -107,13 +107,26 @@ class GoogleScholarClient:
             except Exception as exc:  # noqa: BLE001
                 logger.warning("Failed to set up proxy: %s", exc)
 
+    _reachable: bool | None = None  # cached reachability
+
     @property
     def available(self) -> bool:
-        """Always True — scholarly is installed as a dependency."""
-        return True
+        """Check if Google Scholar is reachable (cached)."""
+        if GoogleScholarClient._reachable is None:
+            try:
+                from urllib.request import urlopen, Request
+                urlopen(Request("https://scholar.google.com/",  # noqa: S310
+                    headers={"User-Agent": "Mozilla/5.0"}), timeout=5)
+                GoogleScholarClient._reachable = True
+            except Exception:
+                GoogleScholarClient._reachable = False
+                logger.warning("Google Scholar unreachable — disabling for this session")
+        return GoogleScholarClient._reachable
 
     def search(self, query: str, *, limit: int = 10) -> list[ScholarPaper]:
         """Search Google Scholar for papers matching query."""
+        if not self.available:
+            return []
         self._rate_limit()
         results: list[ScholarPaper] = []
         try:
@@ -128,6 +141,7 @@ class GoogleScholarClient:
             logger.info("Google Scholar: found %d papers for %r", len(results), query)
         except Exception as exc:  # noqa: BLE001
             logger.warning("Google Scholar search failed: %s", exc)
+            GoogleScholarClient._reachable = False  # disable further attempts
 
         return results
 

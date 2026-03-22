@@ -252,7 +252,11 @@ class SshRemoteSandbox:
 
         gpu_env = ""
         if cfg.gpu_ids:
-            gpu_env = f"CUDA_VISIBLE_DEVICES={','.join(str(g) for g in cfg.gpu_ids)} "
+            accel = getattr(cfg, "accelerator_type", "auto")
+            if accel == "npu":
+                gpu_env = f"ASCEND_VISIBLE_DEVICES={','.join(str(g) for g in cfg.gpu_ids)} "
+            else:
+                gpu_env = f"CUDA_VISIBLE_DEVICES={','.join(str(g) for g in cfg.gpu_ids)} "
 
         # Security layers:
         # 1. HOME override — prevents reading ~/.ssh, ~/.bashrc, etc.
@@ -295,13 +299,24 @@ class SshRemoteSandbox:
         if cfg.docker_network_policy == "none":
             parts.extend(["--network", "none"])
 
-        # GPU passthrough
-        if cfg.gpu_ids:
-            device_spec = ",".join(str(g) for g in cfg.gpu_ids)
-            parts.extend(["--gpus", f"device={device_spec}"])
+        # GPU / NPU passthrough
+        accel = getattr(cfg, "accelerator_type", "auto")
+        if accel == "npu":
+            if cfg.gpu_ids:
+                for d in cfg.gpu_ids:
+                    parts.extend(["--device", f"/dev/davinci{d}"])
+            else:
+                parts.extend(["--device", "/dev/davinci0"])
+            parts.extend(["--device", "/dev/davinci_manager", "--device", "/dev/devmm_svm",
+                           "--device", "/dev/hisi_hdc",
+                           "-v", "/usr/local/Ascend/driver:/usr/local/Ascend/driver:ro",
+                           "-v", "/usr/local/sbin:/usr/local/sbin:ro"])
         else:
-            # Try to pass all GPUs; fails gracefully if none available
-            parts.extend(["--gpus", "all"])
+            if cfg.gpu_ids:
+                device_spec = ",".join(str(g) for g in cfg.gpu_ids)
+                parts.extend(["--gpus", f"device={device_spec}"])
+            else:
+                parts.extend(["--gpus", "all"])
 
         parts.append(shlex.quote(cfg.docker_image))
         parts.extend(["python3", "-u", shlex.quote(entry_point)])

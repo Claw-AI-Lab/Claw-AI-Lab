@@ -6,6 +6,7 @@ import logging
 import os
 import shutil
 import socket
+import subprocess
 import sys
 import urllib.error
 import urllib.request
@@ -530,6 +531,25 @@ def check_acp_agent(agent_command: str) -> CheckResult:
     )
 
 
+def check_ascend_runtime() -> CheckResult:
+    """Check if Ascend NPU and CANN driver are available."""
+    try:
+        cp = subprocess.run(["npu-smi", "info"], capture_output=True, text=True, timeout=10, check=False)
+        if cp.returncode == 0:
+            import re
+            npu_count = len(re.findall(r"NPU\s+ID", cp.stdout)) or 1
+            return CheckResult(name="ascend_runtime", status="pass",
+                               detail=f"Ascend NPU available ({npu_count} device(s))")
+        return CheckResult(name="ascend_runtime", status="fail",
+                           detail="npu-smi returned error", fix="Check Ascend CANN driver installation")
+    except FileNotFoundError:
+        return CheckResult(name="ascend_runtime", status="warn",
+                           detail="npu-smi not found — no Ascend NPU support")
+    except subprocess.TimeoutExpired:
+        return CheckResult(name="ascend_runtime", status="fail",
+                           detail="npu-smi timed out", fix="Check Ascend driver status")
+
+
 def check_docker_runtime(config: RCConfig) -> CheckResult:
     """Check Docker daemon, image availability, and optional NVIDIA runtime."""
     from researchclaw.experiment.docker_sandbox import DockerSandbox
@@ -598,6 +618,8 @@ def run_doctor(config_path: str | Path) -> DoctorReport:
     checks.append(check_sandbox_python(sandbox_python_path))
     checks.append(check_matplotlib())
     checks.append(check_experiment_mode(experiment_mode))
+
+    checks.append(check_ascend_runtime())
 
     if experiment_mode == "docker":
         try:

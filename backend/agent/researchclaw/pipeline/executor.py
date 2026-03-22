@@ -3244,12 +3244,35 @@ def _execute_code_generation(
             gpu_type = hw_profile.get("gpu_type", "cuda")
             gpu_name = hw_profile.get("gpu_name", "GPU")
             tier = hw_profile.get("tier", "limited")
+            _npu_hint = ""
+            if gpu_type == "npu":
+                _npu_hint = (
+                    "\n## CRITICAL: Huawei Ascend NPU Device\n"
+                    "This machine uses Ascend NPU, NOT NVIDIA CUDA.\n"
+                    "You MUST follow these rules:\n"
+                    "1. Add `import torch_npu` at the top of main.py (BEFORE any torch.npu calls)\n"
+                    "2. Use `device = torch.device('npu')` instead of 'cuda'\n"
+                    "3. Use `torch.npu.is_available()` instead of `torch.cuda.is_available()`\n"
+                    "4. NEVER use `torch.cuda.*` APIs — they will fail\n"
+                    "5. DataLoader MUST use `pin_memory=False` and `num_workers=0`\n"
+                    "   (pin_memory is CUDA-only; multi-worker has high overhead on NPU)\n"
+                    "6. Example device setup:\n"
+                    "   ```python\n"
+                    "   import torch\n"
+                    "   import torch_npu  # MUST import before using torch.npu\n"
+                    "   device = torch.device('npu' if torch.npu.is_available() else 'cpu')\n"
+                    "   # DataLoader: NO pin_memory, NO multi-worker\n"
+                    "   loader = DataLoader(dataset, batch_size=128, shuffle=True,\n"
+                    "                       num_workers=0, pin_memory=False)\n"
+                    "   ```\n"
+                )
             if tier == "high":
                 device_hint = f"torch.device('{gpu_type}')"
                 pkg_hint = (
                     f"\nAVAILABLE PACKAGES ({pkg_prefix}): Python stdlib, numpy, torch, sklearn, scipy, pandas{pkg_extras}.\n"
                     f"GPU: {gpu_name} ({gpu_type}). You MAY use PyTorch with GPU acceleration.\n"
                     f"Use `device = {device_hint}` for tensor operations.\n"
+                    f"{_npu_hint}"
                 )
             else:  # limited (low VRAM NVIDIA or MPS)
                 device_hint = f"torch.device('{gpu_type}')"
@@ -3261,6 +3284,7 @@ def _execute_code_generation(
                     f"- Few epochs (<=20)\n"
                     f"- Small datasets (<=10K samples)\n"
                     f"- Avoid large batch sizes\n"
+                    f"{_npu_hint}"
                 )
         else:
             pkg_hint = _pm.block("pkg_hint_sandbox")
@@ -5572,6 +5596,15 @@ def _execute_iterative_refine(
                 "Original experiment plan (exp_plan.yaml):\n"
                 "```yaml\n" + _exp_plan_text[:4000] + "\n```\n"
                 "You MUST preserve ALL condition names from this plan.\n\n"
+            )
+        _hw_refine = _load_hardware_profile(run_dir)
+        if _hw_refine and _hw_refine.get("gpu_type") == "npu":
+            _exp_plan_anchor += (
+                "\n## DEVICE: Huawei Ascend NPU (NOT CUDA)\n"
+                "- `import torch_npu` at top of main.py\n"
+                "- `device = torch.device('npu')`\n"
+                "- NEVER use `torch.cuda.*`\n"
+                "- DataLoader: `pin_memory=False, num_workers=0` (CRITICAL for NPU performance)\n\n"
             )
         ip = _pm.sub_prompt(
             "iterative_improve",

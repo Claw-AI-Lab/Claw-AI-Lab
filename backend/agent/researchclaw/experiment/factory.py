@@ -36,7 +36,13 @@ def create_sandbox(config: ExperimentConfig, workdir: Path) -> SandboxProtocol:
             )
 
         if docker_cfg.gpu_enabled:
-            logger.info("Docker sandbox: GPU passthrough enabled")
+            accel = docker_cfg.accelerator_type
+            if accel == "npu":
+                logger.info("Docker sandbox: Ascend NPU passthrough enabled")
+            elif accel == "auto":
+                logger.info("Docker sandbox: accelerator passthrough enabled (auto-detect)")
+            else:
+                logger.info("Docker sandbox: GPU passthrough enabled")
 
         return DockerSandbox(docker_cfg, workdir)
 

@@ -134,7 +134,6 @@ class LlmConfig:
     primary_model: str = ""
     coding_model: str = ""
     fallback_models: tuple[str, ...] = ()
-    timeout_sec: int = 600
     s2_api_key: str = ""
     notes: str = ""
     acp: AcpConfig = field(default_factory=AcpConfig)
@@ -171,6 +170,7 @@ class SshRemoteConfig:
     port: int = 22
     key_path: str = ""
     gpu_ids: tuple[int, ...] = ()
+    accelerator_type: str = "auto"  # "auto" | "cuda" | "npu" | "none"
     remote_workdir: str = "/tmp/researchclaw_experiments"
     remote_python: str = "python3"
     setup_commands: tuple[str, ...] = ()
@@ -201,6 +201,7 @@ class DockerSandboxConfig:
     image: str = "researchclaw/experiment:latest"
     gpu_enabled: bool = True
     gpu_device_ids: tuple[int, ...] = ()
+    accelerator_type: str = "auto"  # "auto" | "cuda" | "npu" | "none"
     memory_limit_mb: int = 8192
     network_policy: str = "setup_only"  # none | setup_only | pip_only | full
     pip_pre_install: tuple[str, ...] = ()
@@ -602,7 +603,6 @@ def _parse_llm_config(data: dict[str, Any]) -> LlmConfig:
         primary_model=data.get("primary_model", ""),
         coding_model=data.get("coding_model", ""),
         fallback_models=tuple(data.get("fallback_models") or ()),
-        timeout_sec=int(data.get("timeout_sec", 600)),
         s2_api_key=data.get("s2_api_key", ""),
         notes=data.get("notes", ""),
         acp=AcpConfig(
@@ -647,6 +647,7 @@ def _parse_experiment_config(data: dict[str, Any]) -> ExperimentConfig:
             gpu_device_ids=tuple(
                 int(g) for g in docker_data.get("gpu_device_ids", ())
             ),
+            accelerator_type=docker_data.get("accelerator_type", "auto"),
             memory_limit_mb=int(docker_data.get("memory_limit_mb", 8192)),
             network_policy=docker_data.get("network_policy", "setup_only"),
             pip_pre_install=tuple(docker_data.get("pip_pre_install", ())),
@@ -661,6 +662,7 @@ def _parse_experiment_config(data: dict[str, Any]) -> ExperimentConfig:
             port=int(ssh_data.get("port", 22)),
             key_path=ssh_data.get("key_path", ""),
             gpu_ids=tuple(int(g) for g in ssh_data.get("gpu_ids", ())),
+            accelerator_type=ssh_data.get("accelerator_type", "auto"),
             remote_workdir=ssh_data.get(
                 "remote_workdir", "/tmp/researchclaw_experiments"
             ),

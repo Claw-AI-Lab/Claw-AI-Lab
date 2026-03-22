@@ -206,6 +206,18 @@ class DockerSandbox:
             return False
 
     @staticmethod
+    def check_ascend_runtime() -> bool:
+        """Return True if Ascend NPU devices are available for Docker."""
+        try:
+            import os
+            if not os.path.exists("/dev/davinci0"):
+                return False
+            cp = subprocess.run(["npu-smi", "info"], capture_output=True, timeout=10, check=False)
+            return cp.returncode == 0
+        except (FileNotFoundError, subprocess.TimeoutExpired):
+            return False
+
+    @staticmethod
     def check_nvidia_runtime() -> bool:
         """Return True if the NVIDIA Container Toolkit is available."""
         try:
@@ -418,13 +430,34 @@ class DockerSandbox:
         if hf_token:
             cmd.extend(["-e", f"HF_TOKEN={hf_token}"])
 
-        # GPU passthrough
+        # GPU / NPU passthrough
         if cfg.gpu_enabled:
-            if cfg.gpu_device_ids:
-                device_spec = ",".join(str(d) for d in cfg.gpu_device_ids)
-                cmd.extend(["--gpus", f"device={device_spec}"])
-            else:
-                cmd.extend(["--gpus", "all"])
+            accel = getattr(cfg, "accelerator_type", "auto")
+            resolved = accel
+            if accel == "auto":
+                try:
+                    nv = subprocess.run(["nvidia-smi"], capture_output=True, timeout=5, check=False)
+                    resolved = "cuda" if nv.returncode == 0 else ("npu" if os.path.exists("/dev/davinci0") else "none")
+                except (FileNotFoundError, subprocess.TimeoutExpired):
+                    resolved = "npu" if os.path.exists("/dev/davinci0") else "none"
+            if resolved == "npu":
+                if cfg.gpu_device_ids:
+                    for d in cfg.gpu_device_ids:
+                        cmd.extend(["--device", f"/dev/davinci{d}"])
+                else:
+                    d = 0
+                    while os.path.exists(f"/dev/davinci{d}"):
+                        cmd.extend(["--device", f"/dev/davinci{d}"]); d += 1
+                cmd.extend(["--device", "/dev/davinci_manager", "--device", "/dev/devmm_svm",
+                             "--device", "/dev/hisi_hdc",
+                             "-v", "/usr/local/Ascend/driver:/usr/local/Ascend/driver:ro",
+                             "-v", "/usr/local/sbin:/usr/local/sbin:ro"])
+            elif resolved != "none":
+                if cfg.gpu_device_ids:
+                    device_spec = ",".join(str(d) for d in cfg.gpu_device_ids)
+                    cmd.extend(["--gpus", f"device={device_spec}"])
+                else:
+                    cmd.extend(["--gpus", "all"])
 
         # Image + entry point (passed as CMD arg to entrypoint.sh)
         cmd.append(cfg.image)

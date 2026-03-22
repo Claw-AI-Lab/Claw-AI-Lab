@@ -49,6 +49,50 @@ def get_gpu_stats() -> list[dict]:
         return []
 
 
+def get_npu_stats() -> list[dict]:
+    """Query npu-smi for Ascend NPU stats."""
+    try:
+        result = subprocess.run(["npu-smi", "info"], capture_output=True, text=True, timeout=5)
+        if result.returncode != 0:
+            return []
+        import re
+        npus, lines = [], result.stdout.strip().split("\n")
+        data_lines = []
+        for line in lines:
+            line = line.strip()
+            if line.startswith("|") and "===" not in line and "---" not in line:
+                if "npu-smi" in line or "Version" in line: continue
+                if "NPU" in line and "Name" in line: continue
+                if "Chip" in line and "Bus-Id" in line: continue
+                if "Process" in line: break
+                data_lines.append(line)
+        for i in range(0, len(data_lines) - 1, 2):
+            cells1 = [c.strip() for c in data_lines[i].split("|") if c.strip()]
+            cells2 = [c.strip() for c in data_lines[i + 1].split("|") if c.strip()]
+            if len(cells1) < 3 or len(cells2) < 3: continue
+            id_name = cells1[0].split()
+            try: npu_id = int(id_name[0])
+            except (ValueError, IndexError): continue
+            name = f"Ascend {id_name[1]}" if len(id_name) > 1 else "Ascend NPU"
+            stats1 = cells1[2].split()
+            temperature = int(stats1[1]) if len(stats1) >= 2 else 0
+            aicore_m = re.match(r"(\d+)", cells2[2].strip())
+            utilization = float(aicore_m.group(1)) if aicore_m else 0.0
+            hbm = re.findall(r"(\d+)\s*/\s*(\d+)", cells2[2])
+            mem_used = round(float(hbm[-1][0]) / 1024, 2) if hbm else 0.0
+            mem_total = round(float(hbm[-1][1]) / 1024, 2) if hbm else 0.0
+            npus.append({"id": npu_id, "name": name, "utilization": utilization,
+                         "memUsed": mem_used, "memTotal": mem_total, "temperature": temperature})
+        return npus
+    except (FileNotFoundError, subprocess.TimeoutExpired, Exception):
+        return []
+
+
+def get_accelerator_stats() -> list[dict]:
+    stats = get_gpu_stats()
+    return stats if stats else get_npu_stats()
+
+
 def get_resource_stats() -> dict:
     mem = psutil.virtual_memory()
     return {
@@ -57,7 +101,7 @@ def get_resource_stats() -> dict:
             "cpuPercent": psutil.cpu_percent(interval=None),
             "memUsed": round(mem.used / (1024 ** 3), 2),
             "memTotal": round(mem.total / (1024 ** 3), 2),
-            "gpus": get_gpu_stats(),
+            "gpus": get_accelerator_stats(),
             "timestamp": int(time.time() * 1000),
         },
     }
@@ -98,11 +142,11 @@ async def broadcast_loop(interval: float):
 async def main(host: str, port: int, interval: float):
     print(f"🦞 Resource Monitor WS server starting on ws://{host}:{port}")
     print(f"   Broadcast interval: {interval}s")
-    gpus = get_gpu_stats()
-    if gpus:
-        print(f"   Detected {len(gpus)} GPU(s): {gpus[0]['name']}")
+    accelerators = get_accelerator_stats()
+    if accelerators:
+        print(f"   Detected {len(accelerators)} accelerator(s): {accelerators[0]['name']}")
     else:
-        print("   No GPU detected (nvidia-smi not available)")
+        print("   No GPU/NPU detected (nvidia-smi and npu-smi not available)")
     mem = psutil.virtual_memory()
     print(f"   System RAM: {mem.total / (1024**3):.1f} GiB")
     print(f"   CPU cores: {psutil.cpu_count(logical=True)}")
