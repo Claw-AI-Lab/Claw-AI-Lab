@@ -256,9 +256,19 @@ class CodeAgent:
         # Phase 5: Review dialog
         review_rounds = 0
         if self._cfg.review_max_rounds > 0:
+            pre_review_files = dict(best.files)
             best.files, review_rounds = self._phase4_review(
                 best.files, topic, exp_plan, metric,
             )
+            # Safety: if review broke previously-valid code, revert
+            from researchclaw.experiment.validator import validate_code as _vc
+            for fname, code in best.files.items():
+                if fname.endswith(".py") and not _vc(code).ok:
+                    if fname in pre_review_files and _vc(pre_review_files[fname]).ok:
+                        self._log_event(
+                            f"  WARNING: Review broke {fname} — reverting to pre-review version"
+                        )
+                        best.files[fname] = pre_review_files[fname]
 
         elapsed = time.time() - t0
         self._log_event(

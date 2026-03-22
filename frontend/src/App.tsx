@@ -247,7 +247,7 @@ export default function App() {
     codebase: codebaseArt, results: resultsArt, insights: insightsArt, papers: papersArt,
   }), [knowledgeArt, expDesignArt, codebaseArt, resultsArt, insightsArt, papersArt]);
 
-  const workingCount = useMemo(() => state.agents.filter((a) => a.status === 'working').length, [state.agents]);
+  const workingCount = useMemo(() => state.agents.filter((a) => ['working', 'waiting_discussion', 'discussing'].includes(a.status)).length, [state.agents]);
   const errorCount = useMemo(() => state.agents.filter((a) => a.status === 'error').length, [state.agents]);
 
   return (

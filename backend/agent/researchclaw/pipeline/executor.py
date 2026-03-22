@@ -3121,14 +3121,22 @@ def _execute_code_generation(
     if coding_model and llm is not None:
         import dataclasses as _dc_cm
         _orig_model = llm.config.primary_model
+        # Build a deduplicated fallback chain: primary + all existing fallbacks (excluding coding_model duplicates)
+        _seen = {coding_model}
+        _full_fallbacks = []
+        for _m in [_orig_model] + list(llm.config.fallback_models):
+            if _m not in _seen:
+                _seen.add(_m)
+                _full_fallbacks.append(_m)
         _coding_llm_cfg = _dc_cm.replace(
             llm.config,
             primary_model=coding_model,
-            fallback_models=[_orig_model],
+            fallback_models=_full_fallbacks,
         )
         from researchclaw.llm.client import LLMClient as _LLMClient
         llm = _LLMClient(_coding_llm_cfg)
-        print(f"[CODE_GENERATION] Using coding model: {coding_model} (fallback: {_orig_model})", flush=True)
+        _fb_str = ", ".join(_full_fallbacks)
+        print(f"[CODE_GENERATION] Using coding model: {coding_model} (fallbacks: {_fb_str})", flush=True)
         logger.info("S11 CODE_GENERATION: using coding model '%s'", coding_model)
 
     # Read codebase_candidates.json from S10 if available
@@ -3492,6 +3500,7 @@ def _execute_code_generation(
 
     # --- Code generation: Beast Mode → CodeAgent → Legacy single-shot ---
     _code_agent_active = False
+    _code_agent_original_files: dict[str, str] = {}
     _beast_mode_used = False
     _code_max_tokens = 8192
 
@@ -3693,6 +3702,7 @@ def _execute_code_generation(
         )
         files = _agent_result.files
         _code_agent_active = True
+        _code_agent_original_files = {k: v for k, v in files.items()}
 
         # Write agent artifacts
         (stage_dir / "code_agent_log.json").write_text(
@@ -3862,22 +3872,40 @@ def _execute_code_generation(
                     ):
                         _has_critical = True
         if _has_critical:
-            logger.error(
-                "Stage 10: CRITICAL validation issues remain after %d repair "
-                "attempts. Blocking stage.", max_repair,
-            )
-            (stage_dir / "validation_report.md").write_text(
-                "# Code Validation Report\n\n"
-                f"**Status**: BLOCKED — critical issues remain after {max_repair} repairs\n\n"
-                + "\n".join(f"- {e}" for e in validation_log),
-                encoding="utf-8",
-            )
-            return StageResult(
-                stage=Stage.CODE_GENERATION,
-                status=StageStatus.FAILED,
-                artifacts=("validation_report.md",),
-                evidence_refs=(),
-            )
+            # Try falling back to code_agent's original output (before executor repair loop)
+            if _code_agent_active and _code_agent_original_files:
+                _fallback_ok = True
+                for _fn, _fc in _code_agent_original_files.items():
+                    if _fn.endswith(".py") and not validate_code(_fc).ok:
+                        _fallback_ok = False
+                        break
+                if _fallback_ok:
+                    logger.warning(
+                        "Stage 10: Repair loop failed but code_agent original code is valid. "
+                        "Falling back to pre-repair version."
+                    )
+                    files = _code_agent_original_files
+                    all_valid = True
+                    validation_log.append(
+                        "Repair loop failed — reverted to code_agent original output"
+                    )
+            if not all_valid:
+                logger.error(
+                    "Stage 10: CRITICAL validation issues remain after %d repair "
+                    "attempts. Blocking stage.", max_repair,
+                )
+                (stage_dir / "validation_report.md").write_text(
+                    "# Code Validation Report\n\n"
+                    f"**Status**: BLOCKED — critical issues remain after {max_repair} repairs\n\n"
+                    + "\n".join(f"- {e}" for e in validation_log),
+                    encoding="utf-8",
+                )
+                return StageResult(
+                    stage=Stage.CODE_GENERATION,
+                    status=StageStatus.FAILED,
+                    artifacts=("validation_report.md",),
+                    evidence_refs=(),
+                )
 
     # --- Write experiment directory ---
     exp_dir = stage_dir / "experiment"
@@ -3904,6 +3932,7 @@ def _execute_code_generation(
     from researchclaw.experiment.validator import (
         auto_fix_unbound_locals,
         check_code_complexity,
+        check_main_entry_point,
         deep_validate_files,
     )
 
@@ -3924,6 +3953,13 @@ def _execute_code_generation(
         logger.info(
             "Stage 10: auto-fixed %d total UnboundLocalError risks", _total_ub_fixes
         )
+
+    # --- main.py entry point check ---
+    if "main.py" in files:
+        _entry_warnings = check_main_entry_point(files["main.py"])
+        for w in _entry_warnings:
+            logger.warning("Stage 10 code quality: %s", w)
+            print(f"Stage 10 code quality: {w}", flush=True)
 
     complexity_warnings: list[str] = []
     for fname, code in files.items():

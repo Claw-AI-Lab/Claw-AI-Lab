@@ -51,8 +51,10 @@ export default memo(function LogPanel({ logs }: Props) {
               [{LAYER_META[log.layer].name.split('·')[0].trim()}]
             </span>
             {log.stage && (
-              <span className="glog-stage" title={STAGE_META[log.stage]?.key}>
-                S{log.stage}
+              <span className={`glog-stage${log.stage === 100 ? ' glog-stage-discussion' : ''}`} title={STAGE_META[log.stage]?.key}>
+                {log.stage === 100
+                  ? `💬S${STAGE_META[100]?.displayNumber ?? 8}`
+                  : `S${STAGE_META[log.stage]?.displayNumber ?? log.stage}`}
               </span>
             )}
             <span className="glog-msg">{log.message}</span>

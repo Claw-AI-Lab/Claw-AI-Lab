@@ -6,13 +6,13 @@ export default defineConfig({
   server: {
     proxy: {
       '/ws/resources': {
-        target: 'ws://localhost:8865',
+        target: 'ws://localhost:8775',
         ws: true,
         rewriteWsOrigin: true,
         rewrite: () => '/',
       },
       '/ws/agents': {
-        target: 'ws://localhost:8866',
+        target: 'ws://localhost:8776',
         ws: true,
         rewriteWsOrigin: true,
         rewrite: () => '/',

@@ -69,7 +69,7 @@ class LLMConfig:
     temperature: float = 0.7
     max_retries: int = 3
     retry_base_delay: float = 2.0
-    timeout_sec: int = 300
+    timeout_sec: int = 600
     user_agent: str = _DEFAULT_USER_AGENT
     # MetaClaw bridge: extra headers for proxy requests
     extra_headers: dict[str, str] = field(default_factory=dict)
@@ -128,6 +128,7 @@ class LLMClient:
             api_key=api_key,
             primary_model=rc_config.llm.primary_model or "gpt-4o",
             fallback_models=list(rc_config.llm.fallback_models or []),
+            timeout_sec=getattr(rc_config.llm, "timeout_sec", 600),
             fallback_url=fallback_url,
             fallback_api_key=fallback_api_key,
         )

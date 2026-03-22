@@ -62,6 +62,11 @@ LAYER_RANGE: dict[str, tuple[int, int]] = {
     "writing": (19, 22),
 }
 
+LAYER_RANGE_PHASE1: dict[str, tuple[int, int]] = {"idea": (1, 7)}
+LAYER_RANGE_PHASE2: dict[str, tuple[int, int]] = {"idea": (8, 8)}
+
+DISCUSSION_STAGE = 100
+
 PASSTHROUGH_LAYERS: set[str] = set()
 
 STAGE_NAMES: dict[int, str] = {
@@ -240,6 +245,31 @@ class TaskQueue:
 
 
 @dataclass
+class DiscussionGroup:
+    """Tracks a group of L1 agents discussing the same topic."""
+    project_id: str
+    topic: str
+    config_path: str
+    agent_ids: list[str] = field(default_factory=list)
+    run_dirs: dict[str, str] = field(default_factory=dict)   # agent_id -> run_dir
+    completed_s7: set[str] = field(default_factory=set)       # agent_ids done with S7
+    status: str = "gathering"    # gathering | waiting | discussing | done
+    discussion_process: subprocess.Popen | None = field(default=None, repr=False)
+    discussion_output_dir: str = ""
+
+    def all_ready(self) -> bool:
+        return len(self.completed_s7) >= len(self.agent_ids) and len(self.agent_ids) >= 2
+
+    def synthesis_dirs(self) -> list[str]:
+        dirs = []
+        for aid in self.agent_ids:
+            rd = self.run_dirs.get(aid, "")
+            if rd:
+                dirs.append(str(Path(rd) / "stage-07"))
+        return dirs
+
+
+@dataclass
 class LobsterAgent:
     id: str
     name: str
@@ -322,6 +352,11 @@ class BridgeState:
     gpu_allocator: GpuAllocator = field(default_factory=GpuAllocator)
     result_registry: "ResultRegistry | None" = None
     auto_loop: bool = False
+    # Discussion mode: L1 agents discuss after S7, before S8
+    discussion_mode: bool = False
+    discussion_groups: dict[str, DiscussionGroup] = field(default_factory=dict)
+    discussion_rounds: int = 3
+    discussion_models: list[str] = field(default_factory=lambda: ["gpt-5.3-codex-spark", "claude-opus-4-6"])
     # Idea factory: L1 idle → produce ideas via S7+S8
     idea_factory_topic: str = ""
     idea_factory_config: str = ""
@@ -419,7 +454,8 @@ def poll_agent(agent: LobsterAgent) -> list[dict]:
     # Only read heartbeat/checkpoint if THIS agent's process is running,
     # to avoid cross-contamination when multiple agents share a run_dir.
     if agent.process is not None and agent.process.poll() is None:
-        layer_range = LAYER_RANGE.get(agent.layer, (1, 15))
+        _s7_only = getattr(agent, '_is_idea_factory_s7_only', False)
+        layer_range = (7, 7) if _s7_only else LAYER_RANGE.get(agent.layer, (1, 15))
 
         hb = _read_json(run_dir / "heartbeat.json")
         if hb and hb != agent._prev_heartbeat:
@@ -446,11 +482,22 @@ def poll_agent(agent: LobsterAgent) -> list[dict]:
             messages.extend(_sync_completed_stages(agent, run_dir, layer_range, done_up_to))
             agent._prev_checkpoint = cp
 
+            if agent.current_stage and done_up_to >= agent.current_stage and done_up_to < layer_range[1]:
+                next_stage = done_up_to + 1
+                if next_stage in STAGE_TO_LAYER and layer_range[0] <= next_stage <= layer_range[1]:
+                    agent.current_stage = next_stage
+                    agent.current_task = f"Stage {next_stage}: {STAGE_NAMES.get(next_stage, '?')}"
+                    agent.stage_progress[next_stage] = "running"
+                    messages.append(msg_agent_update(agent))
+                    messages.append(msg_stage_update(agent.id, next_stage, "running"))
+                    messages.append(msg_log(agent, f"开始 {STAGE_NAMES.get(next_stage, f'S{next_stage}')}", "info", next_stage))
+
     if agent.process is not None:
         retcode = agent.process.poll()
         if retcode is not None:
             # Final read: catch any checkpoint/artifact updates written before exit
-            layer_range = LAYER_RANGE.get(agent.layer, (1, 15))
+            _s7_only_final = getattr(agent, '_is_idea_factory_s7_only', False)
+            layer_range = (7, 7) if _s7_only_final else LAYER_RANGE.get(agent.layer, (1, 15))
             cp = _read_json(run_dir / "checkpoint.json")
             if cp:
                 done_up_to = cp.get("last_completed_stage", 0)
@@ -546,7 +593,11 @@ def launch_agent_for_task(state: BridgeState, agent: LobsterAgent, task: Task) -
         return messages
 
     # Normal layers: launch ResearchClaw process
-    layer_range = LAYER_RANGE.get(agent.layer, (1, 15))
+    # Discussion mode: L1 runs S1-S7 only (S8 runs after discussion)
+    if state.discussion_mode and agent.layer == "idea":
+        layer_range = LAYER_RANGE_PHASE1["idea"]
+    else:
+        layer_range = LAYER_RANGE.get(agent.layer, (1, 15))
     fs, ts = layer_range
 
     cmd = [
@@ -614,8 +665,48 @@ def stop_agent(agent: LobsterAgent) -> list[dict]:
 # ── Task queue operations ───────────────────────────────────────────────────
 
 def submit_new_project(state: BridgeState, project_id: str, config_path: str, topic: str = "") -> list[dict]:
-    """Submit a brand-new project — goes into init_to_idea queue."""
+    """Submit a brand-new project — goes into init_to_idea queue.
+
+    In discussion mode, creates one task per idle L1 agent so they all
+    research the same topic independently, then discuss after S7.
+    """
     messages: list[dict] = []
+    sys_agent = LobsterAgent(id="system", name="系统", layer="idea", run_id="", run_dir="", config_path="")
+
+    if state.discussion_mode:
+        idea_agents = [a for a in state.agents.values() if a.layer == "idea"]
+        if len(idea_agents) < 2:
+            messages.append(msg_log(sys_agent, f"沟通讨论模式需要至少 2 个 L1 agent，当前只有 {len(idea_agents)} 个", "warning"))
+            # Fall through to single-agent mode
+
+        else:
+            group = DiscussionGroup(
+                project_id=project_id, topic=topic, config_path=config_path,
+            )
+            for agent in idea_agents:
+                perspective_dir = str(state.projects_dir() / project_id / f"perspective-{agent.id}")
+                os.makedirs(perspective_dir, exist_ok=True)
+                group.agent_ids.append(agent.id)
+                group.run_dirs[agent.id] = perspective_dir
+
+                task = Task(
+                    id=f"task-{_uid()}", project_id=project_id, run_dir=perspective_dir,
+                    config_path=config_path, topic=topic,
+                    source_layer="init", target_layer="idea",
+                    created_at=_now_ms(),
+                )
+                state.queues["init_to_idea"].push(task)
+
+            state.discussion_groups[project_id] = group
+            messages.append(msg_log(
+                sys_agent,
+                f"新项目 [{project_id}] 沟通讨论模式: {len(idea_agents)} 个 agent 将独立调研后讨论",
+                "info", DISCUSSION_STAGE,
+            ))
+            messages.append(msg_queue_update(state.queues))
+            return messages
+
+    # Default single-agent mode
     run_dir = str(state.projects_dir() / project_id)
     os.makedirs(run_dir, exist_ok=True)
 
@@ -627,7 +718,6 @@ def submit_new_project(state: BridgeState, project_id: str, config_path: str, to
     )
     state.queues["init_to_idea"].push(task)
 
-    sys_agent = LobsterAgent(id="system", name="系统", layer="idea", run_id="", run_dir="", config_path="")
     messages.append(msg_log(sys_agent, f"新项目 [{project_id}] 已加入调研队列", "info"))
     messages.append(msg_queue_update(state.queues))
     return messages
@@ -642,16 +732,48 @@ def on_agent_done(state: BridgeState, agent: LobsterAgent) -> list[dict]:
         for q in state.queues.values():
             q.complete(agent.assigned_task_id)
 
+    # Discussion mode: L1 agent completed S7 → wait for peers instead of proceeding
+    if state.discussion_mode and agent.layer == "idea" and agent.project_id in state.discussion_groups:
+        group = state.discussion_groups[agent.project_id]
+        group.completed_s7.add(agent.id)
+        agent.status = "waiting_discussion"
+        agent.current_stage = DISCUSSION_STAGE
+        agent.current_task = f"等待沟通讨论 ({len(group.completed_s7)}/{len(group.agent_ids)})"
+        agent.stage_progress[DISCUSSION_STAGE] = "running"
+        messages.append(msg_agent_update(agent))
+        messages.append(msg_stage_update(agent.id, DISCUSSION_STAGE, "running"))
+        messages.append(msg_log(agent, f"S7 完成，等待沟通讨论 ({len(group.completed_s7)}/{len(group.agent_ids)})", "info", DISCUSSION_STAGE))
+
+        if group.all_ready():
+            messages.extend(_trigger_discussion(state, group))
+        return messages
+
     # Create follow-up task in the next queue
     output_queue_name = LAYER_OUTPUT_QUEUE.get(agent.layer)
     if output_queue_name and output_queue_name in state.queues and agent.project_id:
-        # L4→L5: only push to writing queue if S17 decision is PROCEED
+        # L4→L5: only push to writing queue if S17 decision is PROCEED (or forced-PROCEED)
         if agent.layer == "execution" and output_queue_name == "execution_to_writing":
             _decision_file = Path(agent.run_dir) / "stage-17" / "decision.md"
+            _warning_file = Path(agent.run_dir) / "quality_warning.txt"
+            _summary_file = Path(agent.run_dir) / "pipeline_summary.json"
             _is_proceed = False
             if _decision_file.exists():
                 _dec_text = _decision_file.read_text(encoding="utf-8").upper()
                 _is_proceed = "PROCEED" in _dec_text and "REFINE" not in _dec_text.split("PROCEED")[0][-50:]
+            if not _is_proceed and _warning_file.exists():
+                _warn_text = _warning_file.read_text(encoding="utf-8")
+                if "max pivots" in _warn_text.lower():
+                    _is_proceed = True
+                    messages.append(msg_log(agent, "S17 决策为 REFINE 但已达最大迭代次数，强制进入论文写作", "warning"))
+            if not _is_proceed and _summary_file.exists():
+                try:
+                    import json as _json
+                    _summary = _json.loads(_summary_file.read_text(encoding="utf-8"))
+                    if _summary.get("final_status") == "done" and _summary.get("stages_failed", 1) == 0:
+                        _is_proceed = True
+                        messages.append(msg_log(agent, "Pipeline 全部完成，进入论文写作", "info"))
+                except Exception:
+                    pass
             if not _is_proceed:
                 messages.append(msg_log(agent, f"S17 决策非 PROCEED，跳过论文写作", "info"))
                 output_queue_name = None
@@ -692,37 +814,47 @@ def on_agent_done(state: BridgeState, agent: LobsterAgent) -> list[dict]:
     return messages
 
 
-def _launch_idea_factory_run(state: BridgeState, agent: LobsterAgent) -> list[dict]:
-    """Launch L1 agent to produce ideas via S7+S8 only."""
+def _create_model_config(base_config_path: str, model_name: str, output_dir: str) -> str:
+    """Create a per-agent config file with a different primary_model."""
+    import yaml
+    with open(base_config_path, "r", encoding="utf-8") as f:
+        cfg = yaml.safe_load(f)
+    if "llm" in cfg:
+        cfg["llm"]["primary_model"] = model_name
+    agent_config_path = str(Path(output_dir) / f"config_{model_name.replace('/', '_')}.yaml")
+    with open(agent_config_path, "w", encoding="utf-8") as f:
+        yaml.dump(cfg, f, default_flow_style=False, allow_unicode=True)
+    return agent_config_path
+
+
+def _launch_idea_factory_run(state: BridgeState, agent: LobsterAgent, s7_only: bool = False, model_override: str = "") -> list[dict]:
+    """Launch L1 agent to produce ideas. s7_only=True runs only S7 (for discussion mode)."""
     messages: list[dict] = []
 
     idea_id = f"idea-{_uid()}"
     run_dir = str(Path(state.runs_base_dir).parent / "shared_results" / "idea_runs" / idea_id)
     os.makedirs(run_dir, exist_ok=True)
 
-    # Need prior synthesis for S7. Copy from any existing project or create minimal.
-    # Write a minimal synthesis.md from topic for S7 to build on.
-    _synth = (
-        f"# Literature Synthesis\n\n"
-        f"Research topic: {state.idea_factory_topic}\n\n"
-        f"This is an automated idea generation run. Generate novel hypotheses "
-        f"related to the topic above, considering existing knowledge.\n"
-    )
-    _s6_dir = Path(run_dir) / "stage-07"
-    # S7 reads synthesis from stage-07 or prior stages; we pre-seed stage-06 with cards
     _s6_seed = Path(run_dir) / "stage-06"
     _s6_seed.mkdir(parents=True, exist_ok=True)
     (_s6_seed / "cards").mkdir(exist_ok=True)
 
-    # Pre-seed a minimal synthesis for S7 to use
     _s7_seed = Path(run_dir) / "stage-07"
     _s7_seed.mkdir(parents=True, exist_ok=True)
+
+    config_path = state.idea_factory_config
+    if model_override:
+        try:
+            config_path = _create_model_config(state.idea_factory_config, model_override, run_dir)
+        except Exception as e:
+            messages.append(msg_log(agent, f"模型配置创建失败 ({model_override}): {e}，使用默认配置", "warning"))
+            config_path = state.idea_factory_config
 
     task = Task(
         id=f"task-{_uid()}",
         project_id=idea_id,
         run_dir=run_dir,
-        config_path=state.idea_factory_config,
+        config_path=config_path,
         topic=state.idea_factory_topic,
         source_layer="idea_factory",
         target_layer="idea",
@@ -731,13 +863,17 @@ def _launch_idea_factory_run(state: BridgeState, agent: LobsterAgent) -> list[di
 
     _assign_task_to_agent(agent, task)
     agent._is_idea_factory = True  # type: ignore[attr-defined]
+    agent._is_idea_factory_s7_only = s7_only  # type: ignore[attr-defined]
 
-    layer_range = (7, 8)  # Only S7 SYNTHESIS + S8 HYPOTHESIS_GEN
+    if s7_only:
+        layer_range = (7, 7)
+    else:
+        layer_range = (7, 8)
     fs, ts = layer_range
 
     cmd = [
         state.python_path, "-m", "researchclaw", "run",
-        "--config", task.config_path,
+        "--config", config_path,
         "--output", task.run_dir,
         "--from-stage", STAGE_NAMES.get(fs, str(fs)),
         "--to-stage", STAGE_NAMES.get(ts, str(ts)),
@@ -756,9 +892,11 @@ def _launch_idea_factory_run(state: BridgeState, agent: LobsterAgent) -> list[di
         )
         agent.process = proc
         n = state.idea_factory_produced + 1
-        agent.current_task = f"Idea 工厂 #{n}"
+        model_tag = f" [{model_override}]" if model_override else ""
+        agent.current_task = f"Idea 工厂 #{n}{model_tag}" + (" (S7 综合)" if s7_only else " (S7→S8)")
         messages.append(msg_agent_update(agent))
-        messages.append(msg_log(agent, f"Idea 工厂 #{n}: 生成假设中 (S7→S8)", "info"))
+        label = f"Idea 工厂 #{n}: 知识综合中 (S7){model_tag}" if s7_only else f"Idea 工厂 #{n}: 生成假设中 (S7→S8){model_tag}"
+        messages.append(msg_log(agent, label, "info"))
     except Exception as e:
         agent.status = "error"
         agent.current_task = f"Idea 工厂启动失败: {e}"
@@ -850,7 +988,259 @@ def _on_idea_factory_done(state: BridgeState, agent: LobsterAgent) -> list[dict]
     agent.status = "idle"
     agent.current_task = "等待任务..."
     agent._is_idea_factory = False  # type: ignore[attr-defined]
+    agent._is_idea_factory_s7_only = False  # type: ignore[attr-defined]
+    agent._is_discussion_s8 = False  # type: ignore[attr-defined]
+    agent._idea_factory_batch_id = None  # type: ignore[attr-defined]
     messages.append(msg_agent_update(agent))
+
+    return messages
+
+
+def _on_idea_factory_s7_done(state: BridgeState, agent: LobsterAgent) -> list[dict]:
+    """Handle idea factory S7-only completion: enter discussion flow."""
+    messages: list[dict] = []
+    agent._is_idea_factory_s7_only = False  # type: ignore[attr-defined]
+
+    batch_id = getattr(agent, '_idea_factory_batch_id', None)
+    if not batch_id or batch_id not in state.discussion_groups:
+        messages.append(msg_log(agent, "S7 完成但无沟通讨论组，回退到非讨论模式", "warning"))
+        agent._is_idea_factory = False  # type: ignore[attr-defined]
+        agent.assigned_task_id = None
+        agent.project_id = ""
+        agent.status = "idle"
+        agent.current_task = "等待任务..."
+        messages.append(msg_agent_update(agent))
+        return messages
+
+    group = state.discussion_groups[batch_id]
+    group.completed_s7.add(agent.id)
+    agent.status = "waiting_discussion"
+    agent.current_stage = DISCUSSION_STAGE
+    agent.current_task = f"等待沟通讨论 ({len(group.completed_s7)}/{len(group.agent_ids)})"
+    agent.stage_progress[DISCUSSION_STAGE] = "running"
+    messages.append(msg_agent_update(agent))
+    messages.append(msg_stage_update(agent.id, DISCUSSION_STAGE, "running"))
+    messages.append(msg_log(agent, f"S7 完成，等待沟通讨论 ({len(group.completed_s7)}/{len(group.agent_ids)})", "info", DISCUSSION_STAGE))
+
+    if group.all_ready():
+        messages.extend(_trigger_discussion(state, group))
+
+    return messages
+
+
+def _trigger_discussion(state: BridgeState, group: DiscussionGroup) -> list[dict]:
+    """Launch the discussion runner when all agents in a group have completed S7."""
+    messages: list[dict] = []
+    group.status = "discussing"
+
+    disc_dir = str(state.projects_dir() / group.project_id / "discussion")
+    os.makedirs(disc_dir, exist_ok=True)
+    group.discussion_output_dir = disc_dir
+
+    for aid in group.agent_ids:
+        agent = state.agents.get(aid)
+        if agent:
+            agent.status = "discussing"
+            agent.current_stage = DISCUSSION_STAGE
+            agent.current_task = "多 Agent 沟通讨论中..."
+            messages.append(msg_agent_update(agent))
+
+    synthesis_dirs = group.synthesis_dirs()
+    runner_path = str(Path(__file__).resolve().parent / "discussion_runner.py")
+    cmd = [
+        state.python_path, runner_path,
+        "--config", group.config_path,
+        "--synthesis-dirs", *synthesis_dirs,
+        "--output", disc_dir,
+        "--rounds", str(state.discussion_rounds),
+    ]
+    if group.topic:
+        cmd.extend(["--topic", group.topic])
+
+    try:
+        log_path = Path(disc_dir) / "discussion.log"
+        log_file = open(log_path, "w", encoding="utf-8")
+        proc = subprocess.Popen(
+            cmd, cwd=state.agent_package_dir,
+            stdout=log_file, stderr=subprocess.STDOUT,
+            env={**os.environ, "PYTHONUNBUFFERED": "1"},
+        )
+        group.discussion_process = proc
+        sys_agent = LobsterAgent(id="system", name="系统", layer="idea", run_id="", run_dir="", config_path="")
+        messages.append(msg_log(
+            sys_agent,
+            f"项目 [{group.project_id}] 沟通讨论开始: {len(group.agent_ids)} 个 agent, {state.discussion_rounds} 轮 (PID={proc.pid})",
+            "info", DISCUSSION_STAGE,
+        ))
+    except Exception as e:
+        group.status = "done"
+        sys_agent = LobsterAgent(id="system", name="系统", layer="idea", run_id="", run_dir="", config_path="")
+        messages.append(msg_log(sys_agent, f"沟通讨论启动失败: {e}", "error", DISCUSSION_STAGE))
+        for aid in group.agent_ids:
+            agent = state.agents.get(aid)
+            if agent:
+                agent.status = "error"
+                agent.current_task = f"沟通讨论启动失败: {e}"
+                messages.append(msg_agent_update(agent))
+
+    return messages
+
+
+def _poll_discussion(state: BridgeState, group: DiscussionGroup) -> list[dict]:
+    """Check if a discussion subprocess has finished and handle completion."""
+    messages: list[dict] = []
+    if group.status != "discussing" or group.discussion_process is None:
+        return messages
+
+    retcode = group.discussion_process.poll()
+    if retcode is None:
+        return messages
+
+    group.discussion_process = None
+    sys_agent = LobsterAgent(id="system", name="系统", layer="idea", run_id="", run_dir="", config_path="")
+
+    if retcode != 0:
+        group.status = "done"
+        messages.append(msg_log(sys_agent, f"项目 [{group.project_id}] 沟通讨论失败 (exit={retcode})", "error", DISCUSSION_STAGE))
+        for aid in group.agent_ids:
+            agent = state.agents.get(aid)
+            if agent:
+                agent.status = "error"
+                agent.current_task = f"沟通讨论失败 (exit={retcode})"
+                agent.stage_progress[DISCUSSION_STAGE] = "failed"
+                messages.append(msg_agent_update(agent))
+                messages.append(msg_stage_update(agent.id, DISCUSSION_STAGE, "failed"))
+        return messages
+
+    # Discussion succeeded — inject consensus into each agent's run_dir and launch S8
+    consensus_file = Path(group.discussion_output_dir) / "consensus_synthesis.md"
+    if not consensus_file.exists():
+        messages.append(msg_log(sys_agent, f"项目 [{group.project_id}] 沟通讨论完成但未产生共识", "warning", DISCUSSION_STAGE))
+        group.status = "done"
+        return messages
+
+    consensus_text = consensus_file.read_text(encoding="utf-8")
+    messages.append(msg_log(sys_agent, f"项目 [{group.project_id}] 沟通讨论完成，共识已生成，启动假设生成", "success", DISCUSSION_STAGE))
+    for aid in group.agent_ids:
+        agent = state.agents.get(aid)
+        if agent:
+            agent.stage_progress[DISCUSSION_STAGE] = "completed"
+            messages.append(msg_stage_update(agent.id, DISCUSSION_STAGE, "completed"))
+
+    # Also record the transcript as an artifact
+    transcript_file = Path(group.discussion_output_dir) / "discussion_transcript.md"
+    if transcript_file.exists():
+        messages.append(msg_artifact(
+            "knowledge", "discussion_transcript.md",
+            "沟通讨论", f"{transcript_file.stat().st_size / 1024:.1f} KB",
+            group.project_id,
+        ))
+
+    group.status = "done"
+
+    for aid in group.agent_ids:
+        agent = state.agents.get(aid)
+        if not agent:
+            continue
+
+        # Write consensus into agent's stage-07 dir so S8 can read it via _read_prior_artifact
+        s7_dir = Path(agent.run_dir) / "stage-07"
+        s7_dir.mkdir(parents=True, exist_ok=True)
+        # Append consensus to the agent's own synthesis so S8 sees the combined context
+        existing_synthesis = s7_dir / "synthesis.md"
+        if existing_synthesis.exists():
+            original = existing_synthesis.read_text(encoding="utf-8")
+            enriched = (
+                f"{original}\n\n"
+                f"---\n\n"
+                f"# Multi-Agent Discussion Consensus\n\n"
+                f"{consensus_text}"
+            )
+            existing_synthesis.write_text(enriched, encoding="utf-8")
+        else:
+            (s7_dir / "synthesis.md").write_text(consensus_text, encoding="utf-8")
+
+        # Launch S8 for this agent
+        messages.extend(_launch_s8_for_agent(state, agent, group))
+
+    return messages
+
+
+def _launch_s8_for_agent(state: BridgeState, agent: LobsterAgent, group: DiscussionGroup) -> list[dict]:
+    """Launch S8 (HYPOTHESIS_GEN) for a single agent after discussion."""
+    messages: list[dict] = []
+    fs, ts = LAYER_RANGE_PHASE2["idea"]
+
+    agent.status = "working"
+    agent.current_task = f"项目 {group.project_id} · S8 假设生成"
+    agent.stage_progress[8] = "running"
+    messages.append(msg_agent_update(agent))
+    messages.append(msg_stage_update(agent.id, 8, "running"))
+    messages.append(msg_log(agent, "沟通讨论完成 → 开始假设生成", "info", 8))
+
+    cmd = [
+        state.python_path, "-m", "researchclaw", "run",
+        "--config", group.config_path,
+        "--output", agent.run_dir,
+        "--from-stage", STAGE_NAMES.get(fs, str(fs)),
+        "--to-stage", STAGE_NAMES.get(ts, str(ts)),
+        "--auto-approve",
+        "--skip-preflight",
+    ]
+    if group.topic:
+        cmd.extend(["--topic", group.topic])
+
+    try:
+        log_path = Path(agent.run_dir) / f"agent_{agent.id}_s8.log"
+        log_file = open(log_path, "w", encoding="utf-8")
+        proc = subprocess.Popen(
+            cmd, cwd=state.agent_package_dir,
+            stdout=log_file, stderr=subprocess.STDOUT,
+            env={**os.environ, "PYTHONUNBUFFERED": "1"},
+        )
+        agent.process = proc
+        agent._is_discussion_s8 = True  # type: ignore[attr-defined]
+        messages.append(msg_log(agent, f"S8 启动 (PID={proc.pid})", "info", 8))
+    except Exception as e:
+        agent.status = "error"
+        agent.current_task = f"S8 启动失败: {e}"
+        messages.append(msg_agent_update(agent))
+        messages.append(msg_log(agent, f"S8 启动失败: {e}", "error"))
+
+    return messages
+
+
+def _on_discussion_s8_done(state: BridgeState, agent: LobsterAgent) -> list[dict]:
+    """Handle S8 completion for an agent that went through the discussion flow."""
+    messages: list[dict] = []
+    agent._is_discussion_s8 = False  # type: ignore[attr-defined]
+
+    # Push to idea_to_experiment queue
+    output_queue_name = LAYER_OUTPUT_QUEUE.get("idea")
+    if output_queue_name and output_queue_name in state.queues and agent.project_id:
+        _, target_layer = QUEUE_NAMES[output_queue_name]
+        follow_task = Task(
+            id=f"task-{_uid()}",
+            project_id=agent.project_id,
+            run_dir=agent.run_dir,
+            config_path=agent.config_path,
+            topic=getattr(agent, '_topic', ''),
+            source_layer="idea",
+            target_layer=target_layer,
+            created_at=_now_ms(),
+        )
+        state.queues[output_queue_name].push(follow_task)
+        messages.append(msg_log(
+            agent, f"假设生成完成 (沟通讨论模式) → 项目 [{agent.project_id}] 已加入 {output_queue_name} 队列", "success",
+        ))
+
+    # Reset agent
+    agent.assigned_task_id = None
+    agent.project_id = ""
+    agent.status = "idle"
+    agent.current_task = "等待任务..."
+    messages.append(msg_agent_update(agent))
+    messages.append(msg_queue_update(state.queues))
 
     return messages
 
@@ -860,7 +1250,9 @@ def schedule_idle_agents(state: BridgeState) -> list[dict]:
     messages: list[dict] = []
 
     for agent in state.agents.values():
-        if agent.status != "idle" or agent.process is not None:
+        if agent.status not in ("idle",) or agent.process is not None:
+            continue
+        if agent.status in ("waiting_discussion", "discussing"):
             continue
         if agent.assigned_task_id:
             continue
@@ -893,11 +1285,43 @@ def schedule_idle_agents(state: BridgeState) -> list[dict]:
             assigned = True
             break
 
-        # Idea factory: L1 idle with no queued tasks → produce ideas via S7+S8
+        # Idea factory: L1 idle with no queued tasks → produce ideas
         if not assigned and agent.layer == "idea" and state.idea_factory_remaining != 0:
             if state.idea_factory_topic and state.idea_factory_config:
-                messages.extend(_launch_idea_factory_run(state, agent))
+                if not state.discussion_mode:
+                    messages.extend(_launch_idea_factory_run(state, agent))
                 continue
+
+    # Discussion-mode idea factory: batch-launch when 2+ L1 agents are idle
+    if state.discussion_mode and state.idea_factory_remaining != 0 and state.idea_factory_topic and state.idea_factory_config:
+        idle_idea_agents = [
+            a for a in state.agents.values()
+            if a.layer == "idea" and a.status == "idle" and a.process is None
+            and not a.assigned_task_id
+            and a.status not in ("waiting_discussion", "discussing")
+        ]
+        if len(idle_idea_agents) >= 2:
+            batch_id = f"idea-batch-{_uid()}"
+            group = DiscussionGroup(
+                project_id=batch_id,
+                topic=state.idea_factory_topic,
+                config_path=state.idea_factory_config,
+            )
+            models = state.discussion_models
+            for i, agent in enumerate(idle_idea_agents[:2]):
+                model = models[i % len(models)] if models else ""
+                messages.extend(_launch_idea_factory_run(state, agent, s7_only=True, model_override=model))
+                group.agent_ids.append(agent.id)
+                group.run_dirs[agent.id] = agent.run_dir
+                agent._idea_factory_batch_id = batch_id  # type: ignore[attr-defined]
+            state.discussion_groups[batch_id] = group
+            model_list = ", ".join(models[:2]) if models else "默认"
+            sys_agent = LobsterAgent(id="system", name="系统", layer="idea", run_id="", run_dir="", config_path="")
+            messages.append(msg_log(
+                sys_agent,
+                f"Idea 工厂沟通讨论模式: {len(group.agent_ids)} 个 agent 开始独立综合 (S7) — 模型: {model_list}",
+                "info", DISCUSSION_STAGE,
+            ))
 
     return messages
 
@@ -953,28 +1377,6 @@ async def handle_command(state: BridgeState, data: dict) -> list[dict]:
         if agent:
             messages.extend(stop_agent(agent))
 
-    elif cmd == "inject_task":
-        _queue_name = data.get("queue", "execution_to_writing")
-        _proj_id = data.get("projectId", f"inject-{_uid()}")
-        _run_dir = data.get("runDir", str(state.projects_dir() / _proj_id))
-        _config = data.get("configPath", "")
-        _topic = data.get("topic", "")
-        os.makedirs(_run_dir, exist_ok=True)
-        if _queue_name in state.queues:
-            _, tgt = QUEUE_NAMES.get(_queue_name, ("", ""))
-            _t = Task(id=f"task-{_uid()}", project_id=_proj_id, run_dir=_run_dir,
-                      config_path=_config, topic=_topic,
-                      source_layer="inject", target_layer=tgt or "writing",
-                      created_at=_now_ms())
-            state.queues[_queue_name].push(_t)
-            sys_a = LobsterAgent(id="system", name="系统", layer="idea", run_id="", run_dir="", config_path="")
-            messages.append(msg_log(sys_a, f"注入任务 [{_proj_id}] → {_queue_name} 队列", "info"))
-            messages.append(msg_queue_update(state.queues))
-            messages.extend(schedule_idle_agents(state))
-        else:
-            sys_a = LobsterAgent(id="system", name="系统", layer="idea", run_id="", run_dir="", config_path="")
-            messages.append(msg_log(sys_a, f"队列 {_queue_name} 不存在", "error"))
-
     elif cmd == "get_queues":
         messages.append(msg_queue_update(state.queues))
 
@@ -999,6 +1401,16 @@ async def handle_command(state: BridgeState, data: dict) -> list[dict]:
         _sys_a = LobsterAgent(id="system", name="系统", layer="idea", run_id="", run_dir="", config_path="")
         messages.append(msg_log(_sys_a, f"Idea 工厂已停止 (已产出 {state.idea_factory_produced} 个)", "info"))
 
+    elif cmd == "set_discussion_mode":
+        enabled = bool(data.get("enabled", False))
+        state.discussion_mode = enabled
+        rounds = data.get("rounds")
+        if rounds is not None:
+            state.discussion_rounds = int(rounds)
+        _sys_a = LobsterAgent(id="system", name="系统", layer="idea", run_id="", run_dir="", config_path="")
+        label = "开启" if enabled else "关闭"
+        messages.append(msg_log(_sys_a, f"沟通讨论模式已{label} (轮数={state.discussion_rounds})", "info", DISCUSSION_STAGE))
+
     return messages
 
 
@@ -1022,6 +1434,8 @@ async def ws_handler(state: BridgeState, websocket: websockets.ServerConnection)
                 await broadcast(state, responses)
             except json.JSONDecodeError:
                 pass
+    except websockets.ConnectionClosed:
+        pass
     finally:
         state.clients.discard(websocket)
         print(f"[-] Client disconnected (total: {len(state.clients)})")
@@ -1039,8 +1453,12 @@ async def poll_loop(state: BridgeState, interval: float):
 
             # Detect layer completion → feed task queue
             if prev_status == "working" and agent.status == "done":
-                if getattr(agent, '_is_idea_factory', False):
+                if getattr(agent, '_is_idea_factory_s7_only', False):
+                    all_messages.extend(_on_idea_factory_s7_done(state, agent))
+                elif getattr(agent, '_is_idea_factory', False):
                     all_messages.extend(_on_idea_factory_done(state, agent))
+                elif getattr(agent, '_is_discussion_s8', False):
+                    all_messages.extend(_on_discussion_s8_done(state, agent))
                 else:
                     all_messages.extend(on_agent_done(state, agent))
 
@@ -1053,11 +1471,33 @@ async def poll_loop(state: BridgeState, interval: float):
                     released = state.gpu_allocator.release(agent.project_id)
                     if released:
                         all_messages.append(msg_log(agent, f"GPU {released} 已释放 (错误后)", "warning"))
+                # Clean up discussion group if S7-only idea factory agent failed
+                _batch_id = getattr(agent, '_idea_factory_batch_id', None)
+                if _batch_id and _batch_id in state.discussion_groups:
+                    _grp = state.discussion_groups[_batch_id]
+                    if agent.id in _grp.agent_ids:
+                        _grp.agent_ids.remove(agent.id)
+                        _grp.run_dirs.pop(agent.id, None)
+                        _grp.completed_s7.discard(agent.id)
+                    if len(_grp.agent_ids) < 2:
+                        for _rem_aid in list(_grp.agent_ids):
+                            _rem_a = state.agents.get(_rem_aid)
+                            if _rem_a and _rem_a.status == "waiting_discussion":
+                                _rem_a.status = "idle"
+                                _rem_a.current_task = "沟通讨论取消（伙伴失败）"
+                                _rem_a._is_idea_factory = False  # type: ignore[attr-defined]
+                                all_messages.append(msg_agent_update(_rem_a))
+                                all_messages.append(msg_log(_rem_a, "沟通讨论组人数不足，取消讨论", "warning", DISCUSSION_STAGE))
+                        del state.discussion_groups[_batch_id]
                 agent.assigned_task_id = None
                 agent.project_id = ""
                 agent.status = "idle"
                 agent.current_task = "等待任务..."
                 all_messages.append(msg_agent_update(agent))
+
+        # Poll active discussions
+        for group in list(state.discussion_groups.values()):
+            all_messages.extend(_poll_discussion(state, group))
 
         # Schedule idle agents
         sched_msgs = schedule_idle_agents(state)
@@ -1075,6 +1515,9 @@ async def main(args: argparse.Namespace):
         runs_base_dir=args.runs_dir,
         gpu_allocator=GpuAllocator(args.total_gpus, args.gpus_per_project),
         auto_loop=args.auto_loop,
+        discussion_mode=args.discussion_mode,
+        discussion_rounds=args.discussion_rounds,
+        discussion_models=[m.strip() for m in args.discussion_models.split(",") if m.strip()],
         idea_factory_topic=args.idea_topic,
         idea_factory_config=args.idea_config,
         idea_factory_remaining=args.idea_count,
@@ -1119,6 +1562,8 @@ async def main(args: argparse.Namespace):
     print(f"   Lobsters:      {len(state.agents)}")
     print(f"   GPUs:          {args.total_gpus}x ({args.gpus_per_project}/project, max {args.total_gpus // max(args.gpus_per_project, 1)} parallel)")
     print(f"   Auto-loop:     {'ON' if args.auto_loop else 'OFF'}")
+    _disc_info = f"ON ({args.discussion_rounds} rounds, models: {args.discussion_models})" if args.discussion_mode else "OFF"
+    print(f"   Discussion:    {_disc_info}")
     print(f"   Queued tasks:  {queued_tasks}")
     print()
 
@@ -1147,6 +1592,12 @@ if __name__ == "__main__":
                         help="GPUs allocated per project in execution layer")
     parser.add_argument("--auto-loop", action="store_true", default=False,
                         help="Enable auto-loop: L4 completion feeds back to L1 for new research cycle")
+    parser.add_argument("--discussion-mode", action="store_true", default=False,
+                        help="Enable L1 discussion: agents discuss after S7 before generating hypotheses")
+    parser.add_argument("--discussion-rounds", type=int, default=3,
+                        help="Number of LLM discussion rounds (default: 3)")
+    parser.add_argument("--discussion-models", default="gpt-5.3-codex-spark,claude-opus-4-6",
+                        help="Comma-separated LLM models for discussion agents (different companies for diversity)")
     parser.add_argument("--idea-count", type=int, default=0,
                         help="Idea factory: number of ideas to produce (0=disabled, -1=infinite)")
     parser.add_argument("--idea-topic", default="",
