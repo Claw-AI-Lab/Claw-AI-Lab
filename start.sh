@@ -13,7 +13,7 @@ export PATH="/home/zty/node20/bin:$PATH"
 mkdir -p "$LOG" "$PIDF"
 
 # OpenCode Beast Mode needs the API key in the environment
-export RESEARCHCLAW_API_KEY="cr_f5a61f2e3c99bd75a6b819c8317fa2b2782d81e802a988464043bdf591ffceea"
+export RESEARCHCLAW_API_KEY="${RESEARCHCLAW_API_KEY:-your-api-key-here}"
 export RC_API_KEY="$RESEARCHCLAW_API_KEY"
 
 # Ascend NPU CANN environment
