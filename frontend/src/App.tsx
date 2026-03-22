@@ -327,31 +327,32 @@ export default function App() {
         </div>
 
         <LogPanel logs={state.logs} />
-        <HumanFeedbackPanel
-          messages={state.chatMessages}
-          connected={state.connected}
-          onSend={(content, targetLayer) => {
-            const ws = agentWsRef.current;
-            if (ws && ws.readyState === WebSocket.OPEN) {
-              ws.send(JSON.stringify({
-                command: 'human_feedback',
+      </div>
+
+      <HumanFeedbackPanel
+        messages={state.chatMessages}
+        connected={state.connected}
+        onSend={(content, targetLayer) => {
+          const ws = agentWsRef.current;
+          if (ws && ws.readyState === WebSocket.OPEN) {
+            ws.send(JSON.stringify({
+              command: 'human_feedback',
+              content,
+              targetLayer: targetLayer || 'all',
+            }));
+            dispatch({
+              type: 'chat_message',
+              payload: {
+                id: `user-${Date.now()}`,
+                role: 'user',
                 content,
                 targetLayer: targetLayer || 'all',
-              }));
-              dispatch({
-                type: 'chat_message',
-                payload: {
-                  id: `user-${Date.now()}`,
-                  role: 'user',
-                  content,
-                  targetLayer: targetLayer || 'all',
-                  timestamp: Date.now(),
-                },
-              });
-            }
-          }}
-        />
-      </div>
+                timestamp: Date.now(),
+              },
+            });
+          }
+        }}
+      />
     </div>
   );
 }

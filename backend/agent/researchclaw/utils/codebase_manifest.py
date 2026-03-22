@@ -127,6 +127,18 @@ def _parse_file(filepath: Path, rel_path: str) -> dict[str, Any] | None:
     }
 
 
+_SKIP_DIRS = frozenset((
+    ".git", "__pycache__", "node_modules", ".eggs", ".egg-info",
+    "docs", "doc", "static", "assets", "images", "figures",
+))
+
+
+def _is_auxiliary_code(rel_path: str) -> bool:
+    """Return True for files that are useful but non-core (eval, test, etc.)."""
+    parts = rel_path.lower().split("/")
+    return any(p in ("eval", "evaluation", "tests", "test", "benchmarks") for p in parts)
+
+
 def _dir_hash(repo_path: Path) -> str:
     """Quick hash of file mtimes to detect changes."""
     h = hashlib.md5()
@@ -161,7 +173,7 @@ def generate_manifest(repo_path: str | Path) -> dict[str, Any]:
     file_tree: list[str] = []
 
     for root, dirs, files in os.walk(repo_path):
-        dirs[:] = [d for d in sorted(dirs) if d not in (".git", "__pycache__", "node_modules", ".eggs", ".egg-info")]
+        dirs[:] = [d for d in sorted(dirs) if d not in _SKIP_DIRS]
         for f in sorted(files):
             abs_path = Path(root) / f
             rel = str(abs_path.relative_to(repo_path))
@@ -171,6 +183,7 @@ def generate_manifest(repo_path: str | Path) -> dict[str, Any]:
             if f.endswith(".py"):
                 entry = _parse_file(abs_path, rel)
                 if entry:
+                    entry["_auxiliary"] = _is_auxiliary_code(rel)
                     file_entries.append(entry)
 
     # Read README
@@ -212,23 +225,33 @@ def manifest_to_prompt(manifest: dict[str, Any]) -> str:
 
     readme = manifest.get("readme_excerpt", "")
     if readme:
-        parts.append("### README")
-        parts.append(f"```\n{readme}\n```")
-        parts.append("")
+        readme_clean = _trim_readme(readme)
+        if readme_clean:
+            parts.append("### README (trimmed)")
+            parts.append(f"```\n{readme_clean}\n```")
+            parts.append("")
 
     tree = manifest.get("file_tree", [])
     if tree:
-        parts.append(f"### File Tree ({len(tree)} files)")
+        core_tree = [f for f in tree if not _is_auxiliary_code(f)]
+        aux_tree = [f for f in tree if _is_auxiliary_code(f)]
+        parts.append(f"### File Tree ({len(core_tree)} core files"
+                      + (f", {len(aux_tree)} auxiliary" if aux_tree else "")
+                      + ")")
         parts.append("```")
-        for f in tree:
+        for f in core_tree:
             parts.append(f"  {f}")
+        if aux_tree:
+            parts.append(f"  # + {len(aux_tree)} auxiliary files in eval/test dirs")
         parts.append("```")
         parts.append("")
 
     modules = manifest.get("modules", [])
-    if modules:
+    core_mods = [m for m in modules if not m.get("_auxiliary")]
+    aux_mods = [m for m in modules if m.get("_auxiliary")]
+    if core_mods:
         parts.append("### API Reference")
-        for mod in modules:
+        for mod in core_mods:
             fpath = mod["file"]
             lines = mod.get("lines", 0)
             parts.append(f"\n**`{fpath}`** ({lines} lines)")
@@ -249,5 +272,41 @@ def manifest_to_prompt(manifest: dict[str, Any]) -> str:
                 if fn.get("doc"):
                     parts.append(f"    {fn['doc']}")
 
+    if aux_mods:
+        parts.append(f"\n*Auxiliary scripts ({len(aux_mods)} files in eval/test): "
+                      + ", ".join(m["file"] for m in aux_mods) + "*")
+
     parts.append(f"\n**Usage**: `sys.path.insert(0, '{repo_path}')` then import modules.")
     return "\n".join(parts)
+
+
+def _trim_readme(readme: str) -> str:
+    """Strip HTML tags, badges, image links, and boilerplate from README."""
+    import re
+    lines = readme.splitlines()
+    trimmed: list[str] = []
+    skip_section = False
+    for line in lines:
+        stripped = line.strip()
+        if re.match(r'^</?(?:div|a|img|h[1-6]|p|b|br|hr|span)\b', stripped, re.IGNORECASE):
+            continue
+        if re.match(r'^\[!\[', stripped) or re.match(r'^!\[', stripped):
+            continue
+        if re.match(r'^\[.+\]\(https?://', stripped) and len(stripped) < 300:
+            if "arxiv" not in stripped.lower() and "paper" not in stripped.lower():
+                continue
+        if stripped.startswith("## ") and any(kw in stripped.lower() for kw in
+                ("install", "run", "setup", "getting started", "usage",
+                 "prerequisit", "requirement", "depend", "quick start")):
+            skip_section = True
+            continue
+        if re.match(r'^#{1,3} ', stripped) and skip_section:
+            skip_section = False
+        if skip_section:
+            continue
+        if not stripped:
+            if trimmed and not trimmed[-1].strip():
+                continue
+        trimmed.append(line)
+    text = re.sub(r'<[^>]+>', '', "\n".join(trimmed)).strip()
+    return text[:1500]

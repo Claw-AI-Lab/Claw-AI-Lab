@@ -215,14 +215,17 @@ def main():
         else:
             print(f"   ✗ {label}: no synthesis.md found in {sd}")
 
-    if len(syntheses) < 2:
-        print("ERROR: Need at least 2 syntheses for discussion")
+    if len(syntheses) < 1:
+        print("ERROR: No syntheses available for discussion")
         heartbeat["status"] = "failed"
-        heartbeat["error"] = "fewer than 2 syntheses available"
+        heartbeat["error"] = "no syntheses available"
         (output_dir / "heartbeat.json").write_text(
             json.dumps(heartbeat, ensure_ascii=False), encoding="utf-8",
         )
         sys.exit(1)
+
+    if len(syntheses) == 1:
+        print("   ℹ Single synthesis — will run critical self-review instead of multi-agent debate")
 
     heartbeat["status"] = "discussing"
     heartbeat["participants"] = len(syntheses)

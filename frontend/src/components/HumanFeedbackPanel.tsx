@@ -49,7 +49,7 @@ export default memo(function HumanFeedbackPanel({ messages, onSend, connected }:
     }
   };
 
-  const unreadCount = messages.filter((m) => m.sender === 'system').length;
+  const unreadCount = messages.filter((m) => m.role === 'system').length;
 
   return (
     <div className={`feedback-panel ${expanded ? 'expanded' : ''}`}>
@@ -84,10 +84,10 @@ export default memo(function HumanFeedbackPanel({ messages, onSend, connected }:
               </div>
             )}
             {messages.map((msg) => (
-              <div key={msg.id} className={`feedback-msg ${msg.sender}`}>
+              <div key={msg.id} className={`feedback-msg ${msg.role === 'user' ? 'human' : 'system'}`}>
                 <div className="feedback-msg-header">
                   <span className="feedback-sender">
-                    {msg.sender === 'human' ? '👤 你' : '🤖 系统'}
+                    {msg.role === 'user' ? '👤 你' : '🤖 系统'}
                   </span>
                   {msg.targetLayer && msg.targetLayer !== 'all' && (
                     <span
@@ -102,12 +102,6 @@ export default memo(function HumanFeedbackPanel({ messages, onSend, connected }:
                   </span>
                 </div>
                 <div className="feedback-msg-content">{msg.content}</div>
-                {msg.planUpdate && (
-                  <div className="feedback-plan-update">
-                    <span className="plan-update-tag">📋 计划更新</span>
-                    <span>{msg.planUpdate}</span>
-                  </div>
-                )}
               </div>
             ))}
           </div>

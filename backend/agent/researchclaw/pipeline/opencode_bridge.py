@@ -232,24 +232,38 @@ class OpenCodeResult:
 _MEGA_PROMPT_TEMPLATE = """\
 You are implementing a complete, runnable ML/science experiment.
 
-Read the files in the current workspace:
-- EXPERIMENT_PLAN.yaml — the full experiment design
-- GUIDANCE.md — topic, metric, environment constraints, domain-specific guidance
+STEP 1 — READ THE WORKSPACE:
+The workspace contains the COMPLETE source code of a local codebase plus context files:
+- EXPERIMENT_PLAN.yaml — the experiment design
+- GUIDANCE.md — topic, metric, environment, constraints
+- Source code files — the actual codebase you MUST build upon
+- `data/` — symlink to local datasets (reference images, masks, configs)
+- `checkpoints/` — symlink to pretrained model weights
 
-Your task:
-1. Design the file structure (main.py is the required entry point).
-2. Implement ALL files with complete, runnable code. No placeholders or TODOs.
-3. main.py must be the entry point and print the primary metric as:
-   {metric}: <value>
-4. Include numerical stability guards (gradient clipping, NaN detection, etc.).
-5. Use multi-seed evaluation (seeds 0, 1, 2) and report mean ± std.
-6. Each ablation/condition MUST be genuinely different — not copy-paste with a renamed variable.
-7. Implement a time guard: stop gracefully at 80% of the time budget ({time_budget_sec} seconds).
-8. Write requirements.txt listing any extra pip packages needed.
-9. If the experiment needs dataset downloads, write a setup.py that handles them.
+Before writing ANY code, read the existing source files to understand the codebase:
+1. Find and read any example/demo scripts (e.g. *_demo.py, run_*.py, example_*.py) to see how the pipeline works end-to-end.
+2. Read the core modules to understand the API (class signatures, function arguments).
+3. Read the dataset configs or sample data in data/ to understand the data format.
+4. Check what checkpoints/weights are available in checkpoints/.
+
+STEP 2 — IMPLEMENTATION RULES:
+- Build ON TOP of the existing codebase. Import and extend existing modules.
+- Load pretrained models from `checkpoints/` using the codebase's loading API, NOT from the internet.
+- Load real data from `data/` using the codebase's data loading utilities, NOT synthetic torch.randn().
+- Compute REAL metrics from actual model outputs. NEVER use np.random or random.uniform as a metric placeholder.
+- Each experimental condition must produce genuinely different behavior.
+- Do NOT rewrite modules that already exist — import and extend them.
+- NEVER invent module names — only use modules visible in the workspace.
+
+STEP 3 — CREATE main.py:
+1. main.py is the NEW entry point that runs ALL experimental conditions.
+2. It must print the primary metric as: {metric}: <value>
+3. Use multi-seed evaluation (seeds 0, 1, 2) and report mean +/- std.
+4. Implement a time guard: stop gracefully at 80% of the time budget ({time_budget_sec} seconds).
+5. Each condition must be wrapped in try/except for crash resilience.
+6. Print per-condition results: condition=<name> seed=<s> {metric}: <value>
 
 IMPORTANT CONSTRAINTS:
-- The code will run in an isolated Docker container with PyTorch, torchvision, and common ML packages pre-installed.
 - Do NOT use argparse or CLI arguments — hardcode all configuration.
 - All output must go to stdout (print statements).
 - Keep the experiment feasible within {time_budget_sec} seconds total.
@@ -309,8 +323,14 @@ class OpenCodeBridge:
         pkg_hint: str,
         extra_guidance: str,
         time_budget_sec: int,
+        codebases_dir: str = "",
+        datasets_dir: str = "",
+        checkpoints_dir: str = "",
     ) -> Path:
         """Create a temporary workspace directory with context files."""
+        import shutil
+        import hashlib
+
         ws = stage_dir / f"opencode_beast_{int(time.time())}_{time.monotonic_ns() % 100000}"
         ws.mkdir(parents=True, exist_ok=True)
 
@@ -339,6 +359,90 @@ class OpenCodeBridge:
         opencode_cfg = self._build_opencode_config()
         (ws / "opencode.json").write_text(
             json.dumps(opencode_cfg, indent=2), encoding="utf-8",
+        )
+
+        # Copy local codebases into workspace root so OpenCode can
+        # directly import and modify them.
+        if codebases_dir:
+            cb_path = Path(codebases_dir)
+            if cb_path.is_dir():
+                for repo in sorted(cb_path.iterdir()):
+                    if repo.is_dir() and not repo.name.startswith("."):
+                        shutil.copytree(
+                            repo, ws,
+                            ignore=shutil.ignore_patterns(
+                                ".git", "__pycache__", "*.pyc",
+                                "node_modules", ".eggs", "_manifest.json",
+                            ),
+                            dirs_exist_ok=True,
+                        )
+
+        # Symlink datasets and checkpoints into workspace
+        if datasets_dir and Path(datasets_dir).is_dir():
+            link = ws / "data"
+            if not link.exists():
+                link.symlink_to(Path(datasets_dir).resolve())
+
+        if checkpoints_dir and Path(checkpoints_dir).is_dir():
+            link = ws / "checkpoints"
+            if not link.exists():
+                link.symlink_to(Path(checkpoints_dir).resolve())
+
+        # Append concrete usage hints to GUIDANCE.md so LLM knows
+        # how to use the local data/checkpoints/codebase in practice.
+        usage_hints: list[str] = []
+        if (ws / "data").exists():
+            try:
+                ds_root = Path(datasets_dir).resolve()
+                ds_items = sorted(
+                    d.name for d in ds_root.iterdir()
+                    if d.is_dir() and not d.name.startswith(".")
+                )
+                usage_hints.append(
+                    "## Local Data Layout\n"
+                    f"Datasets available in `data/`: {', '.join(ds_items)}\n"
+                )
+                for ds_name in ds_items[:3]:
+                    ds_sub = ds_root / ds_name
+                    sub_items = sorted(d.name for d in ds_sub.rglob("*") if d.is_file())[:10]
+                    if sub_items:
+                        usage_hints.append(f"- `data/{ds_name}/`: {', '.join(sub_items)}")
+            except OSError:
+                pass
+        if (ws / "checkpoints").exists():
+            try:
+                ck_root = Path(checkpoints_dir).resolve()
+                ck_items = sorted(
+                    d.name for d in ck_root.iterdir() if not d.name.startswith(".")
+                )
+                ck_hint = (
+                    "\n## Local Checkpoints\n"
+                    f"Available in `checkpoints/`: {', '.join(ck_items)}\n"
+                    "Load pretrained models from this path instead of downloading.\n"
+                )
+                if ck_items:
+                    ck_hint += f"Example: `model.from_pretrained('checkpoints/{ck_items[0]}')`"
+                usage_hints.append(ck_hint)
+            except OSError:
+                pass
+        if usage_hints:
+            with open(ws / "GUIDANCE.md", "a", encoding="utf-8") as f:
+                f.write("\n\n" + "\n".join(usage_hints) + "\n")
+
+        # Snapshot codebase file hashes so _collect_files can distinguish
+        # OpenCode's new/modified files from the original codebase.
+        snapshot: dict[str, str] = {}
+        for f in ws.rglob("*.py"):
+            if f.is_symlink():
+                continue
+            try:
+                snapshot[str(f.relative_to(ws))] = hashlib.md5(
+                    f.read_bytes()
+                ).hexdigest()
+            except OSError:
+                pass
+        (ws / ".codebase_snapshot.json").write_text(
+            json.dumps(snapshot), encoding="utf-8",
         )
 
         return ws
@@ -402,19 +506,29 @@ class OpenCodeBridge:
                     }
                 }
         elif self._llm_base_url:
-            # Generic OpenAI-compatible provider
+            resolved = self._model if "/" in self._model else f"openai/{self._model}"
             if self._model:
-                cfg["model"] = self._model if "/" in self._model else f"openai/{self._model}"
-            cfg["provider"] = {
-                "openai": {
-                    "options": {
-                        "baseURL": self._llm_base_url,
-                        "apiKey": f"{{env:{self._api_key_env}}}"
-                        if self._api_key_env
-                        else "",
+                cfg["model"] = resolved
+            provider_cfg: dict[str, Any] = {
+                "options": {
+                    "baseURL": self._llm_base_url,
+                    "apiKey": f"{{env:{self._api_key_env}}}"
+                    if self._api_key_env
+                    else "",
+                },
+            }
+            if self._model:
+                bare_name = self._model.split("/")[-1] if "/" in self._model else self._model
+                provider_cfg["models"] = {
+                    bare_name: {
+                        "name": bare_name,
+                        "modalities": {
+                            "input": ["text"],
+                            "output": ["text"],
+                        },
                     }
                 }
-            }
+            cfg["provider"] = {"openai": provider_cfg}
         elif self._model:
             cfg["model"] = self._model if "/" in self._model else f"openai/{self._model}"
 
@@ -457,6 +571,7 @@ class OpenCodeBridge:
         prompt: str,
     ) -> tuple[bool, str, float]:
         """Run ``opencode run`` in the workspace. Returns (success, log, elapsed)."""
+        workspace = workspace.resolve()
         env = os.environ.copy()
         # Pass API key via environment if configured
         if self._api_key_env:
@@ -510,33 +625,73 @@ class OpenCodeBridge:
     def _collect_files(workspace: Path) -> dict[str, str]:
         """Collect generated Python files, requirements.txt, and setup.py.
 
-        File names are flattened to basenames (e.g. ``src/main.py`` → ``main.py``)
-        because the downstream executor expects a flat file dict.  If two files
-        share the same basename, the one closer to the workspace root wins.
+        Only collects files that are **new or modified** relative to the
+        codebase snapshot taken during workspace preparation.  Unchanged
+        codebase files are skipped so downstream stages only see
+        OpenCode's actual output.
+
+        File names are flattened to basenames (e.g. ``src/main.py`` →
+        ``main.py``) because the downstream executor expects a flat file
+        dict.  If two files share the same basename, the one closer to the
+        workspace root wins.
         """
+        import hashlib as _hl
+
+        # Load the original codebase snapshot (if any)
+        _snapshot_file = workspace / ".codebase_snapshot.json"
+        _original_hashes: dict[str, str] = {}
+        if _snapshot_file.exists():
+            try:
+                _original_hashes = json.loads(
+                    _snapshot_file.read_text(encoding="utf-8")
+                )
+            except (json.JSONDecodeError, OSError):
+                pass
+
         files: dict[str, str] = {}
-        # Sort by depth (fewer parts first) so root-level files take priority
         py_files = sorted(
             workspace.rglob("*.py"),
             key=lambda p: len(p.relative_to(workspace).parts),
         )
         for py_file in py_files:
+            if py_file.is_symlink():
+                continue
             rel = py_file.relative_to(workspace)
             parts = rel.parts
             if any(p.startswith("__pycache__") or p.startswith(".") for p in parts):
                 continue
-            # Flatten to basename — executor expects flat structure
+
+            rel_str = str(rel)
+            if rel_str in _original_hashes:
+                try:
+                    current_hash = _hl.md5(py_file.read_bytes()).hexdigest()
+                except OSError:
+                    continue
+                if current_hash == _original_hashes[rel_str]:
+                    continue  # unchanged codebase file
+
             basename = rel.name
             if basename not in files:
                 try:
-                    files[basename] = py_file.read_text(encoding="utf-8", errors="replace")
+                    files[basename] = py_file.read_text(
+                        encoding="utf-8", errors="replace"
+                    )
                 except OSError as exc:
-                    logger.warning("Beast mode: failed to read %s: %s", py_file, exc)
+                    logger.warning(
+                        "Beast mode: failed to read %s: %s", py_file, exc
+                    )
 
-        # Also collect requirements.txt and setup.py at root
         for extra in ("requirements.txt", "setup.py"):
             p = workspace / extra
             if p.exists() and extra not in files:
+                # Check snapshot for these too
+                if extra in _original_hashes:
+                    try:
+                        cur = _hl.md5(p.read_bytes()).hexdigest()
+                    except OSError:
+                        continue
+                    if cur == _original_hashes.get(extra):
+                        continue
                 files[extra] = p.read_text(encoding="utf-8", errors="replace")
 
         return files
@@ -552,12 +707,14 @@ class OpenCodeBridge:
         pkg_hint: str = "",
         extra_guidance: str = "",
         time_budget_sec: int = 300,
+        codebases_dir: str = "",
+        datasets_dir: str = "",
+        checkpoints_dir: str = "",
     ) -> OpenCodeResult:
         """Run OpenCode to generate experiment code.
 
         Returns an OpenCodeResult with success status and generated files.
         """
-        # Check availability first
         if not self.check_available():
             return OpenCodeResult(
                 success=False,
@@ -568,7 +725,6 @@ class OpenCodeBridge:
         last_error = ""
 
         for attempt in range(1 + self._max_retries):
-            # Prepare workspace
             try:
                 workspace = self._prepare_workspace(
                     stage_dir=stage_dir,
@@ -578,6 +734,9 @@ class OpenCodeBridge:
                     pkg_hint=pkg_hint,
                     extra_guidance=extra_guidance,
                     time_budget_sec=time_budget_sec,
+                    codebases_dir=codebases_dir,
+                    datasets_dir=datasets_dir,
+                    checkpoints_dir=checkpoints_dir,
                 )
             except OSError as exc:
                 last_error = f"Failed to prepare workspace: {exc}"

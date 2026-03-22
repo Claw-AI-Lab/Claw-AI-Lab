@@ -321,7 +321,6 @@ class ExperimentSandbox:
         for src_file in project_dir.iterdir():
             if src_file.is_file():
                 dest = sandbox_project / src_file.name
-                # Do not allow project to overwrite the harness
                 if dest.name == "experiment_harness.py":
                     logger.warning("Project contains experiment_harness.py — skipping (immutable)")
                     continue

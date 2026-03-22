@@ -205,7 +205,7 @@ class CodeAgent:
         blueprint = None
         if self._cfg.architecture_planning:
             arch_spec, blueprint = self._phase1_blueprint(
-                topic, exp_plan, metric,
+                topic, exp_plan, metric, pkg_hint=pkg_hint,
             )
 
         # Phase 2: Code generation
@@ -291,6 +291,7 @@ class CodeAgent:
 
     def _phase1_blueprint(
         self, topic: str, exp_plan: str, metric: str,
+        pkg_hint: str = "",
     ) -> tuple[str, dict[str, Any] | None]:
         """Generate a deep implementation blueprint.
 
@@ -303,6 +304,7 @@ class CodeAgent:
             topic=topic,
             exp_plan=exp_plan,
             metric=metric,
+            pkg_hint=pkg_hint,
         )
 
         # Inject domain context and code search results into blueprint prompt
@@ -813,7 +815,7 @@ class CodeAgent:
         )
 
         sys_prompt = self._pm.system("code_generation")
-        resp = self._chat(sys_prompt, prompt, max_tokens=16384)
+        resp = self._chat(sys_prompt, prompt, max_tokens=8192)
 
         fixed = self._extract_files(resp.content)
         if fixed:
@@ -912,9 +914,8 @@ class CodeAgent:
 
         files = self._extract_files(resp.content)
         if not files and resp.content.strip():
-            # Retry with higher token budget
-            self._log_event("  Empty extraction, retrying with 32768 tokens")
-            resp = self._chat(sp.system, sp.user, max_tokens=32768)
+            self._log_event("  Empty extraction, retrying with higher token budget")
+            resp = self._chat(sp.system, sp.user, max_tokens=4096)
             files = self._extract_files(resp.content)
 
         return files
@@ -955,7 +956,7 @@ class CodeAgent:
             returncode=str(result.returncode),
             files_context=files_ctx,
         )
-        resp = self._chat(sp.system, sp.user, max_tokens=16384)
+        resp = self._chat(sp.system, sp.user, max_tokens=8192)
 
         fixed = self._extract_files(resp.content)
         if fixed:
@@ -1061,7 +1062,7 @@ class CodeAgent:
             "shown. Preserve experiment design and scientific methodology. "
             "Output the COMPLETE fixed file."
         )
-        resp = self._chat(sys_prompt, prompt, max_tokens=16384)
+        resp = self._chat(sys_prompt, prompt, max_tokens=8192)
 
         fixed = self._extract_files(resp.content)
         if not fixed:
@@ -1227,7 +1228,7 @@ class CodeAgent:
                 metric=metric,
                 files_context=files_ctx,
             )
-            resp = self._chat(sp.system, sp.user, max_tokens=4096)
+            resp = self._chat(sp.system, sp.user, max_tokens=8192)
 
             review = self._parse_json(resp.content)
             if not isinstance(review, dict) or not review:
@@ -1259,7 +1260,7 @@ class CodeAgent:
                 "including unchanged files."
             )
             sys_prompt = self._pm.system("code_generation")
-            fix_resp = self._chat(sys_prompt, fix_prompt, max_tokens=16384)
+            fix_resp = self._chat(sys_prompt, fix_prompt, max_tokens=8192)
 
             fixed = self._extract_files(fix_resp.content)
             if fixed:

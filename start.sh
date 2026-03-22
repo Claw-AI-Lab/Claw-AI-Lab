@@ -12,6 +12,8 @@ FE="$BASE/frontend"
 LOG="$BASE/logs"
 PIDF="$BASE/.pids"
 
+export RESEARCHCLAW_API_KEY="${RESEARCHCLAW_API_KEY:-sk-QLo52KgqSRHiI3H3JydKzJJJw4W0URzsNnGy8d3QB1yYtFqM}"
+
 FNM_DIR="${FNM_DIR:-$HOME/.local/share/fnm}"
 export PATH="$FNM_DIR:$PATH"
 eval "$($FNM_DIR/fnm env 2>/dev/null)" 2>/dev/null
@@ -23,19 +25,19 @@ source /usr/local/Ascend/ascend-toolkit/set_env.sh 2>/dev/null
 
 G='\033[0;32m'; R='\033[0;31m'; Y='\033[0;33m'; N='\033[0m'
 
-IDEA_COUNT=5
-IDEA_TOPIC="Training-free image generation using attention manipulation"
-IDEA_CONFIG="$BASE/backend/agent/config_gpu_project.yaml"
+IDEA_COUNT=0
+IDEA_TOPIC=""
+IDEA_CONFIG=""
 
 do_start() {
     echo "🦞 启动龙虾 Agent 军团..."
     echo ""
 
     # 1) Resource Monitor
-    if ss -tlnp 2>/dev/null | grep -q ":8875 "; then
+    if ss -tlnp 2>/dev/null | grep -q ":8895 "; then
         echo -e "  ${Y}⏭ resource_monitor 已在运行${N}"
     else
-        nohup $PY -u "$BASE/backend/services/resource_monitor.py" --port 8875 \
+        nohup $PY -u "$BASE/backend/services/resource_monitor.py" --port 8895 \
             > "$LOG/resource_monitor.log" 2>&1 &
         echo $! > "$PIDF/resource_monitor.pid"
         sleep 1
@@ -43,16 +45,16 @@ do_start() {
     fi
 
     # 2) Agent Bridge
-    if ss -tlnp 2>/dev/null | grep -q ":8876 "; then
+    if ss -tlnp 2>/dev/null | grep -q ":8896 "; then
         echo -e "  ${Y}⏭ agent_bridge 已在运行${N}"
     else
         nohup $PY -u "$BASE/backend/services/agent_bridge.py" \
-            --port 8876 --python "$PY" \
+            --port 8896 --python "$PY" \
             --agent-dir "$BASE/backend/agent" \
             --runs-dir "$BASE/backend/runs" \
-            --pool-idea 2 --pool-exp 2 --pool-code 2 --pool-exec 2 --pool-write 2 \
+            --pool-idea 3 --pool-exp 2 --pool-code 2 --pool-exec 2 --pool-write 2 \
             --total-gpus 8 --gpus-per-project 1 \
-            --discussion-mode --discussion-rounds 3 \
+            --discussion-mode --discussion-rounds 2 \
             --discussion-models "claude-opus-4-6,claude-opus-4-5-20251101" \
             ${AUTO_LOOP:+--auto-loop} \
             ${IDEA_COUNT:+--idea-count $IDEA_COUNT} \
@@ -65,11 +67,11 @@ do_start() {
     fi
 
     # 3) Frontend Vite
-    if ss -tlnp 2>/dev/null | grep -q ":5883 "; then
+    if ss -tlnp 2>/dev/null | grep -q ":5893 "; then
         echo -e "  ${Y}⏭ frontend 已在运行${N}"
     else
         cd "$FE"
-        nohup npx vite --host 0.0.0.0 --port 5883 \
+        nohup npx vite --host 0.0.0.0 --port 5893 \
             > "$LOG/frontend.log" 2>&1 &
         echo $! > "$PIDF/frontend.pid"
         sleep 2
@@ -79,9 +81,9 @@ do_start() {
 
     echo ""
     echo "📍 服务地址:"
-    echo -e "   ${G}前端 UI:      http://localhost:5883/${N}"
-    echo "   资源监控 WS:  ws://localhost:8875"
-    echo "   Agent Bridge: ws://localhost:8876"
+    echo -e "   ${G}前端 UI:      http://localhost:5893/${N}"
+    echo "   资源监控 WS:  ws://localhost:8895"
+    echo "   Agent Bridge: ws://localhost:8896"
     echo ""
 }
 
@@ -98,7 +100,7 @@ do_stop() {
         fi
     done
     # Also kill by port in case PID file was stale
-    for port in 5883 8875 8876; do
+    for port in 5893 8895 8896; do
         lsof -ti:$port 2>/dev/null | xargs -r kill -9 2>/dev/null
     done
     echo ""
@@ -106,7 +108,7 @@ do_stop() {
 
 do_status() {
     echo "📊 服务状态:"
-    for pair in "resource_monitor:8875" "agent_bridge:8876" "frontend:5883"; do
+    for pair in "resource_monitor:8895" "agent_bridge:8896" "frontend:5893"; do
         svc="${pair%%:*}"; port="${pair##*:}"
         if ss -tlnp 2>/dev/null | grep -q ":$port "; then
             echo -e "  ${G}● $svc${N} (port $port)"

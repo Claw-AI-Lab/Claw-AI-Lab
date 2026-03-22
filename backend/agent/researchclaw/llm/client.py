@@ -319,6 +319,43 @@ class LLMClient:
         # Should not reach here, but just in case
         return self._raw_call(model, messages, max_tokens, temperature, json_mode)
 
+    @staticmethod
+    def _stream_read(req: urllib.request.Request, timeout: int) -> dict:
+        """Send a streaming request and reassemble into a standard response dict."""
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            chunks: list[str] = []
+            finish_reason = None
+            model_name = ""
+            usage = {}
+            for raw_line in resp:
+                line = raw_line.decode("utf-8", errors="replace").strip()
+                if not line or not line.startswith("data: "):
+                    continue
+                payload = line[6:]
+                if payload == "[DONE]":
+                    break
+                try:
+                    event = json.loads(payload)
+                except (json.JSONDecodeError, ValueError):
+                    continue
+                if not model_name:
+                    model_name = event.get("model", "")
+                if event.get("usage"):
+                    usage = event["usage"]
+                for choice in event.get("choices", []):
+                    delta = choice.get("delta", {})
+                    if delta.get("content"):
+                        chunks.append(delta["content"])
+                    if choice.get("finish_reason"):
+                        finish_reason = choice["finish_reason"]
+            content = "".join(chunks)
+            return {
+                "choices": [{"message": {"content": content, "role": "assistant"},
+                             "finish_reason": finish_reason}],
+                "model": model_name,
+                "usage": usage,
+            }
+
     def _raw_call(
         self,
         model: str,
@@ -377,6 +414,7 @@ class LLMClient:
                 else:
                     body["response_format"] = {"type": "json_object"}
 
+            body["stream"] = True
             payload = json.dumps(body).encode("utf-8")
             url = f"{self.config.base_url.rstrip('/')}/chat/completions"
 
@@ -385,16 +423,13 @@ class LLMClient:
                 "Content-Type": "application/json",
                 "User-Agent": self.config.user_agent,
             }
-            # MetaClaw bridge: inject extra headers (session ID, stage info, etc.)
             headers.update(self.config.extra_headers)
 
             req = urllib.request.Request(url, data=payload, headers=headers)
 
             try:
-                with urllib.request.urlopen(req, timeout=self.config.timeout_sec) as resp:
-                    data = json.loads(resp.read())
+                data = self._stream_read(req, self.config.timeout_sec)
             except (urllib.error.URLError, OSError) as exc:
-                # MetaClaw bridge: fallback to direct LLM if proxy unreachable
                 if self.config.fallback_url:
                     logger.warning(
                         "Primary endpoint unreachable, falling back to %s: %s",
@@ -410,13 +445,13 @@ class LLMClient:
                         "Content-Type": "application/json",
                         "User-Agent": self.config.user_agent,
                     }
+                    fb_body = dict(body)
+                    fb_body["stream"] = True
+                    fb_payload = json.dumps(fb_body).encode("utf-8")
                     fallback_req = urllib.request.Request(
-                        fallback_url, data=payload, headers=fallback_headers
+                        fallback_url, data=fb_payload, headers=fallback_headers
                     )
-                    with urllib.request.urlopen(
-                        fallback_req, timeout=self.config.timeout_sec
-                    ) as resp:
-                        data = json.loads(resp.read())
+                    data = self._stream_read(fallback_req, self.config.timeout_sec)
                 else:
                     raise
 

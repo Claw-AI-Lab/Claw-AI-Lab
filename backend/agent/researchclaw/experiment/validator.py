@@ -999,6 +999,38 @@ def check_api_correctness(code: str, fname: str = "main.py") -> list[str]:
     return warnings
 
 
+def check_try_except_usage(code: str, fname: str = "main.py") -> list[str]:
+    """Detect try/except blocks in experiment code.
+
+    Generated experiment code should let errors crash with full tracebacks
+    so that S12 SANITY_CHECK can diagnose and fix root causes.
+    """
+    warnings: list[str] = []
+    try:
+        tree = ast.parse(code)
+    except SyntaxError:
+        return warnings
+
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Try):
+            handlers = getattr(node, "handlers", [])
+            handler_types = []
+            for h in handlers:
+                if h.type is None:
+                    handler_types.append("bare except")
+                elif isinstance(h.type, ast.Name):
+                    handler_types.append(h.type.id)
+                else:
+                    handler_types.append("complex")
+            warnings.append(
+                f"[{fname}:{node.lineno}] try/except block detected "
+                f"(catches: {', '.join(handler_types) or 'unknown'}). "
+                f"Remove try/except and let errors crash with full tracebacks "
+                f"— the sanity check will diagnose and fix root causes."
+            )
+    return warnings
+
+
 def deep_validate_files(
     files: dict[str, str],
 ) -> list[str]:
@@ -1013,4 +1045,5 @@ def deep_validate_files(
             continue
         warnings.extend(check_variable_scoping(code, fname))
         warnings.extend(check_api_correctness(code, fname))
+        warnings.extend(check_try_except_usage(code, fname))
     return warnings
