@@ -10,6 +10,8 @@ const en: Record<string, string> = {
   'header.stat_active': '🔬 Active',
   'header.stat_error': '❌',
   'header.stat_artifacts': '📦 {n} Artifacts',
+  'header.theme_light': 'Switch to Light Theme',
+  'header.theme_dark': 'Switch to Dark Theme',
 
   // ProjectPanel
   'project.title': 'Projects',

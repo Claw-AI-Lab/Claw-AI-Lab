@@ -10,6 +10,8 @@ const zh: Record<string, string> = {
   'header.stat_active': '🔬 工作中',
   'header.stat_error': '❌',
   'header.stat_artifacts': '📦 {n} 产物',
+  'header.theme_light': '切换到浅色主题',
+  'header.theme_dark': '切换到深色主题',
 
   // ProjectPanel
   'project.title': '项目管理',

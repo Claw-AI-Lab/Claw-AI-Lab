@@ -109,6 +109,13 @@ export default function App() {
   const [locale, setLocale] = useState<Locale>(() =>
     (localStorage.getItem('claw-locale') as Locale) || 'zh'
   );
+  const [theme, setTheme] = useState<'dark' | 'light'>(() =>
+    (localStorage.getItem('claw-theme') as 'dark' | 'light') || 'dark'
+  );
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('claw-theme', theme);
+  }, [theme]);
   const t = useMemo(() => makeT(locale), [locale]);
   const localeCtx = useMemo(() => ({
     locale, setLocale: (l: Locale) => { setLocale(l); localStorage.setItem('claw-locale', l); }, t,
@@ -280,6 +287,13 @@ export default function App() {
           <span className="stat" dangerouslySetInnerHTML={{ __html: t('header.stat_artifacts', { n: `<b>${state.artifacts.length}</b>` }) }} />
         </div>
         <div className="header-right">
+          <button
+            className="btn-sm theme-toggle-btn"
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            title={theme === 'dark' ? t('header.theme_light') : t('header.theme_dark')}
+          >
+            {theme === 'dark' ? '☀️' : '🌙'}
+          </button>
           <button
             className="btn-sm lang-toggle-btn"
             onClick={() => localeCtx.setLocale(locale === 'zh' ? 'en' : 'zh')}
