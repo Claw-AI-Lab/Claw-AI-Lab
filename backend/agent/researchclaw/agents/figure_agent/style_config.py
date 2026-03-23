@@ -38,11 +38,11 @@ FONT_SIZE = {
 
 FIGURE_WIDTH = {
     "single_column": 3.5,   # IEEE / NeurIPS single column
-    "double_column": 7.0,   # IEEE / NeurIPS double column
-    "full_page": 7.0,       # Full width
+    "double_column": 7.16,  # IEEE / NeurIPS double column (textwidth)
+    "full_page": 7.16,      # Full width
 }
 
-DEFAULT_FIGURE_HEIGHT = 3.0  # reasonable default height
+DEFAULT_FIGURE_HEIGHT = 3.5  # enough vertical space for rotated labels
 
 # ---------------------------------------------------------------------------
 # Colorblind-safe palette (Paul Tol's "bright" scheme)

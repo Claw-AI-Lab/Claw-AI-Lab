@@ -2,6 +2,8 @@
 
 金字塔架构的 AI 研究龙虾军团 —— 基于 [AutoResearchClaw](backend/agent/) 的多 Agent 并行研究系统。
 
+> **v1.0.4 新特性**: 实验图表质量大幅提升 — 自适应布局防文字叠加、标签智能缩写、禁止 LLM 合成假数据 — [查看详情](#v104-新特性-实验图表质量修复)
+>
 > **v1.0.3 新特性**: FIGURE_PROMPT 自动渲染为图像、统一 `image_model` 配置、论文强制引用全部实验图表 — [查看详情](#v103-新特性-图像自动渲染与配置统一)
 >
 > **v1.0.2 新特性**: L5 论文写作增强 — 自动图像 Prompt 生成、实验结果图正确注入、Agent 讨论数据融入论文上下文 — [查看详情](#v102-新特性-l5-论文写作增强)
@@ -75,6 +77,46 @@
 | S21 | PAPER_DRAFT | L5 | opus-4-6 | 论文初稿 |
 | S22 | PAPER_REVIEW | L5 | opus-4-6 | 自动审稿 |
 | S23 | PAPER_REVISION | L5 | opus-4-6 | 论文修订终稿 |
+
+## v1.0.4 新特性: 实验图表质量修复
+
+### 1. 自适应图表布局 — 消除文字叠加
+
+修复了 Stage 16 (RESULT_ANALYSIS) 生成的实验图表中 x 轴标签互相重叠的问题。
+
+**修复前问题**：长条件名称（如 `spectral_adaptive_manipulation`）在固定宽度图表上以 25° 旋转排列，标签严重挤压。
+
+**修复方案**：
+- 图表宽度自适应：`max(base_width, n_conditions × 1.1 + 1.0)` inches，根据条件数量自动扩展
+- x 轴标签旋转角度从 25° 增至 40°，对齐方式 `ha='right'`
+- 新增 `_shorten()` 函数：超过 18 字符的标签自动缩写（如 `spectral_adaptive_manipulation` → `Spectral Adaptive Mani.`）
+- 默认图表高度从 3.0 增至 3.5 英寸，为旋转标签留出底部空间
+- 双栏宽度从 7.0 增至 7.16 英寸（匹配 NeurIPS/IEEE textwidth）
+
+**影响的模板**：`bar_comparison`、`grouped_bar`、`heatmap` 全部更新。
+
+### 2. 数值显示优化
+
+- 柱顶数值标签格式智能化：`≥0.005` 或 `=0` 时用 `.2f`（如 `0.27`），极小值用 `.4f`
+- 无置信区间 (CI) 数据时自动隐藏 error bar，不再画零长度的无意义误差线
+- 字体大小从 9pt 降至 8pt，避免标注遮挡数据
+
+### 3. 禁止 LLM 合成虚假数据
+
+修复了 LLM 生成脚本路径中使用 `np.random.normal()` 伪造数据分布的严重问题。
+
+**修复前**：当 Critic 要求修订图表时，LLM 会走 fallback 路径生成完整 Python 脚本。LLM 经常用 `np.random` 生成"合成样本"来绘制 violin/box plot，导致图表数据与实验结果不一致。
+
+**修复后**：CodeGen Agent 的 LLM prompt 增加严格约束：
+- `NEVER generate synthetic/random data (no np.random, no fake distributions)`
+- `If only mean±std are available, plot those directly as bar+errorbar`
+- 强制 figsize、rotation、fontsize 的最低标准，防止布局问题
+
+### 4. Heatmap 自适应尺寸
+
+Heatmap 图表根据行列数量自动计算 figsize：`width = max(base, n_cols × 1.0 + 2.0)`、`height = max(base, n_rows × 0.7 + 1.5)`，确保单元格不会因为条件过多而被压缩到不可读。
+
+---
 
 ## v1.0.3 新特性: 图像自动渲染与配置统一
 
