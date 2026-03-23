@@ -24,7 +24,7 @@ export default memo(function LayerPanel({ layer, agents, logs, tierIndex, select
   const [expanded, setExpanded] = useState(false);
   const meta = LAYER_META[layer];
   const recentLogs = logs.slice(-30);
-  const widthPercent = 50 + tierIndex * 14;
+  const widthPercent = Math.min(100, agents.length * 18 + 20);
   const workingCount = agents.filter((a) => ['working', 'waiting_discussion', 'discussing'].includes(a.status)).length;
 
   return (

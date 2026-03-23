@@ -52,7 +52,7 @@ do_start() {
             --port 8896 --python "$PY" \
             --agent-dir "$BASE/backend/agent" \
             --runs-dir "$BASE/backend/runs" \
-            --pool-idea 3 --pool-exp 2 --pool-code 2 --pool-exec 2 --pool-write 2 \
+            --pool-idea 3 --pool-exp 2 --pool-code 3 --pool-exec 4 --pool-write 2 \
             --total-gpus 8 --gpus-per-project 1 \
             --discussion-mode --discussion-rounds 2 \
             --discussion-models "claude-opus-4-6,claude-opus-4-5-20251101" \
