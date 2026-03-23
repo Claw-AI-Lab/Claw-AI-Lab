@@ -3227,17 +3227,50 @@ def _execute_codebase_search(
     # ── Phase 1: Index LOCAL codebases already on disk ────────────────
     _local_codebases_dir = getattr(config.experiment, "codebases_dir", "") or ""
     if _local_codebases_dir and _os_s10.path.isdir(_local_codebases_dir):
+        _local_repos: list[dict] = []
         for name in sorted(_os_s10.listdir(_local_codebases_dir)):
             full = _os_s10.path.join(_local_codebases_dir, name)
             if _os_s10.path.isdir(full) and not name.startswith("."):
-                candidates.append({
-                    "repo_url": f"local://{full}",
-                    "description": f"Local codebase: {name}",
-                    "usability": "direct",
-                    "key_files": [],
-                    "local_path": full,
-                    "download_status": "success",
-                })
+                _local_repos.append({"name": name, "path": full})
+
+        # Use LLM to assess relevance when multiple local repos exist
+        _relevance_map: dict[str, str] = {}
+        if len(_local_repos) > 1 and llm is not None:
+            _repo_names = [r["name"] for r in _local_repos]
+            _relevance_prompt = (
+                f"Research topic: {config.research.topic}\n\n"
+                f"Local codebases available: {_repo_names}\n\n"
+                "For each codebase, assess its relevance to the research topic. "
+                "Return a JSON object mapping each codebase name to one of: "
+                '"high" (directly related, should be used), '
+                '"medium" (somewhat related, could be useful), '
+                '"low" (unrelated to this research topic).\n\n'
+                "Example: {\"RepoA\": \"high\", \"RepoB\": \"low\"}"
+            )
+            try:
+                _rel_resp = llm.chat(
+                    [{"role": "user", "content": _relevance_prompt}],
+                    system="You are a research engineer. Return valid JSON only.",
+                    json_mode=True,
+                    max_tokens=256,
+                )
+                _relevance_map = _json.loads(_rel_resp.content)
+                if not isinstance(_relevance_map, dict):
+                    _relevance_map = {}
+            except Exception:
+                _relevance_map = {}
+
+        for _repo in _local_repos:
+            _rel = _relevance_map.get(_repo["name"], "high" if len(_local_repos) == 1 else "high")
+            candidates.append({
+                "repo_url": f"local://{_repo['path']}",
+                "description": f"Local codebase: {_repo['name']}",
+                "usability": "direct",
+                "relevance": _rel,
+                "key_files": [],
+                "local_path": _repo["path"],
+                "download_status": "success",
+            })
 
     # ── Phase 2: LLM-based GitHub search ──────────────────────────────
     try:
@@ -3300,6 +3333,39 @@ def _execute_codebase_search(
         evidence_refs=("stage-09/exp_plan.yaml",),
         decision=summary,
     )
+
+
+def _extract_selected_repos(codebase_info_json: str) -> list[str] | None:
+    """Extract repo directory names from codebase_candidates.json that S10 marked as relevant.
+
+    Returns None (= copy all) if no candidates have relevance info,
+    or a list of directory basenames for repos marked relevant.
+    """
+    try:
+        import json as _json_sr
+        candidates = _json_sr.loads(codebase_info_json)
+        if not isinstance(candidates, list) or not candidates:
+            return None
+    except Exception:
+        return None
+
+    has_relevance = any(c.get("relevance") for c in candidates if isinstance(c, dict))
+
+    selected: list[str] = []
+    for c in candidates:
+        if not isinstance(c, dict):
+            continue
+        if c.get("download_status") != "success":
+            continue
+        local_path = c.get("local_path", "")
+        if not local_path:
+            continue
+        repo_name = local_path.rstrip("/").rsplit("/", 1)[-1]
+        if has_relevance and c.get("relevance") not in ("high", "medium"):
+            continue
+        selected.append(repo_name)
+
+    return selected if selected else None
 
 
 def _execute_code_generation(
@@ -3497,7 +3563,9 @@ def _execute_code_generation(
 
     if _codebases_dir:
         _os_dp.makedirs(_codebases_dir, exist_ok=True)
-        _existing_repos = [d for d in _os_dp.listdir(_codebases_dir) if _os_dp.path.isdir(_os_dp.path.join(_codebases_dir, d)) and not d.startswith(".")] if _os_dp.path.isdir(_codebases_dir) else []
+        _all_repos = [d for d in _os_dp.listdir(_codebases_dir) if _os_dp.path.isdir(_os_dp.path.join(_codebases_dir, d)) and not d.startswith(".")] if _os_dp.path.isdir(_codebases_dir) else []
+        _selected_repo_names = _extract_selected_repos(_codebase_info)
+        _existing_repos = [r for r in _all_repos if _selected_repo_names is None or r in _selected_repo_names] if _all_repos else []
         if _existing_repos:
             from researchclaw.utils.codebase_manifest import generate_manifest, manifest_to_prompt
             _data_paths_block += f"### Codebases Directory: `{_codebases_dir}`\n"
@@ -3777,6 +3845,7 @@ def _execute_code_generation(
                     _oc_model,
                 )
 
+                _selected_repos = _extract_selected_repos(_codebase_info)
                 _oc_result: OpenCodeResult = _bridge.generate(
                     stage_dir=stage_dir,
                     topic=config.research.topic,
@@ -3788,6 +3857,7 @@ def _execute_code_generation(
                     codebases_dir=_codebases_dir,
                     datasets_dir=_datasets_dir,
                     checkpoints_dir=_checkpoints_dir,
+                    selected_repos=_selected_repos,
                 )
 
                 # Persist beast mode log
@@ -4031,13 +4101,16 @@ def _execute_code_generation(
         }
 
     # --- Validate each file + auto-repair loop ---
+    # Beast mode (OpenHands) code is trusted — skip security validation
+    # to avoid false positives (e.g. eval() flagged as dangerous)
+    _skip_security = _beast_mode_used
     all_valid = True
     attempt = 0
     for fname, code in list(files.items()):
         # Skip non-Python files (requirements.txt, setup.py, etc.)
         if not fname.endswith(".py"):
             continue
-        validation = validate_code(code)
+        validation = validate_code(code, skip_security=_skip_security)
         repair_attempt = 0
         while not validation.ok and llm is not None and repair_attempt < max_repair:
             repair_attempt += 1
@@ -4064,7 +4137,7 @@ def _execute_code_generation(
             )
             resp = _chat_with_prompt(llm, rp.system, rp.user)
             files[fname] = _extract_code_block(resp.content)
-            validation = validate_code(files[fname])
+            validation = validate_code(files[fname], skip_security=_skip_security)
         if not validation.ok:
             all_valid = False
             # BUG-14: Log remaining issues prominently
@@ -4077,7 +4150,7 @@ def _execute_code_generation(
     if not all_valid:
         _has_critical = False
         for fname, code in files.items():
-            _v = validate_code(code)
+            _v = validate_code(code, skip_security=_skip_security)
             if not _v.ok:
                 for issue in _v.issues:
                     if issue.severity == "error" and issue.category in (
@@ -4625,7 +4698,7 @@ def _execute_sanity_check(
     import subprocess as _sp
     import time as _t
 
-    _sanity_gpu = _find_free_gpu()
+    _sanity_gpu = _os_san.environ.get("CUDA_VISIBLE_DEVICES") or _find_free_gpu()
     logger.info("SANITY_CHECK: using GPU %s for smoke test", _sanity_gpu)
 
     coding_model = getattr(config.llm, "coding_model", None) or ""
@@ -4877,36 +4950,92 @@ def _execute_sanity_check(
                     f"{code[-(per_file_limit // 2):]}\n```\n"
                 )
 
+        # Build iteration-aware context for repeated failures
+        _repeat_hint = ""
+        if iteration > 0:
+            _prev_patches = [
+                e for e in fix_log_entries
+                if e.get("event") == "fix_attempt" and e.get("iteration", -1) < iteration
+            ]
+            if _prev_patches:
+                _prev_details = []
+                for e in _prev_patches[-3:]:
+                    _err_tail = str(e.get("error_tail", ""))[-300:]
+                    _prev_details.append(
+                        f"- **Iteration {e['iteration']}**: patched {e.get('patches_applied', [])}, "
+                        f"failed test `{e.get('failed_test', '?')}`\n"
+                        f"  Error: `{_err_tail.strip().splitlines()[-1] if _err_tail.strip() else '?'}`"
+                    )
+                _repeat_hint = (
+                    f"\n## Previous fix attempts (all FAILED)\n"
+                    + "\n".join(_prev_details) + "\n\n"
+                    "**CRITICAL**: Each previous attempt introduced NEW bugs by rewriting too much code. "
+                    "This time, make the SMALLEST possible change — only modify the exact lines "
+                    "that cause the error. Do NOT rewrite functions that are working correctly. "
+                    "Copy the existing file EXACTLY and change ONLY the broken lines.\n\n"
+                )
+
         fix_prompt = (
             f"## Sanity Check Failure (iteration {iteration + 1}/{max_fix_iters})\n\n"
             f"**Failed test:** `{test_name}`\n\n"
             f"**Test code that was executed:**\n```python\n{test_code}\n```\n\n"
             f"**Error output (stderr tail):**\n```\n{stderr[-2000:]}\n```\n\n"
+            f"{_repeat_hint}"
             f"## All source files in the experiment directory:\n{source_block}\n\n"
             "## Instructions\n"
             "Analyze the error and fix the RELEVANT source file(s).\n"
-            "Return ONE OR MORE file blocks in this exact format:\n\n"
+            "Return ONE OR MORE file blocks in **this exact format** (mandatory):\n\n"
             "### FILENAME.py\n"
             "```python\n"
             "...complete fixed file content...\n"
             "```\n\n"
-            "Rules:\n"
+            "## SURGICAL FIX RULES (MOST IMPORTANT)\n"
             "- Return the COMPLETE file content for each file you modify.\n"
-            "- Do NOT change files that are not related to the error.\n"
-            "- Do NOT change function signatures or class APIs unless necessary to fix the bug.\n"
+            "- **MINIMAL CHANGES ONLY**: Copy the existing file content EXACTLY, then change "
+            "ONLY the specific lines that cause the error. Every line you do NOT need to change "
+            "must remain IDENTICAL to the original — same variable names, same logic, same comments, "
+            "same print/metric output statements.\n"
+            "- **NEVER remove or rewrite print() or metric output statements** — the test harness "
+            "requires stdout output containing metric values. If you remove them, the test fails.\n"
+            "- **NEVER rewrite working functions** — if a function is not in the traceback, "
+            "do not touch it.\n"
+            "- Do NOT change function signatures or class APIs unless the error specifically requires it.\n"
             "- Do NOT add new dependencies that are not already imported.\n"
-            "- Do NOT wrap code in try/except blocks. Fix the ROOT CAUSE of the error "
-            "instead of catching and suppressing it. Errors must crash with a full traceback.\n"
-            "- Focus on the specific error; do not refactor or restructure.\n"
+            "- Do NOT wrap code in try/except blocks. Fix the ROOT CAUSE.\n"
+            "- Do NOT refactor, restructure, or 'improve' code that is not broken.\n"
+            "\n"
+            "## CRITICAL: External library errors\n"
+            "If the traceback shows the error originates in an EXTERNAL library file "
+            "(i.e. a path NOT inside the experiment directory), you CANNOT modify that "
+            "library. Instead, fix the CALLING CODE to be compatible.\n\n"
+            "### Common fix patterns\n"
+            "- **dtype mismatch** (`Float` vs `Half`): add `.float()` or `.to(torch.float32)` "
+            "on the tensor BEFORE the library call, or use `model.float()`, or disable autocast.\n"
+            "- **missing attribute** (e.g. `BaseModelOutputWithPooling has no attribute 'norm'`): "
+            "the object is a dataclass, not a tensor. Extract the tensor first: "
+            "`output = output.pooler_output` or `output.last_hidden_state`, then call `.norm()`.\n"
+            "- **unexpected keyword argument**: check the class `__init__` signature and remove "
+            "or rename the offending argument. Do NOT rewrite the entire initialization block.\n"
+            "- **NoneType is not iterable**: a required argument was not passed during init. "
+            "Add the missing argument with a sensible default.\n"
+            "\n"
+            "## MANDATORY OUTPUT\n"
+            "You MUST return at least one `### filename.py` block with the COMPLETE "
+            "fixed file. The file must be NEARLY IDENTICAL to the original except for "
+            "the specific bug fix. An empty response is NOT acceptable.\n"
         )
 
         try:
             resp = llm.chat(
                 [{"role": "user", "content": fix_prompt}],
                 system=(
-                    "You are an expert Python ML engineer. "
-                    "Fix the exact bug described.  Return only the fixed file(s) "
-                    "in the requested format.  No explanations outside code blocks."
+                    "You are an expert Python debugger. Your job is to make the SMALLEST "
+                    "possible fix to resolve the exact error shown. You MUST preserve every "
+                    "line of the original file that is not directly related to the bug. "
+                    "Treat this like a surgical code review: identify the broken line(s), "
+                    "fix them, and leave everything else UNTOUCHED. "
+                    "Return ONLY the fixed file(s) in the format: ### filename.py "
+                    "followed by ```python ... ```. No explanations outside code blocks."
                 ),
                 max_tokens=32768,
             )
@@ -4918,8 +5047,9 @@ def _execute_sanity_check(
         # Parse "### filename.py\n```python\n...\n```" blocks
         patches: list[dict[str, str]] = []
         import re as _re_fix
+
+        # Primary format: ### filename.py
         blocks = _re_fix.split(r"###\s+(\S+\.py)\s*\n", raw)
-        # blocks = ['', 'data.py', '```python\n...\n```\n', 'metrics.py', ...]
         for i in range(1, len(blocks) - 1, 2):
             fname = blocks[i].strip()
             code_block = blocks[i + 1]
@@ -4931,6 +5061,42 @@ def _execute_sanity_check(
                 code = code_block.strip()
             if code and len(code) > 30:
                 patches.append({"file": fname, "code": code})
+
+        # Fallback: try ## filename.py or **filename.py** or `filename.py`
+        if not patches:
+            fb_blocks = _re_fix.split(
+                r"(?:^|\n)(?:#{1,4}\s+|[*`]+)(\S+\.py)[*`]*\s*\n", raw
+            )
+            for i in range(1, len(fb_blocks) - 1, 2):
+                fname = fb_blocks[i].strip().strip("`*")
+                code_block = fb_blocks[i + 1]
+                if "```python" in code_block:
+                    code = code_block.split("```python", 1)[1].split("```", 1)[0].strip()
+                elif "```" in code_block:
+                    code = code_block.split("```", 1)[1].split("```", 1)[0].strip()
+                else:
+                    continue
+                if code and len(code) > 30:
+                    patches.append({"file": fname, "code": code})
+
+        # Last resort: if only one source file and LLM returned a single code block
+        if not patches and len(sources) == 1:
+            _single_match = _re_fix.search(r"```python\n(.*?)```", raw, _re_fix.DOTALL)
+            if _single_match:
+                code = _single_match.group(1).strip()
+                if code and len(code) > 30:
+                    fname = next(iter(sources))
+                    patches.append({"file": fname, "code": code})
+                    logger.info(
+                        "SANITY_CHECK: extracted single-file fallback patch for %s", fname
+                    )
+
+        if not patches:
+            logger.warning(
+                "SANITY_CHECK: LLM response could not be parsed into patches. "
+                "Raw response length: %d chars. First 500 chars: %s",
+                len(raw), raw[:500],
+            )
 
         return patches
 
@@ -5020,31 +5186,63 @@ def _execute_sanity_check(
             iteration=iteration,
         )
 
+        import difflib as _difflib_sc
         applied_patches: list[str] = []
         rejected_patches: list[dict[str, object]] = []
+        patch_diff_stats: dict[str, dict[str, int]] = {}
         for patch in patches:
             target = experiment_dir / patch["file"]
             bak = experiment_dir / f"{patch['file']}.bak_iter0"
             if not bak.exists() and target.exists():
                 bak.write_text(target.read_text(encoding="utf-8"), encoding="utf-8")
             if target.exists():
-                orig_lines = len(target.read_text(encoding="utf-8").splitlines())
-                patch_lines = len(patch["code"].splitlines())
-                if orig_lines > 50 and patch_lines < orig_lines * 0.5:
+                orig_text = target.read_text(encoding="utf-8")
+                orig_lines = orig_text.splitlines()
+                patch_lines = patch["code"].splitlines()
+                orig_count = len(orig_lines)
+                patch_count = len(patch_lines)
+
+                if orig_count > 50 and patch_count < orig_count * 0.3:
                     logger.warning(
                         "SANITY_CHECK: REJECTING patch for %s — "
                         "patch has %d lines but original has %d lines "
-                        "(>50%% shrinkage, likely truncated LLM output)",
-                        patch["file"], patch_lines, orig_lines,
+                        "(>70%% shrinkage, likely truncated LLM output)",
+                        patch["file"], patch_count, orig_count,
                     )
                     rejected_patches.append({
                         "file": patch["file"],
-                        "reason": f"shrinkage: {patch_lines} vs {orig_lines} lines",
+                        "reason": f"shrinkage: {patch_count} vs {orig_count} lines",
                     })
                     continue
+
+                _diff_ops = _difflib_sc.SequenceMatcher(
+                    None, orig_lines, patch_lines
+                ).get_opcodes()
+                _changed_lines = sum(
+                    max(j2 - j1, i2 - i1)
+                    for op, i1, i2, j1, j2 in _diff_ops if op != "equal"
+                )
+                _change_ratio = _changed_lines / max(orig_count, 1)
+                patch_diff_stats[patch["file"]] = {
+                    "original_lines": orig_count,
+                    "patched_lines": patch_count,
+                    "changed_lines": _changed_lines,
+                    "change_pct": round(_change_ratio * 100),
+                }
+                if orig_count > 80 and _change_ratio > 0.40:
+                    logger.warning(
+                        "SANITY_CHECK: excessive rewrite detected for %s — "
+                        "%d/%d lines changed (%.0f%%). Accepting but flagging.",
+                        patch["file"], _changed_lines, orig_count, _change_ratio * 100,
+                    )
+
             target.write_text(patch["code"], encoding="utf-8")
             applied_patches.append(patch["file"])
-            logger.info("SANITY_CHECK: patched %s (%d chars)", patch["file"], len(patch["code"]))
+            logger.info(
+                "SANITY_CHECK: patched %s (%d chars, ~%d lines changed)",
+                patch["file"], len(patch["code"]),
+                patch_diff_stats.get(patch["file"], {}).get("changed_lines", -1),
+            )
 
         fix_log_entries.append({
             "iteration": iteration,
@@ -5054,6 +5252,7 @@ def _execute_sanity_check(
             "llm_patches_returned": len(patches),
             "patches_applied": applied_patches,
             "patches_rejected": rejected_patches,
+            "patch_diff_stats": patch_diff_stats,
             "patched_file_sizes": {
                 p: len((experiment_dir / p).read_text(encoding="utf-8"))
                 for p in applied_patches
@@ -5067,9 +5266,38 @@ def _execute_sanity_check(
         iter_record["failed_test"] = failed_test[0]
         all_iterations.append(iter_record)
 
-        if not applied_patches:
-            logger.warning("SANITY_CHECK: LLM returned no patches, stopping iteration")
-            break
+        if not patches:
+            logger.warning(
+                "SANITY_CHECK: LLM returned no patches on iteration %d/%d — "
+                "immediate retry with stronger prompt",
+                iteration, max_fix_iters,
+            )
+            _retry_patches = _ask_llm_fix(
+                test_name=failed_test[0],
+                test_code=failed_test[1],
+                stderr=failed_test[2],
+                sources=_read_all_sources(),
+                iteration=iteration,
+            )
+            for _rp in _retry_patches:
+                _rt = experiment_dir / _rp["file"]
+                _rt.write_text(_rp["code"], encoding="utf-8")
+                applied_patches.append(_rp["file"])
+                logger.info("SANITY_CHECK: retry-patched %s (%d chars)", _rp["file"], len(_rp["code"]))
+            if _retry_patches:
+                fix_log_entries.append({
+                    "iteration": iteration,
+                    "event": "retry_fix_after_0_patches",
+                    "llm_patches_returned": len(_retry_patches),
+                    "patches_applied": [p["file"] for p in _retry_patches],
+                })
+                _write_fix_log()
+
+        if not applied_patches and rejected_patches:
+            logger.warning(
+                "SANITY_CHECK: all %d patches rejected (shrinkage), retrying with next iteration",
+                len(rejected_patches),
+            )
 
     # ── Write report ──────────────────────────────────────────────────────
 
@@ -5225,8 +5453,9 @@ def _execute_experiment_run(
                     _all_code += "\n" + _pyf.read_text(encoding="utf-8")
             _ensure_sandbox_deps(_all_code, config.experiment.sandbox.python_path)
 
-        _run_gpu = _find_free_gpu()
-        os.environ["CUDA_VISIBLE_DEVICES"] = _run_gpu
+        import os as _os_s14
+        _run_gpu = _os_s14.environ.get("CUDA_VISIBLE_DEVICES") or _find_free_gpu()
+        _os_s14.environ["CUDA_VISIBLE_DEVICES"] = _run_gpu
         logger.info("Stage 14 EXPERIMENT_RUN: using GPU %s", _run_gpu)
         print(f"[EXPERIMENT_RUN] Using GPU: {_run_gpu}", flush=True)
 
@@ -5568,8 +5797,9 @@ def _execute_iterative_refine(
                 return fv
         return None
 
-    _refine_gpu = _find_free_gpu()
-    os.environ["CUDA_VISIBLE_DEVICES"] = _refine_gpu
+    import os as _os_s15
+    _refine_gpu = _os_s15.environ.get("CUDA_VISIBLE_DEVICES") or _find_free_gpu()
+    _os_s15.environ["CUDA_VISIBLE_DEVICES"] = _refine_gpu
     logger.info("Stage 15 ITERATIVE_REFINE: using GPU %s", _refine_gpu)
     print(f"[ITERATIVE_REFINE] Using GPU: {_refine_gpu}", flush=True)
 

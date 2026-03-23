@@ -301,7 +301,7 @@ export default function App() {
           <div className="pyramid-wrapper">
             <div className="pyramid">
               {ALL_LAYERS.map((layer, idx) => {
-                const hasWorking = agentMap[layer].some((a) => a.status === 'working');
+                const hasWorking = agentMap[layer].some((a) => ['working', 'waiting_discussion', 'discussing'].includes(a.status));
                 return (
                   <div key={layer} className="pyramid-tier">
                     <LayerPanel

@@ -53,7 +53,7 @@ export default memo(function LayerPanel({ layer, agents, logs, tierIndex }: Prop
               : agents.some((a) => a.stageProgress[s] === 'completed');
             const cls = anyRunning ? 'stage-running' : anyDone ? 'stage-done' : 'stage-idle';
             const dn = sm.displayNumber;
-            const label = isDisc ? `💬 S${dn} ${sm.name}` : `S${dn} ${sm.name.replace(/ ⛩$/, '')}`;
+            const label = isDisc ? `💬 ${sm.name}` : `S${dn} ${sm.name.replace(/ ⛩$/, '')}`;
             return (
               <span key={s} className={`stage-chip ${cls}${isDisc ? ' stage-discussion' : ''}`} title={sm.key}>
                 {label}
@@ -74,14 +74,14 @@ export default memo(function LayerPanel({ layer, agents, logs, tierIndex }: Prop
               <span className={`status-dot ${agent.status}`} />
               {STATUS_LABEL[agent.status]}
               {agent.currentStage && (
-                <span className="agent-stage-badge">
+                <span className={`agent-stage-badge${agent.currentStage === DISCUSSION_STAGE ? ' discussion-badge' : ''}`}>
                   {agent.currentStage === DISCUSSION_STAGE
-                    ? `💬S${STAGE_META[DISCUSSION_STAGE]?.displayNumber ?? 8}`
+                    ? '💬讨论'
                     : `S${STAGE_META[agent.currentStage]?.displayNumber ?? agent.currentStage}`}
                 </span>
               )}
               {!agent.currentStage && (agent.status === 'waiting_discussion' || agent.status === 'discussing') && (
-                <span className="agent-stage-badge discussion-badge">💬S{STAGE_META[DISCUSSION_STAGE]?.displayNumber ?? 8}</span>
+                <span className="agent-stage-badge discussion-badge">💬讨论</span>
               )}
             </div>
             {agent.currentTask && <div className="agent-task">{agent.currentTask}</div>}
@@ -94,7 +94,7 @@ export default memo(function LayerPanel({ layer, agents, logs, tierIndex }: Prop
                     : agent.stageProgress[s] || 'pending')
                   : (agent.stageProgress[s] || 'pending');
                 const dn2 = STAGE_META[s]?.displayNumber ?? s;
-                const label = isDisc ? `S${dn2} 沟通讨论: ${status}` : `S${dn2}: ${status}`;
+                const label = isDisc ? `💬 沟通讨论: ${status}` : `S${dn2}: ${status}`;
                 return (
                   <span key={s} className="stage-pip" title={label}>
                     {STAGE_ST[status] || '⬜'}
@@ -117,7 +117,7 @@ export default memo(function LayerPanel({ layer, agents, logs, tierIndex }: Prop
                 <span className="log-agent">{log.agentName.slice(0, 12)}</span>
                 {log.stage && <span className={`log-stage${log.stage === DISCUSSION_STAGE ? ' log-stage-discussion' : ''}`}>
                   {log.stage === DISCUSSION_STAGE
-                    ? `💬S${STAGE_META[DISCUSSION_STAGE]?.displayNumber ?? 8}`
+                    ? '💬讨论'
                     : `S${STAGE_META[log.stage]?.displayNumber ?? log.stage}`}
                 </span>}
                 <span className="log-msg">{log.message}</span>

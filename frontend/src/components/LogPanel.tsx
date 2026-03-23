@@ -53,7 +53,7 @@ export default memo(function LogPanel({ logs }: Props) {
             {log.stage && (
               <span className={`glog-stage${log.stage === 100 ? ' glog-stage-discussion' : ''}`} title={STAGE_META[log.stage]?.key}>
                 {log.stage === 100
-                  ? `💬S${STAGE_META[100]?.displayNumber ?? 8}`
+                  ? '💬讨论'
                   : `S${STAGE_META[log.stage]?.displayNumber ?? log.stage}`}
               </span>
             )}

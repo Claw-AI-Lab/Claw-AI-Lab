@@ -124,6 +124,7 @@ class OpenHandsBridge:
         codebases_dir: str = "",
         datasets_dir: str = "",
         checkpoints_dir: str = "",
+        selected_repos: list[str] | None = None,
     ) -> Path:
         ws = stage_dir / f"openhands_beast_{int(time.time())}_{os.getpid()}"
         ws.mkdir(parents=True, exist_ok=True)
@@ -151,6 +152,8 @@ class OpenHandsBridge:
             if cb_path.is_dir():
                 for repo in sorted(cb_path.iterdir()):
                     if repo.is_dir() and not repo.name.startswith("."):
+                        if selected_repos is not None and repo.name not in selected_repos:
+                            continue
                         shutil.copytree(
                             repo, ws,
                             ignore=shutil.ignore_patterns(
@@ -373,6 +376,7 @@ class OpenHandsBridge:
         codebases_dir: str = "",
         datasets_dir: str = "",
         checkpoints_dir: str = "",
+        selected_repos: list[str] | None = None,
     ) -> OpenCodeResult:
         """Run OpenHands to generate experiment code."""
         if not self.check_available():
@@ -397,6 +401,7 @@ class OpenHandsBridge:
                     codebases_dir=codebases_dir,
                     datasets_dir=datasets_dir,
                     checkpoints_dir=checkpoints_dir,
+                    selected_repos=selected_repos,
                 )
             except OSError as exc:
                 last_error = f"Failed to prepare workspace: {exc}"
