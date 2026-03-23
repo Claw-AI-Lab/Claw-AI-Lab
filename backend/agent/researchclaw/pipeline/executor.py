@@ -4558,23 +4558,42 @@ Multi-file experiment project with {len(files)} file(s): {file_list}
 
 
 def _find_free_gpu() -> str:
-    """Find the GPU with lowest memory usage via nvidia-smi. Returns GPU id as string, or '0'."""
+    """Find the most idle GPU considering both memory usage and compute utilization.
+
+    Scores each GPU as ``0.5 * memory_used_frac + 0.5 * gpu_util_frac`` and
+    picks the one with the lowest combined score.  Falls back to memory-only
+    ranking if utilization query fails.
+    """
     try:
         import subprocess as _sp_gpu
         result = _sp_gpu.run(
-            ["nvidia-smi", "--query-gpu=index,memory.used", "--format=csv,noheader,nounits"],
+            [
+                "nvidia-smi",
+                "--query-gpu=index,memory.used,memory.total,utilization.gpu",
+                "--format=csv,noheader,nounits",
+            ],
             capture_output=True, text=True, timeout=5,
         )
         if result.returncode != 0:
             return "0"
-        gpus = []
+        gpus: list[tuple[int, float]] = []
         for line in result.stdout.strip().split("\n"):
             parts = [p.strip() for p in line.split(",")]
-            if len(parts) >= 2:
+            if len(parts) >= 4:
+                idx = int(parts[0])
+                mem_used = float(parts[1])
+                mem_total = float(parts[2]) or 1.0
+                gpu_util = float(parts[3])
+                mem_frac = mem_used / mem_total
+                util_frac = gpu_util / 100.0
+                score = 0.5 * mem_frac + 0.5 * util_frac
+                gpus.append((idx, score))
+            elif len(parts) >= 2:
                 gpus.append((int(parts[0]), float(parts[1])))
         if not gpus:
             return "0"
         gpus.sort(key=lambda x: x[1])
+        logger.info("_find_free_gpu: scores %s → picking GPU %d", gpus, gpus[0][0])
         return str(gpus[0][0])
     except Exception:
         return "0"
@@ -6067,16 +6086,16 @@ def _execute_iterative_refine(
         if extracted_files:
             candidate_files.update(extracted_files)
 
-        # Validate main.py
+        # Validate main.py (skip security — already validated by S12 SANITY_CHECK)
         main_code = candidate_files.get("main.py", "")
-        validation = validate_code(main_code)
+        validation = validate_code(main_code, skip_security=True)
         issue_text = ""
         repaired = False
 
         if not validation.ok:
             issue_text = format_issues_for_llm(validation)
             logger.info(
-                "Stage 13 iteration %d validation failed: %s",
+                "Stage 15 iteration %d validation failed: %s",
                 iteration,
                 validation.summary(),
             )
@@ -6086,8 +6105,15 @@ def _execute_iterative_refine(
                 all_files_ctx=_files_to_context(candidate_files),
             )
             repair_response = _chat_with_prompt(llm, irp.system, irp.user)
-            candidate_files["main.py"] = _extract_code_block(repair_response.content)
-            validation = validate_code(candidate_files["main.py"])
+            _repaired_code = _extract_code_block(repair_response.content)
+            if _repaired_code.strip():
+                candidate_files["main.py"] = _repaired_code
+            else:
+                logger.warning(
+                    "Stage 15 iteration %d: repair returned empty code, keeping original",
+                    iteration,
+                )
+            validation = validate_code(candidate_files["main.py"], skip_security=True)
             repaired = True
 
         # Save version directory
