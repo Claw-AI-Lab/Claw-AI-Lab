@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import type { ResourceStats } from '../types';
+import { useLocale } from '../i18n';
 
 interface Props {
   stats: ResourceStats | null;
@@ -11,17 +12,18 @@ function pctColor(v: number) {
 }
 
 export default memo(function ResourceMonitor({ stats, connected }: Props) {
+  const { t } = useLocale();
+
   if (!stats) {
     return (
       <div className="res-bar">
-        <span className="res-tag">📈 资源</span>
-        <span className="res-offline-hint">{connected ? '等待数据...' : '未连接'}</span>
+        <span className="res-tag">{t('resource.tag')}</span>
+        <span className="res-offline-hint">{connected ? t('resource.waiting') : t('resource.disconnected')}</span>
       </div>
     );
   }
 
   const memPct = stats.memTotal > 0 ? (stats.memUsed / stats.memTotal * 100) : 0;
-  const stale = Date.now() - stats.timestamp > 10000;
   const gpuName = stats.gpus.length > 0 ? stats.gpus[0].name : '';
 
   return (

@@ -328,6 +328,20 @@
   border-radius: 5px; cursor: pointer; font-size: 0.74rem; transition: background 0.15s;
 }
 .btn-sm:hover { background: var(--border); }
+.lang-toggle-btn {
+  font-weight: 700;
+  font-size: 0.68rem;
+  letter-spacing: 0.02em;
+  padding: 2px 10px;
+  background: color-mix(in srgb, #6366f1 15%, var(--surface-alt));
+  border-color: #6366f1;
+  color: #a5b4fc;
+  transition: all 0.15s;
+}
+.lang-toggle-btn:hover {
+  background: color-mix(in srgb, #6366f1 30%, var(--surface-alt));
+  color: #e0e7ff;
+}
 .mode-btn { font-weight: 600; }
 .settings-sep { color: var(--border); margin: 0 4px; }
 .conn-dot {
@@ -996,6 +1010,57 @@
   color: var(--text-muted);
   opacity: 0.5;
   font-style: italic;
+}
+.project-ref-papers-toggle {
+  display: flex;
+  align-items: center;
+}
+.ref-papers-toggle-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.6rem;
+  cursor: pointer;
+  padding: 2px 0;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.ref-papers-toggle-btn:hover {
+  color: var(--text);
+}
+.ref-badge {
+  background: #6366f1;
+  color: #fff;
+  font-size: 0.5rem;
+  padding: 0 5px;
+  border-radius: 8px;
+  min-width: 14px;
+  text-align: center;
+}
+.project-ref-papers-input {
+  width: 100%;
+  padding: 6px 8px;
+  background: var(--bg);
+  border: 1px solid color-mix(in srgb, #22c55e 40%, var(--border));
+  border-radius: 5px;
+  color: var(--text);
+  font-size: 0.6rem;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  resize: vertical;
+  line-height: 1.5;
+  animation: fadeIn 0.2s ease;
+}
+.project-ref-papers-input:focus {
+  outline: none;
+  border-color: #22c55e;
+}
+.project-ref-papers-input::placeholder {
+  color: var(--text-muted);
+  opacity: 0.45;
+  font-style: italic;
+  font-family: inherit;
 }
 .project-go-btn {
   width: 100%;

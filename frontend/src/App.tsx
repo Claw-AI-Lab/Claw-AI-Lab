@@ -9,6 +9,8 @@ import HumanFeedbackPanel from './components/HumanFeedbackPanel';
 import QueuePanel from './components/QueuePanel';
 import DataFlowArrow from './components/DataFlowArrow';
 import ProjectPanel from './components/ProjectPanel';
+import { LocaleContext, makeT } from './i18n';
+import type { Locale } from './i18n';
 import './App.css';
 
 type Action =
@@ -105,6 +107,13 @@ export default function App() {
   const [agentWsUrl, setAgentWsUrl] = useState(`${WS_PROTO}//${window.location.host}/ws/agents`);
   const [resWsUrl, setResWsUrl] = useState(`${WS_PROTO}//${window.location.host}/ws/resources`);
   const [showSettings, setShowSettings] = useState(false);
+  const [locale, setLocale] = useState<Locale>(() =>
+    (localStorage.getItem('claw-locale') as Locale) || 'zh'
+  );
+  const t = useMemo(() => makeT(locale), [locale]);
+  const localeCtx = useMemo(() => ({
+    locale, setLocale: (l: Locale) => { setLocale(l); localStorage.setItem('claw-locale', l); }, t,
+  }), [locale, t]);
   const agentWsRef = useRef<WebSocket | null>(null);
   const agentReconnRef = useRef<number>(0);
   const resWsRef = useRef<WebSocket | null>(null);
@@ -258,10 +267,11 @@ export default function App() {
   const errorCount = useMemo(() => state.agents.filter((a) => a.status === 'error').length, [state.agents]);
 
   return (
+    <LocaleContext.Provider value={localeCtx}>
     <div className="app">
       <header className="app-header">
         <div className="header-left">
-          <h1>🦞 Claw AI Lab</h1>
+          <h1>🦞 {t('header.title')}</h1>
           <span className="header-subtitle">1.0.0</span>
         </div>
         <div className="header-stats">
@@ -271,14 +281,27 @@ export default function App() {
           <span className="stat">📦 <b>{state.artifacts.length}</b> 产物</span>
         </div>
         <div className="header-right">
+          <button
+            className="btn-sm lang-toggle-btn"
+            onClick={() => localeCtx.setLocale(locale === 'zh' ? 'en' : 'zh')}
+            title={locale === 'zh' ? 'Switch to English' : '切换到中文'}
+          >
+            {locale === 'zh' ? 'EN' : '中文'}
+          </button>
           <button className="btn-sm" onClick={() => setShowSettings(!showSettings)}>⚙️</button>
         </div>
       </header>
 
       {showSettings && (
         <div className="settings-bar">
-          <label>Agent: <input value={agentWsUrl} onChange={(e) => setAgentWsUrl(e.target.value)} /></label>
-          <label>资源: <input value={resWsUrl} onChange={(e) => setResWsUrl(e.target.value)} /></label>
+          <label>
+            <button className="btn-sm mode-btn" onClick={toggleMode}>
+              {state.mockMode ? t('header.mock_to_real') : t('header.real_to_mock')}
+            </button>
+          </label>
+          <span className="settings-sep">|</span>
+          <label>{t('header.agent_label')} <input value={agentWsUrl} onChange={(e) => setAgentWsUrl(e.target.value)} /></label>
+          <label>{t('header.resource_label')} <input value={resWsUrl} onChange={(e) => setResWsUrl(e.target.value)} /></label>
         </div>
       )}
 
@@ -305,7 +328,7 @@ export default function App() {
                 }
               }
             }}
-            onQuickSubmit={(topic, mode, researchAngles) => {
+            onQuickSubmit={(topic, mode, researchAngles, referencePapers) => {
               const ws = agentWsRef.current;
               if (ws && ws.readyState === WebSocket.OPEN) {
                 ws.send(JSON.stringify({
@@ -313,6 +336,7 @@ export default function App() {
                   topic,
                   mode,
                   researchAngles: researchAngles.length > 0 ? researchAngles : undefined,
+                  referencePapers: referencePapers || undefined,
                 }));
               }
             }}
@@ -379,5 +403,6 @@ export default function App() {
         }}
       />
     </div>
+    </LocaleContext.Provider>
   );
 }

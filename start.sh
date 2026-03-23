@@ -7,7 +7,7 @@
 # fresh       — stop → reset-state → start（全新从头跑）
 
 BASE="$(cd "$(dirname "$0")" && pwd)"
-PY="${PYTHON_PATH:-python3}"
+PY="${PYTHON_PATH:-/home/user/miniforge3/bin/python3}"
 FE="$BASE/frontend"
 LOG="$BASE/logs"
 PIDF="$BASE/.pids"
@@ -34,10 +34,10 @@ do_start() {
     echo ""
 
     # 1) Resource Monitor
-    if ss -tlnp 2>/dev/null | grep -q ":8895 "; then
+    if ss -tlnp 2>/dev/null | grep -q ":8905 "; then
         echo -e "  ${Y}⏭ resource_monitor 已在运行${N}"
     else
-        nohup $PY -u "$BASE/backend/services/resource_monitor.py" --port 8895 \
+        nohup $PY -u "$BASE/backend/services/resource_monitor.py" --port 8905 \
             > "$LOG/resource_monitor.log" 2>&1 &
         echo $! > "$PIDF/resource_monitor.pid"
         sleep 1
@@ -45,11 +45,11 @@ do_start() {
     fi
 
     # 2) Agent Bridge
-    if ss -tlnp 2>/dev/null | grep -q ":8896 "; then
+    if ss -tlnp 2>/dev/null | grep -q ":8906 "; then
         echo -e "  ${Y}⏭ agent_bridge 已在运行${N}"
     else
         nohup $PY -u "$BASE/backend/services/agent_bridge.py" \
-            --port 8896 --python "$PY" \
+            --port 8906 --python "$PY" \
             --agent-dir "$BASE/backend/agent" \
             --runs-dir "$BASE/backend/runs" \
             --pool-idea 3 --pool-exp 2 --pool-code 3 --pool-exec 4 --pool-write 2 \
@@ -67,11 +67,11 @@ do_start() {
     fi
 
     # 3) Frontend Vite
-    if ss -tlnp 2>/dev/null | grep -q ":5893 "; then
+    if ss -tlnp 2>/dev/null | grep -q ":5903 "; then
         echo -e "  ${Y}⏭ frontend 已在运行${N}"
     else
         cd "$FE"
-        nohup npx vite --host 0.0.0.0 --port 5893 \
+        nohup npx vite --host 0.0.0.0 --port 5903 \
             > "$LOG/frontend.log" 2>&1 &
         echo $! > "$PIDF/frontend.pid"
         sleep 2
@@ -81,9 +81,9 @@ do_start() {
 
     echo ""
     echo "📍 服务地址:"
-    echo -e "   ${G}前端 UI:      http://localhost:5893/${N}"
-    echo "   资源监控 WS:  ws://localhost:8895"
-    echo "   Agent Bridge: ws://localhost:8896"
+    echo -e "   ${G}前端 UI:      http://localhost:5903/${N}"
+    echo "   资源监控 WS:  ws://localhost:8905"
+    echo "   Agent Bridge: ws://localhost:8906"
     echo ""
 }
 
@@ -100,7 +100,7 @@ do_stop() {
         fi
     done
     # Also kill by port in case PID file was stale
-    for port in 5893 8895 8896; do
+    for port in 5903 8905 8906; do
         lsof -ti:$port 2>/dev/null | xargs -r kill -9 2>/dev/null
     done
     echo ""
@@ -108,7 +108,7 @@ do_stop() {
 
 do_status() {
     echo "📊 服务状态:"
-    for pair in "resource_monitor:8895" "agent_bridge:8896" "frontend:5893"; do
+    for pair in "resource_monitor:8905" "agent_bridge:8906" "frontend:5903"; do
         svc="${pair%%:*}"; port="${pair##*:}"
         if ss -tlnp 2>/dev/null | grep -q ":$port "; then
             echo -e "  ${G}● $svc${N} (port $port)"

@@ -1,6 +1,7 @@
 import { memo, useEffect, useRef, useState } from 'react';
 import { LAYER_META, ALL_LAYERS, STAGE_META } from '../types';
 import type { LogEntry, AgentLayer } from '../types';
+import { useLocale } from '../i18n';
 
 interface Props {
   logs: LogEntry[];
@@ -10,6 +11,7 @@ export default memo(function LogPanel({ logs }: Props) {
   const listRef = useRef<HTMLDivElement>(null);
   const [filter, setFilter] = useState<AgentLayer | 'all'>('all');
   const autoScroll = useRef(true);
+  const { t } = useLocale();
 
   const filtered = filter === 'all' ? logs : logs.filter((l) => l.layer === filter);
   const display = filtered.slice(-120);
@@ -29,9 +31,9 @@ export default memo(function LogPanel({ logs }: Props) {
 
   return (
     <div className="side-panel log-panel">
-      <h2>📊 事件日志 <span className="count-badge">{logs.length}</span></h2>
+      <h2>{t('log.title')} <span className="count-badge">{logs.length}</span></h2>
       <div className="log-filters">
-        <button className={filter === 'all' ? 'active' : ''} onClick={() => setFilter('all')}>全部</button>
+        <button className={filter === 'all' ? 'active' : ''} onClick={() => setFilter('all')}>{t('log.all')}</button>
         {ALL_LAYERS.map((l) => (
           <button
             key={l}
@@ -39,7 +41,7 @@ export default memo(function LogPanel({ logs }: Props) {
             onClick={() => setFilter(l)}
             style={{ '--btn-color': LAYER_META[l].color } as React.CSSProperties}
           >
-            {LAYER_META[l].name.split('·')[1]?.trim() || l}
+            {t(`layer.${l}.name`).split('·')[1]?.trim() || l}
           </button>
         ))}
       </div>
@@ -48,7 +50,7 @@ export default memo(function LogPanel({ logs }: Props) {
           <div key={log.id} className={`glog-item level-${log.level}`}>
             <span className="glog-time">{new Date(log.timestamp).toLocaleTimeString()}</span>
             <span className="glog-layer" style={{ color: LAYER_META[log.layer].color }}>
-              [{LAYER_META[log.layer].name.split('·')[0].trim()}]
+              [{t(`layer.${log.layer}.name`).split('·')[0].trim()}]
             </span>
             {log.stage && (
               <span className={`glog-stage${log.stage === 100 ? ' glog-stage-discussion' : ''}`} title={STAGE_META[log.stage]?.key}>

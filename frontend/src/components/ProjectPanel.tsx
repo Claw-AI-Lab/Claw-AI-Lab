@@ -1,35 +1,22 @@
 import { useState } from 'react';
 import type { ProjectInfo, Artifact } from '../types';
 import { STAGE_META, RCStage, REPO_META } from '../types';
+import { useLocale } from '../i18n';
 
-const STATUS_CFG: Record<string, { label: string; color: string; icon: string }> = {
-  running:     { label: '运行中', color: '#22c55e', icon: '▶' },
-  queued:      { label: '排队中', color: '#f59e0b', icon: '⏳' },
-  completed:   { label: '已完成', color: '#3b82f6', icon: '✓' },
-  interrupted: { label: '已中断', color: '#ef4444', icon: '⏸' },
-  new:         { label: '新建',   color: '#94a3b8', icon: '○' },
+const STATUS_ICONS: Record<string, { color: string; icon: string }> = {
+  running:     { color: '#22c55e', icon: '▶' },
+  queued:      { color: '#f59e0b', icon: '⏳' },
+  completed:   { color: '#3b82f6', icon: '✓' },
+  interrupted: { color: '#ef4444', icon: '⏸' },
+  new:         { color: '#94a3b8', icon: '○' },
 };
 
 type SubmitMode = 'lab' | 'reproduce';
 
-const MODE_INFO: Record<SubmitMode, { label: string; icon: string; placeholder: string; desc: string }> = {
-  lab: {
-    label: 'Lab 探索',
-    icon: '🔬',
-    placeholder: '研究具身智能中 video action model 的最新进展',
-    desc: '多方向并行调研 → 跨领域讨论 → 统一假设',
-  },
-  reproduce: {
-    label: '论文复现',
-    icon: '📄',
-    placeholder: '复现 SwitchCraft (arXiv:2602.23956) 的注意力控制方法',
-    desc: '单 Agent 全流程复现',
-  },
-};
-
-function stageName(n: number): string {
-  const meta = STAGE_META[n as RCStage];
-  return meta ? meta.name : `S${n}`;
+function stageName(n: number, t: (k: string) => string): string {
+  const key = `stage.${n}`;
+  const translated = t(key);
+  return translated !== key ? translated : `S${n}`;
 }
 
 interface Props {
@@ -40,7 +27,7 @@ interface Props {
   onSelect: (projectId: string) => void;
   onResume: (projectId: string) => void;
   onDelete: (projectId: string) => void;
-  onQuickSubmit: (topic: string, mode: SubmitMode, researchAngles: string[]) => void;
+  onQuickSubmit: (topic: string, mode: SubmitMode, researchAngles: string[], referencePapers: string) => void;
 }
 
 export default function ProjectPanel({ projects, connected, selectedProjectId, artifactsByProject, onSelect, onResume, onDelete, onQuickSubmit }: Props) {
@@ -49,8 +36,26 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
   const [topicInput, setTopicInput] = useState('');
   const [anglesInput, setAnglesInput] = useState('');
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [refPapersInput, setRefPapersInput] = useState('');
+  const [showRefPapers, setShowRefPapers] = useState(false);
+  const { t, locale } = useLocale();
 
-  const info = MODE_INFO[mode];
+  const modeInfo: Record<SubmitMode, { label: string; icon: string; placeholder: string; desc: string }> = {
+    lab: {
+      label: t('project.mode.lab'),
+      icon: '🔬',
+      placeholder: t('project.placeholder.lab'),
+      desc: t('project.mode.lab_desc'),
+    },
+    reproduce: {
+      label: t('project.mode.reproduce'),
+      icon: '📄',
+      placeholder: t('project.placeholder.reproduce'),
+      desc: t('project.mode.reproduce_desc'),
+    },
+  };
+
+  const info = modeInfo[mode];
 
   const submit = () => {
     const text = topicInput.trim();
@@ -58,9 +63,10 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
     const angles = mode === 'lab'
       ? anglesInput.split(/[,，、;；]/).map(s => s.trim()).filter(Boolean)
       : [];
-    onQuickSubmit(text, mode, angles);
+    onQuickSubmit(text, mode, angles, refPapersInput.trim());
     setTopicInput('');
     setAnglesInput('');
+    setRefPapersInput('');
   };
 
   const onKey = (e: React.KeyboardEvent) => {
@@ -77,8 +83,8 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
 
   const anglesCount = anglesInput.split(/[,，、;；]/).filter(s => s.trim()).length;
   const goLabel = mode === 'lab'
-    ? (anglesInput.trim() ? `${anglesCount} 方向并行研究` : '3 方向自动探索')
-    : '开始复现';
+    ? (anglesInput.trim() ? t('project.go_lab_n', { n: anglesCount }) : t('project.go_lab_auto'))
+    : t('project.go_reproduce');
 
   const toggleExpand = (projectId: string, e: React.MouseEvent) => {
     e.stopPropagation();
@@ -89,10 +95,10 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
     <div className="project-panel">
       <div className="project-panel-header" onClick={() => setPanelOpen(!panelOpen)}>
         <h3>
-          <span className="panel-icon">📋</span> 项目管理
+          <span className="panel-icon">📋</span> {t('project.title')}
           {projects.length > 0 && <span className="project-count">{projects.length}</span>}
-          {running > 0 && <span className="project-count running-count">{running} 运行</span>}
-          {interrupted > 0 && <span className="project-count interrupted-count">{interrupted} 中断</span>}
+          {running > 0 && <span className="project-count running-count">{t('project.count_running', { n: running })}</span>}
+          {interrupted > 0 && <span className="project-count interrupted-count">{t('project.count_interrupted', { n: interrupted })}</span>}
         </h3>
         <span className="expand-arrow">{panelOpen ? '▾' : '▸'}</span>
       </div>
@@ -107,7 +113,7 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
                   className={`mode-btn ${mode === m ? 'active' : ''}`}
                   onClick={() => setMode(m)}
                 >
-                  {MODE_INFO[m].icon} {MODE_INFO[m].label}
+                  {modeInfo[m].icon} {modeInfo[m].label}
                 </button>
               ))}
             </div>
@@ -127,13 +133,35 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
                 <div className="project-angles-row">
                   <input
                     className="project-angles-input"
-                    placeholder="研究方向 (可选, 逗号分隔, 默认: VLM, World Model, VLA)"
+                    placeholder={t('project.angles_placeholder')}
                     value={anglesInput}
                     onChange={e => setAnglesInput(e.target.value)}
                     onKeyDown={onKey}
                     disabled={!connected}
                   />
                 </div>
+              )}
+              <div className="project-ref-papers-toggle">
+                <button
+                  className="ref-papers-toggle-btn"
+                  type="button"
+                  onClick={() => setShowRefPapers(!showRefPapers)}
+                >
+                  {showRefPapers ? '▾' : '▸'} {t('project.ref_papers_toggle')}
+                  {refPapersInput.trim() && <span className="ref-badge">
+                    {refPapersInput.split(/[\n,]/).filter(s => s.trim()).length}
+                  </span>}
+                </button>
+              </div>
+              {showRefPapers && (
+                <textarea
+                  className="project-ref-papers-input"
+                  placeholder={t('project.ref_papers_placeholder')}
+                  value={refPapersInput}
+                  onChange={e => setRefPapersInput(e.target.value)}
+                  rows={3}
+                  disabled={!connected}
+                />
               )}
               <button
                 className={`project-go-btn ${mode === 'lab' ? 'lab-mode' : 'reproduce-mode'}`}
@@ -149,14 +177,13 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
 
           {sorted.length === 0 ? (
             <div className="project-empty">
-              {mode === 'lab'
-                ? '输入研究主题，多 Agent 并行调研'
-                : '输入论文信息，一键复现'}
+              {mode === 'lab' ? t('project.empty_lab') : t('project.empty_reproduce')}
             </div>
           ) : (
             <div className="project-list-inner">
               {sorted.map(proj => {
-                const cfg = STATUS_CFG[proj.status] || STATUS_CFG.new;
+                const cfg = STATUS_ICONS[proj.status] || STATUS_ICONS.new;
+                const statusLabel = t(`project.status.${proj.status}`);
                 const pct = proj.totalStages > 0
                   ? Math.round((proj.lastCompletedStage / proj.totalStages) * 100)
                   : 0;
@@ -169,9 +196,8 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
                     key={proj.projectId}
                     className={`project-card project-${proj.status}${isSelected ? ' selected' : ''}${isExpanded ? ' expanded' : ''}`}
                   >
-                    {/* Collapsed summary row — always visible */}
                     <div className="project-summary" onClick={(e) => toggleExpand(proj.projectId, e)}>
-                      <span className="project-status-dot" style={{ background: cfg.color }} title={cfg.label}>{cfg.icon}</span>
+                      <span className="project-status-dot" style={{ background: cfg.color }} title={statusLabel}>{cfg.icon}</span>
                       <span className="project-summary-name" title={proj.topic || proj.projectId}>
                         {proj.topic || proj.projectId}
                       </span>
@@ -185,22 +211,21 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
                       <div className="project-mini-fill" style={{ width: `${pct}%`, background: cfg.color }} />
                     </div>
 
-                    {/* Expanded detail */}
                     {isExpanded && (
                       <div className="project-detail">
                         <div className="project-detail-meta">
                           <span className="project-id-label" title={proj.projectId}>{proj.projectId}</span>
                           <span className="project-status-badge" style={{ background: cfg.color }}>
-                            {cfg.icon} {cfg.label}
+                            {cfg.icon} {statusLabel}
                           </span>
                         </div>
 
                         <div className="project-detail-stage">
-                          {proj.lastCompletedStage}/{proj.totalStages} 阶段
+                          {proj.lastCompletedStage}/{proj.totalStages} {t('project.stages_label')}
                           {proj.lastCompletedStage > 0 && (
-                            <> · {stageName(proj.lastCompletedStage)}
+                            <> · {stageName(proj.lastCompletedStage, t)}
                               {proj.lastCompletedStage < proj.totalStages && (
-                                <span className="project-next-stage"> → {stageName(proj.lastCompletedStage + 1)}</span>
+                                <span className="project-next-stage"> → {stageName(proj.lastCompletedStage + 1, t)}</span>
                               )}
                             </>
                           )}
@@ -208,7 +233,7 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
 
                         {proj.timestamp && (
                           <div className="project-detail-time">
-                            {new Date(proj.timestamp).toLocaleString('zh-CN')}
+                            {new Date(proj.timestamp).toLocaleString(locale === 'zh' ? 'zh-CN' : 'en-US')}
                           </div>
                         )}
 
@@ -247,22 +272,23 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
                         <div className="project-detail-actions">
                           {proj.status === 'interrupted' && connected && (
                             <button className="project-resume-btn" onClick={(e) => { e.stopPropagation(); onResume(proj.projectId); }}>
-                              ▶ 断点续跑
+                              {t('project.resume')}
                             </button>
                           )}
                           <button className="project-select-btn" onClick={(e) => { e.stopPropagation(); onSelect(proj.projectId); }}>
-                            {isSelected ? '✓ 已聚焦' : '🔍 聚焦'}
+                            {isSelected ? t('project.focused') : t('project.focus')}
                           </button>
                           <button
                             className="project-delete-btn"
+                            title={t('project.delete_title')}
                             onClick={(e) => {
                               e.stopPropagation();
-                              if (window.confirm(`确认删除项目 "${proj.projectId}"？\n此操作将删除所有阶段数据，不可恢复。`)) {
+                              if (window.confirm(t('project.delete_confirm', { id: proj.projectId }))) {
                                 onDelete(proj.projectId);
                               }
                             }}
                           >
-                            🗑 删除
+                            {t('project.delete')}
                           </button>
                         </div>
                       </div>
