@@ -1,14 +1,12 @@
 project:
-  name: "freecustom-conflict-aware"
+  name: "__PROJECT_ID__"
   mode: "full-auto"
 
 research:
-  topic: "Conflict-aware mask refinement in FreeCustom: detecting and resolving spatial conflicts between multiple concept references during multi-reference self-attention to reduce concept leakage in generated images"
+  topic: "__TOPIC__"
   domains:
     - "deep-learning"
-    - "diffusion-models"
-    - "image-generation"
-  daily_paper_count: 3
+  daily_paper_count: 5
   quality_threshold: 3.0
 
 runtime:
@@ -42,10 +40,11 @@ llm:
   api_key: "sk-QLo52KgqSRHiI3H3JydKzJJJw4W0URzsNnGy8d3QB1yYtFqM"
   api_key_env: "RESEARCHCLAW_API_KEY"
   primary_model: "gpt-5.4"
-  coding_model: "claude-opus-4-6"
+  coding_model: "gpt-5.4"
   fallback_models:
     - "gpt-4o"
     - "gpt-4.1"
+  timeout_sec: 600
 
 security:
   hitl_required_stages: []

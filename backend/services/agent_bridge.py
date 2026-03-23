@@ -1338,7 +1338,10 @@ def _generate_config_from_template(
     If role_prompt is provided (Lab mode), it's prepended to the topic so the
     pipeline agent operates from that specialist perspective.
     """
-    template_path = Path(state.agent_package_dir).parent / "config_template.yaml"
+    repo_root = Path(__file__).resolve().parent.parent.parent
+    template_path = repo_root / "examples" / "config_template.yaml"
+    if not template_path.exists():
+        template_path = Path(state.agent_package_dir).parent / "config_template.yaml"
     if not template_path.exists():
         template_path = Path(__file__).resolve().parent.parent / "config_template.yaml"
     if not template_path.exists():
