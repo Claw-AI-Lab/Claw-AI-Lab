@@ -1,6 +1,6 @@
 import { useReducer, useEffect, useCallback, useRef, useState, useMemo } from 'react';
 import { AgentLayer, ALL_LAYERS, ALL_REPOS } from './types';
-import type { AppState, WSMessage, ResourceStats, LobsterAgent, QueueMap } from './types';
+import type { AppState, WSMessage, ResourceStats, LobsterAgent, QueueMap, ProjectInfo } from './types';
 import { INITIAL_AGENTS, createMockMessageGenerator } from './mock';
 import LayerPanel from './components/LayerPanel';
 import DataShelf from './components/DataShelf';
@@ -9,6 +9,7 @@ import LogPanel from './components/LogPanel';
 import HumanFeedbackPanel from './components/HumanFeedbackPanel';
 import QueuePanel from './components/QueuePanel';
 import DataFlowArrow from './components/DataFlowArrow';
+import ProjectPanel from './components/ProjectPanel';
 import './App.css';
 
 type Action =
@@ -16,7 +17,8 @@ type Action =
   | { type: 'set_connected'; payload: boolean }
   | { type: 'set_mock'; payload: boolean }
   | { type: 'set_res_connected'; payload: boolean }
-  | { type: 'clear_agents' };
+  | { type: 'clear_agents' }
+  | { type: 'select_project'; payload: string | null };
 
 function upsertAgent(agents: LobsterAgent[], payload: LobsterAgent): LobsterAgent[] {
   const idx = agents.findIndex((a) => a.id === payload.id);
@@ -68,6 +70,10 @@ function reducer(state: AppState, action: Action): AppState {
       const next = JSON.stringify(action.payload);
       return prev === next ? state : { ...state, queues: action.payload };
     }
+    case 'project_list':
+      return { ...state, projects: action.payload };
+    case 'select_project':
+      return { ...state, selectedProjectId: state.selectedProjectId === action.payload ? null : action.payload };
     case 'set_mock':
       return { ...state, mockMode: action.payload };
     case 'clear_agents':
@@ -87,6 +93,8 @@ const INITIAL_STATE: AppState = {
   logs: [],
   queues: {},
   chatMessages: [],
+  projects: [],
+  selectedProjectId: null,
   resources: null,
   resConnected: false,
   connected: false,
@@ -287,6 +295,38 @@ export default function App() {
 
       <div className="main-layout">
         <div className="side-panel repo-panel">
+          <ProjectPanel
+            projects={state.projects}
+            connected={state.connected}
+            selectedProjectId={state.selectedProjectId}
+            onSelect={(projectId) => dispatch({ type: 'select_project', payload: projectId })}
+            onResume={(projectId) => {
+              const ws = agentWsRef.current;
+              if (ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({ command: 'resume_project', projectId }));
+              }
+            }}
+            onDelete={(projectId) => {
+              const ws = agentWsRef.current;
+              if (ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({ command: 'delete_project', projectId }));
+                if (state.selectedProjectId === projectId) {
+                  dispatch({ type: 'select_project', payload: null });
+                }
+              }
+            }}
+            onQuickSubmit={(topic, mode, researchAngles) => {
+              const ws = agentWsRef.current;
+              if (ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({
+                  command: 'quick_submit',
+                  topic,
+                  mode,
+                  researchAngles: researchAngles.length > 0 ? researchAngles : undefined,
+                }));
+              }
+            }}
+          />
           <h2>📚 共享数据仓库</h2>
           <div className="repo-list">
             {ALL_REPOS.map((repoId) => (
@@ -309,6 +349,7 @@ export default function App() {
                       agents={agentMap[layer]}
                       logs={logMap[layer]}
                       tierIndex={idx}
+                      selectedProjectId={state.selectedProjectId}
                     />
                     {idx < ALL_LAYERS.length - 1 && (
                       <DataFlowArrow active={hasWorking} />
@@ -336,7 +377,7 @@ export default function App() {
           const ws = agentWsRef.current;
           if (ws && ws.readyState === WebSocket.OPEN) {
             ws.send(JSON.stringify({
-              command: 'human_feedback',
+              command: 'chat_input',
               content,
               targetLayer: targetLayer || 'all',
             }));
