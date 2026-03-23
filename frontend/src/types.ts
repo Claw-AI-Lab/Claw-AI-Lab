@@ -215,6 +215,7 @@ export interface LobsterAgent {
   currentTask: string;
   stageProgress: Record<number, StageStatus>;
   runId: string;
+  projectId?: string;
 }
 
 export interface Artifact {
@@ -281,6 +282,21 @@ export interface ChatMessage {
   timestamp: number;
 }
 
+// ===================== Project Management =====================
+
+export type ProjectStatus = 'running' | 'queued' | 'completed' | 'interrupted' | 'new';
+
+export interface ProjectInfo {
+  projectId: string;
+  status: ProjectStatus;
+  lastCompletedStage: number;
+  lastCompletedName: string;
+  totalStages: number;
+  timestamp: string;
+  topic: string;
+  configPath: string;
+}
+
 // ===================== WebSocket Protocol =====================
 
 export type WSMessage =
@@ -291,6 +307,7 @@ export type WSMessage =
   | { type: 'resource_stats'; payload: ResourceStats }
   | { type: 'queue_update'; payload: QueueMap }
   | { type: 'chat_message'; payload: ChatMessage }
+  | { type: 'project_list'; payload: ProjectInfo[] }
   | { type: 'system'; payload: { message: string } };
 
 // ===================== App State =====================
@@ -301,6 +318,8 @@ export interface AppState {
   logs: LogEntry[];
   queues: QueueMap;
   chatMessages: ChatMessage[];
+  projects: ProjectInfo[];
+  selectedProjectId: string | null;
   resources: ResourceStats | null;
   resConnected: boolean;
   connected: boolean;

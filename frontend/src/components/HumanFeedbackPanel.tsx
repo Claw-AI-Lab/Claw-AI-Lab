@@ -80,7 +80,7 @@ export default memo(function HumanFeedbackPanel({ messages, onSend, connected }:
           <div className="feedback-messages" ref={listRef}>
             {messages.length === 0 && (
               <div className="feedback-empty">
-                在 pipeline 运行过程中，你可以在这里提供反馈来调整研究计划。
+                在 pipeline 运行过程中，你可以提供反馈来调整研究计划，或输入问题查询运行状态。
               </div>
             )}
             {messages.map((msg) => (
@@ -122,7 +122,7 @@ export default memo(function HumanFeedbackPanel({ messages, onSend, connected }:
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="输入你的反馈或建议... (Enter 发送, Shift+Enter 换行)"
+              placeholder="输入反馈/建议，或查询运行状态... (Enter 发送, Shift+Enter 换行)"
               rows={1}
             />
             <button

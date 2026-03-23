@@ -24,8 +24,10 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import hashlib
 import json
 import os
+import re
 import subprocess
 import sys
 import time
@@ -127,6 +129,52 @@ LAYER_INPUT_QUEUE: dict[str, str] = {
     "idea":       "execution_feedback",
 }
 
+# ── Human Feedback Persistence ───────────────────────────────────────────────
+
+def _save_feedback(state: "BridgeState", content: str, target_layer: str, message_id: str) -> None:
+    """Persist human feedback to disk so running agents can pick it up.
+
+    Writes to:
+    1. Global ``runs_base/feedback/feedback_log.jsonl`` — full audit trail
+    2. Each matching project's ``run_dir/human_feedback.jsonl`` — consumed by
+       the executor's ``_load_human_feedback()`` before each pipeline stage
+    """
+    feedback_dir = Path(state.runs_base_dir) / "feedback"
+    feedback_dir.mkdir(parents=True, exist_ok=True)
+    entry = {
+        "id": message_id,
+        "content": content,
+        "targetLayer": target_layer,
+        "timestamp": _now_ms(),
+    }
+    log_path = feedback_dir / "feedback_log.jsonl"
+    with open(log_path, "a", encoding="utf-8") as f:
+        f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+
+    latest_path = feedback_dir / "latest_feedback.json"
+    _write_json(latest_path, entry)
+
+    injected_to: list[str] = []
+    for agent in state.agents.values():
+        if not agent.run_dir or agent.status not in ("working", "idle"):
+            continue
+        if target_layer != "all" and agent.layer != target_layer:
+            continue
+        run_dir = Path(agent.run_dir)
+        if not run_dir.exists():
+            continue
+        fb_path = run_dir / "human_feedback.jsonl"
+        try:
+            with open(fb_path, "a", encoding="utf-8") as f:
+                f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+            injected_to.append(f"{agent.name}({agent.project_id})")
+        except OSError:
+            pass
+
+    if injected_to:
+        print(f"[feedback] Injected to {len(injected_to)} project(s): {', '.join(injected_to)}")
+
+
 # ── Utilities ───────────────────────────────────────────────────────────────
 
 def _uid() -> str:
@@ -144,6 +192,250 @@ def _read_json(path: Path) -> dict | None:
 def _write_json(path: Path, data: object) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+
+
+_intent_llm_client: "object | None" = None
+_intent_llm_init_done: bool = False
+
+_INTENT_SYSTEM_PROMPT = (
+    "你是一个意图分类器。用户在一个 AI 研究 pipeline 的控制面板中输入了一条消息。"
+    "判断这条消息是【查询】(想了解当前运行状态/进度/阶段) 还是【反馈】(想给 pipeline 提供指导/建议/修改指令)。"
+    "只回复一个词: query 或 feedback"
+)
+
+
+def _init_intent_llm(state: "BridgeState") -> None:
+    """Lazily create a lightweight LLM client for intent classification."""
+    global _intent_llm_client, _intent_llm_init_done
+    if _intent_llm_init_done:
+        return
+    _intent_llm_init_done = True
+    try:
+        agent_dir = state.agent_package_dir
+        if agent_dir not in sys.path:
+            sys.path.insert(0, agent_dir)
+        from researchclaw.llm.client import LLMClient, LLMConfig
+
+        api_key = os.environ.get("RESEARCHCLAW_API_KEY", "")
+        base_url = ""
+
+        # Read base_url and api_key from project YAML configs directly
+        import yaml as _yaml
+        for proj_dir in state.projects_dir().iterdir():
+            meta = _read_json(proj_dir / "project_meta.json")
+            if not meta or not meta.get("config_path"):
+                continue
+            cfg_path = Path(meta["config_path"])
+            if not cfg_path.exists():
+                continue
+            try:
+                with open(cfg_path, encoding="utf-8") as f:
+                    raw = _yaml.safe_load(f) or {}
+                llm_sec = raw.get("llm", {})
+                if not api_key:
+                    api_key = llm_sec.get("api_key", "")
+                if not base_url:
+                    base_url = llm_sec.get("base_url", "")
+                if api_key and base_url:
+                    break
+            except Exception:
+                continue
+
+        if not api_key:
+            print("[intent-llm] No API key found, using keyword fallback")
+            return
+
+        base_url = base_url or "https://api.openai.com/v1"
+        _intent_llm_client = LLMClient(LLMConfig(
+            base_url=base_url,
+            api_key=api_key,
+            primary_model="claude-opus-4-1-20250805",
+            fallback_models=["gpt-4o-mini"],
+            max_retries=1,
+            timeout_sec=10,
+        ))
+        print(f"[intent-llm] Initialized ({base_url})")
+    except Exception as exc:
+        print(f"[intent-llm] Init failed, will use keyword fallback: {exc}")
+
+
+def _classify_chat_intent_keywords(text: str) -> str:
+    """Fast keyword-based fallback for intent classification."""
+    t = text.lower()
+    q, f = 0, 0
+    for kw in ("状态", "进度", "进展", "阶段", "跑到", "做到", "到哪", "到第几",
+               "什么阶段", "什么状态", "查看", "查询", "怎么样了", "情况",
+               "status", "progress", "stage", "how far"):
+        if kw in t:
+            q += 1
+    for kw in ("请", "应该", "建议", "不要", "换成", "改成", "使用",
+               "注意", "确保", "调整", "修改", "尝试", "模型", "参数",
+               "checkpoint", "路径", "下载"):
+        if kw in t:
+            f += 1
+    if t.rstrip()[-1:] in ("?", "？"):
+        q += 2
+    if any(p in t for p in ("吗", "呢")):
+        q += 1
+    if len(t) > 80:
+        f += 1
+    return "query" if q > f else "feedback"
+
+
+async def _classify_chat_intent(text: str, state: "BridgeState") -> str:
+    """Classify user chat intent: LLM first, keyword fallback on failure."""
+    _init_intent_llm(state)
+    if _intent_llm_client is not None:
+        try:
+            resp = await asyncio.get_event_loop().run_in_executor(
+                None,
+                lambda: _intent_llm_client.chat(  # type: ignore[union-attr]
+                    [{"role": "user", "content": text}],
+                    system=_INTENT_SYSTEM_PROMPT,
+                    max_tokens=10,
+                    temperature=0,
+                ),
+            )
+            answer = resp.content.strip().lower()
+            if "query" in answer:
+                return "query"
+            if "feedback" in answer:
+                return "feedback"
+        except Exception as exc:
+            print(f"[intent-llm] Call failed, falling back to keywords: {exc}")
+    return _classify_chat_intent_keywords(text)
+
+
+def _delete_project(state: "BridgeState", project_id: str) -> list[dict]:
+    """Delete a project: stop any running processes, clean up state, remove files."""
+    import shutil
+
+    messages: list[dict] = []
+    sys_agent = LobsterAgent(
+        id="system", name="系统", layer="idea", run_id="", run_dir="", config_path="",
+    )
+
+    if not project_id:
+        messages.append(msg_feedback_ack(f"del-{_uid()}", "请指定要删除的项目 ID。"))
+        return messages
+
+    for agent in list(state.agents.values()):
+        if agent.project_id == project_id:
+            if agent.process is not None and agent.process.poll() is None:
+                agent.process.terminate()
+                try:
+                    agent.process.wait(timeout=5)
+                except Exception:
+                    agent.process.kill()
+            agent.status = "idle"
+            agent.project_id = ""
+            agent.current_task = ""
+            agent.process = None
+            messages.append(msg_agent_update(agent))
+
+    released = state.gpu_allocator.release(project_id)
+    if released:
+        messages.append(msg_log(sys_agent, f"GPU {released} 已释放 (项目删除)", "info"))
+
+    for q in state.queues.values():
+        q.tasks = [t for t in q.tasks if t.project_id != project_id]
+
+    state._fail_counts.pop(project_id, None)
+
+    proj_dir = state.projects_dir() / project_id
+    if proj_dir.exists() and proj_dir.is_dir():
+        try:
+            shutil.rmtree(proj_dir)
+            messages.append(msg_log(sys_agent, f"项目 [{project_id}] 已删除", "success"))
+        except OSError as exc:
+            messages.append(msg_log(sys_agent, f"删除项目目录失败: {exc}", "error"))
+    else:
+        messages.append(msg_log(sys_agent, f"项目 [{project_id}] 目录不存在", "warning"))
+
+    return messages
+
+
+def _build_status_summary(state: "BridgeState", target_layer: str = "all") -> str:
+    """Build a human-readable status summary for all running/recent projects."""
+    lines: list[str] = []
+    projects_dir = state.projects_dir()
+
+    active_projects: dict[str, LobsterAgent] = {}
+    for agent in state.agents.values():
+        if agent.project_id and agent.status in ("working", "idle"):
+            active_projects[agent.project_id] = agent
+
+    project_dirs = sorted(
+        (d for d in projects_dir.iterdir() if d.is_dir() and not d.name.startswith("_")),
+        key=lambda p: p.stat().st_mtime, reverse=True,
+    ) if projects_dir.is_dir() else []
+
+    if not project_dirs:
+        return "当前没有任何项目。"
+
+    for proj_dir in project_dirs[:5]:
+        pid = proj_dir.name
+        if target_layer != "all" and pid not in active_projects:
+            continue
+
+        lines.append(f"📋 项目: {pid}")
+
+        agent = active_projects.get(pid)
+        if agent:
+            layer_cn = {"idea": "调研", "experiment": "设计", "coding": "编码",
+                        "execution": "执行", "writing": "写作"}.get(agent.layer, agent.layer)
+            status_cn = {"working": "运行中", "idle": "空闲", "error": "错误",
+                         "done": "完成"}.get(agent.status, agent.status)
+            lines.append(f"  状态: {status_cn} | 层: {layer_cn}")
+            if agent.current_stage:
+                sname = STAGE_NAMES.get(agent.current_stage, "?")
+                lines.append(f"  当前阶段: S{agent.current_stage} {sname}")
+        else:
+            lines.append("  状态: 未活跃")
+
+        stage_statuses = []
+        for s in range(1, 23):
+            health = _read_json(proj_dir / f"stage-{s:02d}" / "stage_health.json")
+            if health:
+                st = health.get("status", "?")
+                dur = health.get("duration_sec")
+                err = health.get("error")
+                icon = "✅" if st == "done" else "❌" if st == "failed" else "🔄"
+                sname = STAGE_NAMES.get(s, "?")
+                entry = f"  {icon} S{s} {sname}"
+                if dur is not None:
+                    if dur < 60:
+                        entry += f" ({dur:.0f}s)"
+                    else:
+                        entry += f" ({dur / 60:.1f}min)"
+                if err:
+                    entry += f" — {err[:60]}"
+                stage_statuses.append(entry)
+
+        if stage_statuses:
+            last_done = [s for s in stage_statuses if "✅" in s]
+            failed = [s for s in stage_statuses if "❌" in s]
+            lines.append(f"  已完成: {len(last_done)}/22 阶段" + (f", {len(failed)} 失败" if failed else ""))
+            for s in stage_statuses:
+                lines.append(s)
+        else:
+            lines.append("  暂无阶段数据")
+
+        heartbeat = _read_json(proj_dir / "heartbeat.json")
+        if heartbeat:
+            ts = heartbeat.get("timestamp", "")
+            lines.append(f"  最后心跳: {ts}")
+
+        lines.append("")
+
+    gpu_info = state.gpu_allocator.summary()
+    lines.append(f"🖥️ GPU: {gpu_info['free']}/{gpu_info['total']} 空闲")
+    if gpu_info["assignments"]:
+        for proj, gpus in gpu_info["assignments"].items():
+            lines.append(f"  {proj} → GPU {gpus}")
+
+    return "\n".join(lines)
+
 
 # ── Data structures ─────────────────────────────────────────────────────────
 
@@ -300,6 +592,7 @@ class LobsterAgent:
             "currentStage": self.current_stage,
             "currentTask": self.current_task,
             "stageProgress": self.stage_progress,
+            "projectId": self.project_id,
         }
 
 
@@ -369,6 +662,7 @@ class BridgeState:
     idea_factory_config: str = ""
     idea_factory_remaining: int = 0  # 0=disabled, -1=infinite, N=count
     idea_factory_produced: int = 0
+    _fail_counts: dict[str, int] = field(default_factory=dict)  # project_id → consecutive fail count
 
     def projects_dir(self) -> Path:
         return Path(self.runs_base_dir) / "projects"
@@ -403,6 +697,16 @@ def msg_log(agent: LobsterAgent, message: str, level: str = "info", stage: int |
 
 def msg_queue_update(queues: dict[str, TaskQueue]) -> dict:
     return {"type": "queue_update", "payload": {name: q.summary() for name, q in queues.items()}}
+
+def msg_project_list(projects: list[dict]) -> dict:
+    return {"type": "project_list", "payload": projects}
+
+
+def msg_feedback_ack(message_id: str, content: str, target_layer: str = "all", plan_update: str = "") -> dict:
+    return {"type": "chat_message", "payload": {
+        "id": f"sys-{_uid()}", "role": "system", "content": content,
+        "timestamp": _now_ms(), "targetLayer": target_layer,
+    }}
 
 
 # ── File monitoring ─────────────────────────────────────────────────────────
@@ -541,6 +845,9 @@ def create_agent(state: BridgeState, name: str, layer: str) -> LobsterAgent:
 
 def _assign_task_to_agent(agent: LobsterAgent, task: Task) -> None:
     """Common setup when assigning a task to an agent."""
+    if not hasattr(agent, '_base_name'):
+        agent._base_name = agent.name  # type: ignore[attr-defined]
+
     agent.project_id = task.project_id
     agent.run_dir = task.run_dir
     agent.run_id = task.project_id
@@ -552,6 +859,11 @@ def _assign_task_to_agent(agent: LobsterAgent, task: Task) -> None:
     agent._prev_heartbeat = {}
     agent._prev_checkpoint = {}
     agent._known_artifacts = set()
+
+    # Lab mode: extract role name from project_id pattern "base--role"
+    if "--" in task.project_id:
+        role_part = task.project_id.split("--", 1)[1]
+        agent.name = f"🔬 {role_part}"
 
 
 def _passthrough_agent(agent: LobsterAgent) -> list[dict]:
@@ -606,6 +918,22 @@ def launch_agent_for_task(state: BridgeState, agent: LobsterAgent, task: Task) -
     else:
         layer_range = LAYER_RANGE.get(agent.layer, (1, 15))
     fs, ts = layer_range
+
+    # Checkpoint-aware resume: skip already-completed stages within this layer
+    cp = _read_json(Path(task.run_dir) / "checkpoint.json")
+    if cp:
+        last_done = cp.get("last_completed_stage", 0)
+        resume_stage = last_done + 1
+        if fs <= resume_stage <= ts:
+            for s in range(fs, resume_stage):
+                if s in STAGE_TO_LAYER:
+                    agent.stage_progress[s] = "completed"
+            fs = resume_stage
+            messages.append(msg_log(
+                agent,
+                f"断点恢复: 跳过已完成阶段, 从 {STAGE_NAMES.get(fs, f'S{fs}')} 开始",
+                "info",
+            ))
 
     cmd = [
         state.python_path, "-m", "researchclaw", "run",
@@ -671,14 +999,59 @@ def stop_agent(agent: LobsterAgent) -> list[dict]:
 
 # ── Task queue operations ───────────────────────────────────────────────────
 
+def _save_project_meta(run_dir: str, project_id: str, config_path: str, topic: str) -> None:
+    """Persist project metadata so it can be recovered on restart."""
+    meta = {
+        "project_id": project_id,
+        "config_path": config_path,
+        "topic": topic,
+        "created_at": _now_ms(),
+    }
+    meta_path = Path(run_dir) / "project_meta.json"
+    if not meta_path.exists():
+        _write_json(meta_path, meta)
+
+
+def _read_project_meta(run_dir: str) -> dict | None:
+    return _read_json(Path(run_dir) / "project_meta.json")
+
+
+def _determine_resume_target(run_dir: str) -> tuple[str, int] | None:
+    """Read checkpoint and return (target_layer, next_stage) or None if no checkpoint."""
+    cp = _read_json(Path(run_dir) / "checkpoint.json")
+    if not cp:
+        return None
+    last_done = cp.get("last_completed_stage", 0)
+    if last_done <= 0:
+        return None
+    next_stage = last_done + 1
+    if next_stage > 22:
+        return None
+    target_layer = STAGE_TO_LAYER.get(next_stage)
+    if not target_layer:
+        return None
+    return (target_layer, next_stage)
+
+
+def _queue_for_layer(target_layer: str) -> str:
+    """Return the input queue name that feeds into target_layer."""
+    if target_layer == "idea":
+        return "init_to_idea"
+    return LAYER_INPUT_QUEUE.get(target_layer, "init_to_idea")
+
+
 def submit_new_project(state: BridgeState, project_id: str, config_path: str, topic: str = "") -> list[dict]:
-    """Submit a brand-new project — goes into init_to_idea queue.
+    """Submit a project — auto-detects checkpoint and resumes from where it left off.
 
     In cross-project discussion mode, each project gets ONE agent.
     After S7, agents from different projects discuss with each other.
     """
     messages: list[dict] = []
     sys_agent = LobsterAgent(id="system", name="系统", layer="idea", run_id="", run_dir="", config_path="")
+
+    run_dir = str(state.projects_dir() / project_id)
+    os.makedirs(run_dir, exist_ok=True)
+    _save_project_meta(run_dir, project_id, config_path, topic)
 
     if state.discussion_mode:
         messages.append(msg_log(
@@ -687,19 +1060,39 @@ def submit_new_project(state: BridgeState, project_id: str, config_path: str, to
             "info", DISCUSSION_STAGE,
         ))
 
-    # Single-agent per project (both discussion and non-discussion modes)
-    run_dir = str(state.projects_dir() / project_id)
-    os.makedirs(run_dir, exist_ok=True)
+    # Check for checkpoint to enable resume
+    resume_info = _determine_resume_target(run_dir)
+    if resume_info:
+        target_layer, next_stage = resume_info
+        queue_name = _queue_for_layer(target_layer)
+        source_layer = {
+            "idea": "init", "experiment": "idea", "coding": "experiment",
+            "execution": "coding", "writing": "execution",
+        }.get(target_layer, "init")
 
-    task = Task(
-        id=f"task-{_uid()}", project_id=project_id, run_dir=run_dir,
-        config_path=config_path, topic=topic,
-        source_layer="init", target_layer="idea",
-        created_at=_now_ms(),
-    )
-    state.queues["init_to_idea"].push(task)
+        task = Task(
+            id=f"task-{_uid()}", project_id=project_id, run_dir=run_dir,
+            config_path=config_path, topic=topic,
+            source_layer=source_layer, target_layer=target_layer,
+            created_at=_now_ms(),
+        )
+        state.queues[queue_name].push(task)
+        stage_name = STAGE_NAMES.get(next_stage, f"S{next_stage}")
+        messages.append(msg_log(
+            sys_agent,
+            f"项目 [{project_id}] 检测到断点 → 从 {stage_name} (Stage {next_stage}) 恢复",
+            "success",
+        ))
+    else:
+        task = Task(
+            id=f"task-{_uid()}", project_id=project_id, run_dir=run_dir,
+            config_path=config_path, topic=topic,
+            source_layer="init", target_layer="idea",
+            created_at=_now_ms(),
+        )
+        state.queues["init_to_idea"].push(task)
+        messages.append(msg_log(sys_agent, f"新项目 [{project_id}] 已加入调研队列", "info"))
 
-    messages.append(msg_log(sys_agent, f"新项目 [{project_id}] 已加入调研队列", "info"))
     messages.append(msg_queue_update(state.queues))
     return messages
 
@@ -707,6 +1100,8 @@ def submit_new_project(state: BridgeState, project_id: str, config_path: str, to
 def on_agent_done(state: BridgeState, agent: LobsterAgent) -> list[dict]:
     """When an agent finishes, complete its task and create a follow-up task for the next layer."""
     messages: list[dict] = []
+
+    state._fail_counts.pop(agent.project_id, None)  # reset fail counter on success
 
     # Complete assigned task
     if agent.assigned_task_id:
@@ -810,13 +1205,284 @@ def on_agent_done(state: BridgeState, agent: LobsterAgent) -> list[dict]:
             messages.append(msg_log(agent, f"GPU {released} 已释放", "info"))
 
     # Reset agent for next task
+    _reset_agent_idle(agent)
+    messages.append(msg_agent_update(agent))
+    messages.append(msg_queue_update(state.queues))
+
+    return messages
+
+
+def _reset_agent_idle(agent: LobsterAgent) -> None:
+    """Reset agent to idle state, restoring original pool name if renamed."""
     agent.assigned_task_id = None
     agent.project_id = ""
     agent.status = "idle"
     agent.current_task = "等待任务..."
-    messages.append(msg_agent_update(agent))
-    messages.append(msg_queue_update(state.queues))
+    base = getattr(agent, '_base_name', None)
+    if base:
+        agent.name = base
 
+
+def list_all_projects(state: BridgeState) -> list[dict]:
+    """Scan runs/projects/ and return status info for all projects."""
+    projects_dir = state.projects_dir()
+    result: list[dict] = []
+    if not projects_dir.exists():
+        return result
+
+    running_project_ids: set[str] = set()
+    for a in state.agents.values():
+        if a.project_id and a.process is not None and a.process.poll() is None:
+            running_project_ids.add(a.project_id)
+
+    queued_project_ids: set[str] = set()
+    for q in state.queues.values():
+        for t in q.tasks:
+            if t.status in ("pending", "assigned") and t.project_id:
+                queued_project_ids.add(t.project_id)
+
+    for proj_dir in sorted(projects_dir.iterdir()):
+        if not proj_dir.is_dir() or proj_dir.name.startswith("_"):
+            continue
+        project_id = proj_dir.name
+        cp = _read_json(proj_dir / "checkpoint.json")
+        meta = _read_json(proj_dir / "project_meta.json")
+
+        last_stage = cp.get("last_completed_stage", 0) if cp else 0
+        last_name = cp.get("last_completed_name", "") if cp else ""
+        timestamp = cp.get("timestamp", "") if cp else ""
+
+        if last_stage >= 22:
+            status = "completed"
+        elif project_id in running_project_ids:
+            status = "running"
+        elif project_id in queued_project_ids:
+            status = "queued"
+        elif last_stage > 0:
+            status = "interrupted"
+        else:
+            status = "new"
+
+        topic = ""
+        config_path = ""
+        if meta:
+            topic = meta.get("topic", "")
+            config_path = meta.get("config_path", "")
+        if not topic:
+            goal_path = proj_dir / "stage-01" / "goal.md"
+            if goal_path.exists():
+                try:
+                    topic = goal_path.read_text(encoding="utf-8")[:300]
+                except OSError:
+                    pass
+
+        result.append({
+            "projectId": project_id,
+            "status": status,
+            "lastCompletedStage": last_stage,
+            "lastCompletedName": last_name,
+            "totalStages": 22,
+            "timestamp": timestamp,
+            "topic": topic,
+            "configPath": config_path,
+        })
+
+    return result
+
+
+def resume_project(state: BridgeState, project_id: str) -> list[dict]:
+    """Resume a project from its last checkpoint."""
+    messages: list[dict] = []
+    sys_agent = LobsterAgent(id="system", name="系统", layer="idea", run_id="", run_dir="", config_path="")
+
+    state._fail_counts.pop(project_id, None)  # reset fail counter on manual resume
+
+    run_dir = str(state.projects_dir() / project_id)
+    if not Path(run_dir).exists():
+        messages.append(msg_log(sys_agent, f"项目 [{project_id}] 不存在", "error"))
+        return messages
+
+    for a in state.agents.values():
+        if a.project_id == project_id and a.process is not None and a.process.poll() is None:
+            messages.append(msg_log(sys_agent, f"项目 [{project_id}] 已在运行中", "warning"))
+            return messages
+
+    meta = _read_json(Path(run_dir) / "project_meta.json")
+    config_path = meta.get("config_path", "") if meta else ""
+    topic = meta.get("topic", "") if meta else ""
+
+    if not config_path:
+        messages.append(msg_log(sys_agent, f"项目 [{project_id}] 缺少配置文件路径, 无法恢复", "error"))
+        return messages
+
+    messages.extend(submit_new_project(state, project_id, config_path, topic))
+    return messages
+
+
+def _slugify(text: str, max_len: int = 40) -> str:
+    """Turn arbitrary text into a filesystem-safe slug."""
+    text = text.lower().strip()
+    text = re.sub(r'[^\w\s-]', '', text)
+    text = re.sub(r'[\s_-]+', '-', text)
+    text = text.strip('-')[:max_len].rstrip('-')
+    if not text:
+        text = hashlib.md5(str(time.time()).encode()).hexdigest()[:8]
+    return text
+
+
+def _generate_config_from_template(
+    state: BridgeState, project_id: str, topic: str, role_prompt: str = "",
+) -> str:
+    """Generate a project-specific YAML config from the default template.
+
+    If role_prompt is provided (Lab mode), it's prepended to the topic so the
+    pipeline agent operates from that specialist perspective.
+    """
+    template_path = Path(state.agent_package_dir).parent / "config_template.yaml"
+    if not template_path.exists():
+        template_path = Path(__file__).resolve().parent.parent / "config_template.yaml"
+    if not template_path.exists():
+        raise FileNotFoundError(f"Config template not found at {template_path}")
+
+    full_topic = f"{role_prompt}\n\n研究主题: {topic}" if role_prompt else topic
+
+    content = template_path.read_text(encoding="utf-8")
+    content = content.replace("__PROJECT_ID__", project_id)
+    content = content.replace("__TOPIC__", full_topic.replace('"', '\\"'))
+
+    configs_dir = Path(state.runs_base_dir) / "project_configs"
+    configs_dir.mkdir(parents=True, exist_ok=True)
+    config_path = configs_dir / f"{project_id}.yaml"
+    config_path.write_text(content, encoding="utf-8")
+    return str(config_path)
+
+
+DEFAULT_LAB_ANGLES: list[dict[str, str]] = [
+    {
+        "name": "理论与模型",
+        "prompt": (
+            "你是实验室的「理论与模型架构」研究员。"
+            "你的专长是基础理论、模型架构设计、注意力机制、表征学习。"
+            "请从模型架构和理论创新的角度进行深入调研，"
+            "重点关注: 核心算法原理、模型结构对比、理论瓶颈和突破方向。"
+        ),
+    },
+    {
+        "name": "方法与实现",
+        "prompt": (
+            "你是实验室的「方法与系统实现」研究员。"
+            "你的专长是训练策略、工程优化、数据流水线、开源框架。"
+            "请从方法创新和工程实现的角度进行深入调研，"
+            "重点关注: 训练技巧、性能优化、代码实现方案、可复现性。"
+        ),
+    },
+    {
+        "name": "评估与应用",
+        "prompt": (
+            "你是实验室的「评估与应用」研究员。"
+            "你的专长是评估基准、下游任务、实际部署、对比实验。"
+            "请从评估方法和实际应用的角度进行深入调研，"
+            "重点关注: 评估指标设计、基准数据集、应用场景、现有方法的局限性。"
+        ),
+    },
+]
+
+
+def _build_role_prompt(angle_name: str, main_topic: str) -> str:
+    """Build a role prompt for a Lab mode agent. Uses default prompts for known
+    patterns, otherwise generates a reasonable prompt from the angle name."""
+    for default in DEFAULT_LAB_ANGLES:
+        if default["name"] == angle_name:
+            return default["prompt"]
+    return (
+        f"你是实验室的「{angle_name}」方向研究员。"
+        f"请从 {angle_name} 的专业视角对研究主题进行深入调研，"
+        f"重点关注该方向最相关的理论、方法、数据集和最新进展。"
+    )
+
+
+def quick_submit_project(
+    state: BridgeState, topic: str, project_id: str = "",
+    mode: str = "lab",
+    research_angles: list[str] | None = None,
+) -> list[dict]:
+    """Create a project from a topic string.
+
+    Modes:
+      - "lab": Multi-angle parallel research (default). If no angles provided,
+        uses 3 default perspectives. Each agent gets a specialized role prompt.
+      - "reproduce": Single-agent focused pipeline for paper reproduction.
+    """
+    messages: list[dict] = []
+    sys_agent = LobsterAgent(id="system", name="系统", layer="idea", run_id="", run_dir="", config_path="")
+
+    if not topic.strip():
+        messages.append(msg_log(sys_agent, "请输入研究主题", "error"))
+        return messages
+
+    base_id = project_id or _slugify(topic)
+
+    # ── Reproduce mode: single-agent standard pipeline ──
+    if mode == "reproduce":
+        if not project_id:
+            existing = state.projects_dir() / base_id
+            if existing.exists():
+                base_id = f"{base_id}-{_uid()[:4]}"
+        try:
+            config_path = _generate_config_from_template(state, base_id, topic.strip())
+        except Exception as e:
+            messages.append(msg_log(sys_agent, f"配置生成失败: {e}", "error"))
+            return messages
+        messages.append(msg_log(sys_agent, f"复现模式: 项目 [{base_id}] 单 Agent 全流程启动", "success"))
+        messages.extend(submit_new_project(state, base_id, config_path, topic.strip()))
+        return messages
+
+    # ── Lab mode: multi-angle parallel research ──
+    angles: list[dict[str, str]]
+    if research_angles and len(research_angles) >= 2:
+        angles = [
+            {"name": a.strip(), "prompt": _build_role_prompt(a.strip(), topic.strip())}
+            for a in research_angles if a.strip()
+        ]
+    else:
+        angles = DEFAULT_LAB_ANGLES
+
+    messages.append(msg_log(
+        sys_agent,
+        f"Lab 模式: {len(angles)} 个研究方向并行调研",
+        "info",
+    ))
+
+    for i, angle in enumerate(angles):
+        name = angle["name"]
+        role_prompt = angle["prompt"]
+
+        sub_id = f"{base_id}--{_slugify(name, 20)}"
+        existing = state.projects_dir() / sub_id
+        if existing.exists():
+            sub_id = f"{sub_id}-{_uid()[:4]}"
+
+        try:
+            config_path = _generate_config_from_template(
+                state, sub_id, topic.strip(), role_prompt,
+            )
+        except Exception as e:
+            messages.append(msg_log(sys_agent, f"配置生成失败 [{name}]: {e}", "error"))
+            continue
+
+        sub_topic = f"[{name}] {topic.strip()}"
+        messages.append(msg_log(
+            sys_agent,
+            f"  方向 {i+1}/{len(angles)}: {name} → [{sub_id}]",
+            "info",
+        ))
+        messages.extend(submit_new_project(state, sub_id, config_path, sub_topic))
+
+    messages.append(msg_log(
+        sys_agent,
+        f"所有方向 S7 完成后将自动触发跨领域讨论 → 合并为统一假设 → 进入实验设计",
+        "success",
+    ))
     return messages
 
 
@@ -989,10 +1655,7 @@ def _on_idea_factory_done(state: BridgeState, agent: LobsterAgent) -> list[dict]
         messages.append(msg_log(agent, "Idea 工厂: 未生成假设", "warning"))
 
     # Reset agent
-    agent.assigned_task_id = None
-    agent.project_id = ""
-    agent.status = "idle"
-    agent.current_task = "等待任务..."
+    _reset_agent_idle(agent)
     agent._is_idea_factory = False  # type: ignore[attr-defined]
     agent._is_idea_factory_s7_only = False  # type: ignore[attr-defined]
     agent._is_discussion_s8 = False  # type: ignore[attr-defined]
@@ -1011,10 +1674,7 @@ def _on_idea_factory_s7_done(state: BridgeState, agent: LobsterAgent) -> list[di
     if not batch_id or batch_id not in state.discussion_groups:
         messages.append(msg_log(agent, "S7 完成但无沟通讨论组，回退到非讨论模式", "warning"))
         agent._is_idea_factory = False  # type: ignore[attr-defined]
-        agent.assigned_task_id = None
-        agent.project_id = ""
-        agent.status = "idle"
-        agent.current_task = "等待任务..."
+        _reset_agent_idle(agent)
         messages.append(msg_agent_update(agent))
         return messages
 
@@ -1257,8 +1917,7 @@ def _poll_discussion(state: BridgeState, group: DiscussionGroup) -> list[dict]:
                 if has_project:
                     messages.extend(_skip_discussion_proceed_s8(state, agent))
                 else:
-                    agent.status = "idle"
-                    agent.current_task = "等待任务..."
+                    _reset_agent_idle(agent)
                     agent.current_stage = 0
                     messages.append(msg_agent_update(agent))
         return messages
@@ -1307,8 +1966,7 @@ def _poll_discussion(state: BridgeState, group: DiscussionGroup) -> list[dict]:
 
             messages.extend(_launch_s8_for_agent(state, agent, group))
         else:
-            agent.status = "idle"
-            agent.current_task = "等待任务..."
+            _reset_agent_idle(agent)
             agent.current_stage = 0
             agent.stage_progress[DISCUSSION_STAGE] = "completed"
             messages.append(msg_agent_update(agent))
@@ -1409,10 +2067,7 @@ def _on_discussion_s8_done(state: BridgeState, agent: LobsterAgent) -> list[dict
 
     # Not all agents done yet — park this agent, wait for peers
     if group and not group.all_s8_done():
-        agent.status = "idle"
-        agent.current_task = "等待任务..."
-        agent.assigned_task_id = None
-        agent.project_id = ""
+        _reset_agent_idle(agent)
         messages.append(msg_agent_update(agent))
         return messages
 
@@ -1454,10 +2109,7 @@ def _on_discussion_s8_done(state: BridgeState, agent: LobsterAgent) -> list[dict
         ))
 
     # Reset this agent (peers were already reset when they finished earlier)
-    agent.assigned_task_id = None
-    agent.project_id = ""
-    agent.status = "idle"
-    agent.current_task = "等待任务..."
+    _reset_agent_idle(agent)
     messages.append(msg_agent_update(agent))
     messages.append(msg_queue_update(state.queues))
 
@@ -1497,7 +2149,10 @@ def schedule_idle_agents(state: BridgeState) -> list[dict]:
             task = queue.peek_pending()
             if not task or task.target_layer != agent.layer:
                 continue
+            if state._fail_counts.get(task.project_id, 0) >= 3:
+                continue
 
+            state._fail_counts.pop(task.project_id, None)  # reset on successful assignment
             queue.assign(task.id, agent.id)
             messages.extend(launch_agent_for_task(state, agent, task))
             messages.append(msg_queue_update(state.queues))
@@ -1569,6 +2224,7 @@ async def handle_command(state: BridgeState, data: dict) -> list[dict]:
         for a in state.agents.values():
             messages.append(msg_agent_update(a))
         messages.append(msg_queue_update(state.queues))
+        messages.append(msg_project_list(list_all_projects(state)))
 
     elif cmd == "add_lobster":
         name = data.get("name", f"🦞 龙虾-{_uid()}")
@@ -1589,6 +2245,30 @@ async def handle_command(state: BridgeState, data: dict) -> list[dict]:
         topic = data.get("topic", "")
         messages.extend(submit_new_project(state, project_id, config_path, topic))
         messages.extend(schedule_idle_agents(state))
+        messages.append(msg_project_list(list_all_projects(state)))
+
+    elif cmd == "list_projects":
+        messages.append(msg_project_list(list_all_projects(state)))
+
+    elif cmd == "resume_project":
+        project_id = data.get("projectId", "")
+        if project_id:
+            messages.extend(resume_project(state, project_id))
+            messages.extend(schedule_idle_agents(state))
+            messages.append(msg_project_list(list_all_projects(state)))
+
+    elif cmd == "quick_submit":
+        topic = data.get("topic", "")
+        project_id = data.get("projectId", "")
+        mode = data.get("mode", "lab")
+        angles = data.get("researchAngles")
+        if isinstance(angles, str) and angles.strip():
+            angles = [a.strip() for a in re.split(r"[,，、;；]", angles) if a.strip()]
+        elif not isinstance(angles, list):
+            angles = None
+        messages.extend(quick_submit_project(state, topic, project_id, mode, angles))
+        messages.extend(schedule_idle_agents(state))
+        messages.append(msg_project_list(list_all_projects(state)))
 
     elif cmd == "stop_agent":
         agent_id = data.get("agentId")
@@ -1629,6 +2309,62 @@ async def handle_command(state: BridgeState, data: dict) -> list[dict]:
         _sys_a = LobsterAgent(id="system", name="系统", layer="idea", run_id="", run_dir="", config_path="")
         label = "开启" if enabled else "关闭"
         messages.append(msg_log(_sys_a, f"沟通讨论模式已{label} (轮数={state.discussion_rounds})", "info", DISCUSSION_STAGE))
+
+    elif cmd == "chat_input":
+        content = data.get("content", "").strip()
+        target_layer = data.get("targetLayer", "all")
+        intent = await _classify_chat_intent(content, state)
+        if intent == "query":
+            reply = _build_status_summary(state, target_layer)
+            messages.append(msg_feedback_ack(f"qs-{_uid()}", reply, target_layer))
+        else:
+            data["command"] = "human_feedback"
+            messages.extend(await handle_command(state, data))
+
+    elif cmd == "query_status":
+        target_layer = data.get("targetLayer", "all")
+        reply = _build_status_summary(state, target_layer)
+        messages.append(msg_feedback_ack(f"qs-{_uid()}", reply, target_layer))
+
+    elif cmd == "delete_project":
+        project_id = data.get("projectId", "")
+        messages.extend(_delete_project(state, project_id))
+        messages.append(msg_project_list(list_all_projects(state)))
+
+    elif cmd == "human_feedback":
+        content = data.get("content", "")
+        target_layer = data.get("targetLayer", "all")
+        message_id = data.get("messageId", f"fb-{_uid()}")
+
+        sys_agent = LobsterAgent(
+            id="system", name="系统", layer=target_layer if target_layer != "all" else "idea",
+            run_id="", run_dir="", config_path="",
+        )
+        messages.append(msg_log(sys_agent, f"收到人工反馈: {content[:80]}{'...' if len(content) > 80 else ''}", "info"))
+
+        _save_feedback(state, content, target_layer, message_id)
+
+        injected_projects = []
+        for agent in state.agents.values():
+            if not agent.run_dir or agent.status not in ("working", "idle"):
+                continue
+            if target_layer != "all" and agent.layer != target_layer:
+                continue
+            if agent.project_id:
+                injected_projects.append(agent.project_id)
+
+        if injected_projects:
+            unique = sorted(set(injected_projects))
+            plan_hint = (
+                f"已将反馈注入 {len(unique)} 个项目的 prompt 上下文中 "
+                f"({', '.join(unique)})。"
+                f"当前阶段完成后，下一个阶段的 LLM 将读取并参考你的反馈来调整执行计划。"
+            )
+        else:
+            plan_hint = (
+                f"已记录反馈。当前无匹配的运行中项目，反馈将在新任务启动时生效。"
+            )
+        messages.append(msg_feedback_ack(message_id, plan_hint, target_layer))
 
     return messages
 
@@ -1681,8 +2417,13 @@ async def poll_loop(state: BridgeState, interval: float):
                 else:
                     all_messages.extend(on_agent_done(state, agent))
 
-            # Detect failure → mark task failed, release GPU
+            # Detect failure → mark task failed, release GPU, track retry count
             if prev_status == "working" and agent.status == "error":
+                _fail_pid = agent.project_id or "unknown"
+                state._fail_counts[_fail_pid] = state._fail_counts.get(_fail_pid, 0) + 1
+                _n_fails = state._fail_counts[_fail_pid]
+                _MAX_RETRIES = 3
+
                 if agent.assigned_task_id:
                     for q in state.queues.values():
                         q.fail(agent.assigned_task_id)
@@ -1690,7 +2431,15 @@ async def poll_loop(state: BridgeState, interval: float):
                     released = state.gpu_allocator.release(agent.project_id)
                     if released:
                         all_messages.append(msg_log(agent, f"GPU {released} 已释放 (错误后)", "warning"))
-                # Clean up discussion group if agent failed (idea factory or user project)
+
+                if _n_fails >= _MAX_RETRIES:
+                    all_messages.append(msg_log(
+                        agent,
+                        f"项目 [{_fail_pid}] 连续失败 {_n_fails} 次，已停止自动重试。请检查日志后手动恢复。",
+                        "error",
+                    ))
+
+                # Clean up discussion group if agent failed
                 _batch_id = getattr(agent, '_idea_factory_batch_id', None)
                 _disc_key = _batch_id or (agent.project_id if agent.project_id in state.discussion_groups else None)
                 if _disc_key and _disc_key in state.discussion_groups:
@@ -1702,7 +2451,6 @@ async def poll_loop(state: BridgeState, interval: float):
                     remaining = [state.agents.get(a) for a in _grp.agent_ids if state.agents.get(a)]
                     waiting = [a for a in remaining if a.status == "waiting_discussion"]
                     if waiting and len(_grp.agent_ids) < 2:
-                        # Only 1 agent left — skip discussion, launch S8 directly
                         sole = waiting[0]
                         all_messages.append(msg_log(
                             sole,
@@ -1715,10 +2463,7 @@ async def poll_loop(state: BridgeState, interval: float):
                         _grp.status = "done"
                     elif not remaining:
                         del state.discussion_groups[_disc_key]
-                agent.assigned_task_id = None
-                agent.project_id = ""
-                agent.status = "idle"
-                agent.current_task = "等待任务..."
+                _reset_agent_idle(agent)
                 all_messages.append(msg_agent_update(agent))
 
         # Poll active discussions
@@ -1728,6 +2473,14 @@ async def poll_loop(state: BridgeState, interval: float):
         # Schedule idle agents
         sched_msgs = schedule_idle_agents(state)
         all_messages.extend(sched_msgs)
+
+        # Periodically broadcast project list (every ~10 poll cycles)
+        if not hasattr(state, '_project_list_counter'):
+            state._project_list_counter = 0  # type: ignore[attr-defined]
+        state._project_list_counter += 1  # type: ignore[attr-defined]
+        if state._project_list_counter >= 10:  # type: ignore[attr-defined]
+            state._project_list_counter = 0  # type: ignore[attr-defined]
+            all_messages.append(msg_project_list(list_all_projects(state)))
 
         await broadcast(state, all_messages)
 
@@ -1760,10 +2513,33 @@ async def main(args: argparse.Namespace):
     state.projects_dir().mkdir(parents=True, exist_ok=True)
     state.queues_dir().mkdir(parents=True, exist_ok=True)
 
-    # Initialize queues (load from disk)
+    # Initialize queues (load from disk, clean stale tasks from prior run)
+    _completed_projects: set[str] = set()
+    for _pd in state.projects_dir().iterdir():
+        if _pd.is_dir() and not _pd.name.startswith("_"):
+            _cp = _read_json(_pd / "checkpoint.json")
+            if _cp and _cp.get("last_completed_stage", 0) >= 22:
+                _completed_projects.add(_pd.name)
     for queue_name in list(QUEUE_NAMES.keys()) + ["init_to_idea"]:
         q = TaskQueue(name=queue_name, path=state.queues_dir() / f"{queue_name}.json")
         q.load()
+        _stale = 0
+        _cleaned = 0
+        for t in q.tasks:
+            if t.status == "assigned":
+                t.status = "failed"
+                _stale += 1
+        orig_len = len(q.tasks)
+        q.tasks = [t for t in q.tasks if not (
+            t.project_id in _completed_projects and t.status in ("pending", "assigned", "failed")
+        )]
+        _cleaned = orig_len - len(q.tasks)
+        if _stale or _cleaned:
+            q.save()
+        if _stale:
+            print(f"   [queue] {queue_name}: reset {_stale} stale assigned task(s)")
+        if _cleaned:
+            print(f"   [queue] {queue_name}: removed {_cleaned} task(s) for completed projects")
         state.queues[queue_name] = q
 
     # Create default lobster pool (configurable via --pool)

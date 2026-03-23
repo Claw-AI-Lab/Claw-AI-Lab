@@ -7,6 +7,7 @@ interface Props {
   agents: LobsterAgent[];
   logs: LogEntry[];
   tierIndex: number;
+  selectedProjectId?: string | null;
 }
 
 const STATUS_LABEL: Record<string, string> = {
@@ -19,7 +20,7 @@ const STAGE_ST: Record<string, string> = {
 };
 const DISCUSSION_STAGE = 100;
 
-export default memo(function LayerPanel({ layer, agents, logs, tierIndex }: Props) {
+export default memo(function LayerPanel({ layer, agents, logs, tierIndex, selectedProjectId }: Props) {
   const [expanded, setExpanded] = useState(false);
   const meta = LAYER_META[layer];
   const recentLogs = logs.slice(-30);
@@ -64,8 +65,11 @@ export default memo(function LayerPanel({ layer, agents, logs, tierIndex }: Prop
       </div>
 
       <div className="agent-row">
-        {agents.map((agent) => (
-          <div key={agent.id} className={`agent-card status-${agent.status}`}>
+        {agents.map((agent) => {
+          const dimmed = selectedProjectId && agent.projectId && agent.projectId !== selectedProjectId;
+          const highlighted = selectedProjectId && agent.projectId === selectedProjectId;
+          return (
+          <div key={agent.id} className={`agent-card status-${agent.status}${highlighted ? ' agent-highlighted' : ''}${dimmed ? ' agent-dimmed' : ''}`}>
             <div className="agent-card-top">
               <span className="agent-name">{agent.name}</span>
               <span className="agent-run-id">{agent.runId}</span>
@@ -103,7 +107,8 @@ export default memo(function LayerPanel({ layer, agents, logs, tierIndex }: Prop
               })}
             </div>
           </div>
-        ))}
+          );
+        })}
       </div>
 
       {expanded && (
