@@ -14,6 +14,10 @@ const STATUS_LABEL: Record<string, string> = {
   idle: '空闲', working: '工作中', error: '异常', done: '完成',
   waiting_discussion: '等待讨论', discussing: '讨论中',
 };
+const STATUS_ICON: Record<string, string> = {
+  idle: '🦞', working: '🔬', error: '❗', done: '✅',
+  waiting_discussion: '🗣️', discussing: '🗣️',
+};
 const STAGE_ST: Record<string, string> = {
   pending: '⬜', running: '🔄', completed: '✅', failed: '❌', skipped: '⏭',
   waiting: '⏳', discussing: '💬',
@@ -37,7 +41,7 @@ export default memo(function LayerPanel({ layer, agents, logs, tierIndex, select
           <span className="layer-dot" />
           <h3>{meta.name}</h3>
           <span className="layer-agent-count">
-            {agents.length} 🦞 · {workingCount} 活跃
+            {agents.length} agent · {workingCount} 活跃
           </span>
           <span className={`expand-icon ${expanded ? 'open' : ''}`}>▼</span>
         </div>
@@ -54,7 +58,7 @@ export default memo(function LayerPanel({ layer, agents, logs, tierIndex, select
               : agents.some((a) => a.stageProgress[s] === 'completed');
             const cls = anyRunning ? 'stage-running' : anyDone ? 'stage-done' : 'stage-idle';
             const dn = sm.displayNumber;
-            const label = isDisc ? `💬 ${sm.name}` : `S${dn} ${sm.name.replace(/ ⛩$/, '')}`;
+            const label = isDisc ? `💬 ${sm.name}` : `S${dn} ${sm.name}`;
             return (
               <span key={s} className={`stage-chip ${cls}${isDisc ? ' stage-discussion' : ''}`} title={sm.key}>
                 {label}
@@ -71,8 +75,9 @@ export default memo(function LayerPanel({ layer, agents, logs, tierIndex, select
           return (
           <div key={agent.id} className={`agent-card status-${agent.status}${highlighted ? ' agent-highlighted' : ''}${dimmed ? ' agent-dimmed' : ''}`}>
             <div className="agent-card-top">
-              <span className="agent-name">{agent.name}</span>
-              <span className="agent-run-id">{agent.runId}</span>
+              <span className="agent-icon">{STATUS_ICON[agent.status] || '🦞'}</span>
+              <span className="agent-name" title={agent.name}>{agent.name}</span>
+              <span className="agent-run-id" title={agent.runId || ''}>{agent.runId}</span>
             </div>
             <div className="agent-status">
               <span className={`status-dot ${agent.status}`} />
@@ -88,23 +93,26 @@ export default memo(function LayerPanel({ layer, agents, logs, tierIndex, select
                 <span className="agent-stage-badge discussion-badge">💬讨论</span>
               )}
             </div>
-            {agent.currentTask && <div className="agent-task">{agent.currentTask}</div>}
-            <div className="agent-progress">
-              {LAYER_META[layer].stages.map((s) => {
-                const isDisc = s === DISCUSSION_STAGE;
-                const status = isDisc
-                  ? (agent.status === 'discussing' ? 'discussing'
-                    : agent.status === 'waiting_discussion' ? 'waiting'
-                    : agent.stageProgress[s] || 'pending')
-                  : (agent.stageProgress[s] || 'pending');
-                const dn2 = STAGE_META[s]?.displayNumber ?? s;
-                const label = isDisc ? `💬 沟通讨论: ${status}` : `S${dn2}: ${status}`;
-                return (
-                  <span key={s} className="stage-pip" title={label}>
-                    {STAGE_ST[status] || '⬜'}
-                  </span>
-                );
-              })}
+            {agent.currentTask && <div className="agent-task" title={agent.currentTask}>{agent.currentTask}</div>}
+            <div className="agent-bottom-row">
+              <div className="agent-progress">
+                {LAYER_META[layer].stages.map((s) => {
+                  const isDisc = s === DISCUSSION_STAGE;
+                  const status = isDisc
+                    ? (agent.status === 'discussing' ? 'discussing'
+                      : agent.status === 'waiting_discussion' ? 'waiting'
+                      : agent.stageProgress[s] || 'pending')
+                    : (agent.stageProgress[s] || 'pending');
+                  const dn2 = STAGE_META[s]?.displayNumber ?? s;
+                  const label = isDisc ? `💬 沟通讨论: ${status}` : `S${dn2}: ${status}`;
+                  return (
+                    <span key={s} className="stage-pip" title={label}>
+                      {STAGE_ST[status] || '⬜'}
+                    </span>
+                  );
+                })}
+              </div>
+              {agent.roleTag && <span className="agent-role-tag" title={agent.roleTag}>{agent.roleTag}</span>}
             </div>
           </div>
           );

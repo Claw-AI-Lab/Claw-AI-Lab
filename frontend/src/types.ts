@@ -41,12 +41,12 @@ export const STAGE_META: Record<RCStage, StageMeta> = {
   2:  { id: 2,  displayNumber: 2,  name: '问题分解',     key: 'PROBLEM_DECOMPOSE',   outputs: ['problem_tree.md'] },
   3:  { id: 3,  displayNumber: 3,  name: '检索策略',     key: 'SEARCH_STRATEGY',     outputs: ['search_plan.yaml', 'sources.json', 'queries.json'] },
   4:  { id: 4,  displayNumber: 4,  name: '文献收集',     key: 'LITERATURE_COLLECT',  outputs: ['candidates.jsonl'] },
-  5:  { id: 5,  displayNumber: 5,  name: '文献筛选 ⛩',  key: 'LITERATURE_SCREEN',   outputs: ['shortlist.jsonl'] },
+  5:  { id: 5,  displayNumber: 5,  name: '文献筛选',  key: 'LITERATURE_SCREEN',   outputs: ['shortlist.jsonl'] },
   6:  { id: 6,  displayNumber: 6,  name: '知识提取',     key: 'KNOWLEDGE_EXTRACT',   outputs: ['cards/'] },
   7:  { id: 7,  displayNumber: 7,  name: '知识综合',     key: 'SYNTHESIS',           outputs: ['synthesis.md'] },
   100:{ id: 100,displayNumber: 0,  name: '沟通讨论',    key: 'DISCUSSION',          outputs: ['discussion_transcript.md', 'consensus_synthesis.md'] },
   8:  { id: 8,  displayNumber: 8,  name: '假设生成',     key: 'HYPOTHESIS_GEN',      outputs: ['hypotheses.md'] },
-  9:  { id: 9,  displayNumber: 9,  name: '实验设计 ⛩',  key: 'EXPERIMENT_DESIGN',   outputs: ['exp_plan.yaml'] },
+  9:  { id: 9,  displayNumber: 9,  name: '实验设计',  key: 'EXPERIMENT_DESIGN',   outputs: ['exp_plan.yaml'] },
   10: { id: 10, displayNumber: 10, name: '代码库检索',   key: 'CODEBASE_SEARCH',     outputs: ['codebase_candidates.json'] },
   11: { id: 11, displayNumber: 11, name: '代码生成',     key: 'CODE_GENERATION',     outputs: ['experiment/', 'experiment_spec.md'] },
   12: { id: 12, displayNumber: 12, name: '代码检验',     key: 'SANITY_CHECK',        outputs: ['sanity_report.json'] },
@@ -216,6 +216,7 @@ export interface LobsterAgent {
   stageProgress: Record<number, StageStatus>;
   runId: string;
   projectId?: string;
+  roleTag?: string;
 }
 
 export interface Artifact {

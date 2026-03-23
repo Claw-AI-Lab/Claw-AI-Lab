@@ -1,9 +1,8 @@
 import { useReducer, useEffect, useCallback, useRef, useState, useMemo } from 'react';
-import { AgentLayer, ALL_LAYERS, ALL_REPOS } from './types';
-import type { AppState, WSMessage, ResourceStats, LobsterAgent, QueueMap, ProjectInfo } from './types';
+import { AgentLayer, ALL_LAYERS } from './types';
+import type { AppState, WSMessage, ResourceStats, LobsterAgent, QueueMap, ProjectInfo, Artifact } from './types';
 import { INITIAL_AGENTS, createMockMessageGenerator } from './mock';
 import LayerPanel from './components/LayerPanel';
-import DataShelf from './components/DataShelf';
 import ResourceMonitor from './components/ResourceMonitor';
 import LogPanel from './components/LogPanel';
 import HumanFeedbackPanel from './components/HumanFeedbackPanel';
@@ -163,9 +162,6 @@ export default function App() {
         ws.onclose = () => {
           dispatch({ type: 'set_connected', payload: false });
           reconnects++;
-          if (reconnects >= 4 && !mockModeRef.current) {
-            doStartMock();
-          }
           const delay = Math.min(3000 * Math.pow(1.5, reconnects), 20000);
           timer = setTimeout(connect, delay);
         };
@@ -248,16 +244,15 @@ export default function App() {
     [AgentLayer.WRITING]: writeLogs,
   }), [ideaLogs, expLogs, codeLogs, execLogs, writeLogs]);
 
-  const knowledgeArt = useMemo(() => state.artifacts.filter((a) => a.repoId === 'knowledge'), [state.artifacts]);
-  const expDesignArt = useMemo(() => state.artifacts.filter((a) => a.repoId === 'exp_design'), [state.artifacts]);
-  const codebaseArt = useMemo(() => state.artifacts.filter((a) => a.repoId === 'codebase'), [state.artifacts]);
-  const resultsArt = useMemo(() => state.artifacts.filter((a) => a.repoId === 'results'), [state.artifacts]);
-  const insightsArt = useMemo(() => state.artifacts.filter((a) => a.repoId === 'insights'), [state.artifacts]);
-  const papersArt = useMemo(() => state.artifacts.filter((a) => a.repoId === 'papers'), [state.artifacts]);
-  const artMap = useMemo(() => ({
-    knowledge: knowledgeArt, exp_design: expDesignArt,
-    codebase: codebaseArt, results: resultsArt, insights: insightsArt, papers: papersArt,
-  }), [knowledgeArt, expDesignArt, codebaseArt, resultsArt, insightsArt, papersArt]);
+  const artifactsByProject = useMemo(() => {
+    const map: Record<string, Artifact[]> = {};
+    for (const a of state.artifacts) {
+      const pid = a.projectId || '_global';
+      if (!map[pid]) map[pid] = [];
+      map[pid].push(a);
+    }
+    return map;
+  }, [state.artifacts]);
 
   const workingCount = useMemo(() => state.agents.filter((a) => ['working', 'waiting_discussion', 'discussing'].includes(a.status)).length, [state.agents]);
   const errorCount = useMemo(() => state.agents.filter((a) => a.status === 'error').length, [state.agents]);
@@ -270,10 +265,10 @@ export default function App() {
           <span className="header-subtitle">1.0.0</span>
         </div>
         <div className="header-stats">
-          <span className="stat">🦞 <b>{state.agents.length}</b></span>
-          <span className="stat">🔧 <b>{workingCount}</b></span>
+          <span className="stat">Agent <b>{state.agents.length}</b></span>
+          <span className="stat">活跃 <b>{workingCount}</b></span>
           <span className="stat">❌ <b>{errorCount}</b></span>
-          <span className="stat">📦 <b>{state.artifacts.length}</b></span>
+          <span className="stat">📦 <b>{state.artifacts.length}</b> 产物</span>
         </div>
         <div className="header-right">
           <button className="btn-sm" onClick={() => setShowSettings(!showSettings)}>⚙️</button>
@@ -282,12 +277,6 @@ export default function App() {
 
       {showSettings && (
         <div className="settings-bar">
-          <label>
-            <button className="btn-sm mode-btn" onClick={toggleMode}>
-              {state.mockMode ? '🎭 模拟 → 切换真实' : '🔌 真实 → 切换模拟'}
-            </button>
-          </label>
-          <span className="settings-sep">|</span>
           <label>Agent: <input value={agentWsUrl} onChange={(e) => setAgentWsUrl(e.target.value)} /></label>
           <label>资源: <input value={resWsUrl} onChange={(e) => setResWsUrl(e.target.value)} /></label>
         </div>
@@ -299,6 +288,7 @@ export default function App() {
             projects={state.projects}
             connected={state.connected}
             selectedProjectId={state.selectedProjectId}
+            artifactsByProject={artifactsByProject}
             onSelect={(projectId) => dispatch({ type: 'select_project', payload: projectId })}
             onResume={(projectId) => {
               const ws = agentWsRef.current;
@@ -327,12 +317,6 @@ export default function App() {
               }
             }}
           />
-          <h2>📚 共享数据仓库</h2>
-          <div className="repo-list">
-            {ALL_REPOS.map((repoId) => (
-              <DataShelf key={repoId} repoId={repoId} artifacts={artMap[repoId]} />
-            ))}
-          </div>
           <QueuePanel queues={state.queues} />
         </div>
 
