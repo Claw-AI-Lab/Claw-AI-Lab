@@ -10,9 +10,16 @@ non-data figures such as:
 These figures complement the Code-to-Viz agent which handles data-driven
 charts (bar plots, line charts, heatmaps, etc.).
 
-Requires: ``pip install google-genai Pillow``
+Supports three backends (in priority order):
+  1. **OpenAI-compatible proxy** (e.g. vectorengine.ai) — uses
+     ``/v1/chat/completions`` with an image-capable model.  Pass
+     ``base_url`` + ``openai_api_key`` to enable.
+  2. **google-genai SDK** — ``pip install google-genai Pillow``
+  3. **Gemini REST API** — no extra dependency
+
 API key:  Set ``GEMINI_API_KEY`` or ``GOOGLE_API_KEY`` env var, or
-          pass via config.
+          pass via config.  For the OpenAI proxy backend, pass
+          ``openai_api_key`` (reuses the LLM key).
 
 References:
   - Nano Banana docs: https://ai.google.dev/gemini-api/docs/image-generation
@@ -76,8 +83,17 @@ class NanoBananaAgent(BaseAgent):
         output_dir: str | Path | None = None,
         aspect_ratio: str = "16:9",
         use_sdk: bool | None = None,  # None = auto-detect
+        base_url: str | None = None,
+        openai_api_key: str | None = None,
+        image_model: str | None = None,
     ) -> None:
         super().__init__(llm)
+
+        # OpenAI-compatible proxy (e.g. vectorengine.ai)
+        self._base_url = (base_url or "").rstrip("/") or None
+        self._openai_api_key = openai_api_key or ""
+        self._image_model = image_model or model
+
         self._api_key = (
             gemini_api_key
             or os.environ.get("GEMINI_API_KEY")
@@ -97,10 +113,10 @@ class NanoBananaAgent(BaseAgent):
             except ImportError:
                 self._use_sdk = False
 
-        if not self._api_key:
+        if not self._api_key and not self._base_url:
             logger.warning(
-                "No Gemini API key found. Set GEMINI_API_KEY or "
-                "GOOGLE_API_KEY env var for Nano Banana image generation."
+                "No Gemini API key or OpenAI proxy base_url found. "
+                "Set GEMINI_API_KEY env var or pass base_url for Nano Banana."
             )
 
     # ------------------------------------------------------------------
@@ -129,10 +145,10 @@ class NanoBananaAgent(BaseAgent):
                 data={"generated": [], "count": 0},
             )
 
-        if not self._api_key:
+        if not self._api_key and not self._base_url:
             return AgentStepResult(
                 success=False,
-                error="No Gemini API key configured for Nano Banana",
+                error="No Gemini API key or OpenAI proxy configured for Nano Banana",
                 data={"generated": [], "count": 0},
             )
 
@@ -306,13 +322,89 @@ class NanoBananaAgent(BaseAgent):
         prompt: str,
         output_path: Path,
     ) -> bool:
-        """Generate image via Gemini API.
+        """Generate image via the best available backend.
 
-        Tries google-genai SDK first, falls back to REST API.
+        Priority: OpenAI proxy → google-genai SDK → Gemini REST API.
         """
+        if self._base_url and self._openai_api_key:
+            return self._generate_via_openai_chat(prompt, output_path)
         if self._use_sdk:
             return self._generate_via_sdk(prompt, output_path)
         return self._generate_via_rest(prompt, output_path)
+
+    # --- regex for extracting base64 data URIs from markdown images ---
+    _B64_DATA_RE = re.compile(
+        r"data:image/(?:png|jpeg|jpg|webp);base64,([A-Za-z0-9+/=\s]+)"
+    )
+
+    def _generate_via_openai_chat(
+        self,
+        prompt: str,
+        output_path: Path,
+    ) -> bool:
+        """Generate image via an OpenAI-compatible chat completions proxy.
+
+        The proxy (e.g. vectorengine.ai) forwards to a Gemini image model and
+        returns the image as a ``![image](data:image/png;base64,...)`` markdown
+        string inside the assistant message ``content``.
+        """
+        url = f"{self._base_url}/chat/completions"
+
+        payload = {
+            "model": self._image_model,
+            "messages": [{"role": "user", "content": prompt}],
+            "max_tokens": 4096,
+        }
+
+        data = json.dumps(payload).encode("utf-8")
+        req = urllib.request.Request(
+            url,
+            data=data,
+            headers={
+                "Content-Type": "application/json",
+                "Authorization": f"Bearer {self._openai_api_key}",
+            },
+            method="POST",
+        )
+
+        try:
+            with urllib.request.urlopen(req, timeout=180) as resp:
+                result = json.loads(resp.read().decode("utf-8"))
+
+            choices = result.get("choices", [])
+            if not choices:
+                logger.warning("OpenAI proxy returned no choices")
+                return False
+
+            content = choices[0].get("message", {}).get("content", "")
+            if not content:
+                logger.warning("OpenAI proxy returned empty content")
+                return False
+
+            m = self._B64_DATA_RE.search(content)
+            if not m:
+                logger.warning(
+                    "OpenAI proxy response has no base64 image data "
+                    "(content length=%d)", len(content),
+                )
+                return False
+
+            raw_b64 = m.group(1).replace("\n", "").replace("\r", "").replace(" ", "")
+            image_bytes = base64.b64decode(raw_b64)
+            output_path.write_bytes(image_bytes)
+            logger.info(
+                "NanoBanana: generated %s via OpenAI proxy (%d bytes)",
+                output_path.name, len(image_bytes),
+            )
+            return True
+
+        except urllib.error.HTTPError as e:
+            body = e.read().decode("utf-8", errors="replace")[:500]
+            logger.warning("OpenAI proxy error %d: %s", e.code, body)
+            return False
+        except Exception as e:
+            logger.warning("OpenAI proxy error: %s", e)
+            return False
 
     def _generate_via_sdk(
         self,

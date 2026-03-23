@@ -7455,6 +7455,109 @@ def _extract_figure_prompts(draft: str, topic: str = "") -> list[dict]:
     return results
 
 
+def _render_figure_prompts(
+    fig_prompts: list[dict],
+    stage_dir: Path,
+    config: Any,
+    llm: Any,
+    topic: str = "",
+) -> list[dict]:
+    """Render extracted FIGURE_PROMPT entries via NanoBananaAgent.
+
+    Uses the OpenAI-compatible proxy (same base_url/api_key as the LLM) to
+    call an image-capable model (default ``gemini-2.5-flash-image``).
+    Gracefully skips if no API credentials are available.
+
+    Returns the *same* ``fig_prompts`` list, augmented with ``output_path``
+    and ``success`` fields for each entry.
+    """
+    if not fig_prompts:
+        return fig_prompts
+
+    from researchclaw.agents.figure_agent.nano_banana import NanoBananaAgent
+
+    base_url = getattr(config.llm, "base_url", "") or ""
+    api_key = getattr(config.llm, "api_key", "") or ""
+    if not base_url or not api_key:
+        logger.warning(
+            "NanoBanana render skipped — no llm.base_url or llm.api_key"
+        )
+        return fig_prompts
+
+    fa_cfg = getattr(config.experiment, "figure_agent", None)
+    image_model = (
+        (getattr(fa_cfg, "gemini_model", "") if fa_cfg else "")
+        or "gemini-2.5-flash-image"
+    )
+
+    figures_dir = stage_dir / "figures"
+    figures_dir.mkdir(parents=True, exist_ok=True)
+
+    image_figures = [
+        {
+            "figure_id": fp["figure_id"],
+            "figure_type": fp.get("figure_type", "concept_illustration"),
+            "section": fp.get("section", "Method"),
+            "description": fp.get("raw_prompt", fp.get("caption", "")),
+        }
+        for fp in fig_prompts
+    ]
+
+    agent = NanoBananaAgent(
+        llm,
+        base_url=base_url,
+        openai_api_key=api_key,
+        image_model=image_model,
+        output_dir=figures_dir,
+    )
+
+    try:
+        result = agent.execute({
+            "image_figures": image_figures,
+            "topic": topic,
+            "output_dir": str(figures_dir),
+        })
+    except Exception as exc:
+        logger.warning("NanoBanana rendering failed: %s", exc)
+        return fig_prompts
+
+    gen_map = {
+        g["figure_id"]: g for g in result.data.get("generated", [])
+    }
+    for fp in fig_prompts:
+        gen = gen_map.get(fp["figure_id"], {})
+        fp["output_path"] = gen.get("output_path", "")
+        fp["success"] = gen.get("success", False)
+
+    success_count = sum(1 for fp in fig_prompts if fp.get("success"))
+    logger.info(
+        "NanoBanana rendered %d/%d figure prompts → %s",
+        success_count, len(fig_prompts), figures_dir,
+    )
+    return fig_prompts
+
+
+def _read_figure_manifest(run_dir: Path) -> dict[str, dict]:
+    """Read ``figure_manifest.json`` from stage-16/charts/ (or stage-14).
+
+    Returns ``{filename: metadata_dict}`` for each chart entry.
+    """
+    for pattern in ("stage-16*", "stage-14*"):
+        for d in sorted(run_dir.glob(pattern)):
+            mf = d / "charts" / "figure_manifest.json"
+            if mf.is_file():
+                try:
+                    entries = json.loads(mf.read_text(encoding="utf-8"))
+                    return {
+                        Path(e["file_path"]).name: e
+                        for e in entries
+                        if isinstance(e, dict) and e.get("file_path")
+                    }
+                except Exception:
+                    pass
+    return {}
+
+
 # ---------------------------------------------------------------------------
 # Draft quality validation (section balance + bullet-point density)
 # ---------------------------------------------------------------------------
@@ -8655,22 +8758,40 @@ def _execute_paper_draft(
                     for _cf in sorted(_charts_path.glob("*.png")):
                         _chart_files.append(_cf.name)
         if _chart_files:
+            _manifest = _read_figure_manifest(run_dir)
+            _n = len(_chart_files)
             _chart_block = (
-                "\n\n## AVAILABLE FIGURES (embed in the paper)\n"
-                "The following figures were generated from actual experiment data. "
-                "You MUST reference at least 1-2 of these in the Results section "
-                "using markdown image syntax: `![Caption](charts/filename.png)`\n\n"
+                f"\n\n## AVAILABLE DATA FIGURES — ALL {_n} MUST be embedded\n"
+                f"The following {_n} figures were generated from actual experiment "
+                "data. You MUST reference **ALL** of them in the Results / "
+                "Analysis sections using markdown image syntax: "
+                "`![Caption](charts/filename.png)`\n"
+                "Each figure MUST have a descriptive caption and 2-3 sentences "
+                "of discussion explaining what the figure shows.\n\n"
             )
             for _cf_name in _chart_files:
-                _label = _cf_name.replace("_", " ").replace(".png", "").title()
-                _chart_block += f"- `charts/{_cf_name}` — {_label}\n"
+                _meta = _manifest.get(_cf_name, {})
+                _title = _meta.get(
+                    "title",
+                    _cf_name.replace("_", " ").replace(".png", "").title(),
+                )
+                _caption = _meta.get("caption", "")
+                _section = _meta.get("paper_section", "Results")
+                _chart_block += (
+                    f"- `charts/{_cf_name}` — **{_title}** "
+                    f"(place in {_section})\n"
+                )
+                if _caption:
+                    _chart_block += f"  Suggested caption: {_caption}\n"
             _chart_block += (
-                "\nFor each figure referenced, write a descriptive caption and "
-                "discuss what the figure shows in 2-3 sentences.\n"
+                "\nCRITICAL: A paper missing ANY of the above figures will be "
+                "desk-rejected. Distribute them across Results and Analysis "
+                "sections as indicated.\n"
             )
             exp_metrics_instruction += _chart_block
             logger.info(
-                "Stage 17: Injected %d chart references into paper draft prompt",
+                "Stage 17: Injected %d chart references (ALL required) "
+                "into paper draft prompt",
                 len(_chart_files),
             )
 
@@ -8938,17 +9059,24 @@ Generated: {_utcnow_iso()}
 """
     (stage_dir / "paper_draft.md").write_text(draft, encoding="utf-8")
 
-    # Extract FIGURE_PROMPT blocks and write figure_prompts.json
+    # Extract FIGURE_PROMPT blocks, render via NanoBanana, write figure_prompts.json
     _topic = config.research.topic if hasattr(config, "research") else ""
     _fig_prompts = _extract_figure_prompts(draft, topic=_topic)
     _draft_artifacts = ["paper_draft.md"]
     if _fig_prompts:
+        _fig_prompts = _render_figure_prompts(
+            _fig_prompts, stage_dir, config, llm, topic=_topic,
+        )
         _fp_path = stage_dir / "figure_prompts.json"
         _fp_path.write_text(
             json.dumps(_fig_prompts, indent=2, ensure_ascii=False),
             encoding="utf-8",
         )
         _draft_artifacts.append("figure_prompts.json")
+        for _fp in _fig_prompts:
+            if _fp.get("success") and _fp.get("output_path"):
+                _rel = Path(_fp["output_path"]).name
+                _draft_artifacts.append(f"figures/{_rel}")
         logger.info(
             "Stage 20: Extracted %d figure prompts → %s",
             len(_fig_prompts), _fp_path,
@@ -9256,12 +9384,19 @@ def _execute_paper_revision(
     _topic = config.research.topic if hasattr(config, "research") else ""
     _fig_prompts = _extract_figure_prompts(revised, topic=_topic)
     if _fig_prompts:
+        _fig_prompts = _render_figure_prompts(
+            _fig_prompts, stage_dir, config, llm, topic=_topic,
+        )
         _fp_path = stage_dir / "figure_prompts.json"
         _fp_path.write_text(
             json.dumps(_fig_prompts, indent=2, ensure_ascii=False),
             encoding="utf-8",
         )
         _revision_artifacts.append("figure_prompts.json")
+        for _fp in _fig_prompts:
+            if _fp.get("success") and _fp.get("output_path"):
+                _rel = Path(_fp["output_path"]).name
+                _revision_artifacts.append(f"figures/{_rel}")
         logger.info(
             "Stage 22: Extracted %d figure prompts from revised paper → %s",
             len(_fig_prompts), _fp_path,
