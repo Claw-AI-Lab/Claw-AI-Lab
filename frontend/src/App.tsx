@@ -106,7 +106,6 @@ export default function App() {
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
   const [agentWsUrl, setAgentWsUrl] = useState(`${WS_PROTO}//${window.location.host}/ws/agents`);
   const [resWsUrl, setResWsUrl] = useState(`${WS_PROTO}//${window.location.host}/ws/resources`);
-  const [showSettings, setShowSettings] = useState(false);
   const [locale, setLocale] = useState<Locale>(() =>
     (localStorage.getItem('claw-locale') as Locale) || 'zh'
   );
@@ -288,16 +287,8 @@ export default function App() {
           >
             {locale === 'zh' ? 'EN' : '中文'}
           </button>
-          <button className="btn-sm" onClick={() => setShowSettings(!showSettings)}>⚙️</button>
         </div>
       </header>
-
-      {showSettings && (
-        <div className="settings-bar">
-          <label>{t('header.agent_label')} <input value={agentWsUrl} onChange={(e) => setAgentWsUrl(e.target.value)} /></label>
-          <label>{t('header.resource_label')} <input value={resWsUrl} onChange={(e) => setResWsUrl(e.target.value)} /></label>
-        </div>
-      )}
 
       <div className="main-layout">
         <div className="side-panel repo-panel">

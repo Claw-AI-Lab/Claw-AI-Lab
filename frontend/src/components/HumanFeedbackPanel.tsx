@@ -17,11 +17,12 @@ export default memo(function HumanFeedbackPanel({ messages, onSend, connected }:
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const { t } = useLocale();
 
-  const targetOptions: Array<{ value: string; label: string }> = [
+  const targetOptions: Array<{ value: string; label: string; color?: string }> = [
     { value: 'all', label: t('feedback.target_all') },
     ...ALL_LAYERS.map((l) => ({
       value: l,
       label: t(`layer.${l}.name`).split('·')[1]?.trim() || l,
+      color: LAYER_META[l]?.color,
     })),
   ];
 
@@ -51,66 +52,65 @@ export default memo(function HumanFeedbackPanel({ messages, onSend, connected }:
     }
   };
 
-  const unreadCount = messages.filter((m) => m.role === 'system').length;
+  const lastSystemMsg = messages.filter((m) => m.role === 'system').pop();
 
   return (
-    <div className={`feedback-panel ${expanded ? 'expanded' : ''}`}>
-      <div className="feedback-header" onClick={() => setExpanded(!expanded)}>
-        <div className="feedback-header-left">
-          <span className="feedback-icon">💬</span>
-          <span className="feedback-title">{t('feedback.title')}</span>
-          {messages.length > 0 && (
-            <span className="feedback-badge">{messages.length}</span>
-          )}
-          {!expanded && unreadCount > 0 && (
-            <span className="feedback-hint">
-              {messages[messages.length - 1]?.content.slice(0, 40)}...
-            </span>
-          )}
+    <div className={`fb ${expanded ? 'fb--open' : ''}`}>
+      {/* accent stripe */}
+      <div className="fb-stripe" />
+
+      <div className="fb-bar" onClick={() => setExpanded(!expanded)}>
+        <div className="fb-bar-left">
+          <span className="fb-icon">💬</span>
+          <span className="fb-label">{t('feedback.title')}</span>
+          {messages.length > 0 && <span className="fb-count">{messages.length}</span>}
         </div>
-        <div className="feedback-header-right">
-          {connected
-            ? <span className="feedback-conn on">{t('feedback.connected')}</span>
-            : <span className="feedback-conn off">{t('feedback.offline')}</span>
-          }
-          <span className={`feedback-toggle ${expanded ? 'open' : ''}`}>▲</span>
+
+        {!expanded && lastSystemMsg && (
+          <span className="fb-preview">{lastSystemMsg.content.slice(0, 50)}</span>
+        )}
+
+        <div className="fb-bar-right">
+          <span className={`fb-dot ${connected ? 'on' : 'off'}`} />
+          <span className={`fb-arrow ${expanded ? 'up' : ''}`}>▾</span>
         </div>
       </div>
 
       {expanded && (
-        <div className="feedback-body">
-          <div className="feedback-messages" ref={listRef}>
+        <div className="fb-body">
+          <div className="fb-msgs" ref={listRef}>
             {messages.length === 0 && (
-              <div className="feedback-empty">
-                {t('feedback.empty')}
+              <div className="fb-empty">
+                <span className="fb-empty-icon">🤖</span>
+                <span>{t('feedback.empty')}</span>
               </div>
             )}
             {messages.map((msg) => (
-              <div key={msg.id} className={`feedback-msg ${msg.role === 'user' ? 'human' : 'system'}`}>
-                <div className="feedback-msg-header">
-                  <span className="feedback-sender">
+              <div key={msg.id} className={`fb-msg ${msg.role === 'user' ? 'me' : 'sys'}`}>
+                <div className="fb-msg-top">
+                  <span className="fb-sender">
                     {msg.role === 'user' ? t('feedback.you') : t('feedback.system')}
                   </span>
                   {msg.targetLayer && msg.targetLayer !== 'all' && (
                     <span
-                      className="feedback-target-tag"
+                      className="fb-tag"
                       style={{ color: LAYER_META[msg.targetLayer as AgentLayer]?.color }}
                     >
                       @{t(`layer.${msg.targetLayer}.name`).split('·')[1]?.trim()}
                     </span>
                   )}
-                  <span className="feedback-time">
+                  <span className="fb-ts">
                     {new Date(msg.timestamp).toLocaleTimeString()}
                   </span>
                 </div>
-                <div className="feedback-msg-content">{msg.content}</div>
+                <div className="fb-text">{msg.content}</div>
               </div>
             ))}
           </div>
 
-          <div className="feedback-input-area">
+          <div className="fb-input">
             <select
-              className="feedback-target-select"
+              className="fb-target"
               value={target}
               onChange={(e) => setTarget(e.target.value)}
             >
@@ -120,7 +120,7 @@ export default memo(function HumanFeedbackPanel({ messages, onSend, connected }:
             </select>
             <textarea
               ref={inputRef}
-              className="feedback-textarea"
+              className="fb-text-input"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
@@ -128,11 +128,12 @@ export default memo(function HumanFeedbackPanel({ messages, onSend, connected }:
               rows={1}
             />
             <button
-              className="feedback-send-btn"
+              className="fb-send"
               onClick={handleSend}
               disabled={!input.trim()}
+              title={t('feedback.send')}
             >
-              {t('feedback.send')}
+              ↑
             </button>
           </div>
         </div>
