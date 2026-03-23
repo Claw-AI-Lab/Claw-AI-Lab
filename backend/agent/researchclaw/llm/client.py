@@ -67,8 +67,8 @@ class LLMConfig:
     )
     max_tokens: int = 4096
     temperature: float = 0.7
-    max_retries: int = 3
-    retry_base_delay: float = 2.0
+    max_retries: int = 5
+    retry_base_delay: float = 3.0
     timeout_sec: int = 600
     user_agent: str = _DEFAULT_USER_AGENT
     # MetaClaw bridge: extra headers for proxy requests
@@ -182,7 +182,7 @@ class LLMClient:
 
         last_error: Exception | None = None
 
-        for m in models:
+        for idx, m in enumerate(models):
             try:
                 resp = self._call_with_retry(m, messages, max_tok, temp, json_mode)
                 if strip_thinking:
@@ -201,6 +201,17 @@ class LLMClient:
             except Exception as exc:  # noqa: BLE001
                 logger.warning("Model %s failed: %s. Trying next.", m, exc)
                 last_error = exc
+                _is_rate_or_conn = (
+                    isinstance(exc, urllib.error.HTTPError) and exc.code == 429
+                ) or isinstance(exc, (urllib.error.URLError, OSError, ConnectionError))
+                if _is_rate_or_conn and idx < len(models) - 1:
+                    import random
+                    _backoff = self.config.retry_base_delay * (2 ** idx) + random.uniform(2, 8)
+                    logger.info(
+                        "Rate-limit / connection error on %s; waiting %.1fs before next model.",
+                        m, _backoff,
+                    )
+                    time.sleep(_backoff)
 
         raise RuntimeError(
             f"All models failed. Last error: {last_error}"
@@ -309,9 +320,15 @@ class LLMClient:
                     continue
 
                 raise  # Other HTTP errors
-            except urllib.error.URLError:
+            except (urllib.error.URLError, OSError, ConnectionError) as e:
                 if attempt < self.config.max_retries - 1:
-                    delay = self.config.retry_base_delay * (2**attempt)
+                    import random
+                    delay = self.config.retry_base_delay * (2 ** attempt)
+                    delay += random.uniform(0, delay * 0.3)
+                    logger.info(
+                        "Retry %d/%d for %s (connection error: %s). Waiting %.1fs.",
+                        attempt + 1, self.config.max_retries, model, e, delay,
+                    )
                     time.sleep(delay)
                     continue
                 raise

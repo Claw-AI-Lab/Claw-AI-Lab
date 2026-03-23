@@ -2,6 +2,8 @@
 
 金字塔架构的 AI 研究龙虾军团 —— 基于 [AutoResearchClaw](backend/agent/) 的多 Agent 并行研究系统。
 
+> **v1.0.2 新特性**: L5 论文写作增强 — 自动图像 Prompt 生成、实验结果图正确注入、Agent 讨论数据融入论文上下文 — [查看详情](#v102-新特性-l5-论文写作增强)
+>
 > **v1.0.1 新特性**: 多 Agent 沟通讨论模式 (S8)、多模型支持、代码质量增强 — [查看讨论对比](#-s8-agent-沟通讨论前后对比)
 
 ## 架构概览
@@ -71,6 +73,52 @@
 | S21 | PAPER_DRAFT | L5 | opus-4-6 | 论文初稿 |
 | S22 | PAPER_REVIEW | L5 | opus-4-6 | 自动审稿 |
 | S23 | PAPER_REVISION | L5 | opus-4-6 | 论文修订终稿 |
+
+## v1.0.2 新特性: L5 论文写作增强
+
+### 1. 非数据图像自动 Prompt 生成 (FIGURE_PROMPT)
+
+论文中的非数据图像（Teaser 图、框架图、方法流程图）现在通过结构化的 `<!-- FIGURE_PROMPT -->` 块自动生成图像描述 Prompt，供下游 text-to-image 模型渲染。
+
+**必须包含的三类图像：**
+- **Teaser 图** (Introduction) — 高层概念示意图，一目了然传达核心思想
+- **框架 / 架构总览图** (Method) — 展示完整系统流水线与模块结构
+- **方法细节图** (Method) — 关键算法步骤、对比图或注意力可视化
+
+**输出产物位置：**
+- `stage-20/figure_prompts.json` — 从论文初稿提取的结构化 Prompt（含 figure_id、figure_type、section、caption、raw_prompt、full_prompt）
+- `stage-22/figure_prompts.json` — 从论文修订版提取的结构化 Prompt
+
+**使用方式：** 读取 `figure_prompts.json` 中的 `full_prompt` 字段，传入任意 text-to-image API（如 DALL·E 3、Midjourney、Stable Diffusion）生成对应图像，然后替换论文中的 `<!-- FIGURE_PROMPT -->` 块。
+
+### 2. 实验结果图正确引用 (charts/)
+
+修复了论文写作阶段扫描实验结果图的路径错误。现在 LLM 会收到实际生成的图表文件名列表，不再自行编造文件名。
+
+**图表位置：** `stage-16/charts/*.png`（由 Stage 16 RESULT_ANALYSIS 生成）
+
+**论文中的引用格式：** `![Caption](charts/fig_xxx.png)` — 文件名与 `stage-16/charts/` 中的实际文件严格对应。
+
+**生效规则：**
+- Introduction / Method 中的概念图 → `<!-- FIGURE_PROMPT -->` 块（生成 Prompt）
+- Results / Experiments 中的数据图 → `![Caption](charts/fig_xxx.png)`（引用预生成的 PNG）
+
+### 3. Agent 讨论数据自动注入论文上下文
+
+L1 阶段的多 Agent 沟通讨论产物（讨论前各 Agent 独立综合、讨论后共识综合、讨论过程转录）自动注入到 L5 论文写作的上下文中，为论文的 Discussion / Ablation 章节提供 Agent 讨论前后的对比数据。
+
+**修复的关键问题：** L1 Agent 的 `run_dir` 位于 `shared_results/idea_runs/`，但 L5 的 `run_dir` 位于 `/dev/shm/.../projects/`。新增的 `_find_discussion_dir()` 函数自动在两个位置查找讨论数据，确保跨目录的数据流通。
+
+**讨论数据位置：**
+- `shared_results/idea_runs/<idea_id>/discussion/pre_discussion_syntheses.md` — 讨论前各 Agent 综合
+- `shared_results/idea_runs/<idea_id>/discussion/consensus_synthesis.md` — 讨论后共识综合
+- `shared_results/idea_runs/<idea_id>/discussion/discussion_transcript.md` — 讨论过程转录
+
+### 4. 论文修订保持 FIGURE_PROMPT 块
+
+Paper Revision 阶段（S22）的 Prompt 明确要求 LLM 保留初稿中的所有 `<!-- FIGURE_PROMPT -->` 块不被删除或转换，同时允许改进 Prompt 文本质量。修订版同样会提取 `figure_prompts.json`。
+
+---
 
 ## v1.0.1 新特性
 

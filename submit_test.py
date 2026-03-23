@@ -3,6 +3,7 @@
 
 import asyncio
 import json
+import os
 import sys
 
 import websockets
@@ -26,8 +27,8 @@ PROJECTS = [
     },
 ]
 
-CONFIG = "/home/user/PyramidResearchTeam/backend/agent/config_gpu_project.yaml"
-WS_URL = "ws://localhost:8866"
+CONFIG = os.path.join(os.path.dirname(os.path.abspath(__file__)), "backend", "agent", "config_gpu_project.yaml")
+WS_URL = "ws://localhost:8876"
 
 
 async def main():
@@ -63,7 +64,7 @@ async def main():
 
         print("=" * 50)
         print(f"📋 已提交 {len(PROJECTS)} 个 GPU 项目")
-        print("   打开 http://localhost:5273/ 查看进度")
+        print("   打开 http://localhost:5883/ 查看进度")
         print("=" * 50)
 
 

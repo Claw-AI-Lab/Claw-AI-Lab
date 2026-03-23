@@ -26,6 +26,7 @@ import argparse
 import asyncio
 import json
 import os
+import shutil
 import subprocess
 import sys
 import time
@@ -1138,6 +1139,17 @@ def _poll_discussion(state: BridgeState, group: DiscussionGroup) -> list[dict]:
 
     group.status = "done"
 
+    # Collect pre-discussion syntheses from all agents for ablation data
+    pre_discussion_parts: list[str] = []
+    for i, _aid in enumerate(group.agent_ids):
+        _ag = state.agents.get(_aid)
+        if not _ag:
+            continue
+        _s7_synth = Path(_ag.run_dir) / "stage-07" / "synthesis.md"
+        if _s7_synth.exists():
+            _text = _s7_synth.read_text(encoding="utf-8")
+            pre_discussion_parts.append(f"## Agent {i+1} ({_aid[:8]})\n\n{_text}")
+
     for aid in group.agent_ids:
         agent = state.agents.get(aid)
         if not agent:
@@ -1159,6 +1171,19 @@ def _poll_discussion(state: BridgeState, group: DiscussionGroup) -> list[dict]:
             existing_synthesis.write_text(enriched, encoding="utf-8")
         else:
             (s7_dir / "synthesis.md").write_text(consensus_text, encoding="utf-8")
+
+        # Save discussion artifacts for L5 paper ablation study
+        disc_artifact_dir = Path(agent.run_dir) / "discussion"
+        disc_artifact_dir.mkdir(parents=True, exist_ok=True)
+        if pre_discussion_parts:
+            (disc_artifact_dir / "pre_discussion_syntheses.md").write_text(
+                "\n\n---\n\n".join(pre_discussion_parts), encoding="utf-8"
+            )
+        (disc_artifact_dir / "consensus_synthesis.md").write_text(
+            consensus_text, encoding="utf-8"
+        )
+        if transcript_file.exists():
+            shutil.copy2(str(transcript_file), str(disc_artifact_dir / "discussion_transcript.md"))
 
         # Launch S8 for this agent
         messages.extend(_launch_s8_for_agent(state, agent, group))

@@ -982,6 +982,24 @@ def _collect_experiment_results(
     return collected
 
 
+def _find_discussion_dir(run_dir: Path, config: RCConfig) -> Path | None:
+    """Locate the discussion artifacts directory.
+
+    Checks run_dir/discussion first, then falls back to
+    shared_results_dir/idea_runs/<idea_id>/discussion for cases
+    where L1 ran in shared_results but L5 runs in /dev/shm.
+    """
+    local = run_dir / "discussion"
+    if local.is_dir() and (local / "consensus_synthesis.md").is_file():
+        return local
+    shared_dir = getattr(config.experiment, "shared_results_dir", "") or ""
+    if shared_dir:
+        fallback = Path(shared_dir) / "idea_runs" / run_dir.name / "discussion"
+        if fallback.is_dir() and (fallback / "consensus_synthesis.md").is_file():
+            return fallback
+    return None
+
+
 def _build_context_preamble(
     config: RCConfig,
     run_dir: Path,
@@ -993,6 +1011,7 @@ def _build_context_preamble(
     include_analysis: bool = False,
     include_decision: bool = False,
     include_experiment_data: bool = False,
+    include_discussion: bool = False,
 ) -> str:
     parts = [
         "## Research Context",
@@ -1023,6 +1042,21 @@ def _build_context_preamble(
         decision = _read_prior_artifact(run_dir, "decision.md")
         if decision:
             parts.append(f"\n### Research Decision\n{decision[:1500]}")
+    if include_discussion:
+        disc_dir = _find_discussion_dir(run_dir, config)
+        if disc_dir is not None:
+            pre_synth = disc_dir / "pre_discussion_syntheses.md"
+            consensus = disc_dir / "consensus_synthesis.md"
+            transcript = disc_dir / "discussion_transcript.md"
+            if pre_synth.exists() and consensus.exists():
+                parts.append("\n### Multi-Agent Discussion (Ablation Data)")
+                _pre = pre_synth.read_text(encoding="utf-8")
+                parts.append(f"\n#### Pre-Discussion Individual Syntheses\n{_pre[:4000]}")
+                _con = consensus.read_text(encoding="utf-8")
+                parts.append(f"\n#### Post-Discussion Consensus\n{_con[:4000]}")
+                if transcript.exists():
+                    _tr = transcript.read_text(encoding="utf-8")
+                    parts.append(f"\n#### Discussion Transcript (excerpt)\n{_tr[:3000]}")
     if include_experiment_data:
         hw_profile = _load_hardware_profile(run_dir)
         if hw_profile:
@@ -4655,7 +4689,7 @@ def _execute_sanity_check(
                 "                print(f'  → skipped: {e}')\n"
                 "            break\n"
                 "# Check checkpoints dir\n"
-                "ckpt_dir = os.environ.get('CHECKPOINTS_DIR', '/home/user/PyramidResearchTeam/backend/checkpoints')\n"
+                "ckpt_dir = os.environ.get('CHECKPOINTS_DIR', os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))), 'checkpoints'))\n"
                 "if os.path.isdir(ckpt_dir):\n"
                 "    print(f'  checkpoints dir: {os.listdir(ckpt_dir)[:5]}')\n"
                 "    found_any = True\n"
@@ -6770,13 +6804,28 @@ def _execute_paper_outline(
 ) -> StageResult:
     analysis = _read_prior_artifact(run_dir, "analysis.md") or ""
     decision = _read_prior_artifact(run_dir, "decision.md") or ""
+    _disc_dir = _find_discussion_dir(run_dir, config)
+    _has_discussion = _disc_dir is not None
     preamble = _build_context_preamble(
         config,
         run_dir,
         include_analysis=True,
         include_decision=True,
         include_experiment_data=True,
+        include_discussion=_has_discussion,
     )
+
+    # Build discussion ablation instruction if data exists
+    discussion_ablation = ""
+    if _has_discussion:
+        discussion_ablation = (
+            "\n\nIMPORTANT — MULTI-AGENT DISCUSSION ABLATION:\n"
+            "The research idea for this paper was refined through a multi-agent "
+            "discussion process (S8). Include an ablation section in the outline "
+            "that compares pre-discussion individual syntheses vs post-discussion "
+            "consensus. This should appear in the Discussion or Ablation Studies "
+            "section of the paper. The discussion data is provided in the preamble.\n"
+        )
 
     # WS-5.2: Read iteration feedback if available (multi-round iteration)
     feedback = ""
@@ -6814,6 +6863,7 @@ def _execute_paper_outline(
             analysis=analysis,
             decision=decision,
             academic_style_guide=_asg,
+            discussion_ablation=discussion_ablation,
         )
         resp = _chat_with_prompt(
             llm,
@@ -7018,6 +7068,8 @@ def _write_paper_sections(
     citation_instruction: str,
     outline: str,
     model_name: str = "",
+    discussion_ablation: str = "",
+    figure_prompt_instruction: str = "",
 ) -> str:
     """Write a conference-grade paper in 3 sequential LLM calls.
 
@@ -7043,6 +7095,8 @@ def _write_paper_sections(
         citation_instruction=citation_instruction,
         writing_structure=_writing_structure,
         outline=outline,
+        discussion_ablation=discussion_ablation,
+        figure_prompt_instruction=figure_prompt_instruction,
     ).system
 
     sections: list[str] = []
@@ -7095,8 +7149,14 @@ def _write_paper_sections(
         "3. **Introduction** (800-1000 words): real-world motivation, problem statement, "
         "research gap analysis with citations, method overview, 3-4 contributions as bullet points, "
         "paper organization paragraph. MUST cite 8-12 references.\n"
+        "   **TEASER FIGURE (MANDATORY)**: Include a teaser figure (Figure 1) right after the "
+        "first introductory paragraph using a `<!-- FIGURE_PROMPT ... -->` block. This figure "
+        "should be a high-level conceptual illustration showing the core idea/motivation at a "
+        "glance — it conveys the key insight without requiring method details. Use figure_type: "
+        "concept_illustration, section: Introduction.\n"
         "4. **Related Work** (600-800 words): organized into 3-4 thematic subsections, each discussing "
         "4-5 papers with proper citations. Compare approaches, identify limitations, position this work.\n\n"
+        f"{figure_prompt_instruction}\n\n"
         f"Outline:\n{outline}\n\n"
         "Output markdown with ## headers. Do NOT include a References section.\n"
         "IMPORTANT: Start DIRECTLY with '## Title'. Do NOT include any preamble, "
@@ -7143,12 +7203,18 @@ def _write_paper_sections(
         "($x$, $\\theta$, etc.), detailed algorithm description with equations, step-by-step procedure, "
         "complexity analysis, design rationale for key choices. Include algorithm pseudocode if applicable. "
         "Write as FLOWING PROSE — do NOT use bullet-point lists for method components.\n"
+        "   **METHOD FIGURES (MANDATORY)**: Include at least TWO `<!-- FIGURE_PROMPT ... -->` blocks:\n"
+        "   (a) A **framework / architecture overview** (figure_type: architecture_diagram or "
+        "pipeline_overview) showing the full system pipeline.\n"
+        "   (b) A **method detail figure** (figure_type: method_flowchart or comparison_illustration) "
+        "illustrating a key algorithmic step or component.\n"
         "6. **Experiments** (800-1200 words): detailed experimental setup, datasets with statistics "
         "(size, splits, features), all baselines and their implementations, hyperparameter settings "
         "in a markdown table, evaluation metrics with mathematical definitions, hardware and runtime info.\n"
         "METHOD NAMES IN TABLES: Use SHORT abbreviations (4-8 chars) for method names "
         "in tables. Define abbreviation mappings in a footnote. "
         "NEVER put method names longer than 20 characters in table cells.\n\n"
+        f"{figure_prompt_instruction}\n\n"
         f"Outline:\n{outline}\n\n"
         "Output markdown with ## headers. Continue from where Part 1 ended."
     )
@@ -7188,11 +7254,14 @@ def _write_paper_sections(
         "   - Follow with a PER-REGIME table (Table 2) breaking down by easy/hard regimes.\n"
         "   - Include a STATISTICAL COMPARISON table (Table 3): paired t-tests between key methods.\n"
         "   - NEVER dump raw per-seed numbers in the main text. Aggregate first, then discuss.\n"
-        "   - MUST include at least 2 figures using markdown image syntax: ![Caption](charts/filename.png)\n"
-        "     One figure MUST be a performance comparison chart. Figures MUST be referenced "
-        "     in text: 'As shown in Figure 1, ...'\n"
-        "8. **Discussion** (400-600 words): interpretation of key findings, unexpected results, "
+        "   - MUST include at least 2 DATA figures using `![Caption](charts/filename.png)` syntax "
+        "for pre-generated charts and plots. One MUST be a performance comparison chart.\n"
+        "     Do NOT use `<!-- FIGURE_PROMPT -->` for data figures in Results/Experiments — "
+        "only use `![Caption](charts/...)` here.\n"
+        "     Figures MUST be referenced in text: 'As shown in Figure N, ...'\n"
+        "8. **Discussion** (400-800 words): interpretation of key findings, unexpected results, "
         "comparison with prior work (CITE 3-5 papers here!), practical implications.\n"
+        f"{discussion_ablation}"
         "9. **Limitations** (200-300 words): honest assessment of scope, dataset, methodology. "
         "ALL caveats consolidated HERE — nowhere else in the paper.\n"
         "10. **Conclusion** (100-200 words MAXIMUM — this is a HARD LIMIT): "
@@ -7242,6 +7311,148 @@ def _write_paper_sections(
     logger.info("Stage 17: Full draft — %d chars, ~%d words", len(draft), total_words)
 
     return draft
+
+
+# ---------------------------------------------------------------------------
+# Figure prompt extraction from paper draft
+# ---------------------------------------------------------------------------
+
+_FIGURE_PROMPT_RE = re.compile(
+    r"<!--\s*FIGURE_PROMPT\s*\n(.*?)-->",
+    re.DOTALL,
+)
+
+_ACADEMIC_STYLE_SUFFIX = (
+    " The image should be in a clean, professional ACADEMIC style suitable "
+    "for a top-tier AI/ML research paper (NeurIPS, ICML, ICLR). "
+    "Use a white or light background. Use clear labels and annotations. "
+    "Avoid excessive decoration. Use a consistent color palette. "
+    "Text should be legible at column width (~3.25 inches). "
+    "Style: technical illustration, vector-like, clean lines."
+)
+
+_FIGURE_TYPE_STYLE: dict[str, str] = {
+    "architecture_diagram": (
+        "Show model layers, connections, and data flow with labeled boxes and arrows. "
+        "Use a consistent left-to-right or top-to-bottom layout. "
+        "Group related components with dashed borders."
+    ),
+    "method_flowchart": (
+        "Step-by-step process flow with rounded rectangles for processes, "
+        "diamonds for decision points, arrows with labels. "
+        "Number sequential steps. Highlight novel steps with accent color."
+    ),
+    "pipeline_overview": (
+        "Full pipeline from input to output with distinct visual blocks per stage. "
+        "Include example inputs/outputs. Use consistent arrow style. "
+        "Show parallel/branching paths if applicable."
+    ),
+    "concept_illustration": (
+        "Simple, clean diagram illustrating a key concept or intuition. "
+        "Include before/after or problem/solution comparison. "
+        "Keep it understandable at a glance."
+    ),
+    "system_diagram": (
+        "Overall system architecture with major components and interactions. "
+        "Show data stores, APIs, external services with labeled connections."
+    ),
+    "comparison_illustration": (
+        "Side-by-side comparison of approaches with consistent styling. "
+        "Highlight key differences with visual cues (color, checkmarks/crosses)."
+    ),
+    "attention_visualization": (
+        "Attention weights or patterns with heatmap-style coloring. "
+        "Include input/output sequences, label attention heads, "
+        "use a clear color scale legend."
+    ),
+}
+
+
+def _extract_figure_prompts(draft: str, topic: str = "") -> list[dict]:
+    """Parse ``<!-- FIGURE_PROMPT ... -->`` blocks from a paper draft.
+
+    Returns a list of dicts, each with keys:
+        figure_id, figure_type, section, caption, aspect_ratio,
+        raw_prompt, full_prompt  (raw_prompt + academic style + type guidelines)
+    """
+    _top_level_keys = {
+        "figure_id", "figure_type", "section", "caption", "aspect_ratio", "prompt",
+    }
+
+    results: list[dict] = []
+    for m in _FIGURE_PROMPT_RE.finditer(draft):
+        block = m.group(1)
+        entry: dict[str, str] = {}
+        current_key = ""
+        current_lines: list[str] = []
+        in_multiline = False
+
+        for line in block.splitlines():
+            stripped = line.strip()
+            if not stripped:
+                if in_multiline:
+                    current_lines.append("")
+                continue
+
+            # Check if this line starts a new top-level key (not indented,
+            # key name is a known field)
+            is_new_key = False
+            if ":" in stripped and not line.startswith((" ", "\t")):
+                candidate_key = stripped.partition(":")[0].strip().lower()
+                if candidate_key in _top_level_keys:
+                    is_new_key = True
+
+            if is_new_key:
+                key, _, val = stripped.partition(":")
+                key = key.strip().lower()
+                val = val.strip().strip('"').strip("'")
+                if current_key and current_lines:
+                    entry[current_key] = "\n".join(current_lines).strip()
+                current_key = key
+                in_multiline = (val == "|" or val == "")
+                if val and val != "|":
+                    current_lines = [val]
+                    in_multiline = False
+                else:
+                    current_lines = []
+                    if val == "|":
+                        in_multiline = True
+            else:
+                current_lines.append(stripped)
+        if current_key and current_lines:
+            entry[current_key] = "\n".join(current_lines).strip()
+
+        fig_id = entry.get("figure_id", f"figure_{len(results) + 1}")
+        fig_type = entry.get("figure_type", "concept_illustration")
+        section = entry.get("section", "Method")
+        caption = entry.get("caption", "")
+        aspect_ratio = entry.get("aspect_ratio", "16:9")
+        raw_prompt = entry.get("prompt", caption)
+
+        type_style = _FIGURE_TYPE_STYLE.get(fig_type, _FIGURE_TYPE_STYLE["concept_illustration"])
+        full_prompt = (
+            f"Create a professional academic figure for the '{section}' "
+            f"section of a research paper"
+        )
+        if topic:
+            full_prompt += f" about: {topic}"
+        full_prompt += (
+            f".\n\nFigure description: {raw_prompt}\n\n"
+            f"Style guidelines:\n{type_style}\n\n"
+            f"{_ACADEMIC_STYLE_SUFFIX}"
+        )
+
+        results.append({
+            "figure_id": fig_id,
+            "figure_type": fig_type,
+            "section": section,
+            "caption": caption,
+            "aspect_ratio": aspect_ratio,
+            "raw_prompt": raw_prompt,
+            "full_prompt": full_prompt,
+        })
+
+    return results
 
 
 # ---------------------------------------------------------------------------
@@ -7924,6 +8135,8 @@ def _execute_paper_draft(
         )
     # ── END short fast-path ──
 
+    _disc_dir = _find_discussion_dir(run_dir, config)
+    _has_discussion = _disc_dir is not None
     preamble = _build_context_preamble(
         config,
         run_dir,
@@ -7931,7 +8144,33 @@ def _execute_paper_draft(
         include_hypotheses=True,
         include_analysis=True,
         include_experiment_data=True,  # WS-5.1: inject real experiment data
+        include_discussion=_has_discussion,
     )
+
+    # Build discussion ablation instruction for paper draft
+    discussion_ablation = ""
+    if _has_discussion:
+        discussion_ablation = (
+            "\n\n## MULTI-AGENT DISCUSSION ABLATION (MANDATORY SECTION)\n"
+            "This paper's research idea was refined through a multi-agent collaborative "
+            "discussion process. You MUST include an **ablation study** comparing:\n"
+            "- **Without discussion**: Individual agent syntheses (each agent independently "
+            "surveyed literature and generated a synthesis)\n"
+            "- **With discussion**: Post-discussion consensus synthesis (agents debated, "
+            "critiqued each other's views, and reached consensus)\n\n"
+            "Analyze the following dimensions in the ablation:\n"
+            "1. **Coverage**: How many unique research gaps/opportunities were identified "
+            "before vs after discussion\n"
+            "2. **Contradiction resolution**: What conflicting viewpoints existed and how "
+            "the discussion resolved them\n"
+            "3. **Novel insights**: Ideas that emerged ONLY from the discussion interaction "
+            "(not present in any individual synthesis)\n"
+            "4. **Hypothesis quality**: Compare the specificity and testability of hypotheses "
+            "derived from individual vs consensus syntheses\n\n"
+            "Place this ablation in the Discussion section or as a dedicated subsection "
+            "titled 'Ablation: Multi-Agent Discussion Impact'. Use the pre-discussion "
+            "and post-discussion data provided in the research context.\n"
+        )
 
     # R21-1: Read BEST experiment_summary across all stage-14 versions.
     # Refinement can regress — the final (non-versioned) stage-14 may have
@@ -8369,32 +8608,35 @@ def _execute_paper_draft(
     # FigureAgent renders 0 charts the list persists, and calling .get() on it
     # raises AttributeError.
     _fa_descriptions = ""
-    for _s14_dir in sorted(run_dir.glob("stage-14*")):
-        # Prefer the final plan (dict with figure_descriptions) if it exists
-        for _fp_name in ("figure_plan_final.json", "figure_plan.json"):
-            _fp_path = _s14_dir / _fp_name
-            if not _fp_path.exists():
-                continue
-            try:
-                _fp_data = json.loads(_fp_path.read_text(encoding="utf-8"))
-                if isinstance(_fp_data, dict):
-                    _fa_descriptions = _fp_data.get("figure_descriptions", "")
-                elif isinstance(_fp_data, list) and _fp_data:
-                    # List format from FigureAgent planner — synthesize descriptions
-                    _desc_parts = ["## PLANNED FIGURES (from figure plan)\n"]
-                    for _fig in _fp_data:
-                        if isinstance(_fig, dict):
-                            _fid = _fig.get("figure_id", "unnamed")
-                            _ftitle = _fig.get("title", "")
-                            _fcap = _fig.get("caption", "")
-                            _fsec = _fig.get("section", "results")
-                            _desc_parts.append(
-                                f"- **{_fid}** ({_fsec}): {_ftitle}\n  {_fcap}"
-                            )
-                    if len(_desc_parts) > 1:
-                        _fa_descriptions = "\n".join(_desc_parts)
-            except (json.JSONDecodeError, OSError):
-                pass
+    # Charts and figure plans are generated in stage-16 (RESULT_ANALYSIS),
+    # also check stage-14 as a legacy fallback.
+    for _fig_stage_pattern in ("stage-16*", "stage-14*"):
+        for _fig_stage_dir in sorted(run_dir.glob(_fig_stage_pattern)):
+            for _fp_name in ("figure_plan_final.json", "figure_plan.json"):
+                _fp_path = _fig_stage_dir / _fp_name
+                if not _fp_path.exists():
+                    continue
+                try:
+                    _fp_data = json.loads(_fp_path.read_text(encoding="utf-8"))
+                    if isinstance(_fp_data, dict):
+                        _fa_descriptions = _fp_data.get("figure_descriptions", "")
+                    elif isinstance(_fp_data, list) and _fp_data:
+                        _desc_parts = ["## PLANNED FIGURES (from figure plan)\n"]
+                        for _fig in _fp_data:
+                            if isinstance(_fig, dict):
+                                _fid = _fig.get("figure_id", "unnamed")
+                                _ftitle = _fig.get("title", "")
+                                _fcap = _fig.get("caption", "")
+                                _fsec = _fig.get("section", "results")
+                                _desc_parts.append(
+                                    f"- **{_fid}** ({_fsec}): {_ftitle}\n  {_fcap}"
+                                )
+                        if len(_desc_parts) > 1:
+                            _fa_descriptions = "\n".join(_desc_parts)
+                except (json.JSONDecodeError, OSError):
+                    pass
+                if _fa_descriptions:
+                    break
             if _fa_descriptions:
                 break
         if _fa_descriptions:
@@ -8404,13 +8646,14 @@ def _execute_paper_draft(
         exp_metrics_instruction += "\n\n" + _fa_descriptions
         logger.info("Stage 17: Injected FigureAgent figure descriptions into paper draft prompt")
     else:
-        # Fallback: scan for chart files
+        # Fallback: scan for chart PNG files in stage-16 (RESULT_ANALYSIS) and stage-14
         _chart_files: list[str] = []
-        for _s14_dir in sorted(run_dir.glob("stage-14*")):
-            _charts_path = _s14_dir / "charts"
-            if _charts_path.is_dir():
-                for _cf in sorted(_charts_path.glob("*.png")):
-                    _chart_files.append(_cf.name)
+        for _chart_stage_pattern in ("stage-16*", "stage-14*"):
+            for _chart_stage_dir in sorted(run_dir.glob(_chart_stage_pattern)):
+                _charts_path = _chart_stage_dir / "charts"
+                if _charts_path.is_dir():
+                    for _cf in sorted(_charts_path.glob("*.png")):
+                        _chart_files.append(_cf.name)
         if _chart_files:
             _chart_block = (
                 "\n\n## AVAILABLE FIGURES (embed in the paper)\n"
@@ -8431,19 +8674,66 @@ def _execute_paper_draft(
                 len(_chart_files),
             )
 
-    # WS-5.5: Framework diagram placeholder instruction
-    exp_metrics_instruction += (
-        "\n\n## FRAMEWORK DIAGRAM PLACEHOLDER\n"
-        "In the Method/Approach section, include a placeholder for the methodology "
-        "framework overview figure. Insert this exactly:\n\n"
+    # WS-5.5 → FIGURE_PROMPT: Build figure_prompt_instruction for non-data figures
+    _venue_style = "NeurIPS / ICML / ICLR"
+    _paper_len_cfg = getattr(config.experiment, "paper_length", "") or "full"
+    if _paper_len_cfg == "short":
+        _venue_style = "workshop / short paper"
+
+    figure_prompt_instruction = (
+        "\n\n## FIGURE GENERATION INSTRUCTIONS (MANDATORY)\n"
+        "This paper uses a hybrid figure pipeline:\n\n"
+        "### A. Non-data figures (architecture, method, pipeline, concept diagrams)\n"
+        "For EVERY non-data figure, emit a structured FIGURE_PROMPT block "
+        "using HTML comments **inline in the markdown** at the position where the "
+        "figure should appear. Format:\n\n"
         "```\n"
-        "![Framework Overview](charts/framework_diagram.png)\n"
-        "**Figure N.** Overview of the proposed methodology. "
-        "[A detailed framework diagram will be generated separately and inserted here.]\n"
-        "```\n\n"
-        "This figure should be referenced in the text as 'Figure N' and discussed briefly "
-        "(1-2 sentences describing the overall pipeline/architecture flow). "
-        "The actual image will be generated post-hoc using a text-to-image model.\n"
+        "<!-- FIGURE_PROMPT\n"
+        "figure_id: unique_snake_case_id\n"
+        "figure_type: architecture_diagram | method_flowchart | pipeline_overview | "
+        "concept_illustration | system_diagram | comparison_illustration | "
+        "attention_visualization\n"
+        "section: Method | Results | Introduction | Discussion\n"
+        "caption: \"Descriptive caption for the figure.\"\n"
+        "aspect_ratio: 16:9\n"
+        "prompt: |\n"
+        "  A professional academic figure for a {venue} paper. "
+        "[Describe: subject, layout (left-to-right / top-to-bottom), "
+        "components (boxes, arrows, layers), labels, colors, annotations.] "
+        "Use clean vector-style lines on a white background. "
+        "Text must be legible at column width (~3.25 in). "
+        "Color palette: blues and grays with one accent color for novelty.\n"
+        "-->\n"
+        "```\n"
+        f"Replace {{venue}} with the target venue style: **{_venue_style}**.\n\n"
+        "Then reference it in text:\n"
+        "*[Figure N: <caption> — to be generated]*\n\n"
+        "#### Required non-data figures:\n"
+        "1. **Teaser figure** in the Introduction section — a high-level "
+        "conceptual illustration showing the core idea/motivation at a glance "
+        "(figure_type: concept_illustration). This is the FIRST figure in the "
+        "paper and should convey the key insight without requiring method details. "
+        "Place it right after the first introductory paragraph.\n"
+        "2. **Framework / architecture overview** in the Method section "
+        "(figure_type: architecture_diagram or pipeline_overview). This shows "
+        "the full system/method pipeline with components, data flow, and key modules.\n"
+        "3. **Method detail figure** — at least ONE additional figure in the Method "
+        "section showing a key algorithmic step, comparison diagram, or attention "
+        "visualization (figure_type: method_flowchart | comparison_illustration | "
+        "attention_visualization).\n\n"
+        "#### Prompt quality rules:\n"
+        "- Prompt MUST be >= 50 words and self-contained.\n"
+        "- Describe spatial layout (e.g., 'three boxes arranged left-to-right "
+        "connected by arrows').\n"
+        "- Specify labels for every component.\n"
+        "- Mention the color scheme (e.g., 'blue boxes for encoder, orange for "
+        "decoder, gray arrows for data flow').\n"
+        "- Include the academic style: 'clean, professional, suitable for a "
+        f"top-tier {_venue_style} paper'.\n\n"
+        "### B. Data figures (charts, plots, heatmaps)\n"
+        "Continue using `![Caption](charts/filename.png)` for pre-generated "
+        "data charts, OR inline LaTeX/TikZ code blocks for simple data plots.\n"
+        "Do NOT use FIGURE_PROMPT for data-driven visualizations.\n"
     )
 
     # P5: Extract hyperparameters from results.json for paper Method section
@@ -8587,6 +8877,8 @@ def _execute_paper_draft(
             citation_instruction=citation_instruction,
             outline=outline,
             model_name=config.llm.primary_model,
+            discussion_ablation=discussion_ablation,
+            figure_prompt_instruction=figure_prompt_instruction,
         )
 
         # R7: Strip LLM-generated References section — it often fabricates arXiv IDs.
@@ -8646,13 +8938,29 @@ Generated: {_utcnow_iso()}
 """
     (stage_dir / "paper_draft.md").write_text(draft, encoding="utf-8")
 
+    # Extract FIGURE_PROMPT blocks and write figure_prompts.json
+    _topic = config.research.topic if hasattr(config, "research") else ""
+    _fig_prompts = _extract_figure_prompts(draft, topic=_topic)
+    _draft_artifacts = ["paper_draft.md"]
+    if _fig_prompts:
+        _fp_path = stage_dir / "figure_prompts.json"
+        _fp_path.write_text(
+            json.dumps(_fig_prompts, indent=2, ensure_ascii=False),
+            encoding="utf-8",
+        )
+        _draft_artifacts.append("figure_prompts.json")
+        logger.info(
+            "Stage 20: Extracted %d figure prompts → %s",
+            len(_fig_prompts), _fp_path,
+        )
+
     # Validate draft quality (section balance + bullet density)
     _validate_draft_quality(draft, stage_dir=stage_dir)
 
     return StageResult(
         stage=Stage.PAPER_DRAFT,
         status=StageStatus.DONE,
-        artifacts=("paper_draft.md",),
+        artifacts=tuple(_draft_artifacts),
         evidence_refs=("stage-17/paper_draft.md",),
     )
 
@@ -8943,11 +9251,27 @@ def _execute_paper_revision(
     else:
         revised = draft
     (stage_dir / "paper_revised.md").write_text(revised, encoding="utf-8")
+
+    _revision_artifacts = ["paper_revised.md"]
+    _topic = config.research.topic if hasattr(config, "research") else ""
+    _fig_prompts = _extract_figure_prompts(revised, topic=_topic)
+    if _fig_prompts:
+        _fp_path = stage_dir / "figure_prompts.json"
+        _fp_path.write_text(
+            json.dumps(_fig_prompts, indent=2, ensure_ascii=False),
+            encoding="utf-8",
+        )
+        _revision_artifacts.append("figure_prompts.json")
+        logger.info(
+            "Stage 22: Extracted %d figure prompts from revised paper → %s",
+            len(_fig_prompts), _fp_path,
+        )
+
     return StageResult(
         stage=Stage.PAPER_REVISION,
         status=StageStatus.DONE,
-        artifacts=("paper_revised.md",),
-        evidence_refs=("stage-19/paper_revised.md",),
+        artifacts=tuple(_revision_artifacts),
+        evidence_refs=tuple(f"stage-22/{a}" for a in _revision_artifacts),
     )
 
 
@@ -9484,7 +9808,11 @@ def _execute_export_publish(
     # IMP-19 Layer 2: Ensure at least figures are referenced in the paper
     import re as _re_fig
     chart_files = []
-    for _chart_src_dir in [stage_dir / "charts", run_dir / "stage-14" / "charts"]:
+    for _chart_src_dir in [
+        stage_dir / "charts",
+        run_dir / "stage-16" / "charts",
+        run_dir / "stage-14" / "charts",
+    ]:
         if _chart_src_dir.is_dir():
             chart_files.extend(sorted(_chart_src_dir.glob("*.png")))
     if chart_files and "![" not in final_paper:
@@ -9975,28 +10303,31 @@ def _execute_export_publish(
         logger.warning("LaTeX generation skipped: %s", exc)
 
     # WS-5.4: Generate result visualizations
-    # Priority: FigureAgent charts (stage-14) > fallback visualize.py charts
+    # Priority: FigureAgent charts (stage-16 RESULT_ANALYSIS) > stage-14 legacy > fallback
     try:
         chart_dir = stage_dir / "charts"
         chart_dir.mkdir(parents=True, exist_ok=True)
         charts: list[Path] = []
 
-        # Check if FigureAgent produced charts in stage-14 (any version)
+        # Check if FigureAgent produced charts in stage-16 or stage-14
         _fa_charts_found = False
-        for _fa_dir in sorted(run_dir.glob("stage-14*/charts"), reverse=True):
-            _fa_pngs = list(_fa_dir.glob("fig_*.png"))
-            if _fa_pngs:
-                import shutil
-                for _fa_png in _fa_pngs:
-                    dest = chart_dir / _fa_png.name
-                    shutil.copy2(_fa_png, dest)
-                    charts.append(dest)
-                _fa_charts_found = True
-                logger.info(
-                    "Stage 22: Copied %d FigureAgent charts from %s",
-                    len(_fa_pngs), _fa_dir,
-                )
+        for _fa_pattern in ("stage-16*/charts", "stage-14*/charts"):
+            if _fa_charts_found:
                 break
+            for _fa_dir in sorted(run_dir.glob(_fa_pattern), reverse=True):
+                _fa_pngs = list(_fa_dir.glob("fig_*.png"))
+                if _fa_pngs:
+                    import shutil
+                    for _fa_png in _fa_pngs:
+                        dest = chart_dir / _fa_png.name
+                        shutil.copy2(_fa_png, dest)
+                        charts.append(dest)
+                    _fa_charts_found = True
+                    logger.info(
+                        "Stage 22: Copied %d FigureAgent charts from %s",
+                        len(_fa_pngs), _fa_dir,
+                    )
+                    break
 
         # Always generate structured charts from visualize.py (different names)
         from researchclaw.experiment.visualize import generate_all_charts
