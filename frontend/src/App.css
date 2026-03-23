@@ -65,6 +65,13 @@
 .repo-list { flex: 1; overflow-y: auto; padding: 0 8px 8px; display: flex; flex-direction: column; gap: 4px; }
 
 .log-panel { border-left: 1px solid var(--border); }
+.log-panel-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 0;
+}
 
 /* ==================== PYRAMID ==================== */
 .pyramid-container {
@@ -453,6 +460,33 @@
 .qp-badge.running { background: var(--badge-amber-bg); color: var(--badge-amber-fg); }
 .qp-badge.waiting { background: var(--badge-blue-bg); color: var(--badge-blue-fg); }
 .qp-badge.idle    { color: var(--text-muted); font-weight: 400; font-size: 0.48rem; }
+
+/* ==================== SHELF SECTION (sidebar repo list) ==================== */
+.shelf-section {
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+  max-height: 240px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.shelf-section-header {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px 4px;
+}
+.shelf-section-title {
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+.shelf-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 8px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
 
 /* ==================== DATA FLOW ARROWS ==================== */
 .pyramid-tier { display: contents; }

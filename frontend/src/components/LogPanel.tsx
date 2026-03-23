@@ -30,7 +30,7 @@ export default memo(function LogPanel({ logs }: Props) {
   }, [display.length]);
 
   return (
-    <div className="side-panel log-panel">
+    <div className="log-panel-inner">
       <h2>{t('log.title')} <span className="count-badge">{logs.length}</span></h2>
       <div className="log-filters">
         <button className={filter === 'all' ? 'active' : ''} onClick={() => setFilter('all')}>{t('log.all')}</button>
