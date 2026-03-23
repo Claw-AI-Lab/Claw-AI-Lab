@@ -342,6 +342,44 @@
   background: color-mix(in srgb, #6366f1 30%, var(--surface-alt));
   color: #e0e7ff;
 }
+.discussion-toggle {
+  font-weight: 600;
+  font-size: 0.7rem;
+  padding: 2px 10px;
+  margin-left: 8px;
+  background: color-mix(in srgb, #64748b 15%, var(--surface-alt));
+  border-color: #64748b;
+  color: #94a3b8;
+  transition: all 0.2s;
+}
+.discussion-toggle.active {
+  background: color-mix(in srgb, #22c55e 18%, var(--surface-alt));
+  border-color: #22c55e;
+  color: #86efac;
+}
+.discussion-toggle:hover {
+  filter: brightness(1.2);
+}
+.discussion-info-btn {
+  font-weight: 700;
+  font-size: 0.65rem;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  margin-left: 2px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, #6366f1 12%, var(--surface-alt));
+  border-color: #6366f1;
+  color: #a5b4fc;
+  cursor: pointer;
+}
+.discussion-info-btn:hover {
+  background: color-mix(in srgb, #6366f1 30%, var(--surface-alt));
+  color: #e0e7ff;
+}
 .mode-btn { font-weight: 600; }
 .settings-sep { color: var(--border); margin: 0 4px; }
 .conn-dot {
@@ -1010,6 +1048,31 @@
   color: var(--text-muted);
   opacity: 0.5;
   font-style: italic;
+}
+.discussion-mode-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 0 2px;
+  animation: fadeIn 0.2s ease;
+}
+.discussion-mode-row .discussion-toggle {
+  font-size: 0.62rem;
+  padding: 2px 8px;
+}
+.discussion-mode-row .discussion-info-btn {
+  width: 16px;
+  height: 16px;
+  font-size: 0.58rem;
+}
+.discussion-hint {
+  font-size: 0.58rem;
+  color: var(--text-muted);
+  opacity: 0.7;
+  margin-left: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .project-ref-papers-toggle {
   display: flex;

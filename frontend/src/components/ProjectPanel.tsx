@@ -24,13 +24,16 @@ interface Props {
   connected: boolean;
   selectedProjectId: string | null;
   artifactsByProject: Record<string, Artifact[]>;
+  discussionMode: boolean;
+  onToggleDiscussion: () => void;
+  onShowDiscussionInfo: () => void;
   onSelect: (projectId: string) => void;
   onResume: (projectId: string) => void;
   onDelete: (projectId: string) => void;
   onQuickSubmit: (topic: string, mode: SubmitMode, researchAngles: string[], referencePapers: string) => void;
 }
 
-export default function ProjectPanel({ projects, connected, selectedProjectId, artifactsByProject, onSelect, onResume, onDelete, onQuickSubmit }: Props) {
+export default function ProjectPanel({ projects, connected, selectedProjectId, artifactsByProject, discussionMode, onToggleDiscussion, onShowDiscussionInfo, onSelect, onResume, onDelete, onQuickSubmit }: Props) {
   const [panelOpen, setPanelOpen] = useState(true);
   const [mode, setMode] = useState<SubmitMode>('lab');
   const [topicInput, setTopicInput] = useState('');
@@ -130,16 +133,38 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
                 disabled={!connected}
               />
               {mode === 'lab' && (
-                <div className="project-angles-row">
-                  <input
-                    className="project-angles-input"
-                    placeholder={t('project.angles_placeholder')}
-                    value={anglesInput}
-                    onChange={e => setAnglesInput(e.target.value)}
-                    onKeyDown={onKey}
-                    disabled={!connected}
-                  />
-                </div>
+                <>
+                  <div className="project-angles-row">
+                    <input
+                      className="project-angles-input"
+                      placeholder={t('project.angles_placeholder')}
+                      value={anglesInput}
+                      onChange={e => setAnglesInput(e.target.value)}
+                      onKeyDown={onKey}
+                      disabled={!connected}
+                    />
+                  </div>
+                  <div className="discussion-mode-row">
+                    <button
+                      className={`btn-sm discussion-toggle${discussionMode ? ' active' : ''}`}
+                      onClick={onToggleDiscussion}
+                      type="button"
+                    >
+                      {discussionMode ? t('discussion.on') : t('discussion.off')}
+                    </button>
+                    <button
+                      className="btn-sm discussion-info-btn"
+                      onClick={onShowDiscussionInfo}
+                      type="button"
+                      title={t('discussion.dialog_title')}
+                    >
+                      ?
+                    </button>
+                    <span className="discussion-hint">
+                      {discussionMode ? t('discussion.hint_on') : t('discussion.hint_off')}
+                    </span>
+                  </div>
+                </>
               )}
               <div className="project-ref-papers-toggle">
                 <button
@@ -196,7 +221,7 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
                     key={proj.projectId}
                     className={`project-card project-${proj.status}${isSelected ? ' selected' : ''}${isExpanded ? ' expanded' : ''}`}
                   >
-                    <div className="project-summary" onClick={(e) => toggleExpand(proj.projectId, e)}>
+                    <div className="project-summary" onClick={(e) => { onSelect(proj.projectId); toggleExpand(proj.projectId, e); }}>
                       <span className="project-status-dot" style={{ background: cfg.color }} title={statusLabel}>{cfg.icon}</span>
                       <span className="project-summary-name" title={proj.topic || proj.projectId}>
                         {proj.topic || proj.projectId}
@@ -275,9 +300,6 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
                               {t('project.resume')}
                             </button>
                           )}
-                          <button className="project-select-btn" onClick={(e) => { e.stopPropagation(); onSelect(proj.projectId); }}>
-                            {isSelected ? t('project.focused') : t('project.focus')}
-                          </button>
                           <button
                             className="project-delete-btn"
                             title={t('project.delete_title')}

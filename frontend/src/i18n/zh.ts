@@ -6,6 +6,7 @@ const zh: Record<string, string> = {
   'header.agent_label': 'Agent:',
   'header.resource_label': '资源:',
   'header.shared_repo': '📚 共享数据仓库',
+  'header.active': '活跃',
 
   // ProjectPanel
   'project.title': '项目管理',
@@ -32,8 +33,6 @@ const zh: Record<string, string> = {
   'project.delete_confirm': '确认删除项目 "{id}"？\n此操作将删除所有阶段数据，不可恢复。',
   'project.resume': '▶ 断点续跑',
   'project.stages_label': '阶段',
-  'project.focus': '🔍 聚焦',
-  'project.focused': '✓ 已聚焦',
   'project.delete': '🗑 删除',
   'project.count_running': '{n} 运行',
   'project.count_interrupted': '{n} 中断',
@@ -137,6 +136,15 @@ const zh: Record<string, string> = {
   'shelf.unknown_project': '未知项目',
   'shelf.feedback_l1': '反馈 L1',
   'shelf.no_artifacts': '暂无产物',
+
+  // Discussion mode
+  'discussion.label': '讨论模式',
+  'discussion.on': '✅ 讨论模式',
+  'discussion.off': '💤 独立模式',
+  'discussion.dialog_title': '讨论模式 vs 独立模式',
+  'discussion.dialog_body': '【讨论模式 (推荐)】\n多个方向的 Agent 各自完成 S1-S7 (调研→综述) 后暂停，等全部就绪后触发跨方向讨论，产出共识综述，再各自生成假设 (S8)，最终选出最佳方向进入下游实验。\n✅ 综合多视角，假设质量更高\n✅ 避免重复研究\n\n【独立模式】\n每个方向的 Agent 独立跑完 S1-S8，互不通信。各自生成假设后分别进入下游实验。\n⚡ 更快 (无需等待同步)\n⚠️ 方向可能重叠，没有共识整合\n\n注: 无论哪种模式，知识仓库和实验结果仓库始终在 Agent 间共享。',
+  'discussion.hint_on': 'S7 后跨方向讨论 → 共识假设',
+  'discussion.hint_off': '各方向独立出假设，更快但无共识',
 
   // Language
   'lang.switch': '中/EN',

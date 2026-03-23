@@ -6,6 +6,7 @@ const en: Record<string, string> = {
   'header.agent_label': 'Agent:',
   'header.resource_label': 'Resource:',
   'header.shared_repo': '📚 Shared Data Repositories',
+  'header.active': 'Active',
 
   // ProjectPanel
   'project.title': 'Projects',
@@ -32,8 +33,6 @@ const en: Record<string, string> = {
   'project.delete_confirm': 'Delete project "{id}"?\nAll stage data will be permanently removed.',
   'project.resume': '▶ Resume',
   'project.stages_label': 'stages',
-  'project.focus': '🔍 Focus',
-  'project.focused': '✓ Focused',
   'project.delete': '🗑 Delete',
   'project.count_running': '{n} Running',
   'project.count_interrupted': '{n} Stopped',
@@ -137,6 +136,15 @@ const en: Record<string, string> = {
   'shelf.unknown_project': 'Unknown Project',
   'shelf.feedback_l1': 'Feedback L1',
   'shelf.no_artifacts': 'No artifacts yet',
+
+  // Discussion mode
+  'discussion.label': 'Discussion Mode',
+  'discussion.on': '✅ Discussion',
+  'discussion.off': '💤 Independent',
+  'discussion.dialog_title': 'Discussion Mode vs Independent Mode',
+  'discussion.dialog_body': '【Discussion Mode (Recommended)】\nMultiple direction agents each complete S1-S7 (research → synthesis), then pause. Once all are ready, a cross-direction discussion is triggered to produce a consensus synthesis. Each agent then generates hypotheses (S8), and the best direction is selected for downstream experiments.\n✅ Integrates multiple perspectives, higher quality hypotheses\n✅ Avoids duplicate research\n\n【Independent Mode】\nEach direction agent runs S1-S8 independently without communication. Each generates hypotheses and proceeds to downstream experiments separately.\n⚡ Faster (no synchronization wait)\n⚠️ Directions may overlap, no consensus integration\n\nNote: In both modes, the Knowledge Base and Experiment Results are always shared across agents.',
+  'discussion.hint_on': 'Cross-direction discussion after S7 → consensus hypothesis',
+  'discussion.hint_off': 'Each direction generates hypotheses independently, faster but no consensus',
 
   // Language
   'lang.switch': '中/EN',
