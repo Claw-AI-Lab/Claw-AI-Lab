@@ -3262,7 +3262,7 @@ def _execute_codebase_search(
                 _relevance_map = {}
 
         for _repo in _local_repos:
-            _rel = _relevance_map.get(_repo["name"], "high" if len(_local_repos) == 1 else "high")
+            _rel = _relevance_map.get(_repo["name"], "high" if len(_local_repos) == 1 else "low")
             candidates.append({
                 "repo_url": f"local://{_repo['path']}",
                 "description": f"Local codebase: {_repo['name']}",
@@ -3315,17 +3315,22 @@ def _execute_codebase_search(
     except Exception as e:
         logger.warning("LLM codebase search failed: %s", e)
 
-    # ── Phase 3: Persist results ──────────────────────────────────────
+    # ── Phase 3: Filter out low-relevance candidates, then persist ────
+    _filtered = [c for c in candidates if c.get("relevance", "high") != "low"]
+    _dropped = len(candidates) - len(_filtered)
+    if _dropped:
+        logger.info("CODEBASE_SEARCH: dropped %d low-relevance candidates", _dropped)
+
     try:
-        output = _json.dumps(candidates, indent=2, ensure_ascii=False)
+        output = _json.dumps(_filtered, indent=2, ensure_ascii=False)
         (stage_dir / "codebase_candidates.json").write_text(output, encoding="utf-8")
     except Exception:
         (stage_dir / "codebase_candidates.json").write_text("[]", encoding="utf-8")
 
-    n_local = sum(1 for c in candidates if str(c.get("repo_url", "")).startswith("local://"))
-    n_remote = sum(1 for c in candidates if c.get("download_status") == "success") - n_local
-    n_total = len(candidates)
-    summary = f"Found {n_total} candidates ({n_local} local, {n_remote} remote downloaded)"
+    n_local = sum(1 for c in _filtered if str(c.get("repo_url", "")).startswith("local://"))
+    n_remote = sum(1 for c in _filtered if c.get("download_status") == "success") - n_local
+    n_total = len(_filtered)
+    summary = f"Found {n_total} candidates ({n_local} local, {n_remote} remote downloaded, {_dropped} low-relevance dropped)"
 
     return StageResult(
         stage=Stage.CODEBASE_SEARCH,
@@ -3362,7 +3367,10 @@ def _extract_selected_repos(codebase_info_json: str) -> list[str] | None:
         if not local_path:
             continue
         repo_name = local_path.rstrip("/").rsplit("/", 1)[-1]
-        if has_relevance and c.get("relevance") not in ("high", "medium"):
+        rel = c.get("relevance", "")
+        if has_relevance and rel not in ("high", "medium"):
+            continue
+        if not has_relevance and c.get("usability") == "reference":
             continue
         selected.append(repo_name)
 
@@ -4101,119 +4109,16 @@ def _execute_code_generation(
             )
         }
 
-    # --- Validate each file + auto-repair loop ---
-    # Beast mode (OpenHands) code is trusted — skip security validation
-    # to avoid false positives (e.g. eval() flagged as dangerous)
-    _skip_security = _beast_mode_used
-    all_valid = True
-    attempt = 0
-    for fname, code in list(files.items()):
-        # Skip non-Python files (requirements.txt, setup.py, etc.)
-        if not fname.endswith(".py"):
-            continue
-        validation = validate_code(code, skip_security=_skip_security)
-        repair_attempt = 0
-        while not validation.ok and llm is not None and repair_attempt < max_repair:
-            repair_attempt += 1
-            attempt += 1
-            issues_text = format_issues_for_llm(validation)
-            validation_log.append(
-                f"File {fname} attempt {repair_attempt}: {validation.summary()}"
-            )
-            logger.info(
-                "Code validation failed for %s (attempt %d/%d): %s",
-                fname,
-                repair_attempt,
-                max_repair,
-                validation.summary(),
-            )
-            all_files_ctx = "\n\n".join(
-                f"```filename:{f}\n{c}\n```" for f, c in files.items()
-            )
-            rp = _pm.sub_prompt(
-                "code_repair",
-                fname=fname,
-                issues_text=issues_text,
-                all_files_ctx=all_files_ctx,
-            )
-            resp = _chat_with_prompt(llm, rp.system, rp.user)
-            files[fname] = _extract_code_block(resp.content)
-            validation = validate_code(files[fname], skip_security=_skip_security)
-        if not validation.ok:
-            all_valid = False
-            # BUG-14: Log remaining issues prominently
-            logger.warning(
-                "Code validation FAILED for %s after %d repair attempts: %s",
-                fname, max_repair, validation.summary(),
-            )
-
-    # BUG-14: Block on critical validation failures (syntax/import errors)
-    if not all_valid:
-        _has_critical = False
-        for fname, code in files.items():
-            _v = validate_code(code, skip_security=_skip_security)
-            if not _v.ok:
-                for issue in _v.issues:
-                    if issue.severity == "error" and issue.category in (
-                        "syntax", "import",
-                    ):
-                        _has_critical = True
-        if _has_critical:
-            # Try falling back to code_agent's original output (before executor repair loop)
-            if _code_agent_active and _code_agent_original_files:
-                _fallback_ok = True
-                for _fn, _fc in _code_agent_original_files.items():
-                    if _fn.endswith(".py") and not validate_code(_fc).ok:
-                        _fallback_ok = False
-                        break
-                if _fallback_ok:
-                    logger.warning(
-                        "Stage 10: Repair loop failed but code_agent original code is valid. "
-                        "Falling back to pre-repair version."
-                    )
-                    files = _code_agent_original_files
-                    all_valid = True
-                    validation_log.append(
-                        "Repair loop failed — reverted to code_agent original output"
-                    )
-            if not all_valid:
-                logger.error(
-                    "Stage 10: CRITICAL validation issues remain after %d repair "
-                    "attempts. Blocking stage.", max_repair,
-                )
-                (stage_dir / "validation_report.md").write_text(
-                    "# Code Validation Report\n\n"
-                    f"**Status**: BLOCKED — critical issues remain after {max_repair} repairs\n\n"
-                    + "\n".join(f"- {e}" for e in validation_log),
-                    encoding="utf-8",
-                )
-                return StageResult(
-                    stage=Stage.CODE_GENERATION,
-                    status=StageStatus.FAILED,
-                    artifacts=("validation_report.md",),
-                    evidence_refs=(),
-                )
+    # --- S11 validation + repair loop DISABLED ---
+    # Removed: the LLM repair loop would rewrite long files (e.g. 948→282 lines),
+    # destroying working code. S12 SANITY_CHECK already handles validation & fixing.
+    logger.info("CODE_GENERATION: skipping S11 validation/repair (deferred to S12 SANITY_CHECK)")
 
     # --- Write experiment directory ---
     exp_dir = stage_dir / "experiment"
     exp_dir.mkdir(parents=True, exist_ok=True)
     for fname, code in files.items():
         (exp_dir / fname).write_text(code, encoding="utf-8")
-
-    # --- Write validation report ---
-    if validation_log or not all_valid:
-        report_lines = ["# Code Validation Report\n"]
-        if all_valid:
-            report_lines.append(f"**Status**: PASSED after {attempt} total repair(s)\n")
-        else:
-            report_lines.append(
-                f"**Status**: FAILED after {attempt} total repair attempt(s)\n"
-            )
-        for entry in validation_log:
-            report_lines.append(f"- {entry}")
-        (stage_dir / "validation_report.md").write_text(
-            "\n".join(report_lines), encoding="utf-8"
-        )
 
     # --- R10-Fix6: Code complexity and quality check ---
     from researchclaw.experiment.validator import (
