@@ -73,7 +73,18 @@ def _to_text(value: str | bytes | None) -> str:
 
 
 def parse_metrics(stdout: str) -> dict[str, float]:
+    # Accumulate per-condition composite keys so that duplicate keys
+    # (e.g. same condition+seed across multiple regimes/scenes) are
+    # averaged instead of silently overwritten.
+    _accum: dict[str, list[float]] = {}
     metrics: dict[str, float] = {}
+
+    def _record(key: str, val: float, *, accumulate: bool = False) -> None:
+        if accumulate:
+            _accum.setdefault(key, []).append(val)
+        else:
+            metrics[key] = val
+
     for line in stdout.splitlines():
         stripped = line.strip()
 
@@ -86,15 +97,14 @@ def parse_metrics(stdout: str) -> dict[str, float]:
                     val = float(num) / float(den) if float(den) != 0 else 0.0
                 except (ValueError, ZeroDivisionError):
                     continue
-                # Build composite key from condition + extra tags
                 tag_parts = [cond_name]
                 for tag in extra_tags.strip().split():
                     if "=" in tag:
                         tag_parts.append(tag.split("=", 1)[1])
                 composite_key = "/".join(tag_parts)
-                metrics[f"{composite_key}/{name}"] = val
-                metrics[f"{cond_name}/{name}"] = val
-                metrics[name] = val
+                _record(f"{composite_key}/{name}", val, accumulate=True)
+                _record(f"{cond_name}/{name}", val, accumulate=True)
+                _record(name, val)
             continue
 
         # Try condition-prefixed format: "condition=X [tags] metric: value"
@@ -109,15 +119,14 @@ def parse_metrics(stdout: str) -> dict[str, float]:
                 if math.isnan(val) or math.isinf(val):
                     logger.warning("Skipping non-finite metric %s=%s", name, value)
                     continue
-                # Build composite key from condition + extra tags
                 tag_parts = [cond_name]
                 for tag in extra_tags.strip().split():
                     if "=" in tag:
                         tag_parts.append(tag.split("=", 1)[1])
                 composite_key = "/".join(tag_parts)
-                metrics[f"{composite_key}/{name}"] = val
-                metrics[f"{cond_name}/{name}"] = val
-                metrics[name] = val
+                _record(f"{composite_key}/{name}", val, accumulate=True)
+                _record(f"{cond_name}/{name}", val, accumulate=True)
+                _record(name, val)
             continue
 
         # Plain format: "metric: value"
@@ -136,6 +145,12 @@ def parse_metrics(stdout: str) -> dict[str, float]:
             logger.warning("Skipping non-finite metric %s=%s", name, value)
             continue
         metrics[name] = val
+
+    # Resolve accumulated keys: average when multiple values exist for
+    # the same composite key (happens when regime/scene tag is missing).
+    for key, vals in _accum.items():
+        metrics[key] = sum(vals) / len(vals)
+
     return metrics
 
 
