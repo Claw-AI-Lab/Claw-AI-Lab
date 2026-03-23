@@ -8,7 +8,7 @@ const zh: Record<string, string> = {
   'header.shared_repo': '📚 共享数据仓库',
   'header.stat_agents': '🦞 Agent',
   'header.stat_active': '🔬 工作中',
-  'header.stat_error': '❌',
+  'header.stat_error': '⚠️ 异常',
   'header.stat_artifacts': '📦 {n} 产物',
   'header.theme_light': '切换到浅色主题',
   'header.theme_dark': '切换到深色主题',
