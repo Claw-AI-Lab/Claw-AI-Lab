@@ -48,10 +48,10 @@ logger = logging.getLogger(__name__)
 # Default config
 # ---------------------------------------------------------------------------
 
-_DEFAULT_MODEL = "gemini-2.5-flash-image"
+_DEFAULT_MODEL = "gemini-3-pro-image-preview"
 _FALLBACK_MODELS = [
-    "gemini-3.1-flash-image-preview",
     "gemini-3-pro-image-preview",
+    "gemini-3.1-flash-image-preview",
     "gemini-2.5-flash-image",
 ]
 

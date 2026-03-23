@@ -7465,7 +7465,7 @@ def _render_figure_prompts(
     """Render extracted FIGURE_PROMPT entries via NanoBananaAgent.
 
     Uses the OpenAI-compatible proxy (same base_url/api_key as the LLM) to
-    call an image-capable model (default ``gemini-2.5-flash-image``).
+    call an image-capable model (default ``gemini-3-pro-image-preview``).
     Gracefully skips if no API credentials are available.
 
     Returns the *same* ``fig_prompts`` list, augmented with ``output_path``
@@ -7484,11 +7484,13 @@ def _render_figure_prompts(
         )
         return fig_prompts
 
-    fa_cfg = getattr(config.experiment, "figure_agent", None)
-    image_model = (
-        (getattr(fa_cfg, "gemini_model", "") if fa_cfg else "")
-        or "gemini-2.5-flash-image"
-    )
+    image_model = getattr(config.llm, "image_model", "") or ""
+    if not image_model:
+        fa_cfg = getattr(config.experiment, "figure_agent", None)
+        image_model = (
+            (getattr(fa_cfg, "gemini_model", "") if fa_cfg else "")
+            or "gemini-3-pro-image-preview"
+        )
 
     figures_dir = stage_dir / "figures"
     figures_dir.mkdir(parents=True, exist_ok=True)

@@ -133,6 +133,7 @@ class LlmConfig:
     api_key: str = ""
     primary_model: str = ""
     coding_model: str = ""
+    image_model: str = ""
     fallback_models: tuple[str, ...] = ()
     s2_api_key: str = ""
     notes: str = ""
@@ -290,7 +291,7 @@ class FigureAgentConfig:
     output_format: str = "python"  # "python" (matplotlib) or "latex" (TikZ/PGFPlots)
     # Nano Banana (Gemini image generation)
     gemini_api_key: str = ""  # or set GEMINI_API_KEY / GOOGLE_API_KEY env var
-    gemini_model: str = "gemini-2.5-flash-image"
+    gemini_model: str = "gemini-3-pro-image-preview"
     nano_banana_enabled: bool = True  # enable/disable Gemini image generation
     # Critic
     strict_mode: bool = False
@@ -602,6 +603,7 @@ def _parse_llm_config(data: dict[str, Any]) -> LlmConfig:
         api_key=data.get("api_key", ""),
         primary_model=data.get("primary_model", ""),
         coding_model=data.get("coding_model", ""),
+        image_model=data.get("image_model", ""),
         fallback_models=tuple(data.get("fallback_models") or ()),
         s2_api_key=data.get("s2_api_key", ""),
         notes=data.get("notes", ""),
@@ -727,7 +729,7 @@ def _parse_figure_agent_config(data: dict[str, Any]) -> FigureAgentConfig:
         docker_image=data.get("docker_image", "researchclaw/experiment:latest"),
         output_format=data.get("output_format", "python"),
         gemini_api_key=data.get("gemini_api_key", ""),
-        gemini_model=data.get("gemini_model", "gemini-2.5-flash-image"),
+        gemini_model=data.get("gemini_model", "gemini-3-pro-image-preview"),
         nano_banana_enabled=bool(data.get("nano_banana_enabled", True)),
         strict_mode=bool(data.get("strict_mode", False)),
         dpi=int(data.get("dpi", 300)),
