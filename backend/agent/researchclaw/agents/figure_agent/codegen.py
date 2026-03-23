@@ -31,12 +31,41 @@ def _esc(s: str) -> str:
     return s.replace("{", "{{").replace("}", "}}")
 
 
+def _shorten_label(label: str, max_chars: int = 20) -> str:
+    """Shorten a condition label for tick marks (e.g. 'spectral_adaptive_manipulation' → 'Spectral Adapt. Manip.')."""
+    words = label.replace("_", " ").split()
+    result = []
+    length = 0
+    for w in words:
+        if length + len(w) + 1 > max_chars and result:
+            if len(w) > 4:
+                result.append(w[:4].capitalize() + ".")
+            else:
+                result.append(w.capitalize())
+            break
+        result.append(w.capitalize())
+        length += len(w) + 1
+    return " ".join(result) if result else label[:max_chars]
+
+
 # ---------------------------------------------------------------------------
 # Built-in chart templates
 # ---------------------------------------------------------------------------
 
 _TEMPLATE_BAR_COMPARISON = '''
 {style_preamble}
+import textwrap
+
+def _shorten(label, max_chars=18):
+    words = label.replace("_", " ").split()
+    result, length = [], 0
+    for w in words:
+        if length + len(w) + 1 > max_chars and result:
+            result.append(w[:4].capitalize() + "." if len(w) > 4 else w.capitalize())
+            break
+        result.append(w.capitalize())
+        length += len(w) + 1
+    return " ".join(result) if result else label[:max_chars]
 
 # Data
 conditions = {conditions}
@@ -45,29 +74,38 @@ ci_low = {ci_low}
 ci_high = {ci_high}
 
 # Plot
-fig, ax = plt.subplots(figsize=({width}, {height}))
-x = np.arange(len(conditions))
-bar_colors = [COLORS[i % len(COLORS)] for i in range(len(conditions))]
+n = len(conditions)
+fig_w = max({width}, n * 1.1 + 1.0)
+fig, ax = plt.subplots(figsize=(fig_w, {height}))
+x = np.arange(n)
+bar_colors = [COLORS[i % len(COLORS)] for i in range(n)]
 
 yerr_lo = [max(0, v - lo) for v, lo in zip(values, ci_low)]
 yerr_hi = [max(0, hi - v) for v, hi in zip(values, ci_high)]
+has_error = any(lo > 1e-9 or hi > 1e-9 for lo, hi in zip(yerr_lo, yerr_hi))
 
 bars = ax.bar(x, values, color=bar_colors, alpha=0.85, edgecolor="white", linewidth=0.5)
-ax.errorbar(x, values, yerr=[yerr_lo, yerr_hi],
-            fmt="none", ecolor="#333", capsize=4, capthick=1.2, linewidth=1.2)
+if has_error:
+    ax.errorbar(x, values, yerr=[yerr_lo, yerr_hi],
+                fmt="none", ecolor="#333", capsize=4, capthick=1.2, linewidth=1.2)
 
-# Value labels
-offset = max(yerr_hi) * 0.08 if yerr_hi and max(yerr_hi) > 0 else max(values) * 0.02
+# Value labels — position above bar (or error bar)
+y_range = max(values) - min(min(values), 0) if values else 1
+offset = y_range * 0.03
 for i, v in enumerate(values):
-    ax.text(i, v + offset, f"{{v:.4f}}", ha="center", va="bottom", fontsize=9, fontweight="bold")
+    top = v + (yerr_hi[i] if has_error else 0)
+    fmt = f"{{v:.2f}}" if abs(v) >= 0.005 or v == 0 else f"{{v:.4f}}"
+    ax.text(i, top + offset, fmt, ha="center", va="bottom", fontsize=8)
 
 ax.set_xlabel("{x_label}")
 ax.set_ylabel("{y_label}")
 ax.set_title("{title}")
 ax.set_xticks(x)
-ax.set_xticklabels([c.replace("_", " ") for c in conditions], rotation=25, ha="right", fontsize=9)
+short_labels = [_shorten(c) for c in conditions]
+ax.set_xticklabels(short_labels, rotation=40, ha="right", fontsize=8)
 ax.grid(True, axis="y", alpha=0.3)
 ax.set_axisbelow(True)
+ax.margins(y=0.15)
 fig.tight_layout()
 fig.savefig("{output_path}")
 plt.close(fig)
@@ -76,6 +114,17 @@ print(f"Saved: {output_path}")
 
 _TEMPLATE_GROUPED_BAR = '''
 {style_preamble}
+
+def _shorten(label, max_chars=18):
+    words = label.replace("_", " ").split()
+    result, length = [], 0
+    for w in words:
+        if length + len(w) + 1 > max_chars and result:
+            result.append(w[:4].capitalize() + "." if len(w) > 4 else w.capitalize())
+            break
+        result.append(w.capitalize())
+        length += len(w) + 1
+    return " ".join(result) if result else label[:max_chars]
 
 # Data: conditions x metrics
 conditions = {conditions}
@@ -86,24 +135,27 @@ data_matrix = {data_matrix}
 # Plot
 n_groups = len(conditions)
 n_bars = len(metric_names)
-fig, ax = plt.subplots(figsize=({width}, {height}))
+fig_w = max({width}, n_groups * (n_bars * 0.4 + 0.6) + 1.5)
+fig, ax = plt.subplots(figsize=(fig_w, {height}))
 x = np.arange(n_groups)
-bar_width = 0.8 / n_bars
+bar_width = 0.8 / max(n_bars, 1)
 
 for j, metric in enumerate(metric_names):
     offset = (j - n_bars / 2 + 0.5) * bar_width
     vals = [data_matrix[i][j] for i in range(n_groups)]
-    ax.bar(x + offset, vals, bar_width, label=metric.replace("_", " "),
+    ax.bar(x + offset, vals, bar_width, label=metric.replace("_", " ").title(),
            color=COLORS[j % len(COLORS)], alpha=0.85, edgecolor="white", linewidth=0.5)
 
 ax.set_xlabel("{x_label}")
 ax.set_ylabel("{y_label}")
 ax.set_title("{title}")
 ax.set_xticks(x)
-ax.set_xticklabels([c.replace("_", " ") for c in conditions], rotation=25, ha="right", fontsize=9)
-ax.legend(framealpha=0.9, edgecolor="gray")
+short_labels = [_shorten(c) for c in conditions]
+ax.set_xticklabels(short_labels, rotation=40, ha="right", fontsize=8)
+ax.legend(framealpha=0.9, edgecolor="gray", fontsize=8)
 ax.grid(True, axis="y", alpha=0.3)
 ax.set_axisbelow(True)
+ax.margins(y=0.10)
 fig.tight_layout()
 fig.savefig("{output_path}")
 plt.close(fig)
@@ -150,25 +202,40 @@ print(f"Saved: {output_path}")
 _TEMPLATE_HEATMAP = '''
 {style_preamble}
 
+def _shorten(label, max_chars=16):
+    words = label.replace("_", " ").split()
+    result, length = [], 0
+    for w in words:
+        if length + len(w) + 1 > max_chars and result:
+            result.append(w[:4].capitalize() + "." if len(w) > 4 else w.capitalize())
+            break
+        result.append(w.capitalize())
+        length += len(w) + 1
+    return " ".join(result) if result else label[:max_chars]
+
 # Data
 row_labels = {row_labels}
 col_labels = {col_labels}
 data = np.array({data_matrix})
 
-fig, ax = plt.subplots(figsize=({width}, {height}))
+n_rows, n_cols = data.shape
+fig_w = max({width}, n_cols * 1.0 + 2.0)
+fig_h = max({height}, n_rows * 0.7 + 1.5)
+fig, ax = plt.subplots(figsize=(fig_w, fig_h))
 im = ax.imshow(data, cmap="cividis", aspect="auto")
 
-ax.set_xticks(np.arange(len(col_labels)))
-ax.set_yticks(np.arange(len(row_labels)))
-ax.set_xticklabels(col_labels, rotation=45, ha="right", fontsize=9)
-ax.set_yticklabels(row_labels, fontsize=9)
+ax.set_xticks(np.arange(n_cols))
+ax.set_yticks(np.arange(n_rows))
+ax.set_xticklabels([_shorten(c) for c in col_labels], rotation=45, ha="right", fontsize=8)
+ax.set_yticklabels([_shorten(r) for r in row_labels], fontsize=8)
 
 # Annotate cells
-for i in range(len(row_labels)):
-    for j in range(len(col_labels)):
+for i in range(n_rows):
+    for j in range(n_cols):
         val = data[i, j]
         color = "white" if val > (data.max() + data.min()) / 2 else "black"
-        ax.text(j, i, f"{{val:.3f}}", ha="center", va="center", color=color, fontsize=9)
+        fmt = f"{{val:.2f}}" if abs(val) >= 0.005 or val == 0 else f"{{val:.4f}}"
+        ax.text(j, i, fmt, ha="center", va="center", color=color, fontsize=8)
 
 ax.set_xlabel("{x_label}")
 ax.set_ylabel("{y_label}")
@@ -622,8 +689,10 @@ class CodeGenAgent(BaseAgent):
 
             conditions.append(cond)
             values.append(fval)
-            ci_low.append(float(cdata.get("ci95_low", fval)))
-            ci_high.append(float(cdata.get("ci95_high", fval)))
+            raw_lo = cdata.get("ci95_low")
+            raw_hi = cdata.get("ci95_high")
+            ci_low.append(float(raw_lo) if raw_lo is not None else fval)
+            ci_high.append(float(raw_hi) if raw_hi is not None else fval)
 
         if not conditions:
             return ""
@@ -778,7 +847,9 @@ class CodeGenAgent(BaseAgent):
             "RULES:\n"
             "- The script must be completely self-contained (no external imports "
             "beyond matplotlib, numpy, seaborn)\n"
-            "- All data values must be hardcoded in the script (no file I/O)\n"
+            "- Use ONLY the exact data values provided below. NEVER generate "
+            "synthetic/random data (no np.random, no fake distributions). "
+            "If only mean±std are available, plot those directly as bar+errorbar.\n"
             "- Use the provided style preamble at the top of the script\n"
             "- Output format: PNG at 300 DPI\n"
             "- Use colorblind-safe colors from the COLORS list\n"
@@ -786,6 +857,14 @@ class CodeGenAgent(BaseAgent):
             "- Call fig.savefig() and plt.close(fig) at the end\n"
             "- Print 'Saved: <path>' after saving\n"
             "- Do NOT include any <think> or </think> tags\n\n"
+            "LAYOUT RULES (prevent text overlap):\n"
+            "- figsize width: at least (number_of_conditions × 1.1 + 1.0) inches, "
+            "minimum 3.5 inches\n"
+            "- figsize height: at least 3.5 inches\n"
+            "- X-tick labels: rotation=40, ha='right', fontsize=8. "
+            "Shorten long names (>18 chars) by abbreviating words.\n"
+            "- Value annotations: fontsize=8, avoid overlapping bars\n"
+            "- Always call fig.tight_layout() before savefig\n\n"
             "Return ONLY the Python script, no explanation."
         )
 

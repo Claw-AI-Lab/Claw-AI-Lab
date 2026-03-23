@@ -53,7 +53,7 @@ class FigureAgentConfig:
     output_format: str = "python"  # "python" or "latex"
     # Nano Banana (Gemini image generation)
     gemini_api_key: str = ""  # or set GEMINI_API_KEY env var
-    gemini_model: str = "gemini-2.5-flash-image"
+    gemini_model: str = "gemini-3-pro-image-preview"
     nano_banana_enabled: bool = True  # enable/disable image generation
     # Critic
     strict_mode: bool = False  # if True, any issue = fail

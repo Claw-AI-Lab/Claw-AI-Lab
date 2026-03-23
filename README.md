@@ -2,6 +2,12 @@
 
 金字塔架构的 AI 研究龙虾军团 —— 基于 [AutoResearchClaw](backend/agent/) 的多 Agent 并行研究系统。
 
+> **v1.0.4 新特性**: 实验图表质量大幅提升 — 自适应布局防文字叠加、标签智能缩写、禁止 LLM 合成假数据 — [查看详情](#v104-新特性-实验图表质量修复)
+>
+> **v1.0.3 新特性**: FIGURE_PROMPT 自动渲染为图像、统一 `image_model` 配置、论文强制引用全部实验图表 — [查看详情](#v103-新特性-图像自动渲染与配置统一)
+>
+> **v1.0.2 新特性**: L5 论文写作增强 — 自动图像 Prompt 生成、实验结果图正确注入、Agent 讨论数据融入论文上下文 — [查看详情](#v102-新特性-l5-论文写作增强)
+>
 > **v1.0.1 新特性**: 多 Agent 沟通讨论模式 (S8)、多模型支持、代码质量增强 — [查看讨论对比](#-s8-agent-沟通讨论前后对比)
 
 ## 架构概览
@@ -71,6 +77,138 @@
 | S21 | PAPER_DRAFT | L5 | opus-4-6 | 论文初稿 |
 | S22 | PAPER_REVIEW | L5 | opus-4-6 | 自动审稿 |
 | S23 | PAPER_REVISION | L5 | opus-4-6 | 论文修订终稿 |
+
+## v1.0.4 新特性: 实验图表质量修复
+
+### 1. 自适应图表布局 — 消除文字叠加
+
+修复了 Stage 16 (RESULT_ANALYSIS) 生成的实验图表中 x 轴标签互相重叠的问题。
+
+**修复前问题**：长条件名称（如 `spectral_adaptive_manipulation`）在固定宽度图表上以 25° 旋转排列，标签严重挤压。
+
+**修复方案**：
+- 图表宽度自适应：`max(base_width, n_conditions × 1.1 + 1.0)` inches，根据条件数量自动扩展
+- x 轴标签旋转角度从 25° 增至 40°，对齐方式 `ha='right'`
+- 新增 `_shorten()` 函数：超过 18 字符的标签自动缩写（如 `spectral_adaptive_manipulation` → `Spectral Adaptive Mani.`）
+- 默认图表高度从 3.0 增至 3.5 英寸，为旋转标签留出底部空间
+- 双栏宽度从 7.0 增至 7.16 英寸（匹配 NeurIPS/IEEE textwidth）
+
+**影响的模板**：`bar_comparison`、`grouped_bar`、`heatmap` 全部更新。
+
+### 2. 数值显示优化
+
+- 柱顶数值标签格式智能化：`≥0.005` 或 `=0` 时用 `.2f`（如 `0.27`），极小值用 `.4f`
+- 无置信区间 (CI) 数据时自动隐藏 error bar，不再画零长度的无意义误差线
+- 字体大小从 9pt 降至 8pt，避免标注遮挡数据
+
+### 3. 禁止 LLM 合成虚假数据
+
+修复了 LLM 生成脚本路径中使用 `np.random.normal()` 伪造数据分布的严重问题。
+
+**修复前**：当 Critic 要求修订图表时，LLM 会走 fallback 路径生成完整 Python 脚本。LLM 经常用 `np.random` 生成"合成样本"来绘制 violin/box plot，导致图表数据与实验结果不一致。
+
+**修复后**：CodeGen Agent 的 LLM prompt 增加严格约束：
+- `NEVER generate synthetic/random data (no np.random, no fake distributions)`
+- `If only mean±std are available, plot those directly as bar+errorbar`
+- 强制 figsize、rotation、fontsize 的最低标准，防止布局问题
+
+### 4. Heatmap 自适应尺寸
+
+Heatmap 图表根据行列数量自动计算 figsize：`width = max(base, n_cols × 1.0 + 2.0)`、`height = max(base, n_rows × 0.7 + 1.5)`，确保单元格不会因为条件过多而被压缩到不可读。
+
+---
+
+## v1.0.3 新特性: 图像自动渲染与配置统一
+
+### 1. FIGURE_PROMPT 自动渲染为图像 (NanoBanana)
+
+论文中的 `<!-- FIGURE_PROMPT -->` 块不再仅输出文本 Prompt，而是在 **S20 (PAPER_DRAFT)** 和 **S22 (PAPER_REVISION)** 阶段自动调用图像生成模型渲染为 PNG 图像。
+
+**工作流程：**
+1. LLM 在论文初稿 / 修订稿中插入 `<!-- FIGURE_PROMPT -->` 块
+2. 系统自动提取 Prompt → 写入 `figure_prompts.json`
+3. 调用 NanoBanana Agent（通过 OpenAI-compatible proxy）生成图像
+4. 生成的 PNG 保存到 `stage-20/figures/` 和 `stage-22/figures/`
+5. `figure_prompts.json` 中每条记录增加 `output_path` 和 `success` 字段
+
+**NanoBanana 代理模式：** 复用 `llm.base_url` 和 `llm.api_key`，无需额外配置 Gemini API Key。通过 Chat Completions 接口向代理发送图像生成请求，支持 `gemini-3-pro-image-preview` 等模型。
+
+**输出产物位置：**
+- `stage-20/figures/*.png` — 初稿阶段生成的 Teaser 图、框架图、方法图
+- `stage-22/figures/*.png` — 修订阶段重新生成的图像
+- `stage-20/figure_prompts.json` / `stage-22/figure_prompts.json` — 含 `output_path` 和 `success` 状态
+
+### 2. 统一 `image_model` 配置
+
+图像生成模型现在与文本模型一同配置在 `llm:` 段，而非分散在代码默认值中。
+
+```yaml
+llm:
+  primary_model: "claude-opus-4-6"       # 研究/写作
+  coding_model: "claude-sonnet-4-20250514" # 代码生成
+  image_model: "gemini-3-pro-image-preview" # 图像生成 (新增)
+  fallback_models: [...]
+```
+
+**优先级链：** `config.llm.image_model` → `config.experiment.figure_agent.gemini_model` → 硬编码默认值 `gemini-3-pro-image-preview`。
+
+### 3. 论文强制引用全部实验图表
+
+修复了论文只引用部分实验图表的问题。S20 阶段现在读取 `stage-16/charts/figure_manifest.json` 中的图表元数据（标题、说明、建议章节），并在 Prompt 中明确要求 LLM **引用全部 N 张图表**。S22 修订阶段同样要求保留初稿中的所有 `![Caption](charts/...)` 引用。
+
+**图表元数据来源：** `stage-16/charts/figure_manifest.json`，由 Stage 16 (RESULT_ANALYSIS) 自动生成。
+
+### 4. 默认图像模型升级
+
+默认图像生成模型从 `gemini-2.5-flash-image` 升级为 `gemini-3-pro-image-preview`，生成质量更高。涉及 NanoBanana Agent、FigureAgent Orchestrator、Pipeline Executor 三处默认值同步更新。
+
+---
+
+## v1.0.2 新特性: L5 论文写作增强
+
+### 1. 非数据图像自动 Prompt 生成 (FIGURE_PROMPT)
+
+论文中的非数据图像（Teaser 图、框架图、方法流程图）现在通过结构化的 `<!-- FIGURE_PROMPT -->` 块自动生成图像描述 Prompt，供下游 text-to-image 模型渲染。
+
+**必须包含的三类图像：**
+- **Teaser 图** (Introduction) — 高层概念示意图，一目了然传达核心思想
+- **框架 / 架构总览图** (Method) — 展示完整系统流水线与模块结构
+- **方法细节图** (Method) — 关键算法步骤、对比图或注意力可视化
+
+**输出产物位置：**
+- `stage-20/figure_prompts.json` — 从论文初稿提取的结构化 Prompt（含 figure_id、figure_type、section、caption、raw_prompt、full_prompt）
+- `stage-22/figure_prompts.json` — 从论文修订版提取的结构化 Prompt
+
+**使用方式：** 读取 `figure_prompts.json` 中的 `full_prompt` 字段，传入任意 text-to-image API（如 DALL·E 3、Midjourney、Stable Diffusion）生成对应图像，然后替换论文中的 `<!-- FIGURE_PROMPT -->` 块。
+
+### 2. 实验结果图正确引用 (charts/)
+
+修复了论文写作阶段扫描实验结果图的路径错误。现在 LLM 会收到实际生成的图表文件名列表，不再自行编造文件名。
+
+**图表位置：** `stage-16/charts/*.png`（由 Stage 16 RESULT_ANALYSIS 生成）
+
+**论文中的引用格式：** `![Caption](charts/fig_xxx.png)` — 文件名与 `stage-16/charts/` 中的实际文件严格对应。
+
+**生效规则：**
+- Introduction / Method 中的概念图 → `<!-- FIGURE_PROMPT -->` 块（生成 Prompt）
+- Results / Experiments 中的数据图 → `![Caption](charts/fig_xxx.png)`（引用预生成的 PNG）
+
+### 3. Agent 讨论数据自动注入论文上下文
+
+L1 阶段的多 Agent 沟通讨论产物（讨论前各 Agent 独立综合、讨论后共识综合、讨论过程转录）自动注入到 L5 论文写作的上下文中，为论文的 Discussion / Ablation 章节提供 Agent 讨论前后的对比数据。
+
+**修复的关键问题：** L1 Agent 的 `run_dir` 位于 `shared_results/idea_runs/`，但 L5 的 `run_dir` 位于 `/dev/shm/.../projects/`。新增的 `_find_discussion_dir()` 函数自动在两个位置查找讨论数据，确保跨目录的数据流通。
+
+**讨论数据位置：**
+- `shared_results/idea_runs/<idea_id>/discussion/pre_discussion_syntheses.md` — 讨论前各 Agent 综合
+- `shared_results/idea_runs/<idea_id>/discussion/consensus_synthesis.md` — 讨论后共识综合
+- `shared_results/idea_runs/<idea_id>/discussion/discussion_transcript.md` — 讨论过程转录
+
+### 4. 论文修订保持 FIGURE_PROMPT 块
+
+Paper Revision 阶段（S22）的 Prompt 明确要求 LLM 保留初稿中的所有 `<!-- FIGURE_PROMPT -->` 块不被删除或转换，同时允许改进 Prompt 文本质量。修订版同样会提取 `figure_prompts.json`。
+
+---
 
 ## v1.0.1 新特性
 
@@ -152,7 +290,8 @@ llm:
   base_url: "https://your-api-endpoint/v1"
   api_key: "your-api-key"
   primary_model: "gpt-4o"
-  coding_model: "claude-opus-4-6"   # S11 代码生成专用 (留空则用主模型)
+  coding_model: "claude-sonnet-4-20250514"    # S11 代码生成专用 (留空则用主模型)
+  image_model: "gemini-3-pro-image-preview"   # L5 图像生成 (留空则用默认)
   fallback_models:
     - "gpt-4.1"
 ```
@@ -264,7 +403,7 @@ Claw-AI-Lab/
 │   │   │   │   ├── executor.py     # Stage 执行器 (含新增 S10/S12/S18)
 │   │   │   │   └── runner.py       # Pipeline 运行器 (含 --to-stage 补丁)
 │   │   │   ├── llm/client.py       # LLM 客户端 (DeepSeek 兼容修复)
-│   │   │   └── config.py           # 配置 (含 coding_model)
+│   │   │   └── config.py           # 配置 (含 coding_model, image_model)
 │   │   ├── config_gpu_project.yaml # GPU 项目配置
 │   │   └── config_test_minimal.yaml
 │   ├── datasets/                   # 本地数据集 (用户放入)

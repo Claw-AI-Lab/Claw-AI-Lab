@@ -7,7 +7,7 @@
 # fresh       — stop → reset-state → start（全新从头跑）
 
 BASE="$(cd "$(dirname "$0")" && pwd)"
-PY="${PYTHON_PATH:-python3}"
+PY="/home/TanZS/miniconda3/bin/python3"
 FE="$BASE/frontend"
 LOG="$BASE/logs"
 PIDF="$BASE/.pids"
