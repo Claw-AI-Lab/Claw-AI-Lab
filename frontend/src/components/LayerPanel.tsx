@@ -1,6 +1,7 @@
 import { memo, useState } from 'react';
 import { LAYER_META, STAGE_META } from '../types';
 import type { LobsterAgent, LogEntry, AgentLayer } from '../types';
+import { useLocale } from '../i18n';
 
 interface Props {
   layer: AgentLayer;
@@ -10,10 +11,6 @@ interface Props {
   selectedProjectId?: string | null;
 }
 
-const STATUS_LABEL: Record<string, string> = {
-  idle: '空闲', working: '工作中', error: '异常', done: '完成',
-  waiting_discussion: '等待讨论', discussing: '讨论中',
-};
 const STATUS_ICON: Record<string, string> = {
   idle: '🦞', working: '🔬', error: '❗', done: '✅',
   waiting_discussion: '🗣️', discussing: '🗣️',
@@ -26,7 +23,9 @@ const DISCUSSION_STAGE = 100;
 
 export default memo(function LayerPanel({ layer, agents, logs, tierIndex, selectedProjectId }: Props) {
   const [expanded, setExpanded] = useState(false);
+  const { t, locale } = useLocale();
   const meta = LAYER_META[layer];
+  const layerName = t(`layer.${layer}.name`);
   const recentLogs = logs.slice(-30);
   const widthPercent = Math.min(100, agents.length * 18 + 20);
   const workingCount = agents.filter((a) => ['working', 'waiting_discussion', 'discussing'].includes(a.status)).length;
@@ -39,9 +38,9 @@ export default memo(function LayerPanel({ layer, agents, logs, tierIndex, select
       <div className="layer-header" onClick={() => setExpanded(!expanded)}>
         <div className="layer-title-row">
           <span className="layer-dot" />
-          <h3>{meta.name}</h3>
+          <h3>{layerName}</h3>
           <span className="layer-agent-count">
-            {agents.length} agent · {workingCount} 活跃
+            {agents.length} 🦞 · {workingCount} {t('layer.active')}
           </span>
           <span className={`expand-icon ${expanded ? 'open' : ''}`}>▼</span>
         </div>
@@ -58,7 +57,8 @@ export default memo(function LayerPanel({ layer, agents, logs, tierIndex, select
               : agents.some((a) => a.stageProgress[s] === 'completed');
             const cls = anyRunning ? 'stage-running' : anyDone ? 'stage-done' : 'stage-idle';
             const dn = sm.displayNumber;
-            const label = isDisc ? `💬 ${sm.name}` : `S${dn} ${sm.name}`;
+            const sName = t(`stage.${s}`);
+            const label = isDisc ? `💬 S${dn} ${sName}` : `S${dn} ${sName}`;
             return (
               <span key={s} className={`stage-chip ${cls}${isDisc ? ' stage-discussion' : ''}`} title={sm.key}>
                 {label}
@@ -72,6 +72,7 @@ export default memo(function LayerPanel({ layer, agents, logs, tierIndex, select
         {agents.map((agent) => {
           const dimmed = selectedProjectId && agent.projectId && agent.projectId !== selectedProjectId;
           const highlighted = selectedProjectId && agent.projectId === selectedProjectId;
+          const statusLabel = t(`layer.agent_status.${agent.status}`);
           return (
           <div key={agent.id} className={`agent-card status-${agent.status}${highlighted ? ' agent-highlighted' : ''}${dimmed ? ' agent-dimmed' : ''}`}>
             <div className="agent-card-top">
@@ -81,7 +82,7 @@ export default memo(function LayerPanel({ layer, agents, logs, tierIndex, select
             </div>
             <div className="agent-status">
               <span className={`status-dot ${agent.status}`} />
-              {STATUS_LABEL[agent.status]}
+              {statusLabel}
               {agent.currentStage && (
                 <span className={`agent-stage-badge${agent.currentStage === DISCUSSION_STAGE ? ' discussion-badge' : ''}`}>
                   {agent.currentStage === DISCUSSION_STAGE
@@ -104,7 +105,8 @@ export default memo(function LayerPanel({ layer, agents, logs, tierIndex, select
                       : agent.stageProgress[s] || 'pending')
                     : (agent.stageProgress[s] || 'pending');
                   const dn2 = STAGE_META[s]?.displayNumber ?? s;
-                  const label = isDisc ? `💬 沟通讨论: ${status}` : `S${dn2}: ${status}`;
+                  const sName = t(`stage.${s}`);
+                  const label = isDisc ? `💬 S${dn2} ${sName}: ${status}` : `S${dn2}: ${status}`;
                   return (
                     <span key={s} className="stage-pip" title={label}>
                       {STAGE_ST[status] || '⬜'}
@@ -121,12 +123,12 @@ export default memo(function LayerPanel({ layer, agents, logs, tierIndex, select
 
       {expanded && (
         <div className="layer-logs">
-          <div className="log-title">📋 层级日志 ({recentLogs.length})</div>
+          <div className="log-title">{t('layer.log_title')} ({recentLogs.length})</div>
           <div className="log-list">
-            {recentLogs.length === 0 && <div className="log-empty">暂无日志</div>}
+            {recentLogs.length === 0 && <div className="log-empty">{t('layer.no_logs')}</div>}
             {recentLogs.map((log) => (
               <div key={log.id} className={`log-item level-${log.level}`}>
-                <span className="log-time">{new Date(log.timestamp).toLocaleTimeString()}</span>
+                <span className="log-time">{new Date(log.timestamp).toLocaleTimeString(locale === 'zh' ? 'zh-CN' : 'en-US')}</span>
                 <span className="log-agent">{log.agentName.slice(0, 12)}</span>
                 {log.stage && <span className={`log-stage${log.stage === DISCUSSION_STAGE ? ' log-stage-discussion' : ''}`}>
                   {log.stage === DISCUSSION_STAGE

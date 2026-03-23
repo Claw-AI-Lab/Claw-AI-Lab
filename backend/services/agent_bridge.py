@@ -1403,6 +1403,7 @@ def _slugify(text: str, max_len: int = 40) -> str:
 
 def _generate_config_from_template(
     state: BridgeState, project_id: str, topic: str, role_prompt: str = "",
+    reference_papers: list[str] | None = None,
 ) -> str:
     """Generate a project-specific YAML config from the default template.
 
@@ -1423,6 +1424,14 @@ def _generate_config_from_template(
     content = template_path.read_text(encoding="utf-8")
     content = content.replace("__PROJECT_ID__", project_id)
     content = content.replace("__TOPIC__", full_topic.replace('"', '\\"'))
+
+    if reference_papers:
+        yaml_list = "\n".join(f'    - "{p}"' for p in reference_papers)
+        content = content.replace("  reference_papers: __REFERENCE_PAPERS__",
+                                  f"  reference_papers:\n{yaml_list}")
+    else:
+        content = content.replace("  reference_papers: __REFERENCE_PAPERS__",
+                                  "  reference_papers: []")
 
     configs_dir = Path(state.runs_base_dir) / "project_configs"
     configs_dir.mkdir(parents=True, exist_ok=True)
@@ -1484,6 +1493,7 @@ def quick_submit_project(
     state: BridgeState, topic: str, project_id: str = "",
     mode: str = "lab",
     research_angles: list[str] | None = None,
+    reference_papers: list[str] | None = None,
 ) -> list[dict]:
     """Create a project from a topic string.
 
@@ -1508,7 +1518,10 @@ def quick_submit_project(
             if existing.exists():
                 base_id = f"{base_id}-{_uid()[:4]}"
         try:
-            config_path = _generate_config_from_template(state, base_id, topic.strip())
+            config_path = _generate_config_from_template(
+                state, base_id, topic.strip(),
+                reference_papers=reference_papers,
+            )
         except Exception as e:
             messages.append(msg_log(sys_agent, f"配置生成失败: {e}", "error"))
             return messages
@@ -1554,6 +1567,7 @@ def quick_submit_project(
         try:
             config_path = _generate_config_from_template(
                 state, f"{base_id}--{slug}", topic.strip(), role_prompt,
+                reference_papers=reference_papers,
             )
         except Exception as e:
             messages.append(msg_log(sys_agent, f"配置生成失败 [{name}]: {e}", "error"))
@@ -2405,7 +2419,12 @@ async def handle_command(state: BridgeState, data: dict) -> list[dict]:
             angles = [a.strip() for a in re.split(r"[,，、;；]", angles) if a.strip()]
         elif not isinstance(angles, list):
             angles = None
-        messages.extend(quick_submit_project(state, topic, project_id, mode, angles))
+        ref_papers = data.get("referencePapers")
+        if isinstance(ref_papers, str) and ref_papers.strip():
+            ref_papers = [p.strip() for p in re.split(r"[\n,，;；]", ref_papers) if p.strip()]
+        elif not isinstance(ref_papers, list):
+            ref_papers = None
+        messages.extend(quick_submit_project(state, topic, project_id, mode, angles, ref_papers))
         messages.extend(schedule_idle_agents(state))
         messages.append(msg_project_list(list_all_projects(state)))
 

@@ -172,74 +172,145 @@ def _utcnow_iso() -> str:
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
 
 
+_CHINESE_ENGLISH_DOMAIN_MAP: dict[str, list[str]] = {
+    "具身智能": ["embodied intelligence", "embodied AI"],
+    "视觉语言动作": ["vision language action", "VLA"],
+    "视觉语言模型": ["vision language model", "VLM"],
+    "世界模型": ["world model"],
+    "动作模型": ["action model"],
+    "机器人": ["robot", "robotics"],
+    "操控": ["manipulation"],
+    "抓取": ["grasping"],
+    "导航": ["navigation"],
+    "模仿学习": ["imitation learning"],
+    "强化学习": ["reinforcement learning"],
+    "扩散策略": ["diffusion policy"],
+    "视频生成": ["video generation"],
+    "动作预测": ["action prediction"],
+    "架构": ["architecture"],
+    "最新": ["latest", "recent", "state of the art"],
+    "评估": ["evaluation", "benchmark"],
+    "应用": ["application"],
+    "调研": ["survey"],
+    "研究": ["research"],
+    "方向": ["direction"],
+    "联合建模": ["joint modeling", "unified model"],
+    "联合训练": ["joint training"],
+    "跨具身": ["cross-embodiment"],
+    "灵巧操作": ["dexterous manipulation"],
+    "双臂": ["bimanual", "dual-arm"],
+    "长时序": ["long-horizon"],
+    "泛化": ["generalization"],
+    "零样本": ["zero-shot"],
+    "预训练": ["pretraining", "pre-training"],
+    "微调": ["fine-tuning"],
+}
+
+
+def _extract_english_from_mixed(topic: str) -> list[str]:
+    """Extract English tokens and translate Chinese domain terms from mixed text."""
+    english_tokens = re.findall(r"[a-zA-Z][a-zA-Z0-9\-_.]{1,}", topic)
+    english_tokens = [t.strip("-_.") for t in english_tokens if len(t.strip("-_.")) > 1]
+
+    translated: list[str] = []
+    for zh, en_list in _CHINESE_ENGLISH_DOMAIN_MAP.items():
+        if zh in topic:
+            translated.extend(en_list)
+
+    return english_tokens + translated
+
+
 def _build_fallback_queries(topic: str) -> list[str]:
     """Extract meaningful search queries from a long topic string.
 
-    Instead of using the raw topic as a query (which is often 200+ chars
-    and returns garbage from search engines), extract noun phrases and
-    domain keywords. Returns 5-10 targeted queries.
+    Handles mixed Chinese-English topics by translating Chinese domain
+    terms and extracting English keywords for academic search engines.
     """
-    # Split on common delimiters and extract meaningful chunks
-    chunks = re.split(r"[,:;()\[\]]+", topic)
-    chunks = [c.strip() for c in chunks if len(c.strip()) > 8]
-    cleaned_chunks = []
-    for c in chunks:
-        c = re.sub(
-            r"^(and|or|the|a|an|in|of|for|with|across|multiple|three|various)\s+",
-            "", c, flags=re.IGNORECASE,
-        )
-        c = c.strip()
-        if len(c) > 8:
-            cleaned_chunks.append(c)
-    chunks = cleaned_chunks
-
-    # Extract key terms (words that look like domain terms, not stopwords)
-    _stop = {
-        "the", "and", "for", "with", "from", "that", "this", "into",
-        "over", "across", "multiple", "three", "result", "comprehensive",
-        "using", "based", "between", "various", "different", "several",
-        "parameter", "parameters", "analysis", "approach", "method",
-        "framework", "frameworks",
-    }
-    words = topic.lower().split()
-    key_terms = [w for w in words if len(w) > 3 and w not in _stop]
+    has_chinese = bool(re.search(r"[\u4e00-\u9fff]", topic))
 
     queries: list[str] = []
-
-    # Strategy 1: Use meaningful chunks (up to 60 chars each)
-    for chunk in chunks[:4]:
-        if len(chunk) > 60:
-            chunk = " ".join(chunk.split()[:6])
-        if chunk and chunk not in queries:
-            queries.append(chunk)
-
-    # Strategy 2: Bigrams of key terms
-    clean_terms = [t for t in key_terms if re.match(r"^[a-z]", t) and ":" not in t]
-    for i in range(min(len(clean_terms) - 1, 4)):
-        bigram = f"{clean_terms[i]} {clean_terms[i + 1]}"
-        if bigram not in queries:
-            queries.append(bigram)
-
-    # Deduplicate preserving order
     seen: set[str] = set()
-    unique: list[str] = []
-    for q in queries:
-        q_lower = q.strip().lower()
-        if q_lower and q_lower not in seen:
-            seen.add(q_lower)
-            unique.append(q.strip())
 
-    # Ensure we have at least a few useful queries
-    topic_short = topic[:60].strip()
+    def _add(q: str) -> None:
+        q = q.strip()
+        if q and q.lower() not in seen:
+            seen.add(q.lower())
+            queries.append(q)
+
+    if has_chinese:
+        en_tokens = _extract_english_from_mixed(topic)
+        en_tokens_dedup = list(dict.fromkeys(t.lower() for t in en_tokens))
+
+        _skip_en = {"lab", "the", "and", "for", "with", "de", "成员"}
+        core_en = [t for t in en_tokens_dedup if len(t) > 2 and t.lower() not in _skip_en]
+
+        has_video = "video" in topic.lower()
+        has_action = "action" in topic.lower()
+        has_world_model = "世界模型" in topic or "world model" in topic.lower()
+        has_embodied = "具身" in topic or "embodied" in topic.lower()
+        has_vla = "vla" in topic.lower()
+        has_vlm = "vlm" in topic.lower()
+
+        if has_video or has_action:
+            _add("video action model robot embodied intelligence")
+            _add("world action model WAM robot manipulation")
+            _add("joint video action prediction robot")
+        if has_world_model or has_video:
+            _add("world model action joint training robot")
+            _add("unified world model vision language action")
+        if has_embodied:
+            _add("embodied AI robot manipulation latest architecture")
+            _add("embodied intelligence VLA world model")
+        if has_vla or has_vlm:
+            _add("vision language action model robot VLA")
+            _add("VLM evaluation embodied robot")
+
+        if core_en:
+            _add(" ".join(core_en[:6]))
+            _add(" ".join(core_en[:4]) + " robot survey")
+            _add(" ".join(core_en[:4]) + " benchmark")
+    else:
+        chunks = re.split(r"[,:;()\[\]]+", topic)
+        chunks = [c.strip() for c in chunks if len(c.strip()) > 8]
+        cleaned_chunks = []
+        for c in chunks:
+            c = re.sub(
+                r"^(and|or|the|a|an|in|of|for|with|across|multiple|three|various)\s+",
+                "", c, flags=re.IGNORECASE,
+            )
+            c = c.strip()
+            if len(c) > 8:
+                cleaned_chunks.append(c)
+        chunks = cleaned_chunks
+
+        _stop = {
+            "the", "and", "for", "with", "from", "that", "this", "into",
+            "over", "across", "multiple", "three", "result", "comprehensive",
+            "using", "based", "between", "various", "different", "several",
+            "parameter", "parameters", "analysis", "approach", "method",
+            "framework", "frameworks",
+        }
+        words = topic.lower().split()
+        key_terms = [w for w in words if len(w) > 3 and w not in _stop]
+
+        for chunk in chunks[:4]:
+            if len(chunk) > 60:
+                chunk = " ".join(chunk.split()[:6])
+            _add(chunk)
+
+        clean_terms = [t for t in key_terms if re.match(r"^[a-z]", t) and ":" not in t]
+        for i in range(min(len(clean_terms) - 1, 4)):
+            _add(f"{clean_terms[i]} {clean_terms[i + 1]}")
+
+    topic_short = " ".join(re.findall(r"[a-zA-Z][a-zA-Z0-9\-_.]+", topic))[:60].strip()
+    if not topic_short:
+        topic_short = topic[:60].strip()
     for suffix in ("survey", "review", "benchmark", "state of the art", "recent advances"):
-        if len(unique) >= 5:
+        if len(queries) >= 8:
             break
-        candidate = f"{topic_short} {suffix}".strip()
-        if candidate.lower() not in seen:
-            seen.add(candidate.lower())
-            unique.append(candidate)
+        _add(f"{topic_short} {suffix}")
 
-    return unique[:10]
+    return queries[:12]
 
 
 def _write_stage_meta(
@@ -1183,15 +1254,20 @@ def _extract_topic_keywords(
 
     Returns lowercased keyword list (2+ chars, no stop words).
     Used by the domain pre-filter to drop obviously irrelevant papers.
+    Handles mixed Chinese-English topics by translating Chinese domain terms.
     """
     tokens = re.findall(r"[a-zA-Z][a-zA-Z0-9_-]+", topic.lower())
     keywords = [t for t in tokens if t not in _STOP_WORDS and len(t) >= 3]
-    # Add domain names as keywords
+    if re.search(r"[\u4e00-\u9fff]", topic):
+        translated = _extract_english_from_mixed(topic)
+        for t in translated:
+            t_lower = t.lower()
+            if t_lower not in _STOP_WORDS and len(t_lower) >= 3:
+                keywords.append(t_lower)
     for d in domains:
         for part in re.findall(r"[a-zA-Z][a-zA-Z0-9_-]+", d.lower()):
             if part not in _STOP_WORDS and len(part) >= 2:
                 keywords.append(part)
-    # Deduplicate while preserving order
     seen: set[str] = set()
     unique: list[str] = []
     for kw in keywords:
@@ -1952,11 +2028,19 @@ def _execute_search_strategy(
     }
 
     def _extract_keywords(text: str) -> list[str]:
-        """Extract meaningful keywords from text, removing stop words."""
-        return [
+        """Extract meaningful keywords from text, removing stop words.
+
+        Handles mixed Chinese-English text by also extracting English tokens
+        and translating Chinese domain terms.
+        """
+        en_words = [
             w for w in re.split(r"[^a-zA-Z0-9]+", text)
             if w.lower() not in _stop and len(w) > 1
         ]
+        if re.search(r"[\u4e00-\u9fff]", text):
+            en_words.extend(_extract_english_from_mixed(text))
+            en_words = list(dict.fromkeys(w for w in en_words if w))
+        return en_words
 
     _MAX_QUERY_LEN = 60  # characters — beyond this, shorten to keywords
     _SEARCH_SUFFIXES = ["benchmark", "survey", "seminal", "state of the art"]
@@ -2103,6 +2187,54 @@ def _check_literature_sites_reachable(timeout: float = 8.0) -> dict[str, bool]:
     return results
 
 
+def _resolve_user_reference(ref: str) -> dict | None:
+    """Resolve a user-provided reference string to a candidate dict.
+
+    Accepts arXiv IDs (e.g. '2512.13030'), arXiv URLs, or plain titles.
+    Attempts arXiv API lookup first, falls back to a title-only entry.
+    """
+    import re as _re_ref
+
+    arxiv_id = ""
+    m = _re_ref.search(r"(\d{4}\.\d{4,5})", ref)
+    if m:
+        arxiv_id = m.group(1)
+
+    if arxiv_id:
+        try:
+            from researchclaw.literature.arxiv_client import get_paper_by_id
+            paper = get_paper_by_id(arxiv_id)
+            if paper:
+                return {
+                    "id": f"user-ref-{paper.paper_id}",
+                    "title": paper.title,
+                    "source": "user_reference",
+                    "url": paper.url,
+                    "year": paper.year,
+                    "abstract": paper.abstract[:500] if paper.abstract else "",
+                    "authors": [{"name": a.name} for a in paper.authors],
+                    "arxiv_id": arxiv_id,
+                    "venue": paper.venue,
+                    "collected_at": _utcnow_iso(),
+                }
+        except Exception:  # noqa: BLE001
+            pass
+
+    title = ref.strip()
+    if title.startswith("http"):
+        title = title.rsplit("/", 1)[-1]
+    return {
+        "id": f"user-ref-{title[:40].replace(' ', '-').lower()}",
+        "title": title,
+        "source": "user_reference",
+        "url": ref if ref.startswith("http") else "",
+        "year": 2025,
+        "abstract": "",
+        "authors": [],
+        "collected_at": _utcnow_iso(),
+    }
+
+
 def _execute_literature_collect(
     stage_dir: Path,
     run_dir: Path,
@@ -2221,6 +2353,58 @@ def _execute_literature_collect(
                 logger.info("Stage 4: Injected %d seminal papers from seed library", _injected)
     except Exception:  # noqa: BLE001
         logger.debug("Seminal paper injection skipped", exc_info=True)
+
+    # --- Inject user-provided reference papers ---
+    _user_refs = config.research.reference_papers
+    if _user_refs:
+        _existing_titles = {c.get("title", "").lower() for c in candidates}
+        _ref_injected = 0
+        for ref_str in _user_refs:
+            ref_str = ref_str.strip()
+            if not ref_str:
+                continue
+            _resolved = _resolve_user_reference(ref_str)
+            if _resolved and _resolved.get("title", "").lower() not in _existing_titles:
+                _existing_titles.add(_resolved["title"].lower())
+                candidates.append(_resolved)
+                _ref_injected += 1
+        if _ref_injected:
+            logger.info("Stage 4: Injected %d user-provided reference papers", _ref_injected)
+
+    # --- arXiv recent papers auto-discovery ---
+    try:
+        from researchclaw.literature.arxiv_client import search_arxiv as _arxiv_search
+        _topic_kw = _extract_keywords(topic)
+        if _topic_kw:
+            _arxiv_query = " AND ".join(
+                f"all:{w}" for w in _topic_kw[:5]
+            )
+            _recent = _arxiv_search(
+                _arxiv_query, limit=30, sort_by="submitted_date",
+                year_min=2025,
+            )
+            _existing_titles_lower = {c.get("title", "").lower() for c in candidates}
+            _disc = 0
+            for p in _recent:
+                if p.title.lower() not in _existing_titles_lower:
+                    _existing_titles_lower.add(p.title.lower())
+                    candidates.append({
+                        "id": p.paper_id,
+                        "title": p.title,
+                        "source": "arxiv_recent_discovery",
+                        "url": p.url,
+                        "year": p.year,
+                        "abstract": p.abstract[:500] if p.abstract else "",
+                        "authors": [{"name": a.name} for a in p.authors],
+                        "arxiv_id": p.arxiv_id,
+                        "venue": p.venue,
+                        "collected_at": _utcnow_iso(),
+                    })
+                    _disc += 1
+            if _disc:
+                logger.info("Stage 4: Discovered %d recent arXiv papers (2025+)", _disc)
+    except Exception:  # noqa: BLE001
+        logger.debug("arXiv recent discovery skipped", exc_info=True)
 
     # --- Fallback: LLM-generated candidates ---
     if not candidates and llm is not None:
@@ -2489,14 +2673,18 @@ def _execute_literature_screen(
         payload = _safe_json_loads(resp.content, {})
         if isinstance(payload, dict) and isinstance(payload.get("shortlist"), list):
             shortlist = [row for row in payload["shortlist"] if isinstance(row, dict)]
-    # T2.2: Ensure minimum shortlist size of 15 for adequate related work
     _MIN_SHORTLIST = 15
     if not shortlist:
-        rows = (
-            filtered_rows[:_MIN_SHORTLIST]
-            if filtered_rows
-            else _parse_jsonl_rows(candidates_text)[:_MIN_SHORTLIST]
+        pool = filtered_rows if filtered_rows else _parse_jsonl_rows(candidates_text)
+        pool_sorted = sorted(
+            pool,
+            key=lambda r: (
+                r.get("keyword_overlap", 0),
+                1 if r.get("source") == "seminal_library" else 0,
+            ),
+            reverse=True,
         )
+        rows = pool_sorted[:_MIN_SHORTLIST]
         for idx, item in enumerate(rows):
             item["relevance_score"] = round(0.75 - idx * 0.02, 3)
             item["quality_score"] = round(0.72 - idx * 0.015, 3)

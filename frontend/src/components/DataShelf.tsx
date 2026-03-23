@@ -1,6 +1,7 @@
 import { memo, useState } from 'react';
 import { REPO_META, LAYER_META } from '../types';
 import type { Artifact, RepoId } from '../types';
+import { useLocale } from '../i18n';
 
 interface Props {
   repoId: RepoId;
@@ -54,12 +55,14 @@ function ProjectFolder({ pid, files }: { pid: string; files: Artifact[] }) {
 
 export default memo(function DataShelf({ repoId, artifacts }: Props) {
   const [open, setOpen] = useState(false);
+  const { t } = useLocale();
   const meta = REPO_META[repoId];
   const fromColor = LAYER_META[meta.fromLayer].color;
+  const repoName = t(`repo.${repoId}.name`);
 
   const byProject = new Map<string, Artifact[]>();
   for (const a of artifacts) {
-    const pid = a.projectId || '未知项目';
+    const pid = a.projectId || t('shelf.unknown_project');
     if (!byProject.has(pid)) byProject.set(pid, []);
     byProject.get(pid)!.push(a);
   }
@@ -71,19 +74,19 @@ export default memo(function DataShelf({ repoId, artifacts }: Props) {
     >
       <div className="shelf-header" onClick={() => setOpen(!open)}>
         <span className="shelf-icon">{meta.icon}</span>
-        <span className="shelf-name">{meta.name}</span>
+        <span className="shelf-name">{repoName}</span>
         <span className="shelf-count">{artifacts.length}</span>
       </div>
       {open && (
         <div className="shelf-body">
           <div className="shelf-flow">
-            <span style={{ color: fromColor }}>{LAYER_META[meta.fromLayer].name.split('·')[1]?.trim()}</span>
+            <span style={{ color: fromColor }}>{t(`layer.${meta.fromLayer}.name`).split('·')[1]?.trim()}</span>
             <span className="shelf-arrow-h">→</span>
             <span style={{ color: meta.toLayer ? LAYER_META[meta.toLayer].color : '#6366f1' }}>
-              {meta.toLayer ? LAYER_META[meta.toLayer].name.split('·')[1]?.trim() : '反馈 L1'}
+              {meta.toLayer ? t(`layer.${meta.toLayer}.name`).split('·')[1]?.trim() : t('shelf.feedback_l1')}
             </span>
           </div>
-          {byProject.size === 0 && <div className="shelf-empty">暂无产物</div>}
+          {byProject.size === 0 && <div className="shelf-empty">{t('shelf.no_artifacts')}</div>}
           {[...byProject.entries()].map(([pid, files]) => (
             <ProjectFolder key={pid} pid={pid} files={files} />
           ))}
