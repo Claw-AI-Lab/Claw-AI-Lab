@@ -275,10 +275,10 @@ export default function App() {
           <span className="header-subtitle">1.0.0</span>
         </div>
         <div className="header-stats">
-          <span className="stat">Agent <b>{state.agents.length}</b></span>
-          <span className="stat">活跃 <b>{workingCount}</b></span>
-          <span className="stat">❌ <b>{errorCount}</b></span>
-          <span className="stat">📦 <b>{state.artifacts.length}</b> 产物</span>
+          <span className="stat">{t('header.stat_agents')} <b>{state.agents.length}</b></span>
+          <span className="stat">{t('header.stat_active')} <b>{workingCount}</b></span>
+          <span className="stat">{t('header.stat_error')} <b>{errorCount}</b></span>
+          <span className="stat" dangerouslySetInnerHTML={{ __html: t('header.stat_artifacts', { n: `<b>${state.artifacts.length}</b>` }) }} />
         </div>
         <div className="header-right">
           <button
@@ -294,12 +294,6 @@ export default function App() {
 
       {showSettings && (
         <div className="settings-bar">
-          <label>
-            <button className="btn-sm mode-btn" onClick={toggleMode}>
-              {state.mockMode ? t('header.mock_to_real') : t('header.real_to_mock')}
-            </button>
-          </label>
-          <span className="settings-sep">|</span>
           <label>{t('header.agent_label')} <input value={agentWsUrl} onChange={(e) => setAgentWsUrl(e.target.value)} /></label>
           <label>{t('header.resource_label')} <input value={resWsUrl} onChange={(e) => setResWsUrl(e.target.value)} /></label>
         </div>

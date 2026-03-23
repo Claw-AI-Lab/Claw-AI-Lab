@@ -6,6 +6,10 @@ const zh: Record<string, string> = {
   'header.agent_label': 'Agent:',
   'header.resource_label': '资源:',
   'header.shared_repo': '📚 共享数据仓库',
+  'header.stat_agents': '🦞 Agent',
+  'header.stat_active': '🔬 工作中',
+  'header.stat_error': '❌',
+  'header.stat_artifacts': '📦 {n} 产物',
 
   // ProjectPanel
   'project.title': '项目管理',
@@ -117,16 +121,10 @@ const zh: Record<string, string> = {
   'log.all': '全部',
 
   // QueuePanel
-  'queue.title': '📋 任务队列',
-  'queue.init_to_idea': '新项目 → 调研',
-  'queue.idea_to_experiment': '调研 → 实验设计',
-  'queue.experiment_to_coding': '实验 → 代码',
-  'queue.coding_to_execution': '代码 → 执行',
-  'queue.execution_feedback': '执行 → 反馈',
-  'queue.pending': '{n}待',
-  'queue.assigned': '{n}执行',
-  'queue.completed': '{n}✓',
-  'queue.empty': '空',
+  'queue.title': '📋 任务流水线',
+  'queue.idle': '空闲',
+  'queue.badge_running': '执行中',
+  'queue.badge_waiting': '等待中',
 
   // ResourceMonitor
   'resource.tag': '📈 资源',

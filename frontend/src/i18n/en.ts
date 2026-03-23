@@ -6,6 +6,10 @@ const en: Record<string, string> = {
   'header.agent_label': 'Agent:',
   'header.resource_label': 'Resource:',
   'header.shared_repo': '📚 Shared Data Repositories',
+  'header.stat_agents': '🦞 Agents',
+  'header.stat_active': '🔬 Active',
+  'header.stat_error': '❌',
+  'header.stat_artifacts': '📦 {n} Artifacts',
 
   // ProjectPanel
   'project.title': 'Projects',
@@ -117,16 +121,10 @@ const en: Record<string, string> = {
   'log.all': 'All',
 
   // QueuePanel
-  'queue.title': '📋 Task Queue',
-  'queue.init_to_idea': 'New → Research',
-  'queue.idea_to_experiment': 'Research → Experiment',
-  'queue.experiment_to_coding': 'Experiment → Code',
-  'queue.coding_to_execution': 'Code → Execution',
-  'queue.execution_feedback': 'Execution → Feedback',
-  'queue.pending': '{n} pending',
-  'queue.assigned': '{n} running',
-  'queue.completed': '{n} ✓',
-  'queue.empty': 'Empty',
+  'queue.title': '📋 Task Pipeline',
+  'queue.idle': 'Idle',
+  'queue.badge_running': 'Running',
+  'queue.badge_waiting': 'Waiting',
 
   // ResourceMonitor
   'resource.tag': '📈 Resources',
