@@ -19,19 +19,17 @@
 
 ## What Is This?
 
-**Claw AI Lab** 是基于 [AutoResearchClaw](https://github.com/aiming-lab/AutoResearchClaw) 的多 Agent 并行研究系统。
-
-输入一个研究方向 — 系统自动完成文献调研、假设生成、实验设计、代码编写、实验执行、结果分析、论文写作。多个龙虾 Agent 并行工作，通过金字塔分层调度协作完成端到端的研究流程。
+**Claw AI Lab** is a multi-agent parallel research system. Drop a research topic — the system autonomously handles literature review, hypothesis generation, experiment design, code writing, experiment execution, result analysis, and paper writing. Multiple agents work in parallel across a pyramid-layered architecture, collaborating end-to-end from idea to paper with zero human intervention.
 
 ---
 
-## Updates
+## 🔥 Updates
 
-- __[2026.03.25]__: 🔥 We released Claw AI Lab v1.0.0.
+- __[2026.03.25]__: We released Claw AI Lab v1.0.0.
 
 ---
 
-## Quick Start
+## 🚀 Quick Start
 
 ### 1. Install
 
@@ -63,11 +61,8 @@ pip install openhands
 
 ### 2. Configure
 
-Fill in your LLM API key:
-
-```yaml
-# examples/config_template.yaml
-
+Fill in your LLM API key in examples/config_template.yaml:
+```
 llm:
   provider: "openai-compatible"
   base_url: "https://your-api-endpoint/v1"
@@ -84,7 +79,127 @@ llm:
 ./start.sh fresh        # Clean restart (reset all data)
 ```
 
-Open **http://localhost:5903/** → You will see the system.
+Open **http://localhost:5903/** → You will see the system, then submit project.
+
+---
+
+## ⚙️ Configuration Details
+
+Description of each configuration in examples/config_template.yaml.
+<details>
+<summary>Click to expand</summary>
+
+```yaml
+# === Project ===
+project:
+  name: "my-project"              # Project identifier, used for directory naming and UI display
+  mode: "full-auto"               # Pipeline mode: "full-auto" runs all stages without human gates
+
+# === Research ===
+research:
+  topic: "Your research topic"    # The research topic or paper to reproduce (required)
+  domains:                        # Research domains for literature search scope
+    - "deep-learning"
+  daily_paper_count: 5            # Number of papers to retrieve per search query
+  quality_threshold: 3.0          # Minimum relevance score (1-5) for literature screening
+
+# === Runtime ===
+runtime:
+  timezone: "Asia/Shanghai"       # Timezone for timestamps in logs and reports
+  max_parallel_tasks: 1           # Max concurrent tasks per agent (keep 1 for stability)
+  approval_timeout_hours: 1       # Timeout for human approval at gate stages
+  retry_limit: 2                  # Number of retries on stage failure before giving up
+
+# === Notifications ===
+notifications:
+  channel: "console"              # Notification channel: "console" | "discord" | "slack"
+  target: ""                      # Channel target (e.g. Discord webhook URL, leave empty for console)
+  on_stage_start: true            # Notify when a stage begins
+  on_stage_fail: true             # Notify when a stage fails
+  on_gate_required: true          # Notify when human approval is needed
+
+# === Knowledge Base ===
+knowledge_base:
+  backend: "markdown"             # Storage format: "markdown" | "obsidian"
+  root: "docs/kb"                 # Root directory for knowledge base files
+
+# === OpenClaw Bridge ===
+openclaw_bridge:
+  use_cron: false                 # Enable scheduled research runs
+  use_message: false              # Enable progress notifications via messaging platforms
+  use_memory: false               # Enable cross-session knowledge persistence
+  use_sessions_spawn: false       # Enable spawning parallel sub-sessions
+  use_web_fetch: false            # Enable live web search during literature review
+  use_browser: false              # Enable browser-based paper collection
+
+# === LLM ===
+llm:
+  provider: "openai-compatible"   # LLM provider: "openai-compatible" | "openai" | "deepseek" | "acp"
+  base_url: "https://api.example.com/v1"  # API endpoint (OpenAI-compatible format)
+  api_key: "sk-your-key"          # API key (can also use api_key_env to read from environment)
+  api_key_env: "RESEARCHCLAW_API_KEY"     # Environment variable name for API key (fallback if api_key is empty)
+  primary_model: "gpt-5.4"       # Main model for research, analysis, and writing stages
+  coding_model: "gpt-5.4"        # Model for code generation (S11). Leave empty to use primary_model
+  image_model: "gemini-3-pro-image-preview"  # Model for figure generation in paper writing (L5)
+  fallback_models:                # Fallback model chain — used when primary model fails
+    - "gpt-4o"
+    - "gpt-4.1"
+  timeout_sec: 600                # LLM API request timeout in seconds
+
+# === Security ===
+security:
+  hitl_required_stages: []        # Stage numbers requiring human approval (e.g. [5, 9, 20])
+  allow_publish_without_approval: true   # Allow paper export without human review
+  redact_sensitive_logs: false    # Redact API keys and sensitive data in logs
+
+# === Experiment ===
+experiment:
+  mode: "sandbox"                 # Execution mode: "sandbox" (local Python) | "docker" | "simulated"
+  time_budget_sec: 2400           # Max time budget per experiment run in seconds
+  max_iterations: 3               # Number of iterative refinement cycles in S15 (Edit-Run-Eval loop)
+  metric_key: "primary_metric"    # Name of the primary evaluation metric
+  metric_direction: "minimize"    # Optimization direction: "minimize" | "maximize"
+  datasets_dir: "/path/to/datasets"      # Absolute path to datasets directory
+  checkpoints_dir: "/path/to/checkpoints"  # Absolute path to model weights directory
+  codebases_dir: "/path/to/codebases"    # Absolute path to reference codebases directory
+  shared_results_dir: "/path/to/shared_results"  # Directory for cross-project shared results
+  paper_length: "short"           # Paper length: "short" (~4 pages) | "long" (~8 pages)
+
+  # Sandbox execution environment
+  sandbox:
+    python_path: "/path/to/python3"  # Python interpreter path for running experiments
+    gpu_required: true            # Whether experiments require GPU
+    gpus_per_project: 1           # Number of GPUs allocated per project
+    max_memory_mb: 16384          # Max memory limit for experiment processes (MB)
+    allowed_imports:              # Whitelist of allowed Python packages in sandbox
+      - "numpy"
+      - "torch"
+      - "transformers"
+      - "diffusers"
+      # ... add packages as needed
+
+  sanity_check_max_iterations: 6  # Max fix attempts in S12 code testing. 0 = skip fixes, trigger intervention immediately
+
+  # Legacy code agent (disabled by default, use opencode instead)
+  code_agent:
+    enabled: false
+
+  # OpenHands Beast Mode — delegates complex code generation to OpenHands agent
+  opencode:
+    enabled: true                 # Master switch for Beast Mode
+    auto: true                    # Auto-trigger based on complexity score (vs. manual)
+    complexity_threshold: 0.2     # Complexity score threshold (0.0-1.0). Lower = more likely to use Beast Mode
+    model: "claude-opus-4-6"      # LLM model used by OpenHands agent
+    timeout_sec: 2400             # Max time for Beast Mode code generation (seconds)
+    max_retries: 1                # Number of retries if Beast Mode fails to produce main.py
+    workspace_cleanup: false      # Whether to delete temporary workspace after completion
+
+# === Prompts ===
+prompts:
+  custom_file: ""                 # Path to custom prompts YAML file (empty = use defaults)
+```
+
+</details>
 
 ---
 
@@ -103,26 +218,15 @@ Open **http://localhost:5903/** → You will see the system.
 
 ---
 
-### Environment Variables
-
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `RESEARCHCLAW_API_KEY` | — | LLM API Key |
-| `FRONTEND_PORT` | `5903` | Web UI port |
-| `AGENT_BRIDGE_PORT` | `8906` | Agent Bridge WebSocket port |
-| `RESOURCE_MONITOR_PORT` | `8905` | Resource monitor WebSocket port |
-
----
-
-## Acknowledgement
+## 🙏 Acknowledgement
 
 We learned and reused code from the following projects:
 
-[AutoResearchClaw](https://github.com/aiming-lab/AutoResearchClaw), 
+[AutoResearchClaw](https://github.com/aiming-lab/AutoResearchClaw), [AutoResearch](https://github.com/karpathy/autoresearch)
 
 We thank the authors for their contributions to the community!
 
-## License
+## 📄 License
 
 MIT — see [LICENSE](LICENSE) for details.
 
