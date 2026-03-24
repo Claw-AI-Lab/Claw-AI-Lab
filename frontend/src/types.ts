@@ -333,6 +333,7 @@ export interface ProjectInfo {
   timestamp: string;
   topic: string;
   configPath: string;
+  intervention?: string;
 }
 
 // ===================== WebSocket Protocol =====================

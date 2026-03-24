@@ -4000,6 +4000,16 @@ def _execute_code_generation(
         )
         extra_guidance += _override
 
+    extra_guidance += (
+        "\n\n## SAVE INTERMEDIATE RESULTS\n"
+        "Create an `outputs/` directory and save intermediate results for inspection:\n"
+        "- For image/video tasks: save generated images (PNG/JPG) or videos (MP4) to `outputs/`\n"
+        "- For model tasks: save sample predictions or visualizations to `outputs/`\n"
+        "- Name files descriptively, e.g. `outputs/{condition}_{seed}.png`\n"
+        "- Use `os.makedirs('outputs', exist_ok=True)` at the start\n"
+        "- This helps verify experiment quality beyond just numerical metrics\n"
+    )
+
     # --- Code generation: Beast Mode → CodeAgent → Legacy single-shot ---
     _code_agent_active = False
     _code_agent_original_files: dict[str, str] = {}
@@ -5035,7 +5045,7 @@ def _execute_sanity_check(
                 "                print(f'  → skipped: {e}')\n"
                 "            break\n"
                 "# Check checkpoints dir\n"
-                "ckpt_dir = os.environ.get('CHECKPOINTS_DIR', os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))), 'checkpoints'))\n"
+                "ckpt_dir = os.environ.get('CHECKPOINTS_DIR', os.path.join(os.getcwd(), 'checkpoints'))\n"
                 "if os.path.isdir(ckpt_dir):\n"
                 "    print(f'  checkpoints dir: {os.listdir(ckpt_dir)[:5]}')\n"
                 "    found_any = True\n"
@@ -5490,10 +5500,11 @@ def _execute_sanity_check(
     )
     return StageResult(
         stage=Stage.SANITY_CHECK,
-        status=StageStatus.DONE,
+        status=StageStatus.DONE if final_passed else StageStatus.FAILED,
         artifacts=("sanity_report.json", "fix_log.json"),
         evidence_refs=("experiment/",),
         decision=summary,
+        error=None if final_passed else f"Sanity check failed after {len(all_iterations)} iteration(s)",
     )
 
 

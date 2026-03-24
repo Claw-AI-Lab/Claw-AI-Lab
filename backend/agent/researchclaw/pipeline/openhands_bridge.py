@@ -38,6 +38,11 @@ __all__ = [
 ]
 
 _TASK_TEMPLATE = """\
+#########################################################
+# YOUR #1 DELIVERABLE: CREATE main.py IN THE WORKSPACE ROOT
+# Without main.py the task is considered FAILED.
+#########################################################
+
 You are implementing a complete, runnable ML/science experiment.
 
 STEP 1 — READ THE WORKSPACE:
@@ -61,22 +66,35 @@ STEP 2 — IMPLEMENTATION RULES:
 - Compute REAL metrics from actual model outputs. NEVER use np.random or random.uniform as a metric placeholder.
 - Each experimental condition must produce genuinely different behavior.
 - Do NOT rewrite modules that already exist — import and extend them.
-- NEVER invent module names — only use modules visible in the workspace.
+- NEVER invent module names — only import modules that ACTUALLY EXIST in the workspace. Run `ls *.py` and `find . -name '*.py'` to verify before importing.
 
-STEP 3 — CREATE main.py:
+STEP 3 — CREATE main.py (MANDATORY):
+You MUST create a file called `main.py` in the workspace root directory.
 1. main.py MUST have a `def main():` function AND `if __name__ == "__main__": main()` at the bottom.
 2. main() must ACTUALLY CALL the pipeline to generate images and compute metrics — not just define functions.
 3. It must print the primary metric as: {metric}: <value>
 4. Use multi-seed evaluation (seeds 0, 1, 2) and report mean +/- std.
 5. Implement a time guard: stop gracefully at 80% of the time budget ({time_budget_sec} seconds).
 6. Print per-condition results: condition=<name> seed=<s> {metric}: <value>
+7. main.py must be SELF-CONTAINED: all imports must resolve. Only import from:
+   (a) Python stdlib, (b) pip-installed packages, (c) .py files that EXIST in the workspace.
+   Run `python -c "import main"` to verify before finishing.
 
 CRITICAL REQUIREMENTS:
+- main.py MUST exist in the workspace root. This is the ONLY success criterion.
 - main.py MUST be a runnable script, NOT a library of functions. `python main.py` must produce output.
 - ABSOLUTELY NO try/except blocks anywhere in the code. If ANY operation fails (import, model loading, data loading, pipeline call, metric computation), the program MUST crash with a full traceback. Do NOT catch exceptions to print error messages and continue — this hides bugs and produces empty metrics. The sanity check system will detect and fix crashes automatically, but it CANNOT fix silently swallowed errors.
 - Do NOT use argparse or CLI arguments — hardcode all configuration.
 - All output must go to stdout (print statements).
 - Keep the experiment feasible within {time_budget_sec} seconds total.
+
+SAVE INTERMEDIATE RESULTS:
+- Create an `outputs/` directory (`os.makedirs('outputs', exist_ok=True)`)
+- Save generated images, videos, or sample outputs to `outputs/` for visual inspection
+- Name files descriptively: `outputs/{condition}_{seed}.png` or `outputs/{condition}_{seed}.mp4`
+- This helps verify experiment quality beyond numerical metrics
+
+FINAL CHECK: Before you finish, confirm that `main.py` exists at the workspace root and runs: `python -c "import main"`.
 """
 
 

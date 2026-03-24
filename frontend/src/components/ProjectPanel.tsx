@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import type { ProjectInfo, Artifact } from '../types';
-import { STAGE_META, RCStage, REPO_META } from '../types';
 import { useLocale } from '../i18n';
 
 const STATUS_ICONS: Record<string, { color: string; icon: string }> = {
@@ -26,7 +25,6 @@ interface Props {
   artifactsByProject: Record<string, Artifact[]>;
   discussionMode: boolean;
   onToggleDiscussion: () => void;
-  onShowDiscussionInfo: () => void;
   onSelect: (projectId: string) => void;
   onResume: (projectId: string) => void;
   onPause: (projectId: string) => void;
@@ -35,14 +33,14 @@ interface Props {
   onQuickSubmit: (topic: string, mode: SubmitMode, researchAngles: string[], referencePapers: string, paths: { codebases?: string; datasets?: string; checkpoints?: string }) => void;
 }
 
-export default function ProjectPanel({ projects, connected, selectedProjectId, artifactsByProject, discussionMode, onToggleDiscussion, onShowDiscussionInfo, onSelect, onResume, onPause, onRestart, onDelete, onQuickSubmit }: Props) {
+export default function ProjectPanel({ projects, connected, selectedProjectId, artifactsByProject, discussionMode, onToggleDiscussion, onSelect, onResume, onPause, onRestart, onDelete, onQuickSubmit }: Props) {
   const [panelOpen, setPanelOpen] = useState(true);
   const [mode, setMode] = useState<SubmitMode>('lab');
   const [topicInput, setTopicInput] = useState('');
   const [anglesInput, setAnglesInput] = useState('');
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [refPapersInput, setRefPapersInput] = useState('');
-  const [showRefPapers, setShowRefPapers] = useState(false);
+  
   const [showPaths, setShowPaths] = useState(false);
   const [codebasesPath, setCodebasesPath] = useState('');
   const [datasetsPath, setDatasetsPath] = useState('');
@@ -65,6 +63,7 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
   };
 
   const info = modeInfo[mode];
+  const [showModeHelp, setShowModeHelp] = useState(false);
 
   const submit = () => {
     const text = topicInput.trim();
@@ -116,18 +115,38 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
       {panelOpen && (
         <div className="project-panel-body">
           <div className="submit-section">
-            <div className="mode-selector">
-              {(['lab', 'reproduce'] as SubmitMode[]).map(m => (
+            <div className="mode-row">
+              <div className="mode-selector">
                 <button
-                  key={m}
-                  className={`mode-btn ${mode === m ? 'active' : ''}`}
-                  onClick={() => setMode(m)}
+                  className={`mode-btn ${mode === 'lab' && discussionMode ? 'active' : ''}`}
+                  onClick={() => { setMode('lab'); if (!discussionMode) onToggleDiscussion(); }}
+                  title={t('discussion.hint_on')}
                 >
-                  {modeInfo[m].icon} {modeInfo[m].label}
+                  🔬 {t('project.mode.lab_discuss')}
                 </button>
-              ))}
+                <button
+                  className={`mode-btn ${mode === 'lab' && !discussionMode ? 'active' : ''}`}
+                  onClick={() => { setMode('lab'); if (discussionMode) onToggleDiscussion(); }}
+                  title={t('discussion.hint_off')}
+                >
+                  🔬 {t('project.mode.lab_independent')}
+                </button>
+                <button
+                  className={`mode-btn ${mode === 'reproduce' ? 'active' : ''}`}
+                  onClick={() => setMode('reproduce')}
+                >
+                  📄 {modeInfo.reproduce.label}
+                </button>
+              </div>
+              <div className="mode-help-wrapper">
+                <button className="mode-info-btn" type="button" onClick={() => setShowModeHelp(!showModeHelp)}>?</button>
+                {showModeHelp && (
+                  <div className="mode-help-popup">
+                    {t('project.mode.help')}
+                  </div>
+                )}
+              </div>
             </div>
-            <div className="mode-desc">{info.desc}</div>
 
             <div className="project-input-stack">
               <textarea
@@ -140,60 +159,16 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
                 disabled={!connected}
               />
               {mode === 'lab' && (
-                <>
-                  <div className="project-angles-row">
-                    <input
-                      className="project-angles-input"
-                      placeholder={t('project.angles_placeholder')}
-                      value={anglesInput}
-                      onChange={e => setAnglesInput(e.target.value)}
-                      onKeyDown={onKey}
-                      disabled={!connected}
-                    />
-                  </div>
-                  <div className="discussion-mode-row">
-                    <button
-                      className={`btn-sm discussion-toggle${discussionMode ? ' active' : ''}`}
-                      onClick={onToggleDiscussion}
-                      type="button"
-                    >
-                      {discussionMode ? t('discussion.on') : t('discussion.off')}
-                    </button>
-                    <button
-                      className="btn-sm discussion-info-btn"
-                      onClick={onShowDiscussionInfo}
-                      type="button"
-                      title={t('discussion.dialog_title')}
-                    >
-                      ?
-                    </button>
-                    <span className="discussion-hint">
-                      {discussionMode ? t('discussion.hint_on') : t('discussion.hint_off')}
-                    </span>
-                  </div>
-                </>
-              )}
-              <div className="project-ref-papers-toggle">
-                <button
-                  className="ref-papers-toggle-btn"
-                  type="button"
-                  onClick={() => setShowRefPapers(!showRefPapers)}
-                >
-                  {showRefPapers ? '▾' : '▸'} {t('project.ref_papers_toggle')}
-                  {refPapersInput.trim() && <span className="ref-badge">
-                    {refPapersInput.split(/[\n,]/).filter(s => s.trim()).length}
-                  </span>}
-                </button>
-              </div>
-              {showRefPapers && (
-                <textarea
-                  className="project-ref-papers-input"
-                  placeholder={t('project.ref_papers_placeholder')}
-                  value={refPapersInput}
-                  onChange={e => setRefPapersInput(e.target.value)}
-                  rows={3}
-                  disabled={!connected}
-                />
+                <div className="project-angles-row">
+                  <input
+                    className="project-angles-input"
+                    placeholder={t('project.angles_placeholder')}
+                    value={anglesInput}
+                    onChange={e => setAnglesInput(e.target.value)}
+                    onKeyDown={onKey}
+                    disabled={!connected}
+                  />
+                </div>
               )}
               <div className="project-ref-papers-toggle">
                 <button
@@ -202,9 +177,9 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
                   onClick={() => setShowPaths(!showPaths)}
                 >
                   {showPaths ? '▾' : '▸'} {t('paths.toggle')}
-                  {(codebasesPath.trim() || datasetsPath.trim() || checkpointsPath.trim()) && (
+                  {(refPapersInput.trim() || codebasesPath.trim() || datasetsPath.trim() || checkpointsPath.trim()) && (
                     <span className="ref-badge">
-                      {[codebasesPath, datasetsPath, checkpointsPath].filter(s => s.trim()).length}
+                      {[refPapersInput, codebasesPath, datasetsPath, checkpointsPath].filter(s => s.trim()).length}
                     </span>
                   )}
                 </button>
@@ -212,7 +187,17 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
               {showPaths && (
                 <div className="paths-grid">
                   <label className="path-field">
-                    <span className="path-label">💻 {t('paths.codebases')}</span>
+                    <span className="path-label">{t('project.ref_papers_label')}</span>
+                    <input
+                      className="path-input"
+                      placeholder={t('project.ref_papers_placeholder')}
+                      value={refPapersInput}
+                      onChange={e => setRefPapersInput(e.target.value)}
+                      disabled={!connected}
+                    />
+                  </label>
+                  <label className="path-field">
+                    <span className="path-label">{t('paths.codebases')}</span>
                     <input
                       className="path-input"
                       placeholder={t('paths.codebases_placeholder')}
@@ -222,7 +207,7 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
                     />
                   </label>
                   <label className="path-field">
-                    <span className="path-label">📊 {t('paths.datasets')}</span>
+                    <span className="path-label">{t('paths.datasets')}</span>
                     <input
                       className="path-input"
                       placeholder={t('paths.datasets_placeholder')}
@@ -232,7 +217,7 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
                     />
                   </label>
                   <label className="path-field">
-                    <span className="path-label">🏗️ {t('paths.checkpoints')}</span>
+                    <span className="path-label">{t('paths.checkpoints')}</span>
                     <input
                       className="path-input"
                       placeholder={t('paths.checkpoints_placeholder')}
@@ -285,7 +270,7 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
                       </span>
                       <span className="project-summary-progress">{pct}%</span>
                       {arts.length > 0 && <span className="project-summary-arts">📦{arts.length}</span>}
-                      
+                      {proj.intervention && <span className="project-intervention-icon" title={t('project.intervention_needed')}>⚠</span>}
                       <span className={`project-expand-arrow${isExpanded ? ' open' : ''}`}>▸</span>
                     </div>
 
@@ -320,34 +305,12 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
                           </div>
                         )}
 
-                        {/* Artifacts by repo */}
-                        {arts.length > 0 && (
-                          <div className="project-detail-artifacts">
-                            {(() => {
-                              const grouped: Record<string, Artifact[]> = {};
-                              for (const a of arts) {
-                                if (!grouped[a.repoId]) grouped[a.repoId] = [];
-                                grouped[a.repoId].push(a);
-                              }
-                              return Object.entries(grouped).map(([repoId, items]) => {
-                                const meta = REPO_META[repoId as keyof typeof REPO_META];
-                                return (
-                                  <div key={repoId} className="project-art-group">
-                                    <div className="project-art-header">
-                                      {meta?.icon || '📦'} {meta?.name || repoId}
-                                      <span className="project-art-count">{items.length}</span>
-                                    </div>
-                                    <div className="project-art-files">
-                                      {items.map(a => (
-                                        <span key={a.id} className={`project-art-file status-${a.status}`} title={`${a.filename} (${a.size})`}>
-                                          {a.filename}
-                                        </span>
-                                      ))}
-                                    </div>
-                                  </div>
-                                );
-                              });
-                            })()}
+                        {/* Artifacts by repo — hidden for now */}
+
+                        {proj.intervention && (
+                          <div className="project-intervention-box">
+                            <div className="project-intervention-title">⚠ {t('project.intervention_needed')}</div>
+                            <pre className="project-intervention-detail">{proj.intervention}</pre>
                           </div>
                         )}
 

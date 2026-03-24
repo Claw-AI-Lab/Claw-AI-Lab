@@ -243,10 +243,6 @@ export default function App() {
     }
   };
 
-  const showDiscussionInfo = () => {
-    window.alert(`${t('discussion.dialog_title')}\n\n${t('discussion.dialog_body')}`);
-  };
-
   // ── Memoized derived state ──
   const ideaAgents = useMemo(() => state.agents.filter((a) => a.layer === AgentLayer.IDEA), [state.agents]);
   const expAgents = useMemo(() => state.agents.filter((a) => a.layer === AgentLayer.EXPERIMENT), [state.agents]);
@@ -337,7 +333,6 @@ export default function App() {
             artifactsByProject={artifactsByProject}
             discussionMode={discussionMode}
             onToggleDiscussion={toggleDiscussionMode}
-            onShowDiscussionInfo={showDiscussionInfo}
             onSelect={(projectId) => dispatch({ type: 'select_project', payload: projectId })}
             onResume={(projectId) => {
               const ws = agentWsRef.current;

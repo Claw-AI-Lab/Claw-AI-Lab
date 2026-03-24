@@ -840,3 +840,141 @@ domains:
         source: "sklearn.neural_network.MLPClassifier(hidden_layer_sizes=(256, 128))"
         paper: "Standard neural network baseline"
         pip: []
+
+  # ── Video Generation & Editing ──────────────────────────────────
+
+  video_generation:
+    keywords:
+      - video generation
+      - text to video
+      - text-to-video
+      - t2v
+      - video diffusion
+      - video synthesis
+      - video editing
+      - video-to-video
+      - flow edit
+      - flowedit
+      - video inpainting
+      - temporal editing
+      - video manipulation
+    standard_benchmarks:
+      - name: VBench
+        tier: 2
+        domain: video_generation
+        size_mb: 500
+        metrics: [subject_consistency, background_consistency, temporal_flickering, motion_smoothness, aesthetic_quality, imaging_quality, overall_consistency]
+        api: "pip install vbench && python -m vbench.evaluate"
+        note: "Comprehensive benchmark for T2V generation quality (16 dimensions)"
+      - name: EvalCrafter
+        tier: 2
+        domain: video_generation
+        size_mb: 200
+        metrics: [visual_quality, text_alignment, motion_quality, temporal_consistency]
+        api: "Custom: EvalCrafter evaluation toolkit"
+        note: "Multi-dimensional T2V evaluation with 700 prompts"
+      - name: LOVEU-TGVE
+        tier: 2
+        domain: video_editing
+        size_mb: 2000
+        metrics: [clip_score, temporal_consistency, frame_accuracy, structure_distance]
+        api: "Custom: LOVEU-TGVE benchmark loader"
+        note: "Text-guided video editing benchmark from CVPR 2023 workshop"
+      - name: DAVIS-Edit
+        tier: 2
+        domain: video_editing
+        size_mb: 1500
+        metrics: [clip_directional_similarity, temporal_consistency, lpips, structure_distance]
+        api: "Custom: DAVIS + editing instructions overlay"
+        note: "DAVIS video segmentation dataset adapted for editing tasks"
+      - name: VideoScore
+        tier: 2
+        domain: video_generation
+        size_mb: 100
+        metrics: [visual_quality, temporal_consistency, dynamic_degree, text_to_video_alignment, factual_consistency]
+        api: "Custom: VideoScore evaluation"
+        note: "Automatic video quality scoring via multimodal LLM"
+    common_baselines:
+      - name: FlowEdit
+        source: "Custom: Flow-based video editing via source/target velocity transport"
+        paper: "Couairon et al., FlowEdit: Inversion-Free Text-Based Editing Using Pre-Trained Flow Models, 2024"
+        pip: []
+      - name: TokenFlow
+        source: "Custom: Consistent video editing via token flow propagation"
+        paper: "Geyer et al., TokenFlow: Consistent Diffusion Features for Consistent Video Editing, ICLR 2024"
+        pip: []
+      - name: FateZero
+        source: "Custom: Fusing attentions for zero-shot text-based video editing"
+        paper: "Qi et al., FateZero: Fusing Attentions for Zero-shot Text-based Video Editing, ICCV 2023"
+        pip: []
+      - name: Video-P2P
+        source: "Custom: Video editing via cross-attention control"
+        paper: "Liu et al., Video-P2P: Video Editing with Cross-attention Control, 2023"
+        pip: []
+      - name: Tune-A-Video
+        source: "Custom: One-shot tuning for text-driven video generation/editing"
+        paper: "Wu et al., Tune-A-Video: One-Shot Tuning of Image Diffusion Models, ICCV 2023"
+        pip: []
+      - name: RAVE
+        source: "Custom: Randomized noise shuffling for video editing"
+        paper: "Kara et al., RAVE: Randomized Noise Shuffling for Fast and Consistent Video Editing, 2023"
+        pip: []
+      - name: AnyV2V
+        source: "Custom: Plug-and-play framework for any video-to-video editing"
+        paper: "Ku et al., AnyV2V: A Plug-and-Play Framework for Any Video-to-Video Editing Tasks, 2024"
+        pip: []
+
+  # ── Image Editing & Manipulation ────────────────────────────────
+
+  image_editing:
+    keywords:
+      - image editing
+      - text-guided image editing
+      - image manipulation
+      - image-to-image
+      - instruction-based editing
+      - inpainting
+      - style transfer
+    standard_benchmarks:
+      - name: PIE-Bench
+        tier: 2
+        domain: image_editing
+        size_mb: 500
+        metrics: [clip_directional_similarity, lpips, structure_distance, psnr_background]
+        api: "Custom: PIE-Bench evaluation toolkit"
+        note: "Comprehensive benchmark for text-guided image editing (700 examples, 10 categories)"
+      - name: TEdBench
+        tier: 2
+        domain: image_editing
+        size_mb: 100
+        metrics: [clip_score, lpips, clip_directional_similarity]
+        api: "Custom: TEdBench loader"
+        note: "Text-based editing benchmark with paired before/after images"
+      - name: EditBench
+        tier: 2
+        domain: image_editing
+        size_mb: 300
+        metrics: [clip_score, mask_accuracy, fid]
+        api: "Custom: EditBench evaluation"
+        note: "Google benchmark for text-guided image inpainting and editing"
+    common_baselines:
+      - name: InstructPix2Pix
+        source: "diffusers.StableDiffusionInstructPix2PixPipeline.from_pretrained('timbrooks/instruct-pix2pix')"
+        paper: "Brooks et al., InstructPix2Pix: Learning to Follow Image Editing Instructions, CVPR 2023"
+        pip: [diffusers]
+      - name: Prompt-to-Prompt
+        source: "Custom: Cross-attention control for image editing"
+        paper: "Hertz et al., Prompt-to-Prompt Image Editing with Cross Attention Control, ICLR 2023"
+        pip: []
+      - name: Null-text Inversion
+        source: "Custom: DDIM inversion + null-text optimization for editing"
+        paper: "Mokady et al., Null-text Inversion for Editing Real Images, CVPR 2023"
+        pip: []
+      - name: SDEdit
+        source: "Custom: Stochastic differential editing via diffusion"
+        paper: "Meng et al., SDEdit: Guided Image Synthesis and Editing with SDEs, ICLR 2022"
+        pip: []
+      - name: LEDITS++
+        source: "Custom: Limitless image editing using semantic guidance"
+        paper: "Brack et al., LEDITS++: Limitless Image Editing using Text-to-Image Models, CVPR 2024"
+        pip: []

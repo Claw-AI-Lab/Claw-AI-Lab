@@ -1074,7 +1074,10 @@ def launch_agent_for_task(state: BridgeState, agent: LobsterAgent, task: Task) -
 
     # Normal layers: launch ResearchClaw process
     # Discussion mode: L1 runs S1-S7 only (S8 runs after discussion)
-    if state.discussion_mode and agent.layer == "idea":
+    # Reproduce mode skips discussion → runs full S1-S8
+    _task_meta = _read_project_meta(task.run_dir) if task.run_dir else None
+    _is_reproduce = _task_meta.get("mode") == "reproduce" if _task_meta else False
+    if state.discussion_mode and agent.layer == "idea" and not _is_reproduce:
         layer_range = LAYER_RANGE_PHASE1["idea"]
     else:
         layer_range = LAYER_RANGE.get(agent.layer, (1, 15))
@@ -1087,7 +1090,7 @@ def launch_agent_for_task(state: BridgeState, agent: LobsterAgent, task: Task) -
         resume_stage = last_done + 1
 
         # Discussion mode: if S1-S7 already done, skip straight to discussion/S8
-        if state.discussion_mode and agent.layer == "idea" and last_done >= ts:
+        if state.discussion_mode and agent.layer == "idea" and not _is_reproduce and last_done >= ts:
             for s in range(fs, ts + 1):
                 agent.stage_progress[s] = "completed"
             messages.append(msg_log(
@@ -1126,15 +1129,7 @@ def launch_agent_for_task(state: BridgeState, agent: LobsterAgent, task: Task) -
 
     try:
         proc_env = {**os.environ, "PYTHONUNBUFFERED": "1"}
-
-        # L4 execution layer: allocate GPUs
-        if agent.layer == "execution":
-            gpu_ids = state.gpu_allocator.allocate(task.project_id)
-            if gpu_ids is not None:
-                proc_env["CUDA_VISIBLE_DEVICES"] = ",".join(str(g) for g in gpu_ids)
-                messages.append(msg_log(agent, f"GPU 分配: {gpu_ids} → CUDA_VISIBLE_DEVICES={proc_env['CUDA_VISIBLE_DEVICES']}", "info"))
-            else:
-                messages.append(msg_log(agent, "GPU 不足，使用默认分配", "warning"))
+        proc_env.pop("CUDA_VISIBLE_DEVICES", None)
 
         log_path = Path(task.run_dir) / f"agent_{agent.id}.log"
         log_file = open(log_path, "w", encoding="utf-8")
@@ -1275,6 +1270,64 @@ def submit_new_project(state: BridgeState, project_id: str, config_path: str, to
     return messages
 
 
+def _check_s12_sanity_failure(state: "BridgeState", agent: "LobsterAgent") -> list[dict]:
+    """If S12 sanity_report.json shows fail, pause the project and return notification messages."""
+    messages: list[dict] = []
+    _s12_dir = Path(agent.run_dir) / "stage-12"
+    _sanity_path = _s12_dir / "sanity_report.json"
+    if not _sanity_path.exists():
+        return messages
+    try:
+        _sanity = json.loads(_sanity_path.read_text(encoding="utf-8"))
+    except Exception:
+        return messages
+    if _sanity.get("status") != "fail":
+        return messages
+
+    _fix_log_path = _s12_dir / "fix_log.json"
+    _exp_dir = None
+    for _sd in sorted(Path(agent.run_dir).glob("stage-11*"), reverse=True):
+        _ed = _sd / "experiment"
+        if _ed.exists():
+            _exp_dir = str(_ed)
+            break
+
+    _last_error = ""
+    _iters = _sanity.get("iterations", [])
+    if _iters:
+        _last_iter = _iters[-1]
+        _failed_checks = [c for c in _last_iter.get("checks", []) if not c.get("passed")]
+        if _failed_checks:
+            _fc = _failed_checks[-1]
+            _last_error = (_fc.get("stderr_tail") or _fc.get("stderr") or "")[-800:]
+
+    _detail = (
+        f"⚠️ S12 SANITY_CHECK 循环修复失败，需要手动介入\n"
+        f"项目: {agent.project_id}\n"
+        f"修复轮次: {_sanity.get('total_iterations', '?')}/{_sanity.get('max_fix_iterations', '?')}\n"
+        f"实验代码: {_exp_dir or 'N/A'}\n"
+        f"修复日志: {_fix_log_path}\n"
+        f"检查报告: {_sanity_path}"
+    )
+    if _last_error:
+        _detail += f"\n最后报错:\n{_last_error}"
+
+    # Persist intervention reason so the frontend can display it
+    _meta_path = Path(agent.run_dir) / "project_meta.json"
+    if _meta_path.exists():
+        try:
+            _meta = json.loads(_meta_path.read_text(encoding="utf-8"))
+            _meta["intervention"] = _detail
+            _meta_path.write_text(json.dumps(_meta, indent=2, ensure_ascii=False), encoding="utf-8")
+        except Exception:
+            pass
+
+    messages.append(msg_log(agent, _detail, "error", 12))
+    messages.extend(_pause_project(state, agent.project_id))
+    messages.append(msg_project_list(list_all_projects(state)))
+    return messages
+
+
 def on_agent_done(state: BridgeState, agent: LobsterAgent) -> list[dict]:
     """When an agent finishes, complete its task and create a follow-up task for the next layer."""
     messages: list[dict] = []
@@ -1287,7 +1340,11 @@ def on_agent_done(state: BridgeState, agent: LobsterAgent) -> list[dict]:
             q.complete(agent.assigned_task_id)
 
     # Discussion mode: L1 agent completed S7 → enter discussion
-    if state.discussion_mode and agent.layer == "idea":
+    # Reproduce mode skips discussion entirely
+    _agent_proj_dir = state.projects_dir() / agent.project_id if agent.project_id else None
+    _agent_meta = _read_project_meta(str(_agent_proj_dir)) if _agent_proj_dir and _agent_proj_dir.exists() else None
+    _agent_is_reproduce = _agent_meta.get("mode") == "reproduce" if _agent_meta else False
+    if state.discussion_mode and agent.layer == "idea" and not _agent_is_reproduce:
         state.discussion_waiting[agent.id] = agent
         agent.current_stage = DISCUSSION_STAGE
         agent.stage_progress[DISCUSSION_STAGE] = "running"
@@ -1363,41 +1420,42 @@ def on_agent_done(state: BridgeState, agent: LobsterAgent) -> list[dict]:
         messages.extend(_skip_discussion_proceed_s8(state, agent))
         return messages
 
+    # L3 (coding) → check S12 sanity_report: if failed, pause and notify user
+    if agent.layer == "coding" and agent.project_id:
+        _s12_msgs = _check_s12_sanity_failure(state, agent)
+        if _s12_msgs:
+            messages.extend(_s12_msgs)
+            return messages
+
     # Create follow-up task in the next queue
     output_queue_name = LAYER_OUTPUT_QUEUE.get(agent.layer)
     if output_queue_name and output_queue_name in state.queues and agent.project_id:
-        # L4→L5: skip writing for reproduce mode; otherwise only push if S17 PROCEED
+        # L4→L5: only push if S17 PROCEED
         if agent.layer == "execution" and output_queue_name == "execution_to_writing":
-            _project_dir = state.projects_dir() / agent.project_id if agent.project_id else None
-            _meta = _read_project_meta(str(_project_dir)) if _project_dir and _project_dir.exists() else None
-            if _meta and _meta.get("mode") == "reproduce":
-                messages.append(msg_log(agent, f"复现模式: 跳过论文写作 (L5)，项目 [{agent.project_id}] 执行完成", "success"))
-                output_queue_name = None
-            else:
-                _decision_file = Path(agent.run_dir) / "stage-17" / "decision.md"
-                _warning_file = Path(agent.run_dir) / "quality_warning.txt"
-                _summary_file = Path(agent.run_dir) / "pipeline_summary.json"
-                _is_proceed = False
-                if _decision_file.exists():
-                    _dec_text = _decision_file.read_text(encoding="utf-8").upper()
-                    _is_proceed = "PROCEED" in _dec_text and "REFINE" not in _dec_text.split("PROCEED")[0][-50:]
-                if not _is_proceed and _warning_file.exists():
-                    _warn_text = _warning_file.read_text(encoding="utf-8")
-                    if "max pivots" in _warn_text.lower():
+            _decision_file = Path(agent.run_dir) / "stage-17" / "decision.md"
+            _warning_file = Path(agent.run_dir) / "quality_warning.txt"
+            _summary_file = Path(agent.run_dir) / "pipeline_summary.json"
+            _is_proceed = False
+            if _decision_file.exists():
+                _dec_text = _decision_file.read_text(encoding="utf-8").upper()
+                _is_proceed = "PROCEED" in _dec_text and "REFINE" not in _dec_text.split("PROCEED")[0][-50:]
+            if not _is_proceed and _warning_file.exists():
+                _warn_text = _warning_file.read_text(encoding="utf-8")
+                if "max pivots" in _warn_text.lower():
+                    _is_proceed = True
+                    messages.append(msg_log(agent, "S17 决策为 REFINE 但已达最大迭代次数，强制进入论文写作", "warning"))
+            if not _is_proceed and _summary_file.exists():
+                try:
+                    import json as _json
+                    _summary = _json.loads(_summary_file.read_text(encoding="utf-8"))
+                    if _summary.get("final_status") == "done" and _summary.get("stages_failed", 1) == 0:
                         _is_proceed = True
-                        messages.append(msg_log(agent, "S17 决策为 REFINE 但已达最大迭代次数，强制进入论文写作", "warning"))
-                if not _is_proceed and _summary_file.exists():
-                    try:
-                        import json as _json
-                        _summary = _json.loads(_summary_file.read_text(encoding="utf-8"))
-                        if _summary.get("final_status") == "done" and _summary.get("stages_failed", 1) == 0:
-                            _is_proceed = True
-                            messages.append(msg_log(agent, "Pipeline 全部完成，进入论文写作", "info"))
-                    except Exception:
-                        pass
-                if not _is_proceed:
-                    messages.append(msg_log(agent, f"S17 决策非 PROCEED，跳过论文写作", "info"))
-                    output_queue_name = None
+                        messages.append(msg_log(agent, "Pipeline 全部完成，进入论文写作", "info"))
+                except Exception:
+                    pass
+            if not _is_proceed:
+                messages.append(msg_log(agent, f"S17 决策非 PROCEED，跳过论文写作", "info"))
+                output_queue_name = None
 
         if output_queue_name and output_queue_name in state.queues:
             _, target_layer = QUEUE_NAMES[output_queue_name]
@@ -1493,7 +1551,7 @@ def list_all_projects(state: BridgeState) -> list[dict]:
         timestamp = cp.get("timestamp", "") if cp else ""
 
         first_stage = 1
-        total_stages = 18 if project_mode == "reproduce" else 22
+        total_stages = 22
         completed_threshold = total_stages
 
         if last_stage >= completed_threshold:
@@ -1526,6 +1584,8 @@ def list_all_projects(state: BridgeState) -> list[dict]:
                 except OSError:
                     pass
 
+        intervention = meta.get("intervention", "") if meta else ""
+
         result.append({
             "projectId": project_id,
             "status": status,
@@ -1536,6 +1596,7 @@ def list_all_projects(state: BridgeState) -> list[dict]:
             "timestamp": timestamp,
             "topic": topic,
             "configPath": config_path,
+            "intervention": intervention,
         })
 
     return result
@@ -1561,6 +1622,15 @@ def resume_project(state: BridgeState, project_id: str) -> list[dict]:
     meta = _read_json(Path(run_dir) / "project_meta.json")
     config_path = meta.get("config_path", "") if meta else ""
     topic = meta.get("topic", "") if meta else ""
+
+    # Clear intervention flag on resume
+    _meta_path = Path(run_dir) / "project_meta.json"
+    if meta and meta.get("intervention"):
+        meta.pop("intervention", None)
+        try:
+            _meta_path.write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8")
+        except Exception:
+            pass
 
     if not config_path:
         messages.append(msg_log(sys_agent, f"项目 [{project_id}] 缺少配置文件路径, 无法恢复", "error"))
@@ -1719,7 +1789,7 @@ def quick_submit_project(
         except Exception as e:
             messages.append(msg_log(sys_agent, f"配置生成失败: {e}", "error"))
             return messages
-        messages.append(msg_log(sys_agent, f"复现模式: 项目 [{base_id}] 单 Agent 全流程启动 (跳过论文写作)", "success"))
+        messages.append(msg_log(sys_agent, f"复现模式: 项目 [{base_id}] 单 Agent 全流程启动", "success"))
         messages.extend(submit_new_project(state, base_id, config_path, topic.strip(), mode="reproduce"))
         return messages
 
@@ -2805,6 +2875,14 @@ async def poll_loop(state: BridgeState, interval: float):
                 if agent.assigned_task_id:
                     for q in state.queues.values():
                         q.fail(agent.assigned_task_id)
+
+                # S12 sanity check failure → pause project and notify user
+                if agent.layer == "coding" and agent.project_id:
+                    _s12_err_msgs = _check_s12_sanity_failure(state, agent)
+                    if _s12_err_msgs:
+                        all_messages.extend(_s12_err_msgs)
+                        continue
+
                 if agent.layer == "execution" and agent.project_id:
                     released = state.gpu_allocator.release(agent.project_id)
                     if released:
