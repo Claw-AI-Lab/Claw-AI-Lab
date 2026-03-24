@@ -22,6 +22,7 @@
 **Claw AI Lab** is a fully autonomous multi-agent research system. Given a research topic, it automatically conducts literature review, designs and runs GPU-accelerated experiments, analyzes results, and writes a complete academic paper — end-to-end, with no human intervention.
 Multiple agents collaborate across a 5-layer pyramid (survey → design → coding → execution → writing), coordinated via task queues with real-time web monitoring. It supports autonomous exploration, multi-agent debate with heterogeneous LLMs, and paper reproduction workflows.
 
+**We welcome contributions from the community to make this project better together.**
 ---
 
 ## 🔥 Updates
@@ -83,7 +84,7 @@ sandbox:
 ./start.sh fresh        # Clean restart (reset all data)
 ```
 
-Open **http://localhost:5903/** → You will see the system, then submit project.
+Open **http://localhost:5903/** → You will see the system, then submit your projects.
 
 ---
 
