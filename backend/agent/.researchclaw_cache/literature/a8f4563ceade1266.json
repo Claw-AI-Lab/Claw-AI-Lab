@@ -1,0 +1,1421 @@
+{
+  "query": "Optimizing multi-head attention memory usage with FlashAttention and KV-cache compression on GPU for long-context transformer inference",
+  "source": "openalex",
+  "limit": 15,
+  "timestamp": 1773944833.4532435,
+  "papers": [
+    {
+      "paper_id": "oalex-W4384389802",
+      "title": "A Comprehensive Overview of Large Language Models",
+      "authors": [
+        {
+          "name": "Humza Naveed",
+          "affiliation": ""
+        },
+        {
+          "name": "Asad Ullah Khan",
+          "affiliation": ""
+        },
+        {
+          "name": "Shi Qiu",
+          "affiliation": ""
+        },
+        {
+          "name": "Muhammad Saqib",
+          "affiliation": ""
+        },
+        {
+          "name": "Saeed Anwar",
+          "affiliation": ""
+        },
+        {
+          "name": "Muhammad Usman",
+          "affiliation": ""
+        },
+        {
+          "name": "Nick Barnes",
+          "affiliation": ""
+        },
+        {
+          "name": "Ajmal Mian",
+          "affiliation": ""
+        },
+        {
+          "name": "Mian, Ajmal",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Large Language Models (LLMs) have recently demonstrated remarkable capabilities in natural language processing tasks and beyond. This success of LLMs has led to a large influx of research contributions in this direction. These works encompass diverse topics such as architectural innovations, better training strategies, context length improvements, fine-tuning, multi-modal LLMs, robotics, datasets, benchmarking, efficiency, and more. With the rapid development of techniques and regular breakthroughs in LLM research, it has become considerably challenging to perceive the bigger picture of the advances in this direction. Considering the rapidly emerging plethora of literature on LLMs, it is imperative that the research community is able to benefit from a concise yet comprehensive overview of the recent developments in this field. This article provides an overview of the existing literature on a broad range of LLM-related concepts. Our self-contained comprehensive overview of LLMs discusses relevant background concepts along with covering the advanced topics at the frontier of research in LLMs. This review article is intended to not only provide a systematic survey but also a quick comprehensive reference for the researchers and practitioners to draw insights from extensive informative summaries of the existing works to advance the LLM research.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 350,
+      "doi": "10.48550/arxiv.2307.06435",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2307.06435",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4393949386",
+      "title": "Understanding the Potential of FPGA-based Spatial Acceleration for Large Language Model Inference",
+      "authors": [
+        {
+          "name": "Hongzheng Chen",
+          "affiliation": "Cornell University"
+        },
+        {
+          "name": "Jiahao Zhang",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Yixiao Du",
+          "affiliation": "Cornell University"
+        },
+        {
+          "name": "Shaojie Xiang",
+          "affiliation": "Cornell University"
+        },
+        {
+          "name": "Zichao Yue",
+          "affiliation": "Cornell University"
+        },
+        {
+          "name": "Niansong Zhang",
+          "affiliation": "Cornell University"
+        },
+        {
+          "name": "Yaohui Cai",
+          "affiliation": "Cornell University"
+        },
+        {
+          "name": "Zhiru Zhang",
+          "affiliation": "Cornell University"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Recent advancements in large language models (LLMs) boasting billions of parameters have generated a significant demand for efficient deployment in inference workloads. While hardware accelerators for Transformer-based models have been extensively studied, the majority of existing approaches rely on temporal architectures that reuse hardware units for different network layers and operators. However, these methods often encounter challenges in achieving low latency due to considerable memory access overhead. This article investigates the feasibility and potential of model-specific spatial acceleration for LLM inference on field-programmable gate arrays (FPGAs). Our approach involves the specialization of distinct hardware units for specific operators or layers, facilitating direct communication between them through a dataflow architecture while minimizing off-chip memory accesses. We introduce a comprehensive analytical model for estimating the performance of a spatial LLM accelerator, taking into account the on-chip compute and memory resources available on an FPGA. This model can be extended to multi-FPGA settings for distributed inference. Through our analysis, we can identify the most effective parallelization and buffering schemes for the accelerator and, crucially, determine the scenarios in which FPGA-based spatial acceleration can outperform its GPU-based counterpart. To enable more productive implementations of an LLM model on FPGAs, we further provide a library of high-level synthesis (HLS) kernels that are composable and reusable. This library will be made available as open-source. To validate the effectiveness of both our analytical model and HLS library, we have implemented Bidirectional Encoder Representations from Transformers (BERT) and Generative Pre-trained Transformers (GPT2) on an AMD Xilinx Alveo U280 FPGA device. Experimental results demonstrate our approach can achieve up to 13.4\u00d7 speedup when compared to previous FPGA-based accelerators for the BERT model. For GPT generative inference, we attain a 2.2\u00d7 speedup compared to Design for Excellence, an FPGA overlay, in the prefill stage, while achieving a 1.9\u00d7 speedup and a 5.7\u00d7 improvement in energy efficiency compared to the NVIDIA A100 GPU in the decode stage.",
+      "venue": "ACM Transactions on Reconfigurable Technology and Systems",
+      "citation_count": 54,
+      "doi": "10.1145/3656177",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3656177",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4390529182",
+      "title": "Beyond Efficiency: A Systematic Survey of Resource-Efficient Large Language Models",
+      "authors": [
+        {
+          "name": "Guangji Bai",
+          "affiliation": ""
+        },
+        {
+          "name": "Zheng Chai",
+          "affiliation": ""
+        },
+        {
+          "name": "Ling Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Shiyu Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiaying Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Nan Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Tingwei Shi",
+          "affiliation": ""
+        },
+        {
+          "name": "Ziyang Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Mengdan Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yifei Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Carl Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yue Cheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Liang Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhao, Liang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "The burgeoning field of Large Language Models (LLMs), exemplified by sophisticated models like OpenAI's ChatGPT, represents a significant advancement in artificial intelligence. These models, however, bring forth substantial challenges in the high consumption of computational, memory, energy, and financial resources, especially in environments with limited resource capabilities. This survey aims to systematically address these challenges by reviewing a broad spectrum of techniques designed to enhance the resource efficiency of LLMs. We categorize methods based on their optimization focus: computational, memory, energy, financial, and network resources and their applicability across various stages of an LLM's lifecycle, including architecture design, pretraining, finetuning, and system design. Additionally, the survey introduces a nuanced categorization of resource efficiency techniques by their specific resource types, which uncovers the intricate relationships and mappings between various resources and corresponding optimization techniques. A standardized set of evaluation metrics and datasets is also presented to facilitate consistent and fair comparisons across different models and techniques. By offering a comprehensive overview of the current sota and identifying open research avenues, this survey serves as a foundational reference for researchers and practitioners, aiding them in developing more sustainable and efficient LLMs in a rapidly evolving landscape.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 38,
+      "doi": "10.48550/arxiv.2401.00625",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2401.00625",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4390962670",
+      "title": "A Survey of Resource-efficient LLM and Multimodal Foundation Models",
+      "authors": [
+        {
+          "name": "Mengwei Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Wangsong Yin",
+          "affiliation": ""
+        },
+        {
+          "name": "Dongqi Cai",
+          "affiliation": ""
+        },
+        {
+          "name": "Rongjie Yi",
+          "affiliation": ""
+        },
+        {
+          "name": "Daliang Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Qipeng Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Bingyang Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yihao Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Chen Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Shihe Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Qiyang Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhen-Yan Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Li Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Shangguang Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuanchun Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yunxin Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xin Jin",
+          "affiliation": ""
+        },
+        {
+          "name": "Xuanzhe Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Large foundation models, including large language models (LLMs), vision transformers (ViTs), diffusion, and LLM-based multimodal models, are revolutionizing the entire machine learning lifecycle, from training to deployment. However, the substantial advancements in versatility and performance these models offer come at a significant cost in terms of hardware resources. To support the growth of these large models in a scalable and environmentally sustainable way, there has been a considerable focus on developing resource-efficient strategies. This survey delves into the critical importance of such research, examining both algorithmic and systemic aspects. It offers a comprehensive analysis and valuable insights gleaned from existing literature, encompassing a broad array of topics from cutting-edge model architectures and training/serving algorithms to practical system designs and implementations. The goal of this survey is to provide an overarching understanding of how current approaches are tackling the resource challenges posed by large foundation models and to potentially inspire future breakthroughs in this field.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 32,
+      "doi": "10.48550/arxiv.2401.08092",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2401.08092",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4392617597",
+      "title": "Yi: Open Foundation Models by 01.AI",
+      "authors": [
+        {
+          "name": "AI",
+          "affiliation": ""
+        },
+        {
+          "name": ":",
+          "affiliation": ""
+        },
+        {
+          "name": "Alexander S. Young",
+          "affiliation": ""
+        },
+        {
+          "name": "Bei Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Chao Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Chengen Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ge Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "G.F. Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Heng Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiangcheng Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianqun Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Jing Chang",
+          "affiliation": ""
+        },
+        {
+          "name": "Kaidong Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Peng Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Qiang Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Shawn Yue",
+          "affiliation": ""
+        },
+        {
+          "name": "S.-C. Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Shiming Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Tao Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Wen Xie",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenhao Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaohui Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaoyi Ren",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinyao Niu",
+          "affiliation": ""
+        },
+        {
+          "name": "Pengcheng Nie",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuchi Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yudong Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yue Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuxuan Cai",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhenyu Gu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiyuan Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zonghong Dai",
+          "affiliation": ""
+        },
+        {
+          "name": "Dai, Zonghong",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "We introduce the Yi model family, a series of language and multimodal models that demonstrate strong multi-dimensional capabilities. The Yi model family is based on 6B and 34B pretrained language models, then we extend them to chat models, 200K long context models, depth-upscaled models, and vision-language models. Our base models achieve strong performance on a wide range of benchmarks like MMLU, and our finetuned chat models deliver strong human preference rate on major evaluation platforms like AlpacaEval and Chatbot Arena. Building upon our scalable super-computing infrastructure and the classical transformer architecture, we attribute the performance of Yi models primarily to its data quality resulting from our data-engineering efforts. For pretraining, we construct 3.1 trillion tokens of English and Chinese corpora using a cascaded data deduplication and quality filtering pipeline. For finetuning, we polish a small scale (less than 10K) instruction dataset over multiple iterations such that every single instance has been verified directly by our machine learning engineers. For vision-language, we combine the chat language model with a vision transformer encoder and train the model to align visual representations to the semantic space of the language model. We further extend the context length to 200K through lightweight continual pretraining and demonstrate strong needle-in-a-haystack retrieval performance. We show that extending the depth of the pretrained checkpoint through continual pretraining further improves performance. We believe that given our current results, continuing to scale up model parameters using thoroughly optimized data will lead to even stronger frontier models.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 42,
+      "doi": "10.48550/arxiv.2403.04652",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2403.04652",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4389500833",
+      "title": "Efficient Large Language Models: A Survey",
+      "authors": [
+        {
+          "name": "Zhongwei Wan",
+          "affiliation": ""
+        },
+        {
+          "name": "Xin Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Liu Che",
+          "affiliation": ""
+        },
+        {
+          "name": "Samiul Alam",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhongnan Qu",
+          "affiliation": ""
+        },
+        {
+          "name": "Shen Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Quanlu Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Mosharaf Chowdhury",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhang, Mi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Large Language Models (LLMs) have demonstrated remarkable capabilities in important tasks such as natural language understanding and language generation, and thus have the potential to make a substantial impact on our society. Such capabilities, however, come with the considerable resources they demand, highlighting the strong need to develop effective techniques for addressing their efficiency challenges. In this survey, we provide a systematic and comprehensive review of efficient LLMs research. We organize the literature in a taxonomy consisting of three main categories, covering distinct yet interconnected efficient LLMs topics from model-centric, data-centric, and framework-centric perspective, respectively. We have also created a GitHub repository where we organize the papers featured in this survey at https://github.com/AIoT-MLSys-Lab/Efficient-LLMs-Survey. We will actively maintain the repository and incorporate new research as it emerges. We hope our survey can serve as a valuable resource to help researchers and practitioners gain a systematic understanding of efficient LLMs research and inspire them to contribute to this important and exciting field.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 23,
+      "doi": "10.48550/arxiv.2312.03863",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2312.03863",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4382319938",
+      "title": "H$_2$O: Heavy-Hitter Oracle for Efficient Generative Inference of Large Language Models",
+      "authors": [
+        {
+          "name": "Zhenyu Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ying Sheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Tianyi Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Tianlong Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Lianmin Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruisi Cai",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhao Song",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuandong Tian",
+          "affiliation": ""
+        },
+        {
+          "name": "Christopher R\u00e9",
+          "affiliation": ""
+        },
+        {
+          "name": "Clark Barrett",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhangyang Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Beidi Chen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Hyde-IKV is a dynamic management system for the Key-Value (KV) cache in Small Language Models (SLMs). It tackles the memory bottleneck of long-context inference by intelligently prioritizing and compressing the stored context. Instead of abruptly deleting tokens, Hyde-IKV uses a hybrid strategy of positional decay (gradually reducing the influence of older tokens) and importance-based modulation (preserving tokens with high attention scores or large key vector magnitudes). This non-invasive approach, implemented via hooks into the transformer architecture, significantly reduces GPU memory usage and speeds up inference for long sequences while largely preserving the quality of the generated text.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 27,
+      "doi": "10.48550/arxiv.2306.14048",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2306.14048",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4388093177",
+      "title": "Atom: Low-bit Quantization for Efficient and Accurate LLM Serving",
+      "authors": [
+        {
+          "name": "Yilong Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Chien\u2010Yu Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Kan Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zihao Ye",
+          "affiliation": ""
+        },
+        {
+          "name": "Lequn Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Size Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Lu\u00eds Ceze",
+          "affiliation": ""
+        },
+        {
+          "name": "Arvind Krishnamurthy",
+          "affiliation": ""
+        },
+        {
+          "name": "Tianqi Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Baris Kasikci",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "The growing demand for Large Language Models (LLMs) in applications such as content generation, intelligent chatbots, and sentiment analysis poses considerable challenges for LLM service providers. To efficiently use GPU resources and boost throughput, batching multiple requests has emerged as a popular paradigm; to further speed up batching, LLM quantization techniques reduce memory consumption and increase computing capacity. However, prevalent quantization schemes (e.g., 8-bit weight-activation quantization) cannot fully leverage the capabilities of modern GPUs, such as 4-bit integer operators, resulting in sub-optimal performance. To maximize LLMs' serving throughput, we introduce Atom, a low-bit quantization method that achieves high throughput improvements with negligible accuracy loss. Atom significantly boosts serving throughput by using low-bit operators and considerably reduces memory consumption via low-bit quantization. It attains high accuracy by applying a novel mixed-precision and fine-grained quantization process. We evaluate Atom on 4-bit weight-activation quantization in the serving context. Atom improves end-to-end throughput (token/s) by up to $7.7\\times$ compared to the FP16 and by $2.5\\times$ compared to INT8 quantization, while maintaining the same latency target.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 23,
+      "doi": "10.48550/arxiv.2310.19102",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2310.19102",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4411486231",
+      "title": "Insights into DeepSeek-V3: Scaling Challenges and Reflections on Hardware for AI Architectures",
+      "authors": [
+        {
+          "name": "Chenggang Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Chengqi Deng",
+          "affiliation": ""
+        },
+        {
+          "name": "Chong Ruan",
+          "affiliation": ""
+        },
+        {
+          "name": "Damai Dai",
+          "affiliation": ""
+        },
+        {
+          "name": "Huazuo Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiashi Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Liyue Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Panpan Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Shangyan Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "S. MA",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenfeng Liang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ying He",
+          "affiliation": ""
+        },
+        {
+          "name": "Wang Yuqing",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuxuan Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yen-Hsin Wei",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The rapid scaling of large language models (LLMs) has unveiled critical limitations in current hardware architectures, including constraints in memory capacity, computational efficiency, and interconnection bandwidth. DeepSeek-V3, trained on 2,048 NVIDIA H800 GPUs, demonstrates how hardware-aware model co-design can effectively address these challenges, enabling cost-efficient training and inference at scale. This paper presents an in-depth analysis of the DeepSeek-V3/R1 model architecture and its AI infrastructure, highlighting key innovations such as Multi-head Latent Attention (MLA) for enhanced memory efficiency, Mixture of Experts (MoE) architectures for optimized computation-communication trade-offs, FP8 mixed-precision training to unlock the full potential of hardware capabilities, and a Multi-Plane Network Topology to minimize cluster-level network overhead. Building on the hardware bottlenecks encountered during DeepSeek-V3's development, we engage in a broader discussion with academic and industry peers on potential future hardware directions, including precise low-precision computation units, scale-up and scale-out convergence, and innovations in low-latency communication fabrics. These insights underscore the critical role of hardware and model co-design in meeting the escalating demands of AI workloads, offering a practical blueprint for innovation in next-generation AI systems.",
+      "venue": "",
+      "citation_count": 19,
+      "doi": "10.1145/3695053.3731412",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3695053.3731412",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4395065783",
+      "title": "A Survey on Efficient Inference for Large Language Models",
+      "authors": [
+        {
+          "name": "Zixuan Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Xuefei Ning",
+          "affiliation": ""
+        },
+        {
+          "name": "Ke Hong",
+          "affiliation": ""
+        },
+        {
+          "name": "Tianyu Fu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiaming Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Shiyao Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuming Lou",
+          "affiliation": ""
+        },
+        {
+          "name": "Luning Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhihang Yuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiuhong Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Shengen Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Guohao Dai",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaoping Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuhan Dong",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Large Language Models (LLMs) have attracted extensive attention due to their remarkable performance across various tasks. However, the substantial computational and memory requirements of LLM inference pose challenges for deployment in resource-constrained scenarios. Efforts within the field have been directed towards developing techniques aimed at enhancing the efficiency of LLM inference. This paper presents a comprehensive survey of the existing literature on efficient LLM inference. We start by analyzing the primary causes of the inefficient LLM inference, i.e., the large model size, the quadratic-complexity attention operation, and the auto-regressive decoding approach. Then, we introduce a comprehensive taxonomy that organizes the current literature into data-level, model-level, and system-level optimization. Moreover, the paper includes comparative experiments on representative methods within critical sub-fields to provide quantitative insights. Last but not least, we provide some knowledge summary and discuss future research directions.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 21,
+      "doi": "10.48550/arxiv.2404.14294",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2404.14294",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4401023643",
+      "title": "DFMU: Distribution-based Framework for Modeling Aleatoric Uncertainty in Multimodal Sentiment Analysis",
+      "authors": [
+        {
+          "name": "Xindi Wang",
+          "affiliation": "Western University"
+        },
+        {
+          "name": "Mahsa Salmani",
+          "affiliation": "Huawei Technologies (Canada)"
+        },
+        {
+          "name": "Parsa Omidi",
+          "affiliation": "Huaqiao University"
+        },
+        {
+          "name": "Xiangyu Ren",
+          "affiliation": "Huawei Technologies (Canada)"
+        },
+        {
+          "name": "Mehdi Rezagholizadeh",
+          "affiliation": "Huawei Technologies (Canada)"
+        }
+      ],
+      "year": 2024,
+      "abstract": "In Multimodal Sentiment Analysis (MSA), data noise arising from various sources can lead to uncertainty in Aleatoric Uncertainty (AU), significantly impacting model performance. Current efforts to address AU have insufficiently explored its sources. They primarily focus on modeling noise rather than implementing targeted modeling based on its origin. Consequently, these approaches struggle to effectively mitigate the influence of AU, resulting in sustained limitations in model performance. Our research identifies that the AU primarily stems from two problems: subjective bias in the annotation process and the complex set relationships of sentiment features. To specifically address them, we propose DFMU, a Distribution-based Framework for Modeling Aleatoric Uncertainty, which incorporates an uncertainty modeling block capable of encoding uncertainty distributions and adaptively adjusting optimization objectives. Furthermore, we introduce distribution-based contrastive learning with sentiment words replacement to better capture the complex relationships among features. Extensive experiments on three public MSA datasets, i.e., MOSI, MOSEI, and SIMS, demonstrate that the proposed model maintains robust performance even under high noise conditions and achieves state-of-the-art results on these popular datasets.",
+      "venue": "",
+      "citation_count": 18,
+      "doi": "10.24963/ijcai.2024/917",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.24963/ijcai.2024/917",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4390832893",
+      "title": "Personal LLM Agents: Insights and Survey about the Capability, Efficiency and Security",
+      "authors": [
+        {
+          "name": "Yuanchun Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Wen",
+          "affiliation": ""
+        },
+        {
+          "name": "Weijun Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiangyu Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi-Zhen Yuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Guohong Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiacheng Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenxing Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiang Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Rui Kong",
+          "affiliation": ""
+        },
+        {
+          "name": "Yile Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Hanfei Geng",
+          "affiliation": ""
+        },
+        {
+          "name": "Jian Luan",
+          "affiliation": ""
+        },
+        {
+          "name": "Xuefeng Jin",
+          "affiliation": ""
+        },
+        {
+          "name": "Zilong Ye",
+          "affiliation": ""
+        },
+        {
+          "name": "Guanjing Xiong",
+          "affiliation": ""
+        },
+        {
+          "name": "Fan Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiang Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Mengwei Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhijun Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Peng Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ya-Qin Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yunxin Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Since the advent of personal computing devices, intelligent personal assistants (IPAs) have been one of the key technologies that researchers and engineers have focused on, aiming to help users efficiently obtain information and execute tasks, and provide users with more intelligent, convenient, and rich interaction experiences. With the development of smartphones and IoT, computing and sensing devices have become ubiquitous, greatly expanding the boundaries of IPAs. However, due to the lack of capabilities such as user intent understanding, task planning, tool using, and personal data management etc., existing IPAs still have limited practicality and scalability. Recently, the emergence of foundation models, represented by large language models (LLMs), brings new opportunities for the development of IPAs. With the powerful semantic understanding and reasoning capabilities, LLM can enable intelligent agents to solve complex problems autonomously. In this paper, we focus on Personal LLM Agents, which are LLM-based agents that are deeply integrated with personal data and personal devices and used for personal assistance. We envision that Personal LLM Agents will become a major software paradigm for end-users in the upcoming era. To realize this vision, we take the first step to discuss several important questions about Personal LLM Agents, including their architecture, capability, efficiency and security. We start by summarizing the key components and design choices in the architecture of Personal LLM Agents, followed by an in-depth analysis of the opinions collected from domain experts. Next, we discuss several key challenges to achieve intelligent, efficient and secure Personal LLM Agents, followed by a comprehensive survey of representative solutions to address these challenges.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 30,
+      "doi": "10.48550/arxiv.2401.05459",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2401.05459",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4392222465",
+      "title": "LLM Inference Unveiled: Survey and Roofline Model Insights",
+      "authors": [
+        {
+          "name": "Zhihang Yuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuzhang Shang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhen Dong",
+          "affiliation": ""
+        },
+        {
+          "name": "Chenhao Xue",
+          "affiliation": ""
+        },
+        {
+          "name": "Bingzhe Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhikai Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Qingyi Gu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yong Jae Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Yan Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Beidi Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Guangyu Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Kurt Keutzer",
+          "affiliation": ""
+        },
+        {
+          "name": "Keutzer, Kurt",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "The field of efficient Large Language Model (LLM) inference is rapidly evolving, presenting a unique blend of opportunities and challenges. Although the field has expanded and is vibrant, there hasn't been a concise framework that analyzes the various methods of LLM Inference to provide a clear understanding of this domain. Our survey stands out from traditional literature reviews by not only summarizing the current state of research but also by introducing a framework based on roofline model for systematic analysis of LLM inference techniques. This framework identifies the bottlenecks when deploying LLMs on hardware devices and provides a clear understanding of practical problems, such as why LLMs are memory-bound, how much memory and computation they need, and how to choose the right hardware. We systematically collate the latest advancements in efficient LLM inference, covering crucial areas such as model compression (e.g., Knowledge Distillation and Quantization), algorithm improvements (e.g., Early Exit and Mixture-of-Expert), and both hardware and system-level enhancements. Our survey stands out by analyzing these methods with roofline model, helping us understand their impact on memory access and computation. This distinctive approach not only showcases the current research landscape but also delivers valuable insights for practical implementation, positioning our work as an indispensable resource for researchers new to the field as well as for those seeking to deepen their understanding of efficient LLM deployment. The analyze tool, LLM-Viewer, is open-sourced.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 13,
+      "doi": "10.48550/arxiv.2402.16363",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2402.16363",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4393284539",
+      "title": "InternLM2 Technical Report",
+      "authors": [
+        {
+          "name": "Zheng Cai",
+          "affiliation": ""
+        },
+        {
+          "name": "Maosong Cao",
+          "affiliation": ""
+        },
+        {
+          "name": "Haojiong Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Kai Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Keyu Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Xin Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Xun Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Zehui Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhi Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Pei Chu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaoyi Dong",
+          "affiliation": ""
+        },
+        {
+          "name": "Haodong Duan",
+          "affiliation": ""
+        },
+        {
+          "name": "Qi Fan",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhaoye Fei",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiaye Ge",
+          "affiliation": ""
+        },
+        {
+          "name": "Chenya Gu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuzhe Gu",
+          "affiliation": ""
+        },
+        {
+          "name": "Tao Gui",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Q. Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Qipeng Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Conghui He",
+          "affiliation": ""
+        },
+        {
+          "name": "Yingfan Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ting Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Tao Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Penglong Jiao",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhenjiang Jin",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhikai Lei",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiaxing Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Jingwen Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Linyang Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuaibin Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Wei Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yining Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Hongwei Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiangning Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiawei Hong",
+          "affiliation": ""
+        },
+        {
+          "name": "Kaiwen Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Kuikun Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaoran Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Chengqi Lv",
+          "affiliation": ""
+        },
+        {
+          "name": "Haijun Lv",
+          "affiliation": ""
+        },
+        {
+          "name": "Kai Lv",
+          "affiliation": ""
+        },
+        {
+          "name": "Li Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Runyuan Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Zerun Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenchang Ning",
+          "affiliation": ""
+        },
+        {
+          "name": "Linke Ouyang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiantao Qiu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuan Qu",
+          "affiliation": ""
+        },
+        {
+          "name": "Fukai Shang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yunfan Shao",
+          "affiliation": ""
+        },
+        {
+          "name": "Demin Song",
+          "affiliation": ""
+        },
+        {
+          "name": "Zifan Song",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhihao Sui",
+          "affiliation": ""
+        },
+        {
+          "name": "Peng Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Huanze Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Bin Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Guoteng Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiaqi Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiayu Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Rui Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yudong Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ziyi Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xingjian Wei",
+          "affiliation": ""
+        },
+        {
+          "name": "Qizhen Weng",
+          "affiliation": ""
+        },
+        {
+          "name": "Fan Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yingtong Xiong",
+          "affiliation": ""
+        },
+        {
+          "name": "Chao Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruiliang Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hang Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Yirong Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaogui Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Haochen Ye",
+          "affiliation": ""
+        },
+        {
+          "name": "Huaiyuan Ying",
+          "affiliation": ""
+        },
+        {
+          "name": "Jia Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jing Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuhang Zang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chuyu Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Li Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Pan Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Peng Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruijie Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuo Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Song\u2010Yang Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenjian Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenwei Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xingcheng Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinyue Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Hui Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Qian Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaomeng Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Fengzhe Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Zaida Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Jingming Zhuo",
+          "affiliation": ""
+        },
+        {
+          "name": "Yicheng Zou",
+          "affiliation": ""
+        },
+        {
+          "name": "Xipeng Qiu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Qiao",
+          "affiliation": ""
+        },
+        {
+          "name": "Dahua Lin",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "The evolution of Large Language Models (LLMs) like ChatGPT and GPT-4 has sparked discussions on the advent of Artificial General Intelligence (AGI). However, replicating such advancements in open-source models has been challenging. This paper introduces InternLM2, an open-source LLM that outperforms its predecessors in comprehensive evaluations across 6 dimensions and 30 benchmarks, long-context modeling, and open-ended subjective evaluations through innovative pre-training and optimization techniques. The pre-training process of InternLM2 is meticulously detailed, highlighting the preparation of diverse data types including text, code, and long-context data. InternLM2 efficiently captures long-term dependencies, initially trained on 4k tokens before advancing to 32k tokens in pre-training and fine-tuning stages, exhibiting remarkable performance on the 200k ``Needle-in-a-Haystack\" test. InternLM2 is further aligned using Supervised Fine-Tuning (SFT) and a novel Conditional Online Reinforcement Learning from Human Feedback (COOL RLHF) strategy that addresses conflicting human preferences and reward hacking. By releasing InternLM2 models in different training stages and model sizes, we provide the community with insights into the model's evolution.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 27,
+      "doi": "10.48550/arxiv.2403.17297",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2403.17297",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4391766345",
+      "title": "A Survey on Transformer Compression",
+      "authors": [
+        {
+          "name": "Yehui Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yunhe Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianyuan Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhijun Tu",
+          "affiliation": ""
+        },
+        {
+          "name": "Kai Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Hailin Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Dacheng Tao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Transformer plays a vital role in the realms of natural language processing (NLP) and computer vision (CV), specially for constructing large language models (LLM) and large vision models (LVM). Model compression methods reduce the memory and computational cost of Transformer, which is a necessary step to implement large language/vision models on practical devices. Given the unique architecture of Transformer, featuring alternative attention and feedforward neural network (FFN) modules, specific compression techniques are usually required. The efficiency of these compression methods is also paramount, as retraining large models on the entire training dataset is usually impractical. This survey provides a comprehensive review of recent compression methods, with a specific focus on their application to Transformer-based models. The compression methods are primarily categorized into pruning, quantization, knowledge distillation, and efficient architecture design (Mamba, RetNet, RWKV, etc.). In each category, we discuss compression methods for both language and vision tasks, highlighting common underlying principles. Finally, we delve into the relation between various compression methods, and discuss further directions in this domain.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 13,
+      "doi": "10.48550/arxiv.2402.05964",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2402.05964",
+      "source": "openalex",
+      "_bibtex_override": ""
+    }
+  ]
+}

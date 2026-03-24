@@ -1,0 +1,1426 @@
+{
+  "query": "Parameter-efficient fine-tuning of LLaMA-7B benchmark",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1773944668.3217323,
+  "papers": [
+    {
+      "paper_id": "arxiv-2303.16199",
+      "title": "LLaMA-Adapter: Efficient Fine-tuning of Language Models with Zero-init Attention",
+      "authors": [
+        {
+          "name": "Renrui Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiaming Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Chris Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Peng Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Aojun Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiangfei Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Shilin Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Pan Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hongsheng Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Qiao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We present LLaMA-Adapter, a lightweight adaption method to efficiently fine-tune LLaMA into an instruction-following model. Using 52K self-instruct demonstrations, LLaMA-Adapter only introduces 1.2M learnable parameters upon the frozen LLaMA 7B model, and costs less than one hour for fine-tuning on 8 A100 GPUs. Specifically, we adopt a set of learnable adaption prompts, and prepend them to the word tokens at higher transformer layers. Then, a zero-initialized attention mechanism with zero gating is proposed, which adaptively injects the new instructional cues into LLaMA, while effectively preserves its pre-trained knowledge. With our efficient training, LLaMA-Adapter can generate high-quality responses, comparable to Alpaca with fully fine-tuned 7B parameters. Besides language commands, our approach can be simply extended to multi-modal instructions for learning image-conditioned LLaMA model, which achieves superior reasoning performance on ScienceQA and COCO Caption benchmarks. Furthermore, we also evaluate the zero-initialized attention mechanism for fine-tuning other pre-trained models (ViT, RoBERTa) on traditional vision and language tasks, demonstrating the superior generalization capacity of our approach. Code is released at https://github.com/OpenGVLab/LLaMA-Adapter.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2303.16199",
+      "url": "https://arxiv.org/abs/2303.16199",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2110.04366",
+      "title": "Towards a Unified View of Parameter-Efficient Transfer Learning",
+      "authors": [
+        {
+          "name": "Junxian He",
+          "affiliation": ""
+        },
+        {
+          "name": "Chunting Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Xuezhe Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Taylor Berg-Kirkpatrick",
+          "affiliation": ""
+        },
+        {
+          "name": "Graham Neubig",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Fine-tuning large pre-trained language models on downstream tasks has become the de-facto learning paradigm in NLP. However, conventional approaches fine-tune all the parameters of the pre-trained model, which becomes prohibitive as the model size and the number of tasks grow. Recent work has proposed a variety of parameter-efficient transfer learning methods that only fine-tune a small number of (extra) parameters to attain strong performance. While effective, the critical ingredients for success and the connections among the various methods are poorly understood. In this paper, we break down the design of state-of-the-art parameter-efficient transfer learning methods and present a unified framework that establishes connections between them. Specifically, we re-frame them as modifications to specific hidden states in pre-trained models, and define a set of design dimensions along which different methods vary, such as the function to compute the modification and the position to apply the modification. Through comprehensive empirical studies across machine translation, text summarization, language understanding, and text classification benchmarks, we utilize the unified view to identify important design choices in previous methods. Furthermore, our unified framework enables the transfer of design elements across different approaches, and as a result we are able to instantiate new parameter-efficient fine-tuning methods that tune less parameters than previous methods while being more effective, achieving comparable results to fine-tuning all parameters on all four tasks.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2110.04366",
+      "url": "https://arxiv.org/abs/2110.04366",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2508.11281",
+      "title": "ToxiFrench: Benchmarking and Enhancing Language Models via CoT Fine-Tuning for French Toxicity Detection",
+      "authors": [
+        {
+          "name": "Axel Delaval",
+          "affiliation": ""
+        },
+        {
+          "name": "Shujian Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Haicheng Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Han Qiu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jialiang Lu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Detecting toxic content using language models is crucial yet challenging. While substantial progress has been made in English, toxicity detection in French remains underdeveloped, primarily due to the lack of culturally relevant, human-annotated, large-scale datasets. In this work, we release ToxiFrench, a dataset of 53,622 French online comments together with a balanced benchmark split for systematic evaluation. The dataset is constructed via a semi-automated annotation pipeline that reduces manual labeling to only 10% through high-confidence LLM-based pre-annotation and human verification, while ensuring statistical alignment with human-only annotation. We then benchmark a broad range of models and uncover a counterintuitive finding: Small Language Models (SLMs) often surpass larger models in robustness and generalization on this task. Motivated by this finding, we propose a novel Chain-of-Thought (CoT) fine-tuning strategy using a Dynamic Weighted Loss (DWL) that progressively emphasizes the model's final decision and significantly improves faithfulness. Our fine-tuned 4B model (Qwen3-4B) achieves state-of-the-art performance on the benchmark. It improves its balanced accuracy by 10% over its baseline and achieves better performance than GPT-4o and DeepSeek-R1 on our benchmark, while successfully retaining cross-lingual capabilities.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2508.11281",
+      "url": "https://arxiv.org/abs/2508.11281",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2310.03059",
+      "title": "Point-PEFT: Parameter-Efficient Fine-Tuning for 3D Pre-trained Models",
+      "authors": [
+        {
+          "name": "Yiwen Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ray Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zoey Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Dong Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhigang Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Bin Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Xuelong Li",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "The popularity of pre-trained large models has revolutionized downstream tasks across diverse fields, such as language, vision, and multi-modality. To minimize the adaption cost for downstream tasks, many Parameter-Efficient Fine-Tuning (PEFT) techniques are proposed for language and 2D image pre-trained models. However, the specialized PEFT method for 3D pre-trained models is still under-explored. To this end, we introduce Point-PEFT, a novel framework for adapting point cloud pre-trained models with minimal learnable parameters. Specifically, for a pre-trained 3D model, we freeze most of its parameters, and only tune the newly added PEFT modules on downstream tasks, which consist of a Point-prior Prompt and a Geometry-aware Adapter. The Point-prior Prompt adopts a set of learnable prompt tokens, for which we propose to construct a memory bank with domain-specific knowledge, and utilize a parameter-free attention to enhance the prompt tokens. The Geometry-aware Adapter aims to aggregate point cloud features within spatial neighborhoods to capture fine-grained geometric information through local interactions. Extensive experiments indicate that our Point-PEFT can achieve better performance than the full fine-tuning on various downstream tasks, while using only 5% of the trainable parameters, demonstrating the efficiency and effectiveness of our approach. Code is released at https://github.com/Ivan-Tang-3D/Point-PEFT.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2310.03059",
+      "url": "https://arxiv.org/abs/2310.03059",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2510.12178",
+      "title": "Evolution of meta's llama models and parameter-efficient fine-tuning of large language models: a survey",
+      "authors": [
+        {
+          "name": "Abdulhady Abas Abdullah",
+          "affiliation": ""
+        },
+        {
+          "name": "Arkaitz Zubiaga",
+          "affiliation": ""
+        },
+        {
+          "name": "Seyedali Mirjalili",
+          "affiliation": ""
+        },
+        {
+          "name": "Amir H. Gandomi",
+          "affiliation": ""
+        },
+        {
+          "name": "Fatemeh Daneshfar",
+          "affiliation": ""
+        },
+        {
+          "name": "Mohammadsadra Amini",
+          "affiliation": ""
+        },
+        {
+          "name": "Alan Salam Mohammed",
+          "affiliation": ""
+        },
+        {
+          "name": "Hadi Veisi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "This review surveys the rapid evolution of Meta AI's LLaMA (Large Language Model Meta AI) series - from LLaMA 1 through LLaMA 4 and the specialized parameter-efficient fine-tuning (PEFT) methods developed for these models. We first describe the LLaMA family of foundation models (7B-65B to 288B parameters), their architectures (including native multimodal and Mixtureof-Experts variants), and key performance characteristics. We then describe and discuss the concept of PEFT, which adapts large pre-trained models by updating only a small subset of parameters, and review five PEFT methods that have been applied to LLaMA: LoRA (Low-Rank Adaptation), LLaMA-Adapter V1 and V2, LLaMA-Excitor, and QLoRA (Quantized LoRA). We discuss each method's mechanism, parameter savings, and example application to LLaMA (e.g., instruction tuning, multimodal tasks). We provide structured discussion and analysis of model and adapter architectures, parameter counts, and benchmark results (including examples where fine-tuned LLaMA models outperform larger baselines). Finally, we examine real-world use cases where LLaMA-based models and PEFT have been successfully applied (e.g., legal and medical domains), and we discuss ongoing challenges and future research directions (such as scaling to even larger contexts and improving robustness). This survey paper provides a one-stop resource for ML researchers and practitioners interested in LLaMA models and efficient fine-tuning strategies.",
+      "venue": "cs.AI",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2510.12178",
+      "url": "https://arxiv.org/abs/2510.12178",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2110.06500",
+      "title": "Differentially Private Fine-tuning of Language Models",
+      "authors": [
+        {
+          "name": "Da Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Saurabh Naik",
+          "affiliation": ""
+        },
+        {
+          "name": "Arturs Backurs",
+          "affiliation": ""
+        },
+        {
+          "name": "Sivakanth Gopi",
+          "affiliation": ""
+        },
+        {
+          "name": "Huseyin A. Inan",
+          "affiliation": ""
+        },
+        {
+          "name": "Gautam Kamath",
+          "affiliation": ""
+        },
+        {
+          "name": "Janardhan Kulkarni",
+          "affiliation": ""
+        },
+        {
+          "name": "Yin Tat Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Andre Manoel",
+          "affiliation": ""
+        },
+        {
+          "name": "Lukas Wutschitz",
+          "affiliation": ""
+        },
+        {
+          "name": "Sergey Yekhanin",
+          "affiliation": ""
+        },
+        {
+          "name": "Huishuai Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "We give simpler, sparser, and faster algorithms for differentially private fine-tuning of large-scale pre-trained language models, which achieve the state-of-the-art privacy versus utility tradeoffs on many standard NLP tasks. We propose a meta-framework for this problem, inspired by the recent success of highly parameter-efficient methods for fine-tuning. Our experiments show that differentially private adaptations of these approaches outperform previous private algorithms in three important dimensions: utility, privacy, and the computational and memory cost of private training. On many commonly studied datasets, the utility of private models approaches that of non-private models. For example, on the MNLI dataset we achieve an accuracy of $87.8\\%$ using RoBERTa-Large and $83.5\\%$ using RoBERTa-Base with a privacy budget of $\u03b5= 6.7$. In comparison, absent privacy constraints, RoBERTa-Large achieves an accuracy of $90.2\\%$. Our findings are similar for natural language generation tasks. Privately fine-tuning with DART, GPT-2-Small, GPT-2-Medium, GPT-2-Large, and GPT-2-XL achieve BLEU scores of 38.5, 42.0, 43.1, and 43.8 respectively (privacy budget of $\u03b5= 6.8,\u03b4=$ 1e-5) whereas the non-private baseline is $48.1$. All our experiments suggest that larger models are better suited for private fine-tuning: while they are well known to achieve superior accuracy non-privately, we find that they also better maintain their accuracy when privacy is introduced.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2110.06500",
+      "url": "https://arxiv.org/abs/2110.06500",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2403.00946",
+      "title": "Fine-tuning with Very Large Dropout",
+      "authors": [
+        {
+          "name": "Jianyu Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "L\u00e9on Bottou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "It is impossible today to pretend that the practice of machine learning is always compatible with the idea that training and testing data follow the same distribution. Several authors have recently used ensemble techniques to show how scenarios involving multiple data distributions are best served by representations that are both richer than those obtained by regularizing for the best in-distribution performance, and richer than those obtained under the influence of the implicit sparsity bias of common stochastic gradient procedures.\n  This contribution investigates the use of very high dropout rates instead of ensembles to obtain such rich representations. Although training a deep network from scratch using such dropout rates is virtually impossible, fine-tuning a large pre-trained model under such conditions is not only possible but also achieves out-of-distribution performances that exceed those of both ensembles and weight averaging methods such as model soups.\n  This result has practical significance because the importance of the fine-tuning scenario has considerably grown in recent years. This result also provides interesting insights on the nature of rich representations and on the intrinsically linear nature of fine-tuning a large network using a comparatively small dataset.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2403.00946",
+      "url": "https://arxiv.org/abs/2403.00946",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2404.17929",
+      "title": "Spatio-Temporal Side Tuning Pre-trained Foundation Models for Video-based Pedestrian Attribute Recognition",
+      "authors": [
+        {
+          "name": "Xiao Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Qian Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiandong Jin",
+          "affiliation": ""
+        },
+        {
+          "name": "Jun Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Futian Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Bo Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yaowei Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yonghong Tian",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Existing pedestrian attribute recognition (PAR) algorithms are mainly developed based on a static image, however, the performance is unreliable in challenging scenarios, such as heavy occlusion, motion blur, etc. In this work, we propose to understand human attributes using video frames that can fully use temporal information by fine-tuning a pre-trained multi-modal foundation model efficiently. Specifically, we formulate the video-based PAR as a vision-language fusion problem and adopt a pre-trained foundation model CLIP to extract the visual features. More importantly, we propose a novel spatiotemporal side-tuning strategy to achieve parameter-efficient optimization of the pre-trained vision foundation model. To better utilize the semantic information, we take the full attribute list that needs to be recognized as another input and transform the attribute words/phrases into the corresponding sentence via split, expand, and prompt operations. Then, the text encoder of CLIP is utilized for embedding processed attribute descriptions. The averaged visual tokens and text tokens are concatenated and fed into a fusion Transformer for multi-modal interactive learning. The enhanced tokens will be fed into a classification head for pedestrian attribute prediction. Extensive experiments on two large-scale video-based PAR datasets fully validated the effectiveness of our proposed framework. The source code of this paper is available at https://github.com/Event-AHU/OpenPAR.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2404.17929",
+      "url": "https://arxiv.org/abs/2404.17929",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2407.05417",
+      "title": "See Further for Parameter Efficient Fine-tuning by Standing on the Shoulders of Decomposition",
+      "authors": [
+        {
+          "name": "Chongjie Si",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaokang Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wei Shen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "The rapid expansion of large foundation models within the pre-training and fine-tuning framework has underscored that larger models often yield better results. However, the scaling up of large foundation models has led to soaring costs in fine-tuning and parameter storage, rendering extensive adaptations impractical. This challenge has sparked the development of parameter-efficient fine-tuning (PEFT), which focuses on optimizing a select subset of parameters while keeping the rest fixed, significantly lowering computational and storage overheads. While recent years have witnessed a significant success in PEFT, a deep understanding of the fundamental principles behind these methods remains unexplored. To this end, here we take the first step to unify all approaches by dissecting them from a decomposition perspective. We initiate a comprehensive mathematical analysis of these methods, allowing us to delve deeply into their underlying mechanisms, and we explore the reasons behind the variations in performance among different techniques. Furthermore, inspired by our theoretical analysis, we introduce two novel PEFT methods alongside a simple yet effective framework designed to enhance the performance of PEFT techniques across various applications. Our empirical validations, conducted across multiple datasets, demonstrate the efficacy of these methods, showcasing both theoretical validity and practical performance improvements under the guidance of our analytical findings. We believe our work will deepen researchers' understanding of PEFT and other techniques, prompting further contemplation and advancing the research across the whole community.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2407.05417",
+      "url": "https://arxiv.org/abs/2407.05417",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2102.03983",
+      "title": "Partial Is Better Than All: Revisiting Fine-tuning Strategy for Few-shot Learning",
+      "authors": [
+        {
+          "name": "Zhiqiang Shen",
+          "affiliation": ""
+        },
+        {
+          "name": "Zechun Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jie Qin",
+          "affiliation": ""
+        },
+        {
+          "name": "Marios Savvides",
+          "affiliation": ""
+        },
+        {
+          "name": "Kwang-Ting Cheng",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "The goal of few-shot learning is to learn a classifier that can recognize unseen classes from limited support data with labels. A common practice for this task is to train a model on the base set first and then transfer to novel classes through fine-tuning (Here fine-tuning procedure is defined as transferring knowledge from base to novel data, i.e. learning to transfer in few-shot scenario.) or meta-learning. However, as the base classes have no overlap to the novel set, simply transferring whole knowledge from base data is not an optimal solution since some knowledge in the base model may be biased or even harmful to the novel class. In this paper, we propose to transfer partial knowledge by freezing or fine-tuning particular layer(s) in the base model. Specifically, layers will be imposed different learning rates if they are chosen to be fine-tuned, to control the extent of preserved transferability. To determine which layers to be recast and what values of learning rates for them, we introduce an evolutionary search based method that is efficient to simultaneously locate the target layers and determine their individual learning rates. We conduct extensive experiments on CUB and mini-ImageNet to demonstrate the effectiveness of our proposed method. It achieves the state-of-the-art performance on both meta-learning and non-meta based frameworks. Furthermore, we extend our method to the conventional pre-training + fine-tuning paradigm and obtain consistent improvement.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2102.03983",
+      "url": "https://arxiv.org/abs/2102.03983",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2110.05457",
+      "title": "Legged Robots that Keep on Learning: Fine-Tuning Locomotion Policies in the Real World",
+      "authors": [
+        {
+          "name": "Laura Smith",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Chase Kew",
+          "affiliation": ""
+        },
+        {
+          "name": "Xue Bin Peng",
+          "affiliation": ""
+        },
+        {
+          "name": "Sehoon Ha",
+          "affiliation": ""
+        },
+        {
+          "name": "Jie Tan",
+          "affiliation": ""
+        },
+        {
+          "name": "Sergey Levine",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Legged robots are physically capable of traversing a wide range of challenging environments, but designing controllers that are sufficiently robust to handle this diversity has been a long-standing challenge in robotics. Reinforcement learning presents an appealing approach for automating the controller design process and has been able to produce remarkably robust controllers when trained in a suitable range of environments. However, it is difficult to predict all likely conditions the robot will encounter during deployment and enumerate them at training-time. What if instead of training controllers that are robust enough to handle any eventuality, we enable the robot to continually learn in any setting it finds itself in? This kind of real-world reinforcement learning poses a number of challenges, including efficiency, safety, and autonomy. To address these challenges, we propose a practical robot reinforcement learning system for fine-tuning locomotion policies in the real world. We demonstrate that a modest amount of real-world training can substantially improve performance during deployment, and this enables a real A1 quadrupedal robot to autonomously fine-tune multiple locomotion skills in a range of environments, including an outdoor lawn and a variety of indoor terrains.",
+      "venue": "cs.RO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2110.05457",
+      "url": "https://arxiv.org/abs/2110.05457",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2408.07888",
+      "title": "Evaluating Fine-Tuning Efficiency of Human-Inspired Learning Strategies in Medical Question Answering",
+      "authors": [
+        {
+          "name": "Yushi Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Andrew M. Bean",
+          "affiliation": ""
+        },
+        {
+          "name": "Robert McCraith",
+          "affiliation": ""
+        },
+        {
+          "name": "Adam Mahdi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Fine-tuning Large Language Models (LLMs) incurs considerable training costs, driving the need for data-efficient training with optimised data ordering. Human-inspired strategies offer a solution by organising data based on human learning practices. This study evaluates the fine-tuning efficiency of five human-inspired strategies across four language models, three datasets, and both human- and LLM-labelled data in the context of medical question answering. These strategies achieve the best accuracy gain of 1.81% and an average gain of 1.02% across datasets, with interleaved strategies delivering the best average results. However, the best strategy varies across model-dataset combinations, limiting the generalisability of the effects of any single strategy. Additionally, LLM-defined question difficulty outperforms human-defined labels in curriculum-based learning, showing the potential of model-generated data as a cost-effective alternative for optimising fine-tuning.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2408.07888",
+      "url": "https://arxiv.org/abs/2408.07888",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2310.06825",
+      "title": "Mistral 7B",
+      "authors": [
+        {
+          "name": "Albert Q. Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Alexandre Sablayrolles",
+          "affiliation": ""
+        },
+        {
+          "name": "Arthur Mensch",
+          "affiliation": ""
+        },
+        {
+          "name": "Chris Bamford",
+          "affiliation": ""
+        },
+        {
+          "name": "Devendra Singh Chaplot",
+          "affiliation": ""
+        },
+        {
+          "name": "Diego de las Casas",
+          "affiliation": ""
+        },
+        {
+          "name": "Florian Bressand",
+          "affiliation": ""
+        },
+        {
+          "name": "Gianna Lengyel",
+          "affiliation": ""
+        },
+        {
+          "name": "Guillaume Lample",
+          "affiliation": ""
+        },
+        {
+          "name": "Lucile Saulnier",
+          "affiliation": ""
+        },
+        {
+          "name": "L\u00e9lio Renard Lavaud",
+          "affiliation": ""
+        },
+        {
+          "name": "Marie-Anne Lachaux",
+          "affiliation": ""
+        },
+        {
+          "name": "Pierre Stock",
+          "affiliation": ""
+        },
+        {
+          "name": "Teven Le Scao",
+          "affiliation": ""
+        },
+        {
+          "name": "Thibaut Lavril",
+          "affiliation": ""
+        },
+        {
+          "name": "Thomas Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Timoth\u00e9e Lacroix",
+          "affiliation": ""
+        },
+        {
+          "name": "William El Sayed",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We introduce Mistral 7B v0.1, a 7-billion-parameter language model engineered for superior performance and efficiency. Mistral 7B outperforms Llama 2 13B across all evaluated benchmarks, and Llama 1 34B in reasoning, mathematics, and code generation. Our model leverages grouped-query attention (GQA) for faster inference, coupled with sliding window attention (SWA) to effectively handle sequences of arbitrary length with a reduced inference cost. We also provide a model fine-tuned to follow instructions, Mistral 7B -- Instruct, that surpasses the Llama 2 13B -- Chat model both on human and automated benchmarks. Our models are released under the Apache 2.0 license.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2310.06825",
+      "url": "https://arxiv.org/abs/2310.06825",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2210.12607",
+      "title": "Learning to Perform Complex Tasks through Compositional Fine-Tuning of Language Models",
+      "authors": [
+        {
+          "name": "Victor S. Bursztyn",
+          "affiliation": ""
+        },
+        {
+          "name": "David Demeter",
+          "affiliation": ""
+        },
+        {
+          "name": "Doug Downey",
+          "affiliation": ""
+        },
+        {
+          "name": "Larry Birnbaum",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "How to usefully encode compositional task structure has long been a core challenge in AI. Recent work in chain of thought prompting has shown that for very large neural language models (LMs), explicitly demonstrating the inferential steps involved in a target task may improve performance over end-to-end learning that focuses on the target task alone. However, chain of thought prompting has significant limitations due to its dependency on huge pretrained LMs. In this work, we present compositional fine-tuning (CFT): an approach based on explicitly decomposing a target task into component tasks, and then fine-tuning smaller LMs on a curriculum of such component tasks. We apply CFT to recommendation tasks in two domains, world travel and local dining, as well as a previously studied inferential task (sports understanding). We show that CFT outperforms end-to-end learning even with equal amounts of data, and gets consistently better as more component tasks are modeled via fine-tuning. Compared with chain of thought prompting, CFT performs at least as well using LMs only 7.4% of the size, and is moreover applicable to task domains for which data are not available during pretraining.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2210.12607",
+      "url": "https://arxiv.org/abs/2210.12607",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2506.15415",
+      "title": "Targeted Lexical Injection: Unlocking Latent Cross-Lingual Alignment in Lugha-Llama via Early-Layer LoRA Fine-Tuning",
+      "authors": [
+        {
+          "name": "Stanley Ngugi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Large Language Models (LLMs) have demonstrated remarkable capabilities, yet their performance in low-resource languages (LRLs), such as Swahili, often lags due to data scarcity and underrepresentation in pre-training. A key challenge is achieving robust cross-lingual lexical alignment, crucial for tasks like translation and cross-lingual information retrieval. This paper introduces Targeted Lexical Injection (TLI), a novel and efficient fine-tuning approach. We first demonstrate that Lugha-Llama-8B-wura, a Swahili-centric LLM, exhibits strong, near-perfect lexical alignment for Swahili-English word pairs in its early internal layers (specifically Layer 2, with ~0.99998 average cosine similarity based on a pilot study), a capability not fully reflected in its final output representations (baseline ~0.32 similarity on our evaluation set). TLI leverages this insight by using Low-Rank Adaptation (LoRA) and a contrastive learning objective to fine-tune the model, specifically targeting embeddings from this empirically identified optimal early layer. Our experiments show that TLI significantly improves the output-level lexical alignment for 623 trained Swahili-English word pairs, increasing average cosine similarity from 0.3211 to 0.4113 (+28.08%, p < 1.33 x 10^-240). More importantly, these improvements generalize remarkably well to 63 unseen control word pairs, with similarity increasing from 0.3143 to 0.4033 (+28.32%, p < 7.17 x 10^-27). These findings suggest TLI enhances the model's ability to preserve and propagate its inherent early-layer cross-lingual knowledge, offering a parameter-efficient and effective strategy for improving lexical alignment in LRL-focused LLMs.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2506.15415",
+      "url": "https://arxiv.org/abs/2506.15415",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2409.01035",
+      "title": "Task-Specific Directions: Definition, Exploration, and Utilization in Parameter Efficient Fine-Tuning",
+      "authors": [
+        {
+          "name": "Chongjie Si",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiyi Shi",
+          "affiliation": ""
+        },
+        {
+          "name": "Shifan Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaokang Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Hanspeter Pfister",
+          "affiliation": ""
+        },
+        {
+          "name": "Wei Shen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Large language models demonstrate impressive performance on downstream tasks, yet they require extensive resource consumption when fully fine-tuning all parameters. To mitigate this, Parameter Efficient Fine-Tuning (PEFT) strategies, such as LoRA, have been developed. In this paper, we delve into the concept of task-specific directions (TSDs), which are critical for transitioning large models from pretrained states to task-specific enhancements in PEFT. We propose a framework to clearly define these directions and explore their properties and practical utilization challenges. We then introduce a novel approach, LoRA-Dash, which aims to maximize the impact of TSDs during the fine-tuning process, thereby enhancing model performance on targeted tasks. Additionally, based on our exploration of TSD, we focus on an important issue in PEFT: the initialization of LoRA. While some works have pointed out the significance of initialization for LoRA's performance and proposed various strategies, these methods are often empirical and not task-specific. To address this issue, we propose LoRA-Init. Starting from TSD, we identify the directions that require the most adjustment during fine-tuning for downstream tasks. By initializing the matrices in LoRA with these directions, LoRA-Init significantly enhances LoRA's performance. Moreover, we can combine LoRA-Dash and LoRA-Init to create the final version of LoRA based on TSDs, which we refer to as LoRA-TSD. Extensive experiments have conclusively demonstrated the effectiveness of these methods, and in-depth analyses further reveal the underlying mechanisms behind their success.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2409.01035",
+      "url": "https://arxiv.org/abs/2409.01035",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2602.08239",
+      "title": "Linearization Explains Fine-Tuning in Large Language Models",
+      "authors": [
+        {
+          "name": "Zahra Rahimi Afzal",
+          "affiliation": ""
+        },
+        {
+          "name": "Tara Esmaeilbeig",
+          "affiliation": ""
+        },
+        {
+          "name": "Mojtaba Soltanalian",
+          "affiliation": ""
+        },
+        {
+          "name": "Mesrob I. Ohannessian",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Parameter-Efficient Fine-Tuning (PEFT) is a popular class of techniques that strive to adapt large models in a scalable and resource-efficient manner. Yet, the mechanisms underlying their training performance and generalization remain underexplored. In this paper, we provide several insights into such fine-tuning through the lens of linearization. Fine-tuned models are often implicitly encouraged to remain close to the pretrained model. By making this explicit, using an Euclidean distance inductive bias in parameter space, we show that fine-tuning dynamics become equivalent to learning with the positive-definite neural tangent kernel (NTK). We specifically analyze how close the fully linear and the linearized fine-tuning optimizations are, based on the strength of the regularization. This allows us to be pragmatic about how good a model linearization is when fine-tuning large language models (LLMs). When linearization is a good model, our findings reveal a strong correlation between the eigenvalue spectrum of the NTK and the performance of model adaptation. Motivated by this, we give spectral perturbation bounds on the NTK induced by the choice of layers selected for fine-tuning. We empirically validate our theory on Low Rank Adaptation (LoRA) on LLMs. These insights not only characterize fine-tuning but also have the potential to enhance PEFT techniques, paving the way to better informed and more nimble adaptation in LLMs.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2602.08239",
+      "url": "https://arxiv.org/abs/2602.08239",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2402.02242",
+      "title": "Parameter-Efficient Fine-Tuning for Pre-Trained Vision Models: A Survey and Benchmark",
+      "authors": [
+        {
+          "name": "Yi Xin",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianjiang Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Siqi Luo",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuntao Du",
+          "affiliation": ""
+        },
+        {
+          "name": "Qi Qin",
+          "affiliation": ""
+        },
+        {
+          "name": "Kangrui Cen",
+          "affiliation": ""
+        },
+        {
+          "name": "Yangfan He",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiwei Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Bin Fu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaokang Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Guangtao Zhai",
+          "affiliation": ""
+        },
+        {
+          "name": "Ming-Hsuan Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaohong Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Pre-trained vision models (PVMs) have demonstrated remarkable adaptability across a wide range of downstream vision tasks, showcasing exceptional performance. However, as these models scale to billions or even trillions of parameters, conventional full fine-tuning has become increasingly impractical due to its high computational and storage demands. To address these challenges, parameter-efficient fine-tuning (PEFT) has emerged as a promising alternative, aiming to achieve performance comparable to full fine-tuning while making minimal adjustments to the model parameters. This paper presents a comprehensive survey of the latest advancements in the visual PEFT field, systematically reviewing current methodologies and categorizing them into four primary categories: addition-based, partial-based, unified-based, and multi-task tuning. In addition, this paper offers an in-depth analysis of widely used visual datasets and real-world applications where PEFT methods have been successfully applied. Furthermore, this paper introduces the V-PEFT Bench, a unified benchmark designed to standardize the evaluation of PEFT methods across a diverse set of vision tasks, ensuring consistency and fairness in comparison. Finally, the paper outlines potential directions for future research to propel advances in the PEFT field. A comprehensive collection of resources is available at https://github.com/synbol/Awesome-Parameter-Efficient-Transfer-Learning.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2402.02242",
+      "url": "https://arxiv.org/abs/2402.02242",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2405.05493",
+      "title": "Parameter-Efficient Fine-Tuning With Adapters",
+      "authors": [
+        {
+          "name": "Keyu Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuan Pang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zi Yang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "In the arena of language model fine-tuning, the traditional approaches, such as Domain-Adaptive Pretraining (DAPT) and Task-Adaptive Pretraining (TAPT), although effective, but computational intensive. This research introduces a novel adaptation method utilizing the UniPELT framework as a base and added a PromptTuning Layer, which significantly reduces the number of trainable parameters while maintaining competitive performance across various benchmarks. Our method employs adapters, which enable efficient transfer of pretrained models to new tasks with minimal retraining of the base model parameters. We evaluate our approach using three diverse datasets: the GLUE benchmark, a domain-specific dataset comprising four distinct areas, and the Stanford Question Answering Dataset 1.1 (SQuAD). Our results demonstrate that our customized adapter-based method achieves performance comparable to full model fine-tuning, DAPT+TAPT and UniPELT strategies while requiring fewer or equivalent amount of parameters. This parameter efficiency not only alleviates the computational burden but also expedites the adaptation process. The study underlines the potential of adapters in achieving high performance with significantly reduced resource consumption, suggesting a promising direction for future research in parameter-efficient fine-tuning.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2405.05493",
+      "url": "https://arxiv.org/abs/2405.05493",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2105.08021",
+      "title": "Stage-wise Fine-tuning for Graph-to-Text Generation",
+      "authors": [
+        {
+          "name": "Qingyun Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Semih Yavuz",
+          "affiliation": ""
+        },
+        {
+          "name": "Victoria Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Heng Ji",
+          "affiliation": ""
+        },
+        {
+          "name": "Nazneen Rajani",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Graph-to-text generation has benefited from pre-trained language models (PLMs) in achieving better performance than structured graph encoders. However, they fail to fully utilize the structure information of the input graph. In this paper, we aim to further improve the performance of the pre-trained language model by proposing a structured graph-to-text model with a two-step fine-tuning mechanism which first fine-tunes the model on Wikipedia before adapting to the graph-to-text generation. In addition to using the traditional token and position embeddings to encode the knowledge graph (KG), we propose a novel tree-level embedding method to capture the inter-dependency structures of the input graph. This new approach has significantly improved the performance of all text generation metrics for the English WebNLG 2017 dataset.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "10.18653/v1/2021.acl-srw.2",
+      "arxiv_id": "2105.08021",
+      "url": "https://arxiv.org/abs/2105.08021",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2301.01821",
+      "title": "Parameter-Efficient Fine-Tuning Design Spaces",
+      "authors": [
+        {
+          "name": "Jiaao Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Aston Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xingjian Shi",
+          "affiliation": ""
+        },
+        {
+          "name": "Mu Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Alex Smola",
+          "affiliation": ""
+        },
+        {
+          "name": "Diyi Yang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Parameter-efficient fine-tuning aims to achieve performance comparable to fine-tuning, using fewer trainable parameters. Several strategies (e.g., Adapters, prefix tuning, BitFit, and LoRA) have been proposed. However, their designs are hand-crafted separately, and it remains unclear whether certain design patterns exist for parameter-efficient fine-tuning. Thus, we present a parameter-efficient fine-tuning design paradigm and discover design patterns that are applicable to different experimental settings. Instead of focusing on designing another individual tuning strategy, we introduce parameter-efficient fine-tuning design spaces that parameterize tuning structures and tuning strategies. Specifically, any design space is characterized by four components: layer grouping, trainable parameter allocation, tunable groups, and strategy assignment. Starting from an initial design space, we progressively refine the space based on the model quality of each design choice and make greedy selection at each stage over these four components. We discover the following design patterns: (i) group layers in a spindle pattern; (ii) allocate the number of trainable parameters to layers uniformly; (iii) tune all the groups; (iv) assign proper tuning strategies to different groups. These design patterns result in new parameter-efficient fine-tuning methods. We show experimentally that these methods consistently and significantly outperform investigated parameter-efficient fine-tuning strategies across different backbone models and different tasks in natural language processing.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2301.01821",
+      "url": "https://arxiv.org/abs/2301.01821",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2004.10190",
+      "title": "Never Stop Learning: The Effectiveness of Fine-Tuning in Robotic Reinforcement Learning",
+      "authors": [
+        {
+          "name": "Ryan Julian",
+          "affiliation": ""
+        },
+        {
+          "name": "Benjamin Swanson",
+          "affiliation": ""
+        },
+        {
+          "name": "Gaurav S. Sukhatme",
+          "affiliation": ""
+        },
+        {
+          "name": "Sergey Levine",
+          "affiliation": ""
+        },
+        {
+          "name": "Chelsea Finn",
+          "affiliation": ""
+        },
+        {
+          "name": "Karol Hausman",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "One of the great promises of robot learning systems is that they will be able to learn from their mistakes and continuously adapt to ever-changing environments. Despite this potential, most of the robot learning systems today are deployed as a fixed policy and they are not being adapted after their deployment. Can we efficiently adapt previously learned behaviors to new environments, objects and percepts in the real world? In this paper, we present a method and empirical evidence towards a robot learning framework that facilitates continuous adaption. In particular, we demonstrate how to adapt vision-based robotic manipulation policies to new variations by fine-tuning via off-policy reinforcement learning, including changes in background, object shape and appearance, lighting conditions, and robot morphology. Further, this adaptation uses less than 0.2% of the data necessary to learn the task from scratch. We find that our approach of adapting pre-trained policies leads to substantial performance gains over the course of fine-tuning, and that pre-training via RL is essential: training from scratch or adapting from supervised ImageNet features are both unsuccessful with such small amounts of data. We also find that these positive results hold in a limited continual learning setting, in which we repeatedly fine-tune a single lineage of policies using data from a succession of new tasks. Our empirical conclusions are consistently supported by experiments on simulated manipulation tasks, and by 52 unique fine-tuning experiments on a real robotic grasping system pre-trained on 580,000 grasps.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2004.10190",
+      "url": "https://arxiv.org/abs/2004.10190",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.21285",
+      "title": "PEFT-Bench: A Parameter-Efficient Fine-Tuning Methods Benchmark",
+      "authors": [
+        {
+          "name": "Robert Belanec",
+          "affiliation": ""
+        },
+        {
+          "name": "Branislav Pecher",
+          "affiliation": ""
+        },
+        {
+          "name": "Ivan Srba",
+          "affiliation": ""
+        },
+        {
+          "name": "Maria Bielikova",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Despite the state-of-the-art performance of Large Language Models (LLMs) achieved on many tasks, their massive scale often leads to high computational and environmental costs, limiting their accessibility. Parameter-Efficient Fine-Tuning (PEFT) methods address this challenge by reducing the number of trainable parameters while maintaining strong downstream performance. Despite the advances in PEFT methods, current evaluations remain limited (in terms of evaluated models and datasets) and difficult to reproduce. To bridge this gap, we introduce PEFT-Bench, a unified end-to-end benchmark for evaluating diverse PEFT methods on autoregressive LLMs. We demonstrate its usage across 27 NLP datasets and 7 PEFT methods. To account for different PEFT training and inference factors, we also introduce the PEFT Soft Cost Penalties (PSCP) metric, which takes trainable parameters, inference speed, and training memory usage into account.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.21285",
+      "url": "https://arxiv.org/abs/2511.21285",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2403.20284",
+      "title": "LayerNorm: A key component in parameter-efficient fine-tuning",
+      "authors": [
+        {
+          "name": "Taha ValizadehAslani",
+          "affiliation": ""
+        },
+        {
+          "name": "Hualou Liang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Fine-tuning a pre-trained model, such as Bidirectional Encoder Representations from Transformers (BERT), has been proven to be an effective method for solving many natural language processing (NLP) tasks. However, due to the large number of parameters in many state-of-the-art NLP models, including BERT, the process of fine-tuning is computationally expensive. One attractive solution to this issue is parameter-efficient fine-tuning, which involves modifying only a minimal segment of the model while keeping the remainder unchanged. Yet, it remains unclear which segment of the BERT model is crucial for fine-tuning. In this paper, we first analyze different components in the BERT model to pinpoint which one undergoes the most significant changes after fine-tuning. We find that output LayerNorm changes more than any other components when fine-tuned for different General Language Understanding Evaluation (GLUE) tasks. Then we show that only fine-tuning the LayerNorm can reach comparable, or in some cases better, performance to full fine-tuning and other parameter-efficient fine-tuning methods. Moreover, we use Fisher information to determine the most critical subset of LayerNorm and demonstrate that many NLP tasks in the GLUE benchmark can be solved by fine-tuning only a small portion of LayerNorm with negligible performance degradation.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2403.20284",
+      "url": "https://arxiv.org/abs/2403.20284",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2410.10075",
+      "title": "RoCoFT: Efficient Finetuning of Large Language Models with Row-Column Updates",
+      "authors": [
+        {
+          "name": "Md Kowsher",
+          "affiliation": ""
+        },
+        {
+          "name": "Tara Esmaeilbeig",
+          "affiliation": ""
+        },
+        {
+          "name": "Chun-Nam Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Chen Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Mojtaba Soltanalian",
+          "affiliation": ""
+        },
+        {
+          "name": "Niloofar Yousefi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "We propose RoCoFT, a parameter-efficient fine-tuning method for large-scale language models (LMs) based on updating only a few rows and columns of the weight matrices in transformers. Through extensive experiments with medium-size LMs like BERT and RoBERTa, and larger LMs like Bloom-7B, Llama2-7B, and Llama2-13B, we show that our method gives comparable or better accuracies than state-of-art PEFT methods while also being more memory and computation-efficient. We also study the reason behind the effectiveness of our method with tools from neural tangent kernel theory. We empirically demonstrate that our kernel, constructed using a restricted set of row and column parameters, are numerically close to the full-parameter kernel and gives comparable classification performance. Ablation studies are conducted to investigate the impact of different algorithmic choices, including the selection strategy for rows and columns as well as the optimal rank for effective implementation of our method.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2410.10075",
+      "url": "https://arxiv.org/abs/2410.10075",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2506.18434",
+      "title": "Benchmarking Foundation Models and Parameter-Efficient Fine-Tuning for Prognosis Prediction in Medical Imaging",
+      "authors": [
+        {
+          "name": "Filippo Ruffini",
+          "affiliation": ""
+        },
+        {
+          "name": "Elena Mulero Ayllon",
+          "affiliation": ""
+        },
+        {
+          "name": "Linlin Shen",
+          "affiliation": ""
+        },
+        {
+          "name": "Paolo Soda",
+          "affiliation": ""
+        },
+        {
+          "name": "Valerio Guarrasi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Despite the significant potential of Foundation Models (FMs) in medical imaging, their application to prognosis prediction remains challenging due to data scarcity, class imbalance, and task complexity, which limit their clinical adoption. This study introduces the first structured benchmark to assess the robustness and efficiency of transfer learning strategies for FMs compared with convolutional neural networks (CNNs) in predicting COVID-19 patient outcomes from chest X-rays. The goal is to systematically compare finetuning strategies, both classical and parameter efficient, under realistic clinical constraints related to data scarcity and class imbalance, offering empirical guidance for AI deployment in clinical workflows. Four publicly available COVID-19 chest X-ray datasets were used, covering mortality, severity, and ICU admission, with varying sample sizes and class imbalances. CNNs pretrained on ImageNet and FMs pretrained on general or biomedical datasets were adapted using full finetuning, linear probing, and parameter-efficient methods. Models were evaluated under full data and few shot regimes using the Matthews Correlation Coefficient (MCC) and Precision Recall AUC (PR-AUC), with cross validation and class weighted losses. CNNs with full fine-tuning performed robustly on small, imbalanced datasets, while FMs with Parameter-Efficient Fine-Tuning (PEFT), particularly LoRA and BitFit, achieved competitive results on larger datasets. Severe class imbalance degraded PEFT performance, whereas balanced data mitigated this effect. In few-shot settings, FMs showed limited generalization, with linear probing yielding the most stable results. No single fine-tuning strategy proved universally optimal: CNNs remain dependable for low-resource scenarios, whereas FMs benefit from parameter-efficient methods when data are sufficient.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1016/j.cmpb.2025.109196",
+      "arxiv_id": "2506.18434",
+      "url": "https://arxiv.org/abs/2506.18434",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2408.03099",
+      "title": "Topic Modeling with Fine-tuning LLMs and Bag of Sentences",
+      "authors": [
+        {
+          "name": "Johannes Schneider",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Large language models (LLMs) are increasingly used for topic modeling, outperforming classical topic models such as LDA. Commonly, pre-trained LLM encoders such as BERT are used out-of-the-box despite the fact that fine-tuning is known to improve LLMs considerably. The challenge lies in obtaining a suitable labeled dataset for fine-tuning. In this paper, we build on the recent idea of using bags of sentences as the elementary unit for computing topics. Based on this idea, we derive an approach called FT-Topic to perform unsupervised fine-tuning, relying primarily on two steps for constructing a training dataset in an automatic fashion. First, a heuristic method identifies pairs of sentence groups that are assumed to belong either to the same topic or to different topics. Second, we remove sentence pairs that are likely labeled incorrectly. The resulting dataset is then used to fine-tune an encoder LLM, which can be leveraged by any topic modeling approach that uses embeddings. In this work, we demonstrate its effectiveness by deriving a novel state-of-the-art topic modeling method called SenClu. The method achieves fast inference through an expectation-maximization algorithm and hard assignments of sentence groups to a single topic, while allowing users to encode prior knowledge about the topic-document distribution. Code is available at https://github.com/JohnTailor/FT-Topic",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2408.03099",
+      "url": "https://arxiv.org/abs/2408.03099",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2205.12453",
+      "title": "Know Where You're Going: Meta-Learning for Parameter-Efficient Fine-Tuning",
+      "authors": [
+        {
+          "name": "Mozhdeh Gheini",
+          "affiliation": ""
+        },
+        {
+          "name": "Xuezhe Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Jonathan May",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "A recent family of techniques, dubbed lightweight fine-tuning methods, facilitates parameter-efficient transfer learning by updating only a small set of additional parameters while keeping the parameters of the pretrained language model frozen. While proven to be an effective method, there are no existing studies on if and how such knowledge of the downstream fine-tuning approach should affect the pretraining stage. In this work, we show that taking the ultimate choice of fine-tuning method into consideration boosts the performance of parameter-efficient fine-tuning. By relying on optimization-based meta-learning using MAML with certain modifications for our distinct purpose, we prime the pretrained model specifically for parameter-efficient fine-tuning, resulting in gains of up to 1.7 points on cross-lingual NER fine-tuning. Our ablation settings and analyses further reveal that the tweaks we introduce in MAML are crucial for the attained gains.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2205.12453",
+      "url": "https://arxiv.org/abs/2205.12453",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2512.02216",
+      "title": "Parameter-Efficient Subspace Optimization for LLM Fine-Tuning",
+      "authors": [
+        {
+          "name": "Yuchen Lou",
+          "affiliation": ""
+        },
+        {
+          "name": "Zeqi Ye",
+          "affiliation": ""
+        },
+        {
+          "name": "Minshuo Chen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "This paper develops a new perspective on parameter-efficient fine-tuning (PEFT) for LLMs, inspired by classical subspace minimization. We introduce a unifying framework, Parameter-Efficient Subspace Optimization (PESO), which recovers existing methods such as LoRA and connects them to the principled algorithmic and theoretical foundations of subspace optimization. This connection highlights a natural ``exploration--exploitation'' view of subspace methods, guiding the design of new algorithms that achieve strong convergence performance while still preserving memory efficiency. We instantiate the framework into a practical algorithm, PESO-LoRA, based on a LoRA-type parameterization. Importantly, we provide convergence guarantees stated in the full-parameter space for the induced update, addressing a key limitation of LoRA-style analyses that only track low-dimensional factors. Empirically, PESO-LoRA improves over strong PEFT baselines on standard fine-tuning benchmarks.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2512.02216",
+      "url": "https://arxiv.org/abs/2512.02216",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2312.10136",
+      "title": "Gradient-based Parameter Selection for Efficient Fine-Tuning",
+      "authors": [
+        {
+          "name": "Zhi Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Qizhe Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zijun Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Renrui Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ekaterina Shutova",
+          "affiliation": ""
+        },
+        {
+          "name": "Shiji Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Shanghang Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "With the growing size of pre-trained models, full fine-tuning and storing all the parameters for various downstream tasks is costly and infeasible. In this paper, we propose a new parameter-efficient fine-tuning method, Gradient-based Parameter Selection (GPS), demonstrating that only tuning a few selected parameters from the pre-trained model while keeping the remainder of the model frozen can generate similar or better performance compared with the full model fine-tuning method. Different from the existing popular and state-of-the-art parameter-efficient fine-tuning approaches, our method does not introduce any additional parameters and computational costs during both the training and inference stages. Another advantage is the model-agnostic and non-destructive property, which eliminates the need for any other design specific to a particular model. Compared with the full fine-tuning, GPS achieves 3.33% (91.78% vs. 88.45%, FGVC) and 9.61% (73.1% vs. 65.57%, VTAB) improvement of the accuracy with tuning only 0.36% parameters of the pre-trained model on average over 24 image classification tasks; it also demonstrates a significant improvement of 17% and 16.8% in mDice and mIoU, respectively, on medical image segmentation task. Moreover, GPS achieves state-of-the-art performance compared with existing PEFT methods.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2312.10136",
+      "url": "https://arxiv.org/abs/2312.10136",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2305.16742",
+      "title": "Parameter-Efficient Fine-Tuning without Introducing New Latency",
+      "authors": [
+        {
+          "name": "Baohao Liao",
+          "affiliation": ""
+        },
+        {
+          "name": "Yan Meng",
+          "affiliation": ""
+        },
+        {
+          "name": "Christof Monz",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Parameter-efficient fine-tuning (PEFT) of pre-trained language models has recently demonstrated remarkable achievements, effectively matching the performance of full fine-tuning while utilizing significantly fewer trainable parameters, and consequently addressing the storage and communication constraints. Nonetheless, various PEFT methods are limited by their inherent characteristics. In the case of sparse fine-tuning, which involves modifying only a small subset of the existing parameters, the selection of fine-tuned parameters is task- and domain-specific, making it unsuitable for federated learning. On the other hand, PEFT methods with adding new parameters typically introduce additional inference latency. In this paper, we demonstrate the feasibility of generating a sparse mask in a task-agnostic manner, wherein all downstream tasks share a common mask. Our approach, which relies solely on the magnitude information of pre-trained parameters, surpasses existing methodologies by a significant margin when evaluated on the GLUE benchmark. Additionally, we introduce a novel adapter technique that directly applies the adapter to pre-trained parameters instead of the hidden representation, thereby achieving identical inference speed to that of full fine-tuning. Through extensive experiments, our proposed method attains a new state-of-the-art outcome in terms of both performance and storage efficiency, storing only 0.03% parameters of full fine-tuning.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2305.16742",
+      "url": "https://arxiv.org/abs/2305.16742",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2504.13822",
+      "title": "Parameter-Efficient Continual Fine-Tuning: A Survey",
+      "authors": [
+        {
+          "name": "Eric Nuertey Coleman",
+          "affiliation": ""
+        },
+        {
+          "name": "Luigi Quarantiello",
+          "affiliation": ""
+        },
+        {
+          "name": "Ziyue Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Qinwen Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Samrat Mukherjee",
+          "affiliation": ""
+        },
+        {
+          "name": "Julio Hurtado",
+          "affiliation": ""
+        },
+        {
+          "name": "Vincenzo Lomonaco",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The emergence of large pre-trained networks has revolutionized the AI field, unlocking new possibilities and achieving unprecedented performance. However, these models inherit a fundamental limitation from traditional Machine Learning approaches: their strong dependence on the \\textit{i.i.d.} assumption hinders their adaptability to dynamic learning scenarios. We believe the next breakthrough in AI lies in enabling efficient adaptation to evolving environments -- such as the real world -- where new data and tasks arrive sequentially. This challenge defines the field of Continual Learning (CL), a Machine Learning paradigm focused on developing lifelong learning neural models. One alternative to efficiently adapt these large-scale models is known Parameter-Efficient Fine-Tuning (PEFT). These methods tackle the issue of adapting the model to a particular data or scenario by performing small and efficient modifications, achieving similar performance to full fine-tuning. However, these techniques still lack the ability to adjust the model to multiple tasks continually, as they suffer from the issue of Catastrophic Forgetting. In this survey, we first provide an overview of CL algorithms and PEFT methods before reviewing the state-of-the-art on Parameter-Efficient Continual Fine-Tuning (PECFT). We examine various approaches, discuss evaluation metrics, and explore potential future research directions. Our goal is to highlight the synergy between CL and Parameter-Efficient Fine-Tuning, guide researchers in this field, and pave the way for novel future research directions.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2504.13822",
+      "url": "https://arxiv.org/abs/2504.13822",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2303.08566",
+      "title": "Sensitivity-Aware Visual Parameter-Efficient Fine-Tuning",
+      "authors": [
+        {
+          "name": "Haoyu He",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianfei Cai",
+          "affiliation": ""
+        },
+        {
+          "name": "Jing Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Dacheng Tao",
+          "affiliation": ""
+        },
+        {
+          "name": "Bohan Zhuang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Visual Parameter-Efficient Fine-Tuning (PEFT) has become a powerful alternative for full fine-tuning so as to adapt pre-trained vision models to downstream tasks, which only tunes a small number of parameters while freezing the vast majority ones to ease storage burden and optimization difficulty. However, existing PEFT methods introduce trainable parameters to the same positions across different tasks depending solely on human heuristics and neglect the domain gaps. To this end, we study where to introduce and how to allocate trainable parameters by proposing a novel Sensitivity-aware visual Parameter-efficient fine-Tuning (SPT) scheme, which adaptively allocates trainable parameters to task-specific important positions given a desired tunable parameter budget. Specifically, our SPT first quickly identifies the sensitive parameters that require tuning for a given task in a data-dependent way. Next, our SPT further boosts the representational capability for the weight matrices whose number of sensitive parameters exceeds a pre-defined threshold by utilizing existing structured tuning methods, e.g., LoRA [23] or Adapter [22], to replace directly tuning the selected sensitive parameters (unstructured tuning) under the budget. Extensive experiments on a wide range of downstream recognition tasks show that our SPT is complementary to the existing PEFT methods and largely boosts their performance, e.g., SPT improves Adapter with supervised pre-trained ViT-B/16 backbone by 4.2% and 1.4% mean Top-1 accuracy, reaching SOTA performance on FGVC and VTAB-1k benchmarks, respectively. Source code is at https://github.com/ziplab/SPT",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2303.08566",
+      "url": "https://arxiv.org/abs/2303.08566",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2510.16985",
+      "title": "Parameter-Efficient Fine-Tuning for Low-Resource Languages: A Comparative Study of LLMs for Bengali Hate Speech Detection",
+      "authors": [
+        {
+          "name": "Akif Islam",
+          "affiliation": ""
+        },
+        {
+          "name": "Mohd Ruhul Ameen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Bengali social media platforms have witnessed a sharp increase in hate speech, disproportionately affecting women and adolescents. While datasets such as BD-SHS provide a basis for structured evaluation, most prior approaches rely on either computationally costly full-model fine-tuning or proprietary APIs. This paper presents the first application of Parameter-Efficient Fine-Tuning (PEFT) for Bengali hate speech detection using LoRA and QLoRA. Three instruction-tuned large language models - Gemma-3-4B, Llama-3.2-3B, and Mistral-7B - were fine-tuned on the BD-SHS dataset of 50,281 annotated comments. Each model was adapted by training fewer than 1% of its parameters, enabling experiments on a single consumer-grade GPU. The results show that Llama-3.2-3B achieved the highest F1-score of 92.23%, followed by Mistral-7B at 88.94% and Gemma-3-4B at 80.25%. These findings establish PEFT as a practical and replicable strategy for Bengali and related low-resource languages.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "10.1109/COMPAS67506.2025.11381789",
+      "arxiv_id": "2510.16985",
+      "url": "https://arxiv.org/abs/2510.16985",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2405.19597",
+      "title": "SVFT: Parameter-Efficient Fine-Tuning with Singular Vectors",
+      "authors": [
+        {
+          "name": "Vijay Lingam",
+          "affiliation": ""
+        },
+        {
+          "name": "Atula Tejaswi",
+          "affiliation": ""
+        },
+        {
+          "name": "Aditya Vavre",
+          "affiliation": ""
+        },
+        {
+          "name": "Aneesh Shetty",
+          "affiliation": ""
+        },
+        {
+          "name": "Gautham Krishna Gudur",
+          "affiliation": ""
+        },
+        {
+          "name": "Joydeep Ghosh",
+          "affiliation": ""
+        },
+        {
+          "name": "Alex Dimakis",
+          "affiliation": ""
+        },
+        {
+          "name": "Eunsol Choi",
+          "affiliation": ""
+        },
+        {
+          "name": "Aleksandar Bojchevski",
+          "affiliation": ""
+        },
+        {
+          "name": "Sujay Sanghavi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Popular parameter-efficient fine-tuning (PEFT) methods, such as LoRA and its variants, freeze pre-trained model weights \\(W\\) and inject learnable matrices \\(\u0394W\\). These \\(\u0394W\\) matrices are structured for efficient parameterization, often using techniques like low-rank approximations or scaling vectors. However, these methods typically show a performance gap compared to full fine-tuning. Although recent PEFT methods have narrowed this gap, they do so at the cost of additional learnable parameters. We propose SVFT, a simple approach that fundamentally differs from existing methods: the structure imposed on \\(\u0394W\\) depends on the specific weight matrix \\(W\\). Specifically, SVFT updates \\(W\\) as a sparse combination of outer products of its singular vectors, training only the coefficients (scales) of these sparse combinations. This approach allows fine-grained control over expressivity through the number of coefficients. Extensive experiments on language and vision benchmarks show that SVFT recovers up to 96% of full fine-tuning performance while training only 0.006 to 0.25% of parameters, outperforming existing methods that only recover up to 85% performance using 0.03 to 0.8% of the trainable parameter budget.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2405.19597",
+      "url": "https://arxiv.org/abs/2405.19597",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2503.00572",
+      "title": "LoR2C : Low-Rank Residual Connection Adaptation for Parameter-Efficient Fine-Tuning",
+      "authors": [
+        {
+          "name": "Jiancheng Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Xingda Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuxiang Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhen Yang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "In recent years, pretrained large language models have demonstrated outstanding performance across various natural language processing tasks. However, full-parameter fine-tuning methods require adjusting all model parameters, leading to immense computational resource demands. Although parameter-efficient fine-tuning methods like LoRA have significantly reduced the number of parameters, they still face challenges such as gradient vanishing and the potential for further parameter reduction. To address these issues, this paper proposes a novel parameter-efficient fine-tuning method called LoR2C (Low-Rank Residual Connection Adaptation). LoR2C introduces residual connections with low-rank matrices within the model layers, which not only reduces the number of fine-tuning parameters but also effectively alleviates the gradient vanishing problem. Additionally, this paper presents three optimization variants of LoR2C: ShareLoR2C, MergeLoR2C, and InjectLoR2C. These variants further improve parameter efficiency and model performance through parameter sharing, module merging, and injection mechanisms, respectively. Experimental results on multiple natural language understanding and natural language generation tasks demonstrate that LoR2C and its optimized variants significantly reduce parameter overhead while maintaining or even improving performance, outperforming existing mainstream parameter-efficient fine-tuning methods.Our code is publicly available at https://github.com/Oblivioniss/LoR2C.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2503.00572",
+      "url": "https://arxiv.org/abs/2503.00572",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2305.15212",
+      "title": "Towards Adaptive Prefix Tuning for Parameter-Efficient Language Model Fine-tuning",
+      "authors": [
+        {
+          "name": "Zhen-Ru Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chuanqi Tan",
+          "affiliation": ""
+        },
+        {
+          "name": "Haiyang Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Chengyu Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jun Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Songfang Huang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Fine-tuning large pre-trained language models on various downstream tasks with whole parameters is prohibitively expensive. Hence, Parameter-efficient fine-tuning has attracted attention that only optimizes a few task-specific parameters with the frozen pre-trained model. In this work, we focus on prefix tuning, which only optimizes continuous prefix vectors (i.e. pseudo tokens) inserted into Transformer layers. Based on the observation that the learned syntax and semantics representation varies a lot at different layers, we argue that the adaptive prefix will be further tailored to each layer than the fixed one, enabling the fine-tuning more effective and efficient. Thus, we propose Adaptive Prefix Tuning (APT) to adjust the prefix in terms of both fine-grained token level and coarse-grained layer level with a gate mechanism. Experiments on the SuperGLUE and NER datasets show the effectiveness of APT. In addition, taking the gate as a probing, we validate the efficiency and effectiveness of the variable prefix.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2305.15212",
+      "url": "https://arxiv.org/abs/2305.15212",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2505.20211",
+      "title": "PiCa: Parameter-Efficient Fine-Tuning with Column Space Projection",
+      "authors": [
+        {
+          "name": "Junseo Hwang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wonguk Cho",
+          "affiliation": ""
+        },
+        {
+          "name": "Taesup Kim",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Fine-tuning large foundation models is essential for building expert models tailored to specialized tasks and domains, but fully updating billions of parameters is computationally prohibitive. Reducing the number of trainable parameters using parameter-efficient fine-tuning is therefore crucial not only to reduce training costs but also to mitigate storage, caching, and serving overheads during deployment. Prior works, such as Singular Vectors-guided Fine-Tuning, have shown that exploiting the geometry of pre-trained weights can significantly improve parameter-efficiency, but they lack a solid theoretical foundation. In this paper, we introduce Parameter-efficient Fine-tuning with Column Space Projection (PiCa), a novel theoretically grounded PEFT method. We prove that projecting gradients onto the principal column space of pre-trained weights provides an effective inductive bias for adaptation and further enhance parameter efficiency through a novel weight-sharing strategy. Across diverse NLP and vision tasks, PiCa consistently outperforms state-of-the-art baselines under comparable or smaller parameter budgets, demonstrating both theoretical rigor and practical effectiveness.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2505.20211",
+      "url": "https://arxiv.org/abs/2505.20211",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

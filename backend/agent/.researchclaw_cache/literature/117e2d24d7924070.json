@@ -1,0 +1,1474 @@
+{
+  "query": "Structured pruning of ResNet-50 survey",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1773945035.708116,
+  "papers": [
+    {
+      "paper_id": "arxiv-2103.06460",
+      "title": "Recent Advances on Neural Network Pruning at Initialization",
+      "authors": [
+        {
+          "name": "Huan Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Can Qin",
+          "affiliation": ""
+        },
+        {
+          "name": "Yue Bai",
+          "affiliation": ""
+        },
+        {
+          "name": "Yulun Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yun Fu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Neural network pruning typically removes connections or neurons from a pretrained converged model; while a new pruning paradigm, pruning at initialization (PaI), attempts to prune a randomly initialized network. This paper offers the first survey concentrated on this emerging pruning fashion. We first introduce a generic formulation of neural network pruning, followed by the major classic pruning topics. Then, as the main body of this paper, a thorough and structured literature review of PaI methods is presented, consisting of two major tracks (sparse training and sparse selection). Finally, we summarize the surge of PaI compared to PaT and discuss the open problems. Apart from the dedicated literature review, this paper also offers a code base for easy sanity-checking and benchmarking of different PaI methods.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2103.06460",
+      "url": "https://arxiv.org/abs/2103.06460",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2110.13981",
+      "title": "CHIP: CHannel Independence-based Pruning for Compact Neural Networks",
+      "authors": [
+        {
+          "name": "Yang Sui",
+          "affiliation": ""
+        },
+        {
+          "name": "Miao Yin",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi Xie",
+          "affiliation": ""
+        },
+        {
+          "name": "Huy Phan",
+          "affiliation": ""
+        },
+        {
+          "name": "Saman Zonouz",
+          "affiliation": ""
+        },
+        {
+          "name": "Bo Yuan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Filter pruning has been widely used for neural network compression because of its enabled practical acceleration. To date, most of the existing filter pruning works explore the importance of filters via using intra-channel information. In this paper, starting from an inter-channel perspective, we propose to perform efficient filter pruning using Channel Independence, a metric that measures the correlations among different feature maps. The less independent feature map is interpreted as containing less useful information$/$knowledge, and hence its corresponding filter can be pruned without affecting model capacity. We systematically investigate the quantification metric, measuring scheme and sensitiveness$/$reliability of channel independence in the context of filter pruning. Our evaluation results for different models on various datasets show the superior performance of our approach. Notably, on CIFAR-10 dataset our solution can bring $0.90\\%$ and $0.94\\%$ accuracy increase over baseline ResNet-56 and ResNet-110 models, respectively, and meanwhile the model size and FLOPs are reduced by $42.8\\%$ and $47.4\\%$ (for ResNet-56) and $48.3\\%$ and $52.1\\%$ (for ResNet-110), respectively. On ImageNet dataset, our approach can achieve $40.8\\%$ and $44.8\\%$ storage and computation reductions, respectively, with $0.15\\%$ accuracy increase over the baseline ResNet-50 model. The code is available at https://github.com/Eclipsess/CHIP_NeurIPS2021.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2110.13981",
+      "url": "https://arxiv.org/abs/2110.13981",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2101.06608",
+      "title": "Network Automatic Pruning: Start NAP and Take a Nap",
+      "authors": [
+        {
+          "name": "Wenyuan Zeng",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuwen Xiong",
+          "affiliation": ""
+        },
+        {
+          "name": "Raquel Urtasun",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Network pruning can significantly reduce the computation and memory footprint of large neural networks. To achieve a good trade-off between model size and performance, popular pruning techniques usually rely on hand-crafted heuristics and require manually setting the compression ratio for each layer. This process is typically time-consuming and requires expert knowledge to achieve good results. In this paper, we propose NAP, a unified and automatic pruning framework for both fine-grained and structured pruning. It can find out unimportant components of a network and automatically decide appropriate compression ratios for different layers, based on a theoretically sound criterion. Towards this goal, NAP uses an efficient approximation of the Hessian for evaluating the importances of components, based on a Kronecker-factored Approximate Curvature method. Despite its simpleness to use, NAP outperforms previous pruning methods by large margins. For fine-grained pruning, NAP can compress AlexNet and VGG16 by 25x, and ResNet-50 by 6.7x without loss in accuracy on ImageNet. For structured pruning (e.g. channel pruning), it can reduce flops of VGG16 by 5.4x and ResNet-50 by 2.3x with only 1% accuracy drop. More importantly, this method is almost free from hyper-parameter tuning and requires no expert knowledge. You can start NAP and then take a nap!",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2101.06608",
+      "url": "https://arxiv.org/abs/2101.06608",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2406.12315",
+      "title": "A Comprehensive Study of Structural Pruning for Vision Models",
+      "authors": [
+        {
+          "name": "Changhao Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Haoling Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Mengqi Xue",
+          "affiliation": ""
+        },
+        {
+          "name": "Gongfan Fang",
+          "affiliation": ""
+        },
+        {
+          "name": "Sheng Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Zunlei Feng",
+          "affiliation": ""
+        },
+        {
+          "name": "Huiqiong Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Mingli Song",
+          "affiliation": ""
+        },
+        {
+          "name": "Jie Song",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Structural pruning has emerged as a promising approach for producing more efficient models. Nevertheless, the community suffers from a lack of standardized benchmarks and metrics, leaving the progress in this area not fully comprehended. To fill this gap, we present the first comprehensive benchmark, termed PruningBench, for structural pruning. PruningBench showcases the following three characteristics: 1) PruningBench employs a unified and consistent framework for evaluating the effectiveness of diverse structural pruning techniques; 2) PruningBench systematically evaluates 16 existing pruning methods, encompassing a wide array of models (e.g., CNNs and ViTs) and tasks (e.g., classification and detection); 3) PruningBench provides easily implementable interfaces to facilitate the implementation of future pruning methods, and enables the subsequent researchers to incorporate their work into our leaderboards. We provide an online pruning platform for customizing pruning tasks and reproducing all results in this paper. Leaderboard results can also be available.",
+      "venue": "cs.AI",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2406.12315",
+      "url": "https://arxiv.org/abs/2406.12315",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2412.00143",
+      "title": "Is Oracle Pruning the True Oracle?",
+      "authors": [
+        {
+          "name": "Sicheng Feng",
+          "affiliation": ""
+        },
+        {
+          "name": "Keda Tao",
+          "affiliation": ""
+        },
+        {
+          "name": "Huan Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Oracle pruning, which selects unimportant weights by minimizing the pruned train loss, has been taken as the foundation for most neural network pruning methods for over 35 years, while few (if not none) have thought about how much the foundation really holds. This paper, for the first time, attempts to examine its validity on modern deep models through empirical correlation analyses and provide reflections on the field of neural network pruning. Specifically, for a typical pruning algorithm with three stages (pertaining, pruning, and retraining), we analyze the model performance correlation before and after retraining. Extensive experiments (37K models are trained) across a wide spectrum of models (LeNet5, VGG, ResNets, ViT, MLLM) and datasets (MNIST and its variants, CIFAR10/CIFAR100, ImageNet-1K, MLLM data) are conducted. The results lead to a surprising conclusion: on modern deep learning models, the performance before retraining is barely correlated with the performance after retraining. Namely, the weights selected by oracle pruning can hardly guarantee a good performance after retraining. This further implies that existing works using oracle pruning to derive pruning criteria may be groundless from the beginning. Further studies suggest the rising task complexity is one factor that makes oracle pruning invalid nowadays. Finally, given the evidence, we argue that the retraining stage in a pruning algorithm should be accounted for when developing any pruning criterion.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2412.00143",
+      "url": "https://arxiv.org/abs/2412.00143",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2603.00651",
+      "title": "Exploring 3D Dataset Pruning",
+      "authors": [
+        {
+          "name": "Xiaohan Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinyi Shang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiacheng Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiqiang Shen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Dataset pruning has been widely studied for 2D images to remove redundancy and accelerate training, while particular pruning methods for 3D data remain largely unexplored. In this work, we study dataset pruning for 3D data, where its observed common long-tail class distribution nature make optimization under conventional evaluation metrics Overall Accuracy (OA) and Mean Accuracy (mAcc) inherently conflicting, and further make pruning particularly challenging. To address this, we formulate pruning as approximating the full-data expected risk with a weighted subset, which reveals two key errors: coverage error from insufficient representativeness and prior-mismatch bias from inconsistency between subset-induced class weights and target metrics. We propose representation-aware subset selection with per-class retention quotas for long-tail coverage, and prior-invariant teacher supervision using calibrated soft labels and embedding-geometry distillation. The retention quota also serves as a switch to control the OA-mAcc trade-off. Extensive experiments on 3D datasets show that our method can improve both metrics across multiple settings while adapting to different downstream preferences. Our code is available at https://github.com/XiaohanZhao123/3D-Dataset-Pruning.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2603.00651",
+      "url": "https://arxiv.org/abs/2603.00651",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.02213",
+      "title": "IG-Pruning: Input-Guided Block Pruning for Large Language Models",
+      "authors": [
+        {
+          "name": "Kangyu Qiao",
+          "affiliation": ""
+        },
+        {
+          "name": "Shaolei Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang Feng",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "With the growing computational demands of large language models (LLMs), efficient inference has become increasingly critical for practical deployment. Depth pruning has emerged as a promising approach for reducing the computational costs of large language models by removing transformer layers. However, existing methods typically rely on fixed block masks, which can lead to suboptimal performance across different tasks and inputs. In this paper, we propose IG-Pruning, a novel input-aware block-wise pruning method that dynamically selects layer masks at inference time. Our approach consists of two stages: (1) Discovering diverse mask candidates through semantic clustering and L0 optimization, and (2) Implementing efficient dynamic pruning without the need for extensive training. Experimental results demonstrate that our method consistently outperforms state-of-the-art static depth pruning methods, making it particularly suitable for resource-constrained deployment scenarios.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.02213",
+      "url": "https://arxiv.org/abs/2511.02213",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.07494",
+      "title": "Roman Galactic Plane Survey Definition Committee Report",
+      "authors": [
+        {
+          "name": "Roman Galactic Plane Survey Definition Committee",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The Roman Galactic Plane Survey (RGPS) is a 700-hour program approved for early definition as a community-designed General Astrophysics Survey. It was selected following a proposal call for science programs that would benefit from an early community-based definition (Sanderson et al 2024). The community was invited to submit white papers and science pitches with a deadline of May 20, 2024; the Roman Galactic Plane Survey Definition Committee (RGPS-DC) first met on Sep 11, 2024. Based on the input provided, the RGPS-DC recommends a survey consisting of three elements: (1) a wide-field science element (691 sq deg, 541 hrs) covering the Galactic plane, Galactic latitude |b|<2 deg and Galactic longitude l=+50.1 deg to -79 deg (281 deg), in four filters (F129, F159, F184, and F213) with higher latitude extensions for the bulge, the Serpens South/W40 star formation region, and Carina, (2) a time-domain science element (19 sq deg , 130 hrs) of six fields, including the full Nuclear Stellar Disk (NSD) and Central Molecular Zone (CMZ), with coverage in seven filters and repeat observations in one or more filters with cadences from 11 minutes to weeks, and (3) a deep-field/spectroscopic science element (4 sq deg , 30 hrs) consisting of fifteen Roman pointings (with a wide range of extinction, diffuse emission, stellar density and population) using longer exposure times in seven filters in addition to grism and prism observations. This document summarizes the science that can be done with this survey, the process of survey definition, and details on all of the program elements.",
+      "venue": "astro-ph.GA",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.07494",
+      "url": "https://arxiv.org/abs/2511.07494",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2103.01498",
+      "title": "A Survey On Universal Adversarial Attack",
+      "authors": [
+        {
+          "name": "Chaoning Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Philipp Benz",
+          "affiliation": ""
+        },
+        {
+          "name": "Chenguo Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Adil Karjauv",
+          "affiliation": ""
+        },
+        {
+          "name": "Jing Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "In So Kweon",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "The intriguing phenomenon of adversarial examples has attracted significant attention in machine learning and what might be more surprising to the community is the existence of universal adversarial perturbations (UAPs), i.e. a single perturbation to fool the target DNN for most images. With the focus on UAP against deep classifiers, this survey summarizes the recent progress on universal adversarial attacks, discussing the challenges from both the attack and defense sides, as well as the reason for the existence of UAP. We aim to extend this work as a dynamic survey that will regularly update its content to follow new works regarding UAP or universal attack in a wide range of domains, such as image, audio, video, text, etc. Relevant updates will be discussed at: https://bit.ly/2SbQlLG. We welcome authors of future works in this field to contact us for including your new finding.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "10.24963/ijcai.2021/635",
+      "arxiv_id": "2103.01498",
+      "url": "https://arxiv.org/abs/2103.01498",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2602.17664",
+      "title": "Sink-Aware Pruning for Diffusion Language Models",
+      "authors": [
+        {
+          "name": "Aidar Myrzakhan",
+          "affiliation": ""
+        },
+        {
+          "name": "Tianyi Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Bowei Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Shengkun Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiqiang Shen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Diffusion Language Models (DLMs) incur high inference cost due to iterative denoising, motivating efficient pruning. Existing pruning heuristics largely inherited from autoregressive (AR) LLMs, typically preserve attention sink tokens because AR sinks serve as stable global anchors. We show that this assumption does not hold for DLMs: the attention-sink position exhibits substantially higher variance over the full generation trajectory (measured by how the dominant sink locations shift across timesteps), indicating that sinks are often transient and less structurally essential than in AR models. Based on this observation, we propose ${\\bf \\texttt{Sink-Aware Pruning}}$, which automatically identifies and prunes unstable sinks in DLMs (prior studies usually keep sinks for AR LLMs). Without retraining, our method achieves a better quality-efficiency trade-off and outperforms strong prior pruning baselines under matched compute. Our code is available at https://github.com/VILA-Lab/Sink-Aware-Pruning.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2602.17664",
+      "url": "https://arxiv.org/abs/2602.17664",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2303.00566",
+      "title": "Structured Pruning for Deep Convolutional Neural Networks: A survey",
+      "authors": [
+        {
+          "name": "Yang He",
+          "affiliation": ""
+        },
+        {
+          "name": "Lingao Xiao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "The remarkable performance of deep Convolutional neural networks (CNNs) is generally attributed to their deeper and wider architectures, which can come with significant computational costs. Pruning neural networks has thus gained interest since it effectively lowers storage and computational costs. In contrast to weight pruning, which results in unstructured models, structured pruning provides the benefit of realistic acceleration by producing models that are friendly to hardware implementation. The special requirements of structured pruning have led to the discovery of numerous new challenges and the development of innovative solutions. This article surveys the recent progress towards structured pruning of deep CNNs. We summarize and compare the state-of-the-art structured pruning techniques with respect to filter ranking methods, regularization methods, dynamic execution, neural architecture search, the lottery ticket hypothesis, and the applications of pruning. While discussing structured pruning algorithms, we briefly introduce the unstructured pruning counterpart to emphasize their differences. Furthermore, we provide insights into potential research opportunities in the field of structured pruning. A curated list of neural network pruning papers can be found at https://github.com/he-y/Awesome-Pruning . A dedicated website offering a more interactive comparison of structured pruning methods can be found at: https://huggingface.co/spaces/he-yang/Structured-Pruning-Survey .",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1109/TPAMI.2023.3334614",
+      "arxiv_id": "2303.00566",
+      "url": "https://arxiv.org/abs/2303.00566",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2406.16778",
+      "title": "Finding Transformer Circuits with Edge Pruning",
+      "authors": [
+        {
+          "name": "Adithya Bhaskar",
+          "affiliation": ""
+        },
+        {
+          "name": "Alexander Wettig",
+          "affiliation": ""
+        },
+        {
+          "name": "Dan Friedman",
+          "affiliation": ""
+        },
+        {
+          "name": "Danqi Chen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "The path to interpreting a language model often proceeds via analysis of circuits -- sparse computational subgraphs of the model that capture specific aspects of its behavior. Recent work has automated the task of discovering circuits. Yet, these methods have practical limitations, as they rely either on inefficient search algorithms or inaccurate approximations. In this paper, we frame automated circuit discovery as an optimization problem and propose *Edge Pruning* as an effective and scalable solution. Edge Pruning leverages gradient-based pruning techniques, but instead of removing neurons or components, it prunes the \\emph{edges} between components. Our method finds circuits in GPT-2 that use less than half the number of edges compared to circuits found by previous methods while being equally faithful to the full model predictions on standard circuit-finding tasks. Edge Pruning is efficient even with as many as 100K examples, outperforming previous methods in speed and producing substantially better circuits. It also perfectly recovers the ground-truth circuits in two models compiled with Tracr. Thanks to its efficiency, we scale Edge Pruning to CodeLlama-13B, a model over 100x the scale that prior methods operate on. We use this setting for a case study comparing the mechanisms behind instruction prompting and in-context learning. We find two circuits with more than 99.96% sparsity that match the performance of the full model and reveal that the mechanisms in the two settings overlap substantially. Our case study shows that Edge Pruning is a practical and scalable tool for interpretability and sheds light on behaviors that only emerge in large models.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2406.16778",
+      "url": "https://arxiv.org/abs/2406.16778",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2305.17173",
+      "title": "DES Y3 + KiDS-1000: Consistent cosmology combining cosmic shear surveys",
+      "authors": [
+        {
+          "name": "Dark Energy Survey",
+          "affiliation": ""
+        },
+        {
+          "name": "Kilo-Degree Survey Collaboration",
+          "affiliation": ""
+        },
+        {
+          "name": ":",
+          "affiliation": ""
+        },
+        {
+          "name": "T. M. C. Abbott",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Aguena",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Alarcon",
+          "affiliation": ""
+        },
+        {
+          "name": "O. Alves",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Amon",
+          "affiliation": ""
+        },
+        {
+          "name": "F. Andrade-Oliveira",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Asgari",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Avila",
+          "affiliation": ""
+        },
+        {
+          "name": "D. Bacon",
+          "affiliation": ""
+        },
+        {
+          "name": "K. Bechtol",
+          "affiliation": ""
+        },
+        {
+          "name": "M. R. Becker",
+          "affiliation": ""
+        },
+        {
+          "name": "G. M. Bernstein",
+          "affiliation": ""
+        },
+        {
+          "name": "E. Bertin",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Bilicki",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Blazek",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Bocquet",
+          "affiliation": ""
+        },
+        {
+          "name": "D. Brooks",
+          "affiliation": ""
+        },
+        {
+          "name": "P. Burger",
+          "affiliation": ""
+        },
+        {
+          "name": "D. L. Burke",
+          "affiliation": ""
+        },
+        {
+          "name": "H. Camacho",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Campos",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Carnero Rosell",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Carrasco Kind",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Carretero",
+          "affiliation": ""
+        },
+        {
+          "name": "F. J. Castander",
+          "affiliation": ""
+        },
+        {
+          "name": "R. Cawthon",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Chang",
+          "affiliation": ""
+        },
+        {
+          "name": "R. Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Choi",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Conselice",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Cordero",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Crocce",
+          "affiliation": ""
+        },
+        {
+          "name": "L. N. da Costa",
+          "affiliation": ""
+        },
+        {
+          "name": "M. E. da Silva Pereira",
+          "affiliation": ""
+        },
+        {
+          "name": "R. Dalal",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Davis",
+          "affiliation": ""
+        },
+        {
+          "name": "J. T. A. de Jong",
+          "affiliation": ""
+        },
+        {
+          "name": "J. DeRose",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Desai",
+          "affiliation": ""
+        },
+        {
+          "name": "H. T. Diehl",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Dodelson",
+          "affiliation": ""
+        },
+        {
+          "name": "P. Doel",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Doux",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Drlica-Wagner",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Dvornik",
+          "affiliation": ""
+        },
+        {
+          "name": "K. Eckert",
+          "affiliation": ""
+        },
+        {
+          "name": "T. F. Eifler",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Elvin-Poole",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Everett",
+          "affiliation": ""
+        },
+        {
+          "name": "X. Fang",
+          "affiliation": ""
+        },
+        {
+          "name": "I. Ferrero",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Fert\u00e9",
+          "affiliation": ""
+        },
+        {
+          "name": "B. Flaugher",
+          "affiliation": ""
+        },
+        {
+          "name": "O. Friedrich",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Frieman",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Garc\u00eda-Bellido",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Gatti",
+          "affiliation": ""
+        },
+        {
+          "name": "G. Giannini",
+          "affiliation": ""
+        },
+        {
+          "name": "B. Giblin",
+          "affiliation": ""
+        },
+        {
+          "name": "D. Gruen",
+          "affiliation": ""
+        },
+        {
+          "name": "R. A. Gruendl",
+          "affiliation": ""
+        },
+        {
+          "name": "G. Gutierrez",
+          "affiliation": ""
+        },
+        {
+          "name": "I. Harrison",
+          "affiliation": ""
+        },
+        {
+          "name": "W. G. Hartley",
+          "affiliation": ""
+        },
+        {
+          "name": "K. Herner",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Heymans",
+          "affiliation": ""
+        },
+        {
+          "name": "H. Hildebrandt",
+          "affiliation": ""
+        },
+        {
+          "name": "S. R. Hinton",
+          "affiliation": ""
+        },
+        {
+          "name": "H. Hoekstra",
+          "affiliation": ""
+        },
+        {
+          "name": "D. L. Hollowood",
+          "affiliation": ""
+        },
+        {
+          "name": "K. Honscheid",
+          "affiliation": ""
+        },
+        {
+          "name": "H. Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "E. M. Huff",
+          "affiliation": ""
+        },
+        {
+          "name": "D. Huterer",
+          "affiliation": ""
+        },
+        {
+          "name": "D. J. James",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Jarvis",
+          "affiliation": ""
+        },
+        {
+          "name": "N. Jeffrey",
+          "affiliation": ""
+        },
+        {
+          "name": "T. Jeltema",
+          "affiliation": ""
+        },
+        {
+          "name": "B. Joachimi",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Joudaki",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Kannawadi",
+          "affiliation": ""
+        },
+        {
+          "name": "E. Krause",
+          "affiliation": ""
+        },
+        {
+          "name": "K. Kuehn",
+          "affiliation": ""
+        },
+        {
+          "name": "K. Kuijken",
+          "affiliation": ""
+        },
+        {
+          "name": "N. Kuropatkin",
+          "affiliation": ""
+        },
+        {
+          "name": "O. Lahav",
+          "affiliation": ""
+        },
+        {
+          "name": "P. -F. Leget",
+          "affiliation": ""
+        },
+        {
+          "name": "P. Lemos",
+          "affiliation": ""
+        },
+        {
+          "name": "S. -S. Li",
+          "affiliation": ""
+        },
+        {
+          "name": "X. Li",
+          "affiliation": ""
+        },
+        {
+          "name": "A. R. Liddle",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Lima",
+          "affiliation": ""
+        },
+        {
+          "name": "C. -A Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "H. Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "N. MacCrann",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Mahony",
+          "affiliation": ""
+        },
+        {
+          "name": "J. L. Marshall",
+          "affiliation": ""
+        },
+        {
+          "name": "J. McCullough",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Mena-Fern\u00e1ndez",
+          "affiliation": ""
+        },
+        {
+          "name": "F. Menanteau",
+          "affiliation": ""
+        },
+        {
+          "name": "R. Miquel",
+          "affiliation": ""
+        },
+        {
+          "name": "J. J. Mohr",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Muir",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Myles",
+          "affiliation": ""
+        },
+        {
+          "name": "N. Napolitano",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Navarro-Alsina",
+          "affiliation": ""
+        },
+        {
+          "name": "R. L. C. Ogando",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Palmese",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Pandey",
+          "affiliation": ""
+        },
+        {
+          "name": "Y. Park",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Paterno",
+          "affiliation": ""
+        },
+        {
+          "name": "J. A. Peacock",
+          "affiliation": ""
+        },
+        {
+          "name": "D. Petravick",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Pieres",
+          "affiliation": ""
+        },
+        {
+          "name": "A. A. Plazas Malag\u00f3n",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Porredon",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Prat",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Radovich",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Raveri",
+          "affiliation": ""
+        },
+        {
+          "name": "R. Reischke",
+          "affiliation": ""
+        },
+        {
+          "name": "N. C. Robertson",
+          "affiliation": ""
+        },
+        {
+          "name": "R. P. Rollins",
+          "affiliation": ""
+        },
+        {
+          "name": "A. K. Romer",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Roodman",
+          "affiliation": ""
+        },
+        {
+          "name": "E. S. Rykoff",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Samuroff",
+          "affiliation": ""
+        },
+        {
+          "name": "C. S\u00e1nchez",
+          "affiliation": ""
+        },
+        {
+          "name": "E. Sanchez",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Sanchez",
+          "affiliation": ""
+        },
+        {
+          "name": "P. Schneider",
+          "affiliation": ""
+        },
+        {
+          "name": "L. F. Secco",
+          "affiliation": ""
+        },
+        {
+          "name": "I. Sevilla-Noarbe",
+          "affiliation": ""
+        },
+        {
+          "name": "H. -Y. Shan",
+          "affiliation": ""
+        },
+        {
+          "name": "E. Sheldon",
+          "affiliation": ""
+        },
+        {
+          "name": "T. Shin",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Sif\u00f3n",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Smith",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Soares-Santos",
+          "affiliation": ""
+        },
+        {
+          "name": "B. St\u00f6lzner",
+          "affiliation": ""
+        },
+        {
+          "name": "E. Suchyta",
+          "affiliation": ""
+        },
+        {
+          "name": "M. E. C. Swanson",
+          "affiliation": ""
+        },
+        {
+          "name": "G. Tarle",
+          "affiliation": ""
+        },
+        {
+          "name": "D. Thomas",
+          "affiliation": ""
+        },
+        {
+          "name": "C. To",
+          "affiliation": ""
+        },
+        {
+          "name": "M. A. Troxel",
+          "affiliation": ""
+        },
+        {
+          "name": "T. Tr\u00f6ster",
+          "affiliation": ""
+        },
+        {
+          "name": "I. Tutusaus",
+          "affiliation": ""
+        },
+        {
+          "name": "J. L. van den Busch",
+          "affiliation": ""
+        },
+        {
+          "name": "T. N. Varga",
+          "affiliation": ""
+        },
+        {
+          "name": "A. R. Walker",
+          "affiliation": ""
+        },
+        {
+          "name": "N. Weaverdyck",
+          "affiliation": ""
+        },
+        {
+          "name": "R. H. Wechsler",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Weller",
+          "affiliation": ""
+        },
+        {
+          "name": "P. Wiseman",
+          "affiliation": ""
+        },
+        {
+          "name": "A. H. Wright",
+          "affiliation": ""
+        },
+        {
+          "name": "B. Yanny",
+          "affiliation": ""
+        },
+        {
+          "name": "B. Yin",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Yoon",
+          "affiliation": ""
+        },
+        {
+          "name": "Y. Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Zuntz",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We present a joint cosmic shear analysis of the Dark Energy Survey (DES Y3) and the Kilo-Degree Survey (KiDS-1000) in a collaborative effort between the two survey teams. We find consistent cosmological parameter constraints between DES Y3 and KiDS-1000 which, when combined in a joint-survey analysis, constrain the parameter $S_8 = \u03c3_8 \\sqrt{\u03a9_{\\rm m}/0.3}$ with a mean value of $0.790^{+0.018}_{-0.014}$. The mean marginal is lower than the maximum a posteriori estimate, $S_8=0.801$, owing to skewness in the marginal distribution and projection effects in the multi-dimensional parameter space. Our results are consistent with $S_8$ constraints from observations of the cosmic microwave background by Planck, with agreement at the $1.7\u03c3$ level. We use a Hybrid analysis pipeline, defined from a mock survey study quantifying the impact of the different analysis choices originally adopted by each survey team. We review intrinsic alignment models, baryon feedback mitigation strategies, priors, samplers and models of the non-linear matter power spectrum.",
+      "venue": "astro-ph.CO",
+      "citation_count": 0,
+      "doi": "10.21105/astro.2305.17173",
+      "arxiv_id": "2305.17173",
+      "url": "https://arxiv.org/abs/2305.17173",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2010.10732",
+      "title": "SCOP: Scientific Control for Reliable Neural Network Pruning",
+      "authors": [
+        {
+          "name": "Yehui Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yunhe Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yixing Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Dacheng Tao",
+          "affiliation": ""
+        },
+        {
+          "name": "Chunjing Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Chao Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Chang Xu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "This paper proposes a reliable neural network pruning algorithm by setting up a scientific control. Existing pruning methods have developed various hypotheses to approximate the importance of filters to the network and then execute filter pruning accordingly. To increase the reliability of the results, we prefer to have a more rigorous research design by including a scientific control group as an essential part to minimize the effect of all factors except the association between the filter and expected network output. Acting as a control group, knockoff feature is generated to mimic the feature map produced by the network filter, but they are conditionally independent of the example label given the real feature map. We theoretically suggest that the knockoff condition can be approximately preserved given the information propagation of network layers. Besides the real feature map on an intermediate layer, the corresponding knockoff feature is brought in as another auxiliary input signal for the subsequent layers. Redundant filters can be discovered in the adversarial process of different features. Through experiments, we demonstrate the superiority of the proposed algorithm over state-of-the-art methods. For example, our method can reduce 57.8% parameters and 60.2% FLOPs of ResNet-101 with only 0.01% top-1 accuracy loss on ImageNet. The code is available at https://github.com/huawei-noah/Pruning/tree/master/SCOP_NeurIPS2020.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2010.10732",
+      "url": "https://arxiv.org/abs/2010.10732",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2401.04971",
+      "title": "A Survey on Cross-Domain Sequential Recommendation",
+      "authors": [
+        {
+          "name": "Shu Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Zitao Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Weike Pan",
+          "affiliation": ""
+        },
+        {
+          "name": "Qiang Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhong Ming",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Cross-domain sequential recommendation (CDSR) shifts the modeling of user preferences from flat to stereoscopic by integrating and learning interaction information from multiple domains at different granularities (ranging from inter-sequence to intra-sequence and from single-domain to cross-domain). In this survey, we first define the CDSR problem using a four-dimensional tensor and then analyze its multi-type input representations under multidirectional dimensionality reductions. Following that, we provide a systematic overview from both macro and micro views. From a macro view, we abstract the multi-level fusion structures of various models across domains and discuss their bridges for fusion. From a micro view, focusing on the existing models, we first discuss the basic technologies and then explain the auxiliary learning technologies. Finally, we exhibit the available public datasets and the representative experimental results as well as provide some insights into future directions for research in CDSR.",
+      "venue": "cs.IR",
+      "citation_count": 0,
+      "doi": "10.24963/ijcai.2024/884",
+      "arxiv_id": "2401.04971",
+      "url": "https://arxiv.org/abs/2401.04971",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2010.07611",
+      "title": "Layer-adaptive sparsity for the Magnitude-based Pruning",
+      "authors": [
+        {
+          "name": "Jaeho Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Sejun Park",
+          "affiliation": ""
+        },
+        {
+          "name": "Sangwoo Mo",
+          "affiliation": ""
+        },
+        {
+          "name": "Sungsoo Ahn",
+          "affiliation": ""
+        },
+        {
+          "name": "Jinwoo Shin",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Recent discoveries on neural network pruning reveal that, with a carefully chosen layerwise sparsity, a simple magnitude-based pruning achieves state-of-the-art tradeoff between sparsity and performance. However, without a clear consensus on \"how to choose,\" the layerwise sparsities are mostly selected algorithm-by-algorithm, often resorting to handcrafted heuristics or an extensive hyperparameter search. To fill this gap, we propose a novel importance score for global pruning, coined layer-adaptive magnitude-based pruning (LAMP) score; the score is a rescaled version of weight magnitude that incorporates the model-level $\\ell_2$ distortion incurred by pruning, and does not require any hyperparameter tuning or heavy computation. Under various image classification setups, LAMP consistently outperforms popular existing schemes for layerwise sparsity selection. Furthermore, we observe that LAMP continues to outperform baselines even in weight-rewinding setups, while the connectivity-oriented layerwise sparsity (the strongest baseline overall) performs worse than a simple global magnitude-based pruning in this case. Code: https://github.com/jaeho-lee/layer-adaptive-sparsity",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2010.07611",
+      "url": "https://arxiv.org/abs/2010.07611",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2409.08759",
+      "title": "Dark Energy Survey: 2.1% measurement of the Baryon Acoustic Oscillation scale from the final dataset",
+      "authors": [
+        {
+          "name": "Juan Mena-Fern\u00e1ndez",
+          "affiliation": ""
+        },
+        {
+          "name": "Dark Energy Survey Collaboration",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Here, we present the angular diameter distance measurement obtained from the measurement of the Baryonic Acoustic Oscillation (BAO) feature using the completed Dark Energy Survey (DES) data, summarizing the main results of [Phys. Rev. D 110, 063514] and [Phys. Rev. D 110, 063515]. We use a galaxy sample optimized for BAO science in the redshift range 0.6 < z < 1.2, with an effective redshift of $z_{\\rm eff}$ = 0.85. Our consensus measurement constrains the ratio of the angular distance to the sound horizon scale to $D_M(z_{\\rm eff})/r_d$ = 19.51 $\\pm$ 0.41. This measurement is found to be 2.13$\u03c3$ below the angular BAO scale predicted by Planck. To date, it represents the most precise measurement from purely photometric data, and the most precise from any Stage-III experiment at such high redshift. The analysis was performed blinded to the BAO position and is shown to be robust against analysis choices, data removal, redshift calibrations and observational systematics.",
+      "venue": "astro-ph.CO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2409.08759",
+      "url": "https://arxiv.org/abs/2409.08759",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2011.02034",
+      "title": "The Role of Time, Weather and Google Trends in Understanding and Predicting Web Survey Response",
+      "authors": [
+        {
+          "name": "Qixiang Fang",
+          "affiliation": ""
+        },
+        {
+          "name": "Joep Burger",
+          "affiliation": ""
+        },
+        {
+          "name": "Ralph Meijers",
+          "affiliation": ""
+        },
+        {
+          "name": "Kees van Berkel",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "In the literature about web survey methodology, significant efforts have been made to understand the role of time-invariant factors (e.g. gender, education and marital status) in (non-)response mechanisms. Time-invariant factors alone, however, cannot account for most variations in (non-)responses, especially fluctuations of response rates over time. This observation inspires us to investigate the counterpart of time-invariant factors, namely time-varying factors and the potential role they play in web survey (non-)response. Specifically, we study the effects of time, weather and societal trends (derived from Google Trends data) on the daily (non-)response patterns of the 2016 and 2017 Dutch Health Surveys. Using discrete-time survival analysis, we find, among others, that weekends, holidays, pleasant weather, disease outbreaks and terrorism salience are associated with fewer responses. Furthermore, we show that using these variables alone achieves satisfactory prediction accuracy of both daily and cumulative response rates when the trained model is applied to future unseen data. This approach has the further benefit of requiring only non-personal contextual information and thus involving no privacy issues. We discuss the implications of the study for survey research and data collection.",
+      "venue": "cs.SI",
+      "citation_count": 0,
+      "doi": "10.18148/srm/2021.v15i1.7633",
+      "arxiv_id": "2011.02034",
+      "url": "https://arxiv.org/abs/2011.02034",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2603.16001",
+      "title": "Mostly Text, Smart Visuals: Asymmetric Text-Visual Pruning for Large Vision-Language Models",
+      "authors": [
+        {
+          "name": "Sijie Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Biao Qian",
+          "affiliation": ""
+        },
+        {
+          "name": "Jungong Han",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Network pruning is an effective technique for enabling lightweight Large Vision-Language Models (LVLMs), which primarily incorporates both weights and activations into the importance metric. However, existing efforts typically process calibration data from different modalities in a unified manner, overlooking modality-specific behaviors. This raises a critical challenge: how to address the divergent behaviors of textual and visual tokens for accurate pruning of LVLMs. To this end, we systematically investigate the sensitivity of visual and textual tokens to the pruning operation by decoupling their corresponding weights, revealing that: (i) the textual pathway should be calibrated via text tokens, since it exhibits higher sensitivity than the visual pathway; (ii) the visual pathway exhibits high redundancy, permitting even 50% sparsity. Motivated by these insights, we propose a simple yet effective Asymmetric Text-Visual Weight Pruning method for LVLMs, dubbed ATV-Pruning, which establishes the importance metric for accurate weight pruning by selecting the informative tokens from both textual and visual pathways. Specifically, ATV-Pruning integrates two primary innovations: first, a calibration pool is adaptively constructed by drawing on all textual tokens and a subset of visual tokens; second, we devise a layer-adaptive selection strategy to yield important visual tokens. Finally, extensive experiments across standard multimodal benchmarks verify the superiority of our ATV-Pruning over state-of-the-art methods.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2603.16001",
+      "url": "https://arxiv.org/abs/2603.16001",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2009.11094",
+      "title": "Sanity-Checking Pruning Methods: Random Tickets can Win the Jackpot",
+      "authors": [
+        {
+          "name": "Jingtong Su",
+          "affiliation": ""
+        },
+        {
+          "name": "Yihang Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Tianle Cai",
+          "affiliation": ""
+        },
+        {
+          "name": "Tianhao Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruiqi Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Liwei Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jason D. Lee",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Network pruning is a method for reducing test-time computational resource requirements with minimal performance degradation. Conventional wisdom of pruning algorithms suggests that: (1) Pruning methods exploit information from training data to find good subnetworks; (2) The architecture of the pruned network is crucial for good performance. In this paper, we conduct sanity checks for the above beliefs on several recent unstructured pruning methods and surprisingly find that: (1) A set of methods which aims to find good subnetworks of the randomly-initialized network (which we call \"initial tickets\"), hardly exploits any information from the training data; (2) For the pruned networks obtained by these methods, randomly changing the preserved weights in each layer, while keeping the total number of preserved weights unchanged per layer, does not affect the final performance. These findings inspire us to choose a series of simple \\emph{data-independent} prune ratios for each layer, and randomly prune each layer accordingly to get a subnetwork (which we call \"random tickets\"). Experimental results show that our zero-shot random tickets outperform or attain a similar performance compared to existing \"initial tickets\". In addition, we identify one existing pruning method that passes our sanity checks. We hybridize the ratios in our random ticket with this method and propose a new method called \"hybrid tickets\", which achieves further improvement. (Our code is publicly available at https://github.com/JingtongSu/sanity-checking-pruning)",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2009.11094",
+      "url": "https://arxiv.org/abs/2009.11094",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2103.05861",
+      "title": "Manifold Regularized Dynamic Network Pruning",
+      "authors": [
+        {
+          "name": "Yehui Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yunhe Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yixing Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yiping Deng",
+          "affiliation": ""
+        },
+        {
+          "name": "Chao Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Dacheng Tao",
+          "affiliation": ""
+        },
+        {
+          "name": "Chang Xu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Neural network pruning is an essential approach for reducing the computational complexity of deep models so that they can be well deployed on resource-limited devices. Compared with conventional methods, the recently developed dynamic pruning methods determine redundant filters variant to each input instance which achieves higher acceleration. Most of the existing methods discover effective sub-networks for each instance independently and do not utilize the relationship between different inputs. To maximally excavate redundancy in the given network architecture, this paper proposes a new paradigm that dynamically removes redundant filters by embedding the manifold information of all instances into the space of pruned networks (dubbed as ManiDP). We first investigate the recognition complexity and feature similarity between images in the training set. Then, the manifold relationship between instances and the pruned sub-networks will be aligned in the training procedure. The effectiveness of the proposed method is verified on several benchmarks, which shows better performance in terms of both accuracy and computational cost compared to the state-of-the-art methods. For example, our method can reduce 55.3% FLOPs of ResNet-34 with only 0.57% top-1 accuracy degradation on ImageNet.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2103.05861",
+      "url": "https://arxiv.org/abs/2103.05861",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2102.08329",
+      "title": "An Information-Theoretic Justification for Model Pruning",
+      "authors": [
+        {
+          "name": "Berivan Isik",
+          "affiliation": ""
+        },
+        {
+          "name": "Tsachy Weissman",
+          "affiliation": ""
+        },
+        {
+          "name": "Albert No",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "We study the neural network (NN) compression problem, viewing the tension between the compression ratio and NN performance through the lens of rate-distortion theory. We choose a distortion metric that reflects the effect of NN compression on the model output and derive the tradeoff between rate (compression) and distortion. In addition to characterizing theoretical limits of NN compression, this formulation shows that \\emph{pruning}, implicitly or explicitly, must be a part of a good compression algorithm. This observation bridges a gap between parts of the literature pertaining to NN and data compression, respectively, providing insight into the empirical success of model pruning. Finally, we propose a novel pruning strategy derived from our information-theoretic formulation and show that it outperforms the relevant baselines on CIFAR-10 and ImageNet datasets.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2102.08329",
+      "url": "https://arxiv.org/abs/2102.08329",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2201.09881",
+      "title": "Iterative Activation-based Structured Pruning",
+      "authors": [
+        {
+          "name": "Kaiqi Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Animesh Jain",
+          "affiliation": ""
+        },
+        {
+          "name": "Ming Zhao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Deploying complex deep learning models on edge devices is challenging because they have substantial compute and memory resource requirements, whereas edge devices' resource budget is limited. To solve this problem, extensive pruning techniques have been proposed for compressing networks. Recent advances based on the Lottery Ticket Hypothesis (LTH) show that iterative model pruning tends to produce smaller and more accurate models. However, LTH research focuses on unstructured pruning, which is hardware-inefficient and difficult to accelerate on hardware platforms.\n  In this paper, we investigate iterative pruning in the context of structured pruning because structurally pruned models map well on commodity hardware. We find that directly applying a structured weight-based pruning technique iteratively, called iterative L1-norm based pruning (ILP), does not produce accurate pruned models. To solve this problem, we propose two activation-based pruning methods, Iterative Activation-based Pruning (IAP) and Adaptive Iterative Activation-based Pruning (AIAP). We observe that, with only 1% accuracy loss, IAP and AIAP achieve 7.75X and 15.88$X compression on LeNet-5, and 1.25X and 1.71X compression on ResNet-50, whereas ILP achieves 4.77X and 1.13X, respectively.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2201.09881",
+      "url": "https://arxiv.org/abs/2201.09881",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2402.02834",
+      "title": "Shortened LLaMA: Depth Pruning for Large Language Models with Comparison of Retraining Methods",
+      "authors": [
+        {
+          "name": "Bo-Kyeong Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Geonmin Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Tae-Ho Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Thibault Castells",
+          "affiliation": ""
+        },
+        {
+          "name": "Shinkook Choi",
+          "affiliation": ""
+        },
+        {
+          "name": "Junho Shin",
+          "affiliation": ""
+        },
+        {
+          "name": "Hyoung-Kyu Song",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Structured pruning of modern large language models (LLMs) has emerged as a way of decreasing their high computational needs. Width pruning reduces the size of projection weight matrices (e.g., by removing attention heads) while maintaining the number of layers. Depth pruning, in contrast, removes entire layers or blocks, while keeping the size of the remaining weights unchanged. Most current research focuses on either width-only or a blend of width and depth pruning, with little comparative analysis between the two units (width vs. depth) concerning their impact on LLM inference efficiency. In this work, we show that simple depth pruning can effectively compress LLMs while achieving comparable or superior performance to recent width pruning studies. Our pruning method boosts inference speeds, especially under memory-constrained conditions that require limited batch sizes for running LLMs, where width pruning is ineffective. In retraining pruned models for quality recovery, continued pretraining on a large corpus markedly outperforms LoRA-based tuning, particularly at severe pruning ratios. We hope this work can help build compact yet capable LLMs. Code and models can be found at: https://github.com/Nota-NetsPresso/shortened-llm",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2402.02834",
+      "url": "https://arxiv.org/abs/2402.02834",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2512.22671",
+      "title": "Fragile Knowledge, Robust Instruction-Following: The Width Pruning Dichotomy in Llama-3.2",
+      "authors": [
+        {
+          "name": "Pere Martra",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Structured width pruning of GLU-MLP layers, guided by the Maximum Absolute Weight (MAW) criterion, reveals a systematic dichotomy in how reducing the expansion ratio affects different model capabilities. While performance on tasks relying on parametric knowledge (e.g., MMLU, GSM8K) and perplexity metrics degrades predictably, instruction-following capabilities improve substantially (+46% to +75% in IFEval for Llama-3.2-1B and 3B models), and multi-step reasoning remains robust (MUSR). This pattern challenges the prevailing assumption that pruning induces uniform degradation. We evaluated seven expansion ratio configurations using comprehensive benchmarks assessing factual knowledge, mathematical reasoning, language comprehension, instruction-following, and truthfulness. Our analysis identifies the expansion ratio as a critical architectural parameter that selectively modulates cognitive capabilities, rather than merely serving as a compression metric. We provide the first systematic characterization of this selective preservation phenomenon. Notably, we document a robust inverse correlation (r = -0.864, p = 0.012 in Llama-3B) between factual knowledge capacity (MMLU) and truthfulness metrics (TruthfulQA-MC2): as knowledge degrades, the model's ability to discriminate misconceptions improves consistently. This connects two previously distinct research areas, demonstrating that MAW-guided width pruning acts as a selective filter, reducing parametric knowledge while preserving or enhancing behavioral alignment. Additionally, we quantify context-dependent efficiency trade-offs: pruned configurations achieve up to 23% reduction in energy consumption (J/token) but incur penalties in single-request latency, whereas batch processing workloads benefit uniformly.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2512.22671",
+      "url": "https://arxiv.org/abs/2512.22671",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2211.08339",
+      "title": "Pruning Very Deep Neural Network Channels for Efficient Inference",
+      "authors": [
+        {
+          "name": "Yihui He",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "In this paper, we introduce a new channel pruning method to accelerate very deep convolutional neural networks. Given a trained CNN model, we propose an iterative two-step algorithm to effectively prune each layer, by a LASSO regression based channel selection and least square reconstruction. We further generalize this algorithm to multi-layer and multi-branch cases. Our method reduces the accumulated error and enhances the compatibility with various architectures. Our pruned VGG-16 achieves the state-of-the-art results by 5x speed-up along with only 0.3% increase of error. More importantly, our method is able to accelerate modern networks like ResNet, Xception and suffers only 1.4%, 1.0% accuracy loss under 2x speed-up respectively, which is significant. Our code has been made publicly available.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2211.08339",
+      "url": "https://arxiv.org/abs/2211.08339",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

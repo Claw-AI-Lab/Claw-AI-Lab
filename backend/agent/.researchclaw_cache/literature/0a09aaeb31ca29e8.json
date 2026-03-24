@@ -1,0 +1,885 @@
+{
+  "query": "concept leakage in generated images",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1774244796.8858473,
+  "papers": [
+    {
+      "paper_id": "arxiv-2408.03632",
+      "title": "Concept Conductor: Orchestrating Multiple Personalized Concepts in Text-to-Image Synthesis",
+      "authors": [
+        {
+          "name": "Zebin Yao",
+          "affiliation": ""
+        },
+        {
+          "name": "Fangxiang Feng",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruifan Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaojie Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "The customization of text-to-image models has seen significant advancements, yet generating multiple personalized concepts remains a challenging task. Current methods struggle with attribute leakage and layout confusion when handling multiple concepts, leading to reduced concept fidelity and semantic consistency. In this work, we introduce a novel training-free framework, Concept Conductor, designed to ensure visual fidelity and correct layout in multi-concept customization. Concept Conductor isolates the sampling processes of multiple custom models to prevent attribute leakage between different concepts and corrects erroneous layouts through self-attention-based spatial guidance. Additionally, we present a concept injection technique that employs shape-aware masks to specify the generation area for each concept. This technique injects the structure and appearance of personalized concepts through feature fusion in the attention layers, ensuring harmony in the final image. Extensive qualitative and quantitative experiments demonstrate that Concept Conductor can consistently generate composite images with accurate layouts while preserving the visual details of each concept. Compared to existing baselines, Concept Conductor shows significant performance improvements. Our method supports the combination of any number of concepts and maintains high fidelity even when dealing with visually similar concepts. The code and models are available at https://github.com/Nihukat/Concept-Conductor.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2408.03632",
+      "url": "https://arxiv.org/abs/2408.03632",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2303.13516",
+      "title": "Ablating Concepts in Text-to-Image Diffusion Models",
+      "authors": [
+        {
+          "name": "Nupur Kumari",
+          "affiliation": ""
+        },
+        {
+          "name": "Bingliang Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Sheng-Yu Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Eli Shechtman",
+          "affiliation": ""
+        },
+        {
+          "name": "Richard Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jun-Yan Zhu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Large-scale text-to-image diffusion models can generate high-fidelity images with powerful compositional ability. However, these models are typically trained on an enormous amount of Internet data, often containing copyrighted material, licensed images, and personal photos. Furthermore, they have been found to replicate the style of various living artists or memorize exact training samples. How can we remove such copyrighted concepts or images without retraining the model from scratch? To achieve this goal, we propose an efficient method of ablating concepts in the pretrained model, i.e., preventing the generation of a target concept. Our algorithm learns to match the image distribution for a target style, instance, or text prompt we wish to ablate to the distribution corresponding to an anchor concept. This prevents the model from generating target concepts given its text condition. Extensive experiments show that our method can successfully prevent the generation of the ablated concept while preserving closely related concepts in the model.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2303.13516",
+      "url": "https://arxiv.org/abs/2303.13516",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2311.17717",
+      "title": "Receler: Reliable Concept Erasing of Text-to-Image Diffusion Models via Lightweight Erasers",
+      "authors": [
+        {
+          "name": "Chi-Pin Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Kai-Po Chang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chung-Ting Tsai",
+          "affiliation": ""
+        },
+        {
+          "name": "Yung-Hsuan Lai",
+          "affiliation": ""
+        },
+        {
+          "name": "Fu-En Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu-Chiang Frank Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Concept erasure in text-to-image diffusion models aims to disable pre-trained diffusion models from generating images related to a target concept. To perform reliable concept erasure, the properties of robustness and locality are desirable. The former refrains the model from producing images associated with the target concept for any paraphrased or learned prompts, while the latter preserves its ability in generating images with non-target concepts. In this paper, we propose Reliable Concept Erasing via Lightweight Erasers (Receler). It learns a lightweight Eraser to perform concept erasing while satisfying the above desirable properties through the proposed concept-localized regularization and adversarial prompt learning scheme. Experiments with various concepts verify the superiority of Receler over previous methods.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2311.17717",
+      "url": "https://arxiv.org/abs/2311.17717",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2008.04893",
+      "title": "Channel Leakage, Information-Theoretic Limitations of Obfuscation, and Optimal Privacy Mask Design for Streaming Data",
+      "authors": [
+        {
+          "name": "Song Fang",
+          "affiliation": ""
+        },
+        {
+          "name": "Quanyan Zhu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "In this paper, we first introduce the notion of channel leakage as the minimum mutual information between the channel input and channel output. As its name indicates, channel leakage quantifies the minimum information leakage to the malicious receiver. In a broad sense, it can be viewed as a dual concept of channel capacity, which characterizes the maximum information transmission to the targeted receiver. We obtain explicit formulas of channel leakage for the white Gaussian case, the colored Gaussian case, and the fading case. We then utilize this notion to investigate the fundamental limitations of obfuscation in terms of privacy-distortion tradeoffs (as well as privacy-power tradeoffs) for streaming data; particularly, we derive analytical tradeoff equations for the stationary case, the non-stationary case, and the finite-time case. Our results also indicate explicitly how to design the privacy masks in an optimal way.",
+      "venue": "cs.IT",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2008.04893",
+      "url": "https://arxiv.org/abs/2008.04893",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2505.13710",
+      "title": "Quantum Computational Unpredictability Entropy and Quantum Leakage Resilience",
+      "authors": [
+        {
+          "name": "Noam Avidan",
+          "affiliation": ""
+        },
+        {
+          "name": "Rotem Arnon",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Computational entropies provide a framework for quantifying uncertainty and randomness under computational constraints. They play a central role in classical cryptography, underpinning the analysis and construction of primitives such as pseudo-random generators, leakage-resilient cryptography, and randomness extractors. In the quantum setting, however, computational analogues of entropy remain largely unexplored. In this work, we initiate the study of quantum computational entropy by defining quantum computational unpredictability entropy, a natural generalization of classical unpredictability entropy to the quantum setting. Our definition builds on the operational interpretation of quantum min-entropy as the optimal guessing probability, while restricting the adversary to efficient guessing strategies. We prove that this entropy satisfies several fundamental properties, including a leakage chain rule that holds even in the presence of unbounded prior quantum side-information. We also show that unpredictability entropy enables pseudo-randomness extraction against quantum adversaries with bounded computational power. Together, these results lay a foundation for developing cryptographic tools that rely on min-entropy in the quantum computational setting.",
+      "venue": "quant-ph",
+      "citation_count": 0,
+      "doi": "10.1109/tit.2026.3658830",
+      "arxiv_id": "2505.13710",
+      "url": "https://arxiv.org/abs/2505.13710",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2306.05357",
+      "title": "Unsupervised Compositional Concepts Discovery with Text-to-Image Generative Models",
+      "authors": [
+        {
+          "name": "Nan Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yilun Du",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuang Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Joshua B. Tenenbaum",
+          "affiliation": ""
+        },
+        {
+          "name": "Antonio Torralba",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Text-to-image generative models have enabled high-resolution image synthesis across different domains, but require users to specify the content they wish to generate. In this paper, we consider the inverse problem -- given a collection of different images, can we discover the generative concepts that represent each image? We present an unsupervised approach to discover generative concepts from a collection of images, disentangling different art styles in paintings, objects, and lighting from kitchen scenes, and discovering image classes given ImageNet images. We show how such generative concepts can accurately represent the content of images, be recombined and composed to generate new artistic and hybrid images, and be further used as a representation for downstream classification tasks.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2306.05357",
+      "url": "https://arxiv.org/abs/2306.05357",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2308.12271",
+      "title": "A Generative Approach for Image Registration of Visible-Thermal (VT) Cancer Faces",
+      "authors": [
+        {
+          "name": "Catherine Ordun",
+          "affiliation": ""
+        },
+        {
+          "name": "Alexandra Cha",
+          "affiliation": ""
+        },
+        {
+          "name": "Edward Raff",
+          "affiliation": ""
+        },
+        {
+          "name": "Sanjay Purushotham",
+          "affiliation": ""
+        },
+        {
+          "name": "Karen Kwok",
+          "affiliation": ""
+        },
+        {
+          "name": "Mason Rule",
+          "affiliation": ""
+        },
+        {
+          "name": "James Gulley",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Since thermal imagery offers a unique modality to investigate pain, the U.S. National Institutes of Health (NIH) has collected a large and diverse set of cancer patient facial thermograms for AI-based pain research. However, differing angles from camera capture between thermal and visible sensors has led to misalignment between Visible-Thermal (VT) images. We modernize the classic computer vision task of image registration by applying and modifying a generative alignment algorithm to register VT cancer faces, without the need for a reference or alignment parameters. By registering VT faces, we demonstrate that the quality of thermal images produced in the generative AI downstream task of Visible-to-Thermal (V2T) image translation significantly improves up to 52.5\\%, than without registration. Images in this paper have been approved by the NIH NCI for public dissemination.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2308.12271",
+      "url": "https://arxiv.org/abs/2308.12271",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2504.14094",
+      "title": "Leakage and Interpretability in Concept-Based Models",
+      "authors": [
+        {
+          "name": "Enrico Parisini",
+          "affiliation": ""
+        },
+        {
+          "name": "Tapabrata Chakraborti",
+          "affiliation": ""
+        },
+        {
+          "name": "Chris Harbron",
+          "affiliation": ""
+        },
+        {
+          "name": "Ben D. MacArthur",
+          "affiliation": ""
+        },
+        {
+          "name": "Christopher R. S. Banerji",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Concept Bottleneck Models aim to improve interpretability by predicting high-level intermediate concepts, representing a promising approach for deployment in high-risk scenarios. However, they are known to suffer from information leakage, whereby models exploit unintended information encoded within the learned concepts. We introduce an information-theoretic framework to rigorously characterise and quantify leakage, and define two complementary measures: the concepts-task leakage (CTL) and interconcept leakage (ICL) scores. We show that these measures are strongly predictive of model behaviour under interventions and outperform existing alternatives in robustness and reliability. Using this framework, we identify the primary causes of leakage and provide strong evidence that Concept Embedding Models exhibit substantial leakage regardless of the hyperparameters choice. Finally, we propose practical guidelines for designing concept-based models to reduce leakage and ensure interpretability.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2504.14094",
+      "url": "https://arxiv.org/abs/2504.14094",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2503.24387",
+      "title": "CoCoIns: Consistent Subject Generation via Contrastive Instantiated Concepts",
+      "authors": [
+        {
+          "name": "Lee Hsin-Ying",
+          "affiliation": ""
+        },
+        {
+          "name": "Kelvin C. K. Chan",
+          "affiliation": ""
+        },
+        {
+          "name": "Ming-Hsuan Yang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "While text-to-image generative models can synthesize diverse and faithful content, subject variation across multiple generations limits their application to long-form content generation. Existing approaches require time-consuming fine-tuning, reference images for all subjects, or access to previously generated content. We introduce Contrastive Concept Instantiation (CoCoIns), a framework that effectively synthesizes consistent subjects across multiple independent generations. The framework consists of a generative model and a mapping network that transforms input latent codes into pseudo-words associated with specific concept instances. Users can generate consistent subjects by reusing the same latent codes. To construct such associations, we propose a contrastive learning approach that trains the network to distinguish between different combinations of prompts and latent codes. Extensive evaluations on human faces with a single subject show that CoCoIns performs comparably to existing methods while maintaining greater flexibility. We also demonstrate the potential for extending CoCoIns to multiple subjects and other object categories.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2503.24387",
+      "url": "https://arxiv.org/abs/2503.24387",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2402.05945",
+      "title": "Eliminating Information Leakage in Hard Concept Bottleneck Models with Supervised, Hierarchical Concept Learning",
+      "authors": [
+        {
+          "name": "Ao Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuanyuan Yuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Pingchuan Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuai Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Concept Bottleneck Models (CBMs) aim to deliver interpretable and interventionable predictions by bridging features and labels with human-understandable concepts. While recent CBMs show promising potential, they suffer from information leakage, where unintended information beyond the concepts (either when concepts are represented with probabilities or binary states) are leaked to the subsequent label prediction. Consequently, distinct classes are falsely classified via indistinguishable concepts, undermining the interpretation and intervention of CBMs.\n  This paper alleviates the information leakage issue by introducing label supervision in concept predication and constructing a hierarchical concept set. Accordingly, we propose a new paradigm of CBMs, namely SupCBM, which achieves label predication via predicted concepts and a deliberately-designed intervention matrix. SupCBM focuses on concepts that are mostly relevant to the predicted label and only distinguishes classes when different concepts are presented. Our evaluations show that SupCBM outperforms SOTA CBMs over diverse datasets. It also manifests better generality across different backbone models. With proper quantification of information leakage in different CBMs, we demonstrate that SupCBM significantly reduces the information leakage.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2402.05945",
+      "url": "https://arxiv.org/abs/2402.05945",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2303.09295",
+      "title": "DIRE for Diffusion-Generated Image Detection",
+      "authors": [
+        {
+          "name": "Zhendong Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianmin Bao",
+          "affiliation": ""
+        },
+        {
+          "name": "Wengang Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Weilun Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Hezhen Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hong Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Houqiang Li",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Diffusion models have shown remarkable success in visual synthesis, but have also raised concerns about potential abuse for malicious purposes. In this paper, we seek to build a detector for telling apart real images from diffusion-generated images. We find that existing detectors struggle to detect images generated by diffusion models, even if we include generated images from a specific diffusion model in their training data. To address this issue, we propose a novel image representation called DIffusion Reconstruction Error (DIRE), which measures the error between an input image and its reconstruction counterpart by a pre-trained diffusion model. We observe that diffusion-generated images can be approximately reconstructed by a diffusion model while real images cannot. It provides a hint that DIRE can serve as a bridge to distinguish generated and real images. DIRE provides an effective way to detect images generated by most diffusion models, and it is general for detecting generated images from unseen diffusion models and robust to various perturbations. Furthermore, we establish a comprehensive diffusion-generated benchmark including images generated by eight diffusion models to evaluate the performance of diffusion-generated image detectors. Extensive experiments on our collected benchmark demonstrate that DIRE exhibits superiority over previous generated-image detectors. The code and dataset are available at https://github.com/ZhendongWang6/DIRE.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2303.09295",
+      "url": "https://arxiv.org/abs/2303.09295",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2011.08742",
+      "title": "Privug: Using Probabilistic Programming for Quantifying Leakage in Privacy Risk Analysis",
+      "authors": [
+        {
+          "name": "Ra\u00fal Pardo",
+          "affiliation": ""
+        },
+        {
+          "name": "Willard Rafnsson",
+          "affiliation": ""
+        },
+        {
+          "name": "Christian Probst",
+          "affiliation": ""
+        },
+        {
+          "name": "Andrzej W\u0105sowski",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Disclosure of data analytics results has important scientific and commercial justifications. However, no data shall be disclosed without a diligent investigation of risks for privacy of subjects. Privug is a tool-supported method to explore information leakage properties of data analytics and anonymization programs. In Privug, we reinterpret a program probabilistically, using off-the-shelf tools for Bayesian inference to perform information-theoretic analysis of the information flow. For privacy researchers, Privug provides a fast, lightweight way to experiment with privacy protection measures and mechanisms. We show that Privug is accurate, scalable, and applicable to a range of leakage analysis scenarios.",
+      "venue": "cs.CR",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2011.08742",
+      "url": "https://arxiv.org/abs/2011.08742",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2208.04139",
+      "title": "DALLE-URBAN: Capturing the urban design expertise of large text to image transformers",
+      "authors": [
+        {
+          "name": "Sachith Seneviratne",
+          "affiliation": ""
+        },
+        {
+          "name": "Damith Senanayake",
+          "affiliation": ""
+        },
+        {
+          "name": "Sanka Rasnayaka",
+          "affiliation": ""
+        },
+        {
+          "name": "Rajith Vidanaarachchi",
+          "affiliation": ""
+        },
+        {
+          "name": "Jason Thompson",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Automatically converting text descriptions into images using transformer architectures has recently received considerable attention. Such advances have implications for many applied design disciplines across fashion, art, architecture, urban planning, landscape design and the future tools available to such disciplines. However, a detailed analysis capturing the capabilities of such models, specifically with a focus on the built environment, has not been performed to date. In this work, we investigate the capabilities and biases of such text-to-image methods as it applies to the built environment in detail. We use a systematic grammar to generate queries related to the built environment and evaluate resulting generated images. We generate 1020 different images and find that text to image transformers are robust at generating realistic images across different domains for this use-case. Generated imagery can be found at the github: https://github.com/sachith500/DALLEURBAN",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1109/DICTA56598.2022.10034603",
+      "arxiv_id": "2208.04139",
+      "url": "https://arxiv.org/abs/2208.04139",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2504.09459",
+      "title": "Measuring Leakage in Concept-Based Methods: An Information Theoretic Approach",
+      "authors": [
+        {
+          "name": "Mikael Makonnen",
+          "affiliation": ""
+        },
+        {
+          "name": "Moritz Vandenhirtz",
+          "affiliation": ""
+        },
+        {
+          "name": "Sonia Laguna",
+          "affiliation": ""
+        },
+        {
+          "name": "Julia E Vogt",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Concept Bottleneck Models (CBMs) aim to enhance interpretability by structuring predictions around human-understandable concepts. However, unintended information leakage, where predictive signals bypass the concept bottleneck, compromises their transparency. This paper introduces an information-theoretic measure to quantify leakage in CBMs, capturing the extent to which concept embeddings encode additional, unintended information beyond the specified concepts. We validate the measure through controlled synthetic experiments, demonstrating its effectiveness in detecting leakage trends across various configurations. Our findings highlight that feature and concept dimensionality significantly influence leakage, and that classifier choice impacts measurement stability, with XGBoost emerging as the most reliable estimator. Additionally, preliminary investigations indicate that the measure exhibits the anticipated behavior when applied to soft joint CBMs, suggesting its reliability in leakage quantification beyond fully synthetic settings. While this study rigorously evaluates the measure in controlled synthetic experiments, future work can extend its application to real-world datasets.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2504.09459",
+      "url": "https://arxiv.org/abs/2504.09459",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2410.06352",
+      "title": "Tree-Based Leakage Inspection and Control in Concept Bottleneck Models",
+      "authors": [
+        {
+          "name": "Angelos Ragkousis",
+          "affiliation": ""
+        },
+        {
+          "name": "Sonali Parbhoo",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "As AI models grow larger, the demand for accountability and interpretability has become increasingly critical for understanding their decision-making processes. Concept Bottleneck Models (CBMs) have gained attention for enhancing interpretability by mapping inputs to intermediate concepts before making final predictions. However, CBMs often suffer from information leakage, where additional input data, not captured by the concepts, is used to improve task performance, complicating the interpretation of downstream predictions. In this paper, we introduce a novel approach for training both joint and sequential CBMs that allows us to identify and control leakage using decision trees. Our method quantifies leakage by comparing the decision paths of hard CBMs with their soft, leaky counterparts. Specifically, we show that soft leaky CBMs extend the decision paths of hard CBMs, particularly in cases where concept information is incomplete. Using this insight, we develop a technique to better inspect and manage leakage, isolating the subsets of data most affected by this. Through synthetic and real-world experiments, we demonstrate that controlling leakage in this way not only improves task accuracy but also yields more informative and transparent explanations.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2410.06352",
+      "url": "https://arxiv.org/abs/2410.06352",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2408.16807",
+      "title": "STEREO: A Two-Stage Framework for Adversarially Robust Concept Erasing from Text-to-Image Diffusion Models",
+      "authors": [
+        {
+          "name": "Koushik Srivatsan",
+          "affiliation": ""
+        },
+        {
+          "name": "Fahad Shamshad",
+          "affiliation": ""
+        },
+        {
+          "name": "Muzammal Naseer",
+          "affiliation": ""
+        },
+        {
+          "name": "Vishal M. Patel",
+          "affiliation": ""
+        },
+        {
+          "name": "Karthik Nandakumar",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "The rapid proliferation of large-scale text-to-image diffusion (T2ID) models has raised serious concerns about their potential misuse in generating harmful content. Although numerous methods have been proposed for erasing undesired concepts from T2ID models, they often provide a false sense of security; concept-erased models (CEMs) can still be manipulated via adversarial attacks to regenerate the erased concept. While a few robust concept erasure methods based on adversarial training have emerged recently, they compromise on utility (generation quality for benign concepts) to achieve robustness and/or remain vulnerable to advanced embedding space attacks. These limitations stem from the failure of robust CEMs to thoroughly search for \"blind spots\" in the embedding space. To bridge this gap, we propose STEREO, a novel two-stage framework that employs adversarial training as a first step rather than the only step for robust concept erasure. In the first stage, STEREO employs adversarial training as a vulnerability identification mechanism to search thoroughly enough. In the second robustly erase once stage, STEREO introduces an anchor-concept-based compositional objective to robustly erase the target concept in a single fine-tuning stage, while minimizing the degradation of model utility. We benchmark STEREO against seven state-of-the-art concept erasure methods, demonstrating its superior robustness to both white-box and black-box attacks, while largely preserving utility.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2408.16807",
+      "url": "https://arxiv.org/abs/2408.16807",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2506.09916",
+      "title": "Only-Style: Stylistic Consistency in Image Generation without Content Leakage",
+      "authors": [
+        {
+          "name": "Tilemachos Aravanis",
+          "affiliation": ""
+        },
+        {
+          "name": "Panagiotis Filntisis",
+          "affiliation": ""
+        },
+        {
+          "name": "Petros Maragos",
+          "affiliation": ""
+        },
+        {
+          "name": "George Retsinas",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Generating images in a consistent reference visual style remains a challenging computer vision task. State-of-the-art methods aiming for style-consistent generation struggle to effectively separate semantic content from stylistic elements, leading to content leakage from the image provided as a reference to the targets. To address this challenge, we propose Only-Style: a method designed to mitigate content leakage in a semantically coherent manner while preserving stylistic consistency. Only-Style works by localizing content leakage during inference, allowing the adaptive tuning of a parameter that controls the style alignment process, specifically within the image patches containing the subject in the reference image. This adaptive process best balances stylistic consistency with leakage elimination. Moreover, the localization of content leakage can function as a standalone component, given a reference-target image pair, allowing the adaptive tuning of any method-specific parameter that provides control over the impact of the stylistic reference. In addition, we propose a novel evaluation framework to quantify the success of style-consistent generations in avoiding undesired content leakage. Our approach demonstrates a significant improvement over state-of-the-art methods through extensive evaluation across diverse instances, consistently achieving robust stylistic consistency without undesired content leakage.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2506.09916",
+      "url": "https://arxiv.org/abs/2506.09916",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2312.03587",
+      "title": "Language-Informed Visual Concept Learning",
+      "authors": [
+        {
+          "name": "Sharon Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Yunzhi Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Shangzhe Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiajun Wu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Our understanding of the visual world is centered around various concept axes, characterizing different aspects of visual entities. While different concept axes can be easily specified by language, e.g. color, the exact visual nuances along each axis often exceed the limitations of linguistic articulations, e.g. a particular style of painting. In this work, our goal is to learn a language-informed visual concept representation, by simply distilling large pre-trained vision-language models. Specifically, we train a set of concept encoders to encode the information pertinent to a set of language-informed concept axes, with an objective of reproducing the input image through a pre-trained Text-to-Image (T2I) model. To encourage better disentanglement of different concept encoders, we anchor the concept embeddings to a set of text embeddings obtained from a pre-trained Visual Question Answering (VQA) model. At inference time, the model extracts concept embeddings along various axes from new test images, which can be remixed to generate images with novel compositions of visual concepts. With a lightweight test-time finetuning procedure, it can also generalize to novel concepts unseen at training.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2312.03587",
+      "url": "https://arxiv.org/abs/2312.03587",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2603.17746",
+      "title": "Concept-to-Pixel: Prompt-Free Universal Medical Image Segmentation",
+      "authors": [
+        {
+          "name": "Haoyun Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Fenghe Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenxin Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Shaohua Kevin Zhou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Universal medical image segmentation seeks to use a single foundational model to handle diverse tasks across multiple imaging modalities. However, existing approaches often rely heavily on manual visual prompts or retrieved reference images, which limits their automation and robustness. In addition, naive joint training across modalities often fails to address large domain shifts. To address these limitations, we propose Concept-to-Pixel (C2P), a novel prompt-free universal segmentation framework. C2P explicitly separates anatomical knowledge into two components: Geometric and Semantic representations. It leverages Multimodal Large Language Models (MLLMs) to distill abstract, high-level medical concepts into learnable Semantic Tokens and introduces explicitly supervised Geometric Tokens to enforce universal physical and structural constraints. These disentangled tokens interact deeply with image features to generate input-specific dynamic kernels for precise mask prediction. Furthermore, we introduce a Geometry-Aware Inference Consensus mechanism, which utilizes the model's predicted geometric constraints to assess prediction reliability and suppress outliers. Extensive experiments and analysis on a unified benchmark comprising eight diverse datasets across seven modalities demonstrate the significant superiority of our jointly trained approach, compared to universe- or single-model approaches. Remarkably, our unified model demonstrates strong generalization, achieving impressive results not only on zero-shot tasks involving unseen cases but also in cross-modal transfers across similar tasks. Code is available at: https://github.com/Yundi218/Concept-to-Pixel",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2603.17746",
+      "url": "https://arxiv.org/abs/2603.17746",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2504.16975",
+      "title": "The Flight Physics Concept Inventory: Development of a research-based assessment instrument to enhance learning and teaching",
+      "authors": [
+        {
+          "name": "Florian Genz",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "This work frames the first three publications around the development of the Flight Physics Concept Inventory (FliP-CoIn), and elaborates on many aspects in more detail. FliP-CoIn is a multiple-choice conceptual assessment instrument for improving fluid dynamics learning and teaching. I give insights into why and how FliP-CoIn was developed and how it is best used for improving conceptual learning. Further, this work presents evidence for several dimensions of FliP-CoIn's validity and reliability. Finally, I discuss key insights from the development process, the data analysis, and give recommendations for future research.\n  This is a pre print version of the following book: Florian Genz, The Flight Physics Concept Inventory, 2025, Springer Spektrum, published with permission of Springer Fachmedien Wiesbaden GmbH. The final authenticated version is available online at: http://doi.org/10.1007/978-3-658-47515-4 and https://link.springer.com/book/9783658475147",
+      "venue": "physics.ed-ph",
+      "citation_count": 0,
+      "doi": "10.1007/978-3-658-47515-4",
+      "arxiv_id": "2504.16975",
+      "url": "https://arxiv.org/abs/2504.16975",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2508.09045",
+      "title": "Per-Query Visual Concept Learning",
+      "authors": [
+        {
+          "name": "Ori Malca",
+          "affiliation": ""
+        },
+        {
+          "name": "Dvir Samuel",
+          "affiliation": ""
+        },
+        {
+          "name": "Gal Chechik",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Visual concept learning, also known as Text-to-image personalization, is the process of teaching new concepts to a pretrained model. This has numerous applications from product placement to entertainment and personalized design. Here we show that many existing methods can be substantially augmented by adding a personalization step that is (1) specific to the prompt and noise seed, and (2) using two loss terms based on the self- and cross- attention, capturing the identity of the personalized concept. Specifically, we leverage PDM features -- previously designed to capture identity -- and show how they can be used to improve personalized semantic similarity. We evaluate the benefit that our method gains on top of six different personalization methods, and several base text-to-image models (both UNet- and DiT-based). We find significant improvements even over previous per-query personalization methods.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2508.09045",
+      "url": "https://arxiv.org/abs/2508.09045",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2503.10357",
+      "title": "Do I look like a `cat.n.01` to you? A Taxonomy Image Generation Benchmark",
+      "authors": [
+        {
+          "name": "Viktor Moskvoretskii",
+          "affiliation": ""
+        },
+        {
+          "name": "Alina Lobanova",
+          "affiliation": ""
+        },
+        {
+          "name": "Ekaterina Neminova",
+          "affiliation": ""
+        },
+        {
+          "name": "Chris Biemann",
+          "affiliation": ""
+        },
+        {
+          "name": "Alexander Panchenko",
+          "affiliation": ""
+        },
+        {
+          "name": "Irina Nikishina",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "This paper explores the feasibility of using text-to-image models in a zero-shot setup to generate images for taxonomy concepts. While text-based methods for taxonomy enrichment are well-established, the potential of the visual dimension remains unexplored. To address this, we propose a comprehensive benchmark for Taxonomy Image Generation that assesses models' abilities to understand taxonomy concepts and generate relevant, high-quality images. The benchmark includes common-sense and randomly sampled WordNet concepts, alongside the LLM generated predictions. The 12 models are evaluated using 9 novel taxonomy-related text-to-image metrics and human feedback. Moreover, we pioneer the use of pairwise evaluation with GPT-4 feedback for image generation. Experimental results show that the ranking of models differs significantly from standard T2I tasks. Playground-v2 and FLUX consistently outperform across metrics and subsets and the retrieval-based approach performs poorly. These findings highlight the potential for automating the curation of structured data resources.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2503.10357",
+      "url": "https://arxiv.org/abs/2503.10357",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2509.25187",
+      "title": "FlashI2V: Fourier-Guided Latent Shifting Prevents Conditional Image Leakage in Image-to-Video Generation",
+      "authors": [
+        {
+          "name": "Yunyang Ge",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinhua Cheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Chengshu Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Xianyi He",
+          "affiliation": ""
+        },
+        {
+          "name": "Shenghai Yuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Bin Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Bin Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Li Yuan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "In Image-to-Video (I2V) generation, a video is created using an input image as the first-frame condition. Existing I2V methods concatenate the full information of the conditional image with noisy latents to achieve high fidelity. However, the denoisers in these methods tend to shortcut the conditional image, which is known as conditional image leakage, leading to performance degradation issues such as slow motion and color inconsistency. In this work, we further clarify that conditional image leakage leads to overfitting to in-domain data and decreases the performance in out-of-domain scenarios. Moreover, we introduce Fourier-Guided Latent Shifting I2V, named FlashI2V, to prevent conditional image leakage. Concretely, FlashI2V consists of: (1) Latent Shifting. We modify the source and target distributions of flow matching by subtracting the conditional image information from the noisy latents, thereby incorporating the condition implicitly. (2) Fourier Guidance. We use high-frequency magnitude features obtained by the Fourier Transform to accelerate convergence and enable the adjustment of detail levels in the generated video. Experimental results show that our method effectively overcomes conditional image leakage and achieves the best generalization and performance on out-of-domain data among various I2V paradigms. With only 1.3B parameters, FlashI2V achieves a dynamic degree score of 53.01 on Vbench-I2V, surpassing CogVideoX1.5-5B-I2V and Wan2.1-I2V-14B-480P. Project page: https://pku-yuangroup.github.io/FlashI2V/",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2509.25187",
+      "url": "https://arxiv.org/abs/2509.25187",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2401.01733",
+      "title": "Investigating the Suitability of Concept Drift Detection for Detecting Leakages in Water Distribution Networks",
+      "authors": [
+        {
+          "name": "Valerie Vaquet",
+          "affiliation": ""
+        },
+        {
+          "name": "Fabian Hinder",
+          "affiliation": ""
+        },
+        {
+          "name": "Barbara Hammer",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Leakages are a major risk in water distribution networks as they cause water loss and increase contamination risks. Leakage detection is a difficult task due to the complex dynamics of water distribution networks. In particular, small leakages are hard to detect. From a machine-learning perspective, leakages can be modeled as concept drift. Thus, a wide variety of drift detection schemes seems to be a suitable choice for detecting leakages. In this work, we explore the potential of model-loss-based and distribution-based drift detection methods to tackle leakage detection. We additionally discuss the issue of temporal dependencies in the data and propose a way to cope with it when applying distribution-based detection. We evaluate different methods systematically for leakages of different sizes and detection times. Additionally, we propose a first drift-detection-based technique for localizing leakages.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2401.01733",
+      "url": "https://arxiv.org/abs/2401.01733",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2505.14905",
+      "title": "Concept Incongruence: An Exploration of Time and Death in Role Playing",
+      "authors": [
+        {
+          "name": "Xiaoyan Bai",
+          "affiliation": ""
+        },
+        {
+          "name": "Ike Peng",
+          "affiliation": ""
+        },
+        {
+          "name": "Aditya Singh",
+          "affiliation": ""
+        },
+        {
+          "name": "Chenhao Tan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Consider this prompt \"Draw a unicorn with two horns\". Should large language models (LLMs) recognize that a unicorn has only one horn by definition and ask users for clarifications, or proceed to generate something anyway? We introduce concept incongruence to capture such phenomena where concept boundaries clash with each other, either in user prompts or in model representations, often leading to under-specified or mis-specified behaviors. In this work, we take the first step towards defining and analyzing model behavior under concept incongruence. Focusing on temporal boundaries in the Role-Play setting, we propose three behavioral metrics--abstention rate, conditional accuracy, and answer rate--to quantify model behavior under incongruence due to the role's death. We show that models fail to abstain after death and suffer from an accuracy drop compared to the Non-Role-Play setting. Through probing experiments, we identify two main causes: (i) unreliable encoding of the \"death\" state across different years, leading to unsatisfactory abstention behavior, and (ii) role playing causes shifts in the model's temporal representations, resulting in accuracy drops. We leverage these insights to improve consistency in the model's abstention and answer behaviors. Our findings suggest that concept incongruence leads to unexpected model behaviors and point to future directions on improving model behavior under concept incongruence.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2505.14905",
+      "url": "https://arxiv.org/abs/2505.14905",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2603.08309",
+      "title": "Concept-Guided Fine-Tuning: Steering ViTs away from Spurious Correlations to Improve Robustness",
+      "authors": [
+        {
+          "name": "Yehonatan Elisha",
+          "affiliation": ""
+        },
+        {
+          "name": "Oren Barkan",
+          "affiliation": ""
+        },
+        {
+          "name": "Noam Koenigstein",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Vision Transformers (ViTs) often degrade under distribution shifts because they rely on spurious correlations, such as background cues, rather than semantically meaningful features. Existing regularization methods, typically relying on simple foreground-background masks, which fail to capture the fine-grained semantic concepts that define an object (e.g., ``long beak'' and ``wings'' for a ``bird''). As a result, these methods provide limited robustness to distribution shifts. To address this limitation, we introduce a novel finetuning framework that steers model reasoning toward concept-level semantics. Our approach optimizes the model's internal relevance maps to align with spatially grounded concept masks. These masks are generated automatically, without manual annotation: class-relevant concepts are first proposed using an LLM-based, label-free method, and then segmented using a VLM. The finetuning objective aligns relevance with these concept regions while simultaneously suppressing focus on spurious background areas. Notably, this process requires only a minimal set of images and uses half of the dataset classes. Extensive experiments on five out-of-distribution benchmarks demonstrate that our method improves robustness across multiple ViT-based models. Furthermore, we show that the resulting relevance maps exhibit stronger alignment with semantic object parts, offering a scalable path toward more robust and interpretable vision models. Finally, we confirm that concept-guided masks provide more effective supervision for model robustness than conventional segmentation maps, supporting our central hypothesis.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2603.08309",
+      "url": "https://arxiv.org/abs/2603.08309",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2406.04331",
+      "title": "PaCE: Parsimonious Concept Engineering for Large Language Models",
+      "authors": [
+        {
+          "name": "Jinqi Luo",
+          "affiliation": ""
+        },
+        {
+          "name": "Tianjiao Ding",
+          "affiliation": ""
+        },
+        {
+          "name": "Kwan Ho Ryan Chan",
+          "affiliation": ""
+        },
+        {
+          "name": "Darshan Thaker",
+          "affiliation": ""
+        },
+        {
+          "name": "Aditya Chattopadhyay",
+          "affiliation": ""
+        },
+        {
+          "name": "Chris Callison-Burch",
+          "affiliation": ""
+        },
+        {
+          "name": "Ren\u00e9 Vidal",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Large Language Models (LLMs) are being used for a wide variety of tasks. While they are capable of generating human-like responses, they can also produce undesirable output including potentially harmful information, racist or sexist language, and hallucinations. Alignment methods are designed to reduce such undesirable outputs via techniques such as fine-tuning, prompt engineering, and representation engineering. However, existing methods face several challenges: some require costly fine-tuning for every alignment task; some do not adequately remove undesirable concepts, failing alignment; some remove benign concepts, lowering the linguistic capabilities of LLMs. To address these issues, we propose Parsimonious Concept Engineering (PaCE), a novel activation engineering framework for alignment. First, to sufficiently model the concepts, we construct a large-scale concept dictionary in the activation space, in which each atom corresponds to a semantic concept. Given any alignment task, we instruct a concept partitioner to efficiently annotate the concepts as benign or undesirable. Then, at inference time, we decompose the LLM activations along the concept dictionary via sparse coding, to accurately represent the activations as linear combinations of benign and undesirable components. By removing the latter ones from the activations, we reorient the behavior of the LLM towards the alignment goal. We conduct experiments on tasks such as response detoxification, faithfulness enhancement, and sentiment revising, and show that PaCE achieves state-of-the-art alignment performance while maintaining linguistic capabilities.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2406.04331",
+      "url": "https://arxiv.org/abs/2406.04331",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

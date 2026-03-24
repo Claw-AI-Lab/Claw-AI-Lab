@@ -1,0 +1,1392 @@
+{
+  "query": "Data augmentation for MNIST: benchmark",
+  "source": "openalex",
+  "limit": 40,
+  "timestamp": 1773985898.1228642,
+  "papers": [
+    {
+      "paper_id": "oalex-W3160331490",
+      "title": "A Close Look at Deep Learning with Small Data",
+      "authors": [
+        {
+          "name": "Lorenzo Brigato",
+          "affiliation": "Sapienza University of Rome"
+        },
+        {
+          "name": "Luca Iocchi",
+          "affiliation": "Sapienza University of Rome"
+        }
+      ],
+      "year": 2021,
+      "abstract": "In this work, we perform a wide variety of experiments with different deep learning architectures on datasets of limited size. According to our study, we show that model complexity is a critical factor when only a few samples per class are available. Differently from the literature, we show that in some configurations, the state of the art can be improved using low complexity models. For instance, in problems with scarce training samples and without data augmentation, low-complexity convolutional neural networks perform comparably well or better than state-of-the-art architectures. Moreover, we show that even standard data augmentation can boost recognition performance by large margins. This result suggests the development of more complex data generation/augmentation pipelines for cases when data is limited. Finally, we show that dropout, a widely used regularization technique, maintains its role as a good regularizer even when data is scarce. Our findings are empirically validated on the sub-sampled versions of popular CIFAR-10, Fashion-MNIST and, SVHN benchmarks.",
+      "venue": "",
+      "citation_count": 172,
+      "doi": "10.1109/icpr48806.2021.9412492",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/icpr48806.2021.9412492",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3168997536",
+      "title": "A Survey of Convolutional Neural Networks: Analysis, Applications, and Prospects",
+      "authors": [
+        {
+          "name": "Zewen Li",
+          "affiliation": "Hohai University"
+        },
+        {
+          "name": "Fan Liu",
+          "affiliation": "Hohai University"
+        },
+        {
+          "name": "Wenjie Yang",
+          "affiliation": "Hohai University"
+        },
+        {
+          "name": "Shouheng Peng",
+          "affiliation": "Hohai University"
+        },
+        {
+          "name": "Jun Zhou",
+          "affiliation": "Griffith University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "A convolutional neural network (CNN) is one of the most significant networks in the deep learning field. Since CNN made impressive achievements in many areas, including but not limited to computer vision and natural language processing, it attracted much attention from both industry and academia in the past few years. The existing reviews mainly focus on CNN\u2019s applications in different scenarios without considering CNN from a general perspective, and some novel ideas proposed recently are not covered. In this review, we aim to provide some novel ideas and prospects in this fast-growing field. Besides, not only 2-D convolution but also 1-D and multidimensional ones are involved. First, this review introduces the history of CNN. Second, we provide an overview of various convolutions. Third, some classic and advanced CNN models are introduced; especially those key points making them reach state-of-the-art results. Fourth, through experimental analysis, we draw some conclusions and provide several rules of thumb for functions and hyperparameter selection. Fifth, the applications of 1-D, 2-D, and multidimensional convolution are covered. Finally, some open issues and promising directions for CNN are discussed as guidelines for future work.",
+      "venue": "IEEE Transactions on Neural Networks and Learning Systems",
+      "citation_count": 4535,
+      "doi": "10.1109/tnnls.2021.3084827",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tnnls.2021.3084827",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2998508940",
+      "title": "Random Erasing Data Augmentation",
+      "authors": [
+        {
+          "name": "Zhun Zhong",
+          "affiliation": "Xiamen University"
+        },
+        {
+          "name": "Liang Zheng",
+          "affiliation": "Australian National University"
+        },
+        {
+          "name": "Guoliang Kang",
+          "affiliation": "Carnegie Mellon University"
+        },
+        {
+          "name": "Shaozi Li",
+          "affiliation": "Xiamen University"
+        },
+        {
+          "name": "Yi Yang",
+          "affiliation": "University of Technology Sydney"
+        }
+      ],
+      "year": 2020,
+      "abstract": "In this paper, we introduce Random Erasing, a new data augmentation method for training the convolutional neural network (CNN). In training, Random Erasing randomly selects a rectangle region in an image and erases its pixels with random values. In this process, training images with various levels of occlusion are generated, which reduces the risk of over-fitting and makes the model robust to occlusion. Random Erasing is parameter learning free, easy to implement, and can be integrated with most of the CNN-based recognition models. Albeit simple, Random Erasing is complementary to commonly used data augmentation techniques such as random cropping and flipping, and yields consistent improvement over strong baselines in image classification, object detection and person re-identification. Code is available at: https://github.com/zhunzhong07/Random-Erasing.",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 2791,
+      "doi": "10.1609/aaai.v34i07.7000",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v34i07.7000",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3130095188",
+      "title": "Dataset Condensation with Differentiable Siamese Augmentation",
+      "authors": [
+        {
+          "name": "Bo Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Hakan Bilen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "In many machine learning problems, large-scale datasets have become the de-facto standard to train state-of-the-art deep networks at the price of heavy computation load. In this paper, we focus on condensing large training sets into significantly smaller synthetic sets which can be used to train deep neural networks from scratch with minimum drop in performance. Inspired from the recent training set synthesis methods, we propose Differentiable Siamese Augmentation that enables effective use of data augmentation to synthesize more informative synthetic images and thus achieves better performance when training networks with augmentations. Experiments on multiple image classification benchmarks demonstrate that the proposed method obtains substantial gains over the state-of-the-art, 7% improvements on CIFAR10 and CIFAR100 datasets. We show with only less than 1% data that our method achieves 99.6%, 94.9%, 88.5%, 71.5% relative performance on MNIST, FashionMNIST, SVHN, CIFAR10 respectively. We also explore the use of our method in continual learning and neural architecture search, and show promising results.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 51,
+      "doi": "10.48550/arxiv.2102.08259",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2102.08259",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3140854437",
+      "title": "Review of deep learning: concepts, CNN architectures, challenges, applications, future directions",
+      "authors": [
+        {
+          "name": "Laith Alzubaidi",
+          "affiliation": "Queensland University of Technology"
+        },
+        {
+          "name": "Jinglan Zhang",
+          "affiliation": "Queensland University of Technology"
+        },
+        {
+          "name": "Amjad J. Humaidi",
+          "affiliation": "University of Technology - Iraq"
+        },
+        {
+          "name": "Ayad Q. Al-Dujaili",
+          "affiliation": "Middle Technical University"
+        },
+        {
+          "name": "Ye Duan",
+          "affiliation": "University of Missouri"
+        },
+        {
+          "name": "Omran Al-Shamma",
+          "affiliation": "University of Information Technology and Communications"
+        },
+        {
+          "name": "Jos\u00e9 Santamar\u00eda",
+          "affiliation": "Universidad de Ja\u00e9n"
+        },
+        {
+          "name": "Mohammed A. Fadhel",
+          "affiliation": "Thi Qar University"
+        },
+        {
+          "name": "Muthana Al\u2010Amidie",
+          "affiliation": "University of Missouri"
+        },
+        {
+          "name": "Laith Farhan",
+          "affiliation": "Manchester Metropolitan University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "In the last few years, the deep learning (DL) computing paradigm has been deemed the Gold Standard in the machine learning (ML) community. Moreover, it has gradually become the most widely used computational approach in the field of ML, thus achieving outstanding results on several complex cognitive tasks, matching or even beating those provided by human performance. One of the benefits of DL is the ability to learn massive amounts of data. The DL field has grown fast in the last few years and it has been extensively used to successfully address a wide range of traditional applications. More importantly, DL has outperformed well-known ML techniques in many domains, e.g., cybersecurity, natural language processing, bioinformatics, robotics and control, and medical information processing, among many others. Despite it has been contributed several works reviewing the State-of-the-Art on DL, all of them only tackled one aspect of the DL, which leads to an overall lack of knowledge about it. Therefore, in this contribution, we propose using a more holistic approach in order to provide a more suitable starting point from which to develop a full understanding of DL. Specifically, this review attempts to provide a more comprehensive survey of the most important aspects of DL and including those enhancements recently added to the field. In particular, this paper outlines the importance of DL, presents the types of DL techniques and networks. It then presents convolutional neural networks (CNNs) which the most utilized DL network type and describes the development of CNNs architectures together with their main features, e.g., starting with the AlexNet network and closing with the High-Resolution network (HR.Net). Finally, we further present the challenges and suggested solutions to help researchers understand the existing research gaps. It is followed by a list of the major DL applications. Computational tools including FPGA, GPU, and CPU are summarized along with a description of their influence on DL. The paper ends with the evolution matrix, benchmark datasets, and summary and conclusion.",
+      "venue": "Journal Of Big Data",
+      "citation_count": 7130,
+      "doi": "10.1186/s40537-021-00444-8",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1186/s40537-021-00444-8",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4387008307",
+      "title": "RIC-CNN: Rotation-Invariant Coordinate Convolutional Neural Network",
+      "authors": [
+        {
+          "name": "Hanlin Mo",
+          "affiliation": "University of Oulu"
+        },
+        {
+          "name": "Guoying Zhao",
+          "affiliation": "University of Oulu"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Due to the lack of rotation invariance in traditional convolution operations, even acting a slight rotation on the input can severely degrade the performance of Convolutional Neural Networks (CNNs). To address this, we propose a Rotation-Invariant Coordinate Convolution (RIC-C), which achieves natural invariance to arbitrary rotations around the input center without additional trainable parameters or data augmentation. We first evaluate the rotational invariance of RIC-C using the MNIST dataset and compare its performance with most previous rotation-invariant CNN models. RIC-C achieves state-of-the-art classification on the MNIST-rot test set without data augmentation and with lower computational costs. Then, the interchangeability of RIC-C with traditional convolution operations is demonstrated by seamlessly integrating it into common CNN models like VGG, ResNet, and DenseNet. We conduct remote sensing image classification on the NWPU VHR-10, MTARSI and AID datasets and patch matching experiments on the UBC benchmark dataset, showing that RIC-C significantly enhances the performance of CNN models across different applications, especially when training data is limited. Our codes can be downloaded from https://github.com/HanlinMo/Rotation-Invariant-Coordinate-Convolutional-Neural-Network.git.",
+      "venue": "Pattern Recognition",
+      "citation_count": 51,
+      "doi": "10.1016/j.patcog.2023.109994",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.patcog.2023.109994",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3160411390",
+      "title": "IDA-GAN: A Novel Imbalanced Data Augmentation GAN",
+      "authors": [
+        {
+          "name": "Hao Yang",
+          "affiliation": "National University of Defense Technology"
+        },
+        {
+          "name": "Yun Zhou",
+          "affiliation": "National University of Defense Technology"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Class imbalance is a widely existed and challenging problem in real-world applications such as disease diagnosis, fraud detection, network intrusion detection and so on. Due to the scarce of data, it could significantly deteriorate the accuracy of classification. To address this challenge, we propose a novel Imbalanced Data Augmentation Generative Adversarial Networks (GAN) named IDA-GAN as an augmentation tool to deal with the imbalanced dataset. This is a great challenge because it is hard to train a GAN model under this situation. We address this issue by coupling variational autoencoder along with GAN training. In this paper, specifically, we introduce the variational autoencoder to learn the majority and minority class distributions in the latent space, and use the generative model to utilize each class distribution for the subsequent GAN training. The generative model learns useful features to generate target minority-class samples. Compared with the state-of-the-art GAN model, the experimental results demonstrate that our proposed IDA-GAN could generate more diverse minority samples with better qualities, and it could benefits the imbalanced classification task in terms of several widely-used evaluation metrics on five benchmark datasets: MNIST, Fashion-MNIST, SVHN, CIFAR-10 and GTSRB.",
+      "venue": "",
+      "citation_count": 43,
+      "doi": "10.1109/icpr48806.2021.9411996",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/icpr48806.2021.9411996",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4389671650",
+      "title": "Investigating the effectiveness of data augmentation from similarity and diversity: An empirical study",
+      "authors": [
+        {
+          "name": "Suorong Yang",
+          "affiliation": "Nanjing University"
+        },
+        {
+          "name": "Suhan Guo",
+          "affiliation": "Nanjing University"
+        },
+        {
+          "name": "Jian Zhao",
+          "affiliation": "Nanjing University"
+        },
+        {
+          "name": "Furao Shen",
+          "affiliation": "Nanjing University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "",
+      "venue": "Pattern Recognition",
+      "citation_count": 34,
+      "doi": "10.1016/j.patcog.2023.110204",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.patcog.2023.110204",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3155871095",
+      "title": "Invisible Poison: A Blackbox Clean Label Backdoor Attack to Deep Neural Networks",
+      "authors": [
+        {
+          "name": "Rui Ning",
+          "affiliation": ""
+        },
+        {
+          "name": "Li Jiang",
+          "affiliation": "Old Dominion University"
+        },
+        {
+          "name": "Chunsheng Xin",
+          "affiliation": "Old Dominion University"
+        },
+        {
+          "name": "Hongyi Wu",
+          "affiliation": "Old Dominion University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "This paper reports a new clean-label data poisoning backdoor attack, named Invisible Poison, which stealthily and aggressively plants a backdoor in neural networks. It converts a regular trigger to a noised trigger that can be easily concealed inside images for training NN, with the objective to plant a backdoor that can be later activated by the trigger. Compared with existing data poisoning backdoor attacks, this newfound attack has the following distinct properties. First, it is a blackbox attack, requiring zero-knowledge of the target model. Second, this attack utilizes \"invisible poison\" to achieve stealthiness where the trigger is disguised as `noise', and thus can easily evade human inspection. On the other hand, this noised trigger remains effective in the feature space to poison training data. Third, the attack is practical and aggressive. A backdoor can be effectively planted with a small amount of poisoned data and is robust to most data augmentation methods during training. The attack is fully tested on multiple benchmark datasets including MNIST, Cifar10, and ImageNet10, as well as application specific data sets such as Yahoo Adblocker and GTSRB. Two countermeasures, namely Supervised and Unsupervised Poison Sample Detection, are introduced to defend the attack.",
+      "venue": "",
+      "citation_count": 51,
+      "doi": "10.1109/infocom42981.2021.9488902",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/infocom42981.2021.9488902",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2566079294",
+      "title": "Understanding deep learning (still) requires rethinking generalization",
+      "authors": [
+        {
+          "name": "Chiyuan Zhang",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Samy Bengio",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Moritz Hardt",
+          "affiliation": "University of California, Berkeley"
+        },
+        {
+          "name": "Benjamin Recht",
+          "affiliation": "University of California, Berkeley"
+        },
+        {
+          "name": "Oriol Vinyals",
+          "affiliation": "DeepMind (United Kingdom)"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Despite their massive size, successful deep artificial neural networks can exhibit a remarkably small gap between training and test performance. Conventional wisdom attributes small generalization error either to properties of the model family or to the regularization techniques used during training. Through extensive systematic experiments, we show how these traditional approaches fail to explain why large neural networks generalize well in practice. Specifically, our experiments establish that state-of-the-art convolutional networks for image classification trained with stochastic gradient methods easily fit a random labeling of the training data. This phenomenon is qualitatively unaffected by explicit regularization and occurs even if we replace the true images by completely unstructured random noise. We corroborate these experimental findings with a theoretical construction showing that simple depth two neural networks already have perfect finite sample expressivity as soon as the number of parameters exceeds the number of data points as it usually does in practice. We interpret our experimental findings by comparison with traditional models. We supplement this republication with a new section at the end summarizing recent progresses in the field since the original version of this paper.",
+      "venue": "Communications of the ACM",
+      "citation_count": 2203,
+      "doi": "10.1145/3446776",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3446776",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4393029506",
+      "title": "Rolling the dice for better deep learning performance: A study of randomness techniques in deep neural networks",
+      "authors": [
+        {
+          "name": "Mohammed Ghaith Altarabichi",
+          "affiliation": "Halmstad University"
+        },
+        {
+          "name": "S\u0142awomir Nowaczyk",
+          "affiliation": "Halmstad University"
+        },
+        {
+          "name": "Sepideh Pashami",
+          "affiliation": "Halmstad University"
+        },
+        {
+          "name": "Peyman Sheikholharam Mashhadi",
+          "affiliation": "Halmstad University"
+        },
+        {
+          "name": "Julia Handl",
+          "affiliation": "Halmstad University"
+        }
+      ],
+      "year": 2024,
+      "abstract": "",
+      "venue": "Information Sciences",
+      "citation_count": 22,
+      "doi": "10.1016/j.ins.2024.120500",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.ins.2024.120500",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3183048323",
+      "title": "A survey of uncertainty in deep neural networks",
+      "authors": [
+        {
+          "name": "Jakob Gawlikowski",
+          "affiliation": "Technical University of Munich"
+        },
+        {
+          "name": "Cedrique Rovile Njieutcheu Tassi",
+          "affiliation": "Deutsches Zentrum f\u00fcr Luft- und Raumfahrt e. V. (DLR)"
+        },
+        {
+          "name": "Mohsin Ali",
+          "affiliation": "Remote Sensing Solutions (Germany)"
+        },
+        {
+          "name": "Jong\u2010Seok Lee",
+          "affiliation": "Deutsches Zentrum f\u00fcr Luft- und Raumfahrt e. V. (DLR)"
+        },
+        {
+          "name": "Matthias Humt",
+          "affiliation": "Deutsches Zentrum f\u00fcr Luft- und Raumfahrt e. V. (DLR)"
+        },
+        {
+          "name": "Jianxiang Feng",
+          "affiliation": "Technical University of Munich"
+        },
+        {
+          "name": "Anna Kruspe",
+          "affiliation": "Technical University of Munich"
+        },
+        {
+          "name": "Rudolph Triebel",
+          "affiliation": "Technical University of Munich"
+        },
+        {
+          "name": "Peter Jung",
+          "affiliation": "Deutsches Zentrum f\u00fcr Luft- und Raumfahrt e. V. (DLR)"
+        },
+        {
+          "name": "Ribana Roscher",
+          "affiliation": "University of Bonn"
+        },
+        {
+          "name": "Muhammad Shahzad",
+          "affiliation": "Technical University of Munich"
+        },
+        {
+          "name": "Wen Yang",
+          "affiliation": "Wuhan University"
+        },
+        {
+          "name": "Richard Bamler",
+          "affiliation": "Technical University of Munich"
+        },
+        {
+          "name": "Xiao Xiang Zhu",
+          "affiliation": "Technical University of Munich"
+        }
+      ],
+      "year": 2023,
+      "abstract": "",
+      "venue": "Artificial Intelligence Review",
+      "citation_count": 1044,
+      "doi": "10.1007/s10462-023-10562-9",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s10462-023-10562-9",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3152982807",
+      "title": "Implicit adversarial data augmentation and robustness with Noise-based Learning",
+      "authors": [
+        {
+          "name": "Priyadarshini Panda",
+          "affiliation": "Yale University"
+        },
+        {
+          "name": "Kaushik Roy",
+          "affiliation": "Purdue University West Lafayette"
+        }
+      ],
+      "year": 2021,
+      "abstract": "",
+      "venue": "Neural Networks",
+      "citation_count": 19,
+      "doi": "10.1016/j.neunet.2021.04.008",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.neunet.2021.04.008",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3215810482",
+      "title": "LSD-C: linearly separable deep clusters",
+      "authors": [
+        {
+          "name": "Sylvestre-Alvise Rebuffi",
+          "affiliation": "University of Oxford"
+        },
+        {
+          "name": "S\u00e9bastien Ehrhardt",
+          "affiliation": "University of Oxford"
+        },
+        {
+          "name": "Kai Han",
+          "affiliation": "University of Oxford"
+        },
+        {
+          "name": "Andrea Vedaldi",
+          "affiliation": "University of Oxford"
+        },
+        {
+          "name": "Andrew Zisserman",
+          "affiliation": "University of Oxford"
+        }
+      ],
+      "year": 2021,
+      "abstract": "We present LSD-C, a novel method to identify clusters in an unlabeled dataset. Our algorithm first establishes pairwise connections in the feature space between the samples of the minibatch based on a similarity metric. Then it regroups in clusters the connected samples and enforces a linear separation between clusters. This is achieved by using the pairwise connections as targets together with a binary cross-entropy loss on the predictions that the associated pairs of samples belong to the same cluster. This way, the feature representation of the network will evolve such that similar samples in this feature space will belong to the same linearly separated cluster. Our method draws inspiration from recent semi-supervised learning practice and proposes to combine our clustering algorithm with self-supervised pretraining and strong data augmentation. We show that our approach significantly outperforms competitors on popular public image benchmarks including CIFAR 10/100, STL 10 and MNIST, as well as the document classification dataset Reuters 10K. Our code is available at https://github.com/srebuffi/lsd-clusters.",
+      "venue": "Oxford University Research Archive (ORA) (University of Oxford)",
+      "citation_count": 23,
+      "doi": "",
+      "arxiv_id": "",
+      "url": "https://openalex.org/W3215810482",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3133814152",
+      "title": "Towards Personalized Federated Learning",
+      "authors": [
+        {
+          "name": "Alysa Ziying Tan",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Han Yu",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Lizhen Cui",
+          "affiliation": "Shandong University"
+        },
+        {
+          "name": "Qiang Yang",
+          "affiliation": "Hong Kong University of Science and Technology"
+        }
+      ],
+      "year": 2022,
+      "abstract": "In parallel with the rapid adoption of artificial intelligence (AI) empowered by advances in AI research, there has been growing awareness and concerns of data privacy. Recent significant developments in the data regulation landscape have prompted a seismic shift in interest toward privacy-preserving AI. This has contributed to the popularity of Federated Learning (FL), the leading paradigm for the training of machine learning models on data silos in a privacy-preserving manner. In this survey, we explore the domain of personalized FL (PFL) to address the fundamental challenges of FL on heterogeneous data, a universal characteristic inherent in all real-world datasets. We analyze the key motivations for PFL and present a unique taxonomy of PFL techniques categorized according to the key challenges and personalization strategies in PFL. We highlight their key ideas, challenges, opportunities, and envision promising future trajectories of research toward a new PFL architectural design, realistic PFL benchmarking, and trustworthy PFL approaches.",
+      "venue": "IEEE Transactions on Neural Networks and Learning Systems",
+      "citation_count": 935,
+      "doi": "10.1109/tnnls.2022.3160699",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tnnls.2022.3160699",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3013994053",
+      "title": "A Close Look at Deep Learning with Small Data",
+      "authors": [
+        {
+          "name": "Lorenzo Brigato",
+          "affiliation": "Sapienza University of Rome"
+        },
+        {
+          "name": "Luca Iocchi",
+          "affiliation": "Sapienza University of Rome"
+        }
+      ],
+      "year": 2020,
+      "abstract": "In this work, we perform a wide variety of experiments with different deep learning architectures on datasets of limited size. According to our study, we show that model complexity is a critical factor when only a few samples per class are available. Differently from the literature, we show that in some configurations, the state of the art can be improved using low complexity models. For instance, in problems with scarce training samples and without data augmentation, low-complexity convolutional neural networks perform comparably well or better than state-of-the-art architectures. Moreover, we show that even standard data augmentation can boost recognition performance by large margins. This result suggests the development of more complex data generation/augmentation pipelines for cases when data is limited. Finally, we show that dropout, a widely used regularization technique, maintains its role as a good regularizer even when data is scarce. Our findings are empirically validated on the sub-sampled versions of popular CIFAR-10, Fashion-MNIST and, SVHN benchmarks.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 12,
+      "doi": "10.48550/arxiv.2003.12843",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2003.12843",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4317436377",
+      "title": "MedMNIST v2 - A large-scale lightweight benchmark for 2D and 3D biomedical image classification",
+      "authors": [
+        {
+          "name": "Jiancheng Yang",
+          "affiliation": "Shanghai Jiao Tong University"
+        },
+        {
+          "name": "Rui Shi",
+          "affiliation": "Shanghai Jiao Tong University"
+        },
+        {
+          "name": "Donglai Wei",
+          "affiliation": "Boston College"
+        },
+        {
+          "name": "Zequan Liu",
+          "affiliation": "RWTH Aachen University"
+        },
+        {
+          "name": "Lin Zhao",
+          "affiliation": "Sun Yat-sen University"
+        },
+        {
+          "name": "Bilian Ke",
+          "affiliation": "Shanghai First People's Hospital"
+        },
+        {
+          "name": "Hanspeter Pfister",
+          "affiliation": "Harvard University Press"
+        },
+        {
+          "name": "Bingbing Ni",
+          "affiliation": "Shanghai Jiao Tong University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "We introduce MedMNIST v2, a large-scale MNIST-like dataset collection of standardized biomedical images, including 12 datasets for 2D and 6 datasets for 3D. All images are pre-processed into a small size of 28 \u00d7 28 (2D) or 28 \u00d7 28 \u00d7 28 (3D) with the corresponding classification labels so that no background knowledge is required for users. Covering primary data modalities in biomedical images, MedMNIST v2 is designed to perform classification on lightweight 2D and 3D images with various dataset scales (from 100 to 100,000) and diverse tasks (binary/multi-class, ordinal regression, and multi-label). The resulting dataset, consisting of 708,069 2D images and 9,998 3D images in total, could support numerous research/educational purposes in biomedical image analysis, computer vision, and machine learning. We benchmark several baseline methods on MedMNIST v2, including 2D/3D neural networks and open-source/commercial AutoML tools. The data and code are publicly available at https://medmnist.com/ .",
+      "venue": "Scientific Data",
+      "citation_count": 744,
+      "doi": "10.1038/s41597-022-01721-8",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41597-022-01721-8",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3161615058",
+      "title": "Multi-Perspective Anomaly Detection",
+      "authors": [
+        {
+          "name": "Peter Jakob",
+          "affiliation": "Fraunhofer Institute for Physical Measurement Techniques"
+        },
+        {
+          "name": "Manav Madan",
+          "affiliation": "Fraunhofer Institute for Physical Measurement Techniques"
+        },
+        {
+          "name": "Tobias Schmid-Schirling",
+          "affiliation": "Fraunhofer Institute for Physical Measurement Techniques"
+        },
+        {
+          "name": "Abhinav Valada",
+          "affiliation": "University of Freiburg"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Anomaly detection is a critical problem in the manufacturing industry. In many applications, images of objects to be analyzed are captured from multiple perspectives which can be exploited to improve the robustness of anomaly detection. In this work, we build upon the deep support vector data description algorithm and address multi-perspective anomaly detection using three different fusion techniques, i.e., early fusion, late fusion, and late fusion with multiple decoders. We employ different augmentation techniques with a denoising process to deal with scarce one-class data, which further improves the performance (ROC AUC =80%). Furthermore, we introduce the dices dataset, which consists of over 2000 grayscale images of falling dices from multiple perspectives, with 5% of the images containing rare anomalies (e.g., drill holes, sawing, or scratches). We evaluate our approach on the new dices dataset using images from two different perspectives and also benchmark on the standard MNIST dataset. Extensive experiments demonstrate that our proposed multi-perspective approach exceeds the state-of-the-art single-perspective anomaly detection on both the MNIST and dices datasets. To the best of our knowledge, this is the first work that focuses on addressing multi-perspective anomaly detection in images by jointly using different perspectives together with one single objective function for anomaly detection.",
+      "venue": "Sensors",
+      "citation_count": 10,
+      "doi": "10.3390/s21165311",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/s21165311",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3037924448",
+      "title": "Recurrent Quantum Neural Networks",
+      "authors": [
+        {
+          "name": "Johannes Bausch",
+          "affiliation": "University of Cambridge"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Recurrent neural networks are the foundation of many sequence-to-sequence models in machine learning, such as machine translation and speech synthesis. In contrast, applied quantum computing is in its infancy. Nevertheless there already exist quantum machine learning models such as variational quantum eigensolvers which have been used successfully e.g. in the context of energy minimization tasks. In this work we construct a quantum recurrent neural network (QRNN) with demonstrable performance on non-trivial tasks such as sequence learning and integer digit classification. The QRNN cell is built from parametrized quantum neurons, which, in conjunction with amplitude amplification, create a nonlinear activation of polynomials of its inputs and cell state, and allow the extraction of a probability distribution over predicted classes at each step. To study the model's performance, we provide an implementation in pytorch, which allows the relatively efficient optimization of parametrized quantum circuits with thousands of parameters. We establish a QRNN training setup by benchmarking optimization hyperparameters, and analyse suitable network topologies for simple memorisation and sequence prediction tasks from Elman's seminal paper (1990) on temporal structure learning. We then proceed to evaluate the QRNN on MNIST classification, both by feeding the QRNN each image pixel-by-pixel; and by utilising modern data augmentation as preprocessing step. Finally, we analyse to what extent the unitary nature of the network counteracts the vanishing gradient problem that plagues many existing quantum classifiers and classical RNNs.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 22,
+      "doi": "10.48550/arxiv.2006.14619",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2006.14619",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3138597937",
+      "title": "FLTrust: Byzantine-robust Federated Learning via Trust Bootstrapping",
+      "authors": [
+        {
+          "name": "Xiaoyu Cao",
+          "affiliation": "Duke University"
+        },
+        {
+          "name": "Minghong Fang",
+          "affiliation": "The Ohio State University"
+        },
+        {
+          "name": "Jia Liu",
+          "affiliation": "The Ohio State University"
+        },
+        {
+          "name": "Neil Zhenqiang Gong",
+          "affiliation": "Duke University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Byzantine-robust federated learning aims to enable a service provider to learn an accurate global model when a bounded number of clients are malicious. The key idea of existing Byzantine-robust federated learning methods is that the service provider performs statistical analysis among the clients' local model updates and removes suspicious ones, before aggregating them to update the global model. However, malicious clients can still corrupt the global models in these methods via sending carefully crafted local model updates to the service provider. The fundamental reason is that there is no root of trust in existing federated learning methods. In this work, we bridge the gap via proposing FLTrust, a new federated learning method in which the service provider itself bootstraps trust. In particular, the service provider itself collects a clean small training dataset (called root dataset) for the learning task and the service provider maintains a model (called server model) based on it to bootstrap trust. In each iteration, the service provider first assigns a trust score to each local model update from the clients, where a local model update has a lower trust score if its direction deviates more from the direction of the server model update. Then, the service provider normalizes the magnitudes of the local model updates such that they lie in the same hyper-sphere as the server model update in the vector space. Our normalization limits the impact of malicious local model updates with large magnitudes. Finally, the service provider computes the average of the normalized local model updates weighted by their trust scores as a global model update, which is used to update the global model. Our extensive evaluations on six datasets from different domains show that our FLTrust is secure against both existing attacks and strong adaptive attacks.",
+      "venue": "",
+      "citation_count": 740,
+      "doi": "10.14722/ndss.2021.24434",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.14722/ndss.2021.24434",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3036426227",
+      "title": "LSD-C: Linearly Separable Deep Clusters",
+      "authors": [
+        {
+          "name": "Sylvestre-Alvise Rebuffi",
+          "affiliation": "University of Oxford"
+        },
+        {
+          "name": "S\u00e9bastien Ehrhardt",
+          "affiliation": "University of Oxford"
+        },
+        {
+          "name": "Kai Han",
+          "affiliation": "University of Oxford"
+        },
+        {
+          "name": "Andrea Vedaldi",
+          "affiliation": "University of Oxford"
+        },
+        {
+          "name": "Andrew Zisserman",
+          "affiliation": "University of Oxford"
+        }
+      ],
+      "year": 2021,
+      "abstract": "We present LSD-C, a novel method to identify clusters in an unlabeled dataset. Our algorithm first establishes pairwise connections in the feature space between the samples of the minibatch based on a similarity metric. Then it regroups in clusters the connected samples and enforces a linear separation between clusters. This is achieved by using the pairwise connections as targets together with a binary cross-entropy loss on the predictions that the associated pairs of samples belong to the same cluster. This way, the feature representation of the network will evolve such that similar samples in this feature space will belong to the same linearly separated cluster. Our method draws inspiration from recent semi-supervised learning practice and proposes to combine our clustering algorithm with self-supervised pretraining and strong data augmentation. We show that our approach significantly outperforms competitors on popular public image benchmarks including CIFAR 10/100, STL 10 and MNIST, as well as the document classification dataset Reuters 10K. Our code is available at https://github.com/srebuffi/lsd-clusters.",
+      "venue": "",
+      "citation_count": 9,
+      "doi": "10.1109/iccvw54120.2021.00121",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/iccvw54120.2021.00121",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4283796083",
+      "title": "FedProto: Federated Prototype Learning across Heterogeneous Clients",
+      "authors": [
+        {
+          "name": "Yue Tan",
+          "affiliation": "University of Technology Sydney"
+        },
+        {
+          "name": "Guodong Long",
+          "affiliation": "University of Technology Sydney"
+        },
+        {
+          "name": "Lu Liu",
+          "affiliation": "University of Technology Sydney"
+        },
+        {
+          "name": "Tianyi Zhou",
+          "affiliation": "University of Washington"
+        },
+        {
+          "name": "Qinghua Lu",
+          "affiliation": "Commonwealth Scientific and Industrial Research Organisation"
+        },
+        {
+          "name": "Jing Jiang",
+          "affiliation": "University of Technology Sydney"
+        },
+        {
+          "name": "Chengqi Zhang",
+          "affiliation": "University of Technology Sydney"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Heterogeneity across clients in federated learning (FL) usually hinders the optimization convergence and generalization performance when the aggregation of clients' knowledge occurs in the gradient space. For example, clients may differ in terms of data distribution, network latency, input/output space, and/or model architecture, which can easily lead to the misalignment of their local gradients. To improve the tolerance to heterogeneity, we propose a novel federated prototype learning (FedProto) framework in which the clients and server communicate the abstract class prototypes instead of the gradients. FedProto aggregates the local prototypes collected from different clients, and then sends the global prototypes back to all clients to regularize the training of local models. The training on each client aims to minimize the classification error on the local data while keeping the resulting local prototypes sufficiently close to the corresponding global ones. Moreover, we provide a theoretical analysis to the convergence rate of FedProto under non-convex objectives. In experiments, we propose a benchmark setting tailored for heterogeneous FL, with FedProto outperforming several recent FL approaches on multiple datasets.",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 579,
+      "doi": "10.1609/aaai.v36i8.20819",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v36i8.20819",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4292121737",
+      "title": "A compute-in-memory chip based on resistive random-access memory",
+      "authors": [
+        {
+          "name": "Weier Wan",
+          "affiliation": "Stanford University"
+        },
+        {
+          "name": "Rajkumar Kubendran",
+          "affiliation": "University of Pittsburgh"
+        },
+        {
+          "name": "Clemens Schaefer",
+          "affiliation": "University of Notre Dame"
+        },
+        {
+          "name": "Sukru Burc Eryilmaz",
+          "affiliation": "Stanford University"
+        },
+        {
+          "name": "Wenqiang Zhang",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Dabin Wu",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Stephen Deiss",
+          "affiliation": "University of California, San Diego"
+        },
+        {
+          "name": "Priyanka Raina",
+          "affiliation": "Stanford University"
+        },
+        {
+          "name": "He Qian",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Bin Gao",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Siddharth Joshi",
+          "affiliation": "University of Notre Dame"
+        },
+        {
+          "name": "Huaqiang Wu",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "H.\u2010S. Philip Wong",
+          "affiliation": "Stanford University"
+        },
+        {
+          "name": "Gert Cauwenberghs",
+          "affiliation": "University of California, San Diego"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Realizing increasingly complex artificial intelligence (AI) functionalities directly on edge devices calls for unprecedented energy efficiency of edge hardware. Compute-in-memory (CIM) based on resistive random-access memory (RRAM)<sup>1</sup> promises to meet such demand by storing AI model weights in dense, analogue and non-volatile RRAM devices, and by performing AI computation directly within RRAM, thus eliminating power-hungry data movement between separate compute and memory<sup>2-5</sup>. Although recent studies have demonstrated in-memory matrix-vector multiplication on fully integrated RRAM-CIM hardware<sup>6-17</sup>, it remains a goal for a RRAM-CIM chip to simultaneously deliver high energy efficiency, versatility to support diverse models and software-comparable accuracy. Although efficiency, versatility and accuracy are all indispensable for broad adoption of the technology, the inter-related trade-offs among them cannot be addressed by isolated improvements on any single abstraction level of the design. Here, by co-optimizing across all hierarchies of the design from algorithms and architecture to circuits and devices, we present NeuRRAM-a RRAM-based CIM chip that simultaneously delivers versatility in reconfiguring CIM cores for diverse model architectures, energy efficiency that is two-times better than previous state-of-the-art RRAM-CIM chips across various computational bit-precisions, and inference accuracy comparable to software models quantized to four-bit weights across various AI tasks, including accuracy of 99.0 percent on MNIST<sup>18</sup> and 85.7 percent on CIFAR-10<sup>19</sup> image classification, 84.7-percent accuracy on Google speech command recognition<sup>20</sup>, and a 70-percent reduction in image-reconstruction error on a Bayesian image-recovery task.",
+      "venue": "Nature",
+      "citation_count": 756,
+      "doi": "10.1038/s41586-022-04992-8",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41586-022-04992-8",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4281689490",
+      "title": "Data Augmentation Based on Generative Adversarial Network with Mixed Attention Mechanism",
+      "authors": [
+        {
+          "name": "Yang Yu",
+          "affiliation": "PLA Information Engineering University"
+        },
+        {
+          "name": "Lei Sun",
+          "affiliation": "PLA Information Engineering University"
+        },
+        {
+          "name": "Xiuqing Mao",
+          "affiliation": "PLA Information Engineering University"
+        },
+        {
+          "name": "Min Zhao",
+          "affiliation": "PLA Information Engineering University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Some downstream tasks often require enough data for training in deep learning, but it is formidable to acquire data in some particular fields. Generative Adversarial Network has been extensively used in data augmentation. However, it still has problems of unstable training and low quality of generated images. This paper proposed Data Augmentation Based on Generative Adversarial Network with Mixed Attention Mechanism (MA-GAN) to solve those problems. This method can generate consistent objects or scenes by correlating the remote features in the image, thus improving the ability to create details. Firstly, the channel-attention and the self-attention mechanism are added into the generator and discriminator. Then, the spectral normalization is introduced into the generator and discriminator so that the parameter matrix satisfies the Lipschitz constraint, thus improving the stability of the model training process. By qualitative and quantitative evaluations on small-scale benchmarks (CelebA, MNIST, and CIFAR-10), the experimental results show that the proposed method performs better than other methods. Compared with WGAN-GP (Improved Training of Wasserstein GANs) and SAGAN (Self-Attention Generative Adversarial Networks), the proposed method contributes to higher classification accuracy, indicating that this method can effectively augment the data of small samples.",
+      "venue": "Electronics",
+      "citation_count": 9,
+      "doi": "10.3390/electronics11111718",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/electronics11111718",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4316022139",
+      "title": "Spike-Event Object Detection for Neuromorphic Vision",
+      "authors": [
+        {
+          "name": "Yuan-Kai Wang",
+          "affiliation": "Fu Jen Catholic University"
+        },
+        {
+          "name": "Shao-En Wang",
+          "affiliation": "Fu Jen Catholic University"
+        },
+        {
+          "name": "Ping\u2010Hsien Wu",
+          "affiliation": "Fu Jen Catholic University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Neuromorphic vision is one of the novel research fields that study neuromorphic cameras and spiking neural networks (SNNs) for computer vision. Instead of computing on frame-based images, spike events are streamed from neuromorphic cameras, and novel object detection algorithms have to deal with spike events to achieve detection tasks. In this paper, we propose a solution to the novel object detection method with spike events. Spike events are first encoded to event images according to the computational methodology of neuromorphic theory. The event images can be realized as change-detected images of moving objects with a high frame rate. A redesigned deep learning framework is proposed for object detection to process the event images. We propose a deep SNN method that is achieved by the conversion of successful convolution neural networks but trained by event images. The networks with multiscale representation are discussed and designed in our method. We also design a semi-automatic data labeling method to build event-image datasets by object tracking algorithms. The proposed solution, therefore, includes spike event encoding, a redesigned deep SNN, and an event-image data augmentation algorithm. Experiments are conducted not only on the MNIST-DVS dataset, which is a benchmark dataset for the study of neuromorphic vision but also on our event pedestrian detection dataset. The experimental results show that the performance of the deep SNN trained with our augmented data is close to the model trained on manually labeled data. A performance comparison based on the PAFBenchmark dataset shows that our proposed method has higher accuracy than existing SNN methods, and better energy efficiency and lower energy consumption than existing CNN methods. It demonstrates that our deep SNN method is a feasible solution for the study of neuromorphic vision. The intuition that deep SNN trained with more learning data can achieve better accuracy is also confirmed for this brand-new research field.",
+      "venue": "IEEE Access",
+      "citation_count": 12,
+      "doi": "10.1109/access.2023.3236800",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/access.2023.3236800",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3155808593",
+      "title": "Fast-DENSER: Fast Deep Evolutionary Network Structured Representation",
+      "authors": [
+        {
+          "name": "Filipe Assun\u00e7\u00e3o",
+          "affiliation": "University of Coimbra"
+        },
+        {
+          "name": "Nuno Louren\u00e7o",
+          "affiliation": "University of Coimbra"
+        },
+        {
+          "name": "Bernardete Ribeiro",
+          "affiliation": "University of Coimbra"
+        },
+        {
+          "name": "Penousal Machado",
+          "affiliation": "University of Coimbra"
+        }
+      ],
+      "year": 2021,
+      "abstract": "This paper introduces a grammar-based general purpose framework for the automatic search and deployment of potentially Deep Artificial Neural Networks (DANNs). The approach is known as Fast Deep Evolutionary Network Structured Representation (Fast-DENSER) and is capable of simultaneously optimising the topology, learning strategy and any other required hyper-parameters (e.g., data pre-processing or augmentation). Fast-DENSER has been successfully applied to numerous object recognition tasks, with the generation of Convolutional Neural Networks (CNNs). The code is developed and tested in Python3, and made available as a library. A simple and easy to follow example is described for the automatic search of CNNs for the Fashion-MNIST benchmark.",
+      "venue": "SoftwareX",
+      "citation_count": 7,
+      "doi": "10.1016/j.softx.2021.100694",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.softx.2021.100694",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4365504037",
+      "title": "A survey on deep learning tools dealing with data scarcity: definitions, challenges, solutions, tips, and applications",
+      "authors": [
+        {
+          "name": "Laith Alzubaidi",
+          "affiliation": "Queensland University of Technology"
+        },
+        {
+          "name": "Jinshuai Bai",
+          "affiliation": "Queensland University of Technology"
+        },
+        {
+          "name": "Aiman Al-Sabaawi",
+          "affiliation": "Queensland University of Technology"
+        },
+        {
+          "name": "Jos\u00e9 Santamar\u00eda",
+          "affiliation": "Universidad de Ja\u00e9n"
+        },
+        {
+          "name": "A. S. Albahri",
+          "affiliation": "Sultan Idris Education University"
+        },
+        {
+          "name": "Bashar Sami Nayyef Al-dabbagh",
+          "affiliation": "Universidad Carlos III de Madrid"
+        },
+        {
+          "name": "Mohammed A. Fadhel",
+          "affiliation": "Thi Qar University"
+        },
+        {
+          "name": "Mohamed Manoufali",
+          "affiliation": "The University of Queensland"
+        },
+        {
+          "name": "Jinglan Zhang",
+          "affiliation": "Queensland University of Technology"
+        },
+        {
+          "name": "Ali H. Al\u2010Timemy",
+          "affiliation": "University of Baghdad"
+        },
+        {
+          "name": "Ye Duan",
+          "affiliation": "University of Missouri"
+        },
+        {
+          "name": "Amjed Abdullah",
+          "affiliation": "University of Missouri"
+        },
+        {
+          "name": "Laith Farhan",
+          "affiliation": "Manchester Metropolitan University"
+        },
+        {
+          "name": "Yi Lu",
+          "affiliation": "Queensland University of Technology"
+        },
+        {
+          "name": "Ashish Gupta",
+          "affiliation": "Queensland University of Technology"
+        },
+        {
+          "name": "Felix Albu",
+          "affiliation": "Valahia University of Targoviste"
+        },
+        {
+          "name": "Amin Abbosh",
+          "affiliation": "The University of Queensland"
+        },
+        {
+          "name": "Yuantong Gu",
+          "affiliation": "Queensland University of Technology"
+        }
+      ],
+      "year": 2023,
+      "abstract": "",
+      "venue": "Journal Of Big Data",
+      "citation_count": 705,
+      "doi": "10.1186/s40537-023-00727-2",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1186/s40537-023-00727-2",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3135588948",
+      "title": "Toward Causal Representation Learning",
+      "authors": [
+        {
+          "name": "Bernhard Sch\u00f6lkopf",
+          "affiliation": "Max Planck Institute for Intelligent Systems"
+        },
+        {
+          "name": "Francesco Locatello",
+          "affiliation": "Max Planck Institute for Intelligent Systems"
+        },
+        {
+          "name": "Stefan Bauer",
+          "affiliation": "Max Planck Institute for Intelligent Systems"
+        },
+        {
+          "name": "Nan Rosemary Ke",
+          "affiliation": "Mila - Quebec Artificial Intelligence Institute"
+        },
+        {
+          "name": "Nal Kalchbrenner",
+          "affiliation": ""
+        },
+        {
+          "name": "Anirudh Goyal",
+          "affiliation": "Universit\u00e9 de Montr\u00e9al"
+        },
+        {
+          "name": "Yoshua Bengio",
+          "affiliation": "Canadian Institute for Advanced Research"
+        }
+      ],
+      "year": 2021,
+      "abstract": "The two fields of machine learning and graphical causality arose and are developed separately. However, there is, now, cross-pollination and increasing interest in both fields to benefit from the advances of the other. In this article, we review fundamental concepts of causal inference and relate them to crucial open problems of machine learning, including transfer and generalization, thereby assaying how causality can contribute to modern machine learning research. This also applies in the opposite direction: we note that most work in causality starts from the premise that the causal variables are given. A central problem for AI and causality is, thus, causal representation learning, that is, the discovery of high-level causal variables from low-level observations. Finally, we delineate some implications of causality for machine learning and propose key research areas at the intersection of both communities.",
+      "venue": "Proceedings of the IEEE",
+      "citation_count": 944,
+      "doi": "10.1109/jproc.2021.3058954",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/jproc.2021.3058954",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2998712190",
+      "title": "Deep Domain-Adversarial Image Generation for Domain Generalisation",
+      "authors": [
+        {
+          "name": "Kaiyang Zhou",
+          "affiliation": "University of Surrey"
+        },
+        {
+          "name": "Yongxin Yang",
+          "affiliation": "University of Surrey"
+        },
+        {
+          "name": "Timothy M. Hospedales",
+          "affiliation": "University of Edinburgh"
+        },
+        {
+          "name": "Tao Xiang",
+          "affiliation": "University of Surrey"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Machine learning models typically suffer from the domain shift problem when trained on a source dataset and evaluated on a target dataset of different distribution. To overcome this problem, domain generalisation (DG) methods aim to leverage data from multiple source domains so that a trained model can generalise to unseen domains. In this paper, we propose a novel DG approach based on Deep Domain-Adversarial Image Generation (DDAIG). Specifically, DDAIG consists of three components, namely a label classifier, a domain classifier and a domain transformation network (DoTNet). The goal for DoTNet is to map the source training data to unseen domains. This is achieved by having a learning objective formulated to ensure that the generated data can be correctly classified by the label classifier while fooling the domain classifier. By augmenting the source training data with the generated unseen domain data, we can make the label classifier more robust to unknown domain changes. Extensive experiments on four DG datasets demonstrate the effectiveness of our approach.",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 372,
+      "doi": "10.1609/aaai.v34i07.7003",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v34i07.7003",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4295122555",
+      "title": "Deep Residual Learning for Image Recognition: A Survey",
+      "authors": [
+        {
+          "name": "Muhammad Shafiq",
+          "affiliation": "Guangzhou University"
+        },
+        {
+          "name": "Zhaoquan Gu",
+          "affiliation": "Harbin Institute of Technology"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Deep Residual Networks have recently been shown to significantly improve the performance of neural networks trained on ImageNet, with results beating all previous methods on this dataset by large margins in the image classification task. However, the meaning of these impressive numbers and their implications for future research are not fully understood yet. In this survey, we will try to explain what Deep Residual Networks are, how they achieve their excellent results, and why their successful implementation in practice represents a significant advance over existing techniques. We also discuss some open questions related to residual learning as well as possible applications of Deep Residual Networks beyond ImageNet. Finally, we discuss some issues that still need to be resolved before deep residual learning can be applied on more complex problems.",
+      "venue": "Applied Sciences",
+      "citation_count": 856,
+      "doi": "10.3390/app12188972",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/app12188972",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3102040318",
+      "title": "Incorporating Learnable Membrane Time Constant to Enhance Learning of Spiking Neural Networks",
+      "authors": [
+        {
+          "name": "Wei Fang",
+          "affiliation": "Peng Cheng Laboratory"
+        },
+        {
+          "name": "Zhaofei Yu",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Yanqi Chen",
+          "affiliation": "Peng Cheng Laboratory"
+        },
+        {
+          "name": "Timoth\u00e9e Masquelier",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Tiejun Huang",
+          "affiliation": "Peng Cheng Laboratory"
+        },
+        {
+          "name": "Yonghong Tian",
+          "affiliation": "Peng Cheng Laboratory"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Spiking Neural Networks (SNNs) have attracted enormous research interest due to temporal information processing capability, low power consumption, and high biological plausibility. However, the formulation of efficient and high-performance learning algorithms for SNNs is still challenging. Most existing learning methods learn weights only, and require manual tuning of the membrane-related parameters that determine the dynamics of a single spiking neuron. These parameters are typically chosen to be the same for all neurons, which limits the diversity of neurons and thus the expressiveness of the resulting SNNs. In this paper, we take inspiration from the observation that membrane-related parameters are different across brain regions, and propose a training algorithm that is capable of learning not only the synaptic weights but also the membrane time constants of SNNs. We show that incorporating learnable membrane time constants can make the network less sensitive to initial values and can speed up learning. In addition, we reevaluate the pooling methods in SNNs and find that max-pooling will not lead to significant information loss and have the advantage of low computation cost and binary compatibility. We evaluate the proposed method for image classification tasks on both traditional static MNIST, Fashion-MNIST, CIFAR-10 datasets, and neuromorphic N-MNIST, CIFAR10-DVS, DVS128 Gesture datasets. The experiment results show that the proposed method outperforms the state-of-the-art accuracy on nearly all datasets, using fewer time-steps. Our codes are available at https://github.com/fangwei123456/Parametric-Leaky-Integrate-and-Fire-Spiking-Neuron.",
+      "venue": "2021 IEEE/CVF International Conference on Computer Vision (ICCV)",
+      "citation_count": 527,
+      "doi": "10.1109/iccv48922.2021.00266",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/iccv48922.2021.00266",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4312210066",
+      "title": "Three types of incremental learning",
+      "authors": [
+        {
+          "name": "Gido M. van de Ven",
+          "affiliation": "KU Leuven"
+        },
+        {
+          "name": "Tinne Tuytelaars",
+          "affiliation": "KU Leuven"
+        },
+        {
+          "name": "Andreas S. Tolias",
+          "affiliation": "Baylor College of Medicine"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Incrementally learning new information from a non-stationary stream of data, referred to as 'continual learning', is a key feature of natural intelligence, but a challenging problem for deep neural networks. In recent years, numerous deep learning methods for continual learning have been proposed, but comparing their performances is difficult due to the lack of a common framework. To help address this, we describe three fundamental types, or 'scenarios', of continual learning: task-incremental, domain-incremental and class-incremental learning. Each of these scenarios has its own set of challenges. To illustrate this, we provide a comprehensive empirical comparison of currently used continual learning strategies, by performing the Split MNIST and Split CIFAR-100 protocols according to each scenario. We demonstrate substantial differences between the three scenarios in terms of difficulty and in terms of the effectiveness of different strategies. The proposed categorization aims to structure the continual learning field, by forming a key foundation for clearly defining benchmark problems.",
+      "venue": "Nature Machine Intelligence",
+      "citation_count": 533,
+      "doi": "10.1038/s42256-022-00568-3",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s42256-022-00568-3",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4361994754",
+      "title": "GASTeN: Generative Adversarial Stress Test Networks",
+      "authors": [
+        {
+          "name": "Lu\u00eds Miguel Cunha",
+          "affiliation": "Universidade do Porto"
+        },
+        {
+          "name": "Carlos Soares",
+          "affiliation": "Universidade do Porto"
+        },
+        {
+          "name": "Andr\u00e9 Restivo",
+          "affiliation": "Universidade do Porto"
+        },
+        {
+          "name": "Lu\u00eds F. Teixeira",
+          "affiliation": "Universidade do Porto"
+        }
+      ],
+      "year": 2023,
+      "abstract": "",
+      "venue": "Lecture notes in computer science",
+      "citation_count": 5,
+      "doi": "10.1007/978-3-031-30047-9_8",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/978-3-031-30047-9_8",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3005244657",
+      "title": "Feature Map Augmentation to Improve Rotation Invariance in Convolutional Neural Networks",
+      "authors": [
+        {
+          "name": "Dinesh Kumar",
+          "affiliation": "University of Canberra"
+        },
+        {
+          "name": "Dharmendra Sharma",
+          "affiliation": "University of Canberra"
+        },
+        {
+          "name": "Roland Goecke",
+          "affiliation": "University of Canberra"
+        }
+      ],
+      "year": 2020,
+      "abstract": "",
+      "venue": "Lecture notes in computer science",
+      "citation_count": 7,
+      "doi": "10.1007/978-3-030-40605-9_30",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/978-3-030-40605-9_30",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4212803647",
+      "title": "A Multi-Scale Convolutional Neural Network for Rotation-Invariant Recognition",
+      "authors": [
+        {
+          "name": "Tzung\u2010Pei Hong",
+          "affiliation": "National Sun Yat-sen University"
+        },
+        {
+          "name": "Ming-Jhe Hu",
+          "affiliation": "National Cheng Kung University"
+        },
+        {
+          "name": "Tang-Kai Yin",
+          "affiliation": "National University of Kaohsiung"
+        },
+        {
+          "name": "Shyue-Liang Wang",
+          "affiliation": "National University of Kaohsiung"
+        }
+      ],
+      "year": 2022,
+      "abstract": "The Internet of things (IoT) enables mobile devices to connect and exchange information with others over the Internet with a lot of applications in consumer, commercial, and industrial products. With the rapid development of machine learning, IoT with image recognition capability is a new research area to assist mobile devices with processing image information. In this research, we propose the rotation-invariant multi-scale convolutional neural network (RIMS-CNN) to recognize rotated objects, which are commonly seen in real situations. Based on the dihedral group D4 transformations, the RIMS-CNN equips a CNN with multiple rotated tensors and its processing network. Furthermore, multi-scale features and shared weights are employed in the RIMS-CNN to increase performance. Compared with the data augmentation approach of using rotated images at random angles for training, our proposed method can learn inherent convolution kernels for rotational features. Experiments were conducted on the benchmark datasets: MNIST, FASHION-MNIST, CIFAR-10, and CIFAR-100. Significant improvements over the other models were achieved to show that rotational invariance could be learned.",
+      "venue": "Electronics",
+      "citation_count": 4,
+      "doi": "10.3390/electronics11040661",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/electronics11040661",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3138815606",
+      "title": "Membership Inference Attacks on Machine Learning: A Survey",
+      "authors": [
+        {
+          "name": "Hongsheng Hu",
+          "affiliation": "University of Auckland"
+        },
+        {
+          "name": "Zoran Sal\u010di\u0107",
+          "affiliation": "University of Auckland"
+        },
+        {
+          "name": "Lichao Sun",
+          "affiliation": "Lehigh University"
+        },
+        {
+          "name": "Gillian Dobbie",
+          "affiliation": "University of Auckland"
+        },
+        {
+          "name": "Philip S. Yu",
+          "affiliation": "University of Illinois Chicago"
+        },
+        {
+          "name": "Xuyun Zhang",
+          "affiliation": "Macquarie University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Machine learning (ML) models have been widely applied to various applications, including image classification, text generation, audio recognition, and graph data analysis. However, recent studies have shown that ML models are vulnerable to membership inference attacks (MIAs), which aim to infer whether a data record was used to train a target model or not. MIAs on ML models can directly lead to a privacy breach. For example, via identifying the fact that a clinical record that has been used to train a model associated with a certain disease, an attacker can infer that the owner of the clinical record has the disease with a high chance. In recent years, MIAs have been shown to be effective on various ML models, e.g., classification models and generative models. Meanwhile, many defense methods have been proposed to mitigate MIAs. Although MIAs on ML models form a newly emerging and rapidly growing research area, there has been no systematic survey on this topic yet. In this article, we conduct the first comprehensive survey on membership inference attacks and defenses. We provide the taxonomies for both attacks and defenses, based on their characterizations, and discuss their pros and cons. Based on the limitations and gaps identified in this survey, we point out several promising future research directions to inspire the researchers who wish to follow this area. This survey not only serves as a reference for the research community but also provides a clear description for researchers outside this research domain. To further help the researchers, we have created an online resource repository, which we will keep updated with future relevant work. Interested readers can find the repository at https://github.com/HongshengHu/membership-inference-machine-learning-literature.",
+      "venue": "ACM Computing Surveys",
+      "citation_count": 461,
+      "doi": "10.1145/3523273",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3523273",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4364305505",
+      "title": "Semi-Supervised Principal Neighbourhood Aggregation Model For Sar Image Classification",
+      "authors": [
+        {
+          "name": "Mohib Ullah",
+          "affiliation": "Norwegian University of Science and Technology"
+        },
+        {
+          "name": "Zolbayar Shagdar",
+          "affiliation": "Norwegian University of Science and Technology"
+        },
+        {
+          "name": "Habib Ullah",
+          "affiliation": "Norwegian University of Life Sciences"
+        },
+        {
+          "name": "Faouzi Alaya Cheikh",
+          "affiliation": "Norwegian University of Science and Technology"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Graph neural networks (GNNs) are researched extensively as effective models for representing data in a graph structure and extracting important neighbourhood features. This paper explored a GNN model named Principal Neighbourhood Aggregation (PNA) for Synthetic-aperture radar (SAR) image classification. Given the low availability of SAR image data, specially labelled ones, we incorporate a semi-supervised learning strategy named MixMatch with PNA architecture. Furthermore, we propose an augmentation technique specific to SAR images that exploit the physical properties of image content and significantly improve the performance of both supervised and semi-supervised training paradigm. Additionally, we tested the algorithm on benchmark image classification datasets, including CIFAR, MNIST, STL10 and achieved promising results.",
+      "venue": "",
+      "citation_count": 5,
+      "doi": "10.1109/sitis57111.2022.00046",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/sitis57111.2022.00046",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3168699836",
+      "title": "Dataset Condensation with Differentiable Siamese Augmentation",
+      "authors": [
+        {
+          "name": "Bo Zhao",
+          "affiliation": "University of Edinburgh"
+        },
+        {
+          "name": "Hakan Bilen",
+          "affiliation": "University of Edinburgh"
+        }
+      ],
+      "year": 2021,
+      "abstract": "n many machine learning problems, large-scale datasets have become the de-facto standard to train state-of-the-art deep networks at the price of heavy computation load. In this paper, we focus on condensing large training sets into significantly smaller synthetic sets which can be used to train deep neural networks from scratch with minimum drop in performance. Inspired from the recent training set synthesis methods, we propose Differentiable Siamese Augmentation that enables effective use of data augmentation to synthesize more informative synthetic images and thus achieves better performance when training networks with augmentations. Experiments on multiple image classification benchmarks demonstrate that the proposed method obtains substantial gains over the state-of-the-art, 7% improvements on CIFAR10 and CIFAR100 datasets. We show with only less than 1% data that our method achieves 99.6%, 94.9%, 88.5%, 71.5% relative performance on MNIST, FashionMNIST, SVHN, CIFAR10 respectively. We also explore the use of our method in continual learning and neural architecture search, and show promising results.",
+      "venue": "Edinburgh Research Explorer (University of Edinburgh)",
+      "citation_count": 3,
+      "doi": "",
+      "arxiv_id": "",
+      "url": "https://openalex.org/W3168699836",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3048941751",
+      "title": "Brain-inspired replay for continual learning with artificial neural networks",
+      "authors": [
+        {
+          "name": "Gido M. van de Ven",
+          "affiliation": "Baylor College of Medicine"
+        },
+        {
+          "name": "Hava T. Siegelmann",
+          "affiliation": "University of Massachusetts Amherst"
+        },
+        {
+          "name": "Andreas S. Tolias",
+          "affiliation": "Baylor College of Medicine"
+        }
+      ],
+      "year": 2020,
+      "abstract": "",
+      "venue": "Nature Communications",
+      "citation_count": 445,
+      "doi": "10.1038/s41467-020-17866-2",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41467-020-17866-2",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3110307877",
+      "title": "Generative Adversarial Network for Class-Conditional Data Augmentation",
+      "authors": [
+        {
+          "name": "Jeongmin Lee",
+          "affiliation": "Chung-Ang University"
+        },
+        {
+          "name": "Younkyoung Yoon",
+          "affiliation": "Chung-Ang University"
+        },
+        {
+          "name": "Junseok Kwon",
+          "affiliation": "Chung-Ang University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "We propose a novel generative adversarial network for class-conditional data augmentation (i.e., GANDA) to mitigate data imbalance problems in image classification tasks. The proposed GANDA generates minority class data by exploiting majority class information to enhance the classification accuracy of minority classes. For stable GAN training, we introduce a new denoising autoencoder initialization with explicit class conditioning in the latent space, which enables the generation of definite samples. The generated samples are visually realistic and have a high resolution. Experimental results demonstrate that the proposed GANDA can considerably improve classification accuracy, especially when datasets are highly imbalanced on standard benchmark datasets (i.e., MNIST and CelebA). Our generated samples can be easily used to train conventional classifiers to enhance their classification accuracy.",
+      "venue": "Applied Sciences",
+      "citation_count": 5,
+      "doi": "10.3390/app10238415",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/app10238415",
+      "source": "openalex",
+      "_bibtex_override": ""
+    }
+  ]
+}

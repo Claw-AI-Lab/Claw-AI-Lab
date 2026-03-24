@@ -1,0 +1,1616 @@
+{
+  "query": "concepts in a single scene",
+  "source": "openalex",
+  "limit": 40,
+  "timestamp": 1774071516.5248187,
+  "papers": [
+    {
+      "paper_id": "oalex-W4389539271",
+      "title": "Break-A-Scene: Extracting Multiple Concepts from a Single Image",
+      "authors": [
+        {
+          "name": "Omri Avrahami",
+          "affiliation": "Hebrew University of Jerusalem"
+        },
+        {
+          "name": "Kfir Aberman",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Ohad Fried",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniel Cohen\u2010Or",
+          "affiliation": "Tel Aviv University"
+        },
+        {
+          "name": "Dani Lischinski",
+          "affiliation": "Hebrew University of Jerusalem"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Text-to-image model personalization aims to introduce a user-provided concept to the model, allowing its synthesis in diverse contexts. However, current methods primarily focus on the case of learning a single concept from multiple images with variations in backgrounds and poses, and struggle when adapted to a different scenario. In this work, we introduce the task of textual scene decomposition: given a single image of a scene that may contain several concepts, we aim to extract a distinct text token for each concept, enabling fine-grained control over the generated scenes. To this end, we propose augmenting the input image with masks that indicate the presence of target concepts. These masks can be provided by the user or generated automatically by a pre-trained segmentation model. We then present a novel two-phase customization process that optimizes a set of dedicated textual embeddings (handles), as well as the model weights, striking a delicate balance between accurately capturing the concepts and avoiding overfitting. We employ a masked diffusion loss to enable handles to generate their assigned concepts, complemented by a novel loss on cross-attention maps to prevent entanglement. We also introduce union-sampling, a training strategy aimed to improve the ability of combining multiple concepts in generated images. We use several automatic metrics to quantitatively compare our method against several baselines, and further affirm the results using a user study. Finally, we showcase several applications of our method.",
+      "venue": "",
+      "citation_count": 111,
+      "doi": "10.1145/3610548.3618154",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3610548.3618154",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4289785095",
+      "title": "An Image is Worth One Word: Personalizing Text-to-Image Generation using Textual Inversion",
+      "authors": [
+        {
+          "name": "Rinon Gal",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuval Alaluf",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuval Atzmon",
+          "affiliation": ""
+        },
+        {
+          "name": "Or Patashnik",
+          "affiliation": ""
+        },
+        {
+          "name": "Amit H. Bermano",
+          "affiliation": ""
+        },
+        {
+          "name": "Gal Chechik",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniel Cohen\u2010Or",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Text-to-image models offer unprecedented freedom to guide creation through natural language. Yet, it is unclear how such freedom can be exercised to generate images of specific unique concepts, modify their appearance, or compose them in new roles and novel scenes. In other words, we ask: how can we use language-guided models to turn our cat into a painting, or imagine a new product based on our favorite toy? Here we present a simple approach that allows such creative freedom. Using only 3-5 images of a user-provided concept, like an object or a style, we learn to represent it through new \"words\" in the embedding space of a frozen text-to-image model. These \"words\" can be composed into natural language sentences, guiding personalized creation in an intuitive way. Notably, we find evidence that a single word embedding is sufficient for capturing unique and varied concepts. We compare our approach to a wide range of baselines, and demonstrate that it can more faithfully portray the concepts across a range of applications and tasks. Our code, data and new words will be available at: https://textual-inversion.github.io",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 464,
+      "doi": "10.48550/arxiv.2208.01618",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2208.01618",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4386071839",
+      "title": "OneFormer: One Transformer to Rule Universal Image Segmentation",
+      "authors": [
+        {
+          "name": "Jitesh Jain",
+          "affiliation": "Indian Institute of Technology Roorkee"
+        },
+        {
+          "name": "Jiachen Li",
+          "affiliation": ""
+        },
+        {
+          "name": "MangTik Chiu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ali Hassani",
+          "affiliation": ""
+        },
+        {
+          "name": "Nikita Orlov",
+          "affiliation": ""
+        },
+        {
+          "name": "Humphrey Shi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Universal Image Segmentation is not a new concept. Past attempts to unify image segmentation include scene parsing, panoptic segmentation, and, more recently, new panoptic architectures. However, such panoptic architectures do not truly unify image segmentation because they need to be trained individually on the semantic, instance, or panoptic segmentation to achieve the best performance. Ideally, a truly universal framework should be trained only once and achieve SOTA performance across all three image segmentation tasks. To that end, we propose OneFormer, a universal image segmentation framework that unifies segmentation with a multi-task train-once design. We first propose a task-conditioned joint training strategy that enables training on ground truths of each domain (semantic, instance, and panoptic segmentation) within a single multi-task training process. Secondly, we introduce a task token to condition our model on the task at hand, making our model task-dynamic to support multi-task training and inference. Thirdly, we propose using a query-text contrastive loss during training to establish better intertask and inter-class distinctions. Notably, our single OneFormer model outperforms specialized Mask2Former models across all three segmentation tasks on ADE20k, Cityscapes, and COCO, despite the latter being trained on each task individually. We believe OneFormer is a significant step towards making image segmentation more universal and accessible.",
+      "venue": "",
+      "citation_count": 387,
+      "doi": "10.1109/cvpr52729.2023.00292",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr52729.2023.00292",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4378505286",
+      "title": "Break-A-Scene: Extracting Multiple Concepts from a Single Image",
+      "authors": [
+        {
+          "name": "Omri Avrahami",
+          "affiliation": ""
+        },
+        {
+          "name": "Kfir Aberman",
+          "affiliation": ""
+        },
+        {
+          "name": "Ohad Fried",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniel Cohen\u2010Or",
+          "affiliation": ""
+        },
+        {
+          "name": "Dani Lischinski",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Text-to-image model personalization aims to introduce a user-provided concept to the model, allowing its synthesis in diverse contexts. However, current methods primarily focus on the case of learning a single concept from multiple images with variations in backgrounds and poses, and struggle when adapted to a different scenario. In this work, we introduce the task of textual scene decomposition: given a single image of a scene that may contain several concepts, we aim to extract a distinct text token for each concept, enabling fine-grained control over the generated scenes. To this end, we propose augmenting the input image with masks that indicate the presence of target concepts. These masks can be provided by the user or generated automatically by a pre-trained segmentation model. We then present a novel two-phase customization process that optimizes a set of dedicated textual embeddings (handles), as well as the model weights, striking a delicate balance between accurately capturing the concepts and avoiding overfitting. We employ a masked diffusion loss to enable handles to generate their assigned concepts, complemented by a novel loss on cross-attention maps to prevent entanglement. We also introduce union-sampling, a training strategy aimed to improve the ability of combining multiple concepts in generated images. We use several automatic metrics to quantitatively compare our method against several baselines, and further affirm the results using a user study. Finally, we showcase several applications of our method. Project page is available at: https://omriavrahami.com/break-a-scene/",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 1,
+      "doi": "10.48550/arxiv.2305.16311",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2305.16311",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4385271055",
+      "title": "Encoder-based Domain Tuning for Fast Personalization of Text-to-Image Models",
+      "authors": [
+        {
+          "name": "Rinon Gal",
+          "affiliation": "Tel Aviv University"
+        },
+        {
+          "name": "Moab Arar",
+          "affiliation": "Tel Aviv University"
+        },
+        {
+          "name": "Yuval Atzmon",
+          "affiliation": ""
+        },
+        {
+          "name": "Amit H. Bermano",
+          "affiliation": "Tel Aviv University"
+        },
+        {
+          "name": "Gal Chechik",
+          "affiliation": "Bar-Ilan University"
+        },
+        {
+          "name": "Daniel Cohen\u2010Or",
+          "affiliation": "Tel Aviv University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Text-to-image personalization aims to teach a pre-trained diffusion model to reason about novel, user provided concepts, embedding them into new scenes guided by natural language prompts. However, current personalization approaches struggle with lengthy training times, high storage requirements or loss of identity. To overcome these limitations, we propose an encoder-based domain-tuning approach. Our key insight is that by underfitting on a large set of concepts from a given domain, we can improve generalization and create a model that is more amenable to quickly adding novel concepts from the same domain. Specifically, we employ two components: First, an encoder that takes as an input a single image of a target concept from a given domain, e.g. a specific face, and learns to map it into a word-embedding representing the concept. Second, a set of regularized weight-offsets for the text-to-image model that learn how to effectively injest additional concepts. Together, these components are used to guide the learning of unseen concepts, allowing us to personalize a model using only a single image and as few as 5 training steps --- accelerating personalization from dozens of minutes to seconds , while preserving quality. Code and trained encoders will be available at our project page.",
+      "venue": "ACM Transactions on Graphics",
+      "citation_count": 138,
+      "doi": "10.1145/3592133",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3592133",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3083406432",
+      "title": "<scp>UCSF ChimeraX</scp>: Structure visualization for researchers, educators, and developers",
+      "authors": [
+        {
+          "name": "Eric F. Pettersen",
+          "affiliation": "University of California, San Francisco"
+        },
+        {
+          "name": "Thomas D. Goddard",
+          "affiliation": "University of San Francisco"
+        },
+        {
+          "name": "Conrad C. Huang",
+          "affiliation": "University of California, San Francisco"
+        },
+        {
+          "name": "Elaine C. Meng",
+          "affiliation": "University of California, San Francisco"
+        },
+        {
+          "name": "Gregory S. Couch",
+          "affiliation": "University of California, San Francisco"
+        },
+        {
+          "name": "Tristan I. Croll",
+          "affiliation": "University of Cambridge"
+        },
+        {
+          "name": "John H. Morris",
+          "affiliation": "University of San Francisco"
+        },
+        {
+          "name": "Thomas E. Ferrin",
+          "affiliation": "University of San Francisco"
+        }
+      ],
+      "year": 2020,
+      "abstract": "UCSF ChimeraX is the next-generation interactive visualization program from the Resource for Biocomputing, Visualization, and Informatics (RBVI), following UCSF Chimera. ChimeraX brings (a) significant performance and graphics enhancements; (b) new implementations of Chimera's most highly used tools, many with further improvements; (c) several entirely new analysis features; (d) support for new areas such as virtual reality, light-sheet microscopy, and medical imaging data; (e) major ease-of-use advances, including toolbars with icons to perform actions with a single click, basic \"undo\" capabilities, and more logical and consistent commands; and (f) an app store for researchers to contribute new tools. ChimeraX includes full user documentation and is free for noncommercial use, with downloads available for Windows, Linux, and macOS from https://www.rbvi.ucsf.edu/chimerax.",
+      "venue": "Protein Science",
+      "citation_count": 9553,
+      "doi": "10.1002/pro.3943",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1002/pro.3943",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3034963870",
+      "title": "Warping Residual Based Image Stitching for Large Parallax",
+      "authors": [
+        {
+          "name": "Kyu-Yul Lee",
+          "affiliation": "Ulsan National Institute of Science and Technology"
+        },
+        {
+          "name": "Jae-Young Sim",
+          "affiliation": "Ulsan National Institute of Science and Technology"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Image stitching techniques align two images captured at different viewing positions onto a single wider image. When the captured 3D scene is not planar and the camera baseline is large, two images exhibit parallax where the relative positions of scene structures are quite different from each view. The existing image stitching methods often fail to work on the images with large parallax. In this paper, we propose an image stitching algorithm robust to large parallax based on the novel concept of warping residuals. We first estimate multiple homographies and find their inlier feature matches between two images. Then we evaluate warping residual for each feature match with respect to the multiple homographies. To alleviate the parallax artifacts, we partition input images into superpixels and warp each superpixel adaptively according to an optimal homography which is computed by minimizing the error of feature matches weighted by the warping residuals. Experimental results demonstrate that the proposed algorithm provides accurate stitching results for images with large parallax, and outperforms the existing methods qualitatively and quantitatively.",
+      "venue": "",
+      "citation_count": 97,
+      "doi": "10.1109/cvpr42600.2020.00822",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr42600.2020.00822",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3013419941",
+      "title": "Multi-block SSD based on small object detection for UAV railway scene surveillance",
+      "authors": [
+        {
+          "name": "Yundong Li",
+          "affiliation": "North China University of Technology"
+        },
+        {
+          "name": "Dong Han",
+          "affiliation": "North China University of Technology"
+        },
+        {
+          "name": "Hongguang Li",
+          "affiliation": "Shenzhen Institutes of Advanced Technology"
+        },
+        {
+          "name": "Xueyan Zhang",
+          "affiliation": "North China University of Technology"
+        },
+        {
+          "name": "Baochang Zhang",
+          "affiliation": "Beihang University"
+        },
+        {
+          "name": "Zhifeng Xiao",
+          "affiliation": "State Key Laboratory of Information Engineering in Surveying Mapping and Remote Sensing"
+        }
+      ],
+      "year": 2020,
+      "abstract": "A method of multi-block Single Shot MultiBox Detector (SSD) based on small object detection is proposed to the railway scene of unmanned aerial vehicle surveillance. To address the limitation of small object detection, a multi-block SSD mechanism, which consists of three steps, is designed. First, the original input images are segmented into several overlapped patches. Second, each patch is separately fed into an SSD to detect the objects. Third, the patches are merged together through two stages. In the first stage, the truncated object of the sub-layer detection result is spliced. In the second stage, a sub-layer suppression and filtering algorithm applying the concept of non-maximum suppression is utilized to remove the overlapped boxes of sub-layers. The boxes that are not detected in the main-layer are retained. In addition, no sufficient labeled training samples of railway circumstance are available, thereby hindering the deployment of SSD. A two-stage training strategy leveraging to transfer learning is adopted to solve this issue. The deep learning model is preliminarily trained using labeled data of numerous auxiliaries, and then it is refined using only a few samples of railway scene. A railway spot in China, which is easily damaged by landslides, is investigated as a case study. Experimental results show that the proposed multi-block SSD method produces an overall accuracy of 96.6% and obtains an improvement of up to 9.2% compared with the traditional SSD.",
+      "venue": "Chinese Journal of Aeronautics",
+      "citation_count": 117,
+      "doi": "10.1016/j.cja.2020.02.024",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.cja.2020.02.024",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2999216803",
+      "title": "Deep Learning for Multilabel Remote Sensing Image Annotation With Dual-Level Semantic Concepts",
+      "authors": [
+        {
+          "name": "Panpan Zhu",
+          "affiliation": "State Key Laboratory of Remote Sensing Science"
+        },
+        {
+          "name": "Yumin Tan",
+          "affiliation": "Beihang University"
+        },
+        {
+          "name": "Liqiang Zhang",
+          "affiliation": "State Key Laboratory of Remote Sensing Science"
+        },
+        {
+          "name": "Yuebin Wang",
+          "affiliation": "China University of Geosciences (Beijing)"
+        },
+        {
+          "name": "Jie Mei",
+          "affiliation": "Nankai University"
+        },
+        {
+          "name": "Hao Liu",
+          "affiliation": "State Key Laboratory of Remote Sensing Science"
+        },
+        {
+          "name": "Mengfan Wu",
+          "affiliation": "State Key Laboratory of Remote Sensing Science"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Multilabel remote sensing (RS) image annotation is a challenging and time-consuming task that requires a considerable amount of expert knowledge. Most existing RS image annotation methods are based on handcrafted features and require multistage processes that are not sufficiently efficient and effective. An RS image can be assigned with a single label at the scene level to depict the overall understanding of the scene and with multiple labels at the object level to represent the major components. The multiple labels can be used as supervised information for annotation, whereas the single label can be used as additional information to exploit the scene-level similarity relationships. By exploiting the dual-level semantic concepts, we propose an end-to-end deep learning framework for object-level multilabel annotation of RS images. The proposed framework consists of a shared convolutional neural network for discriminative feature learning, a classification branch for multilabel annotation and an embedding branch for preserving the scene-level similarity relationships. In the classification branch, an attention mechanism is introduced to generate attention-aware features, and skip-layer connections are incorporated to combine information from multiple layers. The philosophy of the embedding branch is that images with the same scene-level semantic concepts should have similar visual representations. The proposed method adopts the binary cross-entropy loss for classification and the triplet loss for image embedding learning. The evaluations on three multilabel RS image data sets demonstrate the effectiveness and superiority of the proposed method in comparison with the state-of-the-art methods.",
+      "venue": "IEEE Transactions on Geoscience and Remote Sensing",
+      "citation_count": 48,
+      "doi": "10.1109/tgrs.2019.2960466",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tgrs.2019.2960466",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4289522770",
+      "title": "Remote Sensing Image Classification: A Comprehensive Review and Applications",
+      "authors": [
+        {
+          "name": "Maryam Mehmood",
+          "affiliation": "National University of Sciences and Technology"
+        },
+        {
+          "name": "Ahsan Shahzad",
+          "affiliation": "National University of Sciences and Technology"
+        },
+        {
+          "name": "Bushra Zafar",
+          "affiliation": "Government College University, Faisalabad"
+        },
+        {
+          "name": "Amsa Shabbir",
+          "affiliation": "Mirpur University of Science and Technology"
+        },
+        {
+          "name": "Nouman Ali",
+          "affiliation": "Mirpur University of Science and Technology"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Remote sensing is mainly used to investigate sites of dams, bridges, and pipelines to locate construction materials and provide detailed geographic information. In remote sensing image analysis, the images captured through satellite and drones are used to observe surface of the Earth. The main aim of any image classification-based system is to assign semantic labels to captured images, and consequently, using these labels, images can be arranged in a semantic order. The semantic arrangement of images is used in various domains of digital image processing and computer vision such as remote sensing, image retrieval, object recognition, image annotation, scene analysis, content-based image analysis, and video analysis. The earlier approaches for remote sensing image analysis are based on low-level and mid-level feature extraction and representation. These techniques have shown good performance by using different feature combinations and machine learning approaches. These earlier approaches have used small-scale image dataset. The recent trends for remote sensing image analysis are shifted to the use of deep learning model. Various hybrid approaches of deep learning have shown much better results than the use of a single deep learning model. In this review article, a detailed overview of the past trends is presented, based on low-level and mid-level feature representation using traditional machine learning concepts. A summary of publicly available image benchmarks for remote sensing image analysis is also presented. A detailed summary is presented at the end of each section. An overview regarding the current trends of deep learning models is presented along with a detailed comparison of various hybrid approaches based on recent trends. The performance evaluation metrics are also discussed. This review article provides a detailed knowledge related to the existing trends in remote sensing image classification and possible future research directions.",
+      "venue": "Mathematical Problems in Engineering",
+      "citation_count": 133,
+      "doi": "10.1155/2022/5880959",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1155/2022/5880959",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3140854437",
+      "title": "Review of deep learning: concepts, CNN architectures, challenges, applications, future directions",
+      "authors": [
+        {
+          "name": "Laith Alzubaidi",
+          "affiliation": "Queensland University of Technology"
+        },
+        {
+          "name": "Jinglan Zhang",
+          "affiliation": "Queensland University of Technology"
+        },
+        {
+          "name": "Amjad J. Humaidi",
+          "affiliation": "University of Technology - Iraq"
+        },
+        {
+          "name": "Ayad Q. Al-Dujaili",
+          "affiliation": "Middle Technical University"
+        },
+        {
+          "name": "Ye Duan",
+          "affiliation": "University of Missouri"
+        },
+        {
+          "name": "Omran Al-Shamma",
+          "affiliation": "University of Information Technology and Communications"
+        },
+        {
+          "name": "Jos\u00e9 Santamar\u00eda",
+          "affiliation": "Universidad de Ja\u00e9n"
+        },
+        {
+          "name": "Mohammed A. Fadhel",
+          "affiliation": "Thi Qar University"
+        },
+        {
+          "name": "Muthana Al\u2010Amidie",
+          "affiliation": "University of Missouri"
+        },
+        {
+          "name": "Laith Farhan",
+          "affiliation": "Manchester Metropolitan University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "In the last few years, the deep learning (DL) computing paradigm has been deemed the Gold Standard in the machine learning (ML) community. Moreover, it has gradually become the most widely used computational approach in the field of ML, thus achieving outstanding results on several complex cognitive tasks, matching or even beating those provided by human performance. One of the benefits of DL is the ability to learn massive amounts of data. The DL field has grown fast in the last few years and it has been extensively used to successfully address a wide range of traditional applications. More importantly, DL has outperformed well-known ML techniques in many domains, e.g., cybersecurity, natural language processing, bioinformatics, robotics and control, and medical information processing, among many others. Despite it has been contributed several works reviewing the State-of-the-Art on DL, all of them only tackled one aspect of the DL, which leads to an overall lack of knowledge about it. Therefore, in this contribution, we propose using a more holistic approach in order to provide a more suitable starting point from which to develop a full understanding of DL. Specifically, this review attempts to provide a more comprehensive survey of the most important aspects of DL and including those enhancements recently added to the field. In particular, this paper outlines the importance of DL, presents the types of DL techniques and networks. It then presents convolutional neural networks (CNNs) which the most utilized DL network type and describes the development of CNNs architectures together with their main features, e.g., starting with the AlexNet network and closing with the High-Resolution network (HR.Net). Finally, we further present the challenges and suggested solutions to help researchers understand the existing research gaps. It is followed by a list of the major DL applications. Computational tools including FPGA, GPU, and CPU are summarized along with a description of their influence on DL. The paper ends with the evolution matrix, benchmark datasets, and summary and conclusion.",
+      "venue": "Journal Of Big Data",
+      "citation_count": 7151,
+      "doi": "10.1186/s40537-021-00444-8",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1186/s40537-021-00444-8",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3007580291",
+      "title": "Dark, Beyond Deep: A Paradigm Shift to Cognitive AI with Humanlike Common Sense",
+      "authors": [
+        {
+          "name": "Yixin Zhu",
+          "affiliation": "University of California, Los Angeles"
+        },
+        {
+          "name": "Tao Gao",
+          "affiliation": "University of California, Los Angeles"
+        },
+        {
+          "name": "Lifeng Fan",
+          "affiliation": "University of California, Los Angeles"
+        },
+        {
+          "name": "Siyuan Huang",
+          "affiliation": "University of California, Los Angeles"
+        },
+        {
+          "name": "Mark Edmonds",
+          "affiliation": "University of California, Los Angeles"
+        },
+        {
+          "name": "Hangxin Liu",
+          "affiliation": "University of California, Los Angeles"
+        },
+        {
+          "name": "Feng Gao",
+          "affiliation": "University of California, Los Angeles"
+        },
+        {
+          "name": "Chi Zhang",
+          "affiliation": "University of California, Los Angeles"
+        },
+        {
+          "name": "Siyuan Qi",
+          "affiliation": "University of California, Los Angeles"
+        },
+        {
+          "name": "Ying Wu",
+          "affiliation": "University of California, Los Angeles"
+        },
+        {
+          "name": "Joshua B. Tenenbaum",
+          "affiliation": "Massachusetts Institute of Technology"
+        },
+        {
+          "name": "Song\u2010Chun Zhu",
+          "affiliation": "University of California, Los Angeles"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Recent progress in deep learning is essentially based on a \u201cbig data for small tasks\u201d paradigm, under which massive amounts of data are used to train a classifier for a single narrow task. In this paper, we call for a shift that flips this paradigm upside down. Specifically, we propose a \u201csmall data for big tasks\u201d paradigm, wherein a single artificial intelligence (AI) system is challenged to develop \u201ccommon sense,\u201d enabling it to solve a wide range of tasks with little training data. We illustrate the potential power of this new paradigm by reviewing models of common sense that synthesize recent breakthroughs in both machine and human vision. We identify functionality, physics, intent, causality, and utility (FPICU) as the five core domains of cognitive AI with humanlike common sense. When taken as a unified concept, FPICU is concerned with the questions of \u201cwhy\u201d and \u201chow,\u201d beyond the dominant \u201cwhat\u201d and \u201cwhere\u201d framework for understanding vision. They are invisible in terms of pixels but nevertheless drive the creation, maintenance, and development of visual scenes. We therefore coin them the \u201cdark matter\u201d of vision. Just as our universe cannot be understood by merely studying observable matter, we argue that vision cannot be understood without studying FPICU. We demonstrate the power of this perspective to develop cognitive AI systems with humanlike common sense by showing how to observe and apply FPICU with little training data to solve a wide range of challenging tasks, including tool use, planning, utility inference, and social learning. In summary, we argue that the next generation of AI must embrace \u201cdark\u201d humanlike common sense for solving novel tasks.",
+      "venue": "Engineering",
+      "citation_count": 114,
+      "doi": "10.1016/j.eng.2020.01.011",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.eng.2020.01.011",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3001931493",
+      "title": "Ranging and light field imaging with transparent photodetectors",
+      "authors": [
+        {
+          "name": "Miao-Bin Lien",
+          "affiliation": "University of Michigan\u2013Ann Arbor"
+        },
+        {
+          "name": "Che\u2010Hung Liu",
+          "affiliation": "University of Michigan\u2013Ann Arbor"
+        },
+        {
+          "name": "Il Yong Chun",
+          "affiliation": "University of Michigan\u2013Ann Arbor"
+        },
+        {
+          "name": "Saiprasad Ravishankar",
+          "affiliation": "University of Michigan\u2013Ann Arbor"
+        },
+        {
+          "name": "Hung Nien",
+          "affiliation": "University of Michigan\u2013Ann Arbor"
+        },
+        {
+          "name": "Minmin Zhou",
+          "affiliation": "University of Michigan\u2013Ann Arbor"
+        },
+        {
+          "name": "Jeffrey A. Fessler",
+          "affiliation": "University of Michigan\u2013Ann Arbor"
+        },
+        {
+          "name": "Zhaohui Zhong",
+          "affiliation": "University of Michigan\u2013Ann Arbor"
+        },
+        {
+          "name": "Theodore B. Norris",
+          "affiliation": "University of Michigan\u2013Ann Arbor"
+        }
+      ],
+      "year": 2020,
+      "abstract": "",
+      "venue": "Nature Photonics",
+      "citation_count": 126,
+      "doi": "10.1038/s41566-019-0567-3",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41566-019-0567-3",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4402727018",
+      "title": "GLaMM: Pixel Grounding Large Multimodal Model",
+      "authors": [
+        {
+          "name": "Hanoona Rasheed",
+          "affiliation": "Mohamed bin Zayed University of Artificial Intelligence"
+        },
+        {
+          "name": "Muhammad Maaz",
+          "affiliation": "Mohamed bin Zayed University of Artificial Intelligence"
+        },
+        {
+          "name": "Sahal Shaji",
+          "affiliation": "Mohamed bin Zayed University of Artificial Intelligence"
+        },
+        {
+          "name": "Abdelrahman Shaker",
+          "affiliation": "Mohamed bin Zayed University of Artificial Intelligence"
+        },
+        {
+          "name": "Salman Khan",
+          "affiliation": "Mohamed bin Zayed University of Artificial Intelligence"
+        },
+        {
+          "name": "Hisham Cholakkal",
+          "affiliation": "Mohamed bin Zayed University of Artificial Intelligence"
+        },
+        {
+          "name": "Rao Muhammad Anwer",
+          "affiliation": "Mohamed bin Zayed University of Artificial Intelligence"
+        },
+        {
+          "name": "Eric P. Xing",
+          "affiliation": "Mohamed bin Zayed University of Artificial Intelligence"
+        },
+        {
+          "name": "Ming\u2013Hsuan Yang",
+          "affiliation": "University of California, Merced"
+        },
+        {
+          "name": "Fahad Shahbaz Khan",
+          "affiliation": "Mohamed bin Zayed University of Artificial Intelligence"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Large Multimodal Models (LMMs) extend Large Lan-guage Models to the vision domain. Initial LMMs used holistic images and text prompts to generate ungrounded textual responses. Recently, region-level LMMs have been used to generate visually grounded responses. However, they are limited to only referring to a single object category at a time, require users to specify the regions, or can-not offer dense pixel-wise object grounding. In this work, we present Grounding LMM (GLaMM), the first model that can generate natural language responses seamlessly in-tertwined with corresponding object segmentation masks. GLaMM not only grounds objects appearing in the con-versations but is flexible enough to accept both textual and optional visual prompts (region of interest) as input. This empowers users to interact with the model at various levels of granularity, both in textual and visual domains. Due to the lack of standard benchmarks for the novel setting of visually Grounded Conversation Generation (GCG), we in-troduce a comprehensive evaluation protocol with our curated grounded conversations. Our proposed GCG task requires densely grounded concepts in natural scenes at a large-scale. To this end, we propose a densely annotated Grounding-anything Dataset (GranD) using our proposed automated annotation pipeline that encompasses 7.5M unique concepts grounded in a total of 810M regions available with segmentation masks. Besides GCG, GLaMM also performs effectively on several downstream tasks, e.g., referring expression segmentation, image and region-level captioning and vision-language conversations.",
+      "venue": "",
+      "citation_count": 96,
+      "doi": "10.1109/cvpr52733.2024.01236",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr52733.2024.01236",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3207832698",
+      "title": "Concept2Robot: Learning manipulation concepts from instructions and human demonstrations",
+      "authors": [
+        {
+          "name": "Lin Shao",
+          "affiliation": "Stanford University"
+        },
+        {
+          "name": "Toki Migimatsu",
+          "affiliation": "Stanford University"
+        },
+        {
+          "name": "Qiang Zhang",
+          "affiliation": "Shanghai Jiao Tong University"
+        },
+        {
+          "name": "Karen Yang",
+          "affiliation": "Stanford University"
+        },
+        {
+          "name": "Jeannette Bohg",
+          "affiliation": "Stanford University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "We aim to endow a robot with the ability to learn manipulation concepts that link natural language instructions to motor skills. Our goal is to learn a single multi-task policy that takes as input a natural language instruction and an image of the initial scene and outputs a robot motion trajectory to achieve the specified task. This policy has to generalize over different instructions and environments. Our insight is that we can approach this problem through learning from demonstration by leveraging large-scale video datasets of humans performing manipulation actions. Thereby, we avoid more time-consuming processes such as teleoperation or kinesthetic teaching. We also avoid having to manually design task-specific rewards. We propose a two-stage learning process where we first learn single-task policies through reinforcement learning. The reward is provided by scoring how well the robot visually appears to perform the task. This score is given by a video-based action classifier trained on a large-scale human activity dataset. In the second stage, we train a multi-task policy through imitation learning to imitate all the single-task policies. In extensive simulation experiments, we show that the multi-task policy learns to perform a large percentage of the 78 different manipulation tasks on which it was trained. The tasks are of greater variety and complexity than previously considered robot manipulation tasks. We show that the policy generalizes over variations of the environment. We also show examples of successful generalization over novel but similar instructions.",
+      "venue": "The International Journal of Robotics Research",
+      "citation_count": 77,
+      "doi": "10.1177/02783649211046285",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1177/02783649211046285",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3015643106",
+      "title": "SESAME: Semantic Editing of Scenes by Adding, Manipulating or Erasing Objects",
+      "authors": [
+        {
+          "name": "Evangelos Ntavelis",
+          "affiliation": "Swiss Center for Electronics and Microtechnology (Switzerland)"
+        },
+        {
+          "name": "Andr\u00e9s Romero",
+          "affiliation": "ETH Zurich"
+        },
+        {
+          "name": "Iason Kastanis",
+          "affiliation": "Swiss Center for Electronics and Microtechnology (Switzerland)"
+        },
+        {
+          "name": "Luc Van Gool",
+          "affiliation": "KU Leuven"
+        },
+        {
+          "name": "Radu Timofte",
+          "affiliation": "ETH Zurich"
+        }
+      ],
+      "year": 2020,
+      "abstract": "",
+      "venue": "Lecture notes in computer science",
+      "citation_count": 67,
+      "doi": "10.1007/978-3-030-58542-6_24",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/978-3-030-58542-6_24",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4378771767",
+      "title": "Mix-of-Show: Decentralized Low-Rank Adaptation for Multi-Concept Customization of Diffusion Models",
+      "authors": [
+        {
+          "name": "Yuchao Gu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xintao Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jay Zhangjie Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yujun Shi",
+          "affiliation": ""
+        },
+        {
+          "name": "Yunpeng Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Zihan Fan",
+          "affiliation": ""
+        },
+        {
+          "name": "Wuyou Xiao",
+          "affiliation": ""
+        },
+        {
+          "name": "Rui Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuning Chang",
+          "affiliation": ""
+        },
+        {
+          "name": "Weijia Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yixiao Ge",
+          "affiliation": ""
+        },
+        {
+          "name": "Ying Shan",
+          "affiliation": ""
+        },
+        {
+          "name": "Mike Zheng Shou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Public large-scale text-to-image diffusion models, such as Stable Diffusion, have gained significant attention from the community. These models can be easily customized for new concepts using low-rank adaptations (LoRAs). However, the utilization of multiple concept LoRAs to jointly support multiple customized concepts presents a challenge. We refer to this scenario as decentralized multi-concept customization, which involves single-client concept tuning and center-node concept fusion. In this paper, we propose a new framework called Mix-of-Show that addresses the challenges of decentralized multi-concept customization, including concept conflicts resulting from existing single-client LoRA tuning and identity loss during model fusion. Mix-of-Show adopts an embedding-decomposed LoRA (ED-LoRA) for single-client tuning and gradient fusion for the center node to preserve the in-domain essence of single concepts and support theoretically limitless concept fusion. Additionally, we introduce regionally controllable sampling, which extends spatially controllable sampling (e.g., ControlNet and T2I-Adaptor) to address attribute binding and missing object problems in multi-concept sampling. Extensive experiments demonstrate that Mix-of-Show is capable of composing multiple customized concepts with high fidelity, including characters, objects, and scenes.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 30,
+      "doi": "10.48550/arxiv.2305.18292",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2305.18292",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4377235251",
+      "title": "Exploring Hierarchical Spatial Layout Cues for 3D Point Cloud Based Scene Graph Prediction",
+      "authors": [
+        {
+          "name": "Mingtao Feng",
+          "affiliation": "Xidian University"
+        },
+        {
+          "name": "Haoran Hou",
+          "affiliation": "Xidian University"
+        },
+        {
+          "name": "Liang Zhang",
+          "affiliation": "Xidian University"
+        },
+        {
+          "name": "Yulan Guo",
+          "affiliation": "Sun Yat-sen University"
+        },
+        {
+          "name": "Hongshan Yu",
+          "affiliation": "Hunan University"
+        },
+        {
+          "name": "Yaonan Wang",
+          "affiliation": "Hunan University"
+        },
+        {
+          "name": "Ajmal Mian",
+          "affiliation": "University of Western Australia"
+        }
+      ],
+      "year": 2023,
+      "abstract": "3D scene graph prediction is important for intelligent agents to gather information and perceive semantics of their environments. However, constructing an effective graph is nontrivial given the complexity of natural scenes. Existing solutions for graph representation of 3D scenes still distinguish each detailed discrepancy among all the relationships as flat thinking, ignoring the mechanism used by humans to perform this task. Inspired by the role of the prefrontal cortex in hierarchical reasoning, we analyze this problem from a novel perspective: exploring hierarchical spatial layout cues in 3D space and navigating that hierarchy to make the 3D scene graph more accurate in a vertical division to horizontal propagation strategy. To this end, we first encode the contextual object features for fine-gained object category classification. Next, we build a bottom-up hierarchical graph to predict remarkably diverse support relationships in a single concept regardless of numerous irrelevant relationships. Finally, equipped with the spatially-true and semantically-meaningful support relationships, we focus on the local region layout to propagate the semantic features to predict the additional non-support relationships under the guidance of the given referred hierarchical graph nodes. Experiments on the challenging 3DSSG benchmark show that our algorithm outperforms existing state-of-the-art, and can also alleviate the impact of the long-tailed distribution of training data. Our code is available at <uri xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">https://github.com/HHrEtvP/HSLC-3DSG/</uri> .",
+      "venue": "IEEE Transactions on Multimedia",
+      "citation_count": 45,
+      "doi": "10.1109/tmm.2023.3277736",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tmm.2023.3277736",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4380763514",
+      "title": "Digital twin-based structural health monitoring by combining measurement and computational data: An aircraft wing example",
+      "authors": [
+        {
+          "name": "Xiaonan Lai",
+          "affiliation": "Dalian University of Technology"
+        },
+        {
+          "name": "Liangliang Yang",
+          "affiliation": "Dalian University of Technology"
+        },
+        {
+          "name": "Xiwang He",
+          "affiliation": "Dalian University of Technology"
+        },
+        {
+          "name": "Yong Pang",
+          "affiliation": "Dalian University of Technology"
+        },
+        {
+          "name": "Xueguan Song",
+          "affiliation": "Dalian University of Technology"
+        },
+        {
+          "name": "Wei Sun",
+          "affiliation": "Dalian University of Technology"
+        }
+      ],
+      "year": 2023,
+      "abstract": "",
+      "venue": "Journal of Manufacturing Systems",
+      "citation_count": 79,
+      "doi": "10.1016/j.jmsy.2023.06.006",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.jmsy.2023.06.006",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3120954100",
+      "title": "A benchmark for room acoustical simulation. Concept and database",
+      "authors": [
+        {
+          "name": "Fabian Brinkmann",
+          "affiliation": "Technische Universit\u00e4t Berlin"
+        },
+        {
+          "name": "Lukas Asp\u00f6ck",
+          "affiliation": "RWTH Aachen University"
+        },
+        {
+          "name": "David Ackermann",
+          "affiliation": "Technische Universit\u00e4t Berlin"
+        },
+        {
+          "name": "Rob Opdam",
+          "affiliation": "RWTH Aachen University"
+        },
+        {
+          "name": "Michael Vorl\u00e4nder",
+          "affiliation": "RWTH Aachen University"
+        },
+        {
+          "name": "Stefan Weinzierl",
+          "affiliation": "Technische Universit\u00e4t Berlin"
+        }
+      ],
+      "year": 2021,
+      "abstract": "",
+      "venue": "Applied Acoustics",
+      "citation_count": 30,
+      "doi": "10.1016/j.apacoust.2020.107867",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.apacoust.2020.107867",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4212948711",
+      "title": "Sentinel-1-Based Water and Flood Mapping: Benchmarking Convolutional Neural Networks Against an Operational Rule-Based Processing Chain",
+      "authors": [
+        {
+          "name": "Max Bereczky",
+          "affiliation": "Deutsches Zentrum f\u00fcr Luft- und Raumfahrt e. V. (DLR)"
+        },
+        {
+          "name": "Marc Wieland",
+          "affiliation": "Deutsches Zentrum f\u00fcr Luft- und Raumfahrt e. V. (DLR)"
+        },
+        {
+          "name": "Christian Krullikowski",
+          "affiliation": "Deutsches Zentrum f\u00fcr Luft- und Raumfahrt e. V. (DLR)"
+        },
+        {
+          "name": "Sandro Martinis",
+          "affiliation": "Deutsches Zentrum f\u00fcr Luft- und Raumfahrt e. V. (DLR)"
+        },
+        {
+          "name": "Simon Plank",
+          "affiliation": "Deutsches Zentrum f\u00fcr Luft- und Raumfahrt e. V. (DLR)"
+        }
+      ],
+      "year": 2022,
+      "abstract": "In this study, the effectiveness of several convolutional neural network architectures (AlbuNet-34/FCN/DeepLabV3+/U-Net/U-Net++) for water and flood mapping using Sentinel-1 amplitude data is compared to an operational rule-based processor (S-1FS). This comparison is made using a globally distributed dataset of Sentinel-1 scenes and the corresponding ground truth water masks derived from Sentinel-2 data to evaluate the performance of the classifiers on a global scale in various environmental conditions. The impact of using single versus dual-polarized input data on the segmentation capabilities of AlbuNet-34 is evaluated. The weighted cross entropy loss is combined with the Lov\u00e1sz loss and various data augmentation methods are investigated. Furthermore, the concept of atrous spatial pyramid pooling used in DeepLabV3+ and the multiscale feature fusion inherent in U-Net++ are assessed. Finally, the generalization capacity of AlbuNet-34 is tested in a realistic flood mapping scenario by using additional data from two flood events and the Sen1Floods11 dataset. The model trained using dual polarized data outperforms the S-1FS significantly and increases the intersection over union (IoU) score by 5%. Using a weighted combination of the cross entropy and the Lov\u00e1sz loss increases the IoU score by another 2%. Geometric data augmentation degrades the performance while radiometric data augmentation leads to better testing results. FCN/DeepLabV3+/U-Net/U-Net++ perform not significantly different to AlbuNet-34. Models trained on data showing no distinct inundation perform very well in mapping the water extent during two flood events, reaching IoU scores of 0.96 and 0.94, respectively, and perform comparatively well on the Sen1Floods11 dataset.",
+      "venue": "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing",
+      "citation_count": 61,
+      "doi": "10.1109/jstars.2022.3152127",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/jstars.2022.3152127",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3038245394",
+      "title": "Concept2Robot: Learning Manipulation Concepts from Instructions and Human Demonstrations",
+      "authors": [
+        {
+          "name": "Lin Shao",
+          "affiliation": "Corvallis Environmental Center"
+        },
+        {
+          "name": "Toki Migimatsu",
+          "affiliation": "Corvallis Environmental Center"
+        },
+        {
+          "name": "Qiang Zhang",
+          "affiliation": "Corvallis Environmental Center"
+        },
+        {
+          "name": "Kaiyuan Yang",
+          "affiliation": "Corvallis Environmental Center"
+        },
+        {
+          "name": "Jeannette Bohg",
+          "affiliation": "Corvallis Environmental Center"
+        }
+      ],
+      "year": 2020,
+      "abstract": "We aim to endow a robot with the ability to learn manipulation concepts that link natural language instructions to motor skills.Our goal is to learn a single multi-task policy that takes as input a natural language instruction and an image of the initial scene and outputs a robot motion trajectory to achieve the specified task.This policy has to generalize over different instructions and environments.Our insight is that we can approach this problem through Learning from Demonstration by leveraging large-scale video datasets of humans performing manipulation actions.Thereby, we avoid more time-consuming processes such as teleoperation or kinesthetic teaching.We also avoid having to manually design task-specific rewards.We propose a two-stage learning process where we first learn single-task policies through reinforcement learning.The reward is provided by scoring how well the robot visually appears to perform the task.This score is given by a video-based action classifier trained on a large-scale human activity dataset.In the second stage, we train a multi-task policy through imitation learning to imitate all the single-task policies.In extensive simulation experiments, we show that the multi-task policy learns to perform a large percentage of the 78 different manipulation tasks on which it was trained.The tasks are of greater variety and complexity than previously considered robot manipulation tasks.We show that the policy generalizes over variations of the environment.We also show examples of successful generalization over novel but similar instructions.",
+      "venue": "",
+      "citation_count": 54,
+      "doi": "10.15607/rss.2020.xvi.082",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.15607/rss.2020.xvi.082",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4221110436",
+      "title": "Frequency Selective Computational Through Wall Imaging Using a Dynamically Reconfigurable Metasurface Aperture",
+      "authors": [
+        {
+          "name": "The Viet Hoang",
+          "affiliation": "Queen's University Belfast"
+        },
+        {
+          "name": "Rupesh Kumar",
+          "affiliation": "Queen's University Belfast"
+        },
+        {
+          "name": "Thomas Froment\u00e8ze",
+          "affiliation": "Universit\u00e9 de Limoges"
+        },
+        {
+          "name": "Mar\u00eda Garc\u00eda-Fern\u00e1ndez",
+          "affiliation": "Queen's University Belfast"
+        },
+        {
+          "name": "Guillermo \u00c1lvarez-Narciandi",
+          "affiliation": "Queen's University Belfast"
+        },
+        {
+          "name": "Vincent Fusco",
+          "affiliation": "Queen's University Belfast"
+        },
+        {
+          "name": "Okan Yurduseven",
+          "affiliation": "Queen's University Belfast"
+        }
+      ],
+      "year": 2022,
+      "abstract": "A two-dimensional (2D) dynamically reconfigurable metasurface aperture is presented to perform frequency selective through wall imaging (TWI) with an unknown structure of the wall. Generally, in TWI, the medium properties and thickness of the wall need to be known in advance, which is not always possible. Moreover, compensating for these effects can significantly increase the computational complexity. We propose a two-stage method that leverages the concept of a dynamically reconfigurable metasurface antenna (DMA) in a narrow frequency band in which the effects of the wall are minimum to perform TWI. First, two simple probe antennas are used to evaluate the reflection response of the wall by means of a simple backscatter measurement. Based on these characteristics, a narrow band frequency selective window is identified. Second, a DMA consisting of an array of tunable metamaterial elements is used for TWI in the identified frequency selective window. The DMA aperture enables the scene information to be sampled through a set of spatio-temporally varying quasi-random modes using a single-channel transmit and receive architecture. This physical-layer compression scheme can significantly simplify the data acquisition while the quasi-random sampling of the scene information eliminates the need for conventional raster-scan based modalities.",
+      "venue": "IEEE Open Journal of Antennas and Propagation",
+      "citation_count": 31,
+      "doi": "10.1109/ojap.2022.3161128",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/ojap.2022.3161128",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3005215696",
+      "title": "Towards spaceborne monitoring of localized CO <sub>2</sub> emissions: an instrument concept and first performance assessment",
+      "authors": [
+        {
+          "name": "Johan Strandgren",
+          "affiliation": "Deutsches Zentrum f\u00fcr Luft- und Raumfahrt e. V. (DLR)"
+        },
+        {
+          "name": "David Krutz",
+          "affiliation": "Deutsches Zentrum f\u00fcr Luft- und Raumfahrt e. V. (DLR)"
+        },
+        {
+          "name": "Jonas Wilzewski",
+          "affiliation": "Ludwig-Maximilians-Universit\u00e4t M\u00fcnchen"
+        },
+        {
+          "name": "Carsten Paproth",
+          "affiliation": "Deutsches Zentrum f\u00fcr Luft- und Raumfahrt e. V. (DLR)"
+        },
+        {
+          "name": "Ilse Sebastian",
+          "affiliation": "Deutsches Zentrum f\u00fcr Luft- und Raumfahrt e. V. (DLR)"
+        },
+        {
+          "name": "K. R. Gurney",
+          "affiliation": "Northern Arizona University"
+        },
+        {
+          "name": "Jianming Liang",
+          "affiliation": "Arizona State University"
+        },
+        {
+          "name": "Anke Roiger",
+          "affiliation": "Deutsches Zentrum f\u00fcr Luft- und Raumfahrt e. V. (DLR)"
+        },
+        {
+          "name": "A. Butz",
+          "affiliation": "Heidelberg University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Abstract. The UNFCCC (United Nations Framework Convention on Climate Change) requires the nations of the world to report their carbon dioxide (CO2) emissions. The independent verification of these reported emissions is a cornerstone for advancing towards the emission accounting and reduction measures agreed upon in the Paris Agreement. In this paper, we present the concept and first performance assessment of a compact spaceborne imaging spectrometer with a spatial resolution of 50\u00d750 m2 that could contribute to the \u201cmonitoring, verification and reporting\u201d (MVR) of CO2 emissions worldwide. CO2 emissions from medium-sized power plants (1\u201310 Mt CO2 yr\u22121), currently not targeted by other spaceborne missions, represent a significant part of the global CO2 emission budget. In this paper we show that the proposed instrument concept is able to resolve emission plumes from such localized sources as a first step towards corresponding CO2 flux estimates. Through radiative transfer simulations, including a realistic instrument noise model and a global trial ensemble covering various geophysical scenarios, it is shown that an instrument noise error of 1.1 ppm (1\u03c3) can be achieved for the retrieval of the column-averaged dry-air mole fraction of CO2 (XCO2). Despite a limited amount of information from a single spectral window and a relatively coarse spectral resolution, scattering by atmospheric aerosol and cirrus can be partly accounted for in the XCO2 retrieval, with deviations of at most 4.0 ppm from the true abundance for two-thirds of the scenes in the global trial ensemble. We further simulate the ability of the proposed instrument concept to observe CO2 plumes from single power plants in an urban area using high-resolution CO2 emission and surface albedo data for the city of Indianapolis. Given the preliminary instrument design and the corresponding instrument noise error, emission plumes from point sources with an emission rate down to the order of 0.3 Mt CO2 yr\u22121 can be resolved, i.e., well below the target source strength of 1 Mt CO2 yr\u22121. This leaves a significant margin for additional error sources, like scattering particles and complex meteorology, and shows the potential for subsequent CO2 flux estimates with the proposed instrument concept.",
+      "venue": "Atmospheric measurement techniques",
+      "citation_count": 35,
+      "doi": "10.5194/amt-13-2887-2020",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.5194/amt-13-2887-2020",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3014744730",
+      "title": "High-performance zero-standby-power-consumption-under-bending pressure sensors for artificial reflex arc",
+      "authors": [
+        {
+          "name": "Ke He",
+          "affiliation": "Chinese Academy of Sciences"
+        },
+        {
+          "name": "Yuxin Hou",
+          "affiliation": "University of Chinese Academy of Sciences"
+        },
+        {
+          "name": "Chenghan Yi",
+          "affiliation": "Chinese Academy of Sciences"
+        },
+        {
+          "name": "Nianci Li",
+          "affiliation": "Shenzhen Institutes of Advanced Technology"
+        },
+        {
+          "name": "Fan Sui",
+          "affiliation": "Shenzhen Institutes of Advanced Technology"
+        },
+        {
+          "name": "Yang Bing",
+          "affiliation": "University of Science and Technology of China"
+        },
+        {
+          "name": "Guoqiang Gu",
+          "affiliation": "Southern University of Science and Technology"
+        },
+        {
+          "name": "Weimin Li",
+          "affiliation": "Shenzhen Institutes of Advanced Technology"
+        },
+        {
+          "name": "Zhixun Wang",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Yinghe Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Guangming Tao",
+          "affiliation": "Huazhong University of Science and Technology"
+        },
+        {
+          "name": "Lei Wei",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Chunlei Yang",
+          "affiliation": "Shenzhen Institutes of Advanced Technology"
+        },
+        {
+          "name": "Ming Chen",
+          "affiliation": "Chinese Academy of Sciences"
+        }
+      ],
+      "year": 2020,
+      "abstract": "",
+      "venue": "Nano Energy",
+      "citation_count": 55,
+      "doi": "10.1016/j.nanoen.2020.104743",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.nanoen.2020.104743",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3204394763",
+      "title": "From SLAM to Situational Awareness: Challenges and Survey",
+      "authors": [
+        {
+          "name": "Hriday Bavle",
+          "affiliation": "University of Luxembourg"
+        },
+        {
+          "name": "Jos\u00e9 Luis S\u00e1nchez-L\u00f3pez",
+          "affiliation": "University of Luxembourg"
+        },
+        {
+          "name": "Claudio Cimarelli",
+          "affiliation": "University of Luxembourg"
+        },
+        {
+          "name": "Ali Tourani",
+          "affiliation": "University of Luxembourg"
+        },
+        {
+          "name": "Holger Voos",
+          "affiliation": "University of Luxembourg"
+        }
+      ],
+      "year": 2023,
+      "abstract": "The capability of a mobile robot to efficiently and safely perform complex missions is limited by its knowledge of the environment, namely the <i>situation</i>. Advanced reasoning, decision-making, and execution skills enable an intelligent agent to act autonomously in unknown environments. Situational Awareness (SA) is a fundamental capability of humans that has been deeply studied in various fields, such as psychology, military, aerospace, and education. Nevertheless, it has yet to be considered in robotics, which has focused on single compartmentalized concepts such as sensing, spatial perception, sensor fusion, state estimation, and Simultaneous Localization and Mapping (SLAM). Hence, the present research aims to connect the broad multidisciplinary existing knowledge to pave the way for a complete SA system for mobile robotics that we deem paramount for autonomy. To this aim, we define the principal components to structure a robotic SA and their area of competence. Accordingly, this paper investigates each aspect of SA, surveying the state-of-the-art robotics algorithms that cover them, and discusses their current limitations. Remarkably, essential aspects of SA are still immature since the current algorithmic development restricts their performance to only specific environments. Nevertheless, Artificial Intelligence (AI), particularly Deep Learning (DL), has brought new methods to bridge the gap that maintains these fields apart from the deployment to real-world scenarios. Furthermore, an opportunity has been discovered to interconnect the vastly fragmented space of robotic comprehension algorithms through the mechanism of <i>Situational Graph (S-Graph)</i>, a generalization of the well-known scene graph. Therefore, we finally shape our vision for the future of robotic situational awareness by discussing interesting recent research directions.",
+      "venue": "Sensors",
+      "citation_count": 54,
+      "doi": "10.3390/s23104849",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/s23104849",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3176802018",
+      "title": "Photonics-assisted joint radar and communication system based on an optoelectronic oscillator",
+      "authors": [
+        {
+          "name": "Zhujun Xue",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Shangyuan Li",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Xiaoxiao Xue",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Xiaoping Zheng",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Bingkun Zhou",
+          "affiliation": "Tsinghua University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "This paper reports a photonics-assisted joint radar and communication system for intelligent transportation based on an optoelectronic oscillator (OEO). By manipulating the optical multi-dimensional processing module inserted in the OEO loop, two phase-orthogonal integrated signals are generated with low phase noise and high frequency, as the communication data loaded on the overall polarity of radar pulses. At the receiver, single-channel matched filtering and two-channel IQ data fusion are utilized to retrieve the communication data and the range profile, without any performance deterioration of either. In this way, the contradiction between the performance of two functions existing in the previous scheme is solved, and the integrated performance can be further optimized as bandwidth increases. A proof-of-concept experiment with 2 GHz bandwidth at 24 GHz, which is the operating frequency of short-range automotive radar, is carried out to verify that the proposed system can meet the requirement of the intelligent vehicles in the short-range scene. A communication capacity of 335.6 Mbps, a range profile with a resolution of 0.075 m, and a peak-to-sidelobe ratio (PSLR) of 20 dB is demonstrated under the experimental condition. The error vector magnitude (EVM) curve and constellation diagrams versus received power are measured, where the EVM is -8 and -14.5 dB corresponding to a power of -14 and 6 dBm, respectively.",
+      "venue": "Optics Express",
+      "citation_count": 57,
+      "doi": "10.1364/oe.430910",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1364/oe.430910",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3184565287",
+      "title": "PyVT: A python-based open-source software for visualization and graphic analysis of fluid dynamics datasets",
+      "authors": [
+        {
+          "name": "Qing Liu",
+          "affiliation": "Mississippi State University"
+        },
+        {
+          "name": "Zheng Qiao",
+          "affiliation": "Mississippi State University"
+        },
+        {
+          "name": "Yu Lv",
+          "affiliation": "Institute of Mechanics"
+        }
+      ],
+      "year": 2021,
+      "abstract": "",
+      "venue": "Aerospace Science and Technology",
+      "citation_count": 17,
+      "doi": "10.1016/j.ast.2021.106961",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.ast.2021.106961",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2985946819",
+      "title": "Ambient Information Visualisation and Visitors\u2019 Technology Acceptance of Mixed Reality in Museums",
+      "authors": [
+        {
+          "name": "Ramy Hammady",
+          "affiliation": "Helwan University"
+        },
+        {
+          "name": "Minhua Ma",
+          "affiliation": "Falmouth University"
+        },
+        {
+          "name": "Carl Strathearn",
+          "affiliation": "University of Staffordshire"
+        }
+      ],
+      "year": 2020,
+      "abstract": "The visualisation of historical information and storytelling in museums is a crucial process for transferring knowledge by directly and simplistically engaging the museum audience. Until recently, technological limitations meant museums were limited to 2D and 3D screen-based information displays. However, advancements in Mixed Reality (MR) devices permit the propagation of a virtual overlay that amalgamates both real-world and virtual environments into a single spectrum. These holographical devices project a 3D space around the user which can be augmented with virtual artefacts, thus potentially changing the traditional museum visitor experience. Few research studies focus on utilising this virtual space to generate objects that do not visually inhibit or distract the operator. Therefore, this article aims to introduce the Ambient Information Visualisation Concept (AIVC) as a new form of storytelling, which can enhance the communication and interactivity between museum visitors and exhibits by measuring and sustaining an optimum spatial environment around the user. Furthermore, this article investigates the perceptual influences of AIVC on the users\u2019 level of engagement in the museum. This article utilises the Microsoft HoloLens, which is one of the most cutting-edge imagining technologies available to date, in order to deploy the AIVC in a historical storytelling scene \u201cThe Battle\u201d in the Egyptian department at The Manchester Museum. This research further seeks to measure the user acceptance of the MR prototype by adopting the Technology Acceptance Model (TAM). The operational approaches investigated in this study include personal innovativeness (PI), enjoyment (ENJ), usefulness (USF), ease of use (EOU), and willingness of future use (WFU). The population sampling methodology utilised 47 participants from the museum's daily visitors. Results of this research indicate that the WFU construct is the primary outcome of this study, followed by the usefulness factor. Further findings conclude that the majority of users found this technology highly engaging and easy to use. The combination of the proposed system and AIVC in museum storytelling has extensive applications in museums, galleries, and cultural heritage places to enhance the visitor experience.",
+      "venue": "Journal on Computing and Cultural Heritage",
+      "citation_count": 89,
+      "doi": "10.1145/3359590",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3359590",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3168997536",
+      "title": "A Survey of Convolutional Neural Networks: Analysis, Applications, and Prospects",
+      "authors": [
+        {
+          "name": "Zewen Li",
+          "affiliation": "Hohai University"
+        },
+        {
+          "name": "Fan Liu",
+          "affiliation": "Hohai University"
+        },
+        {
+          "name": "Wenjie Yang",
+          "affiliation": "Hohai University"
+        },
+        {
+          "name": "Shouheng Peng",
+          "affiliation": "Hohai University"
+        },
+        {
+          "name": "Jun Zhou",
+          "affiliation": "Griffith University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "A convolutional neural network (CNN) is one of the most significant networks in the deep learning field. Since CNN made impressive achievements in many areas, including but not limited to computer vision and natural language processing, it attracted much attention from both industry and academia in the past few years. The existing reviews mainly focus on CNN\u2019s applications in different scenarios without considering CNN from a general perspective, and some novel ideas proposed recently are not covered. In this review, we aim to provide some novel ideas and prospects in this fast-growing field. Besides, not only 2-D convolution but also 1-D and multidimensional ones are involved. First, this review introduces the history of CNN. Second, we provide an overview of various convolutions. Third, some classic and advanced CNN models are introduced; especially those key points making them reach state-of-the-art results. Fourth, through experimental analysis, we draw some conclusions and provide several rules of thumb for functions and hyperparameter selection. Fifth, the applications of 1-D, 2-D, and multidimensional convolution are covered. Finally, some open issues and promising directions for CNN are discussed as guidelines for future work.",
+      "venue": "IEEE Transactions on Neural Networks and Learning Systems",
+      "citation_count": 4541,
+      "doi": "10.1109/tnnls.2021.3084827",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tnnls.2021.3084827",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4323924854",
+      "title": "Cones: Concept Neurons in Diffusion Models for Customized Generation",
+      "authors": [
+        {
+          "name": "Zhi\u2010Heng Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruili Feng",
+          "affiliation": ""
+        },
+        {
+          "name": "K. J. Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yifei Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Kecheng Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Deli Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Jingren Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang Cao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Human brains respond to semantic features of presented stimuli with different neurons. It is then curious whether modern deep neural networks admit a similar behavior pattern. Specifically, this paper finds a small cluster of neurons in a diffusion model corresponding to a particular subject. We call those neurons the concept neurons. They can be identified by statistics of network gradients to a stimulation connected with the given subject. The concept neurons demonstrate magnetic properties in interpreting and manipulating generation results. Shutting them can directly yield the related subject contextualized in different scenes. Concatenating multiple clusters of concept neurons can vividly generate all related concepts in a single image. A few steps of further fine-tuning can enhance the multi-concept capability, which may be the first to manage to generate up to four different subjects in a single image. For large-scale applications, the concept neurons are environmentally friendly as we only need to store a sparse cluster of int index instead of dense float32 values of the parameters, which reduces storage consumption by 90\\% compared with previous subject-driven generation methods. Extensive qualitative and quantitative studies on diverse scenarios show the superiority of our method in interpreting and manipulating diffusion models.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 19,
+      "doi": "10.48550/arxiv.2303.05125",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2303.05125",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4321483963",
+      "title": "Multimodal Remote Sensing Image Segmentation With Intuition-Inspired Hypergraph Modeling",
+      "authors": [
+        {
+          "name": "Qibin He",
+          "affiliation": "Chinese Academy of Sciences"
+        },
+        {
+          "name": "Xian Sun",
+          "affiliation": "Aerospace Information Research Institute"
+        },
+        {
+          "name": "Wenhui Diao",
+          "affiliation": "Chinese Academy of Sciences"
+        },
+        {
+          "name": "Zhiyuan Yan",
+          "affiliation": "Institute of Electronics"
+        },
+        {
+          "name": "Fanglong Yao",
+          "affiliation": "University of Chinese Academy of Sciences"
+        },
+        {
+          "name": "Kun Fu",
+          "affiliation": "Aerospace Information Research Institute"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Multimodal remote sensing (RS) image segmentation aims to comprehensively utilize multiple RS modalities to assign pixel-level semantics to the studied scenes, which can provide a new perspective for global city understanding. Multimodal segmentation inevitably encounters the challenge of modeling intra- and inter-modal relationships, $i.e$ ., object diversity and modal gaps. However, the previous methods are usually designed for a single RS modality, limited by the noisy collection environment and poor discrimination information. Neuropsychology and neuroanatomy confirm that the human brain performs the guiding perception and integrative cognition of multimodal semantics through intuitive reasoning. Therefore, establishing a semantic understanding framework inspired by intuition to realize multimodal RS segmentation becomes the main motivation of this work. Drived by the superiority of hypergraphs in modeling high-order relationships, we propose an intuition-inspired hypergraph network ( $I^{2}HN$ ) for multimodal RS segmentation. Specifically, we present a hypergraph parser to imitate guiding perception to learn intra-modal object-wise relationships. It parses the input modality into irregular hypergraphs to mine semantic clues and generate robust mono-modal representations. In addition, we also design a hypergraph matcher to dynamically update the hypergraph structure from the explicit correspondence of visual concepts, similar to integrative cognition, to improve cross-modal compatibility when fusing multimodal features. Extensive experiments on two multimodal RS datasets show that the proposed $I^{2}HN$ outperforms the state-of-the-art models, achieving F1/mIoU accuracy 91.4%/82.9% on the ISPRS Vaihingen dataset, and 92.1%/84.2% on the MSAW dataset.",
+      "venue": "IEEE Transactions on Image Processing",
+      "citation_count": 71,
+      "doi": "10.1109/tip.2023.3245324",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tip.2023.3245324",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4321370806",
+      "title": "Single-cell transcriptome sequencing allows genetic separation, characterization and identification of individuals in multi-person biological mixtures",
+      "authors": [
+        {
+          "name": "Lucie Kulhankova",
+          "affiliation": "Erasmus MC"
+        },
+        {
+          "name": "Diego Montiel Gonz\u00e1lez",
+          "affiliation": "Princess M\u00e1xima Center"
+        },
+        {
+          "name": "Eric M. Bindels",
+          "affiliation": "Erasmus MC"
+        },
+        {
+          "name": "Daniel Kling",
+          "affiliation": "Swedish National Board of Forensic Medicine"
+        },
+        {
+          "name": "Manfred Kayser",
+          "affiliation": "Erasmus MC"
+        },
+        {
+          "name": "Eskeatnaf Mulugeta",
+          "affiliation": "Erasmus MC"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Identifying individuals from biological mixtures to which they contributed is highly relevant in crime scene investigation and various biomedical research fields, but despite previous attempts, remains nearly impossible. Here we investigated the potential of using single-cell transcriptome sequencing (scRNA-seq), coupled with a dedicated bioinformatics pipeline (De-goulash), to solve this long-standing problem. We developed a novel approach and tested it with scRNA-seq data that we de-novo generated from multi-person blood mixtures, and also in-silico mixtures we assembled from public single individual scRNA-seq datasets, involving different numbers, ratios, and bio-geographic ancestries of contributors. For all 2 up to 9-person balanced and imbalanced blood mixtures with ratios up to 1:60, we achieved a clear single-cell separation according to the contributing individuals. For all separated mixture contributors, sex and bio-geographic ancestry (maternal, paternal, and bi-parental) were correctly determined. All separated contributors were correctly individually identified with court-acceptable statistical certainty using de-novo generated whole exome sequencing reference data. In this proof-of-concept study, we demonstrate the feasibility of single-cell approaches to deconvolute biological mixtures and subsequently genetically characterise, and individually identify the separated mixture contributors. With further optimisation and implementation, this approach may eventually allow moving to challenging biological mixtures, including those found at crime scenes.",
+      "venue": "Communications Biology",
+      "citation_count": 22,
+      "doi": "10.1038/s42003-023-04557-z",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s42003-023-04557-z",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3087674987",
+      "title": "Differential Viewpoints for Ground Terrain Material Recognition",
+      "authors": [
+        {
+          "name": "Jia Xue",
+          "affiliation": "Rutgers, The State University of New Jersey"
+        },
+        {
+          "name": "Hang Zhang",
+          "affiliation": "Amazon (United States)"
+        },
+        {
+          "name": "Ko Nishino",
+          "affiliation": "Kyoto University"
+        },
+        {
+          "name": "Kristin Dana",
+          "affiliation": "Rutgers, The State University of New Jersey"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Computational surface modeling that underlies material recognition has transitioned from reflectance modeling using in-lab controlled radiometric measurements to image-based representations based on internet-mined single-view images captured in the scene. We take a middle-ground approach for material recognition that takes advantage of both rich radiometric cues and flexible image capture. A key concept is differential angular imaging, where small angular variations in image capture enables angular-gradient features for an enhanced appearance representation that improves recognition. We build a large-scale material database, Ground Terrain in Outdoor Scenes (GTOS) database, to support ground terrain recognition for applications such as autonomous driving and robot navigation. The database consists of over 30,000 images covering 40 classes of outdoor ground terrain under varying weather and lighting conditions. We develop a novel approach for material recognition called texture-encoded angular network (TEAN) that combines deep encoding pooling of RGB information and differential angular images for angular-gradient features to fully leverage this large dataset. With this novel network architecture, we extract characteristics of materials encoded in the angular and spatial gradients of their appearance. Our results show that TEAN achieves recognition performance that surpasses single view performance and standard (non-differential/large-angle sampling) multiview performance.",
+      "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+      "citation_count": 30,
+      "doi": "10.1109/tpami.2020.3025121",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tpami.2020.3025121",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3031454572",
+      "title": "Integrating Incidence Angle Dependencies Into the Clustering-Based Segmentation of SAR Images",
+      "authors": [
+        {
+          "name": "Anca Cristea",
+          "affiliation": "UiT The Arctic University of Norway"
+        },
+        {
+          "name": "Jeroen Van Houtte",
+          "affiliation": "University of Antwerp"
+        },
+        {
+          "name": "Anthony P. Doulgeris",
+          "affiliation": "UiT The Arctic University of Norway"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Synthetic aperture radar systems perform signal acquisition under varying incidence angles and register an implicit intensity decay from near to far range. Owing to the geometrical interaction between microwaves and the imaged targets, the rates at which intensities decay depend on the nature of the targets, thus rendering single-rate image correction approaches only partially successful. The decay, also known as the incidence angle effect, impacts the segmentation of wide-swath images performed on absolute intensity values. We propose to integrate the target-specific intensity decay rates into a nonstationary statistical model, for use in a fully automatic and unsupervised segmentation algorithm. We demonstrate this concept by assuming Gaussian distributed log-intensities and linear decay rates, a fitting approximation for the smooth systematic decay observed for extended flat targets. The segmentation is performed on Sentinel-1, Radarsat-2, and UAVSAR wide-swath scenes containing open water, sea ice, and oil slicks. As a result, we obtain segments connected throughout the entire incidence angle range, thus overcoming the limitations of modeling that does not account for different per-target decays. The model simplicity also allows for short execution times and presents the segmentation approach as a potential operational algorithm. In addition, we estimate the log-linear decay rates and examine their potential for a physical interpretation of the segments.",
+      "venue": "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing",
+      "citation_count": 37,
+      "doi": "10.1109/jstars.2020.2993067",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/jstars.2020.2993067",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3006394186",
+      "title": "Time-encoded single-pixel 3D imaging",
+      "authors": [
+        {
+          "name": "Jiajie Teng",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Qiang Guo",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Minghua Chen",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Sigang Yang",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Hongwei Chen",
+          "affiliation": "Tsinghua University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "With the increasing attention in single pixel imaging and three dimensional (3D) measurement, several effective single-pixel 3D imaging (SPI-3D) systems have been put forward, which are capable of retrieving the 3D form of an object. However, for a dynamic 3D scene that occurs within several microseconds, these SPI-3D systems have encountered multiple speed limitations from active illumination devices and decoding algorithms. Here, a time-encoded single-pixel 3D (TESP-3D) imaging method is proposed, which employs an active one dimensional infrared time-encoded projector and four single-pixel detectors to acquire the 3D information on dynamic targets with a line rate of up to 500 000 Hz. As a proof of concept, we demonstrate 3D line-scanning imaging on fast moving objects with a velocity of 25 m/s. TESP-3D is a promising method for industrial on-line 3D inspection and high throughput 3D screening.",
+      "venue": "APL Photonics",
+      "citation_count": 26,
+      "doi": "10.1063/1.5139924",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1063/1.5139924",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4388622909",
+      "title": "An Approach to Generate a Caption for an Image Collection Using Scene Graph Generation",
+      "authors": [
+        {
+          "name": "Itthisak Phueaksri",
+          "affiliation": "Nagoya University"
+        },
+        {
+          "name": "Marc A. Kastner",
+          "affiliation": "Kyoto University"
+        },
+        {
+          "name": "Yasutomo Kawanishi",
+          "affiliation": "Nagoya University"
+        },
+        {
+          "name": "Takahiro Komamizu",
+          "affiliation": "Nagoya University"
+        },
+        {
+          "name": "Ichiro Ide",
+          "affiliation": "Nagoya University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Summarization is a challenging task that aims to generate a summary by grasping common information of a given set of information. Text summarization is a popular task of determining the topic or generating a textual summary of documents. In contrast, image summarization aims to find a representative summary of a collection of images. However, current methods are still restricted to generating a visual scene graph, tags, and noun phrases, but cannot generate a fitting textual description of an image collection. Thus, we introduce a novel framework for generating a summarized caption of an image collection. Since scene graph generation shows advancement in describing objects and their relationships on a single image, we use it in the proposed method to generate a scene graph for each image in an image collection. Then, we find common objects and their relationships from all scene graphs and represent them as a summarized scene graph. For this, we merge all scene graphs and select part of it by estimating the most common objects and relationships. Finally, the summarized scene graph is input into a captioning model. In addition, we introduce a technique to generalize specific words in the final caption into common concept words incorporating external knowledge. To evaluate the proposed method, we construct a dataset for this task by extending the annotation of the MS-COCO dataset using an image retrieval method. The evaluation of the proposed method on this dataset showed promising performance compared to text summarization-based methods.",
+      "venue": "IEEE Access",
+      "citation_count": 15,
+      "doi": "10.1109/access.2023.3332098",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/access.2023.3332098",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3001480026",
+      "title": "Assigning forensic body fluids to donors in mixed body fluids by targeted RNA/DNA deep sequencing of coding region SNPs",
+      "authors": [
+        {
+          "name": "Sabrina Ingold",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Guro D\u00f8rum",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Erin Hanson",
+          "affiliation": "University of Central Florida"
+        },
+        {
+          "name": "Jack Ballantyne",
+          "affiliation": "University of Central Florida"
+        },
+        {
+          "name": "Cordula Haas",
+          "affiliation": "University of Zurich"
+        }
+      ],
+      "year": 2020,
+      "abstract": "",
+      "venue": "International Journal of Legal Medicine",
+      "citation_count": 50,
+      "doi": "10.1007/s00414-020-02252-w",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s00414-020-02252-w",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3046113948",
+      "title": "A Semantic-based Scene segmentation using convolutional neural networks",
+      "authors": [
+        {
+          "name": "Aya M. Shaaban",
+          "affiliation": "Helwan University"
+        },
+        {
+          "name": "Nancy M. Salem",
+          "affiliation": "Helwan University"
+        },
+        {
+          "name": "Walid Al\u2010Atabany",
+          "affiliation": "Helwan University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "",
+      "venue": "AEU - International Journal of Electronics and Communications",
+      "citation_count": 15,
+      "doi": "10.1016/j.aeue.2020.153364",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.aeue.2020.153364",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4402753945",
+      "title": "GLACE: Global Local Accelerated Coordinate Encoding",
+      "authors": [
+        {
+          "name": "Fangjinhua Wang",
+          "affiliation": "ETH Zurich"
+        },
+        {
+          "name": "Xudong Jiang",
+          "affiliation": "ETH Zurich"
+        },
+        {
+          "name": "Silvano Galliani",
+          "affiliation": "Microsoft (United States)"
+        },
+        {
+          "name": "Christoph Vogel",
+          "affiliation": "Microsoft (United States)"
+        },
+        {
+          "name": "Marc Pollefeys",
+          "affiliation": "ETH Zurich"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Scene coordinate regression (SCR) methods are a family of visual localization methods that directly regress 2D-3D matches for camera pose estimation. They are effective in small-scale scenes but face significant challenges in large-scale scenes that are further amplified in the absence of ground truth 3D point clouds for supervision. Here, the model can only rely on reprojection constraints and needs to implicitly triangulate the points. The challenges stem from a fundamental dilemma: The network has to be invariant to observations of the same landmark at different viewpoints and lighting conditions, etc., but at the same time discriminate unrelated but similar observations. The latter becomes more relevant and severe in larger scenes. In this work, we tackle this problem by introducing the concept of co-visibility to the network. We propose GLACE, which integrates pre-trained global and local encodings and enables SCR to scale to large scenes with only a single small-sized network. Specifically, we propose a novel feature diffusion technique that implicitly groups the reprojection constraints with co-visibility and avoids overfitting to trivial solutions. Additionally, our position decoder parameterizes the output positions for large-scale scenes more effectively. Without using 3D models or depth maps for supervision, our method achieves state-of-the-art results on large-scale scenes with a low-map-size model. On Cambridge landmarks, with a single model, we achieve 17% lower median position error than Poker, the ensemble variant of the state-of-the-art SCR method ACE. Code is avail-able at: https://github.com/cvg/glace.",
+      "venue": "",
+      "citation_count": 17,
+      "doi": "10.1109/cvpr52733.2024.02037",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr52733.2024.02037",
+      "source": "openalex",
+      "_bibtex_override": ""
+    }
+  ]
+}

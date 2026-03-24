@@ -1,0 +1,915 @@
+{
+  "query": "pruning ResNet 50 GPU",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1773944992.4247923,
+  "papers": [
+    {
+      "paper_id": "arxiv-2110.13981",
+      "title": "CHIP: CHannel Independence-based Pruning for Compact Neural Networks",
+      "authors": [
+        {
+          "name": "Yang Sui",
+          "affiliation": ""
+        },
+        {
+          "name": "Miao Yin",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi Xie",
+          "affiliation": ""
+        },
+        {
+          "name": "Huy Phan",
+          "affiliation": ""
+        },
+        {
+          "name": "Saman Zonouz",
+          "affiliation": ""
+        },
+        {
+          "name": "Bo Yuan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Filter pruning has been widely used for neural network compression because of its enabled practical acceleration. To date, most of the existing filter pruning works explore the importance of filters via using intra-channel information. In this paper, starting from an inter-channel perspective, we propose to perform efficient filter pruning using Channel Independence, a metric that measures the correlations among different feature maps. The less independent feature map is interpreted as containing less useful information$/$knowledge, and hence its corresponding filter can be pruned without affecting model capacity. We systematically investigate the quantification metric, measuring scheme and sensitiveness$/$reliability of channel independence in the context of filter pruning. Our evaluation results for different models on various datasets show the superior performance of our approach. Notably, on CIFAR-10 dataset our solution can bring $0.90\\%$ and $0.94\\%$ accuracy increase over baseline ResNet-56 and ResNet-110 models, respectively, and meanwhile the model size and FLOPs are reduced by $42.8\\%$ and $47.4\\%$ (for ResNet-56) and $48.3\\%$ and $52.1\\%$ (for ResNet-110), respectively. On ImageNet dataset, our approach can achieve $40.8\\%$ and $44.8\\%$ storage and computation reductions, respectively, with $0.15\\%$ accuracy increase over the baseline ResNet-50 model. The code is available at https://github.com/Eclipsess/CHIP_NeurIPS2021.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2110.13981",
+      "url": "https://arxiv.org/abs/2110.13981",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2412.00143",
+      "title": "Is Oracle Pruning the True Oracle?",
+      "authors": [
+        {
+          "name": "Sicheng Feng",
+          "affiliation": ""
+        },
+        {
+          "name": "Keda Tao",
+          "affiliation": ""
+        },
+        {
+          "name": "Huan Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Oracle pruning, which selects unimportant weights by minimizing the pruned train loss, has been taken as the foundation for most neural network pruning methods for over 35 years, while few (if not none) have thought about how much the foundation really holds. This paper, for the first time, attempts to examine its validity on modern deep models through empirical correlation analyses and provide reflections on the field of neural network pruning. Specifically, for a typical pruning algorithm with three stages (pertaining, pruning, and retraining), we analyze the model performance correlation before and after retraining. Extensive experiments (37K models are trained) across a wide spectrum of models (LeNet5, VGG, ResNets, ViT, MLLM) and datasets (MNIST and its variants, CIFAR10/CIFAR100, ImageNet-1K, MLLM data) are conducted. The results lead to a surprising conclusion: on modern deep learning models, the performance before retraining is barely correlated with the performance after retraining. Namely, the weights selected by oracle pruning can hardly guarantee a good performance after retraining. This further implies that existing works using oracle pruning to derive pruning criteria may be groundless from the beginning. Further studies suggest the rising task complexity is one factor that makes oracle pruning invalid nowadays. Finally, given the evidence, we argue that the retraining stage in a pruning algorithm should be accounted for when developing any pruning criterion.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2412.00143",
+      "url": "https://arxiv.org/abs/2412.00143",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2101.06608",
+      "title": "Network Automatic Pruning: Start NAP and Take a Nap",
+      "authors": [
+        {
+          "name": "Wenyuan Zeng",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuwen Xiong",
+          "affiliation": ""
+        },
+        {
+          "name": "Raquel Urtasun",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Network pruning can significantly reduce the computation and memory footprint of large neural networks. To achieve a good trade-off between model size and performance, popular pruning techniques usually rely on hand-crafted heuristics and require manually setting the compression ratio for each layer. This process is typically time-consuming and requires expert knowledge to achieve good results. In this paper, we propose NAP, a unified and automatic pruning framework for both fine-grained and structured pruning. It can find out unimportant components of a network and automatically decide appropriate compression ratios for different layers, based on a theoretically sound criterion. Towards this goal, NAP uses an efficient approximation of the Hessian for evaluating the importances of components, based on a Kronecker-factored Approximate Curvature method. Despite its simpleness to use, NAP outperforms previous pruning methods by large margins. For fine-grained pruning, NAP can compress AlexNet and VGG16 by 25x, and ResNet-50 by 6.7x without loss in accuracy on ImageNet. For structured pruning (e.g. channel pruning), it can reduce flops of VGG16 by 5.4x and ResNet-50 by 2.3x with only 1% accuracy drop. More importantly, this method is almost free from hyper-parameter tuning and requires no expert knowledge. You can start NAP and then take a nap!",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2101.06608",
+      "url": "https://arxiv.org/abs/2101.06608",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2603.00651",
+      "title": "Exploring 3D Dataset Pruning",
+      "authors": [
+        {
+          "name": "Xiaohan Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinyi Shang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiacheng Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiqiang Shen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Dataset pruning has been widely studied for 2D images to remove redundancy and accelerate training, while particular pruning methods for 3D data remain largely unexplored. In this work, we study dataset pruning for 3D data, where its observed common long-tail class distribution nature make optimization under conventional evaluation metrics Overall Accuracy (OA) and Mean Accuracy (mAcc) inherently conflicting, and further make pruning particularly challenging. To address this, we formulate pruning as approximating the full-data expected risk with a weighted subset, which reveals two key errors: coverage error from insufficient representativeness and prior-mismatch bias from inconsistency between subset-induced class weights and target metrics. We propose representation-aware subset selection with per-class retention quotas for long-tail coverage, and prior-invariant teacher supervision using calibrated soft labels and embedding-geometry distillation. The retention quota also serves as a switch to control the OA-mAcc trade-off. Extensive experiments on 3D datasets show that our method can improve both metrics across multiple settings while adapting to different downstream preferences. Our code is available at https://github.com/XiaohanZhao123/3D-Dataset-Pruning.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2603.00651",
+      "url": "https://arxiv.org/abs/2603.00651",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.02213",
+      "title": "IG-Pruning: Input-Guided Block Pruning for Large Language Models",
+      "authors": [
+        {
+          "name": "Kangyu Qiao",
+          "affiliation": ""
+        },
+        {
+          "name": "Shaolei Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang Feng",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "With the growing computational demands of large language models (LLMs), efficient inference has become increasingly critical for practical deployment. Depth pruning has emerged as a promising approach for reducing the computational costs of large language models by removing transformer layers. However, existing methods typically rely on fixed block masks, which can lead to suboptimal performance across different tasks and inputs. In this paper, we propose IG-Pruning, a novel input-aware block-wise pruning method that dynamically selects layer masks at inference time. Our approach consists of two stages: (1) Discovering diverse mask candidates through semantic clustering and L0 optimization, and (2) Implementing efficient dynamic pruning without the need for extensive training. Experimental results demonstrate that our method consistently outperforms state-of-the-art static depth pruning methods, making it particularly suitable for resource-constrained deployment scenarios.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.02213",
+      "url": "https://arxiv.org/abs/2511.02213",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2010.10732",
+      "title": "SCOP: Scientific Control for Reliable Neural Network Pruning",
+      "authors": [
+        {
+          "name": "Yehui Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yunhe Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yixing Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Dacheng Tao",
+          "affiliation": ""
+        },
+        {
+          "name": "Chunjing Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Chao Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Chang Xu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "This paper proposes a reliable neural network pruning algorithm by setting up a scientific control. Existing pruning methods have developed various hypotheses to approximate the importance of filters to the network and then execute filter pruning accordingly. To increase the reliability of the results, we prefer to have a more rigorous research design by including a scientific control group as an essential part to minimize the effect of all factors except the association between the filter and expected network output. Acting as a control group, knockoff feature is generated to mimic the feature map produced by the network filter, but they are conditionally independent of the example label given the real feature map. We theoretically suggest that the knockoff condition can be approximately preserved given the information propagation of network layers. Besides the real feature map on an intermediate layer, the corresponding knockoff feature is brought in as another auxiliary input signal for the subsequent layers. Redundant filters can be discovered in the adversarial process of different features. Through experiments, we demonstrate the superiority of the proposed algorithm over state-of-the-art methods. For example, our method can reduce 57.8% parameters and 60.2% FLOPs of ResNet-101 with only 0.01% top-1 accuracy loss on ImageNet. The code is available at https://github.com/huawei-noah/Pruning/tree/master/SCOP_NeurIPS2020.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2010.10732",
+      "url": "https://arxiv.org/abs/2010.10732",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2406.16778",
+      "title": "Finding Transformer Circuits with Edge Pruning",
+      "authors": [
+        {
+          "name": "Adithya Bhaskar",
+          "affiliation": ""
+        },
+        {
+          "name": "Alexander Wettig",
+          "affiliation": ""
+        },
+        {
+          "name": "Dan Friedman",
+          "affiliation": ""
+        },
+        {
+          "name": "Danqi Chen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "The path to interpreting a language model often proceeds via analysis of circuits -- sparse computational subgraphs of the model that capture specific aspects of its behavior. Recent work has automated the task of discovering circuits. Yet, these methods have practical limitations, as they rely either on inefficient search algorithms or inaccurate approximations. In this paper, we frame automated circuit discovery as an optimization problem and propose *Edge Pruning* as an effective and scalable solution. Edge Pruning leverages gradient-based pruning techniques, but instead of removing neurons or components, it prunes the \\emph{edges} between components. Our method finds circuits in GPT-2 that use less than half the number of edges compared to circuits found by previous methods while being equally faithful to the full model predictions on standard circuit-finding tasks. Edge Pruning is efficient even with as many as 100K examples, outperforming previous methods in speed and producing substantially better circuits. It also perfectly recovers the ground-truth circuits in two models compiled with Tracr. Thanks to its efficiency, we scale Edge Pruning to CodeLlama-13B, a model over 100x the scale that prior methods operate on. We use this setting for a case study comparing the mechanisms behind instruction prompting and in-context learning. We find two circuits with more than 99.96% sparsity that match the performance of the full model and reveal that the mechanisms in the two settings overlap substantially. Our case study shows that Edge Pruning is a practical and scalable tool for interpretability and sheds light on behaviors that only emerge in large models.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2406.16778",
+      "url": "https://arxiv.org/abs/2406.16778",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2602.17664",
+      "title": "Sink-Aware Pruning for Diffusion Language Models",
+      "authors": [
+        {
+          "name": "Aidar Myrzakhan",
+          "affiliation": ""
+        },
+        {
+          "name": "Tianyi Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Bowei Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Shengkun Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiqiang Shen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Diffusion Language Models (DLMs) incur high inference cost due to iterative denoising, motivating efficient pruning. Existing pruning heuristics largely inherited from autoregressive (AR) LLMs, typically preserve attention sink tokens because AR sinks serve as stable global anchors. We show that this assumption does not hold for DLMs: the attention-sink position exhibits substantially higher variance over the full generation trajectory (measured by how the dominant sink locations shift across timesteps), indicating that sinks are often transient and less structurally essential than in AR models. Based on this observation, we propose ${\\bf \\texttt{Sink-Aware Pruning}}$, which automatically identifies and prunes unstable sinks in DLMs (prior studies usually keep sinks for AR LLMs). Without retraining, our method achieves a better quality-efficiency trade-off and outperforms strong prior pruning baselines under matched compute. Our code is available at https://github.com/VILA-Lab/Sink-Aware-Pruning.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2602.17664",
+      "url": "https://arxiv.org/abs/2602.17664",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2601.19911",
+      "title": "GPU-Augmented OLAP Execution Engine: GPU Offloading",
+      "authors": [
+        {
+          "name": "Ilsun Chang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Modern OLAP systems have mitigated I/O bottlenecks via storage-compute separation and columnar layouts, but CPU costs in the execution layer (especially Top-K selection and join probe) are emerging as new bottlenecks at scale. This paper proposes a hybrid architecture that augments existing vectorized execution by selectively offloading only high-impact primitives to the GPU. To reduce data movement, we use key-only transfer (keys and pointers) with late materialization. We further introduce a Risky Gate (risk-aware gating) that triggers offloading only in gain/risk intervals based on input size, transfer, kernel and post-processing costs, and candidate-set complexity (K, M). Using PostgreSQL microbenchmarks and GPU proxy measurements, we observe improved tail latency (P95/P99) under gated offloading compared to always-on GPU offloading. This work extends the risk-aware gating principle used for optimizer-stage GPU-assisted measurement (arXiv:2512.19750) to execution-layer OLAP primitives.",
+      "venue": "cs.AR",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2601.19911",
+      "url": "https://arxiv.org/abs/2601.19911",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2103.06460",
+      "title": "Recent Advances on Neural Network Pruning at Initialization",
+      "authors": [
+        {
+          "name": "Huan Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Can Qin",
+          "affiliation": ""
+        },
+        {
+          "name": "Yue Bai",
+          "affiliation": ""
+        },
+        {
+          "name": "Yulun Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yun Fu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Neural network pruning typically removes connections or neurons from a pretrained converged model; while a new pruning paradigm, pruning at initialization (PaI), attempts to prune a randomly initialized network. This paper offers the first survey concentrated on this emerging pruning fashion. We first introduce a generic formulation of neural network pruning, followed by the major classic pruning topics. Then, as the main body of this paper, a thorough and structured literature review of PaI methods is presented, consisting of two major tracks (sparse training and sparse selection). Finally, we summarize the surge of PaI compared to PaT and discuss the open problems. Apart from the dedicated literature review, this paper also offers a code base for easy sanity-checking and benchmarking of different PaI methods.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2103.06460",
+      "url": "https://arxiv.org/abs/2103.06460",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2103.05861",
+      "title": "Manifold Regularized Dynamic Network Pruning",
+      "authors": [
+        {
+          "name": "Yehui Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yunhe Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yixing Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yiping Deng",
+          "affiliation": ""
+        },
+        {
+          "name": "Chao Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Dacheng Tao",
+          "affiliation": ""
+        },
+        {
+          "name": "Chang Xu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Neural network pruning is an essential approach for reducing the computational complexity of deep models so that they can be well deployed on resource-limited devices. Compared with conventional methods, the recently developed dynamic pruning methods determine redundant filters variant to each input instance which achieves higher acceleration. Most of the existing methods discover effective sub-networks for each instance independently and do not utilize the relationship between different inputs. To maximally excavate redundancy in the given network architecture, this paper proposes a new paradigm that dynamically removes redundant filters by embedding the manifold information of all instances into the space of pruned networks (dubbed as ManiDP). We first investigate the recognition complexity and feature similarity between images in the training set. Then, the manifold relationship between instances and the pruned sub-networks will be aligned in the training procedure. The effectiveness of the proposed method is verified on several benchmarks, which shows better performance in terms of both accuracy and computational cost compared to the state-of-the-art methods. For example, our method can reduce 55.3% FLOPs of ResNet-34 with only 0.57% top-1 accuracy degradation on ImageNet.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2103.05861",
+      "url": "https://arxiv.org/abs/2103.05861",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2506.00992",
+      "title": "Quotient Network -- A Network Similar to ResNet but Learning Quotients",
+      "authors": [
+        {
+          "name": "Peng Hui",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiamuyang Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Changxin Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Qingzhen Zhu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The emergence of ResNet provides a powerful tool for training extremely deep networks. The core idea behind it is to change the learning goals of the network. It no longer learns new features from scratch but learns the difference between the target and existing features. However, the difference between the two kinds of features does not have an independent and clear meaning, and the amount of learning is based on the absolute rather than the relative difference, which is sensitive to the size of existing features. We propose a new network that perfectly solves these two problems while still having the advantages of ResNet. Specifically, it chooses to learn the quotient of the target features with the existing features, so we call it the quotient network. In order to enable this network to learn successfully and achieve higher performance, we propose some design rules for this network so that it can be trained efficiently and achieve better performance than ResNet. Experiments on the CIFAR10, CIFAR100, and SVHN datasets prove that this network can stably achieve considerable improvements over ResNet by simply making tiny corresponding changes to the original ResNet network without adding new parameters.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.3390/a17110521",
+      "arxiv_id": "2506.00992",
+      "url": "https://arxiv.org/abs/2506.00992",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2603.16001",
+      "title": "Mostly Text, Smart Visuals: Asymmetric Text-Visual Pruning for Large Vision-Language Models",
+      "authors": [
+        {
+          "name": "Sijie Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Biao Qian",
+          "affiliation": ""
+        },
+        {
+          "name": "Jungong Han",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Network pruning is an effective technique for enabling lightweight Large Vision-Language Models (LVLMs), which primarily incorporates both weights and activations into the importance metric. However, existing efforts typically process calibration data from different modalities in a unified manner, overlooking modality-specific behaviors. This raises a critical challenge: how to address the divergent behaviors of textual and visual tokens for accurate pruning of LVLMs. To this end, we systematically investigate the sensitivity of visual and textual tokens to the pruning operation by decoupling their corresponding weights, revealing that: (i) the textual pathway should be calibrated via text tokens, since it exhibits higher sensitivity than the visual pathway; (ii) the visual pathway exhibits high redundancy, permitting even 50% sparsity. Motivated by these insights, we propose a simple yet effective Asymmetric Text-Visual Weight Pruning method for LVLMs, dubbed ATV-Pruning, which establishes the importance metric for accurate weight pruning by selecting the informative tokens from both textual and visual pathways. Specifically, ATV-Pruning integrates two primary innovations: first, a calibration pool is adaptively constructed by drawing on all textual tokens and a subset of visual tokens; second, we devise a layer-adaptive selection strategy to yield important visual tokens. Finally, extensive experiments across standard multimodal benchmarks verify the superiority of our ATV-Pruning over state-of-the-art methods.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2603.16001",
+      "url": "https://arxiv.org/abs/2603.16001",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2406.12315",
+      "title": "A Comprehensive Study of Structural Pruning for Vision Models",
+      "authors": [
+        {
+          "name": "Changhao Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Haoling Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Mengqi Xue",
+          "affiliation": ""
+        },
+        {
+          "name": "Gongfan Fang",
+          "affiliation": ""
+        },
+        {
+          "name": "Sheng Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Zunlei Feng",
+          "affiliation": ""
+        },
+        {
+          "name": "Huiqiong Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Mingli Song",
+          "affiliation": ""
+        },
+        {
+          "name": "Jie Song",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Structural pruning has emerged as a promising approach for producing more efficient models. Nevertheless, the community suffers from a lack of standardized benchmarks and metrics, leaving the progress in this area not fully comprehended. To fill this gap, we present the first comprehensive benchmark, termed PruningBench, for structural pruning. PruningBench showcases the following three characteristics: 1) PruningBench employs a unified and consistent framework for evaluating the effectiveness of diverse structural pruning techniques; 2) PruningBench systematically evaluates 16 existing pruning methods, encompassing a wide array of models (e.g., CNNs and ViTs) and tasks (e.g., classification and detection); 3) PruningBench provides easily implementable interfaces to facilitate the implementation of future pruning methods, and enables the subsequent researchers to incorporate their work into our leaderboards. We provide an online pruning platform for customizing pruning tasks and reproducing all results in this paper. Leaderboard results can also be available.",
+      "venue": "cs.AI",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2406.12315",
+      "url": "https://arxiv.org/abs/2406.12315",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2211.08339",
+      "title": "Pruning Very Deep Neural Network Channels for Efficient Inference",
+      "authors": [
+        {
+          "name": "Yihui He",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "In this paper, we introduce a new channel pruning method to accelerate very deep convolutional neural networks. Given a trained CNN model, we propose an iterative two-step algorithm to effectively prune each layer, by a LASSO regression based channel selection and least square reconstruction. We further generalize this algorithm to multi-layer and multi-branch cases. Our method reduces the accumulated error and enhances the compatibility with various architectures. Our pruned VGG-16 achieves the state-of-the-art results by 5x speed-up along with only 0.3% increase of error. More importantly, our method is able to accelerate modern networks like ResNet, Xception and suffers only 1.4%, 1.0% accuracy loss under 2x speed-up respectively, which is significant. Our code has been made publicly available.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2211.08339",
+      "url": "https://arxiv.org/abs/2211.08339",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2010.07611",
+      "title": "Layer-adaptive sparsity for the Magnitude-based Pruning",
+      "authors": [
+        {
+          "name": "Jaeho Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Sejun Park",
+          "affiliation": ""
+        },
+        {
+          "name": "Sangwoo Mo",
+          "affiliation": ""
+        },
+        {
+          "name": "Sungsoo Ahn",
+          "affiliation": ""
+        },
+        {
+          "name": "Jinwoo Shin",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Recent discoveries on neural network pruning reveal that, with a carefully chosen layerwise sparsity, a simple magnitude-based pruning achieves state-of-the-art tradeoff between sparsity and performance. However, without a clear consensus on \"how to choose,\" the layerwise sparsities are mostly selected algorithm-by-algorithm, often resorting to handcrafted heuristics or an extensive hyperparameter search. To fill this gap, we propose a novel importance score for global pruning, coined layer-adaptive magnitude-based pruning (LAMP) score; the score is a rescaled version of weight magnitude that incorporates the model-level $\\ell_2$ distortion incurred by pruning, and does not require any hyperparameter tuning or heavy computation. Under various image classification setups, LAMP consistently outperforms popular existing schemes for layerwise sparsity selection. Furthermore, we observe that LAMP continues to outperform baselines even in weight-rewinding setups, while the connectivity-oriented layerwise sparsity (the strongest baseline overall) performs worse than a simple global magnitude-based pruning in this case. Code: https://github.com/jaeho-lee/layer-adaptive-sparsity",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2010.07611",
+      "url": "https://arxiv.org/abs/2010.07611",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2207.12116",
+      "title": "A Variant of Concurrent Constraint Programming on GPU",
+      "authors": [
+        {
+          "name": "Pierre Talbot",
+          "affiliation": ""
+        },
+        {
+          "name": "Fr\u00e9d\u00e9ric Pinel",
+          "affiliation": ""
+        },
+        {
+          "name": "Pascal Bouvry",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "The number of cores on graphical computing units (GPUs) is reaching thousands nowadays, whereas the clock speed of processors stagnates. Unfortunately, constraint programming solvers do not take advantage yet of GPU parallelism. One reason is that constraint solvers were primarily designed within the mental frame of sequential computation. To solve this issue, we take a step back and contribute to a simple, intrinsically parallel, lock-free and formally correct programming language based on concurrent constraint programming. We then re-examine parallel constraint solving on GPUs within this formalism, and develop Turbo, a simple constraint solver entirely programmed on GPUs. Turbo validates the correctness of our approach and compares positively to a parallel CPU-based solver.",
+      "venue": "cs.DC",
+      "citation_count": 0,
+      "doi": "10.1609/aaai.v36i4.20298",
+      "arxiv_id": "2207.12116",
+      "url": "https://arxiv.org/abs/2207.12116",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2009.11094",
+      "title": "Sanity-Checking Pruning Methods: Random Tickets can Win the Jackpot",
+      "authors": [
+        {
+          "name": "Jingtong Su",
+          "affiliation": ""
+        },
+        {
+          "name": "Yihang Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Tianle Cai",
+          "affiliation": ""
+        },
+        {
+          "name": "Tianhao Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruiqi Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Liwei Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jason D. Lee",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Network pruning is a method for reducing test-time computational resource requirements with minimal performance degradation. Conventional wisdom of pruning algorithms suggests that: (1) Pruning methods exploit information from training data to find good subnetworks; (2) The architecture of the pruned network is crucial for good performance. In this paper, we conduct sanity checks for the above beliefs on several recent unstructured pruning methods and surprisingly find that: (1) A set of methods which aims to find good subnetworks of the randomly-initialized network (which we call \"initial tickets\"), hardly exploits any information from the training data; (2) For the pruned networks obtained by these methods, randomly changing the preserved weights in each layer, while keeping the total number of preserved weights unchanged per layer, does not affect the final performance. These findings inspire us to choose a series of simple \\emph{data-independent} prune ratios for each layer, and randomly prune each layer accordingly to get a subnetwork (which we call \"random tickets\"). Experimental results show that our zero-shot random tickets outperform or attain a similar performance compared to existing \"initial tickets\". In addition, we identify one existing pruning method that passes our sanity checks. We hybridize the ratios in our random ticket with this method and propose a new method called \"hybrid tickets\", which achieves further improvement. (Our code is publicly available at https://github.com/JingtongSu/sanity-checking-pruning)",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2009.11094",
+      "url": "https://arxiv.org/abs/2009.11094",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2102.08329",
+      "title": "An Information-Theoretic Justification for Model Pruning",
+      "authors": [
+        {
+          "name": "Berivan Isik",
+          "affiliation": ""
+        },
+        {
+          "name": "Tsachy Weissman",
+          "affiliation": ""
+        },
+        {
+          "name": "Albert No",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "We study the neural network (NN) compression problem, viewing the tension between the compression ratio and NN performance through the lens of rate-distortion theory. We choose a distortion metric that reflects the effect of NN compression on the model output and derive the tradeoff between rate (compression) and distortion. In addition to characterizing theoretical limits of NN compression, this formulation shows that \\emph{pruning}, implicitly or explicitly, must be a part of a good compression algorithm. This observation bridges a gap between parts of the literature pertaining to NN and data compression, respectively, providing insight into the empirical success of model pruning. Finally, we propose a novel pruning strategy derived from our information-theoretic formulation and show that it outperforms the relevant baselines on CIFAR-10 and ImageNet datasets.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2102.08329",
+      "url": "https://arxiv.org/abs/2102.08329",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2406.16091",
+      "title": "Efficient GPU Implementation of Particle Interactions with Cutoff Radius and Few Particles per Cell",
+      "authors": [
+        {
+          "name": "David Algis",
+          "affiliation": ""
+        },
+        {
+          "name": "Berenger Bramas",
+          "affiliation": ""
+        },
+        {
+          "name": "Emmanuelle Darles",
+          "affiliation": ""
+        },
+        {
+          "name": "Lilian Aveneau",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "This paper presents novel approaches to parallelizing particle interactions on a GPU when there are few particles per cell and the interactions are limited by a cutoff distance. The paper surveys classical algorithms and then introduces two alternatives that aim to utilize shared memory. The first approach copies the particles of a sub-box, while the second approach loads particles in a pencil along the X-axis. The different implementations are compared on three GPU models using Cuda and Hip. The results show that the X-pencil approach can provide a significant speedup but only in very specific cases.",
+      "venue": "cs.DC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2406.16091",
+      "url": "https://arxiv.org/abs/2406.16091",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2402.02834",
+      "title": "Shortened LLaMA: Depth Pruning for Large Language Models with Comparison of Retraining Methods",
+      "authors": [
+        {
+          "name": "Bo-Kyeong Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Geonmin Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Tae-Ho Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Thibault Castells",
+          "affiliation": ""
+        },
+        {
+          "name": "Shinkook Choi",
+          "affiliation": ""
+        },
+        {
+          "name": "Junho Shin",
+          "affiliation": ""
+        },
+        {
+          "name": "Hyoung-Kyu Song",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Structured pruning of modern large language models (LLMs) has emerged as a way of decreasing their high computational needs. Width pruning reduces the size of projection weight matrices (e.g., by removing attention heads) while maintaining the number of layers. Depth pruning, in contrast, removes entire layers or blocks, while keeping the size of the remaining weights unchanged. Most current research focuses on either width-only or a blend of width and depth pruning, with little comparative analysis between the two units (width vs. depth) concerning their impact on LLM inference efficiency. In this work, we show that simple depth pruning can effectively compress LLMs while achieving comparable or superior performance to recent width pruning studies. Our pruning method boosts inference speeds, especially under memory-constrained conditions that require limited batch sizes for running LLMs, where width pruning is ineffective. In retraining pruned models for quality recovery, continued pretraining on a large corpus markedly outperforms LoRA-based tuning, particularly at severe pruning ratios. We hope this work can help build compact yet capable LLMs. Code and models can be found at: https://github.com/Nota-NetsPresso/shortened-llm",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2402.02834",
+      "url": "https://arxiv.org/abs/2402.02834",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2504.01690",
+      "title": "Token Pruning in Audio Transformers: Optimizing Performance and Decoding Patch Importance",
+      "authors": [
+        {
+          "name": "Taehan Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Hyukjun Lee",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Vision Transformers (ViTs) have achieved state-of-the-art performance across various computer vision tasks, but their high computational cost remains a challenge. Token pruning has been proposed to reduce this cost by selectively removing less important tokens. While effective in vision tasks by discarding non-object regions, applying this technique to audio tasks presents unique challenges, as distinguishing relevant from irrelevant regions in time-frequency representations is less straightforward. In this study, for the first time, we applied token pruning to ViT-based audio classification models using Mel-spectrograms and analyzed the trade-offs between model performance and computational cost: TopK token pruning can reduce MAC operations of AudioMAE and AST by 30-40%, with less than a 1% drop in accuracy. Our analysis reveals that while high-intensity or high-variation tokens contribute significantly to model accuracy, low-intensity or low variation tokens also remain important when token pruning is applied; pruning solely based on the intensity or variation of signals in a patch leads to a noticeable drop in accuracy. We support our claim by measuring high correlation between attention scores and these statistical features and by showing retained tokens consistently receive distinct attention compared to pruned ones. We also show that AudioMAE retains more low-intensity tokens than AST. This can be explained by AudioMAE's self-supervised reconstruction objective, which encourages attention to all patches, whereas AST's supervised training focuses on label-relevant tokens.",
+      "venue": "cs.SD",
+      "citation_count": 0,
+      "doi": "10.3233/FAIA251136",
+      "arxiv_id": "2504.01690",
+      "url": "https://arxiv.org/abs/2504.01690",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2603.07850",
+      "title": "A Lock-Free, Fully GPU-Resident Architecture for the Verification of Goldbach's Conjecture",
+      "authors": [
+        {
+          "name": "Isaac Llorente-Saguer",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "We present a fully device-resident, multi-GPU architecture for the large-scale computational verification of Goldbach's conjecture. In prior work, a segmented double-sieve eliminated monolithic VRAM bottlenecks but remained constrained by host-side sieve construction and PCIe transfer latency. In this work, we migrate the entire segment generation pipeline to the GPU using highly optimised L1 shared-memory tiling, achieving near-zero host-device communication during the critical verification path. To fully leverage heterogeneous multi-GPU clusters, we introduce an asynchronous, lock-free work-stealing pool that replaces static workload partitioning with atomic segment claiming, enabling $99.7$% parallel efficiency at 2 GPUs and $98.6$% at $4$ GPUs. We further implement strict mathematical overflow guards guaranteeing the soundness of the 64-bit verification pipeline up to its theoretical ceiling of $1.84 \\times 10^{19}$. On the same hardware, the new architecture achieves a $45.6\\times$ algorithmic speedup over its host-coupled predecessor at N = $10^{10}$. End-to-end, the framework verifies Goldbach's conjecture up to $10^{12}$ in $36.5$ seconds on a single NVIDIA RTX 5090, and up to $10^{13}$ in $133.5$ seconds on a four-GPU system. All code is open-source and reproducible on commodity hardware.",
+      "venue": "cs.MS",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2603.07850",
+      "url": "https://arxiv.org/abs/2603.07850",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2510.03246",
+      "title": "StructPrune: Structured Global Pruning asymptotics with $\\mathcal{O}(\\sqrt{N})$ GPU Memory",
+      "authors": [
+        {
+          "name": "Xinyuan Song",
+          "affiliation": ""
+        },
+        {
+          "name": "Guangji Bai",
+          "affiliation": ""
+        },
+        {
+          "name": "Liang Zhao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Pruning is critical for scaling large language models (LLMs). Global pruning achieves strong performance but requires $\\mathcal{O}(N)$ memory, which is infeasible for billion-parameter models. Local pruning reduces GPU memory usage to that of a single layer by pruning layers independently, but it neglects inter-layer dependencies and often leads to suboptimal performance in high-sparsity regimes. Unlike unstructured pruning, structured pruning produces regular sparsity patterns that align well with GPU kernels and library optimizations, making it more hardware-efficient. However, structured pruning typically relies on global pruning, since structured patterns are more prone to severe performance degradation under local optimization. To jointly achieve structured pruning and the memory efficiency of local pruning, we propose a divide-and-conquer strategy that decomposes the global pruning problem into coordinated subproblems across different modules, each of which fits within limited GPU memory. Building on this idea, we design \\textbf{STRUPRUNE}, an ADMM-based framework that integrates structured sparsity into the pruning process, combining the memory efficiency of local pruning with the hardware compatibility of structured methods. We derive a closed-form analytical solution for structured pruning masks that provides an explicit rule for layer-wise sparsity allocation, and further develop an energy-based asymptotic framework yielding a softmax-form allocation scheme that simplifies optimization while adapting to heterogeneous layer importance. Experiments demonstrate that STRUPRUNE matches the perplexity of global structured pruning while reducing memory cost from $\\mathcal{O}(N)$ to $\\mathcal{O}(\\sqrt{N})$, enabling practical deployment at the billion-parameter scale.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2510.03246",
+      "url": "https://arxiv.org/abs/2510.03246",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2110.08221",
+      "title": "Metrics and Design of an Instruction Roofline Model for AMD GPUs",
+      "authors": [
+        {
+          "name": "Matthew Leinhauser",
+          "affiliation": ""
+        },
+        {
+          "name": "Ren\u00e9 Widera",
+          "affiliation": ""
+        },
+        {
+          "name": "Sergei Bastrakov",
+          "affiliation": ""
+        },
+        {
+          "name": "Alexander Debus",
+          "affiliation": ""
+        },
+        {
+          "name": "Michael Bussmann",
+          "affiliation": ""
+        },
+        {
+          "name": "Sunita Chandrasekaran",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Due to the recent announcement of the Frontier supercomputer, many scientific application developers are working to make their applications compatible with AMD architectures (CPU-GPU), which means moving away from the traditional CPU and NVIDIA-GPU systems. Due to the current limitations of profiling tools for AMD GPUs, this shift leaves a void in how to measure application performance on AMD GPUs. In this paper, we design an instruction roofline model for AMD GPUs using AMD's ROCProfiler and a benchmarking tool, BabelStream (the HIP implementation), as a way to measure an application's performance in instructions and memory transactions on new AMD hardware. Specifically, we create instruction roofline models for a case study scientific application, PIConGPU, an open source particle-in-cell (PIC) simulations application used for plasma and laser-plasma physics on the NVIDIA V100, AMD Radeon Instinct MI60, and AMD Instinct MI100 GPUs. When looking at the performance of multiple kernels of interest in PIConGPU we find that although the AMD MI100 GPU achieves a similar, or better, execution time compared to the NVIDIA V100 GPU, profiling tool differences make comparing performance of these two architectures hard. When looking at execution time, GIPS, and instruction intensity, the AMD MI60 achieves the worst performance out of the three GPUs used in this work.",
+      "venue": "cs.DC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2110.08221",
+      "url": "https://arxiv.org/abs/2110.08221",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2512.22671",
+      "title": "Fragile Knowledge, Robust Instruction-Following: The Width Pruning Dichotomy in Llama-3.2",
+      "authors": [
+        {
+          "name": "Pere Martra",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Structured width pruning of GLU-MLP layers, guided by the Maximum Absolute Weight (MAW) criterion, reveals a systematic dichotomy in how reducing the expansion ratio affects different model capabilities. While performance on tasks relying on parametric knowledge (e.g., MMLU, GSM8K) and perplexity metrics degrades predictably, instruction-following capabilities improve substantially (+46% to +75% in IFEval for Llama-3.2-1B and 3B models), and multi-step reasoning remains robust (MUSR). This pattern challenges the prevailing assumption that pruning induces uniform degradation. We evaluated seven expansion ratio configurations using comprehensive benchmarks assessing factual knowledge, mathematical reasoning, language comprehension, instruction-following, and truthfulness. Our analysis identifies the expansion ratio as a critical architectural parameter that selectively modulates cognitive capabilities, rather than merely serving as a compression metric. We provide the first systematic characterization of this selective preservation phenomenon. Notably, we document a robust inverse correlation (r = -0.864, p = 0.012 in Llama-3B) between factual knowledge capacity (MMLU) and truthfulness metrics (TruthfulQA-MC2): as knowledge degrades, the model's ability to discriminate misconceptions improves consistently. This connects two previously distinct research areas, demonstrating that MAW-guided width pruning acts as a selective filter, reducing parametric knowledge while preserving or enhancing behavioral alignment. Additionally, we quantify context-dependent efficiency trade-offs: pruned configurations achieve up to 23% reduction in energy consumption (J/token) but incur penalties in single-request latency, whereas batch processing workloads benefit uniformly.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2512.22671",
+      "url": "https://arxiv.org/abs/2512.22671",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2112.15445",
+      "title": "Speedup deep learning models on GPU by taking advantage of efficient unstructured pruning and bit-width reduction",
+      "authors": [
+        {
+          "name": "Marcin Pietro\u0144",
+          "affiliation": ""
+        },
+        {
+          "name": "Dominik \u017burek",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "This work is focused on the pruning of some convolutional neural networks (CNNs) and improving theirs efficiency on graphic processing units (GPU) by using a direct sparse algorithm. The Nvidia deep neural network (cuDnn) library is the most effective implementations of deep learning (DL) algorithms for GPUs. GPUs are the most commonly used accelerators for deep learning computations. One of the most common techniques for improving the efficiency of CNN models is weight pruning and quantization. There are two main types of pruning: structural and non-structural. The first enables much easier acceleration on many type of accelerators, but with this type it is difficult to achieve a sparsity level and accuracy as high as that obtained with the second type. Non-structural pruning with retraining can generate a weight tensors up to 90% or more of sparsity in some deep CNN models. In this article the pruning algorithm is presented which makes it possible to achieve high sparsity levels without accuracy drop. In the next stage the linear and non-linear quantization is adapted for further time and footprint reduction. This paper is an extended of previously published paper concerning effective pruning techniques and present real models pruned with high sparsities and reduced precision which can achieve better performance than the CuDnn library.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2112.15445",
+      "url": "https://arxiv.org/abs/2112.15445",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2206.06255",
+      "title": "Energy Consumption Analysis of pruned Semantic Segmentation Networks on an Embedded GPU",
+      "authors": [
+        {
+          "name": "Hugo Tessier",
+          "affiliation": ""
+        },
+        {
+          "name": "Vincent Gripon",
+          "affiliation": ""
+        },
+        {
+          "name": "Mathieu L\u00e9onardon",
+          "affiliation": ""
+        },
+        {
+          "name": "Matthieu Arzel",
+          "affiliation": ""
+        },
+        {
+          "name": "David Bertrand",
+          "affiliation": ""
+        },
+        {
+          "name": "Thomas Hannagan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Deep neural networks are the state of the art in many computer vision tasks. Their deployment in the context of autonomous vehicles is of particular interest, since their limitations in terms of energy consumption prohibit the use of very large networks, that typically reach the best performance. A common method to reduce the complexity of these architectures, without sacrificing accuracy, is to rely on pruning, in which the least important portions are eliminated. There is a large literature on the subject, but interestingly few works have measured the actual impact of pruning on energy. In this work, we are interested in measuring it in the specific context of semantic segmentation for autonomous driving, using the Cityscapes dataset. To this end, we analyze the impact of recently proposed structured pruning methods when trained architectures are deployed on a Jetson Xavier embedded GPU.",
+      "venue": "cs.NE",
+      "citation_count": 0,
+      "doi": "10.1007/978-3-031-16281-7_52",
+      "arxiv_id": "2206.06255",
+      "url": "https://arxiv.org/abs/2206.06255",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2211.00466",
+      "title": "Recognition of Defective Mineral Wool Using Pruned ResNet Models",
+      "authors": [
+        {
+          "name": "Mehdi Rafiei",
+          "affiliation": ""
+        },
+        {
+          "name": "Dat Thanh Tran",
+          "affiliation": ""
+        },
+        {
+          "name": "Alexandros Iosifidis",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Mineral wool production is a non-linear process that makes it hard to control the final quality. Therefore, having a non-destructive method to analyze the product quality and recognize defective products is critical. For this purpose, we developed a visual quality control system for mineral wool. X-ray images of wool specimens were collected to create a training set of defective and non-defective samples. Afterward, we developed several recognition models based on the ResNet architecture to find the most efficient model. In order to have a light-weight and fast inference model for real-life applicability, two structural pruning methods are applied to the classifiers. Considering the low quantity of the dataset, cross-validation and augmentation methods are used during the training. As a result, we obtained a model with more than 98% accuracy, which in comparison to the current procedure used at the company, it can recognize 20% more defective products.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1109/INDIN51400.2023.10217993",
+      "arxiv_id": "2211.00466",
+      "url": "https://arxiv.org/abs/2211.00466",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

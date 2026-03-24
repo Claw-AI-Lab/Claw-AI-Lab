@@ -1,0 +1,842 @@
+{
+  "query": "accuracy loss on ImageNet subset",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1773945027.8637385,
+  "papers": [
+    {
+      "paper_id": "arxiv-2311.09215",
+      "title": "ConvNet vs Transformer, Supervised vs CLIP: Beyond ImageNet Accuracy",
+      "authors": [
+        {
+          "name": "Kirill Vishniakov",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiqiang Shen",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhuang Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Modern computer vision offers a great variety of models to practitioners, and selecting a model from multiple options for specific applications can be challenging. Conventionally, competing model architectures and training protocols are compared by their classification accuracy on ImageNet. However, this single metric does not fully capture performance nuances critical for specialized tasks. In this work, we conduct an in-depth comparative analysis of model behaviors beyond ImageNet accuracy, for both ConvNet and Vision Transformer architectures, each across supervised and CLIP training paradigms. Although our selected models have similar ImageNet accuracies and compute requirements, we find that they differ in many other aspects: types of mistakes, output calibration, transferability, and feature invariance, among others. This diversity in model characteristics, not captured by traditional metrics, highlights the need for more nuanced analysis when choosing among different models. Our code is available at https://github.com/kirill-vish/Beyond-INet.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2311.09215",
+      "url": "https://arxiv.org/abs/2311.09215",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2111.01956",
+      "title": "One Pass ImageNet",
+      "authors": [
+        {
+          "name": "Huiyi Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ang Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniele Calandriello",
+          "affiliation": ""
+        },
+        {
+          "name": "Dilan Gorur",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "We present the One Pass ImageNet (OPIN) problem, which aims to study the effectiveness of deep learning in a streaming setting. ImageNet is a widely known benchmark dataset that has helped drive and evaluate recent advancements in deep learning. Typically, deep learning methods are trained on static data that the models have random access to, using multiple passes over the dataset with a random shuffle at each epoch of training. Such data access assumption does not hold in many real-world scenarios where massive data is collected from a stream and storing and accessing all the data becomes impractical due to storage costs and privacy concerns. For OPIN, we treat the ImageNet data as arriving sequentially, and there is limited memory budget to store a small subset of the data. We observe that training a deep network in a single pass with the same training settings used for multi-epoch training results in a huge drop in prediction accuracy. We show that the performance gap can be significantly decreased by paying a small memory cost and utilizing techniques developed for continual learning, despite the fact that OPIN differs from typical continual problem settings. We propose using OPIN to study resource-efficient deep learning.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2111.01956",
+      "url": "https://arxiv.org/abs/2111.01956",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2006.07159",
+      "title": "Are we done with ImageNet?",
+      "authors": [
+        {
+          "name": "Lucas Beyer",
+          "affiliation": ""
+        },
+        {
+          "name": "Olivier J. H\u00e9naff",
+          "affiliation": ""
+        },
+        {
+          "name": "Alexander Kolesnikov",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaohua Zhai",
+          "affiliation": ""
+        },
+        {
+          "name": "A\u00e4ron van den Oord",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Yes, and no. We ask whether recent progress on the ImageNet classification benchmark continues to represent meaningful generalization, or whether the community has started to overfit to the idiosyncrasies of its labeling procedure. We therefore develop a significantly more robust procedure for collecting human annotations of the ImageNet validation set. Using these new labels, we reassess the accuracy of recently proposed ImageNet classifiers, and find their gains to be substantially smaller than those reported on the original labels. Furthermore, we find the original ImageNet labels to no longer be the best predictors of this independently-collected set, indicating that their usefulness in evaluating vision models may be nearing an end. Nevertheless, we find our annotation procedure to have largely remedied the errors in the original labels, reinforcing ImageNet as a powerful benchmark for future research in visual recognition.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2006.07159",
+      "url": "https://arxiv.org/abs/2006.07159",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2205.04596",
+      "title": "When does dough become a bagel? Analyzing the remaining mistakes on ImageNet",
+      "authors": [
+        {
+          "name": "Vijay Vasudevan",
+          "affiliation": ""
+        },
+        {
+          "name": "Benjamin Caine",
+          "affiliation": ""
+        },
+        {
+          "name": "Raphael Gontijo-Lopes",
+          "affiliation": ""
+        },
+        {
+          "name": "Sara Fridovich-Keil",
+          "affiliation": ""
+        },
+        {
+          "name": "Rebecca Roelofs",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Image classification accuracy on the ImageNet dataset has been a barometer for progress in computer vision over the last decade. Several recent papers have questioned the degree to which the benchmark remains useful to the community, yet innovations continue to contribute gains to performance, with today's largest models achieving 90%+ top-1 accuracy. To help contextualize progress on ImageNet and provide a more meaningful evaluation for today's state-of-the-art models, we manually review and categorize every remaining mistake that a few top models make in order to provide insight into the long-tail of errors on one of the most benchmarked datasets in computer vision. We focus on the multi-label subset evaluation of ImageNet, where today's best models achieve upwards of 97% top-1 accuracy. Our analysis reveals that nearly half of the supposed mistakes are not mistakes at all, and we uncover new valid multi-labels, demonstrating that, without careful review, we are significantly underestimating the performance of these models. On the other hand, we also find that today's best models still make a significant number of mistakes (40%) that are obviously wrong to human reviewers. To calibrate future progress on ImageNet, we provide an updated multi-label evaluation set, and we curate ImageNet-Major: a 68-example \"major error\" slice of the obvious mistakes made by today's top models -- a slice where models should achieve near perfection, but today are far from doing so.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2205.04596",
+      "url": "https://arxiv.org/abs/2205.04596",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2201.12328",
+      "title": "Toward Training at ImageNet Scale with Differential Privacy",
+      "authors": [
+        {
+          "name": "Alexey Kurakin",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuang Song",
+          "affiliation": ""
+        },
+        {
+          "name": "Steve Chien",
+          "affiliation": ""
+        },
+        {
+          "name": "Roxana Geambasu",
+          "affiliation": ""
+        },
+        {
+          "name": "Andreas Terzis",
+          "affiliation": ""
+        },
+        {
+          "name": "Abhradeep Thakurta",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Differential privacy (DP) is the de facto standard for training machine learning (ML) models, including neural networks, while ensuring the privacy of individual examples in the training set. Despite a rich literature on how to train ML models with differential privacy, it remains extremely challenging to train real-life, large neural networks with both reasonable accuracy and privacy.\n  We set out to investigate how to do this, using ImageNet image classification as a poster example of an ML task that is very challenging to resolve accurately with DP right now. This paper shares initial lessons from our effort, in the hope that it will inspire and inform other researchers to explore DP training at scale. We show approaches that help make DP training faster, as well as model types and settings of the training process that tend to work better in the DP setting. Combined, the methods we discuss let us train a Resnet-18 with DP to $47.9\\%$ accuracy and privacy parameters $\u03b5= 10, \u03b4= 10^{-6}$. This is a significant improvement over \"naive\" DP training of ImageNet models, but a far cry from the $75\\%$ accuracy that can be obtained by the same network without privacy. The model we use was pretrained on the Places365 data set as a starting point. We share our code at https://github.com/google-research/dp-imagenet, calling for others to build upon this new baseline to further improve DP at scale.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2201.12328",
+      "url": "https://arxiv.org/abs/2201.12328",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2111.11056",
+      "title": "Evaluating Adversarial Attacks on ImageNet: A Reality Check on Misclassification Classes",
+      "authors": [
+        {
+          "name": "Utku Ozbulak",
+          "affiliation": ""
+        },
+        {
+          "name": "Maura Pintor",
+          "affiliation": ""
+        },
+        {
+          "name": "Arnout Van Messem",
+          "affiliation": ""
+        },
+        {
+          "name": "Wesley De Neve",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Although ImageNet was initially proposed as a dataset for performance benchmarking in the domain of computer vision, it also enabled a variety of other research efforts. Adversarial machine learning is one such research effort, employing deceptive inputs to fool models in making wrong predictions. To evaluate attacks and defenses in the field of adversarial machine learning, ImageNet remains one of the most frequently used datasets. However, a topic that is yet to be investigated is the nature of the classes into which adversarial examples are misclassified. In this paper, we perform a detailed analysis of these misclassification classes, leveraging the ImageNet class hierarchy and measuring the relative positions of the aforementioned type of classes in the unperturbed origins of the adversarial examples. We find that $71\\%$ of the adversarial examples that achieve model-to-model adversarial transferability are misclassified into one of the top-5 classes predicted for the underlying source images. We also find that a large subset of untargeted misclassifications are, in fact, misclassifications into semantically similar classes. Based on these findings, we discuss the need to take into account the ImageNet class hierarchy when evaluating untargeted adversarial successes. Furthermore, we advocate for future research efforts to incorporate categorical information.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2111.11056",
+      "url": "https://arxiv.org/abs/2111.11056",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2203.06026",
+      "title": "The Role of ImageNet Classes in Fr\u00e9chet Inception Distance",
+      "authors": [
+        {
+          "name": "Tuomas Kynk\u00e4\u00e4nniemi",
+          "affiliation": ""
+        },
+        {
+          "name": "Tero Karras",
+          "affiliation": ""
+        },
+        {
+          "name": "Miika Aittala",
+          "affiliation": ""
+        },
+        {
+          "name": "Timo Aila",
+          "affiliation": ""
+        },
+        {
+          "name": "Jaakko Lehtinen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Fr\u00e9chet Inception Distance (FID) is the primary metric for ranking models in data-driven generative modeling. While remarkably successful, the metric is known to sometimes disagree with human judgement. We investigate a root cause of these discrepancies, and visualize what FID \"looks at\" in generated images. We show that the feature space that FID is (typically) computed in is so close to the ImageNet classifications that aligning the histograms of Top-$N$ classifications between sets of generated and real images can reduce FID substantially -- without actually improving the quality of results. Thus, we conclude that FID is prone to intentional or accidental distortions. As a practical example of an accidental distortion, we discuss a case where an ImageNet pre-trained FastGAN achieves a FID comparable to StyleGAN2, while being worse in terms of human evaluation.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2203.06026",
+      "url": "https://arxiv.org/abs/2203.06026",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2312.10602",
+      "title": "A Weighted K-Center Algorithm for Data Subset Selection",
+      "authors": [
+        {
+          "name": "Srikumar Ramalingam",
+          "affiliation": ""
+        },
+        {
+          "name": "Pranjal Awasthi",
+          "affiliation": ""
+        },
+        {
+          "name": "Sanjiv Kumar",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "The success of deep learning hinges on enormous data and large models, which require labor-intensive annotations and heavy computation costs. Subset selection is a fundamental problem that can play a key role in identifying smaller portions of the training data, which can then be used to produce similar models as the ones trained with full data. Two prior methods are shown to achieve impressive results: (1) margin sampling that focuses on selecting points with high uncertainty, and (2) core-sets or clustering methods such as k-center for informative and diverse subsets. We are not aware of any work that combines these methods in a principled manner. To this end, we develop a novel and efficient factor 3-approximation algorithm to compute subsets based on the weighted sum of both k-center and uncertainty sampling objective functions. To handle large datasets, we show a parallel algorithm to run on multiple machines with approximation guarantees. The proposed algorithm achieves similar or better performance compared to other strong baselines on vision datasets such as CIFAR-10, CIFAR-100, and ImageNet.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2312.10602",
+      "url": "https://arxiv.org/abs/2312.10602",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2503.08038",
+      "title": "Generalized Kullback-Leibler Divergence Loss",
+      "authors": [
+        {
+          "name": "Jiequan Cui",
+          "affiliation": ""
+        },
+        {
+          "name": "Beier Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Qingshan Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhuotao Tian",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaojuan Qi",
+          "affiliation": ""
+        },
+        {
+          "name": "Bei Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hanwang Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Richang Hong",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "In this paper, we delve deeper into the Kullback-Leibler (KL) Divergence loss and mathematically prove that it is equivalent to the Decoupled Kullback-Leibler (DKL) Divergence loss that consists of (1) a weighted Mean Square Error (wMSE) loss and (2) a Cross-Entropy loss incorporating soft labels. Thanks to the decoupled structure of DKL loss, we have identified two areas for improvement. Firstly, we address the limitation of KL loss in scenarios like knowledge distillation by breaking its asymmetric optimization property along with a smoother weight function. This modification effectively alleviates convergence challenges in optimization, particularly for classes with high predicted scores in soft labels. Secondly, we introduce class-wise global information into KL/DKL to reduce bias arising from individual samples. With these two enhancements, we derive the Generalized Kullback-Leibler (GKL) Divergence loss and evaluate its effectiveness by conducting experiments on CIFAR-10/100, ImageNet, and vision-language datasets, focusing on adversarial training, and knowledge distillation tasks. Specifically, we achieve new state-of-the-art adversarial robustness on the public leaderboard -- RobustBench and competitive knowledge distillation performance across CIFAR/ImageNet models and CLIP models, demonstrating the substantial practical merits. Our code is available at https://github.com/jiequancui/DKL.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2503.08038",
+      "url": "https://arxiv.org/abs/2503.08038",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2510.27204",
+      "title": "Functional Analysis of Loss-development Patterns in P&C Insurance",
+      "authors": [
+        {
+          "name": "Arthur Charpentier",
+          "affiliation": ""
+        },
+        {
+          "name": "Qiheng Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Mike Ludkovski",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "We analyze loss development in NAIC Schedule P loss triangles using functional data analysis methods. Adopting the functional viewpoint, our dataset comprises 3300+ curves of incremental loss ratios (ILR) of workers' compensation lines over 24 accident years. Relying on functional data depth, we first study similarities and differences in development patterns based on company-specific covariates, as well as identify anomalous ILR curves.\n  The exploratory findings motivate the probabilistic forecasting framework developed in the second half of the paper. We propose a functional model to complete partially developed ILR curves based on partial least squares regression of PCA scores. Coupling the above with functional bootstrapping allows us to quantify future ILR uncertainty jointly across all future lags. We demonstrate that our method has much better probabilistic scores relative to Chain Ladder and in particular can provide accurate functional predictive intervals.",
+      "venue": "stat.AP",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2510.27204",
+      "url": "https://arxiv.org/abs/2510.27204",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2012.03775",
+      "title": "Triplet Entropy Loss: Improving The Generalisation of Short Speech Language Identification Systems",
+      "authors": [
+        {
+          "name": "Ruan van der Merwe",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "We present several methods to improve the generalisation of language identification (LID) systems to new speakers and to new domains. These methods involve Spectral augmentation, where spectrograms are masked in the frequency or time bands during training and CNN architectures that are pre-trained on the Imagenet dataset. The paper also introduces the novel Triplet Entropy Loss training method, which involves training a network simultaneously using Cross Entropy and Triplet loss. It was found that all three methods improved the generalisation of the models, though not significantly. Even though the models trained using Triplet Entropy Loss showed a better understanding of the languages and higher accuracies, it appears as though the models still memorise word patterns present in the spectrograms rather than learning the finer nuances of a language. The research shows that Triplet Entropy Loss has great potential and should be investigated further, not only in language identification tasks but any classification task.",
+      "venue": "cs.SD",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2012.03775",
+      "url": "https://arxiv.org/abs/2012.03775",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2011.07805",
+      "title": "Multi-label classification: do Hamming loss and subset accuracy really conflict with each other?",
+      "authors": [
+        {
+          "name": "Guoqiang Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jun Zhu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Various evaluation measures have been developed for multi-label classification, including Hamming Loss (HL), Subset Accuracy (SA) and Ranking Loss (RL). However, there is a gap between empirical results and the existing theories: 1) an algorithm often empirically performs well on some measure(s) while poorly on others, while a formal theoretical analysis is lacking; and 2) in small label space cases, the algorithms optimizing HL often have comparable or even better performance on the SA measure than those optimizing SA directly, while existing theoretical results show that SA and HL are conflicting measures. This paper provides an attempt to fill up this gap by analyzing the learning guarantees of the corresponding learning algorithms on both SA and HL measures. We show that when a learning algorithm optimizes HL with its surrogate loss, it enjoys an error bound for the HL measure independent of $c$ (the number of labels), while the bound for the SA measure depends on at most $O(c)$. On the other hand, when directly optimizing SA with its surrogate loss, it has learning guarantees that depend on $O(\\sqrt{c})$ for both HL and SA measures. This explains the observation that when the label space is not large, optimizing HL with its surrogate loss can have promising performance for SA. We further show that our techniques are applicable to analyze the learning guarantees of algorithms on other measures, such as RL. Finally, the theoretical analyses are supported by experimental results.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2011.07805",
+      "url": "https://arxiv.org/abs/2011.07805",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2402.14493",
+      "title": "An Improved Pseudopolynomial Time Algorithm for Subset Sum",
+      "authors": [
+        {
+          "name": "Lin Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiayi Lian",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuchen Mao",
+          "affiliation": ""
+        },
+        {
+          "name": "Guochuan Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "We investigate pseudo-polynomial time algorithms for Subset Sum. Given a multi-set $X$ of $n$ positive integers and a target $t$, Subset Sum asks whether some subset of $X$ sums to $t$. Bringmann proposes an $\\tilde{O}(n + t)$-time algorithm [Bringmann SODA'17], and an open question has naturally arisen: can Subset Sum be solved in $O(n + w)$ time? Here $w$ is the maximum integer in $X$. We make a progress towards resolving the open question by proposing an $\\tilde{O}(n + \\sqrt{wt})$-time algorithm.",
+      "venue": "cs.DS",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2402.14493",
+      "url": "https://arxiv.org/abs/2402.14493",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2010.05584",
+      "title": "Data Loss Detector: Automatically Revealing Data Loss Bugs in Android Apps",
+      "authors": [
+        {
+          "name": "Oliviero Riganelli",
+          "affiliation": ""
+        },
+        {
+          "name": "Simone Paolo Mottadelli",
+          "affiliation": ""
+        },
+        {
+          "name": "Claudio Rota",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniela Micucci",
+          "affiliation": ""
+        },
+        {
+          "name": "Leonardo Mariani",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Android apps must work correctly even if their execution is interrupted by external events. For instance, an app must work properly even if a phone call is received, or after its layout is redrawn because the smartphone has been rotated. Since these events may require destroying, when the execution is interrupted, and recreating, when the execution is resumed, the foreground activity of the app, the only way to prevent the loss of state information is saving and restoring it. This behavior must be explicitly implemented by app developers, who often miss to implement it properly, releasing apps affected by data loss problems, that is, apps that may lose state information when their execution is interrupted. Although several techniques can be used to automatically generate test cases for Android apps, the obtained test cases seldom include the interactions and the checks necessary to exercise and reveal data loss faults. To address this problem, this paper presents Data Loss Detector (DLD), a test case generation technique that integrates an exploration strategy, data-loss-revealing actions, and two customized oracle strategies for the detection of data loss failures. DLD has been able to reveal 75% of the faults in a benchmark of 54 Android app releases affected by 110 known data loss faults. DLD also revealed unknown data loss problems, outperforming competing approaches.",
+      "venue": "cs.SE",
+      "citation_count": 0,
+      "doi": "10.1145/3395363.3397379",
+      "arxiv_id": "2010.05584",
+      "url": "https://arxiv.org/abs/2010.05584",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2211.12933",
+      "title": "Join the High Accuracy Club on ImageNet with A Binary Neural Network Ticket",
+      "authors": [
+        {
+          "name": "Nianhui Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Joseph Bethge",
+          "affiliation": ""
+        },
+        {
+          "name": "Christoph Meinel",
+          "affiliation": ""
+        },
+        {
+          "name": "Haojin Yang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Binary neural networks are the extreme case of network quantization, which has long been thought of as a potential edge machine learning solution. However, the significant accuracy gap to the full-precision counterparts restricts their creative potential for mobile applications. In this work, we revisit the potential of binary neural networks and focus on a compelling but unanswered problem: how can a binary neural network achieve the crucial accuracy level (e.g., 80%) on ILSVRC-2012 ImageNet? We achieve this goal by enhancing the optimization process from three complementary perspectives: (1) We design a novel binary architecture BNext based on a comprehensive study of binary architectures and their optimization process. (2) We propose a novel knowledge-distillation technique to alleviate the counter-intuitive overfitting problem observed when attempting to train extremely accurate binary models. (3) We analyze the data augmentation pipeline for binary networks and modernize it with up-to-date techniques from full-precision models. The evaluation results on ImageNet show that BNext, for the first time, pushes the binary model accuracy boundary to 80.57% and significantly outperforms all the existing binary networks. Code and trained models are available at: https://github.com/hpi-xnor/BNext.git.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2211.12933",
+      "url": "https://arxiv.org/abs/2211.12933",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2009.08453",
+      "title": "MEAL V2: Boosting Vanilla ResNet-50 to 80%+ Top-1 Accuracy on ImageNet without Tricks",
+      "authors": [
+        {
+          "name": "Zhiqiang Shen",
+          "affiliation": ""
+        },
+        {
+          "name": "Marios Savvides",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "We introduce a simple yet effective distillation framework that is able to boost the vanilla ResNet-50 to 80%+ Top-1 accuracy on ImageNet without tricks. We construct such a framework through analyzing the problems in the existing classification system and simplify the base method ensemble knowledge distillation via discriminators by: (1) adopting the similarity loss and discriminator only on the final outputs and (2) using the average of softmax probabilities from all teacher ensembles as the stronger supervision. Intriguingly, three novel perspectives are presented for distillation: (1) weight decay can be weakened or even completely removed since the soft label also has a regularization effect; (2) using a good initialization for students is critical; and (3) one-hot/hard label is not necessary in the distillation process if the weights are well initialized. We show that such a straight-forward framework can achieve state-of-the-art results without involving any commonly-used techniques, such as architecture modification; outside training data beyond ImageNet; autoaug/randaug; cosine learning rate; mixup/cutmix training; label smoothing; etc. Our method obtains 80.67% top-1 accuracy on ImageNet using a single crop-size of 224x224 with vanilla ResNet-50, outperforming the previous state-of-the-arts by a significant margin under the same network structure. Our result can be regarded as a strong baseline using knowledge distillation, and to our best knowledge, this is also the first method that is able to boost vanilla ResNet-50 to surpass 80% on ImageNet without architecture modification or additional training data. On smaller ResNet-18, our distillation framework consistently improves from 69.76% to 73.19%, which shows tremendous practical values in real-world applications. Our code and models are available at: https://github.com/szq0214/MEAL-V2.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2009.08453",
+      "url": "https://arxiv.org/abs/2009.08453",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2211.13331",
+      "title": "Using Focal Loss to Fight Shallow Heuristics: An Empirical Analysis of Modulated Cross-Entropy in Natural Language Inference",
+      "authors": [
+        {
+          "name": "Frano Raji\u010d",
+          "affiliation": ""
+        },
+        {
+          "name": "Ivan Stresec",
+          "affiliation": ""
+        },
+        {
+          "name": "Axel Marmet",
+          "affiliation": ""
+        },
+        {
+          "name": "Tim Po\u0161tuvan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "There is no such thing as a perfect dataset. In some datasets, deep neural networks discover underlying heuristics that allow them to take shortcuts in the learning process, resulting in poor generalization capability. Instead of using standard cross-entropy, we explore whether a modulated version of cross-entropy called focal loss can constrain the model so as not to use heuristics and improve generalization performance. Our experiments in natural language inference show that focal loss has a regularizing impact on the learning process, increasing accuracy on out-of-distribution data, but slightly decreasing performance on in-distribution data. Despite the improved out-of-distribution performance, we demonstrate the shortcomings of focal loss and its inferiority in comparison to the performance of methods such as unbiased focal loss and self-debiasing ensembles.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2211.13331",
+      "url": "https://arxiv.org/abs/2211.13331",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2411.05920",
+      "title": "Measurement incompatibility under loss",
+      "authors": [
+        {
+          "name": "Mohammad Mehboudi",
+          "affiliation": ""
+        },
+        {
+          "name": "Fatemeh Rezaeinia",
+          "affiliation": ""
+        },
+        {
+          "name": "Saleh Rahimi-Keshari",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "We investigate the measurement incompatibility of continuous-variable systems with infinite-dimensional Hilbert spaces under the influence of pure losses, a fundamental noise source in quantum optics, and a significant challenge for long-distance quantum communication. We show that loss channels with transmissivities less than $1/n$ make any set of $n$ measurements compatible. Additionally, we design a set of measurements that remains incompatible even under extreme losses, where the number of measurements in the set increases with the amount of loss. These measurements rely on on-off photodetectors and linear optics, making them feasible for implementation under realistic laboratory conditions. Furthermore, we demonstrate that no loss channel can break the incompatibility of all measurements. As a result, quantum steering remains achievable in the presence of pure loss.",
+      "venue": "quant-ph",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2411.05920",
+      "url": "https://arxiv.org/abs/2411.05920",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2507.15511",
+      "title": "Certificate-Sensitive Subset Sum: Realizing Instance Complexity",
+      "authors": [
+        {
+          "name": "Jesus Salas",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The Subset Sum problem is a classical NP-complete problem with a long-standing $O^*(2^{n/2})$ deterministic bound due to Horowitz and Sahni. We present results at two distinct levels of generality.\n  First (instance-sensitive bound), we introduce, to our knowledge, the first deterministic algorithm whose runtime provably scales with the certificate size $U = |\u03a3(S)|$, the number of distinct subset sums. Our enumerator constructs all such sums in time $O(U \\cdot n^2)$, with a randomized variant achieving expected time $O(U \\cdot n)$. This provides a constructive link to Instance Complexity by tying runtime to the size of an information-theoretically minimal certificate.\n  Second (unconditional worst-case bound), by combining this enumerator with a double meet-in-the-middle strategy and a Controlled Aliasing technique that enforces a simple canonical-normal-form (CNF) expansion policy on aliased states, we obtain a deterministic solver running in $O^*(2^{n/2-\\varepsilon})$ time with $\\varepsilon=\\log_2(\\frac{4}{3})$ - the first unconditional deterministic improvement over the classical $O^*(2^{n/2})$ bound for all sufficiently large $n$.\n  Finally, we refine fine-grained hardness for Subset Sum by making explicit the structural regime (high collision entropy / near collision-free) implicitly assumed by SETH-based reductions, i.e., instances with near-maximal $U$.",
+      "venue": "cs.CC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2507.15511",
+      "url": "https://arxiv.org/abs/2507.15511",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2110.15725",
+      "title": "Batch-Softmax Contrastive Loss for Pairwise Sentence Scoring Tasks",
+      "authors": [
+        {
+          "name": "Anton Chernyavskiy",
+          "affiliation": ""
+        },
+        {
+          "name": "Dmitry Ilvovsky",
+          "affiliation": ""
+        },
+        {
+          "name": "Pavel Kalinin",
+          "affiliation": ""
+        },
+        {
+          "name": "Preslav Nakov",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "The use of contrastive loss for representation learning has become prominent in computer vision, and it is now getting attention in Natural Language Processing (NLP). Here, we explore the idea of using a batch-softmax contrastive loss when fine-tuning large-scale pre-trained transformer models to learn better task-specific sentence embeddings for pairwise sentence scoring tasks. We introduce and study a number of variations in the calculation of the loss as well as in the overall training procedure; in particular, we find that data shuffling can be quite important. Our experimental results show sizable improvements on a number of datasets and pairwise sentence scoring tasks including classification, ranking, and regression. Finally, we offer detailed analysis and discussion, which should be useful for researchers aiming to explore the utility of contrastive loss in NLP.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2110.15725",
+      "url": "https://arxiv.org/abs/2110.15725",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2002.04264",
+      "title": "The Devil is in the Channels: Mutual-Channel Loss for Fine-Grained Image Classification",
+      "authors": [
+        {
+          "name": "Dongliang Chang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yifeng Ding",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiyang Xie",
+          "affiliation": ""
+        },
+        {
+          "name": "Ayan Kumar Bhunia",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaoxu Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhanyu Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Ming Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jun Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi-Zhe Song",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Key for solving fine-grained image categorization is finding discriminate and local regions that correspond to subtle visual traits. Great strides have been made, with complex networks designed specifically to learn part-level discriminate feature representations. In this paper, we show it is possible to cultivate subtle details without the need for overly complicated network designs or training mechanisms -- a single loss is all it takes. The main trick lies with how we delve into individual feature channels early on, as opposed to the convention of starting from a consolidated feature map. The proposed loss function, termed as mutual-channel loss (MC-Loss), consists of two channel-specific components: a discriminality component and a diversity component. The discriminality component forces all feature channels belonging to the same class to be discriminative, through a novel channel-wise attention mechanism. The diversity component additionally constraints channels so that they become mutually exclusive on spatial-wise. The end result is therefore a set of feature channels that each reflects different locally discriminative regions for a specific class. The MC-Loss can be trained end-to-end, without the need for any bounding-box/part annotations, and yields highly discriminative regions during inference. Experimental results show our MC-Loss when implemented on top of common base networks can achieve state-of-the-art performance on all four fine-grained categorization datasets (CUB-Birds, FGVC-Aircraft, Flowers-102, and Stanford-Cars). Ablative studies further demonstrate the superiority of MC-Loss when compared with other recently proposed general-purpose losses for visual classification, on two different base networks. Code available at https://github.com/dongliangchang/Mutual-Channel-Loss",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1109/TIP.2020.2973812",
+      "arxiv_id": "2002.04264",
+      "url": "https://arxiv.org/abs/2002.04264",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2401.02020",
+      "title": "Spikformer V2: Join the High Accuracy Club on ImageNet with an SNN Ticket",
+      "authors": [
+        {
+          "name": "Zhaokun Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Kaiwei Che",
+          "affiliation": ""
+        },
+        {
+          "name": "Wei Fang",
+          "affiliation": ""
+        },
+        {
+          "name": "Keyu Tian",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuesheng Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuicheng Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Yonghong Tian",
+          "affiliation": ""
+        },
+        {
+          "name": "Li Yuan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Spiking Neural Networks (SNNs), known for their biologically plausible architecture, face the challenge of limited performance. The self-attention mechanism, which is the cornerstone of the high-performance Transformer and also a biologically inspired structure, is absent in existing SNNs. To this end, we explore the potential of leveraging both self-attention capability and biological properties of SNNs, and propose a novel Spiking Self-Attention (SSA) and Spiking Transformer (Spikformer). The SSA mechanism eliminates the need for softmax and captures the sparse visual feature employing spike-based Query, Key, and Value. This sparse computation without multiplication makes SSA efficient and energy-saving. Further, we develop a Spiking Convolutional Stem (SCS) with supplementary convolutional layers to enhance the architecture of Spikformer. The Spikformer enhanced with the SCS is referred to as Spikformer V2. To train larger and deeper Spikformer V2, we introduce a pioneering exploration of Self-Supervised Learning (SSL) within the SNN. Specifically, we pre-train Spikformer V2 with masking and reconstruction style inspired by the mainstream self-supervised Transformer, and then finetune the Spikformer V2 on the image classification on ImageNet. Extensive experiments show that Spikformer V2 outperforms other previous surrogate training and ANN2SNN methods. An 8-layer Spikformer V2 achieves an accuracy of 80.38% using 4 time steps, and after SSL, a 172M 16-layer Spikformer V2 reaches an accuracy of 81.10% with just 1 time step. To the best of our knowledge, this is the first time that the SNN achieves 80+% accuracy on ImageNet. The code will be available at Spikformer V2.",
+      "venue": "cs.NE",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2401.02020",
+      "url": "https://arxiv.org/abs/2401.02020",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2011.00071",
+      "title": "Training EfficientNets at Supercomputer Scale: 83% ImageNet Top-1 Accuracy in One Hour",
+      "authors": [
+        {
+          "name": "Arissa Wongpanich",
+          "affiliation": ""
+        },
+        {
+          "name": "Hieu Pham",
+          "affiliation": ""
+        },
+        {
+          "name": "James Demmel",
+          "affiliation": ""
+        },
+        {
+          "name": "Mingxing Tan",
+          "affiliation": ""
+        },
+        {
+          "name": "Quoc Le",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang You",
+          "affiliation": ""
+        },
+        {
+          "name": "Sameer Kumar",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "EfficientNets are a family of state-of-the-art image classification models based on efficiently scaled convolutional neural networks. Currently, EfficientNets can take on the order of days to train; for example, training an EfficientNet-B0 model takes 23 hours on a Cloud TPU v2-8 node. In this paper, we explore techniques to scale up the training of EfficientNets on TPU-v3 Pods with 2048 cores, motivated by speedups that can be achieved when training at such scales. We discuss optimizations required to scale training to a batch size of 65536 on 1024 TPU-v3 cores, such as selecting large batch optimizers and learning rate schedules as well as utilizing distributed evaluation and batch normalization techniques. Additionally, we present timing and performance benchmarks for EfficientNet models trained on the ImageNet dataset in order to analyze the behavior of EfficientNets at scale. With our optimizations, we are able to train EfficientNet on ImageNet to an accuracy of 83% in 1 hour and 4 minutes.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2011.00071",
+      "url": "https://arxiv.org/abs/2011.00071",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2111.06934",
+      "title": "Contrastive Feature Loss for Image Prediction",
+      "authors": [
+        {
+          "name": "Alex Andonian",
+          "affiliation": ""
+        },
+        {
+          "name": "Taesung Park",
+          "affiliation": ""
+        },
+        {
+          "name": "Bryan Russell",
+          "affiliation": ""
+        },
+        {
+          "name": "Phillip Isola",
+          "affiliation": ""
+        },
+        {
+          "name": "Jun-Yan Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Richard Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Training supervised image synthesis models requires a critic to compare two images: the ground truth to the result. Yet, this basic functionality remains an open problem. A popular line of approaches uses the L1 (mean absolute error) loss, either in the pixel or the feature space of pretrained deep networks. However, we observe that these losses tend to produce overly blurry and grey images, and other techniques such as GANs need to be employed to fight these artifacts. In this work, we introduce an information theory based approach to measuring similarity between two images. We argue that a good reconstruction should have high mutual information with the ground truth. This view enables learning a lightweight critic to \"calibrate\" a feature space in a contrastive manner, such that reconstructions of corresponding spatial patches are brought together, while other patches are repulsed. We show that our formulation immediately boosts the perceptual realism of output images when used as a drop-in replacement for the L1 loss, with or without an additional GAN loss.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2111.06934",
+      "url": "https://arxiv.org/abs/2111.06934",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2306.15658",
+      "title": "CLIPA-v2: Scaling CLIP Training with 81.1% Zero-shot ImageNet Accuracy within a \\$10,000 Budget; An Extra \\$4,000 Unlocks 81.8% Accuracy",
+      "authors": [
+        {
+          "name": "Xianhang Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Zeyu Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Cihang Xie",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "The recent work CLIPA presents an inverse scaling law for CLIP training -- whereby the larger the image/text encoders used, the shorter the sequence length of image/text tokens that can be applied in training. This finding enables us to train high-performance CLIP models with significantly reduced computations. Building upon this work, we hereby present CLIPA-v2 with two key contributions. Technically, we find this inverse scaling law is also applicable in the finetuning stage, enabling further reduction in computational needs. Empirically, we explore CLIPA at scale, extending the experiments up to the H/14 model with ~13B image-text pairs seen during training.\n  Our results are exciting -- by only allocating a budget of \\$10,000, our CLIP model achieves an impressive zero-shot ImageNet accuracy of 81.1%, surpassing the prior best CLIP model (from OpenCLIP, 80.1%) by 1.0% and meanwhile reducing the computational cost by ~39X. Moreover, with an additional investment of $4,000, we can further elevate the zero-shot ImageNet accuracy to 81.8%. Our code and models are available at https://github.com/UCSC-VLAA/CLIPA.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2306.15658",
+      "url": "https://arxiv.org/abs/2306.15658",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2106.01214",
+      "title": "General Bayesian Loss Function Selection and the use of Improper Models",
+      "authors": [
+        {
+          "name": "Jack Jewson",
+          "affiliation": ""
+        },
+        {
+          "name": "David Rossell",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Statisticians often face the choice between using probability models or a paradigm defined by minimising a loss function. Both approaches are useful and, if the loss can be re-cast into a proper probability model, there are many tools to decide which model or loss is more appropriate for the observed data, in the sense of explaining the data's nature. However, when the loss leads to an improper model, there are no principled ways to guide this choice. We address this task by combining the Hyv\u00e4rinen score, which naturally targets infinitesimal relative probabilities, and general Bayesian updating, which provides a unifying framework for inference on losses and models. Specifically we propose the H-score, a general Bayesian selection criterion and prove that it consistently selects the (possibly improper) model closest to the data-generating truth in Fisher's divergence. We also prove that an associated H-posterior consistently learns optimal hyper-parameters featuring in loss functions, including a challenging tempering parameter in generalised Bayesian inference. As salient examples, we consider robust regression and non-parametric density estimation where popular loss functions define improper models for the data and hence cannot be dealt with using standard model selection tools. These examples illustrate advantages in robustness-efficiency trade-offs and provide a Bayesian implementation for kernel density estimation, opening a new avenue for Bayesian non-parametrics.",
+      "venue": "stat.ME",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2106.01214",
+      "url": "https://arxiv.org/abs/2106.01214",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

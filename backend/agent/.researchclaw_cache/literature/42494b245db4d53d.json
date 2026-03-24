@@ -1,0 +1,1480 @@
+{
+  "query": "Training free scene comparison",
+  "source": "openalex",
+  "limit": 40,
+  "timestamp": 1773980427.464253,
+  "papers": [
+    {
+      "paper_id": "oalex-W3028045870",
+      "title": "Single Image Deraining: From Model-Based to Data-Driven and Beyond",
+      "authors": [
+        {
+          "name": "Wenhan Yang",
+          "affiliation": "City University of Hong Kong"
+        },
+        {
+          "name": "Robby T. Tan",
+          "affiliation": "Yale-NUS College"
+        },
+        {
+          "name": "Shiqi Wang",
+          "affiliation": "City University of Hong Kong"
+        },
+        {
+          "name": "Yuming Fang",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Jiaying Liu",
+          "affiliation": "Jiangxi University of Finance and Economics"
+        }
+      ],
+      "year": 2020,
+      "abstract": "The goal of single-image deraining is to restore the rain-free background scenes of an image degraded by rain streaks and rain accumulation. The early single-image deraining methods employ a cost function, where various priors are developed to represent the properties of rain and background layers. Since 2017, single-image deraining methods step into a deep-learning era, and exploit various types of networks, i.e., convolutional neural networks, recurrent neural networks, generative adversarial networks, etc., demonstrating impressive performance. Given the current rapid development, in this paper, we provide a comprehensive survey of deraining methods over the last decade. We summarize the rain appearance models, and discuss two categories of deraining approaches: model-based and data-driven approaches. For the former, we organize the literature based on their basic models and priors. For the latter, we discuss the developed ideas related to architectures, constraints, loss functions, and training datasets. We present milestones of single-image deraining methods, review a broad selection of previous works in different categories, and provide insights on the historical development route from the model-based to data-driven methods. We also summarize performance comparisons quantitatively and qualitatively. Beyond discussing the technicality of deraining methods, we also discuss the future possible directions.",
+      "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+      "citation_count": 275,
+      "doi": "10.1109/tpami.2020.2995190",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tpami.2020.2995190",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3144276858",
+      "title": "Aggregated Contextual Transformations for High-Resolution Image Inpainting",
+      "authors": [
+        {
+          "name": "Yanhong Zeng",
+          "affiliation": "Sun Yat-sen University"
+        },
+        {
+          "name": "Jianlong Fu",
+          "affiliation": "Microsoft (United States)"
+        },
+        {
+          "name": "Hongyang Chao",
+          "affiliation": "Sun Yat-sen University"
+        },
+        {
+          "name": "Baining Guo",
+          "affiliation": "Microsoft (United States)"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Image inpainting that completes large free-form missing regions in images is a promising yet challenging task. State-of-the-art approaches have achieved significant progress by taking advantage of generative adversarial networks (GAN). However, these approaches can suffer from generating distorted structures and blurry textures in high-resolution images (e.g., 512\u00d7512). The challenges mainly drive from (1) image content reasoning from distant contexts, and (2) fine-grained texture synthesis for a large missing region. To overcome these two challenges, we propose an enhanced GAN-based model, named Aggregated COntextual-Transformation GAN (AOT-GAN), for high-resolution image inpainting. Specifically, to enhance context reasoning, we construct the generator of AOT-GAN by stacking multiple layers of a proposed AOT block. The AOT blocks aggregate contextual transformations from various receptive fields, allowing to capture both informative distant image contexts and rich patterns of interest for context reasoning. For improving texture synthesis, we enhance the discriminator of AOT-GAN by training it with a tailored mask-prediction task. Such a training objective forces the discriminator to distinguish the detailed appearances of real and synthesized patches, and in turn facilitates the generator to synthesize clear textures. Extensive comparisons on Places2, the most challenging benchmark with 1.8 million high-resolution images of 365 complex scenes, show that our model outperforms the state-of-the-art. A user study including more than 30 subjects further validates the superiority of AOT-GAN. We further evaluate the proposed AOT-GAN in practical applications, e.g., logo removal, face editing, and object removal. Results show that our model achieves promising completions in the real world. We release codes and models in https://github.com/researchmm/AOT-GAN-for-Inpainting.",
+      "venue": "IEEE Transactions on Visualization and Computer Graphics",
+      "citation_count": 226,
+      "doi": "10.1109/tvcg.2022.3156949",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tvcg.2022.3156949",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4327663519",
+      "title": "You Only Train Once: Learning a General Anomaly Enhancement Network With Random Masks for Hyperspectral Anomaly Detection",
+      "authors": [
+        {
+          "name": "Zhaoxu Li",
+          "affiliation": "National University of Defense Technology"
+        },
+        {
+          "name": "Yingqian Wang",
+          "affiliation": "National University of Defense Technology"
+        },
+        {
+          "name": "Chao Xiao",
+          "affiliation": "National University of Defense Technology"
+        },
+        {
+          "name": "Qiang Ling",
+          "affiliation": "National University of Defense Technology"
+        },
+        {
+          "name": "Zaiping Lin",
+          "affiliation": "National University of Defense Technology"
+        },
+        {
+          "name": "Wei An",
+          "affiliation": "National University of Defense Technology"
+        }
+      ],
+      "year": 2023,
+      "abstract": "In this paper, we introduce a new approach to address the challenge of generalization in hyperspectral anomaly detection (AD). Our method eliminates the need for adjusting parameters or retraining on new test scenes as required by most existing methods. Employing an image-level training paradigm, we achieve a general anomaly enhancement network for hyperspectral AD that only needs to be trained once. Trained on a set of anomaly-free hyperspectral images with random masks, our network can learn the spatial context characteristics between anomalies and background in an unsupervised way. Additionally, a plug-and-play model selection module is proposed to search for a spatial-spectral transform domain that is more suitable for AD task than the original data. To establish a unified benchmark to comprehensive evaluate our method and existing methods, we develop a large-scale hyperspectral AD dataset (HAD100) that includes 100 real test scenes with diverse anomaly targets. In comparison experiments, we combine our network with a parameter-free detector, and achieve the optimal balance between detection accuracy and inference speed among state-of-the-art AD methods. Experimental results also show that our method still achieves competitive performance when the training and test set are captured by different sensor devices. Our code is available at https://github.com/ZhaoxuLi123/AETNet.",
+      "venue": "IEEE Transactions on Geoscience and Remote Sensing",
+      "citation_count": 50,
+      "doi": "10.1109/tgrs.2023.3258067",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tgrs.2023.3258067",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3140854437",
+      "title": "Review of deep learning: concepts, CNN architectures, challenges, applications, future directions",
+      "authors": [
+        {
+          "name": "Laith Alzubaidi",
+          "affiliation": "Queensland University of Technology"
+        },
+        {
+          "name": "Jinglan Zhang",
+          "affiliation": "Queensland University of Technology"
+        },
+        {
+          "name": "Amjad J. Humaidi",
+          "affiliation": "University of Technology - Iraq"
+        },
+        {
+          "name": "Ayad Q. Al-Dujaili",
+          "affiliation": "Middle Technical University"
+        },
+        {
+          "name": "Ye Duan",
+          "affiliation": "University of Missouri"
+        },
+        {
+          "name": "Omran Al-Shamma",
+          "affiliation": "University of Information Technology and Communications"
+        },
+        {
+          "name": "Jos\u00e9 Santamar\u00eda",
+          "affiliation": "Universidad de Ja\u00e9n"
+        },
+        {
+          "name": "Mohammed A. Fadhel",
+          "affiliation": "Thi Qar University"
+        },
+        {
+          "name": "Muthana Al\u2010Amidie",
+          "affiliation": "University of Missouri"
+        },
+        {
+          "name": "Laith Farhan",
+          "affiliation": "Manchester Metropolitan University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "In the last few years, the deep learning (DL) computing paradigm has been deemed the Gold Standard in the machine learning (ML) community. Moreover, it has gradually become the most widely used computational approach in the field of ML, thus achieving outstanding results on several complex cognitive tasks, matching or even beating those provided by human performance. One of the benefits of DL is the ability to learn massive amounts of data. The DL field has grown fast in the last few years and it has been extensively used to successfully address a wide range of traditional applications. More importantly, DL has outperformed well-known ML techniques in many domains, e.g., cybersecurity, natural language processing, bioinformatics, robotics and control, and medical information processing, among many others. Despite it has been contributed several works reviewing the State-of-the-Art on DL, all of them only tackled one aspect of the DL, which leads to an overall lack of knowledge about it. Therefore, in this contribution, we propose using a more holistic approach in order to provide a more suitable starting point from which to develop a full understanding of DL. Specifically, this review attempts to provide a more comprehensive survey of the most important aspects of DL and including those enhancements recently added to the field. In particular, this paper outlines the importance of DL, presents the types of DL techniques and networks. It then presents convolutional neural networks (CNNs) which the most utilized DL network type and describes the development of CNNs architectures together with their main features, e.g., starting with the AlexNet network and closing with the High-Resolution network (HR.Net). Finally, we further present the challenges and suggested solutions to help researchers understand the existing research gaps. It is followed by a list of the major DL applications. Computational tools including FPGA, GPU, and CPU are summarized along with a description of their influence on DL. The paper ends with the evolution matrix, benchmark datasets, and summary and conclusion.",
+      "venue": "Journal Of Big Data",
+      "citation_count": 7130,
+      "doi": "10.1186/s40537-021-00444-8",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1186/s40537-021-00444-8",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4316041497",
+      "title": "Multi-scale ship target detection using SAR images based on improved Yolov5",
+      "authors": [
+        {
+          "name": "Muhammad Yasir",
+          "affiliation": "China University of Petroleum, East China"
+        },
+        {
+          "name": "Shanwei Liu",
+          "affiliation": "China University of Petroleum, East China"
+        },
+        {
+          "name": "Mingming Xu",
+          "affiliation": "China University of Petroleum, East China"
+        },
+        {
+          "name": "Hui Sheng",
+          "affiliation": "China University of Petroleum, East China"
+        },
+        {
+          "name": "Md Sakaouth Hossain",
+          "affiliation": "Jahangirnagar University"
+        },
+        {
+          "name": "Arife Tugsan Isiacik Colak",
+          "affiliation": "Oman Medical College"
+        },
+        {
+          "name": "Dawei Wang",
+          "affiliation": "China University of Petroleum, East China"
+        },
+        {
+          "name": "Jianhua Wan",
+          "affiliation": "China University of Petroleum, East China"
+        },
+        {
+          "name": "Kinh Bac Dang",
+          "affiliation": "Vietnam National University, Hanoi"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Synthetic aperture radar (SAR) imaging is used to identify ships, which is a vital task in the maritime industry for managing maritime fisheries, marine transit, and rescue operations. However, some problems, like complex background interferences, various size ship feature variations, and indistinct tiny ship characteristics, continue to be challenges that tend to defy accuracy improvements in SAR ship detection. This research study for multiscale SAR ships detection has developed an upgraded YOLOv5s technique to address these issues. Using the C3 and FPN + PAN structures and attention mechanism, the generic YOLOv5 model has been enhanced in the backbone and neck section to achieve high identification rates. The SAR ship detection datasets and AirSARship datasets, along with two SAR large scene images acquired from the Chinese GF-3 satellite, are utilized to determine the experimental results. This model\u2019s applicability is assessed using a variety of validation metrics, including accuracy, different training and test sets, and TF values, as well as comparisons with other cutting-edge classification models (ARPN, DAPN, Quad-FPN, HR-SDNet, Grid R-CNN, Cascade R-CNN, Multi-Stage YOLOv4-LITE, EfficientDet, Free-Anchor, Lite-Yolov5). The performance values demonstrate that the suggested model performed superior to the benchmark model used in this study, with higher identification rates. Additionally, these excellent identification rates demonstrate the recommended model\u2019s applicability for maritime surveillance.",
+      "venue": "Frontiers in Marine Science",
+      "citation_count": 59,
+      "doi": "10.3389/fmars.2022.1086140",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3389/fmars.2022.1086140",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4221151978",
+      "title": "Instant neural graphics primitives with a multiresolution hash encoding",
+      "authors": [
+        {
+          "name": "Thomas M\u00fcller",
+          "affiliation": ""
+        },
+        {
+          "name": "Alex Evans",
+          "affiliation": "Nvidia (United Kingdom)"
+        },
+        {
+          "name": "Christoph Schied",
+          "affiliation": ""
+        },
+        {
+          "name": "Alexander Keller",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Neural graphics primitives, parameterized by fully connected neural networks, can be costly to train and evaluate. We reduce this cost with a versatile new input encoding that permits the use of a smaller network without sacrificing quality, thus significantly reducing the number of floating point and memory access operations: a small neural network is augmented by a multiresolution hash table of trainable feature vectors whose values are optimized through stochastic gradient descent. The multiresolution structure allows the network to disambiguate hash collisions, making for a simple architecture that is trivial to parallelize on modern GPUs. We leverage this parallelism by implementing the whole system using fully-fused CUDA kernels with a focus on minimizing wasted bandwidth and compute operations. We achieve a combined speedup of several orders of magnitude, enabling training of high-quality neural graphics primitives in a matter of seconds, and rendering in tens of milliseconds at a resolution of 1920\u00d71080.",
+      "venue": "ACM Transactions on Graphics",
+      "citation_count": 3424,
+      "doi": "10.1145/3528223.3530127",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3528223.3530127",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3112782334",
+      "title": "Deep Dehazing Network With Latent Ensembling Architecture and Adversarial Learning",
+      "authors": [
+        {
+          "name": "Yuenan Li",
+          "affiliation": "Tianjin University"
+        },
+        {
+          "name": "Yuhang Liu",
+          "affiliation": "Tianjin University"
+        },
+        {
+          "name": "Qixin Yan",
+          "affiliation": "Tianjin University"
+        },
+        {
+          "name": "Kuangshi Zhang",
+          "affiliation": "Tianjin University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Most existing dehazing algorithms recover haze-free image by solving the hazy imaging model using estimated transmission map and global atmospheric light. However, inaccurate estimation of these variables and the strong assumptions of imaging model result in unrealistic dehazing results. In this paper, we use the adversarial game between a pair of neural networks to accomplish end-to-end photo-realistic dehazing. To avoid uniform contrast enhancement, the generator learns to simultaneously restore haze-free image and capture the non-uniformity of haze. The modules for the two tasks are assembled in sequential and parallel manners to enable information sharing at different levels, and the architecture of the generator implicitly forms an ensemble of dehazing models that allows for feature selection. A multi-scale discriminator competes with the generator by learning to detect dehazing artifacts and the inconsistency between dehazed image and the spatial variation of haze. Unlike existing works that penalize dehazing artifacts via hand-crafted loss, the proposed algorithm uses the identity mapping in the space of clear-scene images to regularize data-driven dehazing. The proposed work also addresses the adaptability of data-driven dehazing to high-level computer vision task. We propose a task-driven training strategy that can optimize the object detection performance on dehazed images without updating the parameters of object detector. Performance of the proposed algorithm is assessed on the RESIDE, I-Haze, and O-Haze benchmarks. The comparison with ten state-of-the-art algorithms shows that the proposed work is the best performer in most competitions.",
+      "venue": "IEEE Transactions on Image Processing",
+      "citation_count": 43,
+      "doi": "10.1109/tip.2020.3044208",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tip.2020.3044208",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3206555527",
+      "title": "Unsupervised Learning with Generative Adversarial Network for Automatic Tire Defect Detection from X-ray Images",
+      "authors": [
+        {
+          "name": "Yilin Wang",
+          "affiliation": "State Key Laboratory of Industrial Control Technology"
+        },
+        {
+          "name": "Yulong Zhang",
+          "affiliation": "State Key Laboratory of Industrial Control Technology"
+        },
+        {
+          "name": "Zheng Li",
+          "affiliation": "State Key Laboratory of Industrial Control Technology"
+        },
+        {
+          "name": "Liedong Yin",
+          "affiliation": "State Key Laboratory of Industrial Control Technology"
+        },
+        {
+          "name": "Jinshui Chen",
+          "affiliation": "State Key Laboratory of Industrial Control Technology"
+        },
+        {
+          "name": "Jiangang Lu",
+          "affiliation": "Zhejiang Lab"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Automatic defect detection of tire has become an essential issue in the tire industry. However, it is challenging to inspect the inner structure of tire by surface detection. Therefore, an X-ray image sensor is used for tire defect inspection. At present, detection of defective tires is inefficient because tire factories commonly conduct detection by manually checking X-ray images. With the development of deep learning, supervised learning has been introduced to replace human resources. However, in actual industrial scenes, defective samples are rare in comparison to defect-free samples. The quantity of defective samples is insufficient for supervised models to extract features and identify nonconforming products from qualified ones. To address these problems, we propose an unsupervised approach, using no labeled defect samples for training. Moreover, we introduce an augmented reconstruction method and a self-supervised training strategy. The approach is based on the idea of reconstruction. In the training phase, only defect-free samples are used for training the model and updating memory items in the memory module, so the reproduced images in the test phase are bound to resemble defect-free images. The reconstruction residual is utilized to detect defects. The introduction of self-supervised training strategy further strengthens the reconstruction residual to improve detection performance. The proposed method is experimentally proved to be effective. The Area Under Curve (AUC) on a tire X-ray dataset reaches 0.873, so the proposed method is promising for application.",
+      "venue": "Sensors",
+      "citation_count": 21,
+      "doi": "10.3390/s21206773",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/s21206773",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3040838455",
+      "title": "Event-Based Vision: A Survey",
+      "authors": [
+        {
+          "name": "Guillermo Gallego",
+          "affiliation": "Einstein Center Digital Future"
+        },
+        {
+          "name": "Tobi Delbruck",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Garrick Orchard",
+          "affiliation": "Intel (United States)"
+        },
+        {
+          "name": "Chiara Bartolozzi",
+          "affiliation": "Italian Institute of Technology"
+        },
+        {
+          "name": "Brian Taba",
+          "affiliation": "IBM (United States)"
+        },
+        {
+          "name": "Andrea Censi",
+          "affiliation": "ETH Zurich"
+        },
+        {
+          "name": "Stefan Leutenegger",
+          "affiliation": "Imperial College London"
+        },
+        {
+          "name": "Andrew J. Davison",
+          "affiliation": "Imperial College London"
+        },
+        {
+          "name": "Jorg Conradt",
+          "affiliation": "KTH Royal Institute of Technology"
+        },
+        {
+          "name": "Kostas Daniilidis",
+          "affiliation": "University of Pennsylvania"
+        },
+        {
+          "name": "Davide Scaramuzza",
+          "affiliation": "University of Zurich"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Event cameras are bio-inspired sensors that differ from conventional frame cameras: Instead of capturing images at a fixed rate, they asynchronously measure per-pixel brightness changes, and output a stream of events that encode the time, location and sign of the brightness changes. Event cameras offer attractive properties compared to traditional cameras: high temporal resolution (in the order of \u03bcs), very high dynamic range (140 dB versus 60 dB), low power consumption, and high pixel bandwidth (on the order of kHz) resulting in reduced motion blur. Hence, event cameras have a large potential for robotics and computer vision in challenging scenarios for traditional cameras, such as low-latency, high speed, and high dynamic range. However, novel methods are required to process the unconventional output of these sensors in order to unlock their potential. This paper provides a comprehensive overview of the emerging field of event-based vision, with a focus on the applications and the algorithms developed to unlock the outstanding properties of event cameras. We present event cameras from their working principle, the actual sensors that are available and the tasks that they have been used for, from low-level vision (feature detection and tracking, optic flow, etc.) to high-level vision (reconstruction, segmentation, recognition). We also discuss the techniques developed to process events, including learning-based techniques, as well as specialized processors for these novel sensors, such as spiking neural networks. Additionally, we highlight the challenges that remain to be tackled and the opportunities that lie ahead in the search for a more efficient, bio-inspired way for machines to perceive and interact with the world.",
+      "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+      "citation_count": 1870,
+      "doi": "10.1109/tpami.2020.3008413",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tpami.2020.3008413",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3049085968",
+      "title": "CSIDNet: Compact single image dehazing network for outdoor scene enhancement",
+      "authors": [
+        {
+          "name": "Teena Sharma",
+          "affiliation": "Indian Institute of Technology Kanpur"
+        },
+        {
+          "name": "Isha Agrawal",
+          "affiliation": "Indian Institute of Information Technology Design and Manufacturing Jabalpur"
+        },
+        {
+          "name": "Nishchal K. Verma",
+          "affiliation": "Indian Institute of Technology Kanpur"
+        }
+      ],
+      "year": 2020,
+      "abstract": "",
+      "venue": "Multimedia Tools and Applications",
+      "citation_count": 13,
+      "doi": "10.1007/s11042-020-09496-z",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s11042-020-09496-z",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2998249728",
+      "title": "FFA-Net: Feature Fusion Attention Network for Single Image Dehazing",
+      "authors": [
+        {
+          "name": "Qin Xu",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Zhilin Wang",
+          "affiliation": "Beihang University"
+        },
+        {
+          "name": "Yuanchao Bai",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Xiaodong Xie",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Huizhu Jia",
+          "affiliation": "Peking University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "In this paper, we propose an end-to-end feature fusion at-tention network (FFA-Net) to directly restore the haze-free image. The FFA-Net architecture consists of three key components:1) A novel Feature Attention (FA) module combines Channel Attention with Pixel Attention mechanism, considering that different channel-wise features contain totally different weighted information and haze distribution is uneven on the different image pixels. FA treats different features and pixels unequally, which provides additional flexibility in dealing with different types of information, expanding the representational ability of CNNs. 2) A basic block structure consists of Local Residual Learning and Feature Attention, Local Residual Learning allowing the less important information such as thin haze region or low-frequency to be bypassed through multiple local residual connections, let main network architecture focus on more effective information. 3) An Attention-based different levels Feature Fusion (FFA) structure, the feature weights are adaptively learned from the Feature Attention (FA) module, giving more weight to important features. This structure can also retain the information of shallow layers and pass it into deep layers.The experimental results demonstrate that our proposed FFA-Net surpasses previous state-of-the-art single image dehazing methods by a very large margin both quantitatively and qualitatively, boosting the best published PSNR metric from 30.23 dB to 36.39 dB on the SOTS indoor test dataset. Code has been made available at GitHub.",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 1560,
+      "doi": "10.1609/aaai.v34i07.6865",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v34i07.6865",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3027225766",
+      "title": "A Spatial-Temporal Attention-Based Method and a New Dataset for Remote Sensing Image Change Detection",
+      "authors": [
+        {
+          "name": "Hao Chen",
+          "affiliation": "Beihang University"
+        },
+        {
+          "name": "Zhenwei Shi",
+          "affiliation": "Beihang University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Remote sensing image change detection (CD) is done to identify desired significant changes between bitemporal images. Given two co-registered images taken at different times, the illumination variations and misregistration errors overwhelm the real object changes. Exploring the relationships among different spatial\u2013temporal pixels may improve the performances of CD methods. In our work, we propose a novel Siamese-based spatial\u2013temporal attention neural network. In contrast to previous methods that separately encode the bitemporal images without referring to any useful spatial\u2013temporal dependency, we design a CD self-attention mechanism to model the spatial\u2013temporal relationships. We integrate a new CD self-attention module in the procedure of feature extraction. Our self-attention module calculates the attention weights between any two pixels at different times and positions and uses them to generate more discriminative features. Considering that the object may have different scales, we partition the image into multi-scale subregions and introduce the self-attention in each subregion. In this way, we could capture spatial\u2013temporal dependencies at various scales, thereby generating better representations to accommodate objects of various sizes. We also introduce a CD dataset LEVIR-CD, which is two orders of magnitude larger than other public datasets of this field. LEVIR-CD consists of a large set of bitemporal Google Earth images, with 637 image pairs (1024 \u00d7 1024) and over 31 k independently labeled change instances. Our proposed attention module improves the F1-score of our baseline model from 83.9 to 87.3 with acceptable computational overhead. Experimental results on a public remote sensing image CD dataset show our method outperforms several other state-of-the-art methods.",
+      "venue": "Remote Sensing",
+      "citation_count": 1622,
+      "doi": "10.3390/rs12101662",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/rs12101662",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3175515048",
+      "title": "PVT v2: Improved baselines with pyramid vision transformer",
+      "authors": [
+        {
+          "name": "Wenhai Wang",
+          "affiliation": "Nanjing University of Science and Technology"
+        },
+        {
+          "name": "Enze Xie",
+          "affiliation": "University of Hong Kong"
+        },
+        {
+          "name": "Xiang Li",
+          "affiliation": "Nanjing University of Science and Technology"
+        },
+        {
+          "name": "Deng-Ping Fan",
+          "affiliation": "ETH Zurich"
+        },
+        {
+          "name": "Kaitao Song",
+          "affiliation": "Nanjing University of Science and Technology"
+        },
+        {
+          "name": "Ding Liang",
+          "affiliation": "Sensimetrics Corporation"
+        },
+        {
+          "name": "Tong L\u00fc",
+          "affiliation": "Nanjing University of Science and Technology"
+        },
+        {
+          "name": "Ping Luo",
+          "affiliation": "University of Hong Kong"
+        },
+        {
+          "name": "Ling Shao",
+          "affiliation": "Inception Institute of Artificial Intelligence"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Transformers have recently lead to encouraging progress in computer vision. In this work, we present new baselines by improving the original Pyramid Vision Transformer (PVT v1) by adding three designs: (i) a linear complexity attention layer, (ii) an overlapping patch embedding, and (iii) a convolutional feed-forward network. With these modifications, PVT v2 reduces the computational complexity of PVT v1 to linearity and provides significant improvements on fundamental vision tasks such as classification, detection, and segmentation. In particular, PVT v2 achieves comparable or better performance than recent work such as the Swin transformer. We hope this work will facilitate state-of-the-art transformer research in computer vision. Code is available at https://github.com/whai362/PVT .",
+      "venue": "Computational Visual Media",
+      "citation_count": 2026,
+      "doi": "10.1007/s41095-022-0274-8",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s41095-022-0274-8",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3212516020",
+      "title": "Palette: Image-to-Image Diffusion Models",
+      "authors": [
+        {
+          "name": "Chitwan Saharia",
+          "affiliation": "Google (Canada)"
+        },
+        {
+          "name": "William Chan",
+          "affiliation": "Google (Canada)"
+        },
+        {
+          "name": "Huiwen Chang",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Chris Lee",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Jonathan Ho",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Tim Salimans",
+          "affiliation": ""
+        },
+        {
+          "name": "David J. Fleet",
+          "affiliation": "Google (Canada)"
+        },
+        {
+          "name": "Mohammad Norouzi",
+          "affiliation": "Google (Canada)"
+        }
+      ],
+      "year": 2022,
+      "abstract": "This paper develops a unified framework for image-to-image translation based on conditional diffusion models and evaluates this framework on four challenging image-to-image translation tasks, namely colorization, inpainting, uncropping, and JPEG restoration. Our simple implementation of image-to-image diffusion models outperforms strong GAN and regression baselines on all tasks, without task-specific hyper-parameter tuning, architecture customization, or any auxiliary loss or sophisticated new techniques needed. We uncover the impact of an L2 vs. L1 loss in the denoising diffusion objective on sample diversity, and demonstrate the importance of self-attention in the neural architecture through empirical studies. Importantly, we advocate a unified evaluation protocol based on ImageNet, with human evaluation and sample quality scores (FID, Inception Score, Classification Accuracy of a pre-trained ResNet-50, and Perceptual Distance against original images). We expect this standardized evaluation protocol to play a role in advancing image-to-image translation research. Finally, we show that a generalist, multi-task diffusion model performs as well or better than task-specific specialist counterparts. Check out https://diffusion-palette.github.io/ for an overview of the results and code.",
+      "venue": "",
+      "citation_count": 1414,
+      "doi": "10.1145/3528233.3530757",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3528233.3530757",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4394717425",
+      "title": "Multi-object behaviour recognition based on object detection cascaded image classification in classroom scenes",
+      "authors": [
+        {
+          "name": "Min Dang",
+          "affiliation": "Xidian University"
+        },
+        {
+          "name": "Gang Liu",
+          "affiliation": "Xidian University"
+        },
+        {
+          "name": "Hao Li",
+          "affiliation": "Xidian University"
+        },
+        {
+          "name": "Qijie Xu",
+          "affiliation": "Xidian University"
+        },
+        {
+          "name": "Xu Wang",
+          "affiliation": "Xidian University"
+        },
+        {
+          "name": "Rong Pan",
+          "affiliation": "Xidian University"
+        }
+      ],
+      "year": 2024,
+      "abstract": "",
+      "venue": "Applied Intelligence",
+      "citation_count": 22,
+      "doi": "10.1007/s10489-024-05409-x",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s10489-024-05409-x",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2953303875",
+      "title": "A Survey of Autonomous Driving: <i>Common Practices and Emerging Technologies</i>",
+      "authors": [
+        {
+          "name": "Ekim Yurtsever",
+          "affiliation": "Nagoya University"
+        },
+        {
+          "name": "Jacob Lambert",
+          "affiliation": "Nagoya University"
+        },
+        {
+          "name": "Alexander Carballo",
+          "affiliation": "Nagoya University"
+        },
+        {
+          "name": "Kazuya Takeda",
+          "affiliation": "Nagoya University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Automated driving systems (ADSs) promise a safe, comfortable and efficient driving experience. However, fatalities involving vehicles equipped with ADSs are on the rise. The full potential of ADSs cannot be realized unless the robustness of state-of-the-art is improved further. This paper discusses unsolved problems and surveys the technical aspect of automated driving. Studies regarding present challenges, high-level system architectures, emerging methodologies and core functions including localization, mapping, perception, planning, and human machine interfaces, were thoroughly reviewed. Furthermore, many state-of-the-art algorithms were implemented and compared on our own platform in a real-world driving setting. The paper concludes with an overview of available datasets and tools for ADS development.",
+      "venue": "IEEE Access",
+      "citation_count": 1654,
+      "doi": "10.1109/access.2020.2983149",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/access.2020.2983149",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4387211460",
+      "title": "Zero-Shot Nuclei Detection via Visual-Language Pre-trained Models",
+      "authors": [
+        {
+          "name": "Yongjian Wu",
+          "affiliation": "State Key Laboratory of Software Development Environment"
+        },
+        {
+          "name": "Yang Zhou",
+          "affiliation": "Beihang University"
+        },
+        {
+          "name": "Jiya Saiyin",
+          "affiliation": "State Key Laboratory of Software Development Environment"
+        },
+        {
+          "name": "Bingzheng Wei",
+          "affiliation": "Xiaomi (China)"
+        },
+        {
+          "name": "Maode Lai",
+          "affiliation": "Zhejiang University"
+        },
+        {
+          "name": "Jianzhong Shou",
+          "affiliation": "Chinese Academy of Medical Sciences & Peking Union Medical College"
+        },
+        {
+          "name": "Yubo Fan",
+          "affiliation": "Beihang University"
+        },
+        {
+          "name": "Yan Xu",
+          "affiliation": "Beihang University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "",
+      "venue": "Lecture notes in computer science",
+      "citation_count": 10,
+      "doi": "10.1007/978-3-031-43987-2_67",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/978-3-031-43987-2_67",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3174873843",
+      "title": "R3Det: Refined Single-Stage Detector with Feature Refinement for Rotating Object",
+      "authors": [
+        {
+          "name": "Xue Yang",
+          "affiliation": "Shanghai Jiao Tong University"
+        },
+        {
+          "name": "Junchi Yan",
+          "affiliation": "Shanghai Jiao Tong University"
+        },
+        {
+          "name": "Zi\u2010Ming Feng",
+          "affiliation": ""
+        },
+        {
+          "name": "Tao He",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Rotation detection is a challenging task due to the difficulties of locating the multi-angle objects and separating them effectively from the background. Though considerable progress has been made, for practical settings, there still exist challenges for rotating objects with large aspect ratio, dense distribution and category extremely imbalance. In this paper, we propose an end-to-end refined single-stage rotation detector for fast and accurate object detection by using a progressive regression approach from coarse to fine granularity. Considering the shortcoming of feature misalignment in existing refined single-stage detector, we design a feature refinement module to improve detection performance by getting more accurate features. The key idea of feature refinement module is to re-encode the position information of the current refined bounding box to the corresponding feature points through pixel-wise feature interpolation to realize feature reconstruction and alignment. For more accurate rotation estimation, an approximate SkewIoU loss is proposed to solve the problem that the calculation of SkewIoU is not derivable. Experiments on three popular remote sensing public datasets DOTA, HRSC2016, UCAS-AOD as well as one scene text dataset ICDAR2015 show the effectiveness of our approach. The source code is available at https://github.com/Thinklab-SJTU/R3Det_Tensorflow and is also integrated in our open source rotation detection benchmark: https://github.com/yangxue0827/RotationDetection.",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 1010,
+      "doi": "10.1609/aaai.v35i4.16426",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v35i4.16426",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W1504190881",
+      "title": "The school and society",
+      "authors": [
+        {
+          "name": "John Dewey",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "John Dewey's \"The School and Society\" argues that the traditional school system, characterized by passive, isolated learning focused heavily on symbolic studies, is fundamentally incompatible with the radical industrial and social revolutions of the modern age. Dewey calls for a \"Copernican revolution\" in education, asserting that the child must become the central sun around which all learning revolves. The school must be transformed into an \"embryonic community life\" where the child learns through active occupations (such as shop-work, cooking, and weaving). These practical activities serve as integral starting points for scientific insight and historical interpretation, providing a vital motive for otherwise abstract learning and instilling genuine discipline through cooperative constructive work. By organically connecting the school to the child's life and the wider society, this progressive approach ensures that education is meaningful, social, and equips all citizens with the comprehensive training necessary for a democratic and evolving society.",
+      "venue": "",
+      "citation_count": 1489,
+      "doi": "10.55094/holistence.497",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.55094/holistence.497",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4210726862",
+      "title": "Improved Single Haze Removal Algorithm Based on Color Attenuation Prior",
+      "authors": [
+        {
+          "name": "Lijin Liu",
+          "affiliation": "Xi'an Peihua University"
+        },
+        {
+          "name": "Guojian Cheng",
+          "affiliation": "Xi'an Peihua University"
+        },
+        {
+          "name": "Jiadong Zhu",
+          "affiliation": "Xi'an Peihua University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "With continuous development and application of computer vision, images with high clarity and quality are increasingly important in training different kinds of models, especially in the field of automated driving and road safety monitoring. In this paper, through learning on the benchmarking dataset, we propose a novel quadratic model of color attenuation prior to calculate the scene depth map and then obtain the transmission matrix and restore the hazy-free image. Numerous experimental results show that the proposed approach is more accurate on sculpt the correlation between scene brightness, saturation and depth, therefore it outperforms the linear model in terms of both dehazing effect and clarity. Meanwhile, the objective and subjective comparison with the other state-of-the-art algorithms on the hazy images demonstrate the efficiency and effectiveness of the proposed method.",
+      "venue": "2021 IEEE 2nd International Conference on Information Technology, Big Data and Artificial Intelligence (ICIBA)",
+      "citation_count": 6,
+      "doi": "10.1109/iciba52610.2021.9687882",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/iciba52610.2021.9687882",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3022140654",
+      "title": "Remote Sensing Image Scene Classification Meets Deep Learning: Challenges, Methods, Benchmarks, and Opportunities",
+      "authors": [
+        {
+          "name": "Gong Cheng",
+          "affiliation": "Northwestern Polytechnical University"
+        },
+        {
+          "name": "Xingxing Xie",
+          "affiliation": "Northwestern Polytechnical University"
+        },
+        {
+          "name": "Junwei Han",
+          "affiliation": "Northwestern Polytechnical University"
+        },
+        {
+          "name": "Lei Guo",
+          "affiliation": "Northwestern Polytechnical University"
+        },
+        {
+          "name": "Gui-Song Xia",
+          "affiliation": "Wuhan University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Remote sensing image scene classification, which aims at labeling remote sensing images with a set of semantic categories based on their contents, has broad applications in a range of fields. Propelled by the powerful feature learning capabilities of deep neural networks, remote sensing image scene classification driven by deep learning has drawn remarkable attention and achieved significant breakthroughs. However, to the best of our knowledge, a comprehensive review of recent achievements regarding deep learning for scene classification of remote sensing images is still lacking. Considering the rapid evolution of this field, this article provides a systematic survey of deep learning methods for remote sensing image scene classification by covering more than 160 papers. To be specific, we discuss the main challenges of remote sensing image scene classification and survey: first, autoencoder-based remote sensing image scene classification methods; second, convolutional neural network-based remote sensing image scene classification methods; and third, generative adversarial network-based remote sensing image scene classification methods. In addition, we introduce the benchmarks used for remote sensing image scene classification and summarize the performance of more than two dozen of representative algorithms on three commonly used benchmark datasets. Finally, we discuss the promising opportunities for further research.",
+      "venue": "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing",
+      "citation_count": 927,
+      "doi": "10.1109/jstars.2020.3005403",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/jstars.2020.3005403",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4398810114",
+      "title": "YOLOv10: Real-Time End-to-End Object Detection",
+      "authors": [
+        {
+          "name": "Ao Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Hui Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Lihao Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Kai Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Zijia Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Jungong Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Guiguang Ding",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Over the past years, YOLOs have emerged as the predominant paradigm in the field of real-time object detection owing to their effective balance between computational cost and detection performance. Researchers have explored the architectural designs, optimization objectives, data augmentation strategies, and others for YOLOs, achieving notable progress. However, the reliance on the non-maximum suppression (NMS) for post-processing hampers the end-to-end deployment of YOLOs and adversely impacts the inference latency. Besides, the design of various components in YOLOs lacks the comprehensive and thorough inspection, resulting in noticeable computational redundancy and limiting the model's capability. It renders the suboptimal efficiency, along with considerable potential for performance improvements. In this work, we aim to further advance the performance-efficiency boundary of YOLOs from both the post-processing and model architecture. To this end, we first present the consistent dual assignments for NMS-free training of YOLOs, which brings competitive performance and low inference latency simultaneously. Moreover, we introduce the holistic efficiency-accuracy driven model design strategy for YOLOs. We comprehensively optimize various components of YOLOs from both efficiency and accuracy perspectives, which greatly reduces the computational overhead and enhances the capability. The outcome of our effort is a new generation of YOLO series for real-time end-to-end object detection, dubbed YOLOv10. Extensive experiments show that YOLOv10 achieves state-of-the-art performance and efficiency across various model scales. For example, our YOLOv10-S is 1.8$\\times$ faster than RT-DETR-R18 under the similar AP on COCO, meanwhile enjoying 2.8$\\times$ smaller number of parameters and FLOPs. Compared with YOLOv9-C, YOLOv10-B has 46\\% less latency and 25\\% fewer parameters for the same performance.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 1005,
+      "doi": "10.48550/arxiv.2405.14458",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2405.14458",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4296118359",
+      "title": "Context\u2010guided ground truth sampling for multi\u2010modality data augmentation in autonomous driving",
+      "authors": [
+        {
+          "name": "Peicheng Shi",
+          "affiliation": "Anhui Polytechnic University"
+        },
+        {
+          "name": "Heng Qi",
+          "affiliation": "Anhui Polytechnic University"
+        },
+        {
+          "name": "Zhi-Qiang Liu",
+          "affiliation": "Anhui Polytechnic University"
+        },
+        {
+          "name": "Aixi Yang",
+          "affiliation": "Zhejiang University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Abstract Data augmentation is an important pre\u2010processing step for object detection in 2D image and 3D point clouds. However, studies on multimodal data augmentation are extremely limited compared to single\u2010modal work. Moreover, simultaneously ensuring consistency and rationality when pasting both image and point cloud samples is a major challenge in multimodal methods. In this study, a novel multimodal data augmentation method based on ground truth sampling (GT sampling) is proposed for generating content\u2010rich synthetic scenes. A GT database and scene ground database based on the raw training set is initially built, following which the context of the image and point cloud is used to guide the paste location and filtering strategy of the GT samples. The proposed method can avoid the cluttered features caused by random pasting of samples; the image context information can help the model to learn the correlation between the object and the environment more comprehensively, and the point cloud context information can reduce occlusion in the case of long\u2010distance objects. The effectiveness of the proposed strategy is demonstrated on the publicly available KITTI dataset. Utilizing the multimodal 3D detector MVXNet as an implementation tool, our experiments evaluate different superimposition strategies ranging from context\u2010free sample pasting methods to context\u2010guided new training scenes. In comparison with existing GT sampling methods, our method exhibits a relative performance improvement of 15% on benchmark datasets. In ablation studies, our sample pasting strategy achieves a +2.81% gain compared with previous work. In conclusion, considering the multimodal context of modelled objects is crucial for placing them in the correct environment.",
+      "venue": "IET Intelligent Transport Systems",
+      "citation_count": 8,
+      "doi": "10.1049/itr2.12272",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1049/itr2.12272",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4402469932",
+      "title": "DRNet: Learning a dynamic recursion network for chaotic rain streak removal",
+      "authors": [
+        {
+          "name": "Zhiying Jiang",
+          "affiliation": "Dalian Maritime University"
+        },
+        {
+          "name": "Risheng Liu",
+          "affiliation": "Dalian University of Technology"
+        },
+        {
+          "name": "Shuzhou Yang",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Zengxi Zhang",
+          "affiliation": "Dalian University of Technology"
+        },
+        {
+          "name": "Xin Fan",
+          "affiliation": "Dalian University of Technology"
+        }
+      ],
+      "year": 2024,
+      "abstract": "",
+      "venue": "Pattern Recognition",
+      "citation_count": 7,
+      "doi": "10.1016/j.patcog.2024.111004",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.patcog.2024.111004",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2747680751",
+      "title": "Natural language processing: state of the art, current trends and challenges",
+      "authors": [
+        {
+          "name": "Diksha Khurana",
+          "affiliation": "Manav Rachna International Institute of Research and Studies"
+        },
+        {
+          "name": "Aditya Koli",
+          "affiliation": "Manav Rachna International Institute of Research and Studies"
+        },
+        {
+          "name": "Kiran Khatter",
+          "affiliation": "BML Munjal University"
+        },
+        {
+          "name": "Sukhdev Singh",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "",
+      "venue": "Multimedia Tools and Applications",
+      "citation_count": 1646,
+      "doi": "10.1007/s11042-022-13428-4",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s11042-022-13428-4",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4386626876",
+      "title": "Assessing the Parameterization of RADARSAT-2 Dual-polarized ScanSAR Scenes on the Accuracy of a Convolutional Neural Network for Sea Ice Classification: Case Study over Coronation Gulf, Canada",
+      "authors": [
+        {
+          "name": "Beno\u00eet Montpetit",
+          "affiliation": "Environment and Climate Change Canada"
+        },
+        {
+          "name": "Benjamin Deschamps",
+          "affiliation": "Environment and Climate Change Canada"
+        },
+        {
+          "name": "Joshua King",
+          "affiliation": "Environment and Climate Change Canada"
+        },
+        {
+          "name": "Jason Duffe",
+          "affiliation": "Environment and Climate Change Canada"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Arctic amplification has many impacts on sea-ice extent, thickness, and flux.It becomes critical to monitor sea-ice conditions at finer spatio-temporal resolution.We used a simple convolutional neural network (CNN) on the RADARSAT-2 dual-polarized ScanSAR wide archive available over Coronation Gulf, Canada, to assess which SAR parameter improves model performances to classify sea ice from water on a large volume of data covering 11 years of ice and surface water conditions.An overall accuracy of 90.1% was achieved on 989 scenes of 100% ice cover or ice-free conditions.An accuracy of 86.3% was achieved on the last year of data (134 scenes) which was kept out of the training process to test the model on an independent dataset.A better accuracy is obtained at lower incidence angles and the HH polarization provides the most information to classify ice from water.To achieve the best accuracy, the incidence angle and the noise equivalent sigma-nought had to be included as input to the model.A comparison done with the ASI passive microwave product shows similar errors in total sea ice concentration when using the Canadian Ice Service regional charts as reference.Nonetheless, errors from both datasets differ and the CNN outputs show greater potential to reduce masked areas, given the better spatial resolution, enabling data classification closer to land and identify features not captured by the ASI dataset.",
+      "venue": "Canadian Journal of Remote Sensing",
+      "citation_count": 6,
+      "doi": "10.1080/07038992.2023.2247091",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1080/07038992.2023.2247091",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4395695890",
+      "title": "YOLO\u2010AFPN: Marrying YOLO and AFPN for external damage detection of transmission lines",
+      "authors": [
+        {
+          "name": "Zhenbing Zhao",
+          "affiliation": "North China Electric Power University"
+        },
+        {
+          "name": "Yitian Pan",
+          "affiliation": "North China Electric Power University"
+        },
+        {
+          "name": "Guangxue Guo",
+          "affiliation": "North China Electric Power University"
+        },
+        {
+          "name": "Yongjie Zhai",
+          "affiliation": "North China Electric Power University"
+        },
+        {
+          "name": "Gao Liu",
+          "affiliation": "China Southern Power Grid (China)"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Abstract To better detect targets that may cause external damage to transmission lines, the authors present You Only Look Once\u2010Asymptotic Feature Pyramid Network (YOLO\u2010AFPN), a lightweight but efficient model. Firstly, the authors adopt a feature comparison strategy based on the knowledge of transmission line scenes, which facilitates increased attention to target features during the training. Secondly, the YOLOv8 detection network is built, and the backbone adds three layers of simple parameter\u2010free attention module, which extracts features while maintaining lightness, and improves the detection capability in complex scenarios. Then, in the feature fusion stage, an AFPN is constructed, which improves the multi\u2010scale target detection capability while reducing the number of model parameters by asymptotically fusing features that have small semantic gaps between neighbouring layers. When during the training process, the improved Mosaic data augmentation method is used to enhance the number of distributions of small targets, improve the robustness of the model. Finally, the improved model is validated, and the experimental results show that the improved model can achieve mean average precision of 86.1% at 6.6 MB, which is better than the original network for detection and meets the requirements for deployment on edge devices.",
+      "venue": "IET Generation Transmission & Distribution",
+      "citation_count": 9,
+      "doi": "10.1049/gtd2.13171",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1049/gtd2.13171",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4291819654",
+      "title": "Object detection using YOLO: challenges, architectural successors, datasets and applications",
+      "authors": [
+        {
+          "name": "Tausif Diwan",
+          "affiliation": "Indian Institute of Information Technology, Nagpur"
+        },
+        {
+          "name": "G. Anirudh",
+          "affiliation": "Central University of Rajasthan"
+        },
+        {
+          "name": "Jitendra V. Tembhurne",
+          "affiliation": "Indian Institute of Information Technology, Nagpur"
+        }
+      ],
+      "year": 2022,
+      "abstract": "",
+      "venue": "Multimedia Tools and Applications",
+      "citation_count": 1300,
+      "doi": "10.1007/s11042-022-13644-y",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s11042-022-13644-y",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3047057232",
+      "title": "Image Matching from Handcrafted to Deep Features: A Survey",
+      "authors": [
+        {
+          "name": "Jiayi Ma",
+          "affiliation": "Wuhan University"
+        },
+        {
+          "name": "Xingyu Jiang",
+          "affiliation": "Wuhan University"
+        },
+        {
+          "name": "Aoxiang Fan",
+          "affiliation": "Wuhan University"
+        },
+        {
+          "name": "Junjun Jiang",
+          "affiliation": "Harbin Institute of Technology"
+        },
+        {
+          "name": "Junchi Yan",
+          "affiliation": "Shanghai Jiao Tong University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Abstract As a fundamental and critical task in various visual applications, image matching can identify then correspond the same or similar structure/content from two or more images. Over the past decades, growing amount and diversity of methods have been proposed for image matching, particularly with the development of deep learning techniques over the recent years. However, it may leave several open questions about which method would be a suitable choice for specific applications with respect to different scenarios and task requirements and how to design better image matching methods with superior performance in accuracy, robustness and efficiency. This encourages us to conduct a comprehensive and systematic review and analysis for those classical and latest techniques. Following the feature-based image matching pipeline, we first introduce feature detection, description, and matching techniques from handcrafted methods to trainable ones and provide an analysis of the development of these methods in theory and practice. Secondly, we briefly introduce several typical image matching-based applications for a comprehensive understanding of the significance of image matching. In addition, we also provide a comprehensive and objective comparison of these classical and latest techniques through extensive experiments on representative datasets. Finally, we conclude with the current status of image matching technologies and deliver insightful discussions and prospects for future works. This survey can serve as a reference for (but not limited to) researchers and engineers in image matching and related fields.",
+      "venue": "International Journal of Computer Vision",
+      "citation_count": 938,
+      "doi": "10.1007/s11263-020-01359-2",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s11263-020-01359-2",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3120894151",
+      "title": "Deep learning-enabled medical computer vision",
+      "authors": [
+        {
+          "name": "Andre Esteva",
+          "affiliation": "Salesforce (United States)"
+        },
+        {
+          "name": "Katherine Chou",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Serena Yeung",
+          "affiliation": "Stanford University"
+        },
+        {
+          "name": "Nikhil Naik",
+          "affiliation": "Salesforce (United States)"
+        },
+        {
+          "name": "Ali Madani",
+          "affiliation": "Salesforce (United States)"
+        },
+        {
+          "name": "Ali Mottaghi",
+          "affiliation": "Stanford University"
+        },
+        {
+          "name": "Yun Liu",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Eric J. Topol",
+          "affiliation": "Scripps Research Institute"
+        },
+        {
+          "name": "Jeff Dean",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Richard Socher",
+          "affiliation": "Salesforce (United States)"
+        }
+      ],
+      "year": 2021,
+      "abstract": "A decade of unprecedented progress in artificial intelligence (AI) has demonstrated the potential for many fields-including medicine-to benefit from the insights that AI techniques can extract from data. Here we survey recent progress in the development of modern computer vision techniques-powered by deep learning-for medical applications, focusing on medical imaging, medical video, and clinical deployment. We start by briefly summarizing a decade of progress in convolutional neural networks, including the vision tasks they enable, in the context of healthcare. Next, we discuss several example medical imaging applications that stand to benefit-including cardiology, pathology, dermatology, ophthalmology-and propose new avenues for continued work. We then expand into general medical video, highlighting ways in which clinical workflows can integrate computer vision to enhance care. Finally, we discuss the challenges and hurdles required for real-world clinical deployment of these technologies.",
+      "venue": "npj Digital Medicine",
+      "citation_count": 1203,
+      "doi": "10.1038/s41746-020-00376-2",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41746-020-00376-2",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4385839827",
+      "title": "UAV-YOLOv8: A Small-Object-Detection Model Based on Improved YOLOv8 for UAV Aerial Photography Scenarios",
+      "authors": [
+        {
+          "name": "Gang Wang",
+          "affiliation": "Wuhan Institute of Technology"
+        },
+        {
+          "name": "Yanfei Chen",
+          "affiliation": "Wuhan Institute of Technology"
+        },
+        {
+          "name": "Pei An",
+          "affiliation": "Wuhan Institute of Technology"
+        },
+        {
+          "name": "Hanyu Hong",
+          "affiliation": "Wuhan Institute of Technology"
+        },
+        {
+          "name": "Jinghu Hu",
+          "affiliation": "Wuhan Institute of Technology"
+        },
+        {
+          "name": "Tiange Huang",
+          "affiliation": "Wuhan Institute of Technology"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Unmanned aerial vehicle (UAV) object detection plays a crucial role in civil, commercial, and military domains. However, the high proportion of small objects in UAV images and the limited platform resources lead to the low accuracy of most of the existing detection models embedded in UAVs, and it is difficult to strike a good balance between detection performance and resource consumption. To alleviate the above problems, we optimize YOLOv8 and propose an object detection model based on UAV aerial photography scenarios, called UAV-YOLOv8. Firstly, Wise-IoU (WIoU) v3 is used as a bounding box regression loss, and a wise gradient allocation strategy makes the model focus more on common-quality samples, thus improving the localization ability of the model. Secondly, an attention mechanism called BiFormer is introduced to optimize the backbone network, which improves the model's attention to critical information. Finally, we design a feature processing module named Focal FasterNet block (FFNB) and propose two new detection scales based on this module, which makes the shallow features and deep features fully integrated. The proposed multiscale feature fusion network substantially increased the detection performance of the model and reduces the missed detection rate of small objects. The experimental results show that our model has fewer parameters compared to the baseline model and has a mean detection accuracy higher than the baseline model by 7.7%. Compared with other mainstream models, the overall performance of our model is much better. The proposed method effectively improves the ability to detect small objects. There is room to optimize the detection effectiveness of our model for small and feature-less objects (such as bicycle-type vehicles), as we will address in subsequent research.",
+      "venue": "Sensors",
+      "citation_count": 782,
+      "doi": "10.3390/s23167190",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/s23167190",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3153469116",
+      "title": "CLIPScore: A Reference-free Evaluation Metric for Image Captioning",
+      "authors": [
+        {
+          "name": "Jack Hessel",
+          "affiliation": "University of Washington"
+        },
+        {
+          "name": "Ari Holtzman",
+          "affiliation": "Art Institute of Portland"
+        },
+        {
+          "name": "Maxwell Forbes",
+          "affiliation": "Art Institute of Portland"
+        },
+        {
+          "name": "Ronan Le Bras",
+          "affiliation": "Art Institute of Portland"
+        },
+        {
+          "name": "Yejin Choi",
+          "affiliation": "University of Washington"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Image captioning has conventionally relied on reference-based automatic evaluations, where machine captions are compared against captions written by humans. This is in contrast to the reference-free manner in which humans assess caption quality.",
+      "venue": "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing",
+      "citation_count": 839,
+      "doi": "10.18653/v1/2021.emnlp-main.595",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.18653/v1/2021.emnlp-main.595",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4376226279",
+      "title": "Multimodal Learning With Transformers: A Survey",
+      "authors": [
+        {
+          "name": "Peng Xu",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Xiatian Zhu",
+          "affiliation": "University of Surrey"
+        },
+        {
+          "name": "David A. Clifton",
+          "affiliation": "University of Oxford"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Transformer is a promising neural network learner, and has achieved great success in various machine learning tasks. Thanks to the recent prevalence of multimodal applications and Big Data, Transformer-based multimodal learning has become a hot topic in AI research. This paper presents a comprehensive survey of Transformer techniques oriented at multimodal data. The main contents of this survey include: (1) a background of multimodal learning, Transformer ecosystem, and the multimodal Big Data era, (2) a systematic review of Vanilla Transformer, Vision Transformer, and multimodal Transformers, from a geometrically topological perspective, (3) a review of multimodal Transformer applications, via two important paradigms, i.e., for multimodal pretraining and for specific multimodal tasks, (4) a summary of the common challenges and designs shared by the multimodal Transformer models and applications, and (5) a discussion of open problems and potential research directions for the community.",
+      "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+      "citation_count": 774,
+      "doi": "10.1109/tpami.2023.3275156",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tpami.2023.3275156",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3090679658",
+      "title": "GLC_FCS30: global land-cover product with fine classification system at 30 m using time-series Landsat imagery",
+      "authors": [
+        {
+          "name": "Xiao Zhang",
+          "affiliation": "Chinese Academy of Sciences"
+        },
+        {
+          "name": "Liangyun Liu",
+          "affiliation": "University of Chinese Academy of Sciences"
+        },
+        {
+          "name": "Xidong Chen",
+          "affiliation": "Chinese Academy of Sciences"
+        },
+        {
+          "name": "Yuan Gao",
+          "affiliation": "Xi'an University of Science and Technology"
+        },
+        {
+          "name": "Shuai Xie",
+          "affiliation": "Aerospace Information Research Institute"
+        },
+        {
+          "name": "Mi Jun",
+          "affiliation": "Aerospace Information Research Institute"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Abstract. Over past decades, a lot of global land-cover products have been released; however, these still lack a global land-cover map with a fine classification system and spatial resolution simultaneously. In this study, a novel global 30 m land-cover classification with a fine classification system for the year 2015 (GLC_FCS30-2015) was produced by combining time series of Landsat imagery and high-quality training data from the GSPECLib (Global Spatial Temporal Spectra Library) on the Google Earth Engine computing platform. First, the global training data from the GSPECLib were developed by applying a series of rigorous filters to the CCI_LC (Climate Change Initiative Global Land Cover) land-cover and MCD43A4 NBAR products (MODIS Nadir Bidirectional Reflectance Distribution Function-Adjusted Reflectance). Secondly, a local adaptive random forest model was built for each 5\u2218\u00d75\u2218 geographical tile by using the multi-temporal Landsat spectral and texture features and the corresponding training data, and the GLC_FCS30-2015 land-cover product containing 30 land-cover types was generated for each tile. Lastly, the GLC_FCS30-2015 was validated using three different validation systems (containing different land-cover details) using 44 043 validation samples. The validation results indicated that the GLC_FCS30-2015 achieved an overall accuracy of 82.5 % and a kappa coefficient of 0.784 for the level-0 validation system (9 basic land-cover types), an overall accuracy of 71.4 % and kappa coefficient of 0.686 for the UN-LCCS (United Nations Land Cover Classification System) level-1 system (16 LCCS land-cover types), and an overall accuracy of 68.7 % and kappa coefficient of 0.662 for the UN-LCCS level-2 system (24 fine land-cover types). The comparisons against other land-cover products (CCI_LC, MCD12Q1, FROM_GLC, and GlobeLand30) indicated that GLC_FCS30-2015 provides more spatial details than CCI_LC-2015 and MCD12Q1-2015 and a greater diversity of land-cover types than FROM_GLC-2015 and GlobeLand30-2010. They also showed that GLC_FCS30-2015 achieved the best overall accuracy of 82.5 % against FROM_GLC-2015 of 59.1 % and GlobeLand30-2010 of 75.9 %. Therefore, it is concluded that the GLC_FCS30-2015 product is the first global land-cover dataset that provides a fine classification system (containing 16 global LCCS land-cover types as well as 14 detailed and regional land-cover types) with high classification accuracy at 30 m. The GLC_FCS30-2015 global land-cover products produced in this paper are free access at https://doi.org/10.5281/zenodo.3986872 (Liu et al., 2020).",
+      "venue": "Earth system science data",
+      "citation_count": 949,
+      "doi": "10.5194/essd-13-2753-2021",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.5194/essd-13-2753-2021",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4385346076",
+      "title": "Visual attention network",
+      "authors": [
+        {
+          "name": "Meng-Hao Guo",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Cheng-Ze Lu",
+          "affiliation": "Nankai University"
+        },
+        {
+          "name": "Zheng-Ning Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ming\u2010Ming Cheng",
+          "affiliation": "Nankai University"
+        },
+        {
+          "name": "Shi\u2010Min Hu",
+          "affiliation": "Tsinghua University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "While originally designed for natural language processing tasks, the self-attention mechanism has recently taken various computer vision areas by storm. However, the 2D nature of images brings three challenges for applying self-attention in computer vision: (1) treating images as 1D sequences neglects their 2D structures; (2) the quadratic complexity is too expensive for high-resolution images; (3) it only captures spatial adaptability but ignores channel adaptability. In this paper, we propose a novel linear attention named large kernel attention (LKA) to enable self-adaptive and long-range correlations in self-attention while avoiding its shortcomings. Furthermore, we present a neural network based on LKA, namely Visual Attention Network (VAN). While extremely simple, VAN achieves comparable results with similar size convolutional neural networks (CNNs) and vision transformers (ViTs) in various tasks, including image classification, object detection, semantic segmentation, panoptic segmentation, pose estimation, etc. For example, VAN-B6 achieves 87.8% accuracy on ImageNet benchmark, and sets new state-of-the-art performance (58.2 PQ) for panoptic segmentation. Besides, VAN-B2 surpasses Swin-T 4 mIoU (50.1 vs. 46.1) for semantic segmentation on ADE20K benchmark, 2.6 AP (48.8 vs. 46.2) for object detection on COCO dataset. It provides a novel method and a simple yet strong baseline for the community. The code is available at https://github.com/Visual-Attention-Network .",
+      "venue": "Computational Visual Media",
+      "citation_count": 900,
+      "doi": "10.1007/s41095-023-0364-2",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s41095-023-0364-2",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2914911817",
+      "title": "Proceedings of the 29th ACM International Conference on Multimedia",
+      "authors": [
+        {
+          "name": "Jiutao Yue",
+          "affiliation": "Shenzhen Research Institute of Big Data"
+        },
+        {
+          "name": "Haofeng Li",
+          "affiliation": "Shenzhen Research Institute of Big Data"
+        },
+        {
+          "name": "Pengxu Wei",
+          "affiliation": "Shenzhen Research Institute of Big Data"
+        },
+        {
+          "name": "Guanbin Li",
+          "affiliation": "Chinese University of Hong Kong, Shenzhen"
+        },
+        {
+          "name": "Liang Lin",
+          "affiliation": "Chinese University of Hong Kong, Shenzhen"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Recently deep neural networks (DNNs) have achieved significant success in real-world image super-resolution (SR). However, adversarial image samples with quasi-imperceptible noises could threaten deep learning SR models. In this paper, we propose a robust deep learning framework for real-world SR that randomly erases potential adversarial noises in the frequency domain of input images or features. The rationale is that on the SR task clean images or features have a different pattern from the attacked ones in the frequency domain. Observing that existing adversarial attacks usually add high-frequency noises to input images, we introduce a novel random frequency mask module that blocks out high-frequency components possibly containing the harmful perturbations in a stochastic manner. Since the frequency masking may not only destroys the adversarial perturbations but also affects the sharp details in a clean image, we further develop an adversarial sample classifier based on the frequency domain of images to determine if applying the proposed mask module. Based on the above ideas, we devise a novel real-world image SR framework that combines the proposed frequency mask modules and the proposed adversarial classifier with an existing super-resolution backbone network. Experiments show that our proposed method is more insensitive to adversarial attacks and presents more stable SR results than existing models and defenses.",
+      "venue": "",
+      "citation_count": 922,
+      "doi": "10.1145/3474085",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3474085",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3045585619",
+      "title": "Land Cover Classification using Google Earth Engine and Random Forest Classifier\u2014The Role of Image Composition",
+      "authors": [
+        {
+          "name": "Thanh Noi Phan",
+          "affiliation": "Ludwig-Maximilians-Universit\u00e4t M\u00fcnchen"
+        },
+        {
+          "name": "Verena Kuch",
+          "affiliation": "Ludwig-Maximilians-Universit\u00e4t M\u00fcnchen"
+        },
+        {
+          "name": "Lukas Lehnert",
+          "affiliation": "Ludwig-Maximilians-Universit\u00e4t M\u00fcnchen"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Land cover information plays a vital role in many aspects of life, from scientific and economic to political. Accurate information about land cover affects the accuracy of all subsequent applications, therefore accurate and timely land cover information is in high demand. In land cover classification studies over the past decade, higher accuracies were produced when using time series satellite images than when using single date images. Recently, the availability of the Google Earth Engine (GEE), a cloud-based computing platform, has gained the attention of remote sensing based applications where temporal aggregation methods derived from time series images are widely applied (i.e., the use the metrics such as mean or median), instead of time series images. In GEE, many studies simply select as many images as possible to fill gaps without concerning how different year/season images might affect the classification accuracy. This study aims to analyze the effect of different composition methods, as well as different input images, on the classification results. We use Landsat 8 surface reflectance (L8sr) data with eight different combination strategies to produce and evaluate land cover maps for a study area in Mongolia. We implemented the experiment on the GEE platform with a widely applied algorithm, the Random Forest (RF) classifier. Our results show that all the eight datasets produced moderately to highly accurate land cover maps, with overall accuracy over 84.31%. Among the eight datasets, two time series datasets of summer scenes (images from 1 June to 30 September) produced the highest accuracy (89.80% and 89.70%), followed by the median composite of the same input images (88.74%). The difference between these three classifications was not significant based on the McNemar test (p &gt; 0.05). However, significant difference (p &lt; 0.05) was observed for all other pairs involving one of these three datasets. The results indicate that temporal aggregation (e.g., median) is a promising method, which not only significantly reduces data volume (resulting in an easier and faster analysis) but also produces an equally high accuracy as time series data. The spatial consistency among the classification results was relatively low compared to the general high accuracy, showing that the selection of the dataset used in any classification on GEE is an important and crucial step, because the input images for the composition play an essential role in land cover classification, particularly with snowy, cloudy and expansive areas like Mongolia.",
+      "venue": "Remote Sensing",
+      "citation_count": 572,
+      "doi": "10.3390/rs12152411",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/rs12152411",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4393115925",
+      "title": "A review of convolutional neural networks in computer vision",
+      "authors": [
+        {
+          "name": "Xia Zhao",
+          "affiliation": "Guangdong University of Finance"
+        },
+        {
+          "name": "Limin Wang",
+          "affiliation": "Guangdong University Of Finances and Economics"
+        },
+        {
+          "name": "Yufei Zhang",
+          "affiliation": "Changchun University of Science and Technology"
+        },
+        {
+          "name": "Xuming Han",
+          "affiliation": "Jinan University"
+        },
+        {
+          "name": "Muhammet Deveci",
+          "affiliation": "University College London"
+        },
+        {
+          "name": "Milan Parmar",
+          "affiliation": "Mississippi State University"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Abstract In computer vision, a series of exemplary advances have been made in several areas involving image classification, semantic segmentation, object detection, and image super-resolution reconstruction with the rapid development of deep convolutional neural network (CNN). The CNN has superior features for autonomous learning and expression, and feature extraction from original input data can be realized by means of training CNN models that match practical applications. Due to the rapid progress in deep learning technology, the structure of CNN is becoming more and more complex and diverse. Consequently, it gradually replaces the traditional machine learning methods. This paper presents an elementary understanding of CNN components and their functions, including input layers, convolution layers, pooling layers, activation functions, batch normalization, dropout, fully connected layers, and output layers. On this basis, this paper gives a comprehensive overview of the past and current research status of the applications of CNN models in computer vision fields, e.g., image classification, object detection, and video prediction. In addition, we summarize the challenges and solutions of the deep CNN, and future research directions are also discussed.",
+      "venue": "Artificial Intelligence Review",
+      "citation_count": 751,
+      "doi": "10.1007/s10462-024-10721-6",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s10462-024-10721-6",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3009942016",
+      "title": "DASNet: Dual Attentive Fully Convolutional Siamese Networks for Change Detection in High-Resolution Satellite Images",
+      "authors": [
+        {
+          "name": "Jie Chen",
+          "affiliation": "Central South University"
+        },
+        {
+          "name": "Ziyang Yuan",
+          "affiliation": "Central South University"
+        },
+        {
+          "name": "Jian Peng",
+          "affiliation": "Central South University"
+        },
+        {
+          "name": "Li Chen",
+          "affiliation": "Central South University"
+        },
+        {
+          "name": "Haozhe Huang",
+          "affiliation": "Central South University"
+        },
+        {
+          "name": "Jiawei Zhu",
+          "affiliation": "Central South University"
+        },
+        {
+          "name": "Yu Liu",
+          "affiliation": "National University of Defense Technology"
+        },
+        {
+          "name": "Haifeng Li",
+          "affiliation": "Central South University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Change detection is a basic task of remote sensing image processing. The research objective is to identify the change information of interest and filter out the irrelevant change information as interference factors. Recently, the rise in deep learning has provided new tools for change detection, which have yielded impressive results. However, the available methods focus mainly on the difference information between multitemporal remote sensing images and lack robustness to pseudochange information. To overcome the lack of resistance in current methods to pseudochanges, in this article, we propose a new method, namely, dual attentive fully convolutional Siamese networks, for change detection in high-resolution images. Through the dual attention mechanism, long-range dependencies are captured to obtain more discriminant feature representations to enhance the recognition performance of the model. Moreover, the imbalanced sample is a serious problem in change detection, i.e., unchanged samples are much more abundant than changed samples, which is one of the main reasons for pseudochanges. We propose the weighted double-margin contrastive loss to address this problem by punishing attention to unchanged feature pairs and increasing attention to changed feature pairs. The experimental results of our method on the change detection dataset and the building change detection dataset demonstrate that compared with other baseline methods, the proposed method realizes maximum improvements of 2.9% and 4.2%, respectively, in the F1 score. Our PyTorch implementation is available at https://github.com/lehaifeng/DASNet.",
+      "venue": "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing",
+      "citation_count": 626,
+      "doi": "10.1109/jstars.2020.3037893",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/jstars.2020.3037893",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4393148714",
+      "title": "T2I-Adapter: Learning Adapters to Dig Out More Controllable Ability for Text-to-Image Diffusion Models",
+      "authors": [
+        {
+          "name": "Chong Mou",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Xintao Wang",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Liangbin Xie",
+          "affiliation": "University of Macau"
+        },
+        {
+          "name": "Yanze Wu",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Jian Zhang",
+          "affiliation": "Peking University Shenzhen Hospital"
+        },
+        {
+          "name": "Zhongang Qi",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Ying Shan",
+          "affiliation": "Tencent (China)"
+        }
+      ],
+      "year": 2024,
+      "abstract": "The incredible generative ability of large-scale text-to-image (T2I) models has demonstrated strong power of learning complex structures and meaningful semantics. However, relying solely on text prompts cannot fully take advantage of the knowledge learned by the model, especially when flexible and accurate controlling (e.g., structure and color) is needed. In this paper, we aim to ``dig out\" the capabilities that T2I models have implicitly learned, and then explicitly use them to control the generation more granularly. Specifically, we propose to learn low-cost T2I-Adapters to align internal knowledge in T2I models with external control signals, while freezing the original large T2I models. In this way, we can train various adapters according to different conditions, achieving rich control and editing effects in the color and structure of the generation results. Further, the proposed T2I-Adapters have attractive properties of practical value, such as composability and generalization ability. Extensive experiments demonstrate that our T2I-Adapter has promising generation quality and a wide range of applications. Our code is available at https://github.com/TencentARC/T2I-Adapter.",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 626,
+      "doi": "10.1609/aaai.v38i5.28226",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v38i5.28226",
+      "source": "openalex",
+      "_bibtex_override": ""
+    }
+  ]
+}

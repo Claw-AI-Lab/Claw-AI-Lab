@@ -1,0 +1,1565 @@
+{
+  "query": "Training free multi concept composition image",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1773975936.827866,
+  "papers": [
+    {
+      "paper_id": "arxiv-2207.01883",
+      "title": "MMGL: Multi-Scale Multi-View Global-Local Contrastive learning for Semi-supervised Cardiac Image Segmentation",
+      "authors": [
+        {
+          "name": "Ziyuan Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Jinxuan Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zeng Zeng",
+          "affiliation": ""
+        },
+        {
+          "name": "Xulei Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Peisheng Qian",
+          "affiliation": ""
+        },
+        {
+          "name": "Bharadwaj Veeravalli",
+          "affiliation": ""
+        },
+        {
+          "name": "Cuntai Guan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "With large-scale well-labeled datasets, deep learning has shown significant success in medical image segmentation. However, it is challenging to acquire abundant annotations in clinical practice due to extensive expertise requirements and costly labeling efforts. Recently, contrastive learning has shown a strong capacity for visual representation learning on unlabeled data, achieving impressive performance rivaling supervised learning in many domains. In this work, we propose a novel multi-scale multi-view global-local contrastive learning (MMGL) framework to thoroughly explore global and local features from different scales and views for robust contrastive learning performance, thereby improving segmentation performance with limited annotations. Extensive experiments on the MM-WHS dataset demonstrate the effectiveness of MMGL framework on semi-supervised cardiac image segmentation, outperforming the state-of-the-art contrastive learning methods by a large margin.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "10.1109/ICIP46576.2022.9897591",
+      "arxiv_id": "2207.01883",
+      "url": "https://arxiv.org/abs/2207.01883",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2208.07735",
+      "title": "Rain Removal from Light Field Images with 4D Convolution and Multi-scale Gaussian Process",
+      "authors": [
+        {
+          "name": "Tao Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Mingyue Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Bin Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Rynson W. H. Lau",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Existing deraining methods focus mainly on a single input image. However, with just a single input image, it is extremely difficult to accurately detect and remove rain streaks, in order to restore a rain-free image. In contrast, a light field image (LFI) embeds abundant 3D structure and texture information of the target scene by recording the direction and position of each incident ray via a plenoptic camera. LFIs are becoming popular in the computer vision and graphics communities. However, making full use of the abundant information available from LFIs, such as 2D array of sub-views and the disparity map of each sub-view, for effective rain removal is still a challenging problem. In this paper, we propose a novel method, 4D-MGP-SRRNet, for rain streak removal from LFIs. Our method takes as input all sub-views of a rainy LFI. To make full use of the LFI, it adopts 4D convolutional layers to simultaneously process all sub-views of the LFI. In the pipeline, the rain detection network, MGPDNet, with a novel Multi-scale Self-guided Gaussian Process (MSGP) module is proposed to detect high-resolution rain streaks from all sub-views of the input LFI at multi-scales. Semi-supervised learning is introduced for MSGP to accurately detect rain streaks by training on both virtual-world rainy LFIs and real-world rainy LFIs at multi-scales via computing pseudo ground truths for real-world rain streaks. We then feed all sub-views subtracting the predicted rain streaks into a 4D convolution-based Depth Estimation Residual Network (DERNet) to estimate the depth maps, which are later converted into fog maps. Finally, all sub-views concatenated with the corresponding rain streaks and fog maps are fed into a powerful rainy LFI restoring model based on the adversarial recurrent neural network to progressively eliminate rain streaks and recover the rain-free LFI.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1109/TAP.2022.3218759",
+      "arxiv_id": "2208.07735",
+      "url": "https://arxiv.org/abs/2208.07735",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2405.13870",
+      "title": "FreeCustom: Tuning-Free Customized Image Generation for Multi-Concept Composition",
+      "authors": [
+        {
+          "name": "Ganggui Ding",
+          "affiliation": ""
+        },
+        {
+          "name": "Canyu Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Wen Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhen Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zide Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Chunhua Shen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Benefiting from large-scale pre-trained text-to-image (T2I) generative models, impressive progress has been achieved in customized image generation, which aims to generate user-specified concepts. Existing approaches have extensively focused on single-concept customization and still encounter challenges when it comes to complex scenarios that involve combining multiple concepts. These approaches often require retraining/fine-tuning using a few images, leading to time-consuming training processes and impeding their swift implementation. Furthermore, the reliance on multiple images to represent a singular concept increases the difficulty of customization. To this end, we propose FreeCustom, a novel tuning-free method to generate customized images of multi-concept composition based on reference concepts, using only one image per concept as input. Specifically, we introduce a new multi-reference self-attention (MRSA) mechanism and a weighted mask strategy that enables the generated image to access and focus more on the reference concepts. In addition, MRSA leverages our key finding that input concepts are better preserved when providing images with context interactions. Experiments show that our method's produced images are consistent with the given concepts and better aligned with the input text. Our method outperforms or performs on par with other training-based methods in terms of multi-concept composition and single-concept customization, but is simpler. Codes can be found at https://github.com/aim-uofa/FreeCustom.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2405.13870",
+      "url": "https://arxiv.org/abs/2405.13870",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2205.10120",
+      "title": "Privacy Preserving Image Registration",
+      "authors": [
+        {
+          "name": "Riccardo Taiello",
+          "affiliation": ""
+        },
+        {
+          "name": "Melek \u00d6nen",
+          "affiliation": ""
+        },
+        {
+          "name": "Francesco Capano",
+          "affiliation": ""
+        },
+        {
+          "name": "Olivier Humbert",
+          "affiliation": ""
+        },
+        {
+          "name": "Marco Lorenzi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Image registration is a key task in medical imaging applications, allowing to represent medical images in a common spatial reference frame. Current approaches to image registration are generally based on the assumption that the content of the images is usually accessible in clear form, from which the spatial transformation is subsequently estimated. This common assumption may not be met in practical applications, since the sensitive nature of medical images may ultimately require their analysis under privacy constraints, preventing to openly share the image content.In this work, we formulate the problem of image registration under a privacy preserving regime, where images are assumed to be confidential and cannot be disclosed in clear. We derive our privacy preserving image registration framework by extending classical registration paradigms to account for advanced cryptographic tools, such as secure multi-party computation and homomorphic encryption, that enable the execution of operations without leaking the underlying data. To overcome the problem of performance and scalability of cryptographic tools in high dimensions, we propose several techniques to optimize the image registration operations by using gradient approximations, and by revisiting the use of homomorphic encryption trough packing, to allow the efficient encryption and multiplication of large matrices. We demonstrate our privacy preserving framework in linear and non-linear registration problems, evaluating its accuracy and scalability with respect to standard, non-private counterparts. Our results show that privacy preserving image registration is feasible and can be adopted in sensitive medical imaging applications.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1007/978-3-031-16446-0_13",
+      "arxiv_id": "2205.10120",
+      "url": "https://arxiv.org/abs/2205.10120",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2004.13470",
+      "title": "FU-net: Multi-class Image Segmentation Using Feedback Weighted U-net",
+      "authors": [
+        {
+          "name": "Mina Jafari",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruizhe Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yue Xing",
+          "affiliation": ""
+        },
+        {
+          "name": "Dorothee Auer",
+          "affiliation": ""
+        },
+        {
+          "name": "Susan Francis",
+          "affiliation": ""
+        },
+        {
+          "name": "Jonathan Garibaldi",
+          "affiliation": ""
+        },
+        {
+          "name": "Xin Chen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "In this paper, we present a generic deep convolutional neural network (DCNN) for multi-class image segmentation. It is based on a well-established supervised end-to-end DCNN model, known as U-net. U-net is firstly modified by adding widely used batch normalization and residual block (named as BRU-net) to improve the efficiency of model training. Based on BRU-net, we further introduce a dynamically weighted cross-entropy loss function. The weighting scheme is calculated based on the pixel-wise prediction accuracy during the training process. Assigning higher weights to pixels with lower segmentation accuracies enables the network to learn more from poorly predicted image regions. Our method is named as feedback weighted U-net (FU-net). We have evaluated our method based on T1- weighted brain MRI for the segmentation of midbrain and substantia nigra, where the number of pixels in each class is extremely unbalanced to each other. Based on the dice coefficient measurement, our proposed FU-net has outperformed BRU-net and U-net with statistical significance, especially when only a small number of training examples are available. The code is publicly available in GitHub (GitHub link: https://github.com/MinaJf/FU-net).",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "10.1007/978-3-030-34110-7_44",
+      "arxiv_id": "2004.13470",
+      "url": "https://arxiv.org/abs/2004.13470",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2202.11001",
+      "title": "Multi-Objective Dual Simplex-Mesh Based Deformable Image Registration for 3D Medical Images -- Proof of Concept",
+      "authors": [
+        {
+          "name": "Georgios Andreadis",
+          "affiliation": ""
+        },
+        {
+          "name": "Peter A. N. Bosman",
+          "affiliation": ""
+        },
+        {
+          "name": "Tanja Alderliesten",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Reliably and physically accurately transferring information between images through deformable image registration with large anatomical differences is an open challenge in medical image analysis. Most existing methods have two key shortcomings: first, they require extensive up-front parameter tuning to each specific registration problem, and second, they have difficulty capturing large deformations and content mismatches between images. There have however been developments that have laid the foundation for potential solutions to both shortcomings. Towards the first shortcoming, a multi-objective optimization approach using the Real-Valued Gene-pool Optimal Mixing Evolutionary Algorithm (RV-GOMEA) has been shown to be capable of producing a diverse set of registrations for 2D images in one run of the algorithm, representing different trade-offs between conflicting objectives in the registration problem. This allows the user to select a registration afterwards and removes the need for up-front tuning. Towards the second shortcoming, a dual-dynamic grid transformation model has proven effective at capturing large differences in 2D images. These two developments have recently been accelerated through GPU parallelization, delivering large speed-ups. Based on this accelerated version, it is now possible to extend the approach to 3D images. Concordantly, this work introduces the first method for multi-objective 3D deformable image registration, using a 3D dual-dynamic grid transformation model based on simplex meshes while still supporting the incorporation of annotated guidance information and multi-resolution schemes. Our proof-of-concept prototype shows promising results on synthetic and clinical 3D registration problems, forming the foundation for a new, insightful method that can include bio-mechanical properties in the registration.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1117/12.2605498",
+      "arxiv_id": "2202.11001",
+      "url": "https://arxiv.org/abs/2202.11001",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2407.17379",
+      "title": "MMRA: A Benchmark for Evaluating Multi-Granularity and Multi-Image Relational Association Capabilities in Large Visual Language Models",
+      "authors": [
+        {
+          "name": "Siwei Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Kang Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Bai",
+          "affiliation": ""
+        },
+        {
+          "name": "Yiming Liang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yizhi Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Haoning Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "J. H. Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruibo Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xingwei Qu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xuxin Cheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Ge Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenhao Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chenghua Lin",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Given the remarkable success that large visual language models (LVLMs) have achieved in image perception tasks, the endeavor to make LVLMs perceive the world like humans is drawing increasing attention. Current multi-modal benchmarks primarily focus on facts or specific topic-related knowledge contained within individual images. However, they often overlook the associative relations between multiple images, which require the identification and analysis of similarities among entities or content present in different images. Therefore, we propose the multi-image relation association task and a meticulously curated Multi-granularity Multi-image Relational Association (MMRA) benchmark, comprising 1,024 samples. In order to systematically and comprehensively evaluate current LVLMs, we establish an associational relation system among images that contain 11 subtasks (e.g, UsageSimilarity, SubEvent) at two granularity levels (i.e., image and entity) according to the relations in ConceptNet. Our experiments reveal that on the MMRA benchmark, current multi-image LVLMs exhibit distinct advantages and disadvantages across various subtasks. Notably, fine-grained, entity-level multi-image perception tasks pose a greater challenge for LVLMs compared to image-level tasks. Moreover, LVLMs perform poorly on spatial-related tasks, indicating that LVLMs still have limited spatial awareness. Additionally, our findings indicate that while LVLMs demonstrate a strong capability to perceive image details, enhancing their ability to associate information across multiple images hinges on improving the reasoning capabilities of their language model component. Moreover, we explored the ability of LVLMs to perceive image sequences within the context of our multi-image association task. Our experiments show that the majority of current LVLMs do not adequately model image sequences during the pre-training process.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2407.17379",
+      "url": "https://arxiv.org/abs/2407.17379",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2107.09543",
+      "title": "Data synthesis and adversarial networks: A review and meta-analysis in cancer imaging",
+      "authors": [
+        {
+          "name": "Richard Osuala",
+          "affiliation": ""
+        },
+        {
+          "name": "Kaisar Kushibar",
+          "affiliation": ""
+        },
+        {
+          "name": "Lidia Garrucho",
+          "affiliation": ""
+        },
+        {
+          "name": "Akis Linardos",
+          "affiliation": ""
+        },
+        {
+          "name": "Zuzanna Szafranowska",
+          "affiliation": ""
+        },
+        {
+          "name": "Stefan Klein",
+          "affiliation": ""
+        },
+        {
+          "name": "Ben Glocker",
+          "affiliation": ""
+        },
+        {
+          "name": "Oliver Diaz",
+          "affiliation": ""
+        },
+        {
+          "name": "Karim Lekadir",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Despite technological and medical advances, the detection, interpretation, and treatment of cancer based on imaging data continue to pose significant challenges. These include inter-observer variability, class imbalance, dataset shifts, inter- and intra-tumour heterogeneity, malignancy determination, and treatment effect uncertainty. Given the recent advancements in Generative Adversarial Networks (GANs), data synthesis, and adversarial training, we assess the potential of these technologies to address a number of key challenges of cancer imaging. We categorise these challenges into (a) data scarcity and imbalance, (b) data access and privacy, (c) data annotation and segmentation, (d) cancer detection and diagnosis, and (e) tumour profiling, treatment planning and monitoring. Based on our analysis of 164 publications that apply adversarial training techniques in the context of cancer imaging, we highlight multiple underexplored solutions with research potential. We further contribute the Synthesis Study Trustworthiness Test (SynTRUST), a meta-analysis framework for assessing the validation rigour of medical image synthesis studies. SynTRUST is based on 26 concrete measures of thoroughness, reproducibility, usefulness, scalability, and tenability. Based on SynTRUST, we analyse 16 of the most promising cancer imaging challenge solutions and observe a high validation rigour in general, but also several desirable improvements. With this work, we strive to bridge the gap between the needs of the clinical cancer imaging community and the current and prospective research on data synthesis and adversarial networks in the artificial intelligence community.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "10.1016/j.media.2022.102704",
+      "arxiv_id": "2107.09543",
+      "url": "https://arxiv.org/abs/2107.09543",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2408.03632",
+      "title": "Concept Conductor: Orchestrating Multiple Personalized Concepts in Text-to-Image Synthesis",
+      "authors": [
+        {
+          "name": "Zebin Yao",
+          "affiliation": ""
+        },
+        {
+          "name": "Fangxiang Feng",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruifan Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaojie Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "The customization of text-to-image models has seen significant advancements, yet generating multiple personalized concepts remains a challenging task. Current methods struggle with attribute leakage and layout confusion when handling multiple concepts, leading to reduced concept fidelity and semantic consistency. In this work, we introduce a novel training-free framework, Concept Conductor, designed to ensure visual fidelity and correct layout in multi-concept customization. Concept Conductor isolates the sampling processes of multiple custom models to prevent attribute leakage between different concepts and corrects erroneous layouts through self-attention-based spatial guidance. Additionally, we present a concept injection technique that employs shape-aware masks to specify the generation area for each concept. This technique injects the structure and appearance of personalized concepts through feature fusion in the attention layers, ensuring harmony in the final image. Extensive qualitative and quantitative experiments demonstrate that Concept Conductor can consistently generate composite images with accurate layouts while preserving the visual details of each concept. Compared to existing baselines, Concept Conductor shows significant performance improvements. Our method supports the combination of any number of concepts and maintains high fidelity even when dealing with visually similar concepts. The code and models are available at https://github.com/Nihukat/Concept-Conductor.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2408.03632",
+      "url": "https://arxiv.org/abs/2408.03632",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2009.06912",
+      "title": "Learning a Single Model with a Wide Range of Quality Factors for JPEG Image Artifacts Removal",
+      "authors": [
+        {
+          "name": "Jianwei Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yongtao Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Haihua Xie",
+          "affiliation": ""
+        },
+        {
+          "name": "Kai-Kuang Ma",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Lossy compression brings artifacts into the compressed image and degrades the visual quality. In recent years, many compression artifacts removal methods based on convolutional neural network (CNN) have been developed with great success. However, these methods usually train a model based on one specific value or a small range of quality factors. Obviously, if the test image's quality factor does not match to the assumed value range, then degraded performance will be resulted. With this motivation and further consideration of practical usage, a highly robust compression artifacts removal network is proposed in this paper. Our proposed network is a single model approach that can be trained for handling a wide range of quality factors while consistently delivering superior or comparable image artifacts removal performance. To demonstrate, we focus on the JPEG compression with quality factors, ranging from 1 to 60. Note that a turnkey success of our proposed network lies in the novel utilization of the quantization tables as part of the training data. Furthermore, it has two branches in parallel---i.e., the restoration branch and the global branch. The former effectively removes the local artifacts, such as ringing artifacts removal. On the other hand, the latter extracts the global features of the entire image that provides highly instrumental image quality improvement, especially effective on dealing with the global artifacts, such as blocking, color shifting. Extensive experimental results performed on color and grayscale images have clearly demonstrated the effectiveness and efficacy of our proposed single-model approach on the removal of compression artifacts from the decoded image.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "10.1109/TIP.2020.3020389",
+      "arxiv_id": "2009.06912",
+      "url": "https://arxiv.org/abs/2009.06912",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2602.20839",
+      "title": "Training-Free Multi-Concept Image Editing",
+      "authors": [
+        {
+          "name": "Niki Foteinopoulou",
+          "affiliation": ""
+        },
+        {
+          "name": "Ignas Budvytis",
+          "affiliation": ""
+        },
+        {
+          "name": "Stephan Liwicki",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Editing images with diffusion models under strict training-free constraints remains a significant challenge. While recent optimisation-based methods achieve strong zero-shot edits from text, they struggle to preserve identity and capture intricate details, such as facial structure, material texture, or object-specific geometry, that exist below the level of linguistic abstraction. To address this fundamental gap, we propose Concept Distillation Sampling (CDS). To the best of our knowledge, we are the first to introduce a unified, training-free framework for target-less, multi-concept image editing. CDS overcomes the linguistic bottleneck of previous methods by integrating a highly stable distillation backbone (featuring ordered timesteps, regularisation, and negative-prompt guidance), with a dynamic weighting mechanism. This approach enables the seamless composition and control of multiple visual concepts directly within the diffusion process, utilising spatially-aware priors from pretrained LoRA adapters without spatial interference. Our method preserves instance fidelity without requiring reference samples of the desired edit. Extensive quantitative and qualitative evaluations demonstrate consistent state-of-the-art performance over existing training-free editing and multi-LoRA composition methods on the InstructPix2Pix and ComposLoRA benchmarks. Code will be made publicly available.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2602.20839",
+      "url": "https://arxiv.org/abs/2602.20839",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2410.19288",
+      "title": "A Flow-based Truncated Denoising Diffusion Model for Super-resolution Magnetic Resonance Spectroscopic Imaging",
+      "authors": [
+        {
+          "name": "Siyuan Dong",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhuotong Cai",
+          "affiliation": ""
+        },
+        {
+          "name": "Gilbert Hangel",
+          "affiliation": ""
+        },
+        {
+          "name": "Wolfgang Bogner",
+          "affiliation": ""
+        },
+        {
+          "name": "Georg Widhalm",
+          "affiliation": ""
+        },
+        {
+          "name": "Yaqing Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Qinghao Liang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chenyu You",
+          "affiliation": ""
+        },
+        {
+          "name": "Chathura Kumaragamage",
+          "affiliation": ""
+        },
+        {
+          "name": "Robert K. Fulbright",
+          "affiliation": ""
+        },
+        {
+          "name": "Amit Mahajan",
+          "affiliation": ""
+        },
+        {
+          "name": "Amin Karbasi",
+          "affiliation": ""
+        },
+        {
+          "name": "John A. Onofrey",
+          "affiliation": ""
+        },
+        {
+          "name": "Robin A. de Graaf",
+          "affiliation": ""
+        },
+        {
+          "name": "James S. Duncan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Magnetic Resonance Spectroscopic Imaging (MRSI) is a non-invasive imaging technique for studying metabolism and has become a crucial tool for understanding neurological diseases, cancers and diabetes. High spatial resolution MRSI is needed to characterize lesions, but in practice MRSI is acquired at low resolution due to time and sensitivity restrictions caused by the low metabolite concentrations. Therefore, there is an imperative need for a post-processing approach to generate high-resolution MRSI from low-resolution data that can be acquired fast and with high sensitivity. Deep learning-based super-resolution methods provided promising results for improving the spatial resolution of MRSI, but they still have limited capability to generate accurate and high-quality images. Recently, diffusion models have demonstrated superior learning capability than other generative models in various tasks, but sampling from diffusion models requires iterating through a large number of diffusion steps, which is time-consuming. This work introduces a Flow-based Truncated Denoising Diffusion Model (FTDDM) for super-resolution MRSI, which shortens the diffusion process by truncating the diffusion chain, and the truncated steps are estimated using a normalizing flow-based network. The network is conditioned on upscaling factors to enable multi-scale super-resolution. To train and evaluate the deep learning models, we developed a 1H-MRSI dataset acquired from 25 high-grade glioma patients. We demonstrate that FTDDM outperforms existing generative models while speeding up the sampling process by over 9-fold compared to the baseline diffusion model. Neuroradiologists' evaluations confirmed the clinical advantages of our method, which also supports uncertainty estimation and sharpness adjustment, extending its potential clinical applications.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "10.1016/j.media.2024.103358",
+      "arxiv_id": "2410.19288",
+      "url": "https://arxiv.org/abs/2410.19288",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2201.02625",
+      "title": "FlexHDR: Modelling Alignment and Exposure Uncertainties for Flexible HDR Imaging",
+      "authors": [
+        {
+          "name": "Sibi Catley-Chandar",
+          "affiliation": ""
+        },
+        {
+          "name": "Thomas Tanay",
+          "affiliation": ""
+        },
+        {
+          "name": "Lucas Vandroux",
+          "affiliation": ""
+        },
+        {
+          "name": "Ale\u0161 Leonardis",
+          "affiliation": ""
+        },
+        {
+          "name": "Gregory Slabaugh",
+          "affiliation": ""
+        },
+        {
+          "name": "Eduardo P\u00e9rez-Pellitero",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "High dynamic range (HDR) imaging is of fundamental importance in modern digital photography pipelines and used to produce a high-quality photograph with well exposed regions despite varying illumination across the image. This is typically achieved by merging multiple low dynamic range (LDR) images taken at different exposures. However, over-exposed regions and misalignment errors due to poorly compensated motion result in artefacts such as ghosting. In this paper, we present a new HDR imaging technique that specifically models alignment and exposure uncertainties to produce high quality HDR results. We introduce a strategy that learns to jointly align and assess the alignment and exposure reliability using an HDR-aware, uncertainty-driven attention map that robustly merges the frames into a single high quality HDR image. Further, we introduce a progressive, multi-stage image fusion approach that can flexibly merge any number of LDR images in a permutation-invariant manner. Experimental results show our method can produce better quality HDR images with up to 1.1dB PSNR improvement to the state-of-the-art, and subjective improvements in terms of better detail, colours, and fewer artefacts.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "10.1109/TIP.2022.3203562",
+      "arxiv_id": "2201.02625",
+      "url": "https://arxiv.org/abs/2201.02625",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2309.16106",
+      "title": "Neuromorphic Imaging with Joint Image Deblurring and Event Denoising",
+      "authors": [
+        {
+          "name": "Pei Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Haosen Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhou Ge",
+          "affiliation": ""
+        },
+        {
+          "name": "Chutian Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Edmund Y. Lam",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Neuromorphic imaging reacts to per-pixel brightness changes of a dynamic scene with high temporal precision and responds with asynchronous streaming events as a result. It also often supports a simultaneous output of an intensity image. Nevertheless, the raw events typically involve a large amount of noise due to the high sensitivity of the sensor, while capturing fast-moving objects at low frame rates results in blurry images. These deficiencies significantly degrade human observation and machine processing. Fortunately, the two information sources are inherently complementary -- events with microsecond-level temporal resolution, which are triggered by the edges of objects recorded in a latent sharp image, can supply rich motion details missing from the blurry one. In this work, we bring the two types of data together and introduce a simple yet effective unifying algorithm to jointly reconstruct blur-free images and noise-robust events in an iterative coarse-to-fine fashion. Specifically, an event-regularized prior offers precise high-frequency structures and dynamic features for blind deblurring, while image gradients serve as a kind of faithful supervision in regulating neuromorphic noise removal. Comprehensively evaluated on real and synthetic samples, such a synergy delivers superior reconstruction quality for both images with severe motion blur and raw event streams with a storm of noise, and also exhibits greater robustness to challenging realistic scenarios such as varying levels of illumination, contrast and motion magnitude. Meanwhile, it can be driven by much fewer events and holds a competitive edge at computational time overhead, rendering itself preferable as available computing resources are limited. Our solution gives impetus to the improvement of both sensing data and paves the way for highly accurate neuromorphic reasoning and analysis.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "10.1109/TIP.2024.3374074",
+      "arxiv_id": "2309.16106",
+      "url": "https://arxiv.org/abs/2309.16106",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2403.07908",
+      "title": "Adaptation of the Multi-Concept Multivariate Elo Rating System to Medical Students Training Data",
+      "authors": [
+        {
+          "name": "Erva Nihan Kandemir",
+          "affiliation": ""
+        },
+        {
+          "name": "Jill-Jenn Vie",
+          "affiliation": ""
+        },
+        {
+          "name": "Adam Sanchez-Ayte",
+          "affiliation": ""
+        },
+        {
+          "name": "Olivier Palombi",
+          "affiliation": ""
+        },
+        {
+          "name": "Franck Ramus",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Accurate estimation of question difficulty and prediction of student performance play key roles in optimizing educational instruction and enhancing learning outcomes within digital learning platforms. The Elo rating system is widely recognized for its proficiency in predicting student performance by estimating both question difficulty and student ability while providing computational efficiency and real-time adaptivity. This paper presents an adaptation of a multi concept variant of the Elo rating system to the data collected by a medical training platform, a platform characterized by a vast knowledge corpus, substantial inter-concept overlap, a huge question bank with significant sparsity in user question interactions, and a highly diverse user population, presenting unique challenges. Our study is driven by two primary objectives: firstly, to comprehensively evaluate the Elo rating systems capabilities on this real-life data, and secondly, to tackle the issue of imprecise early stage estimations when implementing the Elo rating system for online assessments. Our findings suggest that the Elo rating system exhibits comparable accuracy to the well-established logistic regression model in predicting final exam outcomes for users within our digital platform. Furthermore, results underscore that initializing Elo rating estimates with historical data remarkably reduces errors and enhances prediction accuracy, especially during the initial phases of student interactions.",
+      "venue": "cs.CY",
+      "citation_count": 0,
+      "doi": "10.1145/3636555.3636858",
+      "arxiv_id": "2403.07908",
+      "url": "https://arxiv.org/abs/2403.07908",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2406.01388",
+      "title": "AutoStudio: Crafting Consistent Subjects in Multi-turn Interactive Image Generation",
+      "authors": [
+        {
+          "name": "Junhao Cheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Xi Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hanhui Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Khun Loun Zai",
+          "affiliation": ""
+        },
+        {
+          "name": "Baiqiao Yin",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuhao Cheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Yiqiang Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaodan Liang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "As cutting-edge Text-to-Image (T2I) generation models already excel at producing remarkable single images, an even more challenging task, i.e., multi-turn interactive image generation begins to attract the attention of related research communities. This task requires models to interact with users over multiple turns to generate a coherent sequence of images. However, since users may switch subjects frequently, current efforts struggle to maintain subject consistency while generating diverse images. To address this issue, we introduce a training-free multi-agent framework called AutoStudio. AutoStudio employs three agents based on large language models (LLMs) to handle interactions, along with a stable diffusion (SD) based agent for generating high-quality images. Specifically, AutoStudio consists of (i) a subject manager to interpret interaction dialogues and manage the context of each subject, (ii) a layout generator to generate fine-grained bounding boxes to control subject locations, (iii) a supervisor to provide suggestions for layout refinements, and (iv) a drawer to complete image generation. Furthermore, we introduce a Parallel-UNet to replace the original UNet in the drawer, which employs two parallel cross-attention modules for exploiting subject-aware features. We also introduce a subject-initialized generation method to better preserve small subjects. Our AutoStudio hereby can generate a sequence of multi-subject images interactively and consistently. Extensive experiments on the public CMIGBench benchmark and human evaluations show that AutoStudio maintains multi-subject consistency across multiple turns well, and it also raises the state-of-the-art performance by 13.65% in average Frechet Inception Distance and 2.83% in average character-character similarity.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2406.01388",
+      "url": "https://arxiv.org/abs/2406.01388",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2309.00885",
+      "title": "A Generic Fundus Image Enhancement Network Boosted by Frequency Self-supervised Representation Learning",
+      "authors": [
+        {
+          "name": "Heng Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Haofeng Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Huazhu Fu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yanwu Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hui Shu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ke Niu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yan Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiang Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Fundus photography is prone to suffer from image quality degradation that impacts clinical examination performed by ophthalmologists or intelligent systems. Though enhancement algorithms have been developed to promote fundus observation on degraded images, high data demands and limited applicability hinder their clinical deployment. To circumvent this bottleneck, a generic fundus image enhancement network (GFE-Net) is developed in this study to robustly correct unknown fundus images without supervised or extra data. Levering image frequency information, self-supervised representation learning is conducted to learn robust structure-aware representations from degraded images. Then with a seamless architecture that couples representation learning and image enhancement, GFE-Net can accurately correct fundus images and meanwhile preserve retinal structures. Comprehensive experiments are implemented to demonstrate the effectiveness and advantages of GFE-Net. Compared with state-of-the-art algorithms, GFE-Net achieves superior performance in data dependency, enhancement performance, deployment efficiency, and scale generalizability. Follow-up fundus image analysis is also facilitated by GFE-Net, whose modules are respectively verified to be effective for image enhancement.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "10.1016/j.media.2023.102945",
+      "arxiv_id": "2309.00885",
+      "url": "https://arxiv.org/abs/2309.00885",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2306.00288",
+      "title": "Training-free Neural Architecture Search for RNNs and Transformers",
+      "authors": [
+        {
+          "name": "Aaron Serianni",
+          "affiliation": ""
+        },
+        {
+          "name": "Jugal Kalita",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Neural architecture search (NAS) has allowed for the automatic creation of new and effective neural network architectures, offering an alternative to the laborious process of manually designing complex architectures. However, traditional NAS algorithms are slow and require immense amounts of computing power. Recent research has investigated training-free NAS metrics for image classification architectures, drastically speeding up search algorithms. In this paper, we investigate training-free NAS metrics for recurrent neural network (RNN) and BERT-based transformer architectures, targeted towards language modeling tasks. First, we develop a new training-free metric, named hidden covariance, that predicts the trained performance of an RNN architecture and significantly outperforms existing training-free metrics. We experimentally evaluate the effectiveness of the hidden covariance metric on the NAS-Bench-NLP benchmark. Second, we find that the current search space paradigm for transformer architectures is not optimized for training-free neural architecture search. Instead, a simple qualitative analysis can effectively shrink the search space to the best performing architectures. This conclusion is based on our investigation of existing training-free metrics and new metrics developed from recent transformer pruning literature, evaluated on our own benchmark of trained BERT architectures. Ultimately, our analysis shows that the architecture search space and the training-free metric must be developed together in order to achieve effective results.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2306.00288",
+      "url": "https://arxiv.org/abs/2306.00288",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2006.16806",
+      "title": "Uncertainty-aware multi-view co-training for semi-supervised medical image segmentation and domain adaptation",
+      "authors": [
+        {
+          "name": "Yingda Xia",
+          "affiliation": ""
+        },
+        {
+          "name": "Dong Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiding Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Fengze Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jinzheng Cai",
+          "affiliation": ""
+        },
+        {
+          "name": "Lequan Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhuotun Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Daguang Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Alan Yuille",
+          "affiliation": ""
+        },
+        {
+          "name": "Holger Roth",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Although having achieved great success in medical image segmentation, deep learning-based approaches usually require large amounts of well-annotated data, which can be extremely expensive in the field of medical image analysis. Unlabeled data, on the other hand, is much easier to acquire. Semi-supervised learning and unsupervised domain adaptation both take the advantage of unlabeled data, and they are closely related to each other. In this paper, we propose uncertainty-aware multi-view co-training (UMCT), a unified framework that addresses these two tasks for volumetric medical image segmentation. Our framework is capable of efficiently utilizing unlabeled data for better performance. We firstly rotate and permute the 3D volumes into multiple views and train a 3D deep network on each view. We then apply co-training by enforcing multi-view consistency on unlabeled data, where an uncertainty estimation of each view is utilized to achieve accurate labeling. Experiments on the NIH pancreas segmentation dataset and a multi-organ segmentation dataset show state-of-the-art performance of the proposed framework on semi-supervised medical image segmentation. Under unsupervised domain adaptation settings, we validate the effectiveness of this work by adapting our multi-organ segmentation model to two pathological organs from the Medical Segmentation Decathlon Datasets. Additionally, we show that our UMCT-DA model can even effectively handle the challenging situation where labeled source data is inaccessible, demonstrating strong potentials for real-world applications.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1016/j.media.2020.101766",
+      "arxiv_id": "2006.16806",
+      "url": "https://arxiv.org/abs/2006.16806",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2412.01496",
+      "title": "Fr\u00e9chet Radiomic Distance (FRD): A Versatile Metric for Comparing Medical Imaging Datasets",
+      "authors": [
+        {
+          "name": "Nicholas Konz",
+          "affiliation": ""
+        },
+        {
+          "name": "Richard Osuala",
+          "affiliation": ""
+        },
+        {
+          "name": "Preeti Verma",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuwen Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Hanxue Gu",
+          "affiliation": ""
+        },
+        {
+          "name": "Haoyu Dong",
+          "affiliation": ""
+        },
+        {
+          "name": "Yaqian Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Andrew Marshall",
+          "affiliation": ""
+        },
+        {
+          "name": "Lidia Garrucho",
+          "affiliation": ""
+        },
+        {
+          "name": "Kaisar Kushibar",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniel M. Lang",
+          "affiliation": ""
+        },
+        {
+          "name": "Gene S. Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Lars J. Grimm",
+          "affiliation": ""
+        },
+        {
+          "name": "John M. Lewin",
+          "affiliation": ""
+        },
+        {
+          "name": "James S. Duncan",
+          "affiliation": ""
+        },
+        {
+          "name": "Julia A. Schnabel",
+          "affiliation": ""
+        },
+        {
+          "name": "Oliver Diaz",
+          "affiliation": ""
+        },
+        {
+          "name": "Karim Lekadir",
+          "affiliation": ""
+        },
+        {
+          "name": "Maciej A. Mazurowski",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Determining whether two sets of images belong to the same or different distributions or domains is a crucial task in modern medical image analysis and deep learning; for example, to evaluate the output quality of image generative models. Currently, metrics used for this task either rely on the (potentially biased) choice of some downstream task, such as segmentation, or adopt task-independent perceptual metrics (e.g., Fr\u00e9chet Inception Distance/FID) from natural imaging, which we show insufficiently capture anatomical features. To this end, we introduce a new perceptual metric tailored for medical images, FRD (Fr\u00e9chet Radiomic Distance), which utilizes standardized, clinically meaningful, and interpretable image features. We show that FRD is superior to other image distribution metrics for a range of medical imaging applications, including out-of-domain (OOD) detection, the evaluation of image-to-image translation (by correlating more with downstream task performance as well as anatomical consistency and realism), and the evaluation of unconditional image generation. Moreover, FRD offers additional benefits such as stability and computational efficiency at low sample sizes, sensitivity to image corruptions and adversarial attacks, feature interpretability, and correlation with radiologist-perceived image quality. Additionally, we address key gaps in the literature by presenting an extensive framework for the multifaceted evaluation of image similarity metrics in medical imaging -- including the first large-scale comparative study of generative models for medical image translation -- and release an accessible codebase to facilitate future research. Our results are supported by thorough experiments spanning a variety of datasets, modalities, and downstream tasks, highlighting the broad potential of FRD for medical image analysis.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1016/j.media.2026.103943",
+      "arxiv_id": "2412.01496",
+      "url": "https://arxiv.org/abs/2412.01496",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2004.04668",
+      "title": "Test-Time Adaptable Neural Networks for Robust Medical Image Segmentation",
+      "authors": [
+        {
+          "name": "Neerav Karani",
+          "affiliation": ""
+        },
+        {
+          "name": "Ertunc Erdil",
+          "affiliation": ""
+        },
+        {
+          "name": "Krishna Chaitanya",
+          "affiliation": ""
+        },
+        {
+          "name": "Ender Konukoglu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Convolutional Neural Networks (CNNs) work very well for supervised learning problems when the training dataset is representative of the variations expected to be encountered at test time. In medical image segmentation, this premise is violated when there is a mismatch between training and test images in terms of their acquisition details, such as the scanner model or the protocol. Remarkable performance degradation of CNNs in this scenario is well documented in the literature. To address this problem, we design the segmentation CNN as a concatenation of two sub-networks: a relatively shallow image normalization CNN, followed by a deep CNN that segments the normalized image. We train both these sub-networks using a training dataset, consisting of annotated images from a particular scanner and protocol setting. Now, at test time, we adapt the image normalization sub-network for \\emph{each test image}, guided by an implicit prior on the predicted segmentation labels. We employ an independently trained denoising autoencoder (DAE) in order to model such an implicit prior on plausible anatomical segmentation labels. We validate the proposed idea on multi-center Magnetic Resonance imaging datasets of three anatomies: brain, heart and prostate. The proposed test-time adaptation consistently provides performance improvement, demonstrating the promise and generality of the approach. Being agnostic to the architecture of the deep CNN, the second sub-network, the proposed design can be utilized with any segmentation network to increase robustness to variations in imaging scanners and protocols. Our code is available at: \\url{https://github.com/neerakara/test-time-adaptable-neural-networks-for-domain-generalization}.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "10.1016/j.media.2020.101907",
+      "arxiv_id": "2004.04668",
+      "url": "https://arxiv.org/abs/2004.04668",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2111.10480",
+      "title": "TransMorph: Transformer for unsupervised medical image registration",
+      "authors": [
+        {
+          "name": "Junyu Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Eric C. Frey",
+          "affiliation": ""
+        },
+        {
+          "name": "Yufan He",
+          "affiliation": ""
+        },
+        {
+          "name": "William P. Segars",
+          "affiliation": ""
+        },
+        {
+          "name": "Ye Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yong Du",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "In the last decade, convolutional neural networks (ConvNets) have been a major focus of research in medical image analysis. However, the performances of ConvNets may be limited by a lack of explicit consideration of the long-range spatial relationships in an image. Recently Vision Transformer architectures have been proposed to address the shortcomings of ConvNets and have produced state-of-the-art performances in many medical imaging applications. Transformers may be a strong candidate for image registration because their substantially larger receptive field enables a more precise comprehension of the spatial correspondence between moving and fixed images. Here, we present TransMorph, a hybrid Transformer-ConvNet model for volumetric medical image registration. This paper also presents diffeomorphic and Bayesian variants of TransMorph: the diffeomorphic variants ensure the topology-preserving deformations, and the Bayesian variant produces a well-calibrated registration uncertainty estimate. We extensively validated the proposed models using 3D medical images from three applications: inter-patient and atlas-to-patient brain MRI registration and phantom-to-CT registration. The proposed models are evaluated in comparison to a variety of existing registration methods and Transformer architectures. Qualitative and quantitative results demonstrate that the proposed Transformer-based model leads to a substantial performance improvement over the baseline methods, confirming the effectiveness of Transformers for medical image registration.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "10.1016/j.media.2022.102615",
+      "arxiv_id": "2111.10480",
+      "url": "https://arxiv.org/abs/2111.10480",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2101.09193",
+      "title": "Dense outlier detection and open-set recognition based on training with noisy negative images",
+      "authors": [
+        {
+          "name": "Petra Bevandi\u0107",
+          "affiliation": ""
+        },
+        {
+          "name": "Ivan Kre\u0161o",
+          "affiliation": ""
+        },
+        {
+          "name": "Marin Or\u0161i\u0107",
+          "affiliation": ""
+        },
+        {
+          "name": "Sini\u0161a \u0160egvi\u0107",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Deep convolutional models often produce inadequate predictions for inputs foreign to the training distribution. Consequently, the problem of detecting outlier images has recently been receiving a lot of attention. Unlike most previous work, we address this problem in the dense prediction context in order to be able to locate outlier objects in front of in-distribution background. Our approach is based on two reasonable assumptions. First, we assume that the inlier dataset is related to some narrow application field (e.g.~road driving). Second, we assume that there exists a general-purpose dataset which is much more diverse than the inlier dataset (e.g.~ImageNet-1k). We consider pixels from the general-purpose dataset as noisy negative training samples since most (but not all) of them are outliers. We encourage the model to recognize borders between known and unknown by pasting jittered negative patches over inlier training images. Our experiments target two dense open-set recognition benchmarks (WildDash 1 and Fishyscapes) and one dense open-set recognition dataset (StreetHazard). Extensive performance evaluation indicates competitive potential of the proposed approach.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1016/j.imavis.2022.104490",
+      "arxiv_id": "2101.09193",
+      "url": "https://arxiv.org/abs/2101.09193",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2111.06399",
+      "title": "Selective Synthetic Augmentation with HistoGAN for Improved Histopathology Image Classification",
+      "authors": [
+        {
+          "name": "Yuan Xue",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiarong Ye",
+          "affiliation": ""
+        },
+        {
+          "name": "Qianying Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Rodney Long",
+          "affiliation": ""
+        },
+        {
+          "name": "Sameer Antani",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiyun Xue",
+          "affiliation": ""
+        },
+        {
+          "name": "Carl Cornwell",
+          "affiliation": ""
+        },
+        {
+          "name": "Richard Zaino",
+          "affiliation": ""
+        },
+        {
+          "name": "Keith Cheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaolei Huang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Histopathological analysis is the present gold standard for precancerous lesion diagnosis. The goal of automated histopathological classification from digital images requires supervised training, which requires a large number of expert annotations that can be expensive and time-consuming to collect. Meanwhile, accurate classification of image patches cropped from whole-slide images is essential for standard sliding window based histopathology slide classification methods. To mitigate these issues, we propose a carefully designed conditional GAN model, namely HistoGAN, for synthesizing realistic histopathology image patches conditioned on class labels. We also investigate a novel synthetic augmentation framework that selectively adds new synthetic image patches generated by our proposed HistoGAN, rather than expanding directly the training set with synthetic images. By selecting synthetic images based on the confidence of their assigned labels and their feature similarity to real labeled images, our framework provides quality assurance to synthetic augmentation. Our models are evaluated on two datasets: a cervical histopathology image dataset with limited annotations, and another dataset of lymph node histopathology images with metastatic cancer. Here, we show that leveraging HistoGAN generated images with selective augmentation results in significant and consistent improvements of classification performance (6.7% and 2.8% higher accuracy, respectively) for cervical histopathology and metastatic cancer datasets.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "10.1016/j.media.2020.101816",
+      "arxiv_id": "2111.06399",
+      "url": "https://arxiv.org/abs/2111.06399",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2208.02555",
+      "title": "Multi-modal volumetric concept activation to explain detection and classification of metastatic prostate cancer on PSMA-PET/CT",
+      "authors": [
+        {
+          "name": "Rosa C. J. Kraaijveld",
+          "affiliation": ""
+        },
+        {
+          "name": "Marielle E. P. Philippens",
+          "affiliation": ""
+        },
+        {
+          "name": "Wietse S. C. Eppinga",
+          "affiliation": ""
+        },
+        {
+          "name": "Ina M. J\u00fcrgenliemk-Schulz",
+          "affiliation": ""
+        },
+        {
+          "name": "Kenneth G. A. Gilhuijs",
+          "affiliation": ""
+        },
+        {
+          "name": "Petra S. Kroon",
+          "affiliation": ""
+        },
+        {
+          "name": "Bas H. M. van der Velden",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Explainable artificial intelligence (XAI) is increasingly used to analyze the behavior of neural networks. Concept activation uses human-interpretable concepts to explain neural network behavior. This study aimed at assessing the feasibility of regression concept activation to explain detection and classification of multi-modal volumetric data.\n  Proof-of-concept was demonstrated in metastatic prostate cancer patients imaged with positron emission tomography/computed tomography (PET/CT). Multi-modal volumetric concept activation was used to provide global and local explanations.\n  Sensitivity was 80% at 1.78 false positive per patient. Global explanations showed that detection focused on CT for anatomical location and on PET for its confidence in the detection. Local explanations showed promise to aid in distinguishing true positives from false positives. Hence, this study demonstrated feasibility to explain detection and classification of multi-modal volumetric data using regression concept activation.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2208.02555",
+      "url": "https://arxiv.org/abs/2208.02555",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2303.13516",
+      "title": "Ablating Concepts in Text-to-Image Diffusion Models",
+      "authors": [
+        {
+          "name": "Nupur Kumari",
+          "affiliation": ""
+        },
+        {
+          "name": "Bingliang Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Sheng-Yu Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Eli Shechtman",
+          "affiliation": ""
+        },
+        {
+          "name": "Richard Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jun-Yan Zhu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Large-scale text-to-image diffusion models can generate high-fidelity images with powerful compositional ability. However, these models are typically trained on an enormous amount of Internet data, often containing copyrighted material, licensed images, and personal photos. Furthermore, they have been found to replicate the style of various living artists or memorize exact training samples. How can we remove such copyrighted concepts or images without retraining the model from scratch? To achieve this goal, we propose an efficient method of ablating concepts in the pretrained model, i.e., preventing the generation of a target concept. Our algorithm learns to match the image distribution for a target style, instance, or text prompt we wish to ablate to the distribution corresponding to an anchor concept. This prevents the model from generating target concepts given its text condition. Extensive experiments show that our method can successfully prevent the generation of the ablated concept while preserving closely related concepts in the model.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2303.13516",
+      "url": "https://arxiv.org/abs/2303.13516",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2109.01303",
+      "title": "Self-supervised Pseudo Multi-class Pre-training for Unsupervised Anomaly Detection and Segmentation in Medical Images",
+      "authors": [
+        {
+          "name": "Yu Tian",
+          "affiliation": ""
+        },
+        {
+          "name": "Fengbei Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Guansong Pang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuanhong Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuyuan Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Johan W. Verjans",
+          "affiliation": ""
+        },
+        {
+          "name": "Rajvinder Singh",
+          "affiliation": ""
+        },
+        {
+          "name": "Gustavo Carneiro",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Unsupervised anomaly detection (UAD) methods are trained with normal (or healthy) images only, but during testing, they are able to classify normal and abnormal (or disease) images. UAD is an important medical image analysis (MIA) method to be applied in disease screening problems because the training sets available for those problems usually contain only normal images. However, the exclusive reliance on normal images may result in the learning of ineffective low-dimensional image representations that are not sensitive enough to detect and segment unseen abnormal lesions of varying size, appearance, and shape. Pre-training UAD methods with self-supervised learning, based on computer vision techniques, can mitigate this challenge, but they are sub-optimal because they do not explore domain knowledge for designing the pretext tasks, and their contrastive learning losses do not try to cluster the normal training images, which may result in a sparse distribution of normal images that is ineffective for anomaly detection. In this paper, we propose a new self-supervised pre-training method for MIA UAD applications, named Pseudo Multi-class Strong Augmentation via Contrastive Learning (PMSACL). PMSACL consists of a novel optimisation method that contrasts a normal image class from multiple pseudo classes of synthesised abnormal images, with each class enforced to form a dense cluster in the feature space. In the experiments, we show that our PMSACL pre-training improves the accuracy of SOTA UAD methods on many MIA benchmarks using colonoscopy, fundus screening and Covid-19 Chest X-ray datasets. The code is made publicly available via https://github.com/tianyu0207/PMSACL.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2109.01303",
+      "url": "https://arxiv.org/abs/2109.01303",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2307.15872",
+      "title": "Cross-dimensional transfer learning in medical image segmentation with deep learning",
+      "authors": [
+        {
+          "name": "Hicham Messaoudi",
+          "affiliation": ""
+        },
+        {
+          "name": "Ahror Belaid",
+          "affiliation": ""
+        },
+        {
+          "name": "Douraied Ben Salem",
+          "affiliation": ""
+        },
+        {
+          "name": "Pierre-Henri Conze",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Over the last decade, convolutional neural networks have emerged and advanced the state-of-the-art in various image analysis and computer vision applications. The performance of 2D image classification networks is constantly improving and being trained on databases made of millions of natural images. However, progress in medical image analysis has been hindered by limited annotated data and acquisition constraints. These limitations are even more pronounced given the volumetry of medical imaging data. In this paper, we introduce an efficient way to transfer the efficiency of a 2D classification network trained on natural images to 2D, 3D uni- and multi-modal medical image segmentation applications. In this direction, we designed novel architectures based on two key principles: weight transfer by embedding a 2D pre-trained encoder into a higher dimensional U-Net, and dimensional transfer by expanding a 2D segmentation network into a higher dimension one. The proposed networks were tested on benchmarks comprising different modalities: MR, CT, and ultrasound images. Our 2D network ranked first on the CAMUS challenge dedicated to echo-cardiographic data segmentation and surpassed the state-of-the-art. Regarding 2D/3D MR and CT abdominal images from the CHAOS challenge, our approach largely outperformed the other 2D-based methods described in the challenge paper on Dice, RAVD, ASSD, and MSSD scores and ranked third on the online evaluation platform. Our 3D network applied to the BraTS 2022 competition also achieved promising results, reaching an average Dice score of 91.69% (91.22%) for the whole tumor, 83.23% (84.77%) for the tumor core, and 81.75% (83.88%) for enhanced tumor using the approach based on weight (dimensional) transfer. Experimental and qualitative results illustrate the effectiveness of our methods for multi-dimensional medical image segmentation.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "10.1016/j.media.2023.102868",
+      "arxiv_id": "2307.15872",
+      "url": "https://arxiv.org/abs/2307.15872",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2305.03098",
+      "title": "Unsupervised anomaly localization in high-resolution breast scans using deep pluralistic image completion",
+      "authors": [
+        {
+          "name": "Nicholas Konz",
+          "affiliation": ""
+        },
+        {
+          "name": "Haoyu Dong",
+          "affiliation": ""
+        },
+        {
+          "name": "Maciej A. Mazurowski",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Automated tumor detection in Digital Breast Tomosynthesis (DBT) is a difficult task due to natural tumor rarity, breast tissue variability, and high resolution. Given the scarcity of abnormal images and the abundance of normal images for this problem, an anomaly detection/localization approach could be well-suited. However, most anomaly localization research in machine learning focuses on non-medical datasets, and we find that these methods fall short when adapted to medical imaging datasets. The problem is alleviated when we solve the task from the image completion perspective, in which the presence of anomalies can be indicated by a discrepancy between the original appearance and its auto-completion conditioned on the surroundings. However, there are often many valid normal completions given the same surroundings, especially in the DBT dataset, making this evaluation criterion less precise. To address such an issue, we consider pluralistic image completion by exploring the distribution of possible completions instead of generating fixed predictions. This is achieved through our novel application of spatial dropout on the completion network during inference time only, which requires no additional training cost and is effective at generating diverse completions. We further propose minimum completion distance (MCD), a new metric for detecting anomalies, thanks to these stochastic completions. We provide theoretical as well as empirical support for the superiority over existing methods of using the proposed method for anomaly localization. On the DBT dataset, our model outperforms other state-of-the-art methods by at least 10\\% AUROC for pixel-level detection.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "10.1016/j.media.2023.102836",
+      "arxiv_id": "2305.03098",
+      "url": "https://arxiv.org/abs/2305.03098",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2001.09193",
+      "title": "VerSe: A Vertebrae Labelling and Segmentation Benchmark for Multi-detector CT Images",
+      "authors": [
+        {
+          "name": "Anjany Sekuboyina",
+          "affiliation": ""
+        },
+        {
+          "name": "Malek E. Husseini",
+          "affiliation": ""
+        },
+        {
+          "name": "Amirhossein Bayat",
+          "affiliation": ""
+        },
+        {
+          "name": "Maximilian L\u00f6ffler",
+          "affiliation": ""
+        },
+        {
+          "name": "Hans Liebl",
+          "affiliation": ""
+        },
+        {
+          "name": "Hongwei Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Giles Tetteh",
+          "affiliation": ""
+        },
+        {
+          "name": "Jan Kuka\u010dka",
+          "affiliation": ""
+        },
+        {
+          "name": "Christian Payer",
+          "affiliation": ""
+        },
+        {
+          "name": "Darko \u0160tern",
+          "affiliation": ""
+        },
+        {
+          "name": "Martin Urschler",
+          "affiliation": ""
+        },
+        {
+          "name": "Maodong Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Dalong Cheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Nikolas Lessmann",
+          "affiliation": ""
+        },
+        {
+          "name": "Yujin Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Tianfu Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Dong Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Daguang Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Felix Ambellan",
+          "affiliation": ""
+        },
+        {
+          "name": "Tamaz Amiranashvili",
+          "affiliation": ""
+        },
+        {
+          "name": "Moritz Ehlke",
+          "affiliation": ""
+        },
+        {
+          "name": "Hans Lamecker",
+          "affiliation": ""
+        },
+        {
+          "name": "Sebastian Lehnert",
+          "affiliation": ""
+        },
+        {
+          "name": "Marilia Lirio",
+          "affiliation": ""
+        },
+        {
+          "name": "Nicol\u00e1s P\u00e9rez de Olaguer",
+          "affiliation": ""
+        },
+        {
+          "name": "Heiko Ramm",
+          "affiliation": ""
+        },
+        {
+          "name": "Manish Sahu",
+          "affiliation": ""
+        },
+        {
+          "name": "Alexander Tack",
+          "affiliation": ""
+        },
+        {
+          "name": "Stefan Zachow",
+          "affiliation": ""
+        },
+        {
+          "name": "Tao Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinjun Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Christoph Angerman",
+          "affiliation": ""
+        },
+        {
+          "name": "Xin Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Kevin Brown",
+          "affiliation": ""
+        },
+        {
+          "name": "Alexandre Kirszenberg",
+          "affiliation": ""
+        },
+        {
+          "name": "\u00c9lodie Puybareau",
+          "affiliation": ""
+        },
+        {
+          "name": "Di Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Yiwei Bai",
+          "affiliation": ""
+        },
+        {
+          "name": "Brandon H. Rapazzo",
+          "affiliation": ""
+        },
+        {
+          "name": "Timyoas Yeah",
+          "affiliation": ""
+        },
+        {
+          "name": "Amber Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Shangliang Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Feng Hou",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiqiang He",
+          "affiliation": ""
+        },
+        {
+          "name": "Chan Zeng",
+          "affiliation": ""
+        },
+        {
+          "name": "Zheng Xiangshang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xu Liming",
+          "affiliation": ""
+        },
+        {
+          "name": "Tucker J. Netherton",
+          "affiliation": ""
+        },
+        {
+          "name": "Raymond P. Mumme",
+          "affiliation": ""
+        },
+        {
+          "name": "Laurence E. Court",
+          "affiliation": ""
+        },
+        {
+          "name": "Zixun Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chenhang He",
+          "affiliation": ""
+        },
+        {
+          "name": "Li-Wen Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Sai Ho Ling",
+          "affiliation": ""
+        },
+        {
+          "name": "L\u00ea Duy Huynh",
+          "affiliation": ""
+        },
+        {
+          "name": "Nicolas Boutry",
+          "affiliation": ""
+        },
+        {
+          "name": "Roman Jakubicek",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiri Chmelik",
+          "affiliation": ""
+        },
+        {
+          "name": "Supriti Mulay",
+          "affiliation": ""
+        },
+        {
+          "name": "Mohanasankar Sivaprakasam",
+          "affiliation": ""
+        },
+        {
+          "name": "Johannes C. Paetzold",
+          "affiliation": ""
+        },
+        {
+          "name": "Suprosanna Shit",
+          "affiliation": ""
+        },
+        {
+          "name": "Ivan Ezhov",
+          "affiliation": ""
+        },
+        {
+          "name": "Benedikt Wiestler",
+          "affiliation": ""
+        },
+        {
+          "name": "Ben Glocker",
+          "affiliation": ""
+        },
+        {
+          "name": "Alexander Valentinitsch",
+          "affiliation": ""
+        },
+        {
+          "name": "Markus Rempfler",
+          "affiliation": ""
+        },
+        {
+          "name": "Bj\u00f6rn H. Menze",
+          "affiliation": ""
+        },
+        {
+          "name": "Jan S. Kirschke",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Vertebral labelling and segmentation are two fundamental tasks in an automated spine processing pipeline. Reliable and accurate processing of spine images is expected to benefit clinical decision-support systems for diagnosis, surgery planning, and population-based analysis on spine and bone health. However, designing automated algorithms for spine processing is challenging predominantly due to considerable variations in anatomy and acquisition protocols and due to a severe shortage of publicly available data. Addressing these limitations, the Large Scale Vertebrae Segmentation Challenge (VerSe) was organised in conjunction with the International Conference on Medical Image Computing and Computer Assisted Intervention (MICCAI) in 2019 and 2020, with a call for algorithms towards labelling and segmentation of vertebrae. Two datasets containing a total of 374 multi-detector CT scans from 355 patients were prepared and 4505 vertebrae have individually been annotated at voxel-level by a human-machine hybrid algorithm (https://osf.io/nqjyw/, https://osf.io/t98fz/). A total of 25 algorithms were benchmarked on these datasets. In this work, we present the the results of this evaluation and further investigate the performance-variation at vertebra-level, scan-level, and at different fields-of-view. We also evaluate the generalisability of the approaches to an implicit domain shift in data by evaluating the top performing algorithms of one challenge iteration on data from the other iteration. The principal takeaway from VerSe: the performance of an algorithm in labelling and segmenting a spine scan hinges on its ability to correctly identify vertebrae in cases of rare anatomical variations. The content and code concerning VerSe can be accessed at: https://github.com/anjany/verse.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1016/j.media.2021.102166",
+      "arxiv_id": "2001.09193",
+      "url": "https://arxiv.org/abs/2001.09193",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2502.10682",
+      "title": "CAE-Net: Generalized Deepfake Image Detection using Convolution and Attention Mechanisms with Spatial and Frequency Domain Features",
+      "authors": [
+        {
+          "name": "Anindya Bhattacharjee",
+          "affiliation": ""
+        },
+        {
+          "name": "Kaidul Islam",
+          "affiliation": ""
+        },
+        {
+          "name": "Kafi Anan",
+          "affiliation": ""
+        },
+        {
+          "name": "Ashir Intesher",
+          "affiliation": ""
+        },
+        {
+          "name": "Abrar Assaeem Fuad",
+          "affiliation": ""
+        },
+        {
+          "name": "Utsab Saha",
+          "affiliation": ""
+        },
+        {
+          "name": "Hafiz Imtiaz",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The spread of deepfakes poses significant security concerns, demanding reliable detection methods. However, diverse generation techniques and class imbalance in datasets create challenges. We propose CAE-Net, a Convolution- and Attention-based weighted Ensemble network combining spatial and frequency-domain features for effective deepfake detection. The architecture integrates EfficientNet, Data-Efficient Image Transformer (DeiT), and ConvNeXt with wavelet features to learn complementary representations. We evaluated CAE-Net on the diverse IEEE Signal Processing Cup 2025 (DF-Wild Cup) dataset, which has a 5:1 fake-to-real class imbalance. To address this, we introduce a multistage disjoint-subset training strategy, sequentially training the model on non-overlapping subsets of the fake class while retaining knowledge across stages. Our approach achieved $94.46\\%$ accuracy and a $97.60\\%$ AUC, outperforming conventional class-balancing methods. Visualizations confirm the network focuses on meaningful facial regions, and our ensemble design demonstrates robustness against adversarial attacks, positioning CAE-Net as a dependable and generalized deepfake detection framework.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1016/j.jvcir.2025.104679",
+      "arxiv_id": "2502.10682",
+      "url": "https://arxiv.org/abs/2502.10682",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

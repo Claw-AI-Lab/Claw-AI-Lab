@@ -94,7 +94,14 @@ SAVE INTERMEDIATE RESULTS:
 - Name files descriptively: `outputs/{condition}_{seed}.png` or `outputs/{condition}_{seed}.mp4`
 - This helps verify experiment quality beyond numerical metrics
 
-FINAL CHECK: Before you finish, confirm that `main.py` exists at the workspace root and runs: `python -c "import main"`.
+FINAL CHECK — DO THIS BEFORE FINISHING:
+1. Run `ls -la main.py` to confirm main.py exists at the workspace root
+2. Run `python -c "import main"` to verify it imports without error
+3. If main.py does NOT exist, CREATE IT NOW. This is the ONLY deliverable that matters.
+
+⚠️ REMINDER: If you finish without creating main.py, the ENTIRE task is FAILED.
+   Do NOT spend time on anything else if main.py is not yet written.
+   Write main.py FIRST, then refine it.
 """
 
 

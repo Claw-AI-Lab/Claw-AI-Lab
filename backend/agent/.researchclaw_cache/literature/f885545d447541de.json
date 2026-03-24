@@ -1,0 +1,461 @@
+{
+  "query": "Batch normalization impact on MNIST CNN training convergence speed and accuracy",
+  "source": "arxiv",
+  "limit": 15,
+  "timestamp": 1773985767.5896122,
+  "papers": [
+    {
+      "paper_id": "arxiv-2103.10093",
+      "title": "Conjectures on Convergence and Scalar Curvature",
+      "authors": [
+        {
+          "name": "Christina Sormani",
+          "affiliation": ""
+        },
+        {
+          "name": "Participants at the IAS Emerging Topics Workshop on Scalar Curvature",
+          "affiliation": ""
+        },
+        {
+          "name": "Convergence",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Here we survey the compactness and geometric stability conjectures formulated by the participants at the 2018 IAS Emerging Topics Workshop on {\\em Scalar Curvature and Convergence}. We have tried to survey all the progress towards these conjectures as well as related examples, although it is impossible to cover everything. We focus primarily on sequences of compact Riemannian manifolds with nonnegative scalar curvature and their limit spaces. Christina Sormani is grateful to have had the opportunity to write up our ideas and has done her best to credit everyone involved within the paper even though she is the only author listed above. In truth we are a team of over thirty people working together and apart on these deep questions and we welcome everyone who is interested in these conjectures to join us.",
+      "venue": "math.DG",
+      "citation_count": 0,
+      "doi": "10.1142/12644",
+      "arxiv_id": "2103.10093",
+      "url": "https://arxiv.org/abs/2103.10093",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2406.00552",
+      "title": "Graph Neural Network Training Systems: A Performance Comparison of Full-Graph and Mini-Batch",
+      "authors": [
+        {
+          "name": "Saurabh Bajaj",
+          "affiliation": ""
+        },
+        {
+          "name": "Hojae Son",
+          "affiliation": ""
+        },
+        {
+          "name": "Juelin Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hui Guan",
+          "affiliation": ""
+        },
+        {
+          "name": "Marco Serafini",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Graph Neural Networks (GNNs) have gained significant attention in recent years due to their ability to learn representations of graph-structured data. Two common methods for training GNNs are mini-batch training and full-graph training. Since these two methods require different training pipelines and systems optimizations, two separate classes of GNN training systems emerged, each tailored for one method. Works that introduce systems belonging to a particular category predominantly compare them with other systems within the same category, offering limited or no comparison with systems from the other category. Some prior work also justifies its focus on one specific training method by arguing that it achieves higher accuracy than the alternative. The literature, however, has incomplete and contradictory evidence in this regard.\n  In this paper, we provide a comprehensive empirical comparison of representative full-graph and mini-batch GNN training systems. We find that the mini-batch training systems consistently converge faster than the full-graph training ones across multiple datasets, GNN models, and system configurations. We also find that mini-batch training techniques converge to similar to or often higher accuracy values than full-graph training ones, showing that mini-batch sampling is not necessarily detrimental to accuracy. Our work highlights the importance of comparing systems across different classes, using time-to-accuracy rather than epoch time for performance comparison, and selecting appropriate hyperparameters for each training method separately.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2406.00552",
+      "url": "https://arxiv.org/abs/2406.00552",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2411.11001",
+      "title": "Simultaneous Estimation of Elliptic Flow Coefficient and Impact Parameter in Heavy-Ion Collisions using CNN",
+      "authors": [
+        {
+          "name": "Praveen Murali",
+          "affiliation": ""
+        },
+        {
+          "name": "Sadhana Dash",
+          "affiliation": ""
+        },
+        {
+          "name": "Basanta Kumar Nandi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "A deep learning based method with Convolutional Neural Network (CNN) algorithm is developed for simultaneous determination of the Elliptic Flow coefficient ($v_{2}$) and the Impact Parameter in Heavy-Ion Collisions at relativistic energies. The proposed CNN is trained on Pb$-$Pb collisions at $\\sqrt{s_{NN}}$ = 5.02 TeV with minimum biased events simulated with the AMPT event generator. A total of twelve models were built on different input and output combinations and their performances were evaluated. The predictions of the CNN models were compared to the estimations of the simulated and experimental data. The deep learning model seems to preserve the centrality and $p_{T}$ dependence of $v_{2}$ at the LHC energy together with predicting successfully the impact parameter with low margins of error. This is the first time a CNN is built to predict both $v_{2}$ and the impact parameter simultaneously in heavy-ion system.",
+      "venue": "hep-ph",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2411.11001",
+      "url": "https://arxiv.org/abs/2411.11001",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-1807.01702",
+      "title": "Restructuring Batch Normalization to Accelerate CNN Training",
+      "authors": [
+        {
+          "name": "Wonkyung Jung",
+          "affiliation": ""
+        },
+        {
+          "name": "Daejin Jung",
+          "affiliation": ""
+        },
+        {
+          "name": "and Byeongho Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Sunjung Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Wonjong Rhee",
+          "affiliation": ""
+        },
+        {
+          "name": "Jung Ho Ahn",
+          "affiliation": ""
+        }
+      ],
+      "year": 2018,
+      "abstract": "Batch Normalization (BN) has become a core design block of modern Convolutional Neural Networks (CNNs). A typical modern CNN has a large number of BN layers in its lean and deep architecture. BN requires mean and variance calculations over each mini-batch during training. Therefore, the existing memory access reduction techniques, such as fusing multiple CONV layers, are not effective for accelerating BN due to their inability to optimize mini-batch related calculations during training. To address this increasingly important problem, we propose to restructure BN layers by first splitting a BN layer into two sub-layers (fission) and then combining the first sub-layer with its preceding CONV layer and the second sub-layer with the following activation and CONV layers (fusion). The proposed solution can significantly reduce main-memory accesses while training the latest CNN models, and the experiments on a chip multiprocessor show that the proposed BN restructuring can improve the performance of DenseNet-121 by 25.7%.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "1807.01702",
+      "url": "https://arxiv.org/abs/1807.01702",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2304.03807",
+      "title": "Privacy-Preserving CNN Training with Transfer Learning: Multiclass Logistic Regression",
+      "authors": [
+        {
+          "name": "John Chiang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "In this paper, we present a practical solution to implement privacy-preserving CNN training based on mere Homomorphic Encryption (HE) technique. To our best knowledge, this is the first attempt successfully to crack this nut and no work ever before has achieved this goal. Several techniques combine to accomplish the task:: (1) with transfer learning, privacy-preserving CNN training can be reduced to homomorphic neural network training, or even multiclass logistic regression (MLR) training; (2) via a faster gradient variant called $\\texttt{Quadratic Gradient}$, an enhanced gradient method for MLR with a state-of-the-art performance in convergence speed is applied in this work to achieve high performance; (3) we employ the thought of transformation in mathematics to transform approximating Softmax function in the encryption domain to the approximation of the Sigmoid function. A new type of loss function termed $\\texttt{Squared Likelihood Error}$ has been developed alongside to align with this change.; and (4) we use a simple but flexible matrix-encoding method named $\\texttt{Volley Revolver}$ to manage the data flow in the ciphertexts, which is the key factor to complete the whole homomorphic CNN training. The complete, runnable C++ code to implement our work can be found at: \\href{https://github.com/petitioner/HE.CNNtraining}{$\\texttt{https://github.com/petitioner/HE.CNNtraining}$}. We select $\\texttt{REGNET\\_X\\_400MF}$ as our pre-trained model for transfer learning. We use the first 128 MNIST training images as training data and the whole MNIST testing dataset as the testing data. The client only needs to upload 6 ciphertexts to the cloud and it takes $\\sim 21$ mins to perform 2 iterations on a cloud with 64 vCPUs, resulting in a precision of $21.49\\%$.",
+      "venue": "cs.CR",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2304.03807",
+      "url": "https://arxiv.org/abs/2304.03807",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2002.10674",
+      "title": "Separating the Effects of Batch Normalization on CNN Training Speed and Stability Using Classical Adaptive Filter Theory",
+      "authors": [
+        {
+          "name": "Elaina Chai",
+          "affiliation": ""
+        },
+        {
+          "name": "Mert Pilanci",
+          "affiliation": ""
+        },
+        {
+          "name": "Boris Murmann",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Batch Normalization (BatchNorm) is commonly used in Convolutional Neural Networks (CNNs) to improve training speed and stability. However, there is still limited consensus on why this technique is effective. This paper uses concepts from the traditional adaptive filter domain to provide insight into the dynamics and inner workings of BatchNorm. First, we show that the convolution weight updates have natural modes whose stability and convergence speed are tied to the eigenvalues of the input autocorrelation matrices, which are controlled by BatchNorm through the convolution layers' channel-wise structure. Furthermore, our experiments demonstrate that the speed and stability benefits are distinct effects. At low learning rates, it is BatchNorm's amplification of the smallest eigenvalues that improves convergence speed, while at high learning rates, it is BatchNorm's suppression of the largest eigenvalues that ensures stability. Lastly, we prove that in the first training step, when normalization is needed most, BatchNorm satisfies the same optimization as Normalized Least Mean Square (NLMS), while it continues to approximate this condition in subsequent steps. The analyses provided in this paper lay the groundwork for gaining further insight into the operation of modern neural network structures using adaptive filter theory.",
+      "venue": "cs.NE",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2002.10674",
+      "url": "https://arxiv.org/abs/2002.10674",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-1802.03133",
+      "title": "Batch Kalman Normalization: Towards Training Deep Neural Networks with Micro-Batches",
+      "authors": [
+        {
+          "name": "Guangrun Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiefeng Peng",
+          "affiliation": ""
+        },
+        {
+          "name": "Ping Luo",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinjiang Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Liang Lin",
+          "affiliation": ""
+        }
+      ],
+      "year": 2018,
+      "abstract": "As an indispensable component, Batch Normalization (BN) has successfully improved the training of deep neural networks (DNNs) with mini-batches, by normalizing the distribution of the internal representation for each hidden layer. However, the effectiveness of BN would diminish with scenario of micro-batch (e.g., less than 10 samples in a mini-batch), since the estimated statistics in a mini-batch are not reliable with insufficient samples. In this paper, we present a novel normalization method, called Batch Kalman Normalization (BKN), for improving and accelerating the training of DNNs, particularly under the context of micro-batches. Specifically, unlike the existing solutions treating each hidden layer as an isolated system, BKN treats all the layers in a network as a whole system, and estimates the statistics of a certain layer by considering the distributions of all its preceding layers, mimicking the merits of Kalman Filtering. BKN has two appealing properties. First, it enables more stable training and faster convergence compared to previous works. Second, training DNNs using BKN performs substantially better than those using BN and its variants, especially when very small mini-batches are presented. On the image classification benchmark of ImageNet, using BKN powered networks we improve upon the best-published model-zoo results: reaching 74.0% top-1 val accuracy for InceptionV2. More importantly, using BKN achieves the comparable accuracy with extremely smaller batch size, such as 64 times smaller on CIFAR-10/100 and 8 times smaller on ImageNet.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "1802.03133",
+      "url": "https://arxiv.org/abs/1802.03133",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2410.21676",
+      "title": "How Does Critical Batch Size Scale in Pre-training?",
+      "authors": [
+        {
+          "name": "Hanlin Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Depen Morwani",
+          "affiliation": ""
+        },
+        {
+          "name": "Nikhil Vyas",
+          "affiliation": ""
+        },
+        {
+          "name": "Jingfeng Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Difan Zou",
+          "affiliation": ""
+        },
+        {
+          "name": "Udaya Ghai",
+          "affiliation": ""
+        },
+        {
+          "name": "Dean Foster",
+          "affiliation": ""
+        },
+        {
+          "name": "Sham Kakade",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Training large-scale models under given resources requires careful design of parallelism strategies. In particular, the efficiency notion of critical batch size (CBS), concerning the compromise between time and compute, marks the threshold beyond which greater data parallelism leads to diminishing returns. To operationalize it, we propose a measure of CBS and pre-train a series of auto-regressive language models, ranging from 85 million to 1.2 billion parameters, on the C4 dataset. Through extensive hyper-parameter sweeps and careful control of factors such as batch size, momentum, and learning rate along with its scheduling, we systematically investigate the impact of scale on CBS. Then we fit scaling laws with respect to model and data sizes to decouple their effects. Overall, our results demonstrate that CBS scales primarily with data size rather than model size, a finding we justify theoretically through the analysis of infinite-width limits of neural networks and infinite-dimensional least squares regression. Of independent interest, we highlight the importance of common hyper-parameter choices and strategies for studying large-scale pre-training beyond fixed training durations.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2410.21676",
+      "url": "https://arxiv.org/abs/2410.21676",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-1705.08741",
+      "title": "Train longer, generalize better: closing the generalization gap in large batch training of neural networks",
+      "authors": [
+        {
+          "name": "Elad Hoffer",
+          "affiliation": ""
+        },
+        {
+          "name": "Itay Hubara",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniel Soudry",
+          "affiliation": ""
+        }
+      ],
+      "year": 2017,
+      "abstract": "Background: Deep learning models are typically trained using stochastic gradient descent or one of its variants. These methods update the weights using their gradient, estimated from a small fraction of the training data. It has been observed that when using large batch sizes there is a persistent degradation in generalization performance - known as the \"generalization gap\" phenomena. Identifying the origin of this gap and closing it had remained an open problem.\n  Contributions: We examine the initial high learning rate training phase. We find that the weight distance from its initialization grows logarithmically with the number of weight updates. We therefore propose a \"random walk on random landscape\" statistical model which is known to exhibit similar \"ultra-slow\" diffusion behavior. Following this hypothesis we conducted experiments to show empirically that the \"generalization gap\" stems from the relatively small number of updates rather than the batch size, and can be completely eliminated by adapting the training regime used. We further investigate different techniques to train models in the large-batch regime and present a novel algorithm named \"Ghost Batch Normalization\" which enables significant decrease in the generalization gap without increasing the number of updates. To validate our findings we conduct several additional experiments on MNIST, CIFAR-10, CIFAR-100 and ImageNet. Finally, we reassess common practices and beliefs concerning training of deep models and suggest they may not be optimal to achieve good generalization.",
+      "venue": "stat.ML",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "1705.08741",
+      "url": "https://arxiv.org/abs/1705.08741",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2108.01110",
+      "title": "Batch Normalization Preconditioning for Neural Network Training",
+      "authors": [
+        {
+          "name": "Susanna Lange",
+          "affiliation": ""
+        },
+        {
+          "name": "Kyle Helfrich",
+          "affiliation": ""
+        },
+        {
+          "name": "Qiang Ye",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Batch normalization (BN) is a popular and ubiquitous method in deep learning that has been shown to decrease training time and improve generalization performance of neural networks. Despite its success, BN is not theoretically well understood. It is not suitable for use with very small mini-batch sizes or online learning. In this paper, we propose a new method called Batch Normalization Preconditioning (BNP). Instead of applying normalization explicitly through a batch normalization layer as is done in BN, BNP applies normalization by conditioning the parameter gradients directly during training. This is designed to improve the Hessian matrix of the loss function and hence convergence during training. One benefit is that BNP is not constrained on the mini-batch size and works in the online learning setting. Furthermore, its connection to BN provides theoretical insights on how BN improves training and how BN is applied to special architectures such as convolutional neural networks. For a theoretical foundation, we also present a novel Hessian condition number based convergence theory for a locally convex but not strong-convex loss, which is applicable to networks with a scale-invariant property.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2108.01110",
+      "url": "https://arxiv.org/abs/2108.01110",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2211.02050",
+      "title": "Adaptive Batch Normalization for Training Data with Heterogeneous Features",
+      "authors": [
+        {
+          "name": "Wael Alsobhi",
+          "affiliation": ""
+        },
+        {
+          "name": "Tarik Alafif",
+          "affiliation": ""
+        },
+        {
+          "name": "Alaa Abdel-Hakim",
+          "affiliation": ""
+        },
+        {
+          "name": "Weiwei Zong",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Batch Normalization (BN) is an important preprocessing step to many deep learning applications. Since it is a data-dependent process, for some homogeneous datasets it is a redundant or even a performance-degrading process. In this paper, we propose an early-stage feasibility assessment method for estimating the benefits of applying BN on the given data batches. The proposed method uses a novel threshold-based approach to classify the training data batches into two sets according to their need for normalization. The need for normalization is decided based on the feature heterogeneity of the considered batch. The proposed approach is a pre-training processing, which implies no training overhead. The evaluation results show that the proposed approach achieves better performance mostly in small batch sizes than the traditional BN using MNIST, Fashion-MNIST, CIFAR-10, and CIFAR-100 datasets. Additionally, the network stability is increased by reducing the occurrence of internal variable transformation.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2211.02050",
+      "url": "https://arxiv.org/abs/2211.02050",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-1708.07120",
+      "title": "Super-Convergence: Very Fast Training of Neural Networks Using Large Learning Rates",
+      "authors": [
+        {
+          "name": "Leslie N. Smith",
+          "affiliation": ""
+        },
+        {
+          "name": "Nicholay Topin",
+          "affiliation": ""
+        }
+      ],
+      "year": 2017,
+      "abstract": "In this paper, we describe a phenomenon, which we named \"super-convergence\", where neural networks can be trained an order of magnitude faster than with standard training methods. The existence of super-convergence is relevant to understanding why deep networks generalize well. One of the key elements of super-convergence is training with one learning rate cycle and a large maximum learning rate. A primary insight that allows super-convergence training is that large learning rates regularize the training, hence requiring a reduction of all other forms of regularization in order to preserve an optimal regularization balance. We also derive a simplification of the Hessian Free optimization method to compute an estimate of the optimal learning rate. Experiments demonstrate super-convergence for Cifar-10/100, MNIST and Imagenet datasets, and resnet, wide-resnet, densenet, and inception architectures. In addition, we show that super-convergence provides a greater boost in performance relative to standard training when the amount of labeled training data is limited. The architectures and code to replicate the figures in this paper are available at github.com/lnsmith54/super-convergence. See http://www.fast.ai/2018/04/30/dawnbench-fastai/ for an application of super-convergence to win the DAWNBench challenge (see https://dawn.cs.stanford.edu/benchmark/).",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "1708.07120",
+      "url": "https://arxiv.org/abs/1708.07120",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2507.07101",
+      "title": "Small Batch Size Training for Language Models: When Vanilla SGD Works, and Why Gradient Accumulation Is Wasteful",
+      "authors": [
+        {
+          "name": "Martin Marek",
+          "affiliation": ""
+        },
+        {
+          "name": "Sanae Lotfi",
+          "affiliation": ""
+        },
+        {
+          "name": "Aditya Somasundaram",
+          "affiliation": ""
+        },
+        {
+          "name": "Andrew Gordon Wilson",
+          "affiliation": ""
+        },
+        {
+          "name": "Micah Goldblum",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Conventional wisdom dictates that small batch sizes make language model pretraining and fine-tuning unstable, motivating gradient accumulation, which trades off the number of optimizer steps for a proportional increase in batch size. While it is common to decrease the learning rate for smaller batch sizes, other hyperparameters are often held fixed. In this work, we revisit small batch sizes all the way down to batch size one, and we propose a rule for scaling Adam hyperparameters to small batch sizes. In particular, rather than holding the decay rate of the second moment fixed across batch sizes, we propose to hold its half-life fixed in terms of tokens. We find that small batch sizes (1) train stably, (2) are consistently more robust to hyperparameter choices, (3) achieve equal or better per-FLOP performance than larger batch sizes, and (4) notably enable stable language model training with vanilla SGD, even without momentum, despite storing no optimizer state. Building on these results, we provide practical recommendations for selecting a batch size and setting optimizer hyperparameters. We further recommend against gradient accumulation unless training on multiple devices with multiple model replicas. Finally, we show that a small batch size combined with an optimizer with a small state size can provide the performance benefits of full fine-tuning while maintaining a similar memory footprint to LoRA.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2507.07101",
+      "url": "https://arxiv.org/abs/2507.07101",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-1705.08011",
+      "title": "Diminishing Batch Normalization",
+      "authors": [
+        {
+          "name": "Yintai Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Diego Klabjan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2017,
+      "abstract": "In this paper, we propose a generalization of the Batch Normalization (BN) algorithm, diminishing batch normalization (DBN), where we update the BN parameters in a diminishing moving average way. BN is very effective in accelerating the convergence of a neural network training phase that it has become a common practice. Our proposed DBN algorithm remains the overall structure of the original BN algorithm while introduces a weighted averaging update to some trainable parameters. We provide an analysis of the convergence of the DBN algorithm that converges to a stationary point with respect to trainable parameters. Our analysis can be easily generalized for original BN algorithm by setting some parameters to constant. To the best knowledge of authors, this analysis is the first of its kind for convergence with Batch Normalization introduced. We analyze a two-layer model with arbitrary activation function. The primary challenge of the analysis is the fact that some parameters are updated by gradient while others are not. The convergence analysis applies to any activation function that satisfies our common assumptions. In the numerical experiments, we test the proposed algorithm on complex modern CNN models with stochastic gradients and ReLU activation. We observe that DBN outperforms the original BN algorithm on MNIST, NI and CIFAR-10 datasets with reasonable complex FNN and CNN models.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "1705.08011",
+      "url": "https://arxiv.org/abs/1705.08011",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2003.05569",
+      "title": "Extended Batch Normalization",
+      "authors": [
+        {
+          "name": "Chunjie Luo",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianfeng Zhan",
+          "affiliation": ""
+        },
+        {
+          "name": "Lei Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wanling Gao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Batch normalization (BN) has become a standard technique for training the modern deep networks. However, its effectiveness diminishes when the batch size becomes smaller, since the batch statistics estimation becomes inaccurate. That hinders batch normalization's usage for 1) training larger model which requires small batches constrained by memory consumption, 2) training on mobile or embedded devices of which the memory resource is limited. In this paper, we propose a simple but effective method, called extended batch normalization (EBN). For NCHW format feature maps, extended batch normalization computes the mean along the (N, H, W) dimensions, as the same as batch normalization, to maintain the advantage of batch normalization. To alleviate the problem caused by small batch size, extended batch normalization computes the standard deviation along the (N, C, H, W) dimensions, thus enlarges the number of samples from which the standard deviation is computed. We compare extended batch normalization with batch normalization and group normalization on the datasets of MNIST, CIFAR-10/100, STL-10, and ImageNet, respectively. The experiments show that extended batch normalization alleviates the problem of batch normalization with small batch size while achieving close performances to batch normalization with large batch size.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2003.05569",
+      "url": "https://arxiv.org/abs/2003.05569",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

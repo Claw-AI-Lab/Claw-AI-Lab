@@ -1,0 +1,1414 @@
+{
+  "query": "Training free layout controlled survey",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1773983603.810076,
+  "papers": [
+    {
+      "paper_id": "arxiv-2304.03373",
+      "title": "Training-Free Layout Control with Cross-Attention Guidance",
+      "authors": [
+        {
+          "name": "Minghao Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Iro Laina",
+          "affiliation": ""
+        },
+        {
+          "name": "Andrea Vedaldi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Recent diffusion-based generators can produce high-quality images from textual prompts. However, they often disregard textual instructions that specify the spatial layout of the composition. We propose a simple approach that achieves robust layout control without the need for training or fine-tuning of the image generator. Our technique manipulates the cross-attention layers that the model uses to interface textual and visual information and steers the generation in the desired direction given, e.g., a user-specified layout. To determine how to best guide attention, we study the role of attention maps and explore two alternative strategies, forward and backward guidance. We thoroughly evaluate our approach on three benchmarks and provide several qualitative examples and a comparative analysis of the two strategies that demonstrate the superiority of backward guidance compared to forward guidance, as well as prior work. We further demonstrate the versatility of layout guidance by extending it to applications such as editing the layout and context of real images.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2304.03373",
+      "url": "https://arxiv.org/abs/2304.03373",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2202.09061",
+      "title": "VLP: A Survey on Vision-Language Pre-training",
+      "authors": [
+        {
+          "name": "Feilong Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Duzhen Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Minglun Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiuyi Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Jing Shi",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuang Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Bo Xu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "In the past few years, the emergence of pre-training models has brought uni-modal fields such as computer vision (CV) and natural language processing (NLP) to a new era. Substantial works have shown they are beneficial for downstream uni-modal tasks and avoid training a new model from scratch. So can such pre-trained models be applied to multi-modal tasks? Researchers have explored this problem and made significant progress. This paper surveys recent advances and new frontiers in vision-language pre-training (VLP), including image-text and video-text pre-training. To give readers a better overall grasp of VLP, we first review its recent advances from five aspects: feature extraction, model architecture, pre-training objectives, pre-training datasets, and downstream tasks. Then, we summarize the specific VLP models in detail. Finally, we discuss the new frontiers in VLP. To the best of our knowledge, this is the first survey focused on VLP. We hope that this survey can shed light on future research in the VLP field.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1007/s11633-022-1369-5",
+      "arxiv_id": "2202.09061",
+      "url": "https://arxiv.org/abs/2202.09061",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2303.08137",
+      "title": "LayoutDM: Discrete Diffusion Model for Controllable Layout Generation",
+      "authors": [
+        {
+          "name": "Naoto Inoue",
+          "affiliation": ""
+        },
+        {
+          "name": "Kotaro Kikuchi",
+          "affiliation": ""
+        },
+        {
+          "name": "Edgar Simo-Serra",
+          "affiliation": ""
+        },
+        {
+          "name": "Mayu Otani",
+          "affiliation": ""
+        },
+        {
+          "name": "Kota Yamaguchi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Controllable layout generation aims at synthesizing plausible arrangement of element bounding boxes with optional constraints, such as type or position of a specific element. In this work, we try to solve a broad range of layout generation tasks in a single model that is based on discrete state-space diffusion models. Our model, named LayoutDM, naturally handles the structured layout data in the discrete representation and learns to progressively infer a noiseless layout from the initial input, where we model the layout corruption process by modality-wise discrete diffusion. For conditional generation, we propose to inject layout constraints in the form of masking or logit adjustment during inference. We show in the experiments that our LayoutDM successfully generates high-quality layouts and outperforms both task-specific and task-agnostic baselines on several layout tasks.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2303.08137",
+      "url": "https://arxiv.org/abs/2303.08137",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2409.16689",
+      "title": "Layout-Corrector: Alleviating Layout Sticking Phenomenon in Discrete Diffusion Model",
+      "authors": [
+        {
+          "name": "Shoma Iwai",
+          "affiliation": ""
+        },
+        {
+          "name": "Atsuki Osanai",
+          "affiliation": ""
+        },
+        {
+          "name": "Shunsuke Kitada",
+          "affiliation": ""
+        },
+        {
+          "name": "Shinichiro Omachi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Layout generation is a task to synthesize a harmonious layout with elements characterized by attributes such as category, position, and size. Human designers experiment with the placement and modification of elements to create aesthetic layouts, however, we observed that current discrete diffusion models (DDMs) struggle to correct inharmonious layouts after they have been generated. In this paper, we first provide novel insights into layout sticking phenomenon in DDMs and then propose a simple yet effective layout-assessment module Layout-Corrector, which works in conjunction with existing DDMs to address the layout sticking problem. We present a learning-based module capable of identifying inharmonious elements within layouts, considering overall layout harmony characterized by complex composition. During the generation process, Layout-Corrector evaluates the correctness of each token in the generated layout, reinitializing those with low scores to the ungenerated state. The DDM then uses the high-scored tokens as clues to regenerate the harmonized tokens. Layout-Corrector, tested on common benchmarks, consistently boosts layout-generation performance when in conjunction with various state-of-the-art DDMs. Furthermore, our extensive analysis demonstrates that the Layout-Corrector (1) successfully identifies erroneous tokens, (2) facilitates control over the fidelity-diversity trade-off, and (3) significantly mitigates the performance drop associated with fast sampling.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2409.16689",
+      "url": "https://arxiv.org/abs/2409.16689",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2306.00288",
+      "title": "Training-free Neural Architecture Search for RNNs and Transformers",
+      "authors": [
+        {
+          "name": "Aaron Serianni",
+          "affiliation": ""
+        },
+        {
+          "name": "Jugal Kalita",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Neural architecture search (NAS) has allowed for the automatic creation of new and effective neural network architectures, offering an alternative to the laborious process of manually designing complex architectures. However, traditional NAS algorithms are slow and require immense amounts of computing power. Recent research has investigated training-free NAS metrics for image classification architectures, drastically speeding up search algorithms. In this paper, we investigate training-free NAS metrics for recurrent neural network (RNN) and BERT-based transformer architectures, targeted towards language modeling tasks. First, we develop a new training-free metric, named hidden covariance, that predicts the trained performance of an RNN architecture and significantly outperforms existing training-free metrics. We experimentally evaluate the effectiveness of the hidden covariance metric on the NAS-Bench-NLP benchmark. Second, we find that the current search space paradigm for transformer architectures is not optimized for training-free neural architecture search. Instead, a simple qualitative analysis can effectively shrink the search space to the best performing architectures. This conclusion is based on our investigation of existing training-free metrics and new metrics developed from recent transformer pruning literature, evaluated on our own benchmark of trained BERT architectures. Ultimately, our analysis shows that the architecture search space and the training-free metric must be developed together in order to achieve effective results.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2306.00288",
+      "url": "https://arxiv.org/abs/2306.00288",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.07494",
+      "title": "Roman Galactic Plane Survey Definition Committee Report",
+      "authors": [
+        {
+          "name": "Roman Galactic Plane Survey Definition Committee",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The Roman Galactic Plane Survey (RGPS) is a 700-hour program approved for early definition as a community-designed General Astrophysics Survey. It was selected following a proposal call for science programs that would benefit from an early community-based definition (Sanderson et al 2024). The community was invited to submit white papers and science pitches with a deadline of May 20, 2024; the Roman Galactic Plane Survey Definition Committee (RGPS-DC) first met on Sep 11, 2024. Based on the input provided, the RGPS-DC recommends a survey consisting of three elements: (1) a wide-field science element (691 sq deg, 541 hrs) covering the Galactic plane, Galactic latitude |b|<2 deg and Galactic longitude l=+50.1 deg to -79 deg (281 deg), in four filters (F129, F159, F184, and F213) with higher latitude extensions for the bulge, the Serpens South/W40 star formation region, and Carina, (2) a time-domain science element (19 sq deg , 130 hrs) of six fields, including the full Nuclear Stellar Disk (NSD) and Central Molecular Zone (CMZ), with coverage in seven filters and repeat observations in one or more filters with cadences from 11 minutes to weeks, and (3) a deep-field/spectroscopic science element (4 sq deg , 30 hrs) consisting of fifteen Roman pointings (with a wide range of extinction, diffuse emission, stellar density and population) using longer exposure times in seven filters in addition to grism and prism observations. This document summarizes the science that can be done with this survey, the process of survey definition, and details on all of the program elements.",
+      "venue": "astro-ph.GA",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.07494",
+      "url": "https://arxiv.org/abs/2511.07494",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2103.01498",
+      "title": "A Survey On Universal Adversarial Attack",
+      "authors": [
+        {
+          "name": "Chaoning Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Philipp Benz",
+          "affiliation": ""
+        },
+        {
+          "name": "Chenguo Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Adil Karjauv",
+          "affiliation": ""
+        },
+        {
+          "name": "Jing Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "In So Kweon",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "The intriguing phenomenon of adversarial examples has attracted significant attention in machine learning and what might be more surprising to the community is the existence of universal adversarial perturbations (UAPs), i.e. a single perturbation to fool the target DNN for most images. With the focus on UAP against deep classifiers, this survey summarizes the recent progress on universal adversarial attacks, discussing the challenges from both the attack and defense sides, as well as the reason for the existence of UAP. We aim to extend this work as a dynamic survey that will regularly update its content to follow new works regarding UAP or universal attack in a wide range of domains, such as image, audio, video, text, etc. Relevant updates will be discussed at: https://bit.ly/2SbQlLG. We welcome authors of future works in this field to contact us for including your new finding.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "10.24963/ijcai.2021/635",
+      "arxiv_id": "2103.01498",
+      "url": "https://arxiv.org/abs/2103.01498",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2509.11720",
+      "title": "Advanced Layout Analysis Models for Docling",
+      "authors": [
+        {
+          "name": "Nikolaos Livathinos",
+          "affiliation": ""
+        },
+        {
+          "name": "Christoph Auer",
+          "affiliation": ""
+        },
+        {
+          "name": "Ahmed Nassar",
+          "affiliation": ""
+        },
+        {
+          "name": "Rafael Teixeira de Lima",
+          "affiliation": ""
+        },
+        {
+          "name": "Maksym Lysak",
+          "affiliation": ""
+        },
+        {
+          "name": "Brown Ebouky",
+          "affiliation": ""
+        },
+        {
+          "name": "Cesar Berrospi",
+          "affiliation": ""
+        },
+        {
+          "name": "Michele Dolfi",
+          "affiliation": ""
+        },
+        {
+          "name": "Panagiotis Vagenas",
+          "affiliation": ""
+        },
+        {
+          "name": "Matteo Omenetti",
+          "affiliation": ""
+        },
+        {
+          "name": "Kasper Dinkla",
+          "affiliation": ""
+        },
+        {
+          "name": "Yusik Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Valery Weber",
+          "affiliation": ""
+        },
+        {
+          "name": "Lucas Morin",
+          "affiliation": ""
+        },
+        {
+          "name": "Ingmar Meijer",
+          "affiliation": ""
+        },
+        {
+          "name": "Viktor Kuropiatnyk",
+          "affiliation": ""
+        },
+        {
+          "name": "Tim Strohmeyer",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Said Gurbuz",
+          "affiliation": ""
+        },
+        {
+          "name": "Peter W. J. Staar",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "This technical report documents the development of novel Layout Analysis models integrated into the Docling document-conversion pipeline. We trained several state-of-the-art object detectors based on the RT-DETR, RT-DETRv2 and DFINE architectures on a heterogeneous corpus of 150,000 documents (both openly available and proprietary). Post-processing steps were applied to the raw detections to make them more applicable to the document conversion task. We evaluated the effectiveness of the layout analysis on various document benchmarks using different methodologies while also measuring the runtime performance across different environments (CPU, Nvidia and Apple GPUs). We introduce five new document layout models achieving 20.6% - 23.9% mAP improvement over Docling's previous baseline, with comparable or better runtime. Our best model, \"heron-101\", attains 78% mAP with 28 ms/image inference time on a single NVIDIA A100 GPU. Extensive quantitative and qualitative experiments establish best practices for training, evaluating, and deploying document-layout detectors, providing actionable guidance for the document conversion community. All trained checkpoints, code, and documentation are released under a permissive license on HuggingFace.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2509.11720",
+      "url": "https://arxiv.org/abs/2509.11720",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2305.17173",
+      "title": "DES Y3 + KiDS-1000: Consistent cosmology combining cosmic shear surveys",
+      "authors": [
+        {
+          "name": "Dark Energy Survey",
+          "affiliation": ""
+        },
+        {
+          "name": "Kilo-Degree Survey Collaboration",
+          "affiliation": ""
+        },
+        {
+          "name": ":",
+          "affiliation": ""
+        },
+        {
+          "name": "T. M. C. Abbott",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Aguena",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Alarcon",
+          "affiliation": ""
+        },
+        {
+          "name": "O. Alves",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Amon",
+          "affiliation": ""
+        },
+        {
+          "name": "F. Andrade-Oliveira",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Asgari",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Avila",
+          "affiliation": ""
+        },
+        {
+          "name": "D. Bacon",
+          "affiliation": ""
+        },
+        {
+          "name": "K. Bechtol",
+          "affiliation": ""
+        },
+        {
+          "name": "M. R. Becker",
+          "affiliation": ""
+        },
+        {
+          "name": "G. M. Bernstein",
+          "affiliation": ""
+        },
+        {
+          "name": "E. Bertin",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Bilicki",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Blazek",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Bocquet",
+          "affiliation": ""
+        },
+        {
+          "name": "D. Brooks",
+          "affiliation": ""
+        },
+        {
+          "name": "P. Burger",
+          "affiliation": ""
+        },
+        {
+          "name": "D. L. Burke",
+          "affiliation": ""
+        },
+        {
+          "name": "H. Camacho",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Campos",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Carnero Rosell",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Carrasco Kind",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Carretero",
+          "affiliation": ""
+        },
+        {
+          "name": "F. J. Castander",
+          "affiliation": ""
+        },
+        {
+          "name": "R. Cawthon",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Chang",
+          "affiliation": ""
+        },
+        {
+          "name": "R. Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Choi",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Conselice",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Cordero",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Crocce",
+          "affiliation": ""
+        },
+        {
+          "name": "L. N. da Costa",
+          "affiliation": ""
+        },
+        {
+          "name": "M. E. da Silva Pereira",
+          "affiliation": ""
+        },
+        {
+          "name": "R. Dalal",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Davis",
+          "affiliation": ""
+        },
+        {
+          "name": "J. T. A. de Jong",
+          "affiliation": ""
+        },
+        {
+          "name": "J. DeRose",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Desai",
+          "affiliation": ""
+        },
+        {
+          "name": "H. T. Diehl",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Dodelson",
+          "affiliation": ""
+        },
+        {
+          "name": "P. Doel",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Doux",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Drlica-Wagner",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Dvornik",
+          "affiliation": ""
+        },
+        {
+          "name": "K. Eckert",
+          "affiliation": ""
+        },
+        {
+          "name": "T. F. Eifler",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Elvin-Poole",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Everett",
+          "affiliation": ""
+        },
+        {
+          "name": "X. Fang",
+          "affiliation": ""
+        },
+        {
+          "name": "I. Ferrero",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Fert\u00e9",
+          "affiliation": ""
+        },
+        {
+          "name": "B. Flaugher",
+          "affiliation": ""
+        },
+        {
+          "name": "O. Friedrich",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Frieman",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Garc\u00eda-Bellido",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Gatti",
+          "affiliation": ""
+        },
+        {
+          "name": "G. Giannini",
+          "affiliation": ""
+        },
+        {
+          "name": "B. Giblin",
+          "affiliation": ""
+        },
+        {
+          "name": "D. Gruen",
+          "affiliation": ""
+        },
+        {
+          "name": "R. A. Gruendl",
+          "affiliation": ""
+        },
+        {
+          "name": "G. Gutierrez",
+          "affiliation": ""
+        },
+        {
+          "name": "I. Harrison",
+          "affiliation": ""
+        },
+        {
+          "name": "W. G. Hartley",
+          "affiliation": ""
+        },
+        {
+          "name": "K. Herner",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Heymans",
+          "affiliation": ""
+        },
+        {
+          "name": "H. Hildebrandt",
+          "affiliation": ""
+        },
+        {
+          "name": "S. R. Hinton",
+          "affiliation": ""
+        },
+        {
+          "name": "H. Hoekstra",
+          "affiliation": ""
+        },
+        {
+          "name": "D. L. Hollowood",
+          "affiliation": ""
+        },
+        {
+          "name": "K. Honscheid",
+          "affiliation": ""
+        },
+        {
+          "name": "H. Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "E. M. Huff",
+          "affiliation": ""
+        },
+        {
+          "name": "D. Huterer",
+          "affiliation": ""
+        },
+        {
+          "name": "D. J. James",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Jarvis",
+          "affiliation": ""
+        },
+        {
+          "name": "N. Jeffrey",
+          "affiliation": ""
+        },
+        {
+          "name": "T. Jeltema",
+          "affiliation": ""
+        },
+        {
+          "name": "B. Joachimi",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Joudaki",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Kannawadi",
+          "affiliation": ""
+        },
+        {
+          "name": "E. Krause",
+          "affiliation": ""
+        },
+        {
+          "name": "K. Kuehn",
+          "affiliation": ""
+        },
+        {
+          "name": "K. Kuijken",
+          "affiliation": ""
+        },
+        {
+          "name": "N. Kuropatkin",
+          "affiliation": ""
+        },
+        {
+          "name": "O. Lahav",
+          "affiliation": ""
+        },
+        {
+          "name": "P. -F. Leget",
+          "affiliation": ""
+        },
+        {
+          "name": "P. Lemos",
+          "affiliation": ""
+        },
+        {
+          "name": "S. -S. Li",
+          "affiliation": ""
+        },
+        {
+          "name": "X. Li",
+          "affiliation": ""
+        },
+        {
+          "name": "A. R. Liddle",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Lima",
+          "affiliation": ""
+        },
+        {
+          "name": "C. -A Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "H. Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "N. MacCrann",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Mahony",
+          "affiliation": ""
+        },
+        {
+          "name": "J. L. Marshall",
+          "affiliation": ""
+        },
+        {
+          "name": "J. McCullough",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Mena-Fern\u00e1ndez",
+          "affiliation": ""
+        },
+        {
+          "name": "F. Menanteau",
+          "affiliation": ""
+        },
+        {
+          "name": "R. Miquel",
+          "affiliation": ""
+        },
+        {
+          "name": "J. J. Mohr",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Muir",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Myles",
+          "affiliation": ""
+        },
+        {
+          "name": "N. Napolitano",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Navarro-Alsina",
+          "affiliation": ""
+        },
+        {
+          "name": "R. L. C. Ogando",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Palmese",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Pandey",
+          "affiliation": ""
+        },
+        {
+          "name": "Y. Park",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Paterno",
+          "affiliation": ""
+        },
+        {
+          "name": "J. A. Peacock",
+          "affiliation": ""
+        },
+        {
+          "name": "D. Petravick",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Pieres",
+          "affiliation": ""
+        },
+        {
+          "name": "A. A. Plazas Malag\u00f3n",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Porredon",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Prat",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Radovich",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Raveri",
+          "affiliation": ""
+        },
+        {
+          "name": "R. Reischke",
+          "affiliation": ""
+        },
+        {
+          "name": "N. C. Robertson",
+          "affiliation": ""
+        },
+        {
+          "name": "R. P. Rollins",
+          "affiliation": ""
+        },
+        {
+          "name": "A. K. Romer",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Roodman",
+          "affiliation": ""
+        },
+        {
+          "name": "E. S. Rykoff",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Samuroff",
+          "affiliation": ""
+        },
+        {
+          "name": "C. S\u00e1nchez",
+          "affiliation": ""
+        },
+        {
+          "name": "E. Sanchez",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Sanchez",
+          "affiliation": ""
+        },
+        {
+          "name": "P. Schneider",
+          "affiliation": ""
+        },
+        {
+          "name": "L. F. Secco",
+          "affiliation": ""
+        },
+        {
+          "name": "I. Sevilla-Noarbe",
+          "affiliation": ""
+        },
+        {
+          "name": "H. -Y. Shan",
+          "affiliation": ""
+        },
+        {
+          "name": "E. Sheldon",
+          "affiliation": ""
+        },
+        {
+          "name": "T. Shin",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Sif\u00f3n",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Smith",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Soares-Santos",
+          "affiliation": ""
+        },
+        {
+          "name": "B. St\u00f6lzner",
+          "affiliation": ""
+        },
+        {
+          "name": "E. Suchyta",
+          "affiliation": ""
+        },
+        {
+          "name": "M. E. C. Swanson",
+          "affiliation": ""
+        },
+        {
+          "name": "G. Tarle",
+          "affiliation": ""
+        },
+        {
+          "name": "D. Thomas",
+          "affiliation": ""
+        },
+        {
+          "name": "C. To",
+          "affiliation": ""
+        },
+        {
+          "name": "M. A. Troxel",
+          "affiliation": ""
+        },
+        {
+          "name": "T. Tr\u00f6ster",
+          "affiliation": ""
+        },
+        {
+          "name": "I. Tutusaus",
+          "affiliation": ""
+        },
+        {
+          "name": "J. L. van den Busch",
+          "affiliation": ""
+        },
+        {
+          "name": "T. N. Varga",
+          "affiliation": ""
+        },
+        {
+          "name": "A. R. Walker",
+          "affiliation": ""
+        },
+        {
+          "name": "N. Weaverdyck",
+          "affiliation": ""
+        },
+        {
+          "name": "R. H. Wechsler",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Weller",
+          "affiliation": ""
+        },
+        {
+          "name": "P. Wiseman",
+          "affiliation": ""
+        },
+        {
+          "name": "A. H. Wright",
+          "affiliation": ""
+        },
+        {
+          "name": "B. Yanny",
+          "affiliation": ""
+        },
+        {
+          "name": "B. Yin",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Yoon",
+          "affiliation": ""
+        },
+        {
+          "name": "Y. Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Zuntz",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We present a joint cosmic shear analysis of the Dark Energy Survey (DES Y3) and the Kilo-Degree Survey (KiDS-1000) in a collaborative effort between the two survey teams. We find consistent cosmological parameter constraints between DES Y3 and KiDS-1000 which, when combined in a joint-survey analysis, constrain the parameter $S_8 = \u03c3_8 \\sqrt{\u03a9_{\\rm m}/0.3}$ with a mean value of $0.790^{+0.018}_{-0.014}$. The mean marginal is lower than the maximum a posteriori estimate, $S_8=0.801$, owing to skewness in the marginal distribution and projection effects in the multi-dimensional parameter space. Our results are consistent with $S_8$ constraints from observations of the cosmic microwave background by Planck, with agreement at the $1.7\u03c3$ level. We use a Hybrid analysis pipeline, defined from a mock survey study quantifying the impact of the different analysis choices originally adopted by each survey team. We review intrinsic alignment models, baryon feedback mitigation strategies, priors, samplers and models of the non-linear matter power spectrum.",
+      "venue": "astro-ph.CO",
+      "citation_count": 0,
+      "doi": "10.21105/astro.2305.17173",
+      "arxiv_id": "2305.17173",
+      "url": "https://arxiv.org/abs/2305.17173",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2011.02034",
+      "title": "The Role of Time, Weather and Google Trends in Understanding and Predicting Web Survey Response",
+      "authors": [
+        {
+          "name": "Qixiang Fang",
+          "affiliation": ""
+        },
+        {
+          "name": "Joep Burger",
+          "affiliation": ""
+        },
+        {
+          "name": "Ralph Meijers",
+          "affiliation": ""
+        },
+        {
+          "name": "Kees van Berkel",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "In the literature about web survey methodology, significant efforts have been made to understand the role of time-invariant factors (e.g. gender, education and marital status) in (non-)response mechanisms. Time-invariant factors alone, however, cannot account for most variations in (non-)responses, especially fluctuations of response rates over time. This observation inspires us to investigate the counterpart of time-invariant factors, namely time-varying factors and the potential role they play in web survey (non-)response. Specifically, we study the effects of time, weather and societal trends (derived from Google Trends data) on the daily (non-)response patterns of the 2016 and 2017 Dutch Health Surveys. Using discrete-time survival analysis, we find, among others, that weekends, holidays, pleasant weather, disease outbreaks and terrorism salience are associated with fewer responses. Furthermore, we show that using these variables alone achieves satisfactory prediction accuracy of both daily and cumulative response rates when the trained model is applied to future unseen data. This approach has the further benefit of requiring only non-personal contextual information and thus involving no privacy issues. We discuss the implications of the study for survey research and data collection.",
+      "venue": "cs.SI",
+      "citation_count": 0,
+      "doi": "10.18148/srm/2021.v15i1.7633",
+      "arxiv_id": "2011.02034",
+      "url": "https://arxiv.org/abs/2011.02034",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2409.08759",
+      "title": "Dark Energy Survey: 2.1% measurement of the Baryon Acoustic Oscillation scale from the final dataset",
+      "authors": [
+        {
+          "name": "Juan Mena-Fern\u00e1ndez",
+          "affiliation": ""
+        },
+        {
+          "name": "Dark Energy Survey Collaboration",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Here, we present the angular diameter distance measurement obtained from the measurement of the Baryonic Acoustic Oscillation (BAO) feature using the completed Dark Energy Survey (DES) data, summarizing the main results of [Phys. Rev. D 110, 063514] and [Phys. Rev. D 110, 063515]. We use a galaxy sample optimized for BAO science in the redshift range 0.6 < z < 1.2, with an effective redshift of $z_{\\rm eff}$ = 0.85. Our consensus measurement constrains the ratio of the angular distance to the sound horizon scale to $D_M(z_{\\rm eff})/r_d$ = 19.51 $\\pm$ 0.41. This measurement is found to be 2.13$\u03c3$ below the angular BAO scale predicted by Planck. To date, it represents the most precise measurement from purely photometric data, and the most precise from any Stage-III experiment at such high redshift. The analysis was performed blinded to the BAO position and is shown to be robust against analysis choices, data removal, redshift calibrations and observational systematics.",
+      "venue": "astro-ph.CO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2409.08759",
+      "url": "https://arxiv.org/abs/2409.08759",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2401.04971",
+      "title": "A Survey on Cross-Domain Sequential Recommendation",
+      "authors": [
+        {
+          "name": "Shu Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Zitao Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Weike Pan",
+          "affiliation": ""
+        },
+        {
+          "name": "Qiang Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhong Ming",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Cross-domain sequential recommendation (CDSR) shifts the modeling of user preferences from flat to stereoscopic by integrating and learning interaction information from multiple domains at different granularities (ranging from inter-sequence to intra-sequence and from single-domain to cross-domain). In this survey, we first define the CDSR problem using a four-dimensional tensor and then analyze its multi-type input representations under multidirectional dimensionality reductions. Following that, we provide a systematic overview from both macro and micro views. From a macro view, we abstract the multi-level fusion structures of various models across domains and discuss their bridges for fusion. From a micro view, focusing on the existing models, we first discuss the basic technologies and then explain the auxiliary learning technologies. Finally, we exhibit the available public datasets and the representative experimental results as well as provide some insights into future directions for research in CDSR.",
+      "venue": "cs.IR",
+      "citation_count": 0,
+      "doi": "10.24963/ijcai.2024/884",
+      "arxiv_id": "2401.04971",
+      "url": "https://arxiv.org/abs/2401.04971",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2302.01107",
+      "title": "A Survey on Efficient Training of Transformers",
+      "authors": [
+        {
+          "name": "Bohan Zhuang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jing Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zizheng Pan",
+          "affiliation": ""
+        },
+        {
+          "name": "Haoyu He",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuetian Weng",
+          "affiliation": ""
+        },
+        {
+          "name": "Chunhua Shen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Recent advances in Transformers have come with a huge requirement on computing resources, highlighting the importance of developing efficient training techniques to make Transformer training faster, at lower cost, and to higher accuracy by the efficient use of computation and memory resources. This survey provides the first systematic overview of the efficient training of Transformers, covering the recent progress in acceleration arithmetic and hardware, with a focus on the former. We analyze and compare methods that save computation and memory costs for intermediate tensors during training, together with techniques on hardware/algorithm co-design. We finally discuss challenges and promising areas for future research.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2302.01107",
+      "url": "https://arxiv.org/abs/2302.01107",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2412.01284",
+      "title": "MFTF: Mask-free Training-free Object Level Layout Control Diffusion Model",
+      "authors": [
+        {
+          "name": "Shan Yang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Text-to-image generation models have revolutionized content creation, but diffusion-based vision-language models still face challenges in precisely controlling the shape, appearance, and positional placement of objects in generated images using text guidance alone. Existing global image editing models rely on additional masks or images as guidance to achieve layout control, often requiring retraining of the model. While local object-editing models allow modifications to object shapes, they lack the capability to control object positions. To address these limitations, we propose the Mask-free Training-free Object-Level Layout Control Diffusion Model (MFTF), which provides precise control over object positions without requiring additional masks or images. The MFTF model supports both single-object and multi-object positional adjustments, such as translation and rotation, while enabling simultaneous layout control and object semantic editing. The MFTF model employs a parallel denoising process for both the source and target diffusion models. During this process, attention masks are dynamically generated from the cross-attention layers of the source diffusion model and applied to queries from the self-attention layers to isolate objects. These queries, generated in the source diffusion model, are then adjusted according to the layout control parameters and re-injected into the self-attention layers of the target diffusion model. This approach ensures accurate and precise positional control of objects. Project source code available at https://github.com/syang-genai/MFTF.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2412.01284",
+      "url": "https://arxiv.org/abs/2412.01284",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.09180",
+      "title": "FSampler: Training Free Acceleration of Diffusion Sampling via Epsilon Extrapolation",
+      "authors": [
+        {
+          "name": "Michael A. Vladimir",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "FSampler is a training free, sampler agnostic execution layer that accelerates diffusion sampling by reducing the number of function evaluations (NFE). FSampler maintains a short history of denoising signals (epsilon) from recent real model calls and extrapolates the next epsilon using finite difference predictors at second order, third order, or fourth order, falling back to lower order when history is insufficient. On selected steps the predicted epsilon substitutes the model call while keeping each sampler's update rule unchanged. Predicted epsilons are validated for finiteness and magnitude; a learning stabilizer rescales predictions on skipped steps to correct drift, and an optional gradient estimation stabilizer compensates local curvature. Protected windows, periodic anchors, and a cap on consecutive skips bound deviation over the trajectory. Operating at the sampler level, FSampler integrates with Euler/DDIM, DPM++ 2M/2S, LMS/AB2, and RES family exponential multistep methods and drops into standard workflows. FLUX.1 dev, Qwen Image, and Wan 2.2, FSampler reduces time by 8 to 22% and model calls by 15 to 25% at high fidelity (Structural Similarity Index (SSIM) 0.95 to 0.99), without altering sampler formulas. With an aggressive adaptive gate, reductions can reach 45 to 50% fewer model calls at lower fidelity (SSIM 0.73 to 0.74).",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.09180",
+      "url": "https://arxiv.org/abs/2511.09180",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2112.05112",
+      "title": "BLT: Bidirectional Layout Transformer for Controllable Layout Generation",
+      "authors": [
+        {
+          "name": "Xiang Kong",
+          "affiliation": ""
+        },
+        {
+          "name": "Lu Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Huiwen Chang",
+          "affiliation": ""
+        },
+        {
+          "name": "Han Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuan Hao",
+          "affiliation": ""
+        },
+        {
+          "name": "Haifeng Gong",
+          "affiliation": ""
+        },
+        {
+          "name": "Irfan Essa",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Creating visual layouts is a critical step in graphic design. Automatic generation of such layouts is essential for scalable and diverse visual designs. To advance conditional layout generation, we introduce BLT, a bidirectional layout transformer. BLT differs from previous work on transformers in adopting non-autoregressive transformers. In training, BLT learns to predict the masked attributes by attending to surrounding attributes in two directions. During inference, BLT first generates a draft layout from the input and then iteratively refines it into a high-quality layout by masking out low-confident attributes. The masks generated in both training and inference are controlled by a new hierarchical sampling policy. We verify the proposed model on six benchmarks of diverse design tasks. Experimental results demonstrate two benefits compared to the state-of-the-art layout transformer models. First, our model empowers layout transformers to fulfill controllable layout generation. Second, it achieves up to 10x speedup in generating a layout at inference time than the layout transformer baseline. Code is released at https://shawnkx.github.io/blt.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2112.05112",
+      "url": "https://arxiv.org/abs/2112.05112",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2309.09293",
+      "title": "Star formation in CALIFA survey perturbed galaxies.III. Stellar & ionized-gas kinematic distributions",
+      "authors": [
+        {
+          "name": "Abd\u00edas Morales-Vargas",
+          "affiliation": ""
+        },
+        {
+          "name": "Juan Pablo Torres-Papaqui",
+          "affiliation": ""
+        },
+        {
+          "name": "Fernando Fabi\u00e1n Rosales-Ortega",
+          "affiliation": ""
+        },
+        {
+          "name": "Marcel Chow-Mart\u00ednez",
+          "affiliation": ""
+        },
+        {
+          "name": "Ren\u00e9 Alberto Ortega-Minakata",
+          "affiliation": ""
+        },
+        {
+          "name": "Aitor Carlos Robleto-Or\u00fas",
+          "affiliation": ""
+        },
+        {
+          "name": "the CALIFA survey Collaboration",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We obtain the kinematic distributions of stars (synthetic model line absorption) and ionized gas (H$\u03b1$ line emission) for star-forming regions residing in CALIFA survey tidally perturbed (perturbed) and non-tidally perturbed (control) galaxies. We set the uncertainties of the velocity dispersion by measuring the statistical variability of the datasets themselves. Using these adopted uncertainties and considering the sensitivity of the grating device, we establish thresholds of reliability that allow us to select reliable velocity dispersions. From this selection, we pair the star-forming spaxels between control and perturbed galaxies at the closest shifts in velocity (de-redshifting). We compare their respective distributions of velocity dispersion. In perturbed galaxies, median velocity dispersions for the stellar and gaseous components are minimally higher and equal, respectively, than those in control galaxies. The spread in velocity dispersion and the velocity shift - velocity dispersion space agree with this result. Unlike the well-known trend in strongly interacting systems, the stellar and ionized-gas motions are not disturbed by the influence of close companions. For the gaseous component, this result is due to the poor statistical variability of its data, a consequence of the tightness in velocity dispersion derived from high spectral line intensities. This analysis concludes the series, which previously showed star-forming regions in galaxies with close companions undergoing more prominent gas inflows, resulting in differences in their star formation and consequent metal content.",
+      "venue": "astro-ph.GA",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2309.09293",
+      "url": "https://arxiv.org/abs/2309.09293",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2411.10495",
+      "title": "Training-Free Layout-to-Image Generation with Marginal Attention Constraints",
+      "authors": [
+        {
+          "name": "Huancheng Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Jingtao Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Weiming Zhuang",
+          "affiliation": ""
+        },
+        {
+          "name": "Haris Vikalo",
+          "affiliation": ""
+        },
+        {
+          "name": "Lingjuan Lyu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Recently, many text-to-image diffusion models excel at generating high-resolution images from text but struggle with precise control over spatial composition and object counting. To address these challenges, prior works developed layout-to-image (L2I) approaches that incorporate layout instructions into text-to-image models. However, existing L2I methods typically require fine-tuning of pre-trained parameters or training additional control modules for the diffusion models. In this work, we propose a training-free L2I approach, MAC (Marginal Attention Constrained Generation), which eliminates the need for additional modules or fine-tuning. Specifically, we use text-visual cross-attention feature maps to quantify inconsistencies between the layout of the generated images and the provided instructions, and then compute loss functions to optimize latent features during the diffusion reverse process. To enhance spatial controllability and mitigate semantic failures in complex layout instructions, we leverage pixel-to-pixel correlations in the self-attention feature maps to align cross-attention maps and combine three loss functions constrained by boundary attention to update latent features. Comprehensive experimental results on both L2I and non-L2I pretrained diffusion models demonstrate that our method outperforms existing training-free L2I techniques both quantitatively and qualitatively in terms of image composition on the DrawBench and HRS benchmarks.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2411.10495",
+      "url": "https://arxiv.org/abs/2411.10495",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2406.04032",
+      "title": "Zero-Painter: Training-Free Layout Control for Text-to-Image Synthesis",
+      "authors": [
+        {
+          "name": "Marianna Ohanyan",
+          "affiliation": ""
+        },
+        {
+          "name": "Hayk Manukyan",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhangyang Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Shant Navasardyan",
+          "affiliation": ""
+        },
+        {
+          "name": "Humphrey Shi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "We present Zero-Painter, a novel training-free framework for layout-conditional text-to-image synthesis that facilitates the creation of detailed and controlled imagery from textual prompts. Our method utilizes object masks and individual descriptions, coupled with a global text prompt, to generate images with high fidelity. Zero-Painter employs a two-stage process involving our novel Prompt-Adjusted Cross-Attention (PACA) and Region-Grouped Cross-Attention (ReGCA) blocks, ensuring precise alignment of generated objects with textual prompts and mask shapes. Our extensive experiments demonstrate that Zero-Painter surpasses current state-of-the-art methods in preserving textual details and adhering to mask shapes.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2406.04032",
+      "url": "https://arxiv.org/abs/2406.04032",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2512.02450",
+      "title": "HouseLayout3D: A Benchmark and Training-Free Baseline for 3D Layout Estimation in the Wild",
+      "authors": [
+        {
+          "name": "Valentin Bieri",
+          "affiliation": ""
+        },
+        {
+          "name": "Marie-Julie Rakotosaona",
+          "affiliation": ""
+        },
+        {
+          "name": "Keisuke Tateno",
+          "affiliation": ""
+        },
+        {
+          "name": "Francis Engelmann",
+          "affiliation": ""
+        },
+        {
+          "name": "Leonidas Guibas",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Current 3D layout estimation models are primarily trained on synthetic datasets containing simple single room or single floor environments. As a consequence, they cannot natively handle large multi floor buildings and require scenes to be split into individual floors before processing, which removes global spatial context that is essential for reasoning about structures such as staircases that connect multiple levels. In this work, we introduce HouseLayout3D, a real world benchmark designed to support progress toward full building scale layout estimation, including multiple floors and architecturally intricate spaces. We also present MultiFloor3D, a simple training free baseline that leverages recent scene understanding methods and already outperforms existing 3D layout estimation models on both our benchmark and prior datasets, highlighting the need for further research in this direction. Data and code are available at: https://houselayout3d.github.io.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2512.02450",
+      "url": "https://arxiv.org/abs/2512.02450",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2311.12342",
+      "title": "LoCo: Locally Constrained Training-Free Layout-to-Image Synthesis",
+      "authors": [
+        {
+          "name": "Peiang Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Han Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruiyang Jin",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Kevin Zhou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Recent text-to-image diffusion models have reached an unprecedented level in generating high-quality images. However, their exclusive reliance on textual prompts often falls short in precise control of image compositions. In this paper, we propose LoCo, a training-free approach for layout-to-image Synthesis that excels in producing high-quality images aligned with both textual prompts and layout instructions. Specifically, we introduce a Localized Attention Constraint (LAC), leveraging semantic affinity between pixels in self-attention maps to create precise representations of desired objects and effectively ensure the accurate placement of objects in designated regions. We further propose a Padding Token Constraint (PTC) to leverage the semantic information embedded in previously neglected padding tokens, improving the consistency between object appearance and layout instructions. LoCo seamlessly integrates into existing text-to-image and layout-to-image models, enhancing their performance in spatial control and addressing semantic failures observed in prior methods. Extensive experiments showcase the superiority of our approach, surpassing existing state-of-the-art training-free layout-to-image methods both qualitatively and quantitatively across multiple benchmarks.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2311.12342",
+      "url": "https://arxiv.org/abs/2311.12342",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2510.26213",
+      "title": "OmniDocLayout: Towards Diverse Document Layout Generation via Coarse-to-Fine LLM Learning",
+      "authors": [
+        {
+          "name": "Hengrui Kang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhuangcheng Gu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiyuan Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Zichen Wen",
+          "affiliation": ""
+        },
+        {
+          "name": "Bin Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Weijia Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Conghui He",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Document AI has advanced rapidly and is attracting increasing attention. Yet, while most efforts have focused on document layout analysis (DLA), its generative counterpart, layout generation, remains underexplored. Distinct from traditional graphic layout design and room layout planning, document layout generation typically involves a larger number of elements per page and exhibits greater structural diversity and complexity. Currently, a major obstacle lies in the scarcity of diverse document layouts: academic papers with Manhattan-style structures dominate existing studies, while open-world genres such as newspapers and magazines remain severely underrepresented. To address this gap, we curate OmniDocLayout-1M, the first million-scale dataset of diverse document layouts, covering six common document types and comprising contemporary layouts collected from multiple sources. Moreover, since existing methods struggle in complex domains and often fail to arrange long sequences coherently, we introduce OmniDocLayout-LLM, a 0.5B model with designed two-stage Coarse-to-Fine learning paradigm:1) learning universal layout principles from our dataset with coarse category definitions, and 2) transferring the knowledge to a specific domain with few fine-grained annotated samples. Extensive experiments demonstrate that our approach achieves strong performance on multiple domains in M$^6$Doc dataset, substantially surpassing both existing layout generation experts and several latest general-purpose LLMs. Our code, dataset, and models will be publicly released.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2510.26213",
+      "url": "https://arxiv.org/abs/2510.26213",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

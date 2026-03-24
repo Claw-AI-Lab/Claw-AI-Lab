@@ -1,0 +1,1132 @@
+{
+  "query": "Self supervised contrastive comparison",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1773944940.750709,
+  "papers": [
+    {
+      "paper_id": "arxiv-2101.06480",
+      "title": "SelfMatch: Combining Contrastive Self-Supervision and Consistency for Semi-Supervised Learning",
+      "authors": [
+        {
+          "name": "Byoungjip Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Jinho Choo",
+          "affiliation": ""
+        },
+        {
+          "name": "Yeong-Dae Kwon",
+          "affiliation": ""
+        },
+        {
+          "name": "Seongho Joe",
+          "affiliation": ""
+        },
+        {
+          "name": "Seungjai Min",
+          "affiliation": ""
+        },
+        {
+          "name": "Youngjune Gwon",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "This paper introduces SelfMatch, a semi-supervised learning method that combines the power of contrastive self-supervised learning and consistency regularization. SelfMatch consists of two stages: (1) self-supervised pre-training based on contrastive learning and (2) semi-supervised fine-tuning based on augmentation consistency regularization. We empirically demonstrate that SelfMatch achieves the state-of-the-art results on standard benchmark datasets such as CIFAR-10 and SVHN. For example, for CIFAR-10 with 40 labeled examples, SelfMatch achieves 93.19% accuracy that outperforms the strong previous methods such as MixMatch (52.46%), UDA (70.95%), ReMixMatch (80.9%), and FixMatch (86.19%). We note that SelfMatch can close the gap between supervised learning (95.87%) and semi-supervised learning (93.19%) by using only a few labels for each class.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2101.06480",
+      "url": "https://arxiv.org/abs/2101.06480",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2107.00921",
+      "title": "Supervised Contrastive Learning for Accented Speech Recognition",
+      "authors": [
+        {
+          "name": "Tao Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Hantao Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ziang Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wei Han",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Neural network based speech recognition systems suffer from performance degradation due to accented speech, especially unfamiliar accents. In this paper, we study the supervised contrastive learning framework for accented speech recognition. To build different views (similar \"positive\" data samples) for contrastive learning, three data augmentation techniques including noise injection, spectrogram augmentation and TTS-same-sentence generation are further investigated. From the experiments on the Common Voice dataset, we have shown that contrastive learning helps to build data-augmentation invariant and pronunciation invariant representations, which significantly outperforms traditional joint training methods in both zero-shot and full-shot settings. Experiments show that contrastive learning can improve accuracy by 3.66% (zero-shot) and 3.78% (full-shot) on average, comparing to the joint training method.",
+      "venue": "cs.SD",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2107.00921",
+      "url": "https://arxiv.org/abs/2107.00921",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2208.05445",
+      "title": "Non-Contrastive Self-supervised Learning for Utterance-Level Information Extraction from Speech",
+      "authors": [
+        {
+          "name": "Jaejin Cho",
+          "affiliation": ""
+        },
+        {
+          "name": "Jes'us Villalba",
+          "affiliation": ""
+        },
+        {
+          "name": "Laureano Moro-Velazquez",
+          "affiliation": ""
+        },
+        {
+          "name": "Najim Dehak",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "In recent studies, self-supervised pre-trained models tend to outperform supervised pre-trained models in transfer learning. In particular, self-supervised learning (SSL) of utterance-level speech representation can be used in speech applications that require discriminative representation of consistent attributes within an utterance: speaker, language, emotion, and age. Existing frame-level self-supervised speech representation, e.g., wav2vec, can be used as utterance-level representation with pooling, but the models are usually large. There are also SSL techniques to learn utterance-level representation. One of the most successful is a contrastive method, which requires negative sampling: selecting alternative samples to contrast with the current sample (anchor). However, this does not ensure that all the negative samples belong to classes different from the anchor class without labels. This paper applies a non-contrastive self-supervised method to learn utterance-level embeddings. We adapted DIstillation with NO labels (DINO) from computer vision to speech. Unlike contrastive methods, DINO does not require negative sampling. We compared DINO to x-vector trained in a supervised manner. When transferred to down-stream tasks (speaker verification, speech emotion recognition (SER), and Alzheimer's disease detection), DINO outperformed x-vector. We studied the influence of several aspects during transfer learning such as dividing the fine-tuning process into steps, chunk lengths, or augmentation. During fine-tuning, tuning the last affine layers first and then the whole network surpassed fine-tuning all at once. Using shorter chunk lengths, although they generate more diverse inputs, did not necessarily improve performance, implying speech segments at least with a specific length are required for better performance per application. Augmentation was helpful in SER.",
+      "venue": "eess.AS",
+      "citation_count": 0,
+      "doi": "10.1109/JSTSP.2022.3197315",
+      "arxiv_id": "2208.05445",
+      "url": "https://arxiv.org/abs/2208.05445",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2203.06041",
+      "title": "Embedding Earth: Self-supervised contrastive pre-training for dense land cover classification",
+      "authors": [
+        {
+          "name": "Michail Tarasiou",
+          "affiliation": ""
+        },
+        {
+          "name": "Stefanos Zafeiriou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "In training machine learning models for land cover semantic segmentation there is a stark contrast between the availability of satellite imagery to be used as inputs and ground truth data to enable supervised learning. While thousands of new satellite images become freely available on a daily basis, getting ground truth data is still very challenging, time consuming and costly. In this paper we present Embedding Earth a self-supervised contrastive pre-training method for leveraging the large availability of satellite imagery to improve performance on downstream dense land cover classification tasks. Performing an extensive experimental evaluation spanning four countries and two continents we use models pre-trained with our proposed method as initialization points for supervised land cover semantic segmentation and observe significant improvements up to 25% absolute mIoU. In every case tested we outperform random initialization, especially so when ground truth data are scarse. Through a series of ablation studies we explore the qualities of the proposed approach and find that learnt features can generalize between disparate regions opening up the possibility of using the proposed pre-training scheme as a replacement to random initialization for Earth observation tasks. Code will be uploaded soon at https://github.com/michaeltrs/DeepSatModels.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2203.06041",
+      "url": "https://arxiv.org/abs/2203.06041",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2302.02125",
+      "title": "Weakly-Supervised 3D Medical Image Segmentation using Geometric Prior and Contrastive Similarity",
+      "authors": [
+        {
+          "name": "Hao Du",
+          "affiliation": ""
+        },
+        {
+          "name": "Qihua Dong",
+          "affiliation": ""
+        },
+        {
+          "name": "Yan Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jing Liao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Medical image segmentation is almost the most important pre-processing procedure in computer-aided diagnosis but is also a very challenging task due to the complex shapes of segments and various artifacts caused by medical imaging, (i.e., low-contrast tissues, and non-homogenous textures). In this paper, we propose a simple yet effective segmentation framework that incorporates the geometric prior and contrastive similarity into the weakly-supervised segmentation framework in a loss-based fashion. The proposed geometric prior built on point cloud provides meticulous geometry to the weakly-supervised segmentation proposal, which serves as better supervision than the inherent property of the bounding-box annotation (i.e., height and width). Furthermore, we propose contrastive similarity to encourage organ pixels to gather around in the contrastive embedding space, which helps better distinguish low-contrast tissues. The proposed contrastive embedding space can make up for the poor representation of the conventionally-used gray space. Extensive experiments are conducted to verify the effectiveness and the robustness of the proposed weakly-supervised segmentation framework. The proposed framework is superior to state-of-the-art weakly-supervised methods on the following publicly accessible datasets: LiTS 2017 Challenge, KiTS 2021 Challenge, and LPBA40. We also dissect our method and evaluate the performance of each component.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "10.1109/TMI.2023.3269523",
+      "arxiv_id": "2302.02125",
+      "url": "https://arxiv.org/abs/2302.02125",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2306.15111",
+      "title": "Self-Supervised Image Captioning with CLIP",
+      "authors": [
+        {
+          "name": "Chuanyang Jin",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Image captioning, a fundamental task in vision-language understanding, seeks to generate accurate natural language descriptions for provided images. Current image captioning approaches heavily rely on high-quality image-caption pairs, which can be hard to obtain for many domains. To address this, we introduce a self-supervised image captioning method. After learning an initial signal from a small labeled dataset, our method transitions to self-supervised learning on unlabeled data, leveraging the auxiliary task of enhancing the CLIP relevance between images and generated captions. Remarkably, despite utilizing less than 2% of the labeled COCO dataset, our method delivers a performance comparable to state-of-the-art models trained on the complete dataset. Human evaluations further reveal that our method produces captions with greater distinctiveness and informativeness, two attributes inherently challenging to achieve through supervised learning.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2306.15111",
+      "url": "https://arxiv.org/abs/2306.15111",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2212.11187",
+      "title": "Similarity Contrastive Estimation for Image and Video Soft Contrastive Self-Supervised Learning",
+      "authors": [
+        {
+          "name": "Julien Denize",
+          "affiliation": ""
+        },
+        {
+          "name": "Jaonary Rabarisoa",
+          "affiliation": ""
+        },
+        {
+          "name": "Astrid Orcesi",
+          "affiliation": ""
+        },
+        {
+          "name": "Romain H\u00e9rault",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Contrastive representation learning has proven to be an effective self-supervised learning method for images and videos. Most successful approaches are based on Noise Contrastive Estimation (NCE) and use different views of an instance as positives that should be contrasted with other instances, called negatives, that are considered as noise. However, several instances in a dataset are drawn from the same distribution and share underlying semantic information. A good data representation should contain relations between the instances, or semantic similarity and dissimilarity, that contrastive learning harms by considering all negatives as noise. To circumvent this issue, we propose a novel formulation of contrastive learning using semantic similarity between instances called Similarity Contrastive Estimation (SCE). Our training objective is a soft contrastive one that brings the positives closer and estimates a continuous distribution to push or pull negative instances based on their learned similarities. We validate empirically our approach on both image and video representation learning. We show that SCE performs competitively with the state of the art on the ImageNet linear evaluation protocol for fewer pretraining epochs and that it generalizes to several downstream image tasks. We also show that SCE reaches state-of-the-art results for pretraining video representation and that the learned representation can generalize to video downstream tasks.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1007/s00138-023-01444-9",
+      "arxiv_id": "2212.11187",
+      "url": "https://arxiv.org/abs/2212.11187",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2405.18042",
+      "title": "Visualizing the loss landscape of Self-supervised Vision Transformer",
+      "authors": [
+        {
+          "name": "Youngwan Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Jeffrey Ryan Willette",
+          "affiliation": ""
+        },
+        {
+          "name": "Jonghee Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Sung Ju Hwang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "The Masked autoencoder (MAE) has drawn attention as a representative self-supervised approach for masked image modeling with vision transformers. However, even though MAE shows better generalization capability than fully supervised training from scratch, the reason why has not been explored. In another line of work, the Reconstruction Consistent Masked Auto Encoder (RC-MAE), has been proposed which adopts a self-distillation scheme in the form of an exponential moving average (EMA) teacher into MAE, and it has been shown that the EMA-teacher performs a conditional gradient correction during optimization. To further investigate the reason for better generalization of the self-supervised ViT when trained by MAE (MAE-ViT) and the effect of the gradient correction of RC-MAE from the perspective of optimization, we visualize the loss landscapes of the self-supervised vision transformer by both MAE and RC-MAE and compare them with the supervised ViT (Sup-ViT). Unlike previous loss landscape visualizations of neural networks based on classification task loss, we visualize the loss landscape of ViT by computing pre-training task loss. Through the lens of loss landscapes, we find two interesting observations: (1) MAE-ViT has a smoother and wider overall loss curvature than Sup-ViT. (2) The EMA-teacher allows MAE to widen the region of convexity in both pretraining and linear probing, leading to quicker convergence. To the best of our knowledge, this work is the first to investigate the self-supervised ViT through the lens of the loss landscape.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2405.18042",
+      "url": "https://arxiv.org/abs/2405.18042",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2208.08789",
+      "title": "Towards Label-efficient Automatic Diagnosis and Analysis: A Comprehensive Survey of Advanced Deep Learning-based Weakly-supervised, Semi-supervised and Self-supervised Techniques in Histopathological Image Analysis",
+      "authors": [
+        {
+          "name": "Linhao Qu",
+          "affiliation": ""
+        },
+        {
+          "name": "Siyu Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaoyu Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Manning Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhijian Song",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Histopathological images contain abundant phenotypic information and pathological patterns, which are the gold standards for disease diagnosis and essential for the prediction of patient prognosis and treatment outcome. In recent years, computer-automated analysis techniques for histopathological images have been urgently required in clinical practice, and deep learning methods represented by convolutional neural networks have gradually become the mainstream in the field of digital pathology. However, obtaining large numbers of fine-grained annotated data in this field is a very expensive and difficult task, which hinders the further development of traditional supervised algorithms based on large numbers of annotated data. More recent studies have started to liberate from the traditional supervised paradigm, and the most representative ones are the studies on weakly supervised learning paradigm based on weak annotation, semi-supervised learning paradigm based on limited annotation, and self-supervised learning paradigm based on pathological image representation learning. These new methods have led a new wave of automatic pathological image diagnosis and analysis targeted at annotation efficiency. With a survey of over 130 papers, we present a comprehensive and systematic review of the latest studies on weakly supervised learning, semi-supervised learning, and self-supervised learning in the field of computational pathology from both technical and methodological perspectives. Finally, we present the key challenges and future trends for these techniques.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1088/1361-6560/ac910a",
+      "arxiv_id": "2208.08789",
+      "url": "https://arxiv.org/abs/2208.08789",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2211.05304",
+      "title": "Contrastive Self-Supervised Learning for Skeleton Representations",
+      "authors": [
+        {
+          "name": "Nico Lingg",
+          "affiliation": ""
+        },
+        {
+          "name": "Miguel Sarabia",
+          "affiliation": ""
+        },
+        {
+          "name": "Luca Zappella",
+          "affiliation": ""
+        },
+        {
+          "name": "Barry-John Theobald",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Human skeleton point clouds are commonly used to automatically classify and predict the behaviour of others. In this paper, we use a contrastive self-supervised learning method, SimCLR, to learn representations that capture the semantics of skeleton point clouds. This work focuses on systematically evaluating the effects that different algorithmic decisions (including augmentations, dataset partitioning and backbone architecture) have on the learned skeleton representations. To pre-train the representations, we normalise six existing datasets to obtain more than 40 million skeleton frames. We evaluate the quality of the learned representations with three downstream tasks: skeleton reconstruction, motion prediction, and activity classification. Our results demonstrate the importance of 1) combining spatial and temporal augmentations, 2) including additional datasets for encoder training, and 3) and using a graph neural network as an encoder.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2211.05304",
+      "url": "https://arxiv.org/abs/2211.05304",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2112.05340",
+      "title": "Tradeoffs Between Contrastive and Supervised Learning: An Empirical Study",
+      "authors": [
+        {
+          "name": "Ananya Karthik",
+          "affiliation": ""
+        },
+        {
+          "name": "Mike Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Noah Goodman",
+          "affiliation": ""
+        },
+        {
+          "name": "Alex Tamkin",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Contrastive learning has made considerable progress in computer vision, outperforming supervised pretraining on a range of downstream datasets. However, is contrastive learning the better choice in all situations? We demonstrate two cases where it is not. First, under sufficiently small pretraining budgets, supervised pretraining on ImageNet consistently outperforms a comparable contrastive model on eight diverse image classification datasets. This suggests that the common practice of comparing pretraining approaches at hundreds or thousands of epochs may not produce actionable insights for those with more limited compute budgets. Second, even with larger pretraining budgets we identify tasks where supervised learning prevails, perhaps because the object-centric bias of supervised pretraining makes the model more resilient to common corruptions and spurious foreground-background correlations. These results underscore the need to characterize tradeoffs of different pretraining objectives across a wider range of contexts and training regimes.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2112.05340",
+      "url": "https://arxiv.org/abs/2112.05340",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2008.10312",
+      "title": "Self-Supervised Learning for Large-Scale Unsupervised Image Clustering",
+      "authors": [
+        {
+          "name": "Evgenii Zheltonozhskii",
+          "affiliation": ""
+        },
+        {
+          "name": "Chaim Baskin",
+          "affiliation": ""
+        },
+        {
+          "name": "Alex M. Bronstein",
+          "affiliation": ""
+        },
+        {
+          "name": "Avi Mendelson",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Unsupervised learning has always been appealing to machine learning researchers and practitioners, allowing them to avoid an expensive and complicated process of labeling the data. However, unsupervised learning of complex data is challenging, and even the best approaches show much weaker performance than their supervised counterparts. Self-supervised deep learning has become a strong instrument for representation learning in computer vision. However, those methods have not been evaluated in a fully unsupervised setting. In this paper, we propose a simple scheme for unsupervised classification based on self-supervised representations. We evaluate the proposed approach with several recent self-supervised methods showing that it achieves competitive results for ImageNet classification (39% accuracy on ImageNet with 1000 clusters and 46% with overclustering). We suggest adding the unsupervised evaluation to a set of standard benchmarks for self-supervised learning. The code is available at https://github.com/Randl/kmeans_selfsuper",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2008.10312",
+      "url": "https://arxiv.org/abs/2008.10312",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2112.13755",
+      "title": "Self-supervision of wearable sensors time-series data for influenza detection",
+      "authors": [
+        {
+          "name": "Arinbj\u00f6rn Kolbeinsson",
+          "affiliation": ""
+        },
+        {
+          "name": "Piyusha Gade",
+          "affiliation": ""
+        },
+        {
+          "name": "Raghu Kainkaryam",
+          "affiliation": ""
+        },
+        {
+          "name": "Filip Jankovic",
+          "affiliation": ""
+        },
+        {
+          "name": "Luca Foschini",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Self-supervision may boost model performance in downstream tasks. However, there is no principled way of selecting the self-supervised objectives that yield the most adaptable models. Here, we study this problem on daily time-series data generated from wearable sensors used to detect onset of influenza-like illness (ILI). We first show that using self-supervised learning to predict next-day time-series values allows us to learn rich representations which can be adapted to perform accurate ILI prediction. Second, we perform an empirical analysis of three different self-supervised objectives to assess their adaptability to ILI prediction. Our results show that predicting the next day's resting heart rate or time-in-bed during sleep provides better representations for ILI prediction. These findings add to previous work demonstrating the practical application of self-supervised learning from activity data to improve health predictions.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2112.13755",
+      "url": "https://arxiv.org/abs/2112.13755",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2308.12447",
+      "title": "MOFO: MOtion FOcused Self-Supervision for Video Understanding",
+      "authors": [
+        {
+          "name": "Mona Ahmadian",
+          "affiliation": ""
+        },
+        {
+          "name": "Frank Guerin",
+          "affiliation": ""
+        },
+        {
+          "name": "Andrew Gilbert",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Self-supervised learning (SSL) techniques have recently produced outstanding results in learning visual representations from unlabeled videos. Despite the importance of motion in supervised learning techniques for action recognition, SSL methods often do not explicitly consider motion information in videos. To address this issue, we propose MOFO (MOtion FOcused), a novel SSL method for focusing representation learning on the motion area of a video, for action recognition. MOFO automatically detects motion areas in videos and uses these to guide the self-supervision task. We use a masked autoencoder which randomly masks out a high proportion of the input sequence; we force a specified percentage of the inside of the motion area to be masked and the remainder from outside. We further incorporate motion information into the finetuning step to emphasise motion in the downstream task. We demonstrate that our motion-focused innovations can significantly boost the performance of the currently leading SSL method (VideoMAE) for action recognition. Our method improves the recent self-supervised Vision Transformer (ViT), VideoMAE, by achieving +2.6%, +2.1%, +1.3% accuracy on Epic-Kitchens verb, noun and action classification, respectively, and +4.7% accuracy on Something-Something V2 action classification. Our proposed approach significantly improves the performance of the current SSL method for action recognition, indicating the importance of explicitly encoding motion in SSL.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2308.12447",
+      "url": "https://arxiv.org/abs/2308.12447",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2007.12085",
+      "title": "Augmentation adversarial training for self-supervised speaker recognition",
+      "authors": [
+        {
+          "name": "Jaesung Huh",
+          "affiliation": ""
+        },
+        {
+          "name": "Hee Soo Heo",
+          "affiliation": ""
+        },
+        {
+          "name": "Jingu Kang",
+          "affiliation": ""
+        },
+        {
+          "name": "Shinji Watanabe",
+          "affiliation": ""
+        },
+        {
+          "name": "Joon Son Chung",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "The goal of this work is to train robust speaker recognition models without speaker labels. Recent works on unsupervised speaker representations are based on contrastive learning in which they encourage within-utterance embeddings to be similar and across-utterance embeddings to be dissimilar. However, since the within-utterance segments share the same acoustic characteristics, it is difficult to separate the speaker information from the channel information. To this end, we propose augmentation adversarial training strategy that trains the network to be discriminative for the speaker information, while invariant to the augmentation applied. Since the augmentation simulates the acoustic characteristics, training the network to be invariant to augmentation also encourages the network to be invariant to the channel information in general. Extensive experiments on the VoxCeleb and VOiCES datasets show significant improvements over previous works using self-supervision, and the performance of our self-supervised models far exceed that of humans.",
+      "venue": "cs.SD",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2007.12085",
+      "url": "https://arxiv.org/abs/2007.12085",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2110.00528",
+      "title": "Do Self-Supervised and Supervised Methods Learn Similar Visual Representations?",
+      "authors": [
+        {
+          "name": "Tom George Grigg",
+          "affiliation": ""
+        },
+        {
+          "name": "Dan Busbridge",
+          "affiliation": ""
+        },
+        {
+          "name": "Jason Ramapuram",
+          "affiliation": ""
+        },
+        {
+          "name": "Russ Webb",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Despite the success of a number of recent techniques for visual self-supervised deep learning, there has been limited investigation into the representations that are ultimately learned. By leveraging recent advances in the comparison of neural representations, we explore in this direction by comparing a contrastive self-supervised algorithm to supervision for simple image data in a common architecture. We find that the methods learn similar intermediate representations through dissimilar means, and that the representations diverge rapidly in the final few layers. We investigate this divergence, finding that these layers strongly fit to their distinct learning objectives. We also find that the contrastive objective implicitly fits the supervised objective in intermediate layers, but that the reverse is not true. Our work particularly highlights the importance of the learned intermediate representations, and raises critical questions for auxiliary task design.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2110.00528",
+      "url": "https://arxiv.org/abs/2110.00528",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2103.14958",
+      "title": "Self-supervised Graph Neural Networks without explicit negative sampling",
+      "authors": [
+        {
+          "name": "Zekarias T. Kefato",
+          "affiliation": ""
+        },
+        {
+          "name": "Sarunas Girdzijauskas",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Real world data is mostly unlabeled or only few instances are labeled. Manually labeling data is a very expensive and daunting task. This calls for unsupervised learning techniques that are powerful enough to achieve comparable results as semi-supervised/supervised techniques. Contrastive self-supervised learning has emerged as a powerful direction, in some cases outperforming supervised techniques. In this study, we propose, SelfGNN, a novel contrastive self-supervised graph neural network (GNN) without relying on explicit contrastive terms. We leverage Batch Normalization, which introduces implicit contrastive terms, without sacrificing performance. Furthermore, as data augmentation is key in contrastive learning, we introduce four feature augmentation (FA) techniques for graphs. Though graph topological augmentation (TA) is commonly used, our empirical findings show that FA perform as good as TA. Moreover, FA incurs no computational overhead, unlike TA, which often has O(N^3) time complexity, N-number of nodes. Our empirical evaluation on seven publicly available real-world data shows that, SelfGNN is powerful and leads to a performance comparable with SOTA supervised GNNs and always better than SOTA semi-supervised and unsupervised GNNs. The source code is available at https://github.com/zekarias-tilahun/SelfGNN.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2103.14958",
+      "url": "https://arxiv.org/abs/2103.14958",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2302.09195",
+      "title": "Data-Efficient Contrastive Self-supervised Learning: Most Beneficial Examples for Supervised Learning Contribute the Least",
+      "authors": [
+        {
+          "name": "Siddharth Joshi",
+          "affiliation": ""
+        },
+        {
+          "name": "Baharan Mirzasoleiman",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Self-supervised learning (SSL) learns high-quality representations from large pools of unlabeled training data. As datasets grow larger, it becomes crucial to identify the examples that contribute the most to learning such representations. This enables efficient SSL by reducing the volume of data required. Nevertheless, quantifying the value of examples for SSL has remained an open question. In this work, we address this problem for the first time, by proving that examples that contribute the most to contrastive SSL are those that have the most similar augmentations to other examples, in expectation. We provide rigorous guarantees for the generalization performance of contrastive learning on such subsets. Through extensive experiments, we show that we can safely exclude 20% of examples from CIFAR100 and 40% from STL10 and TinyImageNet, without affecting downstream task performance. In general, subsets selected by our method outperform random subsets by over 3% across these datasets. Interestingly, we also discover the subsets that contribute the most to contrastive learning are those that contribute the least to supervised learning. Code available at https://github.com/bigml-cs-ucla/sas-data-efficient-contrastive-learning.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2302.09195",
+      "url": "https://arxiv.org/abs/2302.09195",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2407.05862",
+      "title": "Bringing Masked Autoencoders Explicit Contrastive Properties for Point Cloud Self-Supervised Learning",
+      "authors": [
+        {
+          "name": "Bin Ren",
+          "affiliation": ""
+        },
+        {
+          "name": "Guofeng Mei",
+          "affiliation": ""
+        },
+        {
+          "name": "Danda Pani Paudel",
+          "affiliation": ""
+        },
+        {
+          "name": "Weijie Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yawei Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Mengyuan Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Rita Cucchiara",
+          "affiliation": ""
+        },
+        {
+          "name": "Luc Van Gool",
+          "affiliation": ""
+        },
+        {
+          "name": "Nicu Sebe",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Contrastive learning (CL) for Vision Transformers (ViTs) in image domains has achieved performance comparable to CL for traditional convolutional backbones. However, in 3D point cloud pretraining with ViTs, masked autoencoder (MAE) modeling remains dominant. This raises the question: Can we take the best of both worlds? To answer this question, we first empirically validate that integrating MAE-based point cloud pre-training with the standard contrastive learning paradigm, even with meticulous design, can lead to a decrease in performance. To address this limitation, we reintroduce CL into the MAE-based point cloud pre-training paradigm by leveraging the inherent contrastive properties of MAE. Specifically, rather than relying on extensive data augmentation as commonly used in the image domain, we randomly mask the input tokens twice to generate contrastive input pairs. Subsequently, a weight-sharing encoder and two identically structured decoders are utilized to perform masked token reconstruction. Additionally, we propose that for an input token masked by both masks simultaneously, the reconstructed features should be as similar as possible. This naturally establishes an explicit contrastive constraint within the generative MAE-based pre-training paradigm, resulting in our proposed method, Point-CMAE. Consequently, Point-CMAE effectively enhances the representation quality and transfer performance compared to its MAE counterpart. Experimental evaluations across various downstream applications, including classification, part segmentation, and few-shot learning, demonstrate the efficacy of our framework in surpassing state-of-the-art techniques under standard ViTs and single-modal settings. The source code and trained models are available at: https://github.com/Amazingren/Point-CMAE.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2407.05862",
+      "url": "https://arxiv.org/abs/2407.05862",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2108.05799",
+      "title": "Scalable pragmatic communication via self-supervision",
+      "authors": [
+        {
+          "name": "Jennifer Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Roger Levy",
+          "affiliation": ""
+        },
+        {
+          "name": "Noga Zaslavsky",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Models of context-sensitive communication often use the Rational Speech Act framework (RSA; Frank & Goodman, 2012), which formulates listeners and speakers in a cooperative reasoning process. However, the standard RSA formulation can only be applied to small domains, and large-scale applications have relied on imitating human behavior. Here, we propose a new approach to scalable pragmatics, building upon recent theoretical results (Zaslavsky et al., 2020) that characterize pragmatic reasoning in terms of general information-theoretic principles. Specifically, we propose an architecture and learning process in which agents acquire pragmatic policies via self-supervision instead of imitating human data. This work suggests a new principled approach for equipping artificial agents with pragmatic skills via self-supervision, which is grounded both in pragmatic theory and in information theory.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2108.05799",
+      "url": "https://arxiv.org/abs/2108.05799",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2012.13083",
+      "title": "Self-Supervised Representation Learning for Astronomical Images",
+      "authors": [
+        {
+          "name": "Md Abul Hayat",
+          "affiliation": ""
+        },
+        {
+          "name": "George Stein",
+          "affiliation": ""
+        },
+        {
+          "name": "Peter Harrington",
+          "affiliation": ""
+        },
+        {
+          "name": "Zarija Luki\u0107",
+          "affiliation": ""
+        },
+        {
+          "name": "Mustafa Mustafa",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Sky surveys are the largest data generators in astronomy, making automated tools for extracting meaningful scientific information an absolute necessity. We show that, without the need for labels, self-supervised learning recovers representations of sky survey images that are semantically useful for a variety of scientific tasks. These representations can be directly used as features, or fine-tuned, to outperform supervised methods trained only on labeled data. We apply a contrastive learning framework on multi-band galaxy photometry from the Sloan Digital Sky Survey (SDSS) to learn image representations. We then use them for galaxy morphology classification, and fine-tune them for photometric redshift estimation, using labels from the Galaxy Zoo 2 dataset and SDSS spectroscopy. In both downstream tasks, using the same learned representations, we outperform the supervised state-of-the-art results, and we show that our approach can achieve the accuracy of supervised models while using 2-4 times fewer labels for training.",
+      "venue": "astro-ph.IM",
+      "citation_count": 0,
+      "doi": "10.3847/2041-8213/abf2c7",
+      "arxiv_id": "2012.13083",
+      "url": "https://arxiv.org/abs/2012.13083",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2111.12265",
+      "title": "Distribution Estimation to Automate Transformation Policies for Self-Supervision",
+      "authors": [
+        {
+          "name": "Seunghan Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Debasmit Das",
+          "affiliation": ""
+        },
+        {
+          "name": "Simyung Chang",
+          "affiliation": ""
+        },
+        {
+          "name": "Sungrack Yun",
+          "affiliation": ""
+        },
+        {
+          "name": "Fatih Porikli",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "In recent visual self-supervision works, an imitated classification objective, called pretext task, is established by assigning labels to transformed or augmented input images. The goal of pretext can be predicting what transformations are applied to the image. However, it is observed that image transformations already present in the dataset might be less effective in learning such self-supervised representations. Building on this observation, we propose a framework based on generative adversarial network to automatically find the transformations which are not present in the input dataset and thus effective for the self-supervised learning. This automated policy allows to estimate the transformation distribution of a dataset and also construct its complementary distribution from which training pairs are sampled for the pretext task. We evaluated our framework using several visual recognition datasets to show the efficacy of our automated transformation policy.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2111.12265",
+      "url": "https://arxiv.org/abs/2111.12265",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2111.10794",
+      "title": "HoughCL: Finding Better Positive Pairs in Dense Self-supervised Learning",
+      "authors": [
+        {
+          "name": "Yunsung Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Teakgyu Hong",
+          "affiliation": ""
+        },
+        {
+          "name": "Han-Cheol Cho",
+          "affiliation": ""
+        },
+        {
+          "name": "Junbum Cha",
+          "affiliation": ""
+        },
+        {
+          "name": "Seungryong Kim",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Recently, self-supervised methods show remarkable achievements in image-level representation learning. Nevertheless, their image-level self-supervisions lead the learned representation to sub-optimal for dense prediction tasks, such as object detection, instance segmentation, etc. To tackle this issue, several recent self-supervised learning methods have extended image-level single embedding to pixel-level dense embeddings. Unlike image-level representation learning, due to the spatial deformation of augmentation, it is difficult to sample pixel-level positive pairs. Previous studies have sampled pixel-level positive pairs using the winner-takes-all among similarity or thresholding warped distance between dense embeddings. However, these naive methods can be struggled by background clutter and outliers problems. In this paper, we introduce Hough Contrastive Learning (HoughCL), a Hough space based method that enforces geometric consistency between two dense features. HoughCL achieves robustness against background clutter and outliers. Furthermore, compared to baseline, our dense positive pairing method has no additional learnable parameters and has a small extra computation cost. Compared to previous works, our method shows better or comparable performance on dense prediction fine-tuning tasks.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2111.10794",
+      "url": "https://arxiv.org/abs/2111.10794",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2010.01061",
+      "title": "Data-Efficient Pretraining via Contrastive Self-Supervision",
+      "authors": [
+        {
+          "name": "Nils Rethmeier",
+          "affiliation": ""
+        },
+        {
+          "name": "Isabelle Augenstein",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "For natural language processing `text-to-text' tasks, the prevailing approaches heavily rely on pretraining large self-supervised models on increasingly larger `task-external' data. Transfer learning from high-resource pretraining works well, but research has focused on settings with very large data and compute requirements, while the potential of efficient low-resource learning, without large `task-external' pretraining, remains under-explored. In this work, we evaluate against three core challenges for resource efficient learning. Namely, we analyze: (1) pretraining data ($X$) efficiency; (2) zero to few-shot label ($Y$) efficiency; and (3) long-tail generalization, since long-tail preservation has been linked to algorithmic fairness and because data in the tail is limited by definition. To address these challenges, we propose a data and compute efficient self-supervised, contrastive text encoder, pretrained on 60MB of `task-internal' text data, and compare it to RoBERTa, which was pretrained on 160GB of `task-external' text. We find our method outperforms RoBERTa, while pretraining and fine-tuning in a 1/5th of RoBERTa's fine-tuning time.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2010.01061",
+      "url": "https://arxiv.org/abs/2010.01061",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2008.02531",
+      "title": "Self-supervised Video Representation Learning Using Inter-intra Contrastive Framework",
+      "authors": [
+        {
+          "name": "Li Tao",
+          "affiliation": ""
+        },
+        {
+          "name": "Xueting Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Toshihiko Yamasaki",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "We propose a self-supervised method to learn feature representations from videos. A standard approach in traditional self-supervised methods uses positive-negative data pairs to train with contrastive learning strategy. In such a case, different modalities of the same video are treated as positives and video clips from a different video are treated as negatives. Because the spatio-temporal information is important for video representation, we extend the negative samples by introducing intra-negative samples, which are transformed from the same anchor video by breaking temporal relations in video clips. With the proposed Inter-Intra Contrastive (IIC) framework, we can train spatio-temporal convolutional networks to learn video representations. There are many flexible options in our IIC framework and we conduct experiments by using several different configurations. Evaluations are conducted on video retrieval and video recognition tasks using the learned video representation. Our proposed IIC outperforms current state-of-the-art results by a large margin, such as 16.7% and 9.5% points improvements in top-1 accuracy on UCF101 and HMDB51 datasets for video retrieval, respectively. For video recognition, improvements can also be obtained on these two benchmark datasets. Code is available at https://github.com/BestJuly/Inter-intra-video-contrastive-learning.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1145/3394171.3413694",
+      "arxiv_id": "2008.02531",
+      "url": "https://arxiv.org/abs/2008.02531",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2208.10779",
+      "title": "Efficient Self-Supervision using Patch-based Contrastive Learning for Histopathology Image Segmentation",
+      "authors": [
+        {
+          "name": "Nicklas Boserup",
+          "affiliation": ""
+        },
+        {
+          "name": "Raghavendra Selvan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Learning discriminative representations of unlabelled data is a challenging task. Contrastive self-supervised learning provides a framework to learn meaningful representations using learned notions of similarity measures from simple pretext tasks. In this work, we propose a simple and efficient framework for self-supervised image segmentation using contrastive learning on image patches, without using explicit pretext tasks or any further labeled fine-tuning. A fully convolutional neural network (FCNN) is trained in a self-supervised manner to discern features in the input images and obtain confidence maps which capture the network's belief about the objects belonging to the same class. Positive- and negative- patches are sampled based on the average entropy in the confidence maps for contrastive learning. Convergence is assumed when the information separation between the positive patches is small, and the positive-negative pairs is large. The proposed model only consists of a simple FCNN with 10.8k parameters and requires about 5 minutes to converge on the high resolution microscopy datasets, which is orders of magnitude smaller than the relevant self-supervised methods to attain similar performance. We evaluate the proposed method for the task of segmenting nuclei from two histopathology datasets, and show comparable performance with relevant self-supervised and supervised methods.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.7557/18.6798",
+      "arxiv_id": "2208.10779",
+      "url": "https://arxiv.org/abs/2208.10779",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2007.01491",
+      "title": "Self-Supervised GAN Compression",
+      "authors": [
+        {
+          "name": "Chong Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jeff Pool",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Deep learning's success has led to larger and larger models to handle more and more complex tasks; trained models can contain millions of parameters. These large models are compute- and memory-intensive, which makes it a challenge to deploy them with minimized latency, throughput, and storage requirements. Some model compression methods have been successfully applied to image classification and detection or language models, but there has been very little work compressing generative adversarial networks (GANs) performing complex tasks. In this paper, we show that a standard model compression technique, weight pruning, cannot be applied to GANs using existing methods. We then develop a self-supervised compression technique which uses the trained discriminator to supervise the training of a compressed generator. We show that this framework has a compelling performance to high degrees of sparsity, can be easily applied to new tasks and models, and enables meaningful comparisons between different pruning granularities.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2007.01491",
+      "url": "https://arxiv.org/abs/2007.01491",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2206.04170",
+      "title": "CASS: Cross Architectural Self-Supervision for Medical Image Analysis",
+      "authors": [
+        {
+          "name": "Pranav Singh",
+          "affiliation": ""
+        },
+        {
+          "name": "Elena Sizikova",
+          "affiliation": ""
+        },
+        {
+          "name": "Jacopo Cirrone",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Recent advances in deep learning and computer vision have reduced many barriers to automated medical image analysis, allowing algorithms to process label-free images and improve performance. However, existing techniques have extreme computational requirements and drop a lot of performance with a reduction in batch size or training epochs. This paper presents Cross Architectural - Self Supervision (CASS), a novel self-supervised learning approach that leverages Transformer and CNN simultaneously. Compared to the existing state of the art self-supervised learning approaches, we empirically show that CASS-trained CNNs and Transformers across four diverse datasets gained an average of 3.8% with 1% labeled data, 5.9% with 10% labeled data, and 10.13% with 100% labeled data while taking 69% less time. We also show that CASS is much more robust to changes in batch size and training epochs. Notably, one of the test datasets comprised histopathology slides of an autoimmune disease, a condition with minimal data that has been underrepresented in medical imaging. The code is open source and is available on GitHub.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2206.04170",
+      "url": "https://arxiv.org/abs/2206.04170",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2010.12609",
+      "title": "Iterative Graph Self-Distillation",
+      "authors": [
+        {
+          "name": "Hanlin Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuai Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Weiyang Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Pan Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Jian Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaodan Liang",
+          "affiliation": ""
+        },
+        {
+          "name": "Eric P. Xing",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Recently, there has been increasing interest in the challenge of how to discriminatively vectorize graphs. To address this, we propose a method called Iterative Graph Self-Distillation (IGSD) which learns graph-level representation in an unsupervised manner through instance discrimination using a self-supervised contrastive learning approach. IGSD involves a teacher-student distillation process that uses graph diffusion augmentations and constructs the teacher model using an exponential moving average of the student model. The intuition behind IGSD is to predict the teacher network representation of the graph pairs under different augmented views. As a natural extension, we also apply IGSD to semi-supervised scenarios by jointly regularizing the network with both supervised and self-supervised contrastive loss. Finally, we show that finetuning the IGSD-trained models with self-training can further improve the graph representation power. Empirically, we achieve significant and consistent performance gain on various graph datasets in both unsupervised and semi-supervised settings, which well validates the superiority of IGSD.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2010.12609",
+      "url": "https://arxiv.org/abs/2010.12609",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2102.08946",
+      "title": "S2-BNN: Bridging the Gap Between Self-Supervised Real and 1-bit Neural Networks via Guided Distribution Calibration",
+      "authors": [
+        {
+          "name": "Zhiqiang Shen",
+          "affiliation": ""
+        },
+        {
+          "name": "Zechun Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jie Qin",
+          "affiliation": ""
+        },
+        {
+          "name": "Lei Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Kwang-Ting Cheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Marios Savvides",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Previous studies dominantly target at self-supervised learning on real-valued networks and have achieved many promising results. However, on the more challenging binary neural networks (BNNs), this task has not yet been fully explored in the community. In this paper, we focus on this more difficult scenario: learning networks where both weights and activations are binary, meanwhile, without any human annotated labels. We observe that the commonly used contrastive objective is not satisfying on BNNs for competitive accuracy, since the backbone network contains relatively limited capacity and representation ability. Hence instead of directly applying existing self-supervised methods, which cause a severe decline in performance, we present a novel guided learning paradigm from real-valued to distill binary networks on the final prediction distribution, to minimize the loss and obtain desirable accuracy. Our proposed method can boost the simple contrastive learning baseline by an absolute gain of 5.5~15% on BNNs. We further reveal that it is difficult for BNNs to recover the similar predictive distributions as real-valued models when training without labels. Thus, how to calibrate them is key to address the degradation in performance. Extensive experiments are conducted on the large-scale ImageNet and downstream datasets. Our method achieves substantial improvement over the simple contrastive learning baseline, and is even comparable to many mainstream supervised BNN methods. Code is available at https://github.com/szq0214/S2-BNN.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2102.08946",
+      "url": "https://arxiv.org/abs/2102.08946",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2210.16365",
+      "title": "Elastic Weight Consolidation Improves the Robustness of Self-Supervised Learning Methods under Transfer",
+      "authors": [
+        {
+          "name": "Andrius Ovsianas",
+          "affiliation": ""
+        },
+        {
+          "name": "Jason Ramapuram",
+          "affiliation": ""
+        },
+        {
+          "name": "Dan Busbridge",
+          "affiliation": ""
+        },
+        {
+          "name": "Eeshan Gunesh Dhekane",
+          "affiliation": ""
+        },
+        {
+          "name": "Russ Webb",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Self-supervised representation learning (SSL) methods provide an effective label-free initial condition for fine-tuning downstream tasks. However, in numerous realistic scenarios, the downstream task might be biased with respect to the target label distribution. This in turn moves the learned fine-tuned model posterior away from the initial (label) bias-free self-supervised model posterior. In this work, we re-interpret SSL fine-tuning under the lens of Bayesian continual learning and consider regularization through the Elastic Weight Consolidation (EWC) framework. We demonstrate that self-regularization against an initial SSL backbone improves worst sub-group performance in Waterbirds by 5% and Celeb-A by 2% when using the ViT-B/16 architecture. Furthermore, to help simplify the use of EWC with SSL, we pre-compute and publicly release the Fisher Information Matrix (FIM), evaluated with 10,000 ImageNet-1K variates evaluated on large modern SSL architectures including ViT-B/16 and ResNet50 trained with DINO.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2210.16365",
+      "url": "https://arxiv.org/abs/2210.16365",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2312.15268",
+      "title": "Manydepth2: Motion-Aware Self-Supervised Monocular Depth Estimation in Dynamic Scenes",
+      "authors": [
+        {
+          "name": "Kaichen Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Jia-Wang Bian",
+          "affiliation": ""
+        },
+        {
+          "name": "Jian-Qing Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiaxing Zhong",
+          "affiliation": ""
+        },
+        {
+          "name": "Qian Xie",
+          "affiliation": ""
+        },
+        {
+          "name": "Niki Trigoni",
+          "affiliation": ""
+        },
+        {
+          "name": "Andrew Markham",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Despite advancements in self-supervised monocular depth estimation, challenges persist in dynamic scenarios due to the dependence on assumptions about a static world. In this paper, we present Manydepth2, to achieve precise depth estimation for both dynamic objects and static backgrounds, all while maintaining computational efficiency. To tackle the challenges posed by dynamic content, we incorporate optical flow and coarse monocular depth to create a pseudo-static reference frame. This frame is then utilized to build a motion-aware cost volume in collaboration with the vanilla target frame. Furthermore, to improve the accuracy and robustness of the network architecture, we propose an attention-based depth network that effectively integrates information from feature maps at different resolutions by incorporating both channel and non-local attention mechanisms. Compared to methods with similar computational costs, Manydepth2 achieves a significant reduction of approximately five percent in root-mean-square error for self-supervised monocular depth estimation on the KITTI-2015 dataset. The code could be found at https://github.com/kaichen-z/Manydepth2.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2312.15268",
+      "url": "https://arxiv.org/abs/2312.15268",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2011.09634",
+      "title": "Watch and Learn: Mapping Language and Noisy Real-world Videos with Self-supervision",
+      "authors": [
+        {
+          "name": "Yujie Zhong",
+          "affiliation": ""
+        },
+        {
+          "name": "Linhai Xie",
+          "affiliation": ""
+        },
+        {
+          "name": "Sen Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Lucia Specia",
+          "affiliation": ""
+        },
+        {
+          "name": "Yishu Miao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "In this paper, we teach machines to understand visuals and natural language by learning the mapping between sentences and noisy video snippets without explicit annotations. Firstly, we define a self-supervised learning framework that captures the cross-modal information. A novel adversarial learning module is then introduced to explicitly handle the noises in the natural videos, where the subtitle sentences are not guaranteed to be strongly corresponded to the video snippets. For training and evaluation, we contribute a new dataset `ApartmenTour' that contains a large number of online videos and subtitles. We carry out experiments on the bidirectional retrieval tasks between sentences and videos, and the results demonstrate that our proposed model achieves the state-of-the-art performance on both retrieval tasks and exceeds several strong baselines. The dataset can be downloaded at https://github.com/zyj-13/WAL.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2011.09634",
+      "url": "https://arxiv.org/abs/2011.09634",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2310.11284",
+      "title": "Self-Supervised 3D Scene Flow Estimation and Motion Prediction using Local Rigidity Prior",
+      "authors": [
+        {
+          "name": "Ruibo Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Chi Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhe Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chunhua Shen",
+          "affiliation": ""
+        },
+        {
+          "name": "Guosheng Lin",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "In this article, we investigate self-supervised 3D scene flow estimation and class-agnostic motion prediction on point clouds. A realistic scene can be well modeled as a collection of rigidly moving parts, therefore its scene flow can be represented as a combination of the rigid motion of these individual parts. Building upon this observation, we propose to generate pseudo scene flow labels for self-supervised learning through piecewise rigid motion estimation, in which the source point cloud is decomposed into local regions and each region is treated as rigid. By rigidly aligning each region with its potential counterpart in the target point cloud, we obtain a region-specific rigid transformation to generate its pseudo flow labels. To mitigate the impact of potential outliers on label generation, when solving the rigid registration for each region, we alternately perform three steps: establishing point correspondences, measuring the confidence for the correspondences, and updating the rigid transformation based on the correspondences and their confidence. As a result, confident correspondences will dominate label generation and a validity mask will be derived for the generated pseudo labels. By using the pseudo labels together with their validity mask for supervision, models can be trained in a self-supervised manner. Extensive experiments on FlyingThings3D and KITTI datasets demonstrate that our method achieves new state-of-the-art performance in self-supervised scene flow learning, without any ground truth scene flow for supervision, even performing better than some supervised counterparts. Additionally, our method is further extended to class-agnostic motion prediction and significantly outperforms previous state-of-the-art self-supervised methods on nuScenes dataset.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2310.11284",
+      "url": "https://arxiv.org/abs/2310.11284",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2103.08157",
+      "title": "Pretraining Neural Architecture Search Controllers with Locality-based Self-Supervised Learning",
+      "authors": [
+        {
+          "name": "Kwanghee Choi",
+          "affiliation": ""
+        },
+        {
+          "name": "Minyoung Choe",
+          "affiliation": ""
+        },
+        {
+          "name": "Hyelee Lee",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Neural architecture search (NAS) has fostered various fields of machine learning. Despite its prominent dedications, many have criticized the intrinsic limitations of high computational cost. We aim to ameliorate this by proposing a pretraining scheme that can be generally applied to controller-based NAS. Our method, locality-based self-supervised classification task, leverages the structural similarity of network architectures to obtain good architecture representations. We incorporate our method into neural architecture optimization (NAO) to analyze the pretrained embeddings and its effectiveness and highlight that adding metric learning loss brings a favorable impact on NAS. Our code is available at \\url{https://github.com/Multi-Objective-NAS/self-supervised-nas}.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2103.08157",
+      "url": "https://arxiv.org/abs/2103.08157",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2006.08967",
+      "title": "Robot Perception enables Complex Navigation Behavior via Self-Supervised Learning",
+      "authors": [
+        {
+          "name": "Marvin Chanc\u00e1n",
+          "affiliation": ""
+        },
+        {
+          "name": "Michael Milford",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Learning visuomotor control policies in robotic systems is a fundamental problem when aiming for long-term behavioral autonomy. Recent supervised-learning-based vision and motion perception systems, however, are often separately built with limited capabilities, while being restricted to few behavioral skills such as passive visual odometry (VO) or mobile robot visual localization. Here we propose an approach to unify those successful robot perception systems for active target-driven navigation tasks via reinforcement learning (RL). Our method temporally incorporates compact motion and visual perception data - directly obtained using self-supervision from a single image sequence - to enable complex goal-oriented navigation skills. We demonstrate our approach on two real-world driving dataset, KITTI and Oxford RobotCar, using the new interactive CityLearn framework. The results show that our method can accurately generalize to extreme environmental changes such as day to night cycles with up to an 80% success rate, compared to 30% for a vision-only navigation systems.",
+      "venue": "cs.RO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2006.08967",
+      "url": "https://arxiv.org/abs/2006.08967",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

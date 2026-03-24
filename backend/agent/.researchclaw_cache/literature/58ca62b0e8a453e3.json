@@ -1,0 +1,1516 @@
+{
+  "query": "identity preserving face generation",
+  "source": "openalex",
+  "limit": 40,
+  "timestamp": 1773980037.962064,
+  "papers": [
+    {
+      "paper_id": "oalex-W4386066256",
+      "title": "Identity-Preserving Talking Face Generation with Landmark and Appearance Priors",
+      "authors": [
+        {
+          "name": "Weizhi Zhong",
+          "affiliation": "Sun Yat-sen University"
+        },
+        {
+          "name": "Chaowei Fang",
+          "affiliation": "Xidian University"
+        },
+        {
+          "name": "Yinqi Cai",
+          "affiliation": "Sun Yat-sen University"
+        },
+        {
+          "name": "Pengxu Wei",
+          "affiliation": "Sun Yat-sen University"
+        },
+        {
+          "name": "Gangming Zhao",
+          "affiliation": "University of Hong Kong"
+        },
+        {
+          "name": "Liang Lin",
+          "affiliation": "Sun Yat-sen University"
+        },
+        {
+          "name": "Guanbin Li",
+          "affiliation": "Sun Yat-sen University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Generating talking face videos from audio attracts lots of research interest. A few person-specific methods can generate vivid videos but require the target speaker's videos for training or fine-tuning. Existing person-generic methods have difficulty in generating realistic and lip-synced videos while preserving identity information. To tackle this problem, we propose a two-stage framework consisting of audio-to-landmark generation and landmark-to-video rendering procedures. First, we devise a novel Transformer-based landmark generator to infer lip and jaw landmarks from the audio. Prior landmark characteristics of the speaker's face are employed to make the generated landmarks coincide with the facial outline of the speaker. Then, a video rendering model is built to translate the generated landmarks into face images. During this stage, prior appearance information is extracted from the lower-half occluded target face and static reference images, which helps generate realistic and identity-preserving visual content. For effectively exploring the prior information of static reference images, we align static reference images with the target face's pose and expression based on motion fields. Moreover, auditory features are reused to guarantee that the generated face images are well synchronized with the audio. Extensive experiments demonstrate that our method can produce more realistic, lip-synced, and identity-preserving videos than existing person-generic talking face generation methods.",
+      "venue": "",
+      "citation_count": 82,
+      "doi": "10.1109/cvpr52729.2023.00938",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr52729.2023.00938",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4393149651",
+      "title": "DreamIdentity: Enhanced Editability for Efficient Face-Identity Preserved Image Generation",
+      "authors": [
+        {
+          "name": "Zhuowei Chen",
+          "affiliation": "University of Science and Technology of China"
+        },
+        {
+          "name": "Shancheng Fang",
+          "affiliation": "University of Science and Technology of China"
+        },
+        {
+          "name": "Wei Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Qian He",
+          "affiliation": ""
+        },
+        {
+          "name": "Mengqi Huang",
+          "affiliation": "University of Science and Technology of China"
+        },
+        {
+          "name": "Zhendong Mao",
+          "affiliation": "University of Science and Technology of China"
+        }
+      ],
+      "year": 2024,
+      "abstract": "While large-scale pre-trained text-to-image models can synthesize diverse and high-quality human-centric images, an intractable problem is how to preserve the face identity and follow the text prompts simultaneously for conditioned input face images and texts. Despite existing encoder-based methods achieving high efficiency and decent face similarity, the generated image often fails to follow the textual prompts. To ease this editability issue, we present DreamIdentity, to learn edit-friendly and accurate face-identity representations in the word embedding space. Specifically, we propose self-augmented editability learning to enhance the editability for projected embedding, which is achieved by constructing paired generated celebrity's face and edited celebrity images for training, aiming at transferring mature editability of off-the-shelf text-to-image models in celebrity to unseen identities. Furthermore, we design a novel dedicated face-identity encoder to learn an accurate representation of human faces, which applies multi-scale ID-aware features followed by a multi-embedding projector to generate the pseudo words in the text embedding space directly. Extensive experiments show that our method can generate more text-coherent and ID-preserved images with negligible time overhead compared to the standard text-to-image generation process.",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 11,
+      "doi": "10.1609/aaai.v38i2.27891",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v38i2.27891",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4402727125",
+      "title": "DreamSalon: A Staged Diffusion Framework for Preserving Identity-Context in Editable Face Generation",
+      "authors": [
+        {
+          "name": "Haonan Lin",
+          "affiliation": "Xi'an Jiaotong University"
+        }
+      ],
+      "year": 2024,
+      "abstract": "While large-scale pre-trained text-to-image models can synthesize diverse and high-quality human-centered images, novel challenges arise with a nuanced task of \u201cidentity fine editing\u201d -precisely modifying specific features of a subject while maintaining its inherent identity and context. Existing personalization methods either require time-consuming optimization or learning additional encoders, adept in \u201cidentity re-contextualization\u201d. However, they often struggle with detailed and sensitive tasks like human face editing. To address these challenges, we introduce DreamSalon, a noise-guided, staged-editing framework, uniquely focusing on de-tailed image manipulations and identity-context preservation. By discerning editing and boosting stages via the frequency and gradient of predicted noises, DreamSalon first performs detailed manipulations on specific features in the editing stage, guided by high-frequency information, and then employs stochastic denoising in the boosting stage to improve image quality. For more precise editing, DreamSa-lon semantically mixes source and target textual prompts, guided by differences in their embedding covariances, to direct the model's focus on specific manipulation areas. Our experiments demonstrate DreamSalon's ability to efficiently and faithfully edit fine details on human faces, outperforming existing methods both qualitatively and quantitatively.",
+      "venue": "",
+      "citation_count": 5,
+      "doi": "10.1109/cvpr52733.2024.00820",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr52733.2024.00820",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4383176103",
+      "title": "DreamIdentity: Improved Editability for Efficient Face-identity Preserved Image Generation",
+      "authors": [
+        {
+          "name": "Zhuowei Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Shancheng Fang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wei Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Qian He",
+          "affiliation": ""
+        },
+        {
+          "name": "Mengqi Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yongdong Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhendong Mao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "While large-scale pre-trained text-to-image models can synthesize diverse and high-quality human-centric images, an intractable problem is how to preserve the face identity for conditioned face images. Existing methods either require time-consuming optimization for each face-identity or learning an efficient encoder at the cost of harming the editability of models. In this work, we present an optimization-free method for each face identity, meanwhile keeping the editability for text-to-image models. Specifically, we propose a novel face-identity encoder to learn an accurate representation of human faces, which applies multi-scale face features followed by a multi-embedding projector to directly generate the pseudo words in the text embedding space. Besides, we propose self-augmented editability learning to enhance the editability of models, which is achieved by constructing paired generated face and edited face images using celebrity names, aiming at transferring mature ability of off-the-shelf text-to-image models in celebrity faces to unseen faces. Extensive experiments show that our methods can generate identity-preserved images under different scenes at a much faster speed.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 4,
+      "doi": "10.48550/arxiv.2307.00300",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2307.00300",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3029279979",
+      "title": "Identity-Preserving Realistic Talking Face Generation",
+      "authors": [
+        {
+          "name": "Sanjana Sinha",
+          "affiliation": "Embedded Systems (United States)"
+        },
+        {
+          "name": "Sandika Biswas",
+          "affiliation": "Embedded Systems (United States)"
+        },
+        {
+          "name": "Brojeshwar Bhowmick",
+          "affiliation": "Embedded Systems (United States)"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Speech-driven facial animation is useful for a variety of applications such as telepresence, chatbots, etc. The necessary attributes of having a realistic face animation are 1) audiovisual synchronization (2) identity preservation of the target individual (3) plausible mouth movements (4) presence of natural eye blinks. The existing methods mostly address the audiovisual lip synchronization, and few recent works have addressed synthesis of natural eye blinks for overall video realism. In this paper, we propose a method for identity-preserving realistic facial animation from speech. We first generate person-independent facial landmarks from audio using DeepSpeech features for invariance to different voices, accents, etc. To add realism, we impose eye blinks on facial landmarks using unsupervised learning and retarget the person-independent landmarks to person-specific landmarks to preserve the identity-related facial structure which helps in generation of plausible mouth shapes of the target identity. Finally, we use LSGAN to generate the facial texture from person-specific facial landmarks, using an attention mechanism that helps to preserve identity-related texture. An extensive comparison of our proposed method with the current state-of-the-art methods demonstrate a significant improvement in terms of lip synchronization accuracy, image reconstruction quality, sharpness, and identity-preservation. A user study also reveals improved realism of our animation results over the state-of-the-art methods. To the best of our knowledge, this is the first work in speech-driven 2D facial animation that simultaneously addresses all the above-mentioned attributes of a realistic speech driven face animation.",
+      "venue": "",
+      "citation_count": 1,
+      "doi": "10.1109/ijcnn48605.2020.9206665",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/ijcnn48605.2020.9206665",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4376653734",
+      "title": "Identity-Preserving Talking Face Generation with Landmark and Appearance Priors",
+      "authors": [
+        {
+          "name": "Weizhi Zhong",
+          "affiliation": ""
+        },
+        {
+          "name": "Chaowei Fang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yinqi Cai",
+          "affiliation": ""
+        },
+        {
+          "name": "Pengxu Wei",
+          "affiliation": ""
+        },
+        {
+          "name": "Gangming Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Liang Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Guanbin Li",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Generating talking face videos from audio attracts lots of research interest. A few person-specific methods can generate vivid videos but require the target speaker's videos for training or fine-tuning. Existing person-generic methods have difficulty in generating realistic and lip-synced videos while preserving identity information. To tackle this problem, we propose a two-stage framework consisting of audio-to-landmark generation and landmark-to-video rendering procedures. First, we devise a novel Transformer-based landmark generator to infer lip and jaw landmarks from the audio. Prior landmark characteristics of the speaker's face are employed to make the generated landmarks coincide with the facial outline of the speaker. Then, a video rendering model is built to translate the generated landmarks into face images. During this stage, prior appearance information is extracted from the lower-half occluded target face and static reference images, which helps generate realistic and identity-preserving visual content. For effectively exploring the prior information of static reference images, we align static reference images with the target face's pose and expression based on motion fields. Moreover, auditory features are reused to guarantee that the generated face images are well synchronized with the audio. Extensive experiments demonstrate that our method can produce more realistic, lip-synced, and identity-preserving videos than existing person-generic talking face generation methods.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 1,
+      "doi": "10.48550/arxiv.2305.08293",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2305.08293",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4409560606",
+      "title": "FaceArchive: Facial Image Tokenizer for Identity and Attribute Preserving Face Generation",
+      "authors": [
+        {
+          "name": "Fabianaugie Jametoni",
+          "affiliation": "Inha University"
+        },
+        {
+          "name": "In Kyu Park",
+          "affiliation": "Inha University"
+        }
+      ],
+      "year": 2025,
+      "abstract": "Current approaches in face image generation typically focus on preserving identity or attributes exclusively. Identity preservation techniques maintain facial identity while enabling attribute manipulation, primarily serving personalized image generation applications. Conversely, attribute preservation methods retain facial characteristics while altering identity, commonly employed in face de-identification or dataset anonymization tasks. This dichotomy has created a significant gap in applications that require the simultaneous preservation of both aspects. In this paper, we present FaceArchive, a novel face tokenization framework that successfully disentangles and preserves both identity and attribute information from face images. Our architecture enables unprecedented control over face generation, allowing for either identity-preserving or attribute-preserving generation while maintaining high fidelity in both domains.",
+      "venue": "IEEE Access",
+      "citation_count": 1,
+      "doi": "10.1109/access.2025.3562074",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/access.2025.3562074",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3193435896",
+      "title": "Face Texture Generation And Identity-Preserving Rectification",
+      "authors": [
+        {
+          "name": "Stefan H\u00f6rmann",
+          "affiliation": "Technical University of Munich"
+        },
+        {
+          "name": "Arka Bhowmick",
+          "affiliation": "Technical University of Munich"
+        },
+        {
+          "name": "Michael Weiher",
+          "affiliation": ""
+        },
+        {
+          "name": "Karl Leiss",
+          "affiliation": ""
+        },
+        {
+          "name": "Gerhard Rigoll",
+          "affiliation": "Technical University of Munich"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Textures are a vital asset in conveying a realistic impression of a 3D scene to the viewers. In order to obtain high-quality textures, real-life objects are scanned or designers create handcrafted textures. Both tasks involve manual work, are quite time-consuming, and therefore fail when a large quantity of textures is required. Thus, we propose to use a Generative Adversarial Network to generate an artificial texture. As textures need to be perfectly aligned with the 2D projection of the 3D model, our method involves a texture rectification technique, ensuring that the generated textures wrap well onto the 3D model. On the example of face textures, we illustrate that our method generates textures of high quality and variance. Moreover, we show that the rectification process preserves the facial appearance and identity, indicating that we successfully disentangle features responsible for facial appearance and the texture\u2019s fit.",
+      "venue": "",
+      "citation_count": 1,
+      "doi": "10.1109/icip42928.2021.9506297",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/icip42928.2021.9506297",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3087056823",
+      "title": "DVG-Face: Dual Variational Generation for Heterogeneous Face Recognition",
+      "authors": [
+        {
+          "name": "Chaoyou Fu",
+          "affiliation": "Institute of Automation"
+        },
+        {
+          "name": "Xiang Wu",
+          "affiliation": "Institute of Automation"
+        },
+        {
+          "name": "Yibo Hu",
+          "affiliation": "Institute of Automation"
+        },
+        {
+          "name": "Huaibo Huang",
+          "affiliation": "Institute of Automation"
+        },
+        {
+          "name": "Ran He",
+          "affiliation": "Institute of Automation"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Heterogeneous face recognition (HFR) refers to matching cross-domain faces and plays a crucial role in public security. Nevertheless, HFR is confronted with challenges from large domain discrepancy and insufficient heterogeneous data. In this paper, we formulate HFR as a dual generation problem, and tackle it via a novel dual variational generation (DVG-Face) framework. Specifically, a dual variational generator is elaborately designed to learn the joint distribution of paired heterogeneous images. However, the small-scale paired heterogeneous training data may limit the identity diversity of sampling. In order to break through the limitation, we propose to integrate abundant identity information of large-scale visible data into the joint distribution. Furthermore, a pairwise identity preserving loss is imposed on the generated paired heterogeneous images to ensure their identity consistency. As a consequence, massive new diverse paired heterogeneous images with the same identity can be generated from noises. The identity consistency and identity diversity properties allow us to employ these generated images to train the HFR network via a contrastive learning mechanism, yielding both domain-invariant and discriminative embedding features. Concretely, the generated paired heterogeneous images are regarded as positive pairs, and the images obtained from different samplings are considered as negative pairs. Our method achieves superior performances over state-of-the-art methods on seven challenging databases belonging to five HFR tasks, including NIR-VIS, Sketch-Photo, Profile-Frontal Photo, Thermal-VIS, and ID-Camera.",
+      "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+      "citation_count": 84,
+      "doi": "10.1109/tpami.2021.3052549",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tpami.2021.3052549",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4394597549",
+      "title": "Diffused Heads: Diffusion Models Beat GANs on Talking-Face Generation",
+      "authors": [
+        {
+          "name": "Micha\u0142 Stypu\u0142kowski",
+          "affiliation": ""
+        },
+        {
+          "name": "Konstantinos Vougioukas",
+          "affiliation": "Imperial College London"
+        },
+        {
+          "name": "Sen He",
+          "affiliation": ""
+        },
+        {
+          "name": "Maciej Zi\u0119ba",
+          "affiliation": "University of Science and Technology"
+        },
+        {
+          "name": "Stavros Petridis",
+          "affiliation": "Imperial College London"
+        },
+        {
+          "name": "Maja Panti\u0107",
+          "affiliation": "Imperial College London"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Talking face generation has historically struggled to produce head movements and natural facial expressions without guidance from additional reference videos. Recent developments in diffusion-based generative models allow for more realistic and stable data synthesis and their performance on image and video generation has surpassed that of other generative models. In this work, we present an autoregressive diffusion model that requires only one identity image and audio sequence to generate a video of a realistic talking head. Our solution is capable of hallucinating head movements, facial expressions, such as blinks, and preserving a given background. We evaluate our model on two different datasets, achieving state-of-the-art results in expressiveness and smoothness on both of them. <sup xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">1</sup>",
+      "venue": "",
+      "citation_count": 107,
+      "doi": "10.1109/wacv57701.2024.00502",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/wacv57701.2024.00502",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3165405144",
+      "title": "Image-to-Video Generation via 3D Facial Dynamics",
+      "authors": [
+        {
+          "name": "Xiaoguang Tu",
+          "affiliation": "Civil Aviation Flight University of China"
+        },
+        {
+          "name": "Yingtian Zou",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Jian Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenjie Ai",
+          "affiliation": "University of Electronic Science and Technology of China"
+        },
+        {
+          "name": "Jian Dong",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuan Yao",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhikang Wang",
+          "affiliation": "Xidian University"
+        },
+        {
+          "name": "Guodong Guo",
+          "affiliation": "Baidu (China)"
+        },
+        {
+          "name": "Zhifeng Li",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Wei Liu",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Jiashi Feng",
+          "affiliation": "National University of Singapore"
+        }
+      ],
+      "year": 2021,
+      "abstract": "We present a versatile model, FaceAnime, for various video generation tasks from still images. Video generation from a single face image is an interesting problem and usually tackled by utilizing Generative Adversarial Networks (GANs) to integrate information from the input face image and a sequence of sparse facial landmarks. However, the generated face images usually suffer from quality loss, image distortion, identity change, and expression mismatching due to the weak representation capacity of the facial landmarks. In this paper, we propose to \u201cimagine\u201d a face video from a single face image according to the reconstructed 3D face dynamics, aiming to generate a realistic and identity-preserving face video, with precisely predicted pose and facial expression. The 3D dynamics reveal changes of the facial expression and motion, and can serve as a strong prior knowledge for guiding highly realistic face video generation. In particular, we explore face video prediction and exploit a well-designed 3D dynamic prediction network to predict a 3D dynamic sequence for a single face image. The 3D dynamics are then further rendered by the sparse texture mapping algorithm to recover structural details and sparse textures for generating face frames. Our model is versatile for various AR/VR and entertainment applications, such as face video retargeting and face video prediction. Superior experimental results have well demonstrated its effectiveness in generating high-fidelity, identity-preserving, and visually pleasant face video clips from a single source face image.",
+      "venue": "IEEE Transactions on Circuits and Systems for Video Technology",
+      "citation_count": 56,
+      "doi": "10.1109/tcsvt.2021.3083257",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tcsvt.2021.3083257",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4386075501",
+      "title": "DiffSwap: High-Fidelity and Controllable Face Swapping via 3D-Aware Masked Diffusion",
+      "authors": [
+        {
+          "name": "Wenliang Zhao",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Yongming Rao",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Weikang Shi",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Zuyan Liu",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Jie Zhou",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Jiwen Lu",
+          "affiliation": "Tsinghua University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "In this paper, we propose DiffSwap, a diffusion model based framework for high-fidelity and controllable face swapping. Unlike previous work that relies on carefully designed network architectures and loss functions to fuse the information from the source and target faces, we reformulate the face swapping as a conditional inpainting task, performed by a powerful diffusion model guided by the desired face attributes (e.g., identity and landmarks). An important issue that makes it nontrivial to apply diffusion models to face swapping is that we cannot perform the time-consuming multi-step sampling to obtain the generated image during training. To overcome this, we propose a mid-point estimation method to efficiently recover a reasonable diffusion result of the swapped face with only 2 steps, which enables us to introduce identity constraints to improve the face swapping quality. Our framework enjoys several favorable properties more appealing than prior arts: 1) Controllable. Our method is based on conditional masked diffusion on the latent space, where the mask and the conditions can be fully controlled and customized. 2) High-fidelity. The formulation of conditional inpainting can fully exploit the generative ability of diffusion models and can preserve the background of target images with minimal artifacts. 3) Shape-preserving. The controllability of our method enables us to use 3D-aware landmarks as the condition during generation to preserve the shape of the source face. Extensive experiments on both FF++ and FFHQ demonstrate that our method can achieve state-of-the-art face swapping results both qualitatively and quantitatively.",
+      "venue": "",
+      "citation_count": 69,
+      "doi": "10.1109/cvpr52729.2023.00828",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr52729.2023.00828",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4311808636",
+      "title": "Deep Person Generation: A Survey from the Perspective of Face, Pose, and Cloth Synthesis",
+      "authors": [
+        {
+          "name": "Tong Sha",
+          "affiliation": "Beihang University"
+        },
+        {
+          "name": "Wei Zhang",
+          "affiliation": "Jingdong (China)"
+        },
+        {
+          "name": "Tong Shen",
+          "affiliation": "Jingdong (China)"
+        },
+        {
+          "name": "Zhoujun Li",
+          "affiliation": "Beihang University"
+        },
+        {
+          "name": "Tao Mei",
+          "affiliation": "Jingdong (China)"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Deep person generation has attracted extensive research attention due to its wide applications in virtual agents, video conferencing, online shopping, and art/movie production. With the advancement of deep learning, visual appearances (face, pose, cloth) of a person image can be easily generated on demand. In this survey, we first summarize the scope of person generation, and then systematically review recent progress and technical trends in identity-preserving deep person generation, covering three major tasks: talking-head generation (face), pose-guided person generation (pose), and garment-oriented person generation (cloth). More than two hundred papers are covered for a thorough overview, and the milestone works are highlighted to witness the major technical breakthrough. Based on these fundamental tasks, many applications are investigated, e.g., virtual fitting, digital human, and generative data augmentation. We hope this survey could shed some light on the future prospects of identity-preserving deep person generation, and provide a helpful foundation for full applications towards the digital human.",
+      "venue": "ACM Computing Surveys",
+      "citation_count": 33,
+      "doi": "10.1145/3575656",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3575656",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3112539661",
+      "title": "Unsupervised face Frontalization for pose-invariant face recognition",
+      "authors": [
+        {
+          "name": "Yanfei Liu",
+          "affiliation": "Chongqing University of Technology"
+        },
+        {
+          "name": "Junhua Chen",
+          "affiliation": "Chongqing University of Posts and Telecommunications"
+        }
+      ],
+      "year": 2020,
+      "abstract": "",
+      "venue": "Image and Vision Computing",
+      "citation_count": 25,
+      "doi": "10.1016/j.imavis.2020.104093",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.imavis.2020.104093",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4386066799",
+      "title": "One-Shot High-Fidelity Talking-Head Synthesis with Deformable Neural Radiance Field",
+      "authors": [
+        {
+          "name": "Weichuang Li",
+          "affiliation": "ShangHai JiAi Genetics & IVF Institute"
+        },
+        {
+          "name": "Longhao Zhang",
+          "affiliation": "Alibaba Group (Cayman Islands)"
+        },
+        {
+          "name": "Dong Wang",
+          "affiliation": "ShangHai JiAi Genetics & IVF Institute"
+        },
+        {
+          "name": "Bin Zhao",
+          "affiliation": "ShangHai JiAi Genetics & IVF Institute"
+        },
+        {
+          "name": "Zhigang Wang",
+          "affiliation": "Shanghai Artificial Intelligence Laboratory"
+        },
+        {
+          "name": "Mulin Chen",
+          "affiliation": "Shanghai Artificial Intelligence Laboratory"
+        },
+        {
+          "name": "Bang Zhang",
+          "affiliation": "Alibaba Group (Cayman Islands)"
+        },
+        {
+          "name": "Zhongjian Wang",
+          "affiliation": "Shanghai Artificial Intelligence Laboratory"
+        },
+        {
+          "name": "Liefeng Bo",
+          "affiliation": "Alibaba Group (Cayman Islands)"
+        },
+        {
+          "name": "Xuelong Li",
+          "affiliation": "Northwestern Polytechnical University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Talking head generation aims to generate faces that maintain the identity information of the source image and imitate the motion of the driving image. Most pioneering methods rely primarily on 2D representations and thus will inevitably suffer from face distortion when large head rotations are encountered. Recent works instead employ explicit 3D structural representations or implicit neural rendering to improve performance under large pose changes. Nevertheless, the fidelity of identity and expression is not so desirable, especially for novel-view synthesis. In this paper, we propose HiDe-NeRF, which achieves high-fidelity and free-view talking-head synthesis. Drawing on the recently proposed Deformable Neural Radiance Fields, HiDe-NeRF represents the 3D dynamic scene into a canonical appearance field and an implicit deformation field, where the former comprises the canonical source face and the latter models the driving pose and expression. In particular, we improve fidelity from two aspects: (i) to enhance identity expressiveness, we design a generalized appearance module that leverages multi-scale volume features to preserve face shape and details; (ii) to improve expression preciseness, we propose a lightweight deformation module that explicitly decouples the pose and expression to enable precise expression modeling. Extensive experiments demonstrate that our proposed approach can generate better results than previous works. Project page: https://www.waytron.net/hidenerf/",
+      "venue": "",
+      "citation_count": 45,
+      "doi": "10.1109/cvpr52729.2023.01723",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr52729.2023.01723",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3170237120",
+      "title": "IsGAN: Identity-sensitive generative adversarial network for face photo-sketch synthesis",
+      "authors": [
+        {
+          "name": "Lan Yan",
+          "affiliation": "Beijing Academy of Artificial Intelligence"
+        },
+        {
+          "name": "Wenbo Zheng",
+          "affiliation": "Chinese Academy of Sciences"
+        },
+        {
+          "name": "Chao Gou",
+          "affiliation": "Sun Yat-sen University"
+        },
+        {
+          "name": "Fei\u2010Yue Wang",
+          "affiliation": "Institute of Automation"
+        }
+      ],
+      "year": 2021,
+      "abstract": "",
+      "venue": "Pattern Recognition",
+      "citation_count": 33,
+      "doi": "10.1016/j.patcog.2021.108077",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.patcog.2021.108077",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4386066083",
+      "title": "MetaPortrait: Identity-Preserving Talking Head Generation with Fast Personalized Adaptation",
+      "authors": [
+        {
+          "name": "Bowen Zhang",
+          "affiliation": "Microsoft Research (United Kingdom)"
+        },
+        {
+          "name": "Chenyang Qi",
+          "affiliation": "Hong Kong University of Science and Technology"
+        },
+        {
+          "name": "Pan Zhang",
+          "affiliation": "University of Science and Technology Chittagong"
+        },
+        {
+          "name": "Bo Zhang",
+          "affiliation": "Microsoft Research (United Kingdom)"
+        },
+        {
+          "name": "HsiangTao Wu",
+          "affiliation": "Microsoft Research (United Kingdom)"
+        },
+        {
+          "name": "Dong Chen",
+          "affiliation": "Hong Kong University of Science and Technology"
+        },
+        {
+          "name": "Qifeng Chen",
+          "affiliation": "Hong Kong University of Science and Technology"
+        },
+        {
+          "name": "Yong Wang",
+          "affiliation": "University of Science and Technology Chittagong"
+        },
+        {
+          "name": "Fang Wen",
+          "affiliation": "Microsoft Research (United Kingdom)"
+        }
+      ],
+      "year": 2023,
+      "abstract": "In this work, we propose an ID-preserving talking head generation framework, which advances previous methods in two aspects. First, as opposed to interpolating from sparse flow, we claim that dense landmarks are crucial to achieving accurate geometry-aware flow fields. Second, inspired by face-swapping methods, we adaptively fuse the source identity during synthesis, so that the network better preserves the key characteristics of the image portrait. Although the proposed model surpasses prior generation fidelity on established benchmarks, personalized fine-tuning is still needed to further make the talking head generation qualified for real usage. However, this process is rather computationally demanding that is unaffordable to standard users. To alleviate this, we propose a fast adaptation model using a metalearning approach. The learned model can be adapted to a high-quality personalized model as fast as 30 seconds. Last but not least, a spatial-temporal enhancement module is proposed to improve the fine details while ensuring temporal coherency. Extensive experiments prove the significant superiority of our approach over the state of the arts in both one-shot and personalized settings.",
+      "venue": "",
+      "citation_count": 44,
+      "doi": "10.1109/cvpr52729.2023.02116",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr52729.2023.02116",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4386071653",
+      "title": "StyleSync: High-Fidelity Generalized and Personalized Lip Sync in Style-Based Generator",
+      "authors": [
+        {
+          "name": "Jiazhi Guan",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Zhanwang Zhang",
+          "affiliation": "Vision Technology (United States)"
+        },
+        {
+          "name": "Hang Zhou",
+          "affiliation": "Vision Technology (United States)"
+        },
+        {
+          "name": "Tianshu Hu",
+          "affiliation": "Vision Technology (United States)"
+        },
+        {
+          "name": "Kaisiyuan Wang",
+          "affiliation": "University of Sydney"
+        },
+        {
+          "name": "Dongliang He",
+          "affiliation": "Baidu (China)"
+        },
+        {
+          "name": "Haocheng Feng",
+          "affiliation": "Baidu (China)"
+        },
+        {
+          "name": "Jingtuo Liu",
+          "affiliation": "Baidu (China)"
+        },
+        {
+          "name": "Errui Ding",
+          "affiliation": "Baidu (China)"
+        },
+        {
+          "name": "Ziwei Liu",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Jingdong Wang",
+          "affiliation": "Baidu (China)"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Despite recent advances in syncing lip movements with any audio waves, current methods still struggle to balance generation quality and the model's generalization ability. Previous studies either require long-term data for training or produce a similar movement pattern on all subjects with low quality. In this paper, we propose StyleSync, an effective framework that enables high-fidelity lip synchronization. We identify that a style-based generator would sufficiently enable such a charming property on both one-shot and few-shot scenarios. Specifically, we design a mask-guided spatial information encoding module that preserves the details of the given face. The mouth shapes are accurately modified by audio through modulated convolutions. Moreover, our design also enables personalized lip-sync by introducing style space and generator refinement on only limited frames. Thus the identity and talking style of a target person could be accurately preserved. Extensive experiments demonstrate the effectiveness of our method in producing high-fidelity results on a variety of scenes. Resources can be found at https:/hangz-nju-cuhk.github.io/projects/StyleSync.",
+      "venue": "",
+      "citation_count": 55,
+      "doi": "10.1109/cvpr52729.2023.00151",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr52729.2023.00151",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4386076336",
+      "title": "CLIP2Protect: Protecting Facial Privacy Using Text-Guided Makeup via Adversarial Latent Search",
+      "authors": [
+        {
+          "name": "Fahad Shamshad",
+          "affiliation": "Zayed University"
+        },
+        {
+          "name": "Muzammal Naseer",
+          "affiliation": "Zayed University"
+        },
+        {
+          "name": "Karthik Nandakumar",
+          "affiliation": "Zayed University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "The success of deep learning based face recognition systems has given rise to serious privacy concerns due to their ability to enable unauthorized tracking of users in the digital world. Existing methods for enhancing privacy fail to generate \u201cnaturalistic\u201d images that can protect facial privacy without compromising user experience. We propose a novel two-step approach for facial privacy protection that relies on finding adversarial latent codes in the low- dimensional manifold of a pretrained generative model. The first step inverts the given face image into the latent space and finetunes the generative model to achieve an accurate reconstruction of the given image from its latent code. This step produces a good initialization, aiding the generation of high-quality faces that resemble the given identity. Subsequently, user-defined makeup text prompts and identity- preserving regularization are used to guide the search for adversarial codes in the latent space. Extensive experiments demonstrate that faces generated by our approach have stronger black-box transferability with an absolute gain of 12.06% over the state-of-the-art facial privacy protection approach under the face verification task. Finally, we demonstrate the effectiveness of the proposed approach for commercial face recognition systems. Our code is available at https://github.com/fahadshamshad/Clip2Protect.",
+      "venue": "",
+      "citation_count": 38,
+      "doi": "10.1109/cvpr52729.2023.01973",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr52729.2023.01973",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3093450153",
+      "title": "Talking Face Generation with Expression-Tailored Generative Adversarial Network",
+      "authors": [
+        {
+          "name": "Dan Zeng",
+          "affiliation": "Shanghai University"
+        },
+        {
+          "name": "Han Liu",
+          "affiliation": "Shanghai University"
+        },
+        {
+          "name": "Hui Lin",
+          "affiliation": "Beijing Academy of Artificial Intelligence"
+        },
+        {
+          "name": "Shiming Ge",
+          "affiliation": "Institute of Information Engineering"
+        }
+      ],
+      "year": 2020,
+      "abstract": "A key of automatically generating vivid talking faces is to synthesize identity-preserving natural facial expressions beyond audio-lip synchronization, which usually need to disentangle the informative features from multiple modals and then fuse them together. In this paper, we propose an end-to-end Expression-Tailored Generative Adversarial Network (ET-GAN) to generate an expression enriched talking face video of arbitrary identity. Different from talking face generation based on identity image and audio, an expressional video of arbitrary identity serves as the expression source in our approach. Expression encoder is proposed to disentangle expression-tailored representation from the guiding expressional video, while audio encoder disentangles audio-lip representation. Instead of using single image as identity input, multi-image identity encoder is proposed by learning different views of faces and merging a unified representation. Multiple discriminators are exploited to keep both image-aware and the video-aware realistic details, including a spatial-temporal discriminator for visual continuity of expression synthesis and facial movements. We conduct extensive experimental evaluations on quantitative metrics, expression retention quality and audio-visual synchronization. The results show the effectiveness of our ET-GAN in generating high quality expressional talking face videos against existing state-of-the-arts.",
+      "venue": "",
+      "citation_count": 31,
+      "doi": "10.1145/3394171.3413844",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3394171.3413844",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4312568827",
+      "title": "Rethinking Deep Face Restoration",
+      "authors": [
+        {
+          "name": "Yang Zhao",
+          "affiliation": "University at Buffalo, State University of New York"
+        },
+        {
+          "name": "Yu-Chuan Su",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Chun-Te Chu",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Yandong Li",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Marius Renn",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Yukun Zhu",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Changyou Chen",
+          "affiliation": "University at Buffalo, State University of New York"
+        },
+        {
+          "name": "Xuhui Jia",
+          "affiliation": "Google (United States)"
+        }
+      ],
+      "year": 2022,
+      "abstract": "A model that can authentically restore a low-quality face image to a high-quality one can benefit many applications. While existing approaches for face restoration make significant progress in generating high-quality faces, they often fail to preserve facial features that compromise the authenticity of reconstructed faces. Because the human visual system is very sensitive to faces, even minor changes may significantly degrade the perceptual quality. In this work, we argue that the problems of existing models can be traced down to the two sub-tasks of the face restoration problem, i.e. face generation and face reconstruction, and the fragile balance between them. Based on the observation, we propose a new face restoration model that improves both generation and reconstruction. Besides the model improvement, we also introduce a new evaluation metric for measuring models' ability to preserve the identity in the restored faces. Extensive experiments demonstrate that our model achieves state-of-the-art performance on multiple face restoration benchmarks, and the proposed metric has a higher correlation with user preference. The user study shows that our model produces higher quality faces while better preserving the identity 86.4% of the time compared with state-of-the-art methods.",
+      "venue": "2022 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+      "citation_count": 20,
+      "doi": "10.1109/cvpr52688.2022.00750",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr52688.2022.00750",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4210805826",
+      "title": "A Conditional Privacy-Preserving Certificateless Aggregate Signature Scheme in the Standard Model for VANETs",
+      "authors": [
+        {
+          "name": "Huiwen Wang",
+          "affiliation": "Shanghai University of Electric Power"
+        },
+        {
+          "name": "Liangliang Wang",
+          "affiliation": "Shanghai University of Electric Power"
+        },
+        {
+          "name": "Kai Zhang",
+          "affiliation": "Shanghai University of Electric Power"
+        },
+        {
+          "name": "Jinguo Li",
+          "affiliation": "Shanghai University of Electric Power"
+        },
+        {
+          "name": "Yiyuan Luo",
+          "affiliation": "Huizhou University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Vehicular ad hoc networks (VANETs) are the communication foundation for future intelligent transportation systems and guarantee safe driving of intelligent networked vehicles. Moreover, VANETs face a series of security challenges related to the protection of vehicle privacy, authenticity of transmitted information, and bandwidth limitations. To resolve these contradictions, many certificateless aggregate signature (CLAS) schemes have been proposed. However, the majority of them can neither resist malicious-but-passive key generation center attacks, replay attacks, and link attacks, nor track the actual identities of malicious vehicles. Meanwhile, the security of previous CLAS schemes in VANETs is only formally provided in the random oracle model (ROM), which might be insecure in actual implementation. In addition, most CLAS schemes still have problems of large verification delays and high communication overhead. To address the above-mentioned problems, a new conditional privacy-preserving CLAS scheme in VANETs is proposed, which adopts full aggregation technology to reduce computation and bandwidth resources. According to the formal security proofs under the computational Diffie-Hellman problem (CDHP) given in the standard model (SM), the security level of this scheme is higher than that of other CLAS schemes under ROM in practical applications. Additionally, the use of pseudonym mechanism realizes conditional privacy protection in VANETs. The performance analysis shows that this scheme has a higher efficiency in terms of computation and communication overhead compared with several previous CLAS schemes.",
+      "venue": "IEEE Access",
+      "citation_count": 59,
+      "doi": "10.1109/access.2022.3147595",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/access.2022.3147595",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4385804882",
+      "title": "Face Transformer: Towards High Fidelity and Accurate Face Swapping",
+      "authors": [
+        {
+          "name": "Kaiwen Cui",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Rongliang Wu",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Fangneng Zhan",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Shijian Lu",
+          "affiliation": "Nanyang Technological University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Face swapping aims to generate swapped images that fuse the identity of source faces and the attributes of target faces. Most existing works address this challenging task through 3D modelling or generation using generative adversarial networks (GANs), but 3D modelling suffers from limited reconstruction accuracy and GANs often struggle in preserving subtle yet important identity details of source faces (e.g., skin colors, face features) and structural attributes of target faces (e.g., face shapes, facial expressions). This paper presents Face Transformer, a novel face swapping network that can accurately preserve source identities and target attributes simultaneously in the swapped face images. We introduce a transformer network for the face swapping task, which learns high-quality semantic-aware correspondence between source and target faces and maps identity features of source faces to the corresponding region in target faces. The high-quality semantic-aware correspondence enables smooth and accurate transfer of source identity information with minimal modification of target shapes and expressions. In addition, our Face Transformer incorporates a multi-scale transformation mechanism for preserving the rich fine facial details. Extensive experiments show that our Face Transformer achieves superior face swapping performance qualitatively and quantitatively.",
+      "venue": "",
+      "citation_count": 18,
+      "doi": "10.1109/cvprw59228.2023.00074",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvprw59228.2023.00074",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4313132612",
+      "title": "StyleFace: Towards Identity-Disentangled Face Generation on Megapixels",
+      "authors": [
+        {
+          "name": "Yuchen Luo",
+          "affiliation": "Shanghai Jiao Tong University"
+        },
+        {
+          "name": "Jun\u2010Wei Zhu",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Keke He",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Wenqing Chu",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Ying Tai",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Chengjie Wang",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Junchi Yan",
+          "affiliation": "Shanghai Jiao Tong University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "",
+      "venue": "Lecture notes in computer science",
+      "citation_count": 18,
+      "doi": "10.1007/978-3-031-19787-1_17",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/978-3-031-19787-1_17",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3015652796",
+      "title": "An Updated Checklist of the Sicilian Native Edible Plants: Preserving the Traditional Ecological Knowledge of Century-Old Agro-Pastoral Landscapes",
+      "authors": [
+        {
+          "name": "Salvatore Pasta",
+          "affiliation": "National Research Council"
+        },
+        {
+          "name": "A. La Rosa",
+          "affiliation": ""
+        },
+        {
+          "name": "Giuseppe Garf\u00ec",
+          "affiliation": "National Research Council"
+        },
+        {
+          "name": "Corrado Marcen\u00f2",
+          "affiliation": "Masaryk University"
+        },
+        {
+          "name": "Alessandro Silvestre Gristina",
+          "affiliation": "National Research Council"
+        },
+        {
+          "name": "Francesco Carimi",
+          "affiliation": "Institute of Biosciences and Bioresources"
+        },
+        {
+          "name": "Riccardo Guarino",
+          "affiliation": "University of Palermo"
+        }
+      ],
+      "year": 2020,
+      "abstract": "The traditional use of native wild food plants (NWFP) may represent a valuable supplementary food source for the present and future generations. In Sicily, the use of wild plants in the human diet dates back to very ancient times and still plays an important role in some rural communities. Moreover, in this regard, the natural and cultural inheritance of this island is wealthy and diversified for several reasons. First, Sicily hosts a rich vascular flora, with 3,000 native and 350 endemic plants. Second, due to its central position in the Mediterranean, the island has acted as a veritable melting pot for the ethnobotanical knowledge of the rural communities of the entire basin. We reviewed all the available literature and, starting from such omnicomprehensive checklist, partially improved thanks to the data issuing from recent field investigations, we critically revised the whole species list, basing our review on field data issuing from interviews and on our expert knowledge. As a result, we provide a substantially updated list of 292 NWFP growing on the island. Further 34 species, reported as NWFP on previous papers were discarded because they are not native to Sicily, while 45 species were listed separately because their identity, occurrence and local use as food is doubtful and needs to be further investigated. Moreover, we tried to shed light on the ecology (growth form and preferential habitat) of the Sicilian NWFP, with special focus on crop wild relatives (CWR). Our preliminary ecological analyses point out that a high percentage of these plants are linked with the so-called 'cultural' landscapes, patchy semi-natural environments rich in ecotones, leading to the conclusion that the maintenance of century-old agro-pastoral practices may represent an effective way to preserve the local heritage of edible plants. Our study allowed to identify as much as 102 taxa of agronomic interest which could be tested as novel crops in order to face ongoing global changes and to comply with sustainable agriculture policies. Among them, 39 taxa show promising traits in terms of tolerance to one or more environmental stress factors, while 55 more are considered CWR and/or can be easily cultivated and/or show high productivity/yield potential.",
+      "venue": "Frontiers in Plant Science",
+      "citation_count": 107,
+      "doi": "10.3389/fpls.2020.00388",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3389/fpls.2020.00388",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3127703405",
+      "title": "Natural sciences at the service of art and cultural heritage: an interdisciplinary area in development and important challenges",
+      "authors": [
+        {
+          "name": "Guadalupe Pi\u00f1ar",
+          "affiliation": "Academy of Fine Arts Vienna"
+        },
+        {
+          "name": "Katja Sterflinger",
+          "affiliation": "Academy of Fine Arts Vienna"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Our cultural heritage is a common asset that tells the story of our shared past, is part of our origin and identity and has wide social relevance. Our works of art and our heritage must be enjoyed, appreciated and preserved for future generations. To this end, a wide and varied group of professionals, including conservators, restorers, curators, bibliographers, historians, archivists, but also scientists, such as biologists, chemists, physicists and bioinformaticians, work side by side to preserve our cultural heritage. Working together in this wide range of disciplines included in the so-called 'heritage sciences' is the only plausible way to contribute to the sustainable preservation of our heritage. The great progress made in recent years in conservation and restoration work, but also in the natural sciences considered within heritage science, has provided powerful tools and strategies for analytical and experimental research into historical and cultural objects that open up new frontiers for their diagnosis, monitoring and protection. Here we highlight some of the advances and challenges faced by the natural sciences at the service of art.",
+      "venue": "Microbial Biotechnology",
+      "citation_count": 32,
+      "doi": "10.1111/1751-7915.13766",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1111/1751-7915.13766",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4390872968",
+      "title": "HyperReenact: One-Shot Reenactment via Jointly Learning to Refine and Retarget Faces",
+      "authors": [
+        {
+          "name": "Stella Bounareli",
+          "affiliation": "Kingston University"
+        },
+        {
+          "name": "Christos Tzelepis",
+          "affiliation": "Queen Mary University of London"
+        },
+        {
+          "name": "Vasileios Argyriou",
+          "affiliation": "Kingston University"
+        },
+        {
+          "name": "Ioannis Patras",
+          "affiliation": "Queen Mary University of London"
+        },
+        {
+          "name": "Georgios Tzimiropoulos",
+          "affiliation": "Queen Mary University of London"
+        }
+      ],
+      "year": 2023,
+      "abstract": "In this paper, we present our method for neural face reenactment, called HyperReenact, that aims to generate realistic talking head images of a source identity, driven by a target facial pose. Existing state-of-the-art face reenactment methods train controllable generative models that learn to synthesize realistic facial images, yet producing reenacted faces that are prone to significant visual artifacts, especially under the challenging condition of extreme head pose changes, or requiring expensive few-shot fine-tuning to better preserve the source identity characteristics. We propose to address these limitations by leveraging the photorealistic generation ability and the disentangled properties of a pretrained StyleGAN2 generator, by first inverting the real images into its latent space and then using a hypernetwork to perform: (i) refinement of the source identity characteristics and (ii) facial pose re-targeting, eliminating this way the dependence on external editing methods that typically produce artifacts. Our method operates under the one-shot setting (i.e., using a single source frame) and allows for cross-subject reenactment, without requiring any subject-specific fine-tuning. We compare our method both quantitatively and qualitatively against several state-of-the-art techniques on the standard benchmarks of VoxCeleb1 and VoxCeleb2, demonstrating the superiority of our approach in producing artifact-free images, exhibiting remarkable robustness even under extreme head pose changes. We make the code and the pretrained models publicly available at: https://github.com/StelaBou/HyperReenact.",
+      "venue": "",
+      "citation_count": 30,
+      "doi": "10.1109/iccv51070.2023.00657",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/iccv51070.2023.00657",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3149806960",
+      "title": "Facial Attribute Transformers for Precise and Robust Makeup Transfer",
+      "authors": [
+        {
+          "name": "Zhaoyi Wan",
+          "affiliation": "University of Rochester"
+        },
+        {
+          "name": "Hao Chen",
+          "affiliation": "National Institute Of Veterinary Epidemiology And Disease Informatics"
+        },
+        {
+          "name": "Jie An",
+          "affiliation": "University of Rochester"
+        },
+        {
+          "name": "Wentao Jiang",
+          "affiliation": "Beihang University"
+        },
+        {
+          "name": "Cong Yao",
+          "affiliation": "National Institute Of Veterinary Epidemiology And Disease Informatics"
+        },
+        {
+          "name": "Jiebo Luo",
+          "affiliation": "University of Rochester"
+        }
+      ],
+      "year": 2022,
+      "abstract": "In this paper, we address the problem of makeup transfer, which aims at transplanting the makeup from the reference face to the source face while preserving the identity of the source. Existing makeup transfer methods have made notable progress in generating realistic makeup faces, but do not perform well in terms of color fidelity and spatial transformation. To tackle these issues, we propose a novel Facial Attribute Transformer (FAT) and its variant Spatial FAT for high-quality makeup transfer. Drawing inspirations from the Transformer in NLP, FAT is able to model the semantic correspondences and interactions between the source face and reference face, and then precisely estimate and transfer the facial attributes. To further facilitate shape deformation and transformation of facial parts, we also integrate thin plate splines (TPS) into FAT, thus creating Spatial FAT, which is the first method that can transfer geometric attributes in addition to color and texture. Extensive qualitative and quantitative experiments demonstrate the effectiveness and superiority of our proposed FATs in the following aspects: (1) ensuring high-fidelity color transfer; (2) allowing for geometric transformation of facial parts; (3) handling facial variations (such as poses and shadows) and (4) supporting high-resolution face generation.",
+      "venue": "2022 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)",
+      "citation_count": 29,
+      "doi": "10.1109/wacv51458.2022.00317",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/wacv51458.2022.00317",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4390190444",
+      "title": "Controllable Inversion of Black-Box Face Recognition Models via Diffusion",
+      "authors": [
+        {
+          "name": "Manuel Kansy",
+          "affiliation": "ETH Zurich"
+        },
+        {
+          "name": "Anton Ra\u00ebl",
+          "affiliation": "ETH Zurich"
+        },
+        {
+          "name": "Graziana Mignone",
+          "affiliation": "Walt Disney (Switzerland)"
+        },
+        {
+          "name": "Jacek Naruniec",
+          "affiliation": "Walt Disney (Switzerland)"
+        },
+        {
+          "name": "Christopher Schroers",
+          "affiliation": "Walt Disney (Switzerland)"
+        },
+        {
+          "name": "Markus Gro\u00df",
+          "affiliation": "ETH Zurich"
+        },
+        {
+          "name": "Romann M. Weber",
+          "affiliation": "Walt Disney (Switzerland)"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Face recognition models embed a face image into a low-dimensional identity vector containing abstract encodings of identity-specific facial features that allow individuals to be distinguished from one another. We tackle the challenging task of inverting the latent space of pre-trained face recognition models without full model access (i.e. black-box setting). A variety of methods have been proposed in literature for this task, but they have serious shortcomings such as a lack of realistic outputs and strong requirements for the data set and accessibility of the face recognition model. By analyzing the black-box inversion problem, we show that the conditional diffusion model loss naturally emerges and that we can effectively sample from the inverse distribution even without an identity-specific loss. Our method, named identity denoising diffusion probabilistic model (ID3PM), leverages the stochastic nature of the denoising diffusion process to produce high-quality, identity-preserving face images with various backgrounds, lighting, poses, and expressions. We demonstrate state-of-the-art performance in terms of identity preservation and diversity both qualitatively and quantitatively, and our method is the first black-box face recognition model inversion method that offers intuitive control over the generation process.",
+      "venue": "",
+      "citation_count": 18,
+      "doi": "10.1109/iccvw60793.2023.00341",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/iccvw60793.2023.00341",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4306179367",
+      "title": "AniFaceGAN: Animatable 3D-Aware Face Image Generation for Video Avatars",
+      "authors": [
+        {
+          "name": "Yue Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Deng",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiaolong Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Fangyun Wei",
+          "affiliation": ""
+        },
+        {
+          "name": "Qifeng Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Xin Tong",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Although 2D generative models have made great progress in face image generation and animation, they often suffer from undesirable artifacts such as 3D inconsistency when rendering images from different camera viewpoints. This prevents them from synthesizing video animations indistinguishable from real ones. Recently, 3D-aware GANs extend 2D GANs for explicit disentanglement of camera pose by leveraging 3D scene representations. These methods can well preserve the 3D consistency of the generated images across different views, yet they cannot achieve fine-grained control over other attributes, among which facial expression control is arguably the most useful and desirable for face animation. In this paper, we propose an animatable 3D-aware GAN for multiview consistent face animation generation. The key idea is to decompose the 3D representation of the 3D-aware GAN into a template field and a deformation field, where the former represents different identities with a canonical expression, and the latter characterizes expression variations of each identity. To achieve meaningful control over facial expressions via deformation, we propose a 3D-level imitative learning scheme between the generator and a parametric 3D face model during adversarial training of the 3D-aware GAN. This helps our method achieve high-quality animatable face image generation with strong visual 3D consistency, even though trained with only unstructured 2D images. Extensive experiments demonstrate our superior performance over prior works. Project page: https://yuewuhkust.github.io/AniFaceGAN",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 21,
+      "doi": "10.48550/arxiv.2210.06465",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2210.06465",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4315589026",
+      "title": "Diffused Heads: Diffusion Models Beat GANs on Talking-Face Generation",
+      "authors": [
+        {
+          "name": "Micha\u0142 Stypu\u0142kowski",
+          "affiliation": ""
+        },
+        {
+          "name": "Konstantinos Vougioukas",
+          "affiliation": ""
+        },
+        {
+          "name": "Sen He",
+          "affiliation": ""
+        },
+        {
+          "name": "Maciej Zi\u0119ba",
+          "affiliation": ""
+        },
+        {
+          "name": "Stavros Petridis",
+          "affiliation": ""
+        },
+        {
+          "name": "Maja Panti\u0107",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Talking face generation has historically struggled to produce head movements and natural facial expressions without guidance from additional reference videos. Recent developments in diffusion-based generative models allow for more realistic and stable data synthesis and their performance on image and video generation has surpassed that of other generative models. In this work, we present an autoregressive diffusion model that requires only one identity image and audio sequence to generate a video of a realistic talking human head. Our solution is capable of hallucinating head movements, facial expressions, such as blinks, and preserving a given background. We evaluate our model on two different datasets, achieving state-of-the-art results on both of them.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 16,
+      "doi": "10.48550/arxiv.2301.03396",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2301.03396",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4295213539",
+      "title": "Expression-tailored talking face generation with adaptive cross-modal weighting",
+      "authors": [
+        {
+          "name": "Dan Zeng",
+          "affiliation": "Shanghai University"
+        },
+        {
+          "name": "Shuaitao Zhao",
+          "affiliation": "Shanghai University"
+        },
+        {
+          "name": "Junjie Zhang",
+          "affiliation": "Shanghai University"
+        },
+        {
+          "name": "Han Liu",
+          "affiliation": "Shanghai University"
+        },
+        {
+          "name": "Kai Li",
+          "affiliation": "Shanghai University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "",
+      "venue": "Neurocomputing",
+      "citation_count": 12,
+      "doi": "10.1016/j.neucom.2022.09.025",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.neucom.2022.09.025",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3140854437",
+      "title": "Review of deep learning: concepts, CNN architectures, challenges, applications, future directions",
+      "authors": [
+        {
+          "name": "Laith Alzubaidi",
+          "affiliation": "Queensland University of Technology"
+        },
+        {
+          "name": "Jinglan Zhang",
+          "affiliation": "Queensland University of Technology"
+        },
+        {
+          "name": "Amjad J. Humaidi",
+          "affiliation": "University of Technology - Iraq"
+        },
+        {
+          "name": "Ayad Q. Al-Dujaili",
+          "affiliation": "Middle Technical University"
+        },
+        {
+          "name": "Ye Duan",
+          "affiliation": "University of Missouri"
+        },
+        {
+          "name": "Omran Al-Shamma",
+          "affiliation": "University of Information Technology and Communications"
+        },
+        {
+          "name": "Jos\u00e9 Santamar\u00eda",
+          "affiliation": "Universidad de Ja\u00e9n"
+        },
+        {
+          "name": "Mohammed A. Fadhel",
+          "affiliation": "Thi Qar University"
+        },
+        {
+          "name": "Muthana Al\u2010Amidie",
+          "affiliation": "University of Missouri"
+        },
+        {
+          "name": "Laith Farhan",
+          "affiliation": "Manchester Metropolitan University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "In the last few years, the deep learning (DL) computing paradigm has been deemed the Gold Standard in the machine learning (ML) community. Moreover, it has gradually become the most widely used computational approach in the field of ML, thus achieving outstanding results on several complex cognitive tasks, matching or even beating those provided by human performance. One of the benefits of DL is the ability to learn massive amounts of data. The DL field has grown fast in the last few years and it has been extensively used to successfully address a wide range of traditional applications. More importantly, DL has outperformed well-known ML techniques in many domains, e.g., cybersecurity, natural language processing, bioinformatics, robotics and control, and medical information processing, among many others. Despite it has been contributed several works reviewing the State-of-the-Art on DL, all of them only tackled one aspect of the DL, which leads to an overall lack of knowledge about it. Therefore, in this contribution, we propose using a more holistic approach in order to provide a more suitable starting point from which to develop a full understanding of DL. Specifically, this review attempts to provide a more comprehensive survey of the most important aspects of DL and including those enhancements recently added to the field. In particular, this paper outlines the importance of DL, presents the types of DL techniques and networks. It then presents convolutional neural networks (CNNs) which the most utilized DL network type and describes the development of CNNs architectures together with their main features, e.g., starting with the AlexNet network and closing with the High-Resolution network (HR.Net). Finally, we further present the challenges and suggested solutions to help researchers understand the existing research gaps. It is followed by a list of the major DL applications. Computational tools including FPGA, GPU, and CPU are summarized along with a description of their influence on DL. The paper ends with the evolution matrix, benchmark datasets, and summary and conclusion.",
+      "venue": "Journal Of Big Data",
+      "citation_count": 7130,
+      "doi": "10.1186/s40537-021-00444-8",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1186/s40537-021-00444-8",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4309764400",
+      "title": "High-Fidelity Face Reenactment Via Identity-Matched Correspondence Learning",
+      "authors": [
+        {
+          "name": "Han Xue",
+          "affiliation": "Shanghai Jiao Tong University"
+        },
+        {
+          "name": "Jun Ling",
+          "affiliation": "Shanghai Jiao Tong University"
+        },
+        {
+          "name": "Anni Tang",
+          "affiliation": "Shanghai Jiao Tong University"
+        },
+        {
+          "name": "Li Song",
+          "affiliation": "Shanghai Jiao Tong University"
+        },
+        {
+          "name": "Rong Xie",
+          "affiliation": "Shanghai Jiao Tong University"
+        },
+        {
+          "name": "Wenjun Zhang",
+          "affiliation": "Shanghai Jiao Tong University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Face reenactment aims to generate an animation of a source face using the poses and expressions from a target face. Although recent methods have made remarkable progress by exploiting generative adversarial networks, they are limited in generating high-fidelity and identity-preserving results due to the inappropriate driving information and insufficiently effective animating strategies. In this work, we propose a novel face reenactment framework that achieves both high-fidelity generation and identity preservation. Instead of sparse face representations (e.g., facial landmarks and keypoints), we utilize the Projected Normalized Coordinate Code (PNCC) to better preserve facial details. We propose to reconstruct the PNCC with the source identity parameters and the target pose and expression parameters estimated by 3D face reconstruction to factor out the target identity. By adopting the reconstructed representation as the driving information, we address the problem of identity mismatch. To effectively utilize the driving information, we establish the correspondence between the reconstructed representation and the source representation based on the features extracted by an encoder network. This identity-matched correspondence is then utilized to animate the source face using a novel feature transformation strategy. The generator network is further enhanced by the proposed geometry-aware skip connection. Once trained, our model can be applied to previously unseen faces without further training or fine-tuning. Through extensive experiments, we demonstrate the effectiveness of our method in face reenactment and show that our model outperforms state-of-the-art approaches both qualitatively and quantitatively. Additionally, the proposed PNCC reconstruction module can be easily inserted into other methods and improve their performance in cross-identity face reenactment.",
+      "venue": "ACM Transactions on Multimedia Computing Communications and Applications",
+      "citation_count": 13,
+      "doi": "10.1145/3571857",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3571857",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4311357963",
+      "title": "Face image de\u2010identification by feature space adversarial perturbation",
+      "authors": [
+        {
+          "name": "Hanyu Xue",
+          "affiliation": "University of Technology Sydney"
+        },
+        {
+          "name": "Bo Liu",
+          "affiliation": "University of Technology Sydney"
+        },
+        {
+          "name": "Xin Yuan",
+          "affiliation": "Commonwealth Scientific and Industrial Research Organisation"
+        },
+        {
+          "name": "Ming Ding",
+          "affiliation": "Data61"
+        },
+        {
+          "name": "Tianqing Zhu",
+          "affiliation": "University of Technology Sydney"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Summary Privacy leakage in images attracts increasing concerns these days, as photos uploaded to large social platforms are usually not processed by proper privacy protection mechanisms. Moreover, with advanced artificial intelligence (AI) tools such as deep neural network (DNN), an adversary can detect people's identities and collect other sensitive personal information from images at an unprecedented scale. In this paper, we introduce a novel face image de\u2010identification framework using adversarial perturbations in the feature space. Manipulating the feature space vector ensures the good transferability of our framework. Moreover, the proposed feature space adversarial perturbation generation algorithm can successfully protect the identity\u2010related information while ensuring the other attributes remain similar. Finally, we conduct extensive experiments on two face image datasets to evaluate the performance of the proposed method. Our results show that the proposed method can generate real\u2010looking privacy\u2010preserving images efficiently. Although our framework has only been tested on two real\u2010life face image datasets, it can be easily extended to other types of images.",
+      "venue": "Concurrency and Computation Practice and Experience",
+      "citation_count": 20,
+      "doi": "10.1002/cpe.7554",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1002/cpe.7554",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3173591386",
+      "title": "Mutual Authentication Protocol for Secure VANET Data Exchanges",
+      "authors": [
+        {
+          "name": "Vincent Omollo Nyangaresi",
+          "affiliation": ""
+        },
+        {
+          "name": "Anthony Rodrigues",
+          "affiliation": "Jaramogi Oginga Odinga University of Science and Technology"
+        },
+        {
+          "name": "Nidhal Kamel Taha",
+          "affiliation": "World Islamic Sciences and Education University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "",
+      "venue": "Lecture notes of the Institute for Computer Sciences, Social Informatics and Telecommunications Engineering",
+      "citation_count": 50,
+      "doi": "10.1007/978-3-030-78459-1_5",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/978-3-030-78459-1_5",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4402916286",
+      "title": "Adversarial Identity Injection for Semantic Face Image Synthesis",
+      "authors": [
+        {
+          "name": "Giuseppe Tarollo",
+          "affiliation": "University of Parma"
+        },
+        {
+          "name": "Tomaso Fontanini",
+          "affiliation": "University of Parma"
+        },
+        {
+          "name": "Claudio Ferrari",
+          "affiliation": "University of Parma"
+        },
+        {
+          "name": "Guido Borghi",
+          "affiliation": "University of Bologna"
+        },
+        {
+          "name": "Andrea Prati",
+          "affiliation": "University of Parma"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Nowadays, deep learning models have reached incredible performance in the task of image generation. Plenty of literature works address the task of face generation and editing, with human and automatic systems that struggle to distinguish what\u2019s real from generated. Whereas most systems reached excellent visual generation quality, they still face difficulties in preserving the identity of the starting input subject. Among all the explored techniques, Semantic Image Synthesis (SIS) methods, whose goal is to generate an image conditioned on a semantic segmentation mask, are the most promising, even though preserving the perceived identity of the input subject is not their main concern. Therefore, in this paper, we investigate the problem of identity preservation in face image generation and present an SIS architecture that exploits a cross-attention mechanism to merge identity, style, and semantic features to generate faces whose identities are as similar as possible to the input ones. Experimental results reveal that the proposed method is not only suitable for preserving the identity but is also effective in the face recognition adversarial attack, i.e. hiding a second identity in the generated faces.",
+      "venue": "",
+      "citation_count": 7,
+      "doi": "10.1109/cvprw63382.2024.00154",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvprw63382.2024.00154",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3205555773",
+      "title": "SSFlow: Style-guided Neural Spline Flows for Face Image Manipulation",
+      "authors": [
+        {
+          "name": "Hanbang Liang",
+          "affiliation": "Shenzhen Academy of Robotics"
+        },
+        {
+          "name": "Xianxu Hou",
+          "affiliation": "Shenzhen University"
+        },
+        {
+          "name": "Linlin Shen",
+          "affiliation": "Shenzhen University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Significant progress has been made in high-resolution and photo-realistic image generation by Generative Adversarial Networks (GANs). However, the generation process is still lack of control, which is crucial for semantic face editing. Furthermore, it remains challenging to edit target attributes and preserve the identity at the same time. In this paper, we propose SSFlow to achieve identity-preserved semantic face manipulation in StyleGAN latent space based on conditional Neural Spline Flows. To further improve the performance of Neural Spline Flows on such task, we also propose Constractive Squash component and Blockwise 1 x 1 Convolution layer. Moreover, unlike other conditional flow-based approaches that require facial attribute labels during inference, our method can achieve label-free manipulation in a more flexible way. As a result, our methods are able to perform well-disentangled edits along various attributes, and generalize well for both real and artistic face image manipulation. Qualitative and quantitative evaluations show the advantages of our method for semantic face manipulation over state-of-the-art approaches.",
+      "venue": "",
+      "citation_count": 12,
+      "doi": "10.1145/3474085.3475454",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3474085.3475454",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4319300262",
+      "title": "Controllable 3D Generative Adversarial Face Model via Disentangling Shape and Appearance",
+      "authors": [
+        {
+          "name": "Fariborz Taherkhani",
+          "affiliation": "Carnegie Mellon University"
+        },
+        {
+          "name": "Aashish Rai",
+          "affiliation": "Carnegie Mellon University"
+        },
+        {
+          "name": "Quankai Gao",
+          "affiliation": "Carnegie Mellon University"
+        },
+        {
+          "name": "Shaunak Srivastava",
+          "affiliation": "Carnegie Mellon University"
+        },
+        {
+          "name": "Xuanbai Chen",
+          "affiliation": "Carnegie Mellon University"
+        },
+        {
+          "name": "Fernando De la Torre",
+          "affiliation": "Carnegie Mellon University"
+        },
+        {
+          "name": "Steven Song",
+          "affiliation": "Meta (Israel)"
+        },
+        {
+          "name": "Aayush Prakash",
+          "affiliation": "Meta (Israel)"
+        },
+        {
+          "name": "Daeil Kim",
+          "affiliation": "Meta (Israel)"
+        }
+      ],
+      "year": 2023,
+      "abstract": "3D face modeling has been an active area of research in computer vision and computer graphics, fueling applications ranging from facial expression transfer in virtual avatars to synthetic data generation. Existing 3D deep learning generative models (e.g., VAE, GANs) allow generating compact face representations (both shape and texture) that can model non-linearities in the shape and appearance space (e.g., scatter effects, specularities,..). However, they lack the capability to control the generation of subtle expressions. This paper proposes a new 3D face generative model that can decouple identity and expression and provides granular control over expressions. In particular, we propose using a pair of supervised auto-encoder and generative adversarial networks to produce high-quality 3D faces, both in terms of appearance and shape. Experimental results in the generation of 3D faces learned with holistic expression labels, or Action Unit (AU) labels, show how we can decouple identity and expression; gaining fine-control over expressions while preserving identity. <sup xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">1</sup>",
+      "venue": "2023 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)",
+      "citation_count": 12,
+      "doi": "10.1109/wacv56688.2023.00089",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/wacv56688.2023.00089",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4388979092",
+      "title": "RBGAN: Realistic-generation and balanced-utility GAN for face de-identification",
+      "authors": [
+        {
+          "name": "Yaofang Zhang",
+          "affiliation": "Shanghai University of Engineering Science"
+        },
+        {
+          "name": "Yuchun Fang",
+          "affiliation": "Shanghai University of Engineering Science"
+        },
+        {
+          "name": "Yiting Cao",
+          "affiliation": "Shanghai University of Engineering Science"
+        },
+        {
+          "name": "Jiahua Wu",
+          "affiliation": "Shanghai University of Engineering Science"
+        }
+      ],
+      "year": 2023,
+      "abstract": "",
+      "venue": "Image and Vision Computing",
+      "citation_count": 9,
+      "doi": "10.1016/j.imavis.2023.104868",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.imavis.2023.104868",
+      "source": "openalex",
+      "_bibtex_override": ""
+    }
+  ]
+}

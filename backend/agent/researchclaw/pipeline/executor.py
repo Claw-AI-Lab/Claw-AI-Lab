@@ -4005,9 +4005,9 @@ def _execute_code_generation(
         "Create an `outputs/` directory and save intermediate results for inspection:\n"
         "- For image/video tasks: save generated images (PNG/JPG) or videos (MP4) to `outputs/`\n"
         "- For model tasks: save sample predictions or visualizations to `outputs/`\n"
-        "- Name files descriptively, e.g. `outputs/{condition}_{seed}.png`\n"
-        "- Use `os.makedirs('outputs', exist_ok=True)` at the start\n"
-        "- This helps verify experiment quality beyond just numerical metrics\n"
+        # "- Name files descriptively, e.g. `outputs/{condition}_{seed}.png`\n"
+        # "- Use `os.makedirs('outputs', exist_ok=True)` at the start\n"
+        # "- This helps verify experiment quality beyond just numerical metrics\n"
     )
 
     # --- Code generation: Beast Mode → CodeAgent → Legacy single-shot ---

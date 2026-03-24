@@ -1,0 +1,1271 @@
+{
+  "query": "VLA Adaptive multi reference self attention",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1774290495.9421594,
+  "papers": [
+    {
+      "paper_id": "arxiv-2602.12351",
+      "title": "LongNav-R1: Horizon-Adaptive Multi-Turn RL for Long-Horizon VLA Navigation",
+      "authors": [
+        {
+          "name": "Yue Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Avery Xi",
+          "affiliation": ""
+        },
+        {
+          "name": "Qixin Xiao",
+          "affiliation": ""
+        },
+        {
+          "name": "Seth Isaacson",
+          "affiliation": ""
+        },
+        {
+          "name": "Henry X. Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ram Vasudevan",
+          "affiliation": ""
+        },
+        {
+          "name": "Maani Ghaffari",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "This paper develops LongNav-R1, an end-to-end multi-turn reinforcement learning (RL) framework designed to optimize Visual-Language-Action (VLA) models for long-horizon navigation. Unlike existing single-turn paradigm, LongNav-R1 reformulates the navigation decision process as a continuous multi-turn conversation between the VLA policy and the embodied environment. This multi-turn RL framework offers two distinct advantages: i) it enables the agent to reason about the causal effects of historical interactions and sequential future outcomes; and ii) it allows the model to learn directly from online interactions, fostering diverse trajectory generation and avoiding the behavioral rigidity often imposed by human demonstrations. Furthermore, we introduce Horizon-Adaptive Policy Optimization. This mechanism explicitly accounts for varying horizon lengths during advantage estimation, facilitating accurate temporal credit assignment over extended sequences. Consequently, the agent develops diverse navigation behaviors and resists collapse during long-horizon tasks. Experiments on object navigation benchmarks validate the framework's efficacy: With 4,000 rollout trajectories, LongNav-R1 boosts the Qwen3-VL-2B success rate from 64.3% to 73.0%. These results demonstrate superior sample efficiency and significantly outperform state-of-the-art methods. The model's generalizability and robustness are further validated by its zero-shot performance in long-horizon real-world navigation settings. All source code will be open-sourced upon publication.",
+      "venue": "cs.RO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2602.12351",
+      "url": "https://arxiv.org/abs/2602.12351",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2509.09372",
+      "title": "VLA-Adapter: An Effective Paradigm for Tiny-Scale Vision-Language-Action Model",
+      "authors": [
+        {
+          "name": "Yihao Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Pengxiang Ding",
+          "affiliation": ""
+        },
+        {
+          "name": "Lingxiao Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Can Cui",
+          "affiliation": ""
+        },
+        {
+          "name": "Zirui Ge",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinyang Tong",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenxuan Song",
+          "affiliation": ""
+        },
+        {
+          "name": "Han Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Wei Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Pengxu Hou",
+          "affiliation": ""
+        },
+        {
+          "name": "Siteng Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yifan Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenhui Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ru Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianyi Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Donglin Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Vision-Language-Action (VLA) models typically bridge the gap between perceptual and action spaces by pre-training a large-scale Vision-Language Model (VLM) on robotic data. While this approach greatly enhances performance, it also incurs significant training costs. In this paper, we investigate how to effectively bridge vision-language (VL) representations to action (A). We introduce VLA-Adapter, a novel paradigm designed to reduce the reliance of VLA models on large-scale VLMs and extensive pre-training. To this end, we first systematically analyze the effectiveness of various VL conditions and present key findings on which conditions are essential for bridging perception and action spaces. Based on these insights, we propose a lightweight Policy module with Bridge Attention, which autonomously injects the optimal condition into the action space. In this way, our method achieves high performance using only a 0.5B-parameter backbone, without any robotic data pre-training. Extensive experiments on both simulated and real-world robotic benchmarks demonstrate that VLA-Adapter not only achieves state-of-the-art level performance, but also offers the fast inference speed reported to date. Furthermore, thanks to the proposed advanced bridging paradigm, VLA-Adapter enables the training of a powerful VLA model in just 8 hours on a single consumer-grade GPU, greatly lowering the barrier to deploying the VLA model. Project page: https://vla-adapter.github.io/.",
+      "venue": "cs.RO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2509.09372",
+      "url": "https://arxiv.org/abs/2509.09372",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2603.01036",
+      "title": "SMR-Net:Robot Snap Detection Based on Multi-Scale Features and Self-Attention Network",
+      "authors": [
+        {
+          "name": "Kuanxu Hou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "In robot automated assembly, snap assembly precision and efficiency directly determine overall production quality. As a core prerequisite, snap detection and localization critically affect subsequent assembly success. Traditional visual methods suffer from poor robustness and large localization errors when handling complex scenarios (e.g., transparent or low-contrast snaps), failing to meet high-precision assembly demands. To address this, this paper designs a dedicated sensor and proposes SMR-Net, an self-attention-based multi-scale object detection algorithm, to synergistically enhance detection and localization performance. SMR-Net adopts an attention-enhanced multi-scale feature fusion architecture: raw sensor data is encoded via an attention-embedded feature extractor to strengthen key snap features and suppress noise; three multi-scale feature maps are processed in parallel with standard and dilated convolution for dimension unification while preserving resolution; an adaptive reweighting network dynamically assigns weights to fused features, generating fine representations integrating details and global semantics. Experimental results on Type A and Type B snap datasets show SMR-Net outperforms traditional Faster R-CNN significantly: Intersection over Union (IoU) improves by 6.52% and 5.8%, and mean Average Precision (mAP) increases by 2.8% and 1.5% respectively. This fully demonstrates the method's superiority in complex snap detection and localization tasks.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2603.01036",
+      "url": "https://arxiv.org/abs/2603.01036",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2204.12077",
+      "title": "AAU-net: An Adaptive Attention U-net for Breast Lesions Segmentation in Ultrasound Images",
+      "authors": [
+        {
+          "name": "Gongping Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Dai",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianxun Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Moi Hoon Yap",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Various deep learning methods have been proposed to segment breast lesion from ultrasound images. However, similar intensity distributions, variable tumor morphology and blurred boundaries present challenges for breast lesions segmentation, especially for malignant tumors with irregular shapes. Considering the complexity of ultrasound images, we develop an adaptive attention U-net (AAU-net) to segment breast lesions automatically and stably from ultrasound images. Specifically, we introduce a hybrid adaptive attention module, which mainly consists of a channel self-attention block and a spatial self-attention block, to replace the traditional convolution operation. Compared with the conventional convolution operation, the design of the hybrid adaptive attention module can help us capture more features under different receptive fields. Different from existing attention mechanisms, the hybrid adaptive attention module can guide the network to adaptively select more robust representation in channel and space dimensions to cope with more complex breast lesions segmentation. Extensive experiments with several state-of-the-art deep learning segmentation methods on three public breast ultrasound datasets show that our method has better performance on breast lesion segmentation. Furthermore, robustness analysis and external experiments demonstrate that our proposed AAU-net has better generalization performance on the segmentation of breast lesions. Moreover, the hybrid adaptive attention module can be flexibly applied to existing network frameworks.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "10.1109/TMI.2022.3226268",
+      "arxiv_id": "2204.12077",
+      "url": "https://arxiv.org/abs/2204.12077",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2603.00175",
+      "title": "Self-Attention And Beyond the Infinite: Towards Linear Transformers with Infinite Self-Attention",
+      "authors": [
+        {
+          "name": "Giorgio Roffo",
+          "affiliation": ""
+        },
+        {
+          "name": "Luke Palmer",
+          "affiliation": ""
+        },
+        {
+          "name": "Nilli Lavie",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "The quadratic cost of softmax attention limits Transformer scalability in high-resolution vision. We introduce Infinite Self-Attention (InfSA), a spectral reformulation that treats each attention layer as a diffusion step on a content-adaptive token graph, accumulating multi-hop interactions through a discounted Neumann series over attention matrices. This links self-attention to classical graph centrality (Katz, PageRank, eigenvector centrality) for interpretable token weighting. We also show the Neumann kernel equals the fundamental matrix of an absorbing Markov chain, so a token's centrality is its expected number of random-walk visits before absorption. We then propose Linear-InfSA, a linear-time variant that approximates the principal eigenvector of the implicit attention operator without forming the full attention matrix. It keeps an auxiliary state of fixed size proportional to per-head dimension dh (independent of sequence length N), is drop-in compatible with Vision Transformers, and supports stable training at 4096 by 4096 and inference at 9216 by 9216 (about 332k tokens). In a 4-layer ViT (53.5M parameters, 59 GFLOPs at 224 by 224), Linear-InfSA reaches 84.7% top-1 on ImageNet-1K, a +3.2 point architectural gain over an equal-depth softmax ViT trained with the same recipe. On ImageNet-V2, InfViT variants outperform all compared baselines (up to 79.8% vs 76.8%), indicating robustness under distribution shift. On an A100 40GB GPU, Linear-InfViT runs at 231 images/s and 0.87 J/image (13x better throughput and energy than equal-depth ViT) and is the only tested model to complete 9216 by 9216 inference without out-of-memory. The linear approximation closely matches the dominant eigenvector of the quadratic operator (cosine 0.985). Code available at: https://huggingface.co/groffo/infinite-self-attention or https://github.com/giorgioroffo/infinite-self-attention",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2603.00175",
+      "url": "https://arxiv.org/abs/2603.00175",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2510.26742",
+      "title": "Running VLAs at Real-time Speed",
+      "authors": [
+        {
+          "name": "Yunchao Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Yizhuang Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Yunhuan Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Tiancai Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Haoqiang Fan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "In this paper, we show how to run pi0-level multi-view VLA at 30Hz frame rate and at most 480Hz trajectory frequency using a single consumer GPU. This enables dynamic and real-time tasks that were previously believed to be unattainable by large VLA models. To achieve it, we introduce a bag of strategies to eliminate the overheads in model inference. The real-world experiment shows that the pi0 policy with our strategy achieves a 100% success rate in grasping a falling pen task. Based on the results, we further propose a full streaming inference framework for real-time robot control of VLA. Code is available at https://github.com/Dexmal/realtime-vla.",
+      "venue": "cs.RO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2510.26742",
+      "url": "https://arxiv.org/abs/2510.26742",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2009.04544",
+      "title": "Self-Adaptive Physics-Informed Neural Networks using a Soft Attention Mechanism",
+      "authors": [
+        {
+          "name": "Levi McClenny",
+          "affiliation": ""
+        },
+        {
+          "name": "Ulisses Braga-Neto",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Physics-Informed Neural Networks (PINNs) have emerged recently as a promising application of deep neural networks to the numerical solution of nonlinear partial differential equations (PDEs). However, it has been recognized that adaptive procedures are needed to force the neural network to fit accurately the stubborn spots in the solution of \"stiff\" PDEs. In this paper, we propose a fundamentally new way to train PINNs adaptively, where the adaptation weights are fully trainable and applied to each training point individually, so the neural network learns autonomously which regions of the solution are difficult and is forced to focus on them. The self-adaptation weights specify a soft multiplicative soft attention mask, which is reminiscent of similar mechanisms used in computer vision. The basic idea behind these SA-PINNs is to make the weights increase as the corresponding losses increase, which is accomplished by training the network to simultaneously minimize the losses and maximize the weights. In addition, we show how to build a continuous map of self-adaptive weights using Gaussian Process regression, which allows the use of stochastic gradient descent in problems where conventional gradient descent is not enough to produce accurate solutions. Finally, we derive the Neural Tangent Kernel matrix for SA-PINNs and use it to obtain a heuristic understanding of the effect of the self-adaptive weights on the dynamics of training in the limiting case of infinitely-wide PINNs, which suggests that SA-PINNs work by producing a smooth equalization of the eigenvalues of the NTK matrix corresponding to the different loss terms. In numerical experiments with several linear and nonlinear benchmark problems, the SA-PINN outperformed other state-of-the-art PINN algorithm in L2 error, while using a smaller number of training epochs.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "10.1016/j.jcp.2022.111722",
+      "arxiv_id": "2009.04544",
+      "url": "https://arxiv.org/abs/2009.04544",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2204.01834",
+      "title": "Lifelong Self-Adaptation: Self-Adaptation Meets Lifelong Machine Learning",
+      "authors": [
+        {
+          "name": "Omid Gheibi",
+          "affiliation": ""
+        },
+        {
+          "name": "Danny Weyns",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "In the past years, machine learning (ML) has become a popular approach to support self-adaptation. While ML techniques enable dealing with several problems in self-adaptation, such as scalable decision-making, they are also subject to inherent challenges. In this paper, we focus on one such challenge that is particularly important for self-adaptation: ML techniques are designed to deal with a set of predefined tasks associated with an operational domain; they have problems to deal with new emerging tasks, such as concept shift in input data that is used for learning. To tackle this challenge, we present \\textit{lifelong self-adaptation}: a novel approach to self-adaptation that enhances self-adaptive systems that use ML techniques with a lifelong ML layer. The lifelong ML layer tracks the running system and its environment, associates this knowledge with the current tasks, identifies new tasks based on differentiations, and updates the learning models of the self-adaptive system accordingly. We present a reusable architecture for lifelong self-adaptation and apply it to the case of concept drift caused by unforeseen changes of the input data of a learning model that is used for decision-making in self-adaptation. We validate lifelong self-adaptation for two types of concept drift using two cases.",
+      "venue": "cs.SE",
+      "citation_count": 0,
+      "doi": "10.1145/3524844.3528052",
+      "arxiv_id": "2204.01834",
+      "url": "https://arxiv.org/abs/2204.01834",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2512.18007",
+      "title": "Robotic VLA Benefits from Joint Learning with Motion Image Diffusion",
+      "authors": [
+        {
+          "name": "Yu Fang",
+          "affiliation": ""
+        },
+        {
+          "name": "Kanchana Ranasinghe",
+          "affiliation": ""
+        },
+        {
+          "name": "Le Xue",
+          "affiliation": ""
+        },
+        {
+          "name": "Honglu Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Juntao Tan",
+          "affiliation": ""
+        },
+        {
+          "name": "Ran Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Shelby Heinecke",
+          "affiliation": ""
+        },
+        {
+          "name": "Caiming Xiong",
+          "affiliation": ""
+        },
+        {
+          "name": "Silvio Savarese",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniel Szafir",
+          "affiliation": ""
+        },
+        {
+          "name": "Mingyu Ding",
+          "affiliation": ""
+        },
+        {
+          "name": "Michael S. Ryoo",
+          "affiliation": ""
+        },
+        {
+          "name": "Juan Carlos Niebles",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Vision-Language-Action (VLA) models have achieved remarkable progress in robotic manipulation by mapping multimodal observations and instructions directly to actions. However, they typically mimic expert trajectories without predictive motion reasoning, which limits their ability to reason about what actions to take. To address this limitation, we propose joint learning with motion image diffusion, a novel strategy that enhances VLA models with motion reasoning capabilities. Our method extends the VLA architecture with a dual-head design: while the action head predicts action chunks as in vanilla VLAs, an additional motion head, implemented as a Diffusion Transformer (DiT), predicts optical-flow-based motion images that capture future dynamics. The two heads are trained jointly, enabling the shared VLM backbone to learn representations that couple robot control with motion knowledge. This joint learning builds temporally coherent and physically grounded representations without modifying the inference pathway of standard VLAs, thereby maintaining test-time latency. Experiments in both simulation and real-world environments demonstrate that joint learning with motion image diffusion improves the success rate of pi-series VLAs to 97.5% on the LIBERO benchmark and 58.0% on the RoboTwin benchmark, yielding a 23% improvement in real-world performance and validating its effectiveness in enhancing the motion reasoning capability of large-scale VLAs.",
+      "venue": "cs.RO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2512.18007",
+      "url": "https://arxiv.org/abs/2512.18007",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2103.11481",
+      "title": "How do we Evaluate Self-adaptive Software Systems?",
+      "authors": [
+        {
+          "name": "Ilias Gerostathopoulos",
+          "affiliation": ""
+        },
+        {
+          "name": "Thomas Vogel",
+          "affiliation": ""
+        },
+        {
+          "name": "Danny Weyns",
+          "affiliation": ""
+        },
+        {
+          "name": "Patricia Lago",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "With the increase of research in self-adaptive systems, there is a need to better understand the way research contributions are evaluated. Such insights will support researchers to better compare new findings when developing new knowledge for the community. However, so far there is no clear overview of how evaluations are performed in self-adaptive systems. To address this gap, we conduct a mapping study. The study focuses on experimental evaluations published in the last decade at the prime venue of research in software engineering for self-adaptive systems -- the International Symposium on Software Engineering for Adaptive and Self-Managing Systems (SEAMS). Results point out that specifics of self-adaptive systems require special attention in the experimental process, including the distinction of the managing system (i.e., the target of evaluation) and the managed system, the presence of uncertainties that affect the system behavior and hence need to be taken into account in data analysis, and the potential of managed systems to be reused across experiments, beyond replications. To conclude, we offer a set of suggestions derived from our study that can be used as input to enhance future experiments in self-adaptive systems.",
+      "venue": "cs.SE",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2103.11481",
+      "url": "https://arxiv.org/abs/2103.11481",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2303.15025",
+      "title": "On the Need for Artifacts to Support Research on Self-Adaptation Mature for Industrial Adoption",
+      "authors": [
+        {
+          "name": "Danny Weyns",
+          "affiliation": ""
+        },
+        {
+          "name": "Thomas Vogel",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Despite the vast body of knowledge developed by the self-adaptive systems community and the wide use of self-adaptation in industry, it is unclear whether or to what extent industry leverages output of academics. Hence, it is important for the research community to answer the question: Are the solutions developed by the self-adaptive systems community mature enough for industrial adoption? Leveraging a set of empirically-grounded guidelines for industry-relevant artifacts in self-adaptation, we develop a position to answer this question from the angle of using artifacts for evaluating research results in self-adaptation, which is actively stimulated and applied by the community.",
+      "venue": "cs.SE",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2303.15025",
+      "url": "https://arxiv.org/abs/2303.15025",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2305.19798",
+      "title": "Primal-Attention: Self-attention through Asymmetric Kernel SVD in Primal Representation",
+      "authors": [
+        {
+          "name": "Yingyi Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Qinghua Tao",
+          "affiliation": ""
+        },
+        {
+          "name": "Francesco Tonin",
+          "affiliation": ""
+        },
+        {
+          "name": "Johan A. K. Suykens",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Recently, a new line of works has emerged to understand and improve self-attention in Transformers by treating it as a kernel machine. However, existing works apply the methods for symmetric kernels to the asymmetric self-attention, resulting in a nontrivial gap between the analytical understanding and numerical implementation. In this paper, we provide a new perspective to represent and optimize self-attention through asymmetric Kernel Singular Value Decomposition (KSVD), which is also motivated by the low-rank property of self-attention normally observed in deep layers. Through asymmetric KSVD, $i$) a primal-dual representation of self-attention is formulated, where the optimization objective is cast to maximize the projection variances in the attention outputs; $ii$) a novel attention mechanism, i.e., Primal-Attention, is proposed via the primal representation of KSVD, avoiding explicit computation of the kernel matrix in the dual; $iii$) with KKT conditions, we prove that the stationary solution to the KSVD optimization in Primal-Attention yields a zero-value objective. In this manner, KSVD optimization can be implemented by simply minimizing a regularization loss, so that low-rank property is promoted without extra decomposition. Numerical experiments show state-of-the-art performance of our Primal-Attention with improved efficiency. Moreover, we demonstrate that the deployed KSVD optimization regularizes Primal-Attention with a sharper singular value decay than that of the canonical self-attention, further verifying the great potential of our method. To the best of our knowledge, this is the first work that provides a primal-dual representation for the asymmetric kernel in self-attention and successfully applies it to modeling and optimization.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2305.19798",
+      "url": "https://arxiv.org/abs/2305.19798",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2602.17659",
+      "title": "When Vision Overrides Language: Evaluating and Mitigating Counterfactual Failures in VLAs",
+      "authors": [
+        {
+          "name": "Yu Fang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuchun Feng",
+          "affiliation": ""
+        },
+        {
+          "name": "Dong Jing",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiaqi Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yue Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhenyu Wei",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniel Szafir",
+          "affiliation": ""
+        },
+        {
+          "name": "Mingyu Ding",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Vision-Language-Action models (VLAs) promise to ground language instructions in robot control, yet in practice often fail to faithfully follow language. When presented with instructions that lack strong scene-specific supervision, VLAs suffer from counterfactual failures: they act based on vision shortcuts induced by dataset biases, repeatedly executing well-learned behaviors and selecting objects frequently seen during training regardless of language intent. To systematically study it, we introduce LIBERO-CF, the first counterfactual benchmark for VLAs that evaluates language following capability by assigning alternative instructions under visually plausible LIBERO layouts. Our evaluation reveals that counterfactual failures are prevalent yet underexplored across state-of-the-art VLAs. We propose Counterfactual Action Guidance (CAG), a simple yet effective dual-branch inference scheme that explicitly regularizes language conditioning in VLAs. CAG combines a standard VLA policy with a language-unconditioned Vision-Action (VA) module, enabling counterfactual comparison during action selection. This design reduces reliance on visual shortcuts, improves robustness on under-observed tasks, and requires neither additional demonstrations nor modifications to existing architectures or pretrained models. Extensive experiments demonstrate its plug-and-play integration across diverse VLAs and consistent improvements. For example, on LIBERO-CF, CAG improves $\u03c0_{0.5}$ by 9.7% in language following accuracy and 3.6% in task success on under-observed tasks using a training-free strategy, with further gains of 15.5% and 8.5%, respectively, when paired with a VA model. In real-world evaluations, CAG reduces counterfactual failures of 9.4% and improves task success by 17.2% on average.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2602.17659",
+      "url": "https://arxiv.org/abs/2602.17659",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2603.08122",
+      "title": "Towards Human-Like Manipulation through RL-Augmented Teleoperation and Mixture-of-Dexterous-Experts VLA",
+      "authors": [
+        {
+          "name": "Tutian Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xingyu Ji",
+          "affiliation": ""
+        },
+        {
+          "name": "Wanli Xing",
+          "affiliation": ""
+        },
+        {
+          "name": "Ce Hao",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenqiang Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Lin Shao",
+          "affiliation": ""
+        },
+        {
+          "name": "Cewu Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Qiaojun Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiangmiao Pang",
+          "affiliation": ""
+        },
+        {
+          "name": "Kaifeng Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "While Vision-Language-Action (VLA) models have demonstrated remarkable success in robotic manipulation, their application has largely been confined to low-degree-of-freedom end-effectors performing simple, vision-guided pick-and-place tasks. Extending these models to human-like, bimanual dexterous manipulation-specifically contact-rich in-hand operations-introduces critical challenges in high-fidelity data acquisition, multi-skill learning, and multimodal sensory fusion. In this paper, we propose an integrated framework to address these bottlenecks, built upon two components. First, we introduce IMCopilot (In-hand Manipulation Copilot), a suite of reinforcement learning-trained atomic skills that plays a dual role: it acts as a shared-autonomy assistant to simplify teleoperation data collection, and it serves as a callable low-level execution primitive for the VLA. Second, we present MoDE-VLA (Mixture-of-Dexterous-Experts VLA), an architecture that seamlessly integrates heterogeneous force and tactile modalities into a pretrained VLA backbone. By utilizing a residual injection mechanism, MoDE-VLA enables contact-aware refinement without degrading the model's pretrained knowledge. We validate our approach on four tasks of escalating complexity, demonstrating doubled success rate improvement over the baseline in dexterous contact-rich tasks.",
+      "venue": "cs.RO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2603.08122",
+      "url": "https://arxiv.org/abs/2603.08122",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.13780",
+      "title": "Self-Attention as Distributional Projection: A Unified Interpretation of Transformer Architecture",
+      "authors": [
+        {
+          "name": "Nihal Mehta",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "This paper presents a mathematical interpretation of self-attention by connecting it to distributional semantics principles. We show that self-attention emerges from projecting corpus-level co-occurrence statistics into sequence context. Starting from the co-occurrence matrix underlying GloVe embeddings, we demonstrate how the projection naturally captures contextual influence, with the query-key-value mechanism arising as the natural asymmetric extension for modeling directional relationships. Positional encodings and multi-head attention then follow as structured refinements of this same projection principle. Our analysis demonstrates that the Transformer architecture's particular algebraic form follows from these projection principles rather than being an arbitrary design choice.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.13780",
+      "url": "https://arxiv.org/abs/2511.13780",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2303.16530",
+      "title": "Runtime Verification of Self-Adaptive Systems with Changing Requirements",
+      "authors": [
+        {
+          "name": "Marc Carwehl",
+          "affiliation": ""
+        },
+        {
+          "name": "Thomas Vogel",
+          "affiliation": ""
+        },
+        {
+          "name": "Gena\u00edna Nunes Rodrigues",
+          "affiliation": ""
+        },
+        {
+          "name": "Lars Grunske",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "To accurately make adaptation decisions, a self-adaptive system needs precise means to analyze itself at runtime. To this end, runtime verification can be used in the feedback loop to check that the managed system satisfies its requirements formalized as temporal-logic properties. These requirements, however, may change due to system evolution or uncertainty in the environment, managed system, and requirements themselves. Thus, the properties under investigation by the runtime verification have to be dynamically adapted to represent the changing requirements while preserving the knowledge about requirements satisfaction gathered thus far, all with minimal latency. To address this need, we present a runtime verification approach for self-adaptive systems with changing requirements. Our approach uses property specification patterns to automatically obtain automata with precise semantics that are the basis for runtime verification. The automata can be safely adapted during runtime verification while preserving intermediate verification results to seamlessly reflect requirement changes and enable continuous verification. We evaluate our approach on an Arduino prototype of the Body Sensor Network and the Timescales benchmark. Results show that our approach is over five times faster than the typical approach of redeploying and restarting runtime monitors to reflect requirements changes, while improving the system's trustworthiness by avoiding interruptions of verification.",
+      "venue": "cs.SE",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2303.16530",
+      "url": "https://arxiv.org/abs/2303.16530",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2303.07283",
+      "title": "CHESS: A Framework for Evaluation of Self-adaptive Systems based on Chaos Engineering",
+      "authors": [
+        {
+          "name": "Sehrish Malik",
+          "affiliation": ""
+        },
+        {
+          "name": "Moeen Ali Naqvi",
+          "affiliation": ""
+        },
+        {
+          "name": "Leon Moonen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "There is an increasing need to assess the correct behavior of self-adaptive and self-healing systems due to their adoption in critical and highly dynamic environments. However, there is a lack of systematic evaluation methods for self-adaptive and self-healing systems. We proposed CHESS, a novel approach to address this gap by evaluating self-adaptive and self-healing systems through fault injection based on chaos engineering (CE) [ arXiv:2208.13227 ].\n  The artifact presented in this paper provides an extensive overview of the use of CHESS through two microservice-based case studies: a smart office case study and an existing demo application called Yelb. It comes with a managing system service, a self-monitoring service, as well as five fault injection scenarios covering infrastructure faults and functional faults. Each of these components can be easily extended or replaced to adopt the CHESS approach to a new case study, help explore its promises and limitations, and identify directions for future research.\n  Keywords: self-healing, resilience, chaos engineering, evaluation, artifact",
+      "venue": "cs.SE",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2303.07283",
+      "url": "https://arxiv.org/abs/2303.07283",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2105.01978",
+      "title": "RDMSim: An Exemplar for Evaluation and Comparison of Decision-Making Techniques for Self-Adaptation",
+      "authors": [
+        {
+          "name": "Huma Samin",
+          "affiliation": ""
+        },
+        {
+          "name": "Luis H. Garcia Paucar",
+          "affiliation": ""
+        },
+        {
+          "name": "Nelly Bencomo",
+          "affiliation": ""
+        },
+        {
+          "name": "Cesar M. Carranza Hurtado",
+          "affiliation": ""
+        },
+        {
+          "name": "Erik M. Fredericks",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Decision-making for self-adaptation approaches need to address different challenges, including the quantification of the uncertainty of events that cannot be foreseen in advance and their effects, and dealing with conflicting objectives that inherently involve multi-objective decision making (e.g., avoiding costs vs. providing reliable service). To enable researchers to evaluate and compare decision-making techniques for self-adaptation, we present the RDMSim exemplar. RDMSim enables researchers to evaluate and compare techniques for decision-making under environmental uncertainty that support self-adaptation. The focus of the exemplar is on the domain problem related to Remote Data Mirroring, which gives opportunity to face the challenges described above. RDMSim provides probe and effector components for easy integration with external adaptation managers, which are associated with decision-making techniques and based on the MAPE-K loop. Specifically, the paper presents (i) RDMSim, a simulator for real-world experimentation, (ii) a set of realistic simulation scenarios that can be used for experimentation and comparison purposes, (iii) data for the sake of comparison.",
+      "venue": "cs.SE",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2105.01978",
+      "url": "https://arxiv.org/abs/2105.01978",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2505.23757",
+      "title": "Impromptu VLA: Open Weights and Open Data for Driving Vision-Language-Action Models",
+      "authors": [
+        {
+          "name": "Haohan Chi",
+          "affiliation": ""
+        },
+        {
+          "name": "Huan-ang Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Ziming Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianing Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Chenyu Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jinwei Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Kaisen Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yangcheng Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zeda Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenyi Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Leichen Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xingtao Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Hang Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Zhao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Vision-Language-Action (VLA) models for autonomous driving show promise but falter in unstructured corner case scenarios, largely due to a scarcity of targeted benchmarks. To address this, we introduce Impromptu VLA. Our core contribution is the Impromptu VLA Dataset: over 80,000 meticulously curated video clips, distilled from over 2M source clips sourced from 8 open-source large-scale datasets. This dataset is built upon our novel taxonomy of four challenging unstructured categories and features rich, planning-oriented question-answering annotations and action trajectories. Crucially, experiments demonstrate that VLAs trained with our dataset achieve substantial performance gains on established benchmarks--improving closed-loop NeuroNCAP scores and collision rates, and reaching near state-of-the-art L2 accuracy in open-loop nuScenes trajectory prediction. Furthermore, our Q&A suite serves as an effective diagnostic, revealing clear VLM improvements in perception, prediction, and planning. Our code, data and models are available at https://github.com/ahydchh/Impromptu-VLA.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2505.23757",
+      "url": "https://arxiv.org/abs/2505.23757",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2402.04563",
+      "title": "Attention Guided CAM: Visual Explanations of Vision Transformer Guided by Self-Attention",
+      "authors": [
+        {
+          "name": "Saebom Leem",
+          "affiliation": ""
+        },
+        {
+          "name": "Hyunseok Seo",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Vision Transformer(ViT) is one of the most widely used models in the computer vision field with its great performance on various tasks. In order to fully utilize the ViT-based architecture in various applications, proper visualization methods with a decent localization performance are necessary, but these methods employed in CNN-based models are still not available in ViT due to its unique structure. In this work, we propose an attention-guided visualization method applied to ViT that provides a high-level semantic explanation for its decision. Our method selectively aggregates the gradients directly propagated from the classification output to each self-attention, collecting the contribution of image features extracted from each location of the input image. These gradients are additionally guided by the normalized self-attention scores, which are the pairwise patch correlation scores. They are used to supplement the gradients on the patch-level context information efficiently detected by the self-attention mechanism. This approach of our method provides elaborate high-level semantic explanations with great localization performance only with the class labels. As a result, our method outperforms the previous leading explainability methods of ViT in the weakly-supervised localization task and presents great capability in capturing the full instances of the target class object. Meanwhile, our method provides a visualization that faithfully explains the model, which is demonstrated in the perturbation comparison test.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2402.04563",
+      "url": "https://arxiv.org/abs/2402.04563",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2512.14523",
+      "title": "Interfacing adaptive optics simulations with the optical model: a powerful tool for MORFEO",
+      "authors": [
+        {
+          "name": "Giorgio Pariani",
+          "affiliation": ""
+        },
+        {
+          "name": "Guido Agapito",
+          "affiliation": ""
+        },
+        {
+          "name": "Demetrio Magrin",
+          "affiliation": ""
+        },
+        {
+          "name": "Matteo Munari",
+          "affiliation": ""
+        },
+        {
+          "name": "Lorenzo Busoni",
+          "affiliation": ""
+        },
+        {
+          "name": "Marco Riva",
+          "affiliation": ""
+        },
+        {
+          "name": "Andrea Di Rocco",
+          "affiliation": ""
+        },
+        {
+          "name": "Paolo Ciliegi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "In the framework of the MORFEO project, the Multi-Conjugated Adaptive Optics (MCAO) module for the European Extremely Large Telescope (ELT), we developed an integrated modeling tool to interface the optical model with the adaptive optics simulations, called ASSO (Adaptive opticS Simulation interfaced with Optical model). This tool is our asso nella manica (ace in the hole) to predict the performances of the AO relay, i.e., to estimate the wavefront error within the technical and scientific fields of view after AO correction. The tool is based on the IDL based simulator PyrAmid Simulator Software for Adaptive opTics Arcetri (PASSATA), on Zemax OpticStudio for the optical modelling, and on Matlab as interface software.",
+      "venue": "astro-ph.IM",
+      "citation_count": 0,
+      "doi": "10.1117/12.3018817",
+      "arxiv_id": "2512.14523",
+      "url": "https://arxiv.org/abs/2512.14523",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2210.00939",
+      "title": "Improving Sample Quality of Diffusion Models Using Self-Attention Guidance",
+      "authors": [
+        {
+          "name": "Susung Hong",
+          "affiliation": ""
+        },
+        {
+          "name": "Gyuseong Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Wooseok Jang",
+          "affiliation": ""
+        },
+        {
+          "name": "Seungryong Kim",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Denoising diffusion models (DDMs) have attracted attention for their exceptional generation quality and diversity. This success is largely attributed to the use of class- or text-conditional diffusion guidance methods, such as classifier and classifier-free guidance. In this paper, we present a more comprehensive perspective that goes beyond the traditional guidance methods. From this generalized perspective, we introduce novel condition- and training-free strategies to enhance the quality of generated images. As a simple solution, blur guidance improves the suitability of intermediate samples for their fine-scale information and structures, enabling diffusion models to generate higher quality samples with a moderate guidance scale. Improving upon this, Self-Attention Guidance (SAG) uses the intermediate self-attention maps of diffusion models to enhance their stability and efficacy. Specifically, SAG adversarially blurs only the regions that diffusion models attend to at each iteration and guides them accordingly. Our experimental results show that our SAG improves the performance of various diffusion models, including ADM, IDDPM, Stable Diffusion, and DiT. Moreover, combining SAG with conventional guidance methods leads to further improvement.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2210.00939",
+      "url": "https://arxiv.org/abs/2210.00939",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2601.18692",
+      "title": "A Pragmatic VLA Foundation Model",
+      "authors": [
+        {
+          "name": "Wei Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Fan Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yunnan Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuai Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Shi Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Fangjing Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Qian Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "He Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Yong Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuailei Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Yiyu Ren",
+          "affiliation": ""
+        },
+        {
+          "name": "Kejia Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Hui Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jingmei Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuai Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhenqi Qiu",
+          "affiliation": ""
+        },
+        {
+          "name": "Houlong Xiong",
+          "affiliation": ""
+        },
+        {
+          "name": "Ziyu Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zechen Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ran Cheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Yong-Lu Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yongtao Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xing Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yujun Shen",
+          "affiliation": ""
+        },
+        {
+          "name": "Kecheng Zheng",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Offering great potential in robotic manipulation, a capable Vision-Language-Action (VLA) foundation model is expected to faithfully generalize across tasks and platforms while ensuring cost efficiency (e.g., data and GPU hours required for adaptation). To this end, we develop LingBot-VLA with around 20,000 hours of real-world data from 9 popular dual-arm robot configurations. Through a systematic assessment on 3 robotic platforms, each completing 100 tasks with 130 post-training episodes per task, our model achieves clear superiority over competitors, showcasing its strong performance and broad generalizability. We have also built an efficient codebase, which delivers a throughput of 261 samples per second with an 8-GPU training setup, representing a 1.5~2.8$\\times$ (depending on the relied VLM base model) speedup over existing VLA-oriented codebases. The above features ensure that our model is well-suited for real-world deployment. To advance the field of robot learning, we provide open access to the code, base model, and benchmark data, with a focus on enabling more challenging tasks and promoting sound evaluation standards.",
+      "venue": "cs.RO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2601.18692",
+      "url": "https://arxiv.org/abs/2601.18692",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2103.14948",
+      "title": "Body Sensor Network: A Self-Adaptive System Exemplar in the Healthcare Domain",
+      "authors": [
+        {
+          "name": "Eric Bernd Gil",
+          "affiliation": ""
+        },
+        {
+          "name": "Ricardo Caldas",
+          "affiliation": ""
+        },
+        {
+          "name": "Arthur Rodrigues",
+          "affiliation": ""
+        },
+        {
+          "name": "Gabriel Levi Gomes da Silva",
+          "affiliation": ""
+        },
+        {
+          "name": "Gena\u00edna Nunes Rodrigues",
+          "affiliation": ""
+        },
+        {
+          "name": "Patrizio Pelliccione",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Recent worldwide events shed light on the need of human-centered systems engineering in the healthcare domain. These systems must be prepared to evolve quickly but safely, according to unpredicted environments and ever-changing pathogens that spread ruthlessly. Such scenarios suffocate hospitals' infrastructure and disable healthcare systems that are not prepared to deal with unpredicted environments without costly re-engineering. In the face of these challenges, we offer the SA-BSN -- Self-Adaptive Body Sensor Network -- prototype to explore the rather dynamic patient's health status monitoring. The exemplar is focused on self-adaptation and comes with scenarios that hinder an interplay between system reliability and battery consumption that is available after each execution. Also, we provide: (i) a noise injection mechanism, (ii) file-based patient profiles' configuration, (iii) six healthcare sensor simulations, and (iv) an extensible/reusable controller implementation for self-adaptation. The artifact is implemented in ROS (Robot Operating System), which embraces principles such as ease of use and relies on an active open source community support.",
+      "venue": "cs.SE",
+      "citation_count": 0,
+      "doi": "10.1109/SEAMS51251.2021.00037",
+      "arxiv_id": "2103.14948",
+      "url": "https://arxiv.org/abs/2103.14948",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2105.02358",
+      "title": "Beyond Self-attention: External Attention using Two Linear Layers for Visual Tasks",
+      "authors": [
+        {
+          "name": "Meng-Hao Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Zheng-Ning Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Tai-Jiang Mu",
+          "affiliation": ""
+        },
+        {
+          "name": "Shi-Min Hu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Attention mechanisms, especially self-attention, have played an increasingly important role in deep feature representation for visual tasks. Self-attention updates the feature at each position by computing a weighted sum of features using pair-wise affinities across all positions to capture the long-range dependency within a single sample. However, self-attention has quadratic complexity and ignores potential correlation between different samples. This paper proposes a novel attention mechanism which we call external attention, based on two external, small, learnable, shared memories, which can be implemented easily by simply using two cascaded linear layers and two normalization layers; it conveniently replaces self-attention in existing popular architectures. External attention has linear complexity and implicitly considers the correlations between all data samples. We further incorporate the multi-head mechanism into external attention to provide an all-MLP architecture, external attention MLP (EAMLP), for image classification. Extensive experiments on image classification, object detection, semantic segmentation, instance segmentation, image generation, and point cloud analysis reveal that our method provides results comparable or superior to the self-attention mechanism and some of its variants, with much lower computational and memory costs.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2105.02358",
+      "url": "https://arxiv.org/abs/2105.02358",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2301.07608",
+      "title": "Human-Timescale Adaptation in an Open-Ended Task Space",
+      "authors": [
+        {
+          "name": "Adaptive Agent Team",
+          "affiliation": ""
+        },
+        {
+          "name": "Jakob Bauer",
+          "affiliation": ""
+        },
+        {
+          "name": "Kate Baumli",
+          "affiliation": ""
+        },
+        {
+          "name": "Satinder Baveja",
+          "affiliation": ""
+        },
+        {
+          "name": "Feryal Behbahani",
+          "affiliation": ""
+        },
+        {
+          "name": "Avishkar Bhoopchand",
+          "affiliation": ""
+        },
+        {
+          "name": "Nathalie Bradley-Schmieg",
+          "affiliation": ""
+        },
+        {
+          "name": "Michael Chang",
+          "affiliation": ""
+        },
+        {
+          "name": "Natalie Clay",
+          "affiliation": ""
+        },
+        {
+          "name": "Adrian Collister",
+          "affiliation": ""
+        },
+        {
+          "name": "Vibhavari Dasagi",
+          "affiliation": ""
+        },
+        {
+          "name": "Lucy Gonzalez",
+          "affiliation": ""
+        },
+        {
+          "name": "Karol Gregor",
+          "affiliation": ""
+        },
+        {
+          "name": "Edward Hughes",
+          "affiliation": ""
+        },
+        {
+          "name": "Sheleem Kashem",
+          "affiliation": ""
+        },
+        {
+          "name": "Maria Loks-Thompson",
+          "affiliation": ""
+        },
+        {
+          "name": "Hannah Openshaw",
+          "affiliation": ""
+        },
+        {
+          "name": "Jack Parker-Holder",
+          "affiliation": ""
+        },
+        {
+          "name": "Shreya Pathak",
+          "affiliation": ""
+        },
+        {
+          "name": "Nicolas Perez-Nieves",
+          "affiliation": ""
+        },
+        {
+          "name": "Nemanja Rakicevic",
+          "affiliation": ""
+        },
+        {
+          "name": "Tim Rockt\u00e4schel",
+          "affiliation": ""
+        },
+        {
+          "name": "Yannick Schroecker",
+          "affiliation": ""
+        },
+        {
+          "name": "Jakub Sygnowski",
+          "affiliation": ""
+        },
+        {
+          "name": "Karl Tuyls",
+          "affiliation": ""
+        },
+        {
+          "name": "Sarah York",
+          "affiliation": ""
+        },
+        {
+          "name": "Alexander Zacherl",
+          "affiliation": ""
+        },
+        {
+          "name": "Lei Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Foundation models have shown impressive adaptation and scalability in supervised and self-supervised learning problems, but so far these successes have not fully translated to reinforcement learning (RL). In this work, we demonstrate that training an RL agent at scale leads to a general in-context learning algorithm that can adapt to open-ended novel embodied 3D problems as quickly as humans. In a vast space of held-out environment dynamics, our adaptive agent (AdA) displays on-the-fly hypothesis-driven exploration, efficient exploitation of acquired knowledge, and can successfully be prompted with first-person demonstrations. Adaptation emerges from three ingredients: (1) meta-reinforcement learning across a vast, smooth and diverse task distribution, (2) a policy parameterised as a large-scale attention-based memory architecture, and (3) an effective automated curriculum that prioritises tasks at the frontier of an agent's capabilities. We demonstrate characteristic scaling laws with respect to network size, memory length, and richness of the training task distribution. We believe our results lay the foundation for increasingly general and adaptive RL agents that perform well across ever-larger open-ended domains.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2301.07608",
+      "url": "https://arxiv.org/abs/2301.07608",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2501.09994",
+      "title": "Multi-Modal Attention Networks for Enhanced Segmentation and Depth Estimation of Subsurface Defects in Pulse Thermography",
+      "authors": [
+        {
+          "name": "Mohammed Salah",
+          "affiliation": ""
+        },
+        {
+          "name": "Naoufel Werghi",
+          "affiliation": ""
+        },
+        {
+          "name": "Davor Svetinovic",
+          "affiliation": ""
+        },
+        {
+          "name": "Yusra Abdulrahman",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "AI-driven pulse thermography (PT) has become a crucial tool in non-destructive testing (NDT), enabling automatic detection of hidden anomalies in various industrial components. Current state-of-the-art techniques feed segmentation and depth estimation networks compressed PT sequences using either Principal Component Analysis (PCA) or Thermographic Signal Reconstruction (TSR). However, treating these two modalities independently constrains the performance of PT inspection models as these representations possess complementary semantic features. To address this limitation, this work proposes PT-Fusion, a multi-modal attention-based fusion network that fuses both PCA and TSR modalities for defect segmentation and depth estimation of subsurface defects in PT setups. PT-Fusion introduces novel feature fusion modules, Encoder Attention Fusion Gate (EAFG) and Attention Enhanced Decoding Block (AEDB), to fuse PCA and TSR features for enhanced segmentation and depth estimation of subsurface defects. In addition, a novel data augmentation technique is proposed based on random data sampling from thermographic sequences to alleviate the scarcity of PT datasets. The proposed method is benchmarked against state-of-the-art PT inspection models, including U-Net, attention U-Net, and 3D-CNN on the Universit\u00e9 Laval IRT-PVC dataset. The results demonstrate that PT-Fusion outperforms the aforementioned models in defect segmentation and depth estimation accuracies with a margin of 10%.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2501.09994",
+      "url": "https://arxiv.org/abs/2501.09994",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2510.09607",
+      "title": "VITA-VLA: Efficiently Teaching Vision-Language Models to Act via Action Expert Distillation",
+      "authors": [
+        {
+          "name": "Shaoqi Dong",
+          "affiliation": ""
+        },
+        {
+          "name": "Chaoyou Fu",
+          "affiliation": ""
+        },
+        {
+          "name": "Haihan Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi-Fan Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chi Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Chu Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaoyu Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yunhang Shen",
+          "affiliation": ""
+        },
+        {
+          "name": "Jing Huo",
+          "affiliation": ""
+        },
+        {
+          "name": "Deqiang Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Haoyu Cao",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Xing Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Ran He",
+          "affiliation": ""
+        },
+        {
+          "name": "Caifeng Shan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Vision-Language Action (VLA) models significantly advance robotic manipulation by leveraging the strong perception capabilities of pretrained vision-language models (VLMs). By integrating action modules into these pretrained models, VLA methods exhibit improved generalization. However, training them from scratch is costly. In this work, we propose a simple yet effective distillation-based framework that equips VLMs with action-execution capability by transferring knowledge from pretrained small action models. Our architecture retains the original VLM structure, adding only an action token and a state encoder to incorporate physical inputs. To distill action knowledge, we adopt a two-stage training strategy. First, we perform lightweight alignment by mapping VLM hidden states into the action space of the small action model, enabling effective reuse of its pretrained action decoder and avoiding expensive pretraining. Second, we selectively fine-tune the language model, state encoder, and action modules, enabling the system to integrate multimodal inputs with precise action generation. Specifically, the action token provides the VLM with a direct handle for predicting future actions, while the state encoder allows the model to incorporate robot dynamics not captured by vision alone. This design yields substantial efficiency gains over training large VLA models from scratch. Compared with previous state-of-the-art methods, our method achieves 97.3% average success rate on LIBERO (11.8% improvement) and 93.5% on LIBERO-LONG (24.5% improvement). In real-world experiments across five manipulation tasks, our method consistently outperforms the teacher model, achieving 82.0% success rate (17% improvement), which demonstrate that action distillation effectively enables VLMs to generate precise actions while substantially reducing training costs.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2510.09607",
+      "url": "https://arxiv.org/abs/2510.09607",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2006.15482",
+      "title": "Robot Inner Attention Modeling for Task-Adaptive Teaming of Heterogeneous Multi Robots",
+      "authors": [
+        {
+          "name": "Chao Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Rui Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Attracted by team scale and function diversity, a heterogeneous multi-robot system (HMRS), where multiple robots with different functions and numbers are coordinated to perform tasks, has been widely used for complex and large-scale scenarios, including disaster search and rescue, site surveillance, and social security. However, due to the variety of the task requirements, it is challenging to accurately compose a robot team with appropriate sizes and functions to dynamically satisfy task needs while limiting the robot resource cost to a low level. To solve this problem, in this paper, a novel adaptive cooperation method, inner attention (innerATT), is developed to flexibly team heterogeneous robots to execute tasks as task types and environment change. innerATT is designed by integrating a novel attention mechanism into a multi-agent actor-critic reinforcement learning architecture. With an attention mechanism, robot capability will be analyzed to flexibly form teams to meet task requirements. Scenarios with different task variety (\"Single Task\", \"Double Task\", and \"Mixed Task\") were designed. The effectiveness of the innerATT was validated by its accuracy in flexible cooperation.",
+      "venue": "cs.RO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2006.15482",
+      "url": "https://arxiv.org/abs/2006.15482",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

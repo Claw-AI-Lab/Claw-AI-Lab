@@ -1,0 +1,2004 @@
+{
+  "query": "GPU for long-context transformer inference",
+  "source": "openalex",
+  "limit": 40,
+  "timestamp": 1773944622.7407758,
+  "papers": [
+    {
+      "paper_id": "oalex-W4385245566",
+      "title": "MizAR 60 for Mizar 50",
+      "authors": [
+        {
+          "name": "Ashish Vaswani",
+          "affiliation": "Czech Technical University in Prague"
+        },
+        {
+          "name": "Noam Shazeer",
+          "affiliation": "Czech Technical University in Prague"
+        },
+        {
+          "name": "Niki Parmar",
+          "affiliation": "Czech Technical University in Prague"
+        },
+        {
+          "name": "Jakob Uszkoreit",
+          "affiliation": "Food Research Institute Prague"
+        },
+        {
+          "name": "Llion Jones",
+          "affiliation": "Institut des Hautes \u00c9tudes Scientifiques"
+        },
+        {
+          "name": "Aidan N. Gomez",
+          "affiliation": "Czech Technical University in Prague"
+        },
+        {
+          "name": "\u0141ukasz Kaiser",
+          "affiliation": "Baden-Wuerttemberg Cooperative State University"
+        },
+        {
+          "name": "Illia Polosukhin",
+          "affiliation": "Czech Technical University in Prague"
+        },
+        {
+          "name": "Urban, Josef",
+          "affiliation": "Czech Technical University in Prague"
+        }
+      ],
+      "year": 2023,
+      "abstract": "As a present to Mizar on its 50th anniversary, we develop an AI/TP system that automatically proves about 60% of the Mizar theorems in the hammer setting. We also automatically prove 75% of the Mizar theorems when the automated provers are helped by using only the premises used in the human-written Mizar proofs. We describe the methods and large-scale experiments leading to these results. This includes in particular the E and Vampire provers, their ENIGMA and Deepire learning modifications, a number of learning-based premise selection methods, and the incremental loop that interleaves growing a corpus of millions of ATP proofs with training increasingly strong AI/TP systems on them. We also present a selection of Mizar problems that were proved automatically.",
+      "venue": "DROPS (Schloss Dagstuhl \u2013 Leibniz Center for Informatics)",
+      "citation_count": 74187,
+      "doi": "10.4230/lipics.itp.2023.19",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.4230/lipics.itp.2023.19",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4391013663",
+      "title": "Vision Mamba: Efficient Visual Representation Learning with Bidirectional State Space Model",
+      "authors": [
+        {
+          "name": "Lianghui Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Bencheng Liao",
+          "affiliation": ""
+        },
+        {
+          "name": "Qian Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinlong Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenyu Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinggang Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Recently the state space models (SSMs) with efficient hardware-aware designs, i.e., the Mamba deep learning model, have shown great potential for long sequence modeling. Meanwhile building efficient and generic vision backbones purely upon SSMs is an appealing direction. However, representing visual data is challenging for SSMs due to the position-sensitivity of visual data and the requirement of global context for visual understanding. In this paper, we show that the reliance on self-attention for visual representation learning is not necessary and propose a new generic vision backbone with bidirectional Mamba blocks (Vim), which marks the image sequences with position embeddings and compresses the visual representation with bidirectional state space models. On ImageNet classification, COCO object detection, and ADE20k semantic segmentation tasks, Vim achieves higher performance compared to well-established vision transformers like DeiT, while also demonstrating significantly improved computation &amp; memory efficiency. For example, Vim is 2.8$\\times$ faster than DeiT and saves 86.8% GPU memory when performing batch inference to extract features on images with a resolution of 1248$\\times$1248. The results demonstrate that Vim is capable of overcoming the computation &amp; memory constraints on performing Transformer-style understanding for high-resolution images and it has great potential to be the next-generation backbone for vision foundation models. Code is available at https://github.com/hustvl/Vim.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 384,
+      "doi": "10.48550/arxiv.2401.09417",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2401.09417",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3177318507",
+      "title": "Informer: Beyond Efficient Transformer for Long Sequence Time-Series Forecasting",
+      "authors": [
+        {
+          "name": "Haoyi Zhou",
+          "affiliation": "Beihang University"
+        },
+        {
+          "name": "Shanghang Zhang",
+          "affiliation": "Beihang University"
+        },
+        {
+          "name": "Jieqi Peng",
+          "affiliation": "Beihang University"
+        },
+        {
+          "name": "Shuai Zhang",
+          "affiliation": "University of California, Berkeley"
+        },
+        {
+          "name": "Jianxin Li",
+          "affiliation": "Beihang University"
+        },
+        {
+          "name": "Hui Xiong",
+          "affiliation": "Rutgers, The State University of New Jersey"
+        },
+        {
+          "name": "Wancai Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Many real-world applications require the prediction of long sequence time-series, such as electricity consumption planning. Long sequence time-series forecasting (LSTF) demands a high prediction capacity of the model, which is the ability to capture precise long-range dependency coupling between output and input efficiently. Recent studies have shown the potential of Transformer to increase the prediction capacity. However, there are several severe issues with Transformer that prevent it from being directly applicable to LSTF, including quadratic time complexity, high memory usage, and inherent limitation of the encoder-decoder architecture. To address these issues, we design an efficient transformer-based model for LSTF, named Informer, with three distinctive characteristics: (i) a ProbSparse self-attention mechanism, which achieves O(L log L) in time complexity and memory usage, and has comparable performance on sequences' dependency alignment. (ii) the self-attention distilling highlights dominating attention by halving cascading layer input, and efficiently handles extreme long input sequences. (iii) the generative style decoder, while conceptually simple, predicts the long time-series sequences at one forward operation rather than a step-by-step way, which drastically improves the inference speed of long-sequence predictions. Extensive experiments on four large-scale datasets demonstrate that Informer significantly outperforms existing methods and provides a new solution to the LSTF problem.",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 5484,
+      "doi": "10.1609/aaai.v35i12.17325",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v35i12.17325",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4361290857",
+      "title": "Efficient Memory-Enhanced Transformer for Long-Document Summarization in Low-Resource Regimes",
+      "authors": [
+        {
+          "name": "Gianluca Moro",
+          "affiliation": "University of Bologna"
+        },
+        {
+          "name": "Luca Ragazzi",
+          "affiliation": "University of Bologna"
+        },
+        {
+          "name": "Lorenzo Valgimigli",
+          "affiliation": "University of Bologna"
+        },
+        {
+          "name": "Giacomo Frisoni",
+          "affiliation": "University of Bologna"
+        },
+        {
+          "name": "Claudio Sartori",
+          "affiliation": "University of Bologna"
+        },
+        {
+          "name": "Gustavo Marfia",
+          "affiliation": "University of Bologna"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Long document summarization poses obstacles to current generative transformer-based models because of the broad context to process and understand. Indeed, detecting long-range dependencies is still challenging for today's state-of-the-art solutions, usually requiring model expansion at the cost of an unsustainable demand for computing and memory capacities. This paper introduces Emma, a novel efficient memory-enhanced transformer-based architecture. By segmenting a lengthy input into multiple text fragments, our model stores and compares the current chunk with previous ones, gaining the capability to read and comprehend the entire context over the whole document with a fixed amount of GPU memory. This method enables the model to deal with theoretically infinitely long documents, using less than 18 and 13 GB of memory for training and inference, respectively. We conducted extensive performance analyses and demonstrate that Emma achieved competitive results on two datasets of different domains while consuming significantly less GPU memory than competitors do, even in low-resource settings.",
+      "venue": "Sensors",
+      "citation_count": 41,
+      "doi": "10.3390/s23073542",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/s23073542",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4322718191",
+      "title": "LLaMA: Open and Efficient Foundation Language Models",
+      "authors": [
+        {
+          "name": "Hugo Touvron",
+          "affiliation": ""
+        },
+        {
+          "name": "Thibaut Lavril",
+          "affiliation": ""
+        },
+        {
+          "name": "Gautier Izacard",
+          "affiliation": ""
+        },
+        {
+          "name": "Xavier Martinet",
+          "affiliation": ""
+        },
+        {
+          "name": "Marie-Anne Lachaux",
+          "affiliation": ""
+        },
+        {
+          "name": "Timoth\u00e9e Lacroix",
+          "affiliation": ""
+        },
+        {
+          "name": "Baptiste Rozi\u00e8re",
+          "affiliation": ""
+        },
+        {
+          "name": "Naman Goyal",
+          "affiliation": ""
+        },
+        {
+          "name": "Eric Hambro",
+          "affiliation": ""
+        },
+        {
+          "name": "Faisal Azhar",
+          "affiliation": ""
+        },
+        {
+          "name": "Aurelien Rodriguez",
+          "affiliation": ""
+        },
+        {
+          "name": "Armand Joulin",
+          "affiliation": ""
+        },
+        {
+          "name": "\u00c9douard Grave",
+          "affiliation": ""
+        },
+        {
+          "name": "Guillaume Lample",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We introduce LLaMA, a collection of foundation language models ranging from 7B to 65B parameters. We train our models on trillions of tokens, and show that it is possible to train state-of-the-art models using publicly available datasets exclusively, without resorting to proprietary and inaccessible datasets. In particular, LLaMA-13B outperforms GPT-3 (175B) on most benchmarks, and LLaMA-65B is competitive with the best models, Chinchilla-70B and PaLM-540B. We release all our models to the research community.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 3844,
+      "doi": "10.48550/arxiv.2302.13971",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2302.13971",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3163993681",
+      "title": "Physics-informed machine learning",
+      "authors": [
+        {
+          "name": "George Em Karniadakis",
+          "affiliation": "Brown University"
+        },
+        {
+          "name": "Ioannis G. Kevrekidis",
+          "affiliation": "Johns Hopkins University"
+        },
+        {
+          "name": "Lu Lu",
+          "affiliation": "Massachusetts Institute of Technology"
+        },
+        {
+          "name": "Paris Perdikaris",
+          "affiliation": "University of Pennsylvania"
+        },
+        {
+          "name": "Sifan Wang",
+          "affiliation": "Applied Mathematics (United States)"
+        },
+        {
+          "name": "Liu Yang",
+          "affiliation": "Brown University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "",
+      "venue": "Nature Reviews Physics",
+      "citation_count": 5690,
+      "doi": "10.1038/s42254-021-00314-5",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s42254-021-00314-5",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3140854437",
+      "title": "Review of deep learning: concepts, CNN architectures, challenges, applications, future directions",
+      "authors": [
+        {
+          "name": "Laith Alzubaidi",
+          "affiliation": "Queensland University of Technology"
+        },
+        {
+          "name": "Jinglan Zhang",
+          "affiliation": "Queensland University of Technology"
+        },
+        {
+          "name": "Amjad J. Humaidi",
+          "affiliation": "University of Technology - Iraq"
+        },
+        {
+          "name": "Ayad Q. Al-Dujaili",
+          "affiliation": "Middle Technical University"
+        },
+        {
+          "name": "Ye Duan",
+          "affiliation": "University of Missouri"
+        },
+        {
+          "name": "Omran Al-Shamma",
+          "affiliation": "University of Information Technology and Communications"
+        },
+        {
+          "name": "Jos\u00e9 Santamar\u00eda",
+          "affiliation": "Universidad de Ja\u00e9n"
+        },
+        {
+          "name": "Mohammed A. Fadhel",
+          "affiliation": "Thi Qar University"
+        },
+        {
+          "name": "Muthana Al\u2010Amidie",
+          "affiliation": "University of Missouri"
+        },
+        {
+          "name": "Laith Farhan",
+          "affiliation": "Manchester Metropolitan University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "In the last few years, the deep learning (DL) computing paradigm has been deemed the Gold Standard in the machine learning (ML) community. Moreover, it has gradually become the most widely used computational approach in the field of ML, thus achieving outstanding results on several complex cognitive tasks, matching or even beating those provided by human performance. One of the benefits of DL is the ability to learn massive amounts of data. The DL field has grown fast in the last few years and it has been extensively used to successfully address a wide range of traditional applications. More importantly, DL has outperformed well-known ML techniques in many domains, e.g., cybersecurity, natural language processing, bioinformatics, robotics and control, and medical information processing, among many others. Despite it has been contributed several works reviewing the State-of-the-Art on DL, all of them only tackled one aspect of the DL, which leads to an overall lack of knowledge about it. Therefore, in this contribution, we propose using a more holistic approach in order to provide a more suitable starting point from which to develop a full understanding of DL. Specifically, this review attempts to provide a more comprehensive survey of the most important aspects of DL and including those enhancements recently added to the field. In particular, this paper outlines the importance of DL, presents the types of DL techniques and networks. It then presents convolutional neural networks (CNNs) which the most utilized DL network type and describes the development of CNNs architectures together with their main features, e.g., starting with the AlexNet network and closing with the High-Resolution network (HR.Net). Finally, we further present the challenges and suggested solutions to help researchers understand the existing research gaps. It is followed by a list of the major DL applications. Computational tools including FPGA, GPU, and CPU are summarized along with a description of their influence on DL. The paper ends with the evolution matrix, benchmark datasets, and summary and conclusion.",
+      "venue": "Journal Of Big Data",
+      "citation_count": 7130,
+      "doi": "10.1186/s40537-021-00444-8",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1186/s40537-021-00444-8",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4382319938",
+      "title": "H$_2$O: Heavy-Hitter Oracle for Efficient Generative Inference of Large Language Models",
+      "authors": [
+        {
+          "name": "Zhenyu Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ying Sheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Tianyi Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Tianlong Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Lianmin Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruisi Cai",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhao Song",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuandong Tian",
+          "affiliation": ""
+        },
+        {
+          "name": "Christopher R\u00e9",
+          "affiliation": ""
+        },
+        {
+          "name": "Clark Barrett",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhangyang Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Beidi Chen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Hyde-IKV is a dynamic management system for the Key-Value (KV) cache in Small Language Models (SLMs). It tackles the memory bottleneck of long-context inference by intelligently prioritizing and compressing the stored context. Instead of abruptly deleting tokens, Hyde-IKV uses a hybrid strategy of positional decay (gradually reducing the influence of older tokens) and importance-based modulation (preserving tokens with high attention scores or large key vector magnitudes). This non-invasive approach, implemented via hooks into the transformer architecture, significantly reduces GPU memory usage and speeds up inference for long sequences while largely preserving the quality of the generated text.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 27,
+      "doi": "10.48550/arxiv.2306.14048",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2306.14048",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3174770825",
+      "title": "Prefix-Tuning: Optimizing Continuous Prompts for Generation",
+      "authors": [
+        {
+          "name": "Xiang Lisa Li",
+          "affiliation": "Stanford University"
+        },
+        {
+          "name": "Percy Liang",
+          "affiliation": "Stanford University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Xiang Lisa Li, Percy Liang. Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (Volume 1: Long Papers). 2021.",
+      "venue": "",
+      "citation_count": 2088,
+      "doi": "10.18653/v1/2021.acl-long.353",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.18653/v1/2021.acl-long.353",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4221151978",
+      "title": "Instant neural graphics primitives with a multiresolution hash encoding",
+      "authors": [
+        {
+          "name": "Thomas M\u00fcller",
+          "affiliation": ""
+        },
+        {
+          "name": "Alex Evans",
+          "affiliation": "Nvidia (United Kingdom)"
+        },
+        {
+          "name": "Christoph Schied",
+          "affiliation": ""
+        },
+        {
+          "name": "Alexander Keller",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Neural graphics primitives, parameterized by fully connected neural networks, can be costly to train and evaluate. We reduce this cost with a versatile new input encoding that permits the use of a smaller network without sacrificing quality, thus significantly reducing the number of floating point and memory access operations: a small neural network is augmented by a multiresolution hash table of trainable feature vectors whose values are optimized through stochastic gradient descent. The multiresolution structure allows the network to disambiguate hash collisions, making for a simple architecture that is trivial to parallelize on modern GPUs. We leverage this parallelism by implementing the whole system using fully-fused CUDA kernels with a focus on minimizing wasted bandwidth and compute operations. We achieve a combined speedup of several orders of magnitude, enabling training of high-quality neural graphics primitives in a matter of seconds, and rendering in tens of milliseconds at a resolution of 1920\u00d71080.",
+      "venue": "ACM Transactions on Graphics",
+      "citation_count": 3424,
+      "doi": "10.1145/3528223.3530127",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3528223.3530127",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4382203079",
+      "title": "Are Transformers Effective for Time Series Forecasting?",
+      "authors": [
+        {
+          "name": "Ailing Zeng",
+          "affiliation": "Chinese University of Hong Kong"
+        },
+        {
+          "name": "Muxi Chen",
+          "affiliation": "Chinese University of Hong Kong"
+        },
+        {
+          "name": "Lei Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Qiang Xu",
+          "affiliation": "Chinese University of Hong Kong"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Recently, there has been a surge of Transformer-based solutions for the long-term time series forecasting (LTSF) task. Despite the growing performance over the past few years, we question the validity of this line of research in this work. Specifically, Transformers is arguably the most successful solution to extract the semantic correlations among the elements in a long sequence. However, in time series modeling, we are to extract the temporal relations in an ordered set of continuous points. While employing positional encoding and using tokens to embed sub-series in Transformers facilitate preserving some ordering information, the nature of the permutation-invariant self-attention mechanism inevitably results in temporal information loss. To validate our claim, we introduce a set of embarrassingly simple one-layer linear models named LTSF-Linear for comparison. Experimental results on nine real-life datasets show that LTSF-Linear surprisingly outperforms existing sophisticated Transformer-based LTSF models in all cases, and often by a large margin. Moreover, we conduct comprehensive empirical studies to explore the impacts of various design elements of LTSF models on their temporal relation extraction capability. We hope this surprising finding opens up new research directions for the LTSF task. We also advocate revisiting the validity of Transformer-based solutions for other time series analysis tasks (e.g., anomaly detection) in the future.",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 2269,
+      "doi": "10.1609/aaai.v37i9.26317",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v37i9.26317",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4391109864",
+      "title": "Segment anything in medical images",
+      "authors": [
+        {
+          "name": "Jun Ma",
+          "affiliation": "University Health Network"
+        },
+        {
+          "name": "Yuting He",
+          "affiliation": "Western University"
+        },
+        {
+          "name": "Feifei Li",
+          "affiliation": "University Health Network"
+        },
+        {
+          "name": "Lin Han",
+          "affiliation": "New York University"
+        },
+        {
+          "name": "Chenyu You",
+          "affiliation": "Yale University"
+        },
+        {
+          "name": "Bo Wang",
+          "affiliation": "Vector Institute"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Medical image segmentation is a critical component in clinical practice, facilitating accurate diagnosis, treatment planning, and disease monitoring. However, existing methods, often tailored to specific modalities or disease types, lack generalizability across the diverse spectrum of medical image segmentation tasks. Here we present MedSAM, a foundation model designed for bridging this gap by enabling universal medical image segmentation. The model is developed on a large-scale medical image dataset with 1,570,263 image-mask pairs, covering 10 imaging modalities and over 30 cancer types. We conduct a comprehensive evaluation on 86 internal validation tasks and 60 external validation tasks, demonstrating better accuracy and robustness than modality-wise specialist models. By delivering accurate and efficient segmentation across a wide spectrum of tasks, MedSAM holds significant potential to expedite the evolution of diagnostic tools and the personalization of treatment plans.",
+      "venue": "Nature Communications",
+      "citation_count": 2045,
+      "doi": "10.1038/s41467-024-44824-z",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41467-024-44824-z",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3176923149",
+      "title": "Text Data Augmentation for Deep Learning",
+      "authors": [
+        {
+          "name": "Connor Shorten",
+          "affiliation": "Florida Atlantic University"
+        },
+        {
+          "name": "Taghi M. Khoshgoftaar",
+          "affiliation": "Florida Atlantic University"
+        },
+        {
+          "name": "Borko Furht",
+          "affiliation": "Florida Atlantic University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "",
+      "venue": "Journal Of Big Data",
+      "citation_count": 1644,
+      "doi": "10.1186/s40537-021-00492-0",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1186/s40537-021-00492-0",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3175515048",
+      "title": "PVT v2: Improved baselines with pyramid vision transformer",
+      "authors": [
+        {
+          "name": "Wenhai Wang",
+          "affiliation": "Nanjing University of Science and Technology"
+        },
+        {
+          "name": "Enze Xie",
+          "affiliation": "University of Hong Kong"
+        },
+        {
+          "name": "Xiang Li",
+          "affiliation": "Nanjing University of Science and Technology"
+        },
+        {
+          "name": "Deng-Ping Fan",
+          "affiliation": "ETH Zurich"
+        },
+        {
+          "name": "Kaitao Song",
+          "affiliation": "Nanjing University of Science and Technology"
+        },
+        {
+          "name": "Ding Liang",
+          "affiliation": "Sensimetrics Corporation"
+        },
+        {
+          "name": "Tong L\u00fc",
+          "affiliation": "Nanjing University of Science and Technology"
+        },
+        {
+          "name": "Ping Luo",
+          "affiliation": "University of Hong Kong"
+        },
+        {
+          "name": "Ling Shao",
+          "affiliation": "Inception Institute of Artificial Intelligence"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Transformers have recently lead to encouraging progress in computer vision. In this work, we present new baselines by improving the original Pyramid Vision Transformer (PVT v1) by adding three designs: (i) a linear complexity attention layer, (ii) an overlapping patch embedding, and (iii) a convolutional feed-forward network. With these modifications, PVT v2 reduces the computational complexity of PVT v1 to linearity and provides significant improvements on fundamental vision tasks such as classification, detection, and segmentation. In particular, PVT v2 achieves comparable or better performance than recent work such as the Swin transformer. We hope this work will facilitate state-of-the-art transformer research in computer vision. Code is available at https://github.com/whai362/PVT .",
+      "venue": "Computational Visual Media",
+      "citation_count": 2026,
+      "doi": "10.1007/s41095-022-0274-8",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s41095-022-0274-8",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4389326242",
+      "title": "Mamba: Linear-Time Sequence Modeling with Selective State Spaces",
+      "authors": [
+        {
+          "name": "Albert Gu",
+          "affiliation": ""
+        },
+        {
+          "name": "Tri Dao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Foundation models, now powering most of the exciting applications in deep learning, are almost universally based on the Transformer architecture and its core attention module. Many subquadratic-time architectures such as linear attention, gated convolution and recurrent models, and structured state space models (SSMs) have been developed to address Transformers' computational inefficiency on long sequences, but they have not performed as well as attention on important modalities such as language. We identify that a key weakness of such models is their inability to perform content-based reasoning, and make several improvements. First, simply letting the SSM parameters be functions of the input addresses their weakness with discrete modalities, allowing the model to selectively propagate or forget information along the sequence length dimension depending on the current token. Second, even though this change prevents the use of efficient convolutions, we design a hardware-aware parallel algorithm in recurrent mode. We integrate these selective SSMs into a simplified end-to-end neural network architecture without attention or even MLP blocks (Mamba). Mamba enjoys fast inference (5$\\times$ higher throughput than Transformers) and linear scaling in sequence length, and its performance improves on real data up to million-length sequences. As a general sequence model backbone, Mamba achieves state-of-the-art performance across several modalities such as language, audio, and genomics. On language modeling, our Mamba-3B model outperforms Transformers of the same size and matches Transformers twice its size, both in pretraining and downstream evaluation.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 961,
+      "doi": "10.48550/arxiv.2312.00752",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2312.00752",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3105966348",
+      "title": "TinyBERT: Distilling BERT for Natural Language Understanding",
+      "authors": [
+        {
+          "name": "Xiaoqi Jiao",
+          "affiliation": "Huazhong University of Science and Technology"
+        },
+        {
+          "name": "Yichun Yin",
+          "affiliation": "Huawei Technologies (Sweden)"
+        },
+        {
+          "name": "Lifeng Shang",
+          "affiliation": "Huawei Technologies (Sweden)"
+        },
+        {
+          "name": "Xin Jiang",
+          "affiliation": "Huawei Technologies (Sweden)"
+        },
+        {
+          "name": "Xiao Dong Chen",
+          "affiliation": "Huawei Technologies (Sweden)"
+        },
+        {
+          "name": "Linlin Li",
+          "affiliation": "Huawei Technologies (United Kingdom)"
+        },
+        {
+          "name": "Fang Wang",
+          "affiliation": "Huazhong University of Science and Technology"
+        },
+        {
+          "name": "Qun Liu",
+          "affiliation": "Huawei Technologies (Sweden)"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Language model pre-training, such as BERT, has significantly improved the performances of many natural language processing tasks. However, pre-trained language models are usually computationally expensive, so it is difficult to efficiently execute them on resourcerestricted devices. To accelerate inference and reduce model size while maintaining accuracy, we first propose a novel Transformer distillation method that is specially designed for knowledge distillation (KD) of the Transformer-based models. By leveraging this new KD method, the plenty of knowledge encoded in a large \"teacher\" BERT can be effectively transferred to a small \"student\" Tiny-BERT. Then, we introduce a new two-stage learning framework for TinyBERT, which performs Transformer distillation at both the pretraining and task-specific learning stages. This framework ensures that TinyBERT can capture the general-domain as well as the task-specific knowledge in BERT.",
+      "venue": "",
+      "citation_count": 1572,
+      "doi": "10.18653/v1/2020.findings-emnlp.372",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.18653/v1/2020.findings-emnlp.372",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4383218913",
+      "title": "Accurate medium-range global weather forecasting with 3D neural networks",
+      "authors": [
+        {
+          "name": "Kaifeng Bi",
+          "affiliation": "Huawei Technologies (China)"
+        },
+        {
+          "name": "Lingxi Xie",
+          "affiliation": "Huawei Technologies (China)"
+        },
+        {
+          "name": "Hengheng Zhang",
+          "affiliation": "Huawei Technologies (China)"
+        },
+        {
+          "name": "Xin Chen",
+          "affiliation": "Huawei Technologies (China)"
+        },
+        {
+          "name": "Xiaotao Gu",
+          "affiliation": "Huawei Technologies (China)"
+        },
+        {
+          "name": "Qi Tian",
+          "affiliation": "Huawei Technologies (China)"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Weather forecasting is important for science and society. At present, the most accurate forecast system is the numerical weather prediction (NWP) method, which represents atmospheric states as discretized grids and numerically solves partial differential equations that describe the transition between those states<sup>1</sup>. However, this procedure is computationally expensive. Recently, artificial-intelligence-based methods<sup>2</sup> have shown potential in accelerating weather forecasting by orders of magnitude, but the forecast accuracy is still significantly lower than that of NWP methods. Here we introduce an artificial-intelligence-based method for accurate, medium-range global weather forecasting. We show that three-dimensional deep networks equipped with Earth-specific priors are effective at dealing with complex patterns in weather data, and that a hierarchical temporal aggregation strategy reduces accumulation errors in medium-range forecasting. Trained on 39 years of global data, our program, Pangu-Weather, obtains stronger deterministic forecast results on reanalysis data in all tested variables when compared with the world's best NWP system, the operational integrated forecasting system of the European Centre for Medium-Range Weather Forecasts (ECMWF)<sup>3</sup>. Our method also works well with extreme weather forecasts and ensemble forecasts. When initialized with reanalysis data, the accuracy of tracking tropical cyclones is also higher than that of ECMWF-HRES.",
+      "venue": "Nature",
+      "citation_count": 1240,
+      "doi": "10.1038/s41586-023-06185-3",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41586-023-06185-3",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4400164523",
+      "title": "Improving long-term electricity time series forecasting in smart grid with a three-stage channel-temporal approach",
+      "authors": [
+        {
+          "name": "Zhao Sun",
+          "affiliation": "Eindhoven University of Technology"
+        },
+        {
+          "name": "Dongjin Song",
+          "affiliation": "University of Connecticut"
+        },
+        {
+          "name": "Qinke Peng",
+          "affiliation": "Xi'an Jiaotong University"
+        },
+        {
+          "name": "Haozhou Li",
+          "affiliation": "Xi'an Jiaotong University"
+        },
+        {
+          "name": "Pulin Li",
+          "affiliation": "Henan University of Engineering"
+        }
+      ],
+      "year": 2024,
+      "abstract": "",
+      "venue": "Journal of Cleaner Production",
+      "citation_count": 11,
+      "doi": "10.1016/j.jclepro.2024.143051",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.jclepro.2024.143051",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4206484811",
+      "title": "A Metaverse: Taxonomy, Components, Applications, and Open Challenges",
+      "authors": [
+        {
+          "name": "Sangmin Park",
+          "affiliation": "Korea University"
+        },
+        {
+          "name": "Young\u2010Gab Kim",
+          "affiliation": "Sejong University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Unlike previous studies on the Metaverse based on Second Life, the current Metaverse is based on the social value of Generation Z that online and offline selves are not different. With the technological development of deep learning-based high-precision recognition models and natural generation models, Metaverse is being strengthened with various factors, from mobile-based always-on access to connectivity with reality using virtual currency. The integration of enhanced social activities and neural-net methods requires a new definition of Metaverse suitable for the present, different from the previous Metaverse. This paper divides the concepts and essential techniques necessary for realizing the Metaverse into three components (i.e., hardware, software, and contents) and three approaches (i.e., user interaction, implementation, and application) rather than marketing or hardware approach to conduct a comprehensive analysis. Furthermore, we describe essential methods based on three components and techniques to Metaverse&#x2019;s representative Ready Player One, Roblox, and Facebook research in the domain of films, games, and studies. Finally, we summarize the limitations and directions for implementing the immersive Metaverse as social influences, constraints, and open challenges.",
+      "venue": "IEEE Access",
+      "citation_count": 1692,
+      "doi": "10.1109/access.2021.3140175",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/access.2021.3140175",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4387321091",
+      "title": "Efficient Memory Management for Large Language Model Serving with PagedAttention",
+      "authors": [
+        {
+          "name": "Woosuk Kwon",
+          "affiliation": "University of California, Berkeley"
+        },
+        {
+          "name": "Z. Li",
+          "affiliation": "Berkeley College"
+        },
+        {
+          "name": "Siyuan Zhuang",
+          "affiliation": "University of California, Berkeley"
+        },
+        {
+          "name": "Ying Sheng",
+          "affiliation": "University of California, Berkeley"
+        },
+        {
+          "name": "L Zheng",
+          "affiliation": "University of California, Berkeley"
+        },
+        {
+          "name": "Cody Hao Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Joseph E. Gonzalez",
+          "affiliation": "University of California, Berkeley"
+        },
+        {
+          "name": "Hao Zhang",
+          "affiliation": "University of California, San Diego"
+        },
+        {
+          "name": "Ion Stoica",
+          "affiliation": "Berkeley College"
+        }
+      ],
+      "year": 2023,
+      "abstract": "High throughput serving of large language models (LLMs) requires batching sufficiently many requests at a time. However, existing systems struggle because the key-value cache (KV cache) memory for each request is huge and grows and shrinks dynamically. When managed inefficiently, this memory can be significantly wasted by fragmentation and redundant duplication, limiting the batch size. To address this problem, we propose PagedAttention, an attention algorithm inspired by the classical virtual memory and paging techniques in operating systems. On top of it, we build vLLM, an LLM serving system that achieves (1) near-zero waste in KV cache memory and (2) flexible sharing of KV cache within and across requests to further reduce memory usage. Our evaluations show that vLLM improves the throughput of popular LLMs by 2--4\u00d7 with the same level of latency compared to the state-of-the-art systems, such as FasterTransformer and Orca. The improvement is more pronounced with longer sequences, larger models, and more complex decoding algorithms. vLLM's source code is publicly available at https://github.com/vllm-project/vllm.",
+      "venue": "",
+      "citation_count": 839,
+      "doi": "10.1145/3600006.3613165",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3600006.3613165",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4366208220",
+      "title": "DINOv2: Learning Robust Visual Features without Supervision",
+      "authors": [
+        {
+          "name": "Maxime Oquab",
+          "affiliation": "Institut national de recherche en informatique et en automatique"
+        },
+        {
+          "name": "Timoth\u00e9e Darcet",
+          "affiliation": "Institut national de recherche en informatique et en automatique"
+        },
+        {
+          "name": "Th\u00e9o Moutakanni",
+          "affiliation": "Institut national de recherche en informatique et en automatique"
+        },
+        {
+          "name": "Huy Vo",
+          "affiliation": "Institut national de recherche en informatique et en automatique"
+        },
+        {
+          "name": "Marc Szafraniec",
+          "affiliation": "Institut national de recherche en informatique et en automatique"
+        },
+        {
+          "name": "Vasil Khalidov",
+          "affiliation": "Institut national de recherche en informatique et en automatique"
+        },
+        {
+          "name": "Pierre Fernandez",
+          "affiliation": "Institut national de recherche en informatique et en automatique"
+        },
+        {
+          "name": "Daniel Haziza",
+          "affiliation": "Institut national de recherche en informatique et en automatique"
+        },
+        {
+          "name": "Francisco Massa",
+          "affiliation": "Institut national de recherche en informatique et en automatique"
+        },
+        {
+          "name": "Alaaeldin El-Nouby",
+          "affiliation": "Institut national de recherche en informatique et en automatique"
+        },
+        {
+          "name": "Mahmoud Assran",
+          "affiliation": "Institut national de recherche en informatique et en automatique"
+        },
+        {
+          "name": "Nicolas Ballas",
+          "affiliation": "Institut national de recherche en informatique et en automatique"
+        },
+        {
+          "name": "Wojciech Galuba",
+          "affiliation": "Institut national de recherche en informatique et en automatique"
+        },
+        {
+          "name": "Russell Howes",
+          "affiliation": "Institut national de recherche en informatique et en automatique"
+        },
+        {
+          "name": "Po-Yao Huang",
+          "affiliation": "Institut national de recherche en informatique et en automatique"
+        },
+        {
+          "name": "Shang-Wen Li",
+          "affiliation": "Institut national de recherche en informatique et en automatique"
+        },
+        {
+          "name": "Ishan Misra",
+          "affiliation": "Institut national de recherche en informatique et en automatique"
+        },
+        {
+          "name": "Michael Rabbat",
+          "affiliation": "Institut national de recherche en informatique et en automatique"
+        },
+        {
+          "name": "Vasu Sharma",
+          "affiliation": "Institut national de recherche en informatique et en automatique"
+        },
+        {
+          "name": "Gabriel Synnaeve",
+          "affiliation": "Institut national de recherche en informatique et en automatique"
+        },
+        {
+          "name": "Hu Xu",
+          "affiliation": "Institut national de recherche en informatique et en automatique"
+        },
+        {
+          "name": "Herv\u00e9 Je\u01f5ou",
+          "affiliation": "Institut national de recherche en informatique et en automatique"
+        },
+        {
+          "name": "Julien Mairal",
+          "affiliation": "Institut national de recherche en informatique et en automatique"
+        },
+        {
+          "name": "Patrick Labatut",
+          "affiliation": "Institut national de recherche en informatique et en automatique"
+        },
+        {
+          "name": "Armand Joulin",
+          "affiliation": "Institut national de recherche en informatique et en automatique"
+        },
+        {
+          "name": "Piotr Bojanowski",
+          "affiliation": "Institut national de recherche en informatique et en automatique"
+        }
+      ],
+      "year": 2023,
+      "abstract": "The recent breakthroughs in natural language processing for model pretraining on large quantities of data have opened the way for similar foundation models in computer vision. These models could greatly simplify the use of images in any system by producing all-purpose visual features, i.e., features that work across image distributions and tasks without finetuning. This work shows that existing pretraining methods, especially self-supervised methods, can produce such features if trained on enough curated data from diverse sources. We revisit existing approaches and combine different techniques to scale our pretraining in terms of data and model size. Most of the technical contributions aim at accelerating and stabilizing the training at scale. In terms of data, we propose an automatic pipeline to build a dedicated, diverse, and curated image dataset instead of uncurated data, as typically done in the self-supervised literature. In terms of models, we train a ViT model (Dosovitskiy et al., 2020) with 1B parameters and distill it into a series of smaller models that surpass the best available all-purpose features, OpenCLIP (Ilharco et al., 2021) on most of the benchmarks at image and pixel levels.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 1010,
+      "doi": "10.48550/arxiv.2304.07193",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2304.07193",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4398810114",
+      "title": "YOLOv10: Real-Time End-to-End Object Detection",
+      "authors": [
+        {
+          "name": "Ao Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Hui Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Lihao Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Kai Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Zijia Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Jungong Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Guiguang Ding",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Over the past years, YOLOs have emerged as the predominant paradigm in the field of real-time object detection owing to their effective balance between computational cost and detection performance. Researchers have explored the architectural designs, optimization objectives, data augmentation strategies, and others for YOLOs, achieving notable progress. However, the reliance on the non-maximum suppression (NMS) for post-processing hampers the end-to-end deployment of YOLOs and adversely impacts the inference latency. Besides, the design of various components in YOLOs lacks the comprehensive and thorough inspection, resulting in noticeable computational redundancy and limiting the model's capability. It renders the suboptimal efficiency, along with considerable potential for performance improvements. In this work, we aim to further advance the performance-efficiency boundary of YOLOs from both the post-processing and model architecture. To this end, we first present the consistent dual assignments for NMS-free training of YOLOs, which brings competitive performance and low inference latency simultaneously. Moreover, we introduce the holistic efficiency-accuracy driven model design strategy for YOLOs. We comprehensively optimize various components of YOLOs from both efficiency and accuracy perspectives, which greatly reduces the computational overhead and enhances the capability. The outcome of our effort is a new generation of YOLO series for real-time end-to-end object detection, dubbed YOLOv10. Extensive experiments show that YOLOv10 achieves state-of-the-art performance and efficiency across various model scales. For example, our YOLOv10-S is 1.8$\\times$ faster than RT-DETR-R18 under the similar AP on COCO, meanwhile enjoying 2.8$\\times$ smaller number of parameters and FLOPs. Compared with YOLOv9-C, YOLOv10-B has 46\\% less latency and 25\\% fewer parameters for the same performance.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 1005,
+      "doi": "10.48550/arxiv.2405.14458",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2405.14458",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4385834084",
+      "title": "Unleashing the Potential of PIM: Accelerating Large Batched Inference of Transformer-Based Generative Models",
+      "authors": [
+        {
+          "name": "Jaewan Choi",
+          "affiliation": "Seoul National University"
+        },
+        {
+          "name": "Jaehyun Park",
+          "affiliation": "Seoul National University"
+        },
+        {
+          "name": "Kwanhee Kyung",
+          "affiliation": "Seoul National University"
+        },
+        {
+          "name": "Nam Sung Kim",
+          "affiliation": "University of Illinois Urbana-Champaign"
+        },
+        {
+          "name": "Jung Ho Ahn",
+          "affiliation": "Seoul National University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Transformer-based generative models, such as GPT, summarize an input sequence by generating key/value (KV) matrices through attention and generate the corresponding output sequence by utilizing these matrices once per token of the sequence. Both input and output sequences tend to get longer, which improves the understanding of contexts and conversation quality. These models are also typically batched for inference to improve the serving throughput. All these trends enable the models' weights to be reused effectively, increasing the relative importance of sequence generation, especially in processing KV matrices through attention. We identify that the conventional computing platforms (e.g., GPUs) are not efficient at handling this attention part for inference because each request generates different KV matrices, it has a low operation per byte ratio regardless of the batch size, and the aggregate size of the KV matrices can even surpass that of the entire model weights. This motivates us to propose AttAcc, which exploits the fact that the KV matrices are written once during summarization but used many times (proportional to the output sequence length), each multiplied by the embedding vector corresponding to an output token. The volume of data entering/leaving AttAcc could be more than orders of magnitude smaller than what should be read internally for attention. We design AttAcc with multiple processing-in-memory devices, each multiplying the embedding vector with the portion of the KV matrices within the devices, saving external (inter-device) bandwidth and energy consumption. AttAcc improves the performance and energy efficiency for DRAM access of serving GPT-3 by 3.19 and 3.22 times over the DGX A100 640 GB with an input sequence length of 2048 and an output sequence length of 128.",
+      "venue": "IEEE Computer Architecture Letters",
+      "citation_count": 13,
+      "doi": "10.1109/lca.2023.3305386",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/lca.2023.3305386",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4382059335",
+      "title": "YOLO-v1 to YOLO-v8, the Rise of YOLO and Its Complementary Nature toward Digital Manufacturing and Industrial Defect Detection",
+      "authors": [
+        {
+          "name": "Muhammad Hussain",
+          "affiliation": "University of Huddersfield"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Since its inception in 2015, the YOLO (You Only Look Once) variant of object detectors has rapidly grown, with the latest release of YOLO-v8 in January 2023. YOLO variants are underpinned by the principle of real-time and high-classification performance, based on limited but efficient computational parameters. This principle has been found within the DNA of all YOLO variants with increasing intensity, as the variants evolve addressing the requirements of automated quality inspection within the industrial surface defect detection domain, such as the need for fast detection, high accuracy, and deployment onto constrained edge devices. This paper is the first to provide an in-depth review of the YOLO evolution from the original YOLO to the recent release (YOLO-v8) from the perspective of industrial manufacturing. The review explores the key architectural advancements proposed at each iteration, followed by examples of industrial deployment for surface defect detection endorsing its compatibility with industrial requirements.",
+      "venue": "Machines",
+      "citation_count": 999,
+      "doi": "10.3390/machines11070677",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/machines11070677",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4322766882",
+      "title": "Parameter-efficient fine-tuning of large-scale pre-trained language models",
+      "authors": [
+        {
+          "name": "Ning Ding",
+          "affiliation": "Beijing Academy of Artificial Intelligence"
+        },
+        {
+          "name": "Yujia Qin",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Guang Yang",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Fuchao Wei",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Zonghan Yang",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Yusheng Su",
+          "affiliation": "Beijing Academy of Artificial Intelligence"
+        },
+        {
+          "name": "Shengding Hu",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Yulin Chen",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Chi-Min Chan",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Weize Chen",
+          "affiliation": "Beijing Academy of Artificial Intelligence"
+        },
+        {
+          "name": "Jing Yi",
+          "affiliation": "Beijing Academy of Artificial Intelligence"
+        },
+        {
+          "name": "Weilin Zhao",
+          "affiliation": "Beijing Academy of Artificial Intelligence"
+        },
+        {
+          "name": "Xiaozhi Wang",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Zhiyuan Liu",
+          "affiliation": "Beijing Academy of Artificial Intelligence"
+        },
+        {
+          "name": "Hai-Tao Zheng",
+          "affiliation": "Tsinghua\u2013Berkeley Shenzhen Institute"
+        },
+        {
+          "name": "Jianfei Chen",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Yang Liu",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Jie Tang",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Juanzi Li",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Maosong Sun",
+          "affiliation": "Beijing Academy of Artificial Intelligence"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Abstract With the prevalence of pre-trained language models (PLMs) and the pre-training\u2013fine-tuning paradigm, it has been continuously shown that larger models tend to yield better performance. However, as PLMs scale up, fine-tuning and storing all the parameters is prohibitively costly and eventually becomes practically infeasible. This necessitates a new branch of research focusing on the parameter-efficient adaptation of PLMs, which optimizes a small portion of the model parameters while keeping the rest fixed, drastically cutting down computation and storage costs. In general, it demonstrates that large-scale models could be effectively stimulated by the optimization of a few parameters. Despite the various designs, here we discuss and analyse the approaches under a more consistent and accessible term \u2018delta-tuning\u2019, where \u2018delta\u2019 a mathematical notation often used to denote changes, is borrowed to refer to the portion of parameters that are \u2018changed\u2019 during training. We formally describe the problem and propose a unified categorization criterion for existing delta-tuning methods to explore their correlations and differences. We also discuss the theoretical principles underlying the effectiveness of delta-tuning and interpret them from the perspectives of optimization and optimal control. Furthermore, we provide a holistic empirical study on over 100 natural language processing tasks and investigate various aspects of delta-tuning. With comprehensive study and analysis, our research demonstrates the theoretical and practical properties of delta-tuning in the adaptation of PLMs.",
+      "venue": "Nature Machine Intelligence",
+      "citation_count": 794,
+      "doi": "10.1038/s42256-023-00626-4",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s42256-023-00626-4",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4312220150",
+      "title": "A large language model for electronic health records",
+      "authors": [
+        {
+          "name": "Xi Yang",
+          "affiliation": "University of Florida"
+        },
+        {
+          "name": "Aokun Chen",
+          "affiliation": "UF Health Cancer Center"
+        },
+        {
+          "name": "Nima PourNejatian",
+          "affiliation": "Nvidia (United States)"
+        },
+        {
+          "name": "Hoo Chang Shin",
+          "affiliation": "Nvidia (United States)"
+        },
+        {
+          "name": "Kaleb E Smith",
+          "affiliation": "Nvidia (United States)"
+        },
+        {
+          "name": "Christopher Parisien",
+          "affiliation": "Nvidia (United States)"
+        },
+        {
+          "name": "Colin B. Compas",
+          "affiliation": "Nvidia (United States)"
+        },
+        {
+          "name": "Cheryl Martin",
+          "affiliation": "Nvidia (United States)"
+        },
+        {
+          "name": "Anthony Costa",
+          "affiliation": "Nvidia (United States)"
+        },
+        {
+          "name": "Mona G. Flores",
+          "affiliation": "Nvidia (United States)"
+        },
+        {
+          "name": "Ying Zhang",
+          "affiliation": "University of Florida"
+        },
+        {
+          "name": "Tanja Mago\u010d",
+          "affiliation": "University of Florida"
+        },
+        {
+          "name": "Christopher A. Harle",
+          "affiliation": "University of Florida"
+        },
+        {
+          "name": "Gloria Lipori",
+          "affiliation": "University of Florida"
+        },
+        {
+          "name": "Duane A. Mitchell",
+          "affiliation": "University of Florida"
+        },
+        {
+          "name": "William R. Hogan",
+          "affiliation": "University of Florida"
+        },
+        {
+          "name": "Elizabeth Shenkman",
+          "affiliation": "University of Florida"
+        },
+        {
+          "name": "Jiang Bian",
+          "affiliation": "UF Health Cancer Center"
+        },
+        {
+          "name": "Yonghui Wu",
+          "affiliation": "University of Florida Health"
+        }
+      ],
+      "year": 2022,
+      "abstract": "",
+      "venue": "npj Digital Medicine",
+      "citation_count": 774,
+      "doi": "10.1038/s41746-022-00742-2",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41746-022-00742-2",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2997591391",
+      "title": "Unified Vision-Language Pre-Training for Image Captioning and VQA",
+      "authors": [
+        {
+          "name": "Luowei Zhou",
+          "affiliation": "University of Michigan\u2013Ann Arbor"
+        },
+        {
+          "name": "Hamid Palangi",
+          "affiliation": "Microsoft Research (United Kingdom)"
+        },
+        {
+          "name": "Lei Zhang",
+          "affiliation": "Microsoft Research (United Kingdom)"
+        },
+        {
+          "name": "Houdong Hu",
+          "affiliation": "Microsoft Research (United Kingdom)"
+        },
+        {
+          "name": "Jason J. Corso",
+          "affiliation": "University of Michigan\u2013Ann Arbor"
+        },
+        {
+          "name": "Jianfeng Gao",
+          "affiliation": "Microsoft Research (United Kingdom)"
+        }
+      ],
+      "year": 2020,
+      "abstract": "This paper presents a unified Vision-Language Pre-training (VLP) model. The model is unified in that (1) it can be fine-tuned for either vision-language generation (e.g., image captioning) or understanding (e.g., visual question answering) tasks, and (2) it uses a shared multi-layer transformer network for both encoding and decoding, which differs from many existing methods where the encoder and decoder are implemented using separate models. The unified VLP model is pre-trained on a large amount of image-text pairs using the unsupervised learning objectives of two tasks: bidirectional and sequence-to-sequence (seq2seq) masked vision-language prediction. The two tasks differ solely in what context the prediction conditions on. This is controlled by utilizing specific self-attention masks for the shared transformer network. To the best of our knowledge, VLP is the first reported model that achieves state-of-the-art results on both vision-language generation and understanding tasks, as disparate as image captioning and visual question answering, across three challenging benchmark datasets: COCO Captions, Flickr30k Captions, and VQA 2.0. The code and the pre-trained models are available at https://github.com/LuoweiZhou/VLP.",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 825,
+      "doi": "10.1609/aaai.v34i07.7005",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v34i07.7005",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3098267758",
+      "title": "AutoPrompt: Eliciting Knowledge from Language Models with Automatically Generated Prompts",
+      "authors": [
+        {
+          "name": "Taylor Shin",
+          "affiliation": "Irvine University"
+        },
+        {
+          "name": "Yasaman Razeghi",
+          "affiliation": "Irvine University"
+        },
+        {
+          "name": "Robert L. Logan",
+          "affiliation": "Irvine University"
+        },
+        {
+          "name": "Eric Wallace",
+          "affiliation": "Irvine University"
+        },
+        {
+          "name": "Sameer Singh",
+          "affiliation": "University of California, Berkeley"
+        }
+      ],
+      "year": 2020,
+      "abstract": "The remarkable success of pretrained language models has motivated the study of what kinds of knowledge these models learn during pretraining. Reformulating tasks as fillin-the-blanks problems (e.g., cloze tests) is a natural approach for gauging such knowledge, however, its usage is limited by the manual effort and guesswork required to write suitable prompts. To address this, we develop AUTOPROMPT, an automated method to create prompts for a diverse set of tasks, based on a gradient-guided search. Using AUTO-PROMPT, we show that masked language models (MLMs) have an inherent capability to perform sentiment analysis and natural language inference without additional parameters or finetuning, sometimes achieving performance on par with recent state-of-the-art supervised models. We also show that our prompts elicit more accurate factual knowledge from MLMs than the manually created prompts on the LAMA benchmark, and that MLMs can be used as relation extractors more effectively than supervised relation extraction models. These results demonstrate that automatically generated prompts are a viable parameter-free alternative to existing probing methods, and as pretrained LMs become more sophisticated and capable, potentially a replacement for finetuning.",
+      "venue": "",
+      "citation_count": 1130,
+      "doi": "10.18653/v1/2020.emnlp-main.346",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.18653/v1/2020.emnlp-main.346",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4378838672",
+      "title": "Transfer learning enables predictions in network biology",
+      "authors": [
+        {
+          "name": "Christina V. Theodoris",
+          "affiliation": "Dana-Farber Cancer Institute"
+        },
+        {
+          "name": "Ling Xiao",
+          "affiliation": "Broad Institute"
+        },
+        {
+          "name": "Anant Chopra",
+          "affiliation": "Bayer (United States)"
+        },
+        {
+          "name": "Mark Chaffin",
+          "affiliation": "Broad Institute"
+        },
+        {
+          "name": "Zeina R. Al Sayed",
+          "affiliation": "Broad Institute"
+        },
+        {
+          "name": "Matthew C. Hill",
+          "affiliation": "Massachusetts General Hospital"
+        },
+        {
+          "name": "Helene Mantineo",
+          "affiliation": "Massachusetts General Hospital"
+        },
+        {
+          "name": "Elizabeth M. Brydon",
+          "affiliation": "Bayer (United States)"
+        },
+        {
+          "name": "Zexian Zeng",
+          "affiliation": "Harvard University"
+        },
+        {
+          "name": "X. Shirley Liu",
+          "affiliation": "Harvard University"
+        },
+        {
+          "name": "Patrick T. Ellinor",
+          "affiliation": "Massachusetts General Hospital"
+        }
+      ],
+      "year": 2023,
+      "abstract": "",
+      "venue": "Nature",
+      "citation_count": 880,
+      "doi": "10.1038/s41586-023-06139-9",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41586-023-06139-9",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4210827551",
+      "title": "A survey on sentiment analysis methods, applications, and challenges",
+      "authors": [
+        {
+          "name": "Mayur Wankhade",
+          "affiliation": "Dr. Hari Singh Gour University"
+        },
+        {
+          "name": "Annavarapu Chandra Sekhara Rao",
+          "affiliation": "Dr. Hari Singh Gour University"
+        },
+        {
+          "name": "Chaitanya Kulkarni",
+          "affiliation": "Indian Institute of Technology Dhanbad"
+        }
+      ],
+      "year": 2022,
+      "abstract": "",
+      "venue": "Artificial Intelligence Review",
+      "citation_count": 1334,
+      "doi": "10.1007/s10462-022-10144-1",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s10462-022-10144-1",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3137147200",
+      "title": "A Survey of Quantization Methods for Efficient Neural Network Inference",
+      "authors": [
+        {
+          "name": "Amir Gholami",
+          "affiliation": "University of California, Berkeley"
+        },
+        {
+          "name": "Sehoon Kim",
+          "affiliation": "University of California, Berkeley"
+        },
+        {
+          "name": "Zhen Dong",
+          "affiliation": "University of California, Berkeley"
+        },
+        {
+          "name": "Zhewei Yao",
+          "affiliation": "University of California, Berkeley"
+        },
+        {
+          "name": "Michael W. Mahoney",
+          "affiliation": "University of California, Berkeley"
+        },
+        {
+          "name": "Kurt Keutzer",
+          "affiliation": "University of California, Berkeley"
+        }
+      ],
+      "year": 2022,
+      "abstract": "This chapter provides approaches to the problem of quantizing the numerical values in deep Neural Network computations, covering the advantages/disadvantages of current methods. Over the past decade, people have observed significant improvements in the accuracy of Neural Networks (NNs) for a wide range of problems, often achieved by highly over-parameterized models. Achieving efficient, real-time NNs with optimal accuracy requires rethinking the design, training, and deployment of NN models. Model distillation involves training a large model and then using it as a teacher to train a more compact model. Loosely related to NN quantization is work in neuroscience that suggests that the human brain stores information in a discrete/quantized form, rather than in a continuous form. Gray and Neuhoff have written a very nice survey of the history of quantization up to 1998.",
+      "venue": "",
+      "citation_count": 972,
+      "doi": "10.1201/9781003162810-13",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1201/9781003162810-13",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4391855109",
+      "title": "A Review on Large Language Models: Architectures, Applications, Taxonomies, Open Issues and Challenges",
+      "authors": [
+        {
+          "name": "Mohaimenul Azam Khan Raiaan",
+          "affiliation": "United International University"
+        },
+        {
+          "name": "Md. Saddam Hossain Mukta",
+          "affiliation": "Lappeenranta-Lahti University of Technology"
+        },
+        {
+          "name": "Kaniz Fatema",
+          "affiliation": "Charles Darwin University"
+        },
+        {
+          "name": "Nur Mohammad Fahad",
+          "affiliation": "United International University"
+        },
+        {
+          "name": "Sadman Sakib",
+          "affiliation": "United International University"
+        },
+        {
+          "name": "Most. Marufatul Jannat Mim",
+          "affiliation": "United International University"
+        },
+        {
+          "name": "Jubaer Ahmad",
+          "affiliation": "United International University"
+        },
+        {
+          "name": "Mohammed Eunus Ali",
+          "affiliation": "Bangladesh University of Engineering and Technology"
+        },
+        {
+          "name": "Sami Azam",
+          "affiliation": "Charles Darwin University"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Large Language Models (LLMs) recently demonstrated extraordinary capability, including natural language processing (NLP), language translation, text generation, question answering, etc. Moreover, LLMs are a new and essential part of computerized language processing, having the ability to understand complex verbal patterns and generate coherent and appropriate replies for the situation. Though this success of LLMs has prompted a substantial increase in research contributions, rapid growth has made it difficult to understand the overall impact of these improvements. Since a lot of new research on LLMs is coming out quickly, it is getting tough to get an overview of all of them in a short note. Consequently, the research community would benefit from a short but thorough review of the recent changes in this area. This article thoroughly overviews LLMs, including their history, architectures, transformers, resources, training methods, applications, impacts, challenges, etc. This paper begins by discussing the fundamental concepts of LLMs with its traditional pipeline of the LLMs training phase. It then provides an overview of the existing works, the history of LLMs, their evolution over time, the architecture of transformers in LLMs, the different resources of LLMs, and the different training methods that have been used to train them. It also demonstrated the datasets utilized in the studies. After that, the paper discusses the wide range of applications of LLMs, including biomedical and healthcare, education, social, business, and agriculture. It also illustrates how LLMs create an impact on society and shape the future of AI and how they can be used to solve real-world problems. Then it also explores open issues and challenges to deploying LLMs in real-world scenario. Our review paper aims to help practitioners, researchers, and experts thoroughly understand the evolution of LLMs, pre-trained architectures, applications, challenges, and future goals.",
+      "venue": "IEEE Access",
+      "citation_count": 590,
+      "doi": "10.1109/access.2024.3365742",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/access.2024.3365742",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4360836968",
+      "title": "Sparks of Artificial General Intelligence: Early experiments with GPT-4",
+      "authors": [
+        {
+          "name": "S\u00e9bastien Bubeck",
+          "affiliation": ""
+        },
+        {
+          "name": "Varun Chandrasekaran",
+          "affiliation": ""
+        },
+        {
+          "name": "Ronen Eldan",
+          "affiliation": ""
+        },
+        {
+          "name": "Johannes Gehrke",
+          "affiliation": ""
+        },
+        {
+          "name": "Eric Horvitz",
+          "affiliation": ""
+        },
+        {
+          "name": "Ece Kamar",
+          "affiliation": ""
+        },
+        {
+          "name": "Peter Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Yin Tat Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuanzhi Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Scott Lundberg",
+          "affiliation": ""
+        },
+        {
+          "name": "Harsha Nori",
+          "affiliation": ""
+        },
+        {
+          "name": "Hamid Palangi",
+          "affiliation": ""
+        },
+        {
+          "name": "Marco T\u00falio Ribeiro",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Artificial intelligence (AI) researchers have been developing and refining large language models (LLMs) that exhibit remarkable capabilities across a variety of domains and tasks, challenging our understanding of learning and cognition. The latest model developed by OpenAI, GPT-4, was trained using an unprecedented scale of compute and data. In this paper, we report on our investigation of an early version of GPT-4, when it was still in active development by OpenAI. We contend that (this early version of) GPT-4 is part of a new cohort of LLMs (along with ChatGPT and Google's PaLM for example) that exhibit more general intelligence than previous AI models. We discuss the rising capabilities and implications of these models. We demonstrate that, beyond its mastery of language, GPT-4 can solve novel and difficult tasks that span mathematics, coding, vision, medicine, law, psychology and more, without needing any special prompting. Moreover, in all of these tasks, GPT-4's performance is strikingly close to human-level performance, and often vastly surpasses prior models such as ChatGPT. Given the breadth and depth of GPT-4's capabilities, we believe that it could reasonably be viewed as an early (yet still incomplete) version of an artificial general intelligence (AGI) system. In our exploration of GPT-4, we put special emphasis on discovering its limitations, and we discuss the challenges ahead for advancing towards deeper and more comprehensive versions of AGI, including the possible need for pursuing a new paradigm that moves beyond next-word prediction. We conclude with reflections on societal influences of the recent technological leap and future research directions.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 1525,
+      "doi": "10.48550/arxiv.2303.12712",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2303.12712",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4396528802",
+      "title": "Lightweight convolutional neural networks with context broadcast transformer for real-time semantic segmentation",
+      "authors": [
+        {
+          "name": "Kaidi Hu",
+          "affiliation": "Tianjin University"
+        },
+        {
+          "name": "Zongxia Xie",
+          "affiliation": "Tianjin University"
+        },
+        {
+          "name": "Qinghua Hu",
+          "affiliation": "Tianjin University"
+        }
+      ],
+      "year": 2024,
+      "abstract": "",
+      "venue": "Image and Vision Computing",
+      "citation_count": 9,
+      "doi": "10.1016/j.imavis.2024.105053",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.imavis.2024.105053",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4285294723",
+      "title": "GLM: General Language Model Pretraining with Autoregressive Blank Infilling",
+      "authors": [
+        {
+          "name": "Zhengxiao Du",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Yujie Qian",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiao Liu",
+          "affiliation": "Beijing Academy of Artificial Intelligence"
+        },
+        {
+          "name": "Ming Ding",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Jiezhong Qiu",
+          "affiliation": "Beijing Academy of Artificial Intelligence"
+        },
+        {
+          "name": "Zhilin Yang",
+          "affiliation": "ShangHai JiAi Genetics & IVF Institute"
+        },
+        {
+          "name": "Jie Tang",
+          "affiliation": "Beijing Academy of Artificial Intelligence"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Zhengxiao Du, Yujie Qian, Xiao Liu, Ming Ding, Jiezhong Qiu, Zhilin Yang, Jie Tang. Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers). 2022.",
+      "venue": "Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+      "citation_count": 883,
+      "doi": "10.18653/v1/2022.acl-long.26",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.18653/v1/2022.acl-long.26",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3162090017",
+      "title": "FNet: Mixing Tokens with Fourier Transforms",
+      "authors": [
+        {
+          "name": "James Lee-Thorp",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Joshua Ainslie",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Ilya Eckstein",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Santiago Onta\u00f1\u00f3n",
+          "affiliation": "Google (United States)"
+        }
+      ],
+      "year": 2022,
+      "abstract": "James Lee-Thorp, Joshua Ainslie, Ilya Eckstein, Santiago Ontanon. Proceedings of the 2022 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies. 2022.",
+      "venue": "Proceedings of the 2022 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies",
+      "citation_count": 470,
+      "doi": "10.18653/v1/2022.naacl-main.319",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.18653/v1/2022.naacl-main.319",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4378509449",
+      "title": "QLoRA: Efficient Finetuning of Quantized LLMs",
+      "authors": [
+        {
+          "name": "Tim Dettmers",
+          "affiliation": ""
+        },
+        {
+          "name": "Artidoro Pagnoni",
+          "affiliation": ""
+        },
+        {
+          "name": "Ari Holtzman",
+          "affiliation": ""
+        },
+        {
+          "name": "Luke Zettlemoyer",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We present QLoRA, an efficient finetuning approach that reduces memory usage enough to finetune a 65B parameter model on a single 48GB GPU while preserving full 16-bit finetuning task performance. QLoRA backpropagates gradients through a frozen, 4-bit quantized pretrained language model into Low Rank Adapters~(LoRA). Our best model family, which we name Guanaco, outperforms all previous openly released models on the Vicuna benchmark, reaching 99.3% of the performance level of ChatGPT while only requiring 24 hours of finetuning on a single GPU. QLoRA introduces a number of innovations to save memory without sacrificing performance: (a) 4-bit NormalFloat (NF4), a new data type that is information theoretically optimal for normally distributed weights (b) double quantization to reduce the average memory footprint by quantizing the quantization constants, and (c) paged optimziers to manage memory spikes. We use QLoRA to finetune more than 1,000 models, providing a detailed analysis of instruction following and chatbot performance across 8 instruction datasets, multiple model types (LLaMA, T5), and model scales that would be infeasible to run with regular finetuning (e.g. 33B and 65B parameter models). Our results show that QLoRA finetuning on a small high-quality dataset leads to state-of-the-art results, even when using smaller models than the previous SoTA. We provide a detailed analysis of chatbot performance based on both human and GPT-4 evaluations showing that GPT-4 evaluations are a cheap and reasonable alternative to human evaluation. Furthermore, we find that current chatbot benchmarks are not trustworthy to accurately evaluate the performance levels of chatbots. A lemon-picked analysis demonstrates where Guanaco fails compared to ChatGPT. We release all of our models and code, including CUDA kernels for 4-bit training.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 484,
+      "doi": "10.48550/arxiv.2305.14314",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2305.14314",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3176707157",
+      "title": "Deep learning for AI",
+      "authors": [
+        {
+          "name": "Yoshua Bengio",
+          "affiliation": "Universit\u00e9 de Montr\u00e9al"
+        },
+        {
+          "name": "Yann LeCun",
+          "affiliation": "New York University"
+        },
+        {
+          "name": "Geoffrey E. Hinton",
+          "affiliation": "University of Toronto"
+        }
+      ],
+      "year": 2021,
+      "abstract": "How can neural networks learn the rich internal representations required for difficult tasks such as recognizing objects or understanding language?",
+      "venue": "Communications of the ACM",
+      "citation_count": 590,
+      "doi": "10.1145/3448250",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3448250",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3047855151",
+      "title": "Earthquake transformer\u2014an attentive deep-learning model for simultaneous earthquake detection and phase picking",
+      "authors": [
+        {
+          "name": "S. Mostafa Mousavi",
+          "affiliation": "Stanford University"
+        },
+        {
+          "name": "William L. Ellsworth",
+          "affiliation": "Stanford University"
+        },
+        {
+          "name": "Weiqiang Zhu",
+          "affiliation": "Stanford University"
+        },
+        {
+          "name": "Lindsay Chuang",
+          "affiliation": "Georgia Institute of Technology"
+        },
+        {
+          "name": "Gregory C. Beroza",
+          "affiliation": "Stanford University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "",
+      "venue": "Nature Communications",
+      "citation_count": 993,
+      "doi": "10.1038/s41467-020-17591-w",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41467-020-17591-w",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4405664040",
+      "title": "Jamba-1.5: Hybrid Transformer-Mamba Models at Scale",
+      "authors": [
+        {
+          "name": "Jamba Team",
+          "affiliation": ""
+        },
+        {
+          "name": "Barak Lenz",
+          "affiliation": ""
+        },
+        {
+          "name": "Adit Arazi",
+          "affiliation": ""
+        },
+        {
+          "name": "Amir Bergman",
+          "affiliation": ""
+        },
+        {
+          "name": "\u0410. \u0418. \u041c\u0430\u043d\u0435\u0432\u0438\u0447",
+          "affiliation": ""
+        },
+        {
+          "name": "Barak Peleg",
+          "affiliation": ""
+        },
+        {
+          "name": "Ben Aviram",
+          "affiliation": ""
+        },
+        {
+          "name": "Chen Almagor",
+          "affiliation": ""
+        },
+        {
+          "name": "Clara Fridman",
+          "affiliation": ""
+        },
+        {
+          "name": "Dan Padnos",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniel Gissin",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniel Jannai",
+          "affiliation": ""
+        },
+        {
+          "name": "Dor Muhlgay",
+          "affiliation": ""
+        },
+        {
+          "name": "Dor Zimberg",
+          "affiliation": ""
+        },
+        {
+          "name": "Edden M Gerber",
+          "affiliation": ""
+        },
+        {
+          "name": "Elad Dolev",
+          "affiliation": ""
+        },
+        {
+          "name": "Eran Krakovsky",
+          "affiliation": ""
+        },
+        {
+          "name": "Erez Safahi",
+          "affiliation": ""
+        },
+        {
+          "name": "Erez Schwartz",
+          "affiliation": ""
+        },
+        {
+          "name": "Gal Cohen",
+          "affiliation": ""
+        },
+        {
+          "name": "Gal Shachaf",
+          "affiliation": ""
+        },
+        {
+          "name": "Haim Rozenblum",
+          "affiliation": ""
+        },
+        {
+          "name": "Hofit Bata",
+          "affiliation": ""
+        },
+        {
+          "name": "Ido Blass",
+          "affiliation": ""
+        },
+        {
+          "name": "Inbal Magar",
+          "affiliation": ""
+        },
+        {
+          "name": "Itay Dalmedigos",
+          "affiliation": ""
+        },
+        {
+          "name": "Jhonathan Osin",
+          "affiliation": ""
+        },
+        {
+          "name": "Julie Fadlon",
+          "affiliation": ""
+        },
+        {
+          "name": "M. G. Rozman",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Danos",
+          "affiliation": ""
+        },
+        {
+          "name": "Michael Gokhman",
+          "affiliation": ""
+        },
+        {
+          "name": "Mor Zusman",
+          "affiliation": ""
+        },
+        {
+          "name": "Naama Gidron",
+          "affiliation": ""
+        },
+        {
+          "name": "Nir Ratner",
+          "affiliation": ""
+        },
+        {
+          "name": "Noam Gat",
+          "affiliation": ""
+        },
+        {
+          "name": "Noam Rozen",
+          "affiliation": ""
+        },
+        {
+          "name": "Oded Fried",
+          "affiliation": ""
+        },
+        {
+          "name": "Ohad Leshno",
+          "affiliation": ""
+        },
+        {
+          "name": "Omer Antverg",
+          "affiliation": ""
+        },
+        {
+          "name": "Omri Abend",
+          "affiliation": ""
+        },
+        {
+          "name": "Opher Lieber",
+          "affiliation": ""
+        },
+        {
+          "name": "Or Dagan",
+          "affiliation": ""
+        },
+        {
+          "name": "Orit Cohavi",
+          "affiliation": ""
+        },
+        {
+          "name": "Raz Alon",
+          "affiliation": ""
+        },
+        {
+          "name": "Ro'i Belson",
+          "affiliation": ""
+        },
+        {
+          "name": "Rita M. Cohen",
+          "affiliation": ""
+        },
+        {
+          "name": "Rom Gilad",
+          "affiliation": ""
+        },
+        {
+          "name": "Roman Glozman",
+          "affiliation": ""
+        },
+        {
+          "name": "Shahar Lev",
+          "affiliation": ""
+        },
+        {
+          "name": "Shaked Meirom",
+          "affiliation": ""
+        },
+        {
+          "name": "Tal Delbari",
+          "affiliation": ""
+        },
+        {
+          "name": "Tal Ness",
+          "affiliation": ""
+        },
+        {
+          "name": "Tomer Asida",
+          "affiliation": ""
+        },
+        {
+          "name": "Tom Ben Gal",
+          "affiliation": ""
+        },
+        {
+          "name": "Tom Braude",
+          "affiliation": ""
+        },
+        {
+          "name": "Uriya Pumerantz",
+          "affiliation": ""
+        },
+        {
+          "name": "Yafit Cohen",
+          "affiliation": ""
+        },
+        {
+          "name": "Yonatan Belinkov",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuval Globerson",
+          "affiliation": ""
+        },
+        {
+          "name": "Y L\u00e9vy",
+          "affiliation": ""
+        },
+        {
+          "name": "Yoav Shoham",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "We present Jamba-1.5, new instruction-tuned large language models based on our Jamba architecture. Jamba is a hybrid Transformer-Mamba mixture of experts architecture, providing high throughput and low memory usage across context lengths, while retaining the same or better quality as Transformer models. We release two model sizes: Jamba-1.5-Large, with 94B active parameters, and Jamba-1.5-Mini, with 12B active parameters. Both models are fine-tuned for a variety of conversational and instruction-following capabilties, and have an effective context length of 256K tokens, the largest amongst open-weight models. To support cost-effective inference, we introduce ExpertsInt8, a novel quantization technique that allows fitting Jamba-1.5-Large on a machine with 8 80GB GPUs when processing 256K-token contexts without loss of quality. When evaluated on a battery of academic and chatbot benchmarks, Jamba-1.5 models achieve excellent results while providing high throughput and outperforming other open-weight models on long-context benchmarks. The model weights for both sizes are publicly available under the Jamba Open Model License and we release ExpertsInt8 as open source.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 4,
+      "doi": "10.48550/arxiv.2408.12570",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2408.12570",
+      "source": "openalex",
+      "_bibtex_override": ""
+    }
+  ]
+}

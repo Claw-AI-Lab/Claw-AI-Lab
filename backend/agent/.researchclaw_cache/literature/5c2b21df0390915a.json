@@ -1,0 +1,706 @@
+{
+  "query": "edge blending algorithms for texture generation",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1773979005.8776565,
+  "papers": [
+    {
+      "paper_id": "arxiv-2412.07766",
+      "title": "Make-A-Texture: Fast Shape-Aware Texture Generation in 3 Seconds",
+      "authors": [
+        {
+          "name": "Xiaoyu Xiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Liat Sless Gorelik",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuchen Fan",
+          "affiliation": ""
+        },
+        {
+          "name": "Omri Armstrong",
+          "affiliation": ""
+        },
+        {
+          "name": "Forrest Iandola",
+          "affiliation": ""
+        },
+        {
+          "name": "Yilei Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Ita Lifshitz",
+          "affiliation": ""
+        },
+        {
+          "name": "Rakesh Ranjan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "We present Make-A-Texture, a new framework that efficiently synthesizes high-resolution texture maps from textual prompts for given 3D geometries. Our approach progressively generates textures that are consistent across multiple viewpoints with a depth-aware inpainting diffusion model, in an optimized sequence of viewpoints determined by an automatic view selection algorithm.\n  A significant feature of our method is its remarkable efficiency, achieving a full texture generation within an end-to-end runtime of just 3.07 seconds on a single NVIDIA H100 GPU, significantly outperforming existing methods. Such an acceleration is achieved by optimizations in the diffusion model and a specialized backprojection method. Moreover, our method reduces the artifacts in the backprojection phase, by selectively masking out non-frontal faces, and internal faces of open-surfaced objects.\n  Experimental results demonstrate that Make-A-Texture matches or exceeds the quality of other state-of-the-art methods. Our work significantly improves the applicability and practicality of texture generation models for real-world 3D content creation, including interactive creation and text-guided texture editing.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2412.07766",
+      "url": "https://arxiv.org/abs/2412.07766",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2103.15149",
+      "title": "Bridging the Visual Gap: Wide-Range Image Blending",
+      "authors": [
+        {
+          "name": "Chia-Ni Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ya-Chu Chang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wei-Chen Chiu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "In this paper we propose a new problem scenario in image processing, wide-range image blending, which aims to smoothly merge two different input photos into a panorama by generating novel image content for the intermediate region between them. Although such problem is closely related to the topics of image inpainting, image outpainting, and image blending, none of the approaches from these topics is able to easily address it. We introduce an effective deep-learning model to realize wide-range image blending, where a novel Bidirectional Content Transfer module is proposed to perform the conditional prediction for the feature representation of the intermediate region via recurrent neural networks. In addition to ensuring the spatial and semantic consistency during the blending, we also adopt the contextual attention mechanism as well as the adversarial learning scheme in our proposed method for improving the visual quality of the resultant panorama. We experimentally demonstrate that our proposed method is not only able to produce visually appealing results for wide-range image blending, but also able to provide superior performance with respect to several baselines built upon the state-of-the-art image inpainting and outpainting approaches.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2103.15149",
+      "url": "https://arxiv.org/abs/2103.15149",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2006.09807",
+      "title": "Multi-Domain Level Generation and Blending with Sketches via Example-Driven BSP and Variational Autoencoders",
+      "authors": [
+        {
+          "name": "Sam Snodgrass",
+          "affiliation": ""
+        },
+        {
+          "name": "Anurag Sarkar",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Procedural content generation via machine learning (PCGML) has demonstrated its usefulness as a content and game creation approach, and has been shown to be able to support human creativity. An important facet of creativity is combinational creativity or the recombination, adaptation, and reuse of ideas and concepts between and across domains. In this paper, we present a PCGML approach for level generation that is able to recombine, adapt, and reuse structural patterns from several domains to approximate unseen domains. We extend prior work involving example-driven Binary Space Partitioning for recombining and reusing patterns in multiple domains, and incorporate Variational Autoencoders (VAEs) for generating unseen structures. We evaluate our approach by blending across $7$ domains and subsets of those domains. We show that our approach is able to blend domains together while retaining structural components. Additionally, by using different groups of training domains our approach is able to generate both 1) levels that reproduce and capture features of a target domain, and 2) levels that have vastly different properties from the input domain.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2006.09807",
+      "url": "https://arxiv.org/abs/2006.09807",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2008.01180",
+      "title": "Describing Textures using Natural Language",
+      "authors": [
+        {
+          "name": "Chenyun Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Mikayla Timm",
+          "affiliation": ""
+        },
+        {
+          "name": "Subhransu Maji",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Textures in natural images can be characterized by color, shape, periodicity of elements within them, and other attributes that can be described using natural language. In this paper, we study the problem of describing visual attributes of texture on a novel dataset containing rich descriptions of textures, and conduct a systematic study of current generative and discriminative models for grounding language to images on this dataset. We find that while these models capture some properties of texture, they fail to capture several compositional properties, such as the colors of dots. We provide critical analysis of existing models by generating synthetic but realistic textures with different descriptions. Our dataset also allows us to train interpretable models and generate language-based explanations of what discriminative features are learned by deep networks for fine-grained categorization where texture plays a key role. We present visualizations of several fine-grained domains and show that texture attributes learned on our dataset offer improvements over expert-designed attributes on the Caltech-UCSD Birds dataset.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2008.01180",
+      "url": "https://arxiv.org/abs/2008.01180",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2502.13945",
+      "title": "GPU-Friendly Laplacian Texture Blending",
+      "authors": [
+        {
+          "name": "Bartlomiej Wronski",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Texture and material blending is one of the leading methods for adding variety to rendered virtual worlds, creating composite materials, and generating procedural content. When done naively, it can introduce either visible seams or contrast loss, leading to an unnatural look not representative of blended textures. Earlier work proposed addressing this problem through careful manual parameter tuning, lengthy per-texture statistics precomputation, look-up tables, or training deep neural networks. In this work, we propose an alternative approach based on insights from image processing and Laplacian pyramid blending. Our approach does not require any precomputation or increased memory usage (other than the presence of a regular, non-Laplacian, texture mipmap chain), does not produce ghosting, preserves sharp local features, and can run in real time on the GPU at the cost of a few additional lower mipmap texture taps.",
+      "venue": "cs.GR",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2502.13945",
+      "url": "https://arxiv.org/abs/2502.13945",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2311.13123",
+      "title": "Fast Parallel Algorithms for Submodular $p$-Superseparable Maximization",
+      "authors": [
+        {
+          "name": "Philip Cervenjak",
+          "affiliation": ""
+        },
+        {
+          "name": "Junhao Gan",
+          "affiliation": ""
+        },
+        {
+          "name": "Anthony Wirth",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Maximizing a non-negative, monontone, submodular function $f$ over $n$ elements under a cardinality constraint $k$ (SMCC) is a well-studied NP-hard problem. It has important applications in, e.g., machine learning and influence maximization. Though the theoretical problem admits polynomial-time approximation algorithms, solving it in practice often involves frequently querying submodular functions that are expensive to compute. This has motivated significant research into designing parallel approximation algorithms in the adaptive complexity model; adaptive complexity (adaptivity) measures the number of sequential rounds of $\\text{poly}(n)$ function queries an algorithm requires. The state-of-the-art algorithms can achieve $(1-\\frac{1}{e}-\\varepsilon)$-approximate solutions with $O(\\frac{1}{\\varepsilon^2}\\log n)$ adaptivity, which approaches the known adaptivity lower-bounds. However, the $O(\\frac{1}{\\varepsilon^2} \\log n)$ adaptivity only applies to maximizing worst-case functions that are unlikely to appear in practice. Thus, in this paper, we consider the special class of $p$-superseparable submodular functions, which places a reasonable constraint on $f$, based on the parameter $p$, and is more amenable to maximization, while also having real-world applicability. Our main contribution is the algorithm LS+GS, a finer-grained version of the existing LS+PGB algorithm, designed for instances of SMCC when $f$ is $p$-superseparable; it achieves an expected $(1-\\frac{1}{e}-\\varepsilon)$-approximate solution with $O(\\frac{1}{\\varepsilon^2}\\log(p k))$ adaptivity independent of $n$. Additionally, unrelated to $p$-superseparability, our LS+GS algorithm uses only $O(\\frac{n}{\\varepsilon} + \\frac{\\log n}{\\varepsilon^2})$ oracle queries, which has an improved dependence on $\\varepsilon^{-1}$ over the state-of-the-art LS+PGB; this is achieved through the design of a novel thresholding subroutine.",
+      "venue": "cs.DS",
+      "citation_count": 0,
+      "doi": "10.1007/978-3-031-49815-2",
+      "arxiv_id": "2311.13123",
+      "url": "https://arxiv.org/abs/2311.13123",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2007.04193",
+      "title": "Mobility driven Cloud-Fog-Edge Framework for Location-aware Services: A Comprehensive Review",
+      "authors": [
+        {
+          "name": "Shreya Ghosh",
+          "affiliation": ""
+        },
+        {
+          "name": "Soumya Ghosh",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "With the pervasiveness of IoT devices, smart-phones and improvement of location-tracking technologies huge volume of heterogeneous geo-tagged (location specific) data is generated which facilitates several location-aware services. The analytics with this spatio-temporal (having location and time dimensions) datasets provide varied important services such as, smart transportation, emergency services (health-care, national defence or urban planning). While cloud paradigm is suitable for the capability of storage and computation, the major bottleneck is network connectivity loss. In time-critical application, where real-time response is required for emergency service-provisioning, such connectivity issues increases the latency and thus affects the overall quality of system (QoS). To overcome the issue, fog/ edge topology has emerged, where partial computation is carried out in the edge of the network to reduce the delay in communication. Such fog/ edge based system complements the cloud technology and extends the features of the system. This chapter discusses cloud-fog-edge based hierarchical collaborative framework, where several components are deployed to improve the QoS. On the other side. mobility is another critical factor to enhance the efficacy of such location-aware service provisioning. Therefore, this chapter discusses the concerns and challenges associated with mobility-driven cloud-fog-edge based framework to provide several location-aware services to the end-users efficiently.",
+      "venue": "cs.DC",
+      "citation_count": 0,
+      "doi": "10.1007/978-3-030-69893-5_10",
+      "arxiv_id": "2007.04193",
+      "url": "https://arxiv.org/abs/2007.04193",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2306.05382",
+      "title": "Image Blending Algorithm with Automatic Mask Generation",
+      "authors": [
+        {
+          "name": "Haochen Xue",
+          "affiliation": ""
+        },
+        {
+          "name": "Mingyu Jin",
+          "affiliation": ""
+        },
+        {
+          "name": "Chong Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuxuan Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Qian Weng",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaobo Jin",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "In recent years, image blending has gained popularity for its ability to create visually stunning content. However, the current image blending algorithms mainly have the following problems: manually creating image blending masks requires a lot of manpower and material resources; image blending algorithms cannot effectively solve the problems of brightness distortion and low resolution. To this end, we propose a new image blending method with automatic mask generation: it combines semantic object detection and segmentation with mask generation to achieve deep blended images based on our proposed new saturation loss and two-stage iteration of the PAN algorithm to fix brightness distortion and low-resolution issues. Results on publicly available datasets show that our method outperforms other classical image blending algorithms on various performance metrics, including PSNR and SSIM.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1007/978-981-99-8132-8_18",
+      "arxiv_id": "2306.05382",
+      "url": "https://arxiv.org/abs/2306.05382",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2111.01821",
+      "title": "ESO 137-002: a large spiral undergoing edge-on ram-pressure stripping with little star formation in the tail",
+      "authors": [
+        {
+          "name": "Sunil Laudari",
+          "affiliation": ""
+        },
+        {
+          "name": "Pavel J\u00e1chym",
+          "affiliation": ""
+        },
+        {
+          "name": "Ming Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Will Waldron",
+          "affiliation": ""
+        },
+        {
+          "name": "Marios Chatzikos",
+          "affiliation": ""
+        },
+        {
+          "name": "Jeffrey Kenney",
+          "affiliation": ""
+        },
+        {
+          "name": "Rongxin Luo",
+          "affiliation": ""
+        },
+        {
+          "name": "Paul Nulsen",
+          "affiliation": ""
+        },
+        {
+          "name": "Craig Sarazin",
+          "affiliation": ""
+        },
+        {
+          "name": "Fran\u00e7oise Combes",
+          "affiliation": ""
+        },
+        {
+          "name": "Tim Edge",
+          "affiliation": ""
+        },
+        {
+          "name": "G. Mark Voit",
+          "affiliation": ""
+        },
+        {
+          "name": "Megan Donahue",
+          "affiliation": ""
+        },
+        {
+          "name": "Luca Cortese",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Ram pressure stripping (RPS) is an important mechanism for galaxy evolution. In this work, we present results from HST and APEX observations of one RPS galaxy, ESO 137-002 in the closest rich cluster Abell 3627. The galaxy is known to host prominent X-ray and H$\u03b1$ tails. The HST data reveal significant features indicative of RPS in the galaxy, including asymmetric distribution of dust in the galaxy, dust filaments and dust clouds in ablation generally aligned with the direction of ram pressure, and young star clusters immediately upstream of the residual dust clouds that suggest star formation (SF) triggered by RPS. The distribution of the molecular gas is asymmetric in the galaxy, with no CO upstream and abundant CO downstream and in the inner tail region. A total amount of $\\sim 5.5 \\times 10^{9}$ M$_\\odot$ of molecular gas is detected in the galaxy and its tail. On the other hand, we do not detect any active SF in the X-ray and H$\u03b1$ tails of ESO 137-002 with the HST data and place a limit on the SF efficiency in the tail. Hence, if selected by SF behind the galaxy in the optical or UV (e.g., surveys like GASP or using the Galex data), ESO 137-002 will not be considered a ``jellyfish'' galaxy. Thus, galaxies like ESO 137-002 are important for our comprehensive understanding of RPS galaxies and the evolution of the stripped material. ESO 137-002 also presents a great example of an edge-on galaxy experiencing a nearly edge-on RPS wind.",
+      "venue": "astro-ph.GA",
+      "citation_count": 0,
+      "doi": "10.1093/mnras/stab3280",
+      "arxiv_id": "2111.01821",
+      "url": "https://arxiv.org/abs/2111.01821",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2407.16206",
+      "title": "Cluster Haptic Texture Dataset: Haptic Texture Dataset with Varied Velocity-Direction Sliding Contacts",
+      "authors": [
+        {
+          "name": "Michikuni Eguchi",
+          "affiliation": ""
+        },
+        {
+          "name": "Tomohiro Hayase",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuichi Hiroi",
+          "affiliation": ""
+        },
+        {
+          "name": "Takefumi Hiraki",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Haptic sciences and technologies benefit greatly from comprehensive datasets that capture tactile stimuli under controlled, systematic conditions. However, existing haptic datasets collect data through uncontrolled exploration, which hinders the systematic analysis of how motion parameters (e.g., motion direction and velocity) influence tactile perception. This paper introduces Cluster Haptic Texture Dataset, a multimodal dataset recorded using a 3-axis machine with an artificial finger to precisely control sliding velocity and direction. The dataset encompasses 118 textured surfaces across 9 material categories, with recordings at 5 velocity levels (20-60 mm/s) and 8 directions. Each surface was tested under 160 conditions, yielding 18,880 synchronized recordings of audio, acceleration, force, position, and visual data. Validation using convolutional neural networks demonstrates classification accuracies of 96% for texture recognition, 88.76% for velocity estimation, and 78.79% for direction estimation, confirming the dataset's utility for machine learning applications. This resource enables research in haptic rendering, texture recognition algorithms, and human tactile perception mechanisms, supporting the development of realistic haptic interfaces for virtual reality systems and robotic applications.",
+      "venue": "cs.HC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2407.16206",
+      "url": "https://arxiv.org/abs/2407.16206",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2512.09309",
+      "title": "A Distributed Framework for Privacy-Enhanced Vision Transformers on the Edge",
+      "authors": [
+        {
+          "name": "Zihao Ding",
+          "affiliation": ""
+        },
+        {
+          "name": "Mufeng Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhongze Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Sheng Wei",
+          "affiliation": ""
+        },
+        {
+          "name": "Yao Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Nowadays, visual intelligence tools have become ubiquitous, offering all kinds of convenience and possibilities. However, these tools have high computational requirements that exceed the capabilities of resource-constrained mobile and wearable devices. While offloading visual data to the cloud is a common solution, it introduces significant privacy vulnerabilities during transmission and server-side computation. To address this, we propose a novel distributed, hierarchical offloading framework for Vision Transformers (ViTs) that addresses these privacy challenges by design. Our approach uses a local trusted edge device, such as a mobile phone or an Nvidia Jetson, as the edge orchestrator. This orchestrator partitions the user's visual data into smaller portions and distributes them across multiple independent cloud servers. By design, no single external server possesses the complete image, preventing comprehensive data reconstruction. The final data merging and aggregation computation occurs exclusively on the user's trusted edge device. We apply our framework to the Segment Anything Model (SAM) as a practical case study, which demonstrates that our method substantially enhances content privacy over traditional cloud-based approaches. Evaluations show our framework maintains near-baseline segmentation performance while substantially reducing the risk of content reconstruction and user data exposure. Our framework provides a scalable, privacy-preserving solution for vision tasks in the edge-cloud continuum.",
+      "venue": "cs.DC",
+      "citation_count": 0,
+      "doi": "10.1145/3769102.3772714",
+      "arxiv_id": "2512.09309",
+      "url": "https://arxiv.org/abs/2512.09309",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2211.13874",
+      "title": "FFHQ-UV: Normalized Facial UV-Texture Dataset for 3D Face Reconstruction",
+      "authors": [
+        {
+          "name": "Haoran Bai",
+          "affiliation": ""
+        },
+        {
+          "name": "Di Kang",
+          "affiliation": ""
+        },
+        {
+          "name": "Haoxian Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jinshan Pan",
+          "affiliation": ""
+        },
+        {
+          "name": "Linchao Bao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "We present a large-scale facial UV-texture dataset that contains over 50,000 high-quality texture UV-maps with even illuminations, neutral expressions, and cleaned facial regions, which are desired characteristics for rendering realistic 3D face models under different lighting conditions. The dataset is derived from a large-scale face image dataset namely FFHQ, with the help of our fully automatic and robust UV-texture production pipeline. Our pipeline utilizes the recent advances in StyleGAN-based facial image editing approaches to generate multi-view normalized face images from single-image inputs. An elaborated UV-texture extraction, correction, and completion procedure is then applied to produce high-quality UV-maps from the normalized face images. Compared with existing UV-texture datasets, our dataset has more diverse and higher-quality texture maps. We further train a GAN-based texture decoder as the nonlinear texture basis for parametric fitting based 3D face reconstruction. Experiments show that our method improves the reconstruction accuracy over state-of-the-art approaches, and more importantly, produces high-quality texture maps that are ready for realistic renderings. The dataset, code, and pre-trained texture decoder are publicly available at https://github.com/csbhr/FFHQ-UV.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2211.13874",
+      "url": "https://arxiv.org/abs/2211.13874",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2502.15816",
+      "title": "GenAI at the Edge: Comprehensive Survey on Empowering Edge Devices",
+      "authors": [
+        {
+          "name": "Mozhgan Navardi",
+          "affiliation": ""
+        },
+        {
+          "name": "Romina Aalishah",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuzhe Fu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yueqian Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Hai Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yiran Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Tinoosh Mohsenin",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Generative Artificial Intelligence (GenAI) applies models and algorithms such as Large Language Model (LLM) and Foundation Model (FM) to generate new data. GenAI, as a promising approach, enables advanced capabilities in various applications, including text generation and image processing. In current practice, GenAI algorithms run mainly on the cloud server, leading to high latency and raising security concerns. Consequently, these challenges encourage the deployment of GenAI algorithms directly on edge devices. However, the large size of such models and their significant computational resource requirements pose obstacles when deploying them in resource-constrained systems. This survey provides a comprehensive overview of recent proposed techniques that optimize GenAI for efficient deployment on resource-constrained edge devices. For this aim, this work highlights three main categories for bringing GenAI to the edge: software optimization, hardware optimization, and frameworks. The main takeaways for readers of this survey will be a clear roadmap to design, implement, and refine GenAI systems for real-world implementation on edge devices.",
+      "venue": "cs.DC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2502.15816",
+      "url": "https://arxiv.org/abs/2502.15816",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2007.08746",
+      "title": "Sequential Segment-based Level Generation and Blending using Variational Autoencoders",
+      "authors": [
+        {
+          "name": "Anurag Sarkar",
+          "affiliation": ""
+        },
+        {
+          "name": "Seth Cooper",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Existing methods of level generation using latent variable models such as VAEs and GANs do so in segments and produce the final level by stitching these separately generated segments together. In this paper, we build on these methods by training VAEs to learn a sequential model of segment generation such that generated segments logically follow from prior segments. By further combining the VAE with a classifier that determines whether to place the generated segment to the top, bottom, left or right of the previous segment, we obtain a pipeline that enables the generation of arbitrarily long levels that progress in any of these four directions and are composed of segments that logically follow one another. In addition to generating more coherent levels of non-fixed length, this method also enables implicit blending of levels from separate games that do not have similar orientation. We demonstrate our approach using levels from Super Mario Bros., Kid Icarus and Mega Man, showing that our method produces levels that are more coherent than previous latent variable-based approaches and are capable of blending levels across games.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2007.08746",
+      "url": "https://arxiv.org/abs/2007.08746",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2401.09109",
+      "title": "Trapped in texture bias? A large scale comparison of deep instance segmentation",
+      "authors": [
+        {
+          "name": "Johannes Theodoridis",
+          "affiliation": ""
+        },
+        {
+          "name": "Jessica Hofmann",
+          "affiliation": ""
+        },
+        {
+          "name": "Johannes Maucher",
+          "affiliation": ""
+        },
+        {
+          "name": "Andreas Schilling",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Do deep learning models for instance segmentation generalize to novel objects in a systematic way? For classification, such behavior has been questioned. In this study, we aim to understand if certain design decisions such as framework, architecture or pre-training contribute to the semantic understanding of instance segmentation. To answer this question, we consider a special case of robustness and compare pre-trained models on a challenging benchmark for object-centric, out-of-distribution texture. We do not introduce another method in this work. Instead, we take a step back and evaluate a broad range of existing literature. This includes Cascade and Mask R-CNN, Swin Transformer, BMask, YOLACT(++), DETR, BCNet, SOTR and SOLOv2. We find that YOLACT++, SOTR and SOLOv2 are significantly more robust to out-of-distribution texture than other frameworks. In addition, we show that deeper and dynamic architectures improve robustness whereas training schedules, data augmentation and pre-training have only a minor impact. In summary we evaluate 68 models on 61 versions of MS COCO for a total of 4148 evaluations.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1007/978-3-031-20074-8_35",
+      "arxiv_id": "2401.09109",
+      "url": "https://arxiv.org/abs/2401.09109",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.00300",
+      "title": "A Finite Dominating Set Approach for the Multi-Item Multi-Period Order Allocation Problem under All-Unit Quantity Discounts and Blending Ratios",
+      "authors": [
+        {
+          "name": "Fuhad Ahmed Opu",
+          "affiliation": ""
+        },
+        {
+          "name": "Moddassir Khan Nayeem",
+          "affiliation": ""
+        },
+        {
+          "name": "Hamid Najafzad",
+          "affiliation": ""
+        },
+        {
+          "name": "Omar Abbaas",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "This study addresses the multi-item multi-period order allocation problem under all-unit quantity discounts (AUQD) and blending ratios. A manufacturer makes a single product that requires mixing/assembling multiple ingredients/components with pre-determined blending ratios. We consider a single supplier offering quantity-based discounts which introduces non-linearities to the problem. The objective is to minimize procurement cost which includes purchasing, inventory, and ordering costs. We develop a solution procedure that systematically generates a finite dominating set (FDS) of order quantities guaranteed to include an optimal solution to the problem. A Mixed Integer Linear Programming (MILP) model based on the FDS. Our procedure guarantees optimality and eliminates the need for nonlinear discount modeling. Numerical experiments demonstrate that the proposed MILP achieves optimal solutions with significantly reduced computational effort, up to 99% faster for large-scale instances compared to conventional formulations. Sensitivity analyses reveal that the model dynamically adapts to changes in holding costs, shifting between bulk-purchasing and just-in-time strategies, and identifying cost-sensitive ingredients that drive total system cost.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.00300",
+      "url": "https://arxiv.org/abs/2511.00300",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2307.00161",
+      "title": "FFPDG: Fast, Fair and Private Data Generation",
+      "authors": [
+        {
+          "name": "Weijie Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jinjin Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Francis Iannacci",
+          "affiliation": ""
+        },
+        {
+          "name": "Bo Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Generative modeling has been used frequently in synthetic data generation. Fairness and privacy are two big concerns for synthetic data. Although Recent GAN [\\cite{goodfellow2014generative}] based methods show good results in preserving privacy, the generated data may be more biased. At the same time, these methods require high computation resources. In this work, we design a fast, fair, flexible and private data generation method. We show the effectiveness of our method theoretically and empirically. We show that models trained on data generated by the proposed method can perform well (in inference stage) on real application scenarios.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2307.00161",
+      "url": "https://arxiv.org/abs/2307.00161",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2107.12533",
+      "title": "Toward Co-creative Dungeon Generation via Transfer Learning",
+      "authors": [
+        {
+          "name": "Zisen Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Matthew Guzdial",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Co-creative Procedural Content Generation via Machine Learning (PCGML) refers to systems where a PCGML agent and a human work together to produce output content. One of the limitations of co-creative PCGML is that it requires co-creative training data for a PCGML agent to learn to interact with humans. However, acquiring this data is a difficult and time-consuming process. In this work, we propose approximating human-AI interaction data and employing transfer learning to adapt learned co-creative knowledge from one game to a different game. We explore this approach for co-creative Zelda dungeon room generation.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "10.1145/3472538.3472601",
+      "arxiv_id": "2107.12533",
+      "url": "https://arxiv.org/abs/2107.12533",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2211.10658",
+      "title": "EDGE: Editable Dance Generation From Music",
+      "authors": [
+        {
+          "name": "Jonathan Tseng",
+          "affiliation": ""
+        },
+        {
+          "name": "Rodrigo Castellon",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Karen Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Dance is an important human art form, but creating new dances can be difficult and time-consuming. In this work, we introduce Editable Dance GEneration (EDGE), a state-of-the-art method for editable dance generation that is capable of creating realistic, physically-plausible dances while remaining faithful to the input music. EDGE uses a transformer-based diffusion model paired with Jukebox, a strong music feature extractor, and confers powerful editing capabilities well-suited to dance, including joint-wise conditioning, and in-betweening. We introduce a new metric for physical plausibility, and evaluate dance quality generated by our method extensively through (1) multiple quantitative metrics on physical plausibility, beat alignment, and diversity benchmarks, and more importantly, (2) a large-scale user study, demonstrating a significant improvement over previous state-of-the-art methods. Qualitative samples from our model can be found at our website.",
+      "venue": "cs.SD",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2211.10658",
+      "url": "https://arxiv.org/abs/2211.10658",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2309.03001",
+      "title": "Role of unphysical neutrino phases in the phenomenology of consistently defined textures. Case study: traceless neutrino mass matrix",
+      "authors": [
+        {
+          "name": "N. Chamoun",
+          "affiliation": ""
+        },
+        {
+          "name": "E. I. Lashin",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We highlight the role played by the unphysical phases in the definition of neutrino mass matrix, showing it does not relate to mere semantics, rather it has an effect on the phenomenology. As a case study, we take the neutrino mass matrix texture characterized by a vanishing trace, and study the effect of the phases, physical and unphysical, in its definition. We undergo a thorough phenomenological analysis, first (second) when the unphysical (CP) phases are vanishing, then move on to the general case where all phases exist. We stress that the effect of the unphysical phases on the phenomenology originates from changing the texture definition upon introducing them, while they are not observable. Finally we present a theoretical realization of the texture based on $A_5$ non-abelian flavor symmetry, which is also related to a consistently defined texture.",
+      "venue": "hep-ph",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2309.03001",
+      "url": "https://arxiv.org/abs/2309.03001",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2107.12524",
+      "title": "Ensemble Learning For Mega Man Level Generation",
+      "authors": [
+        {
+          "name": "Bowei Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruohan Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuqing Xue",
+          "affiliation": ""
+        },
+        {
+          "name": "Ricky Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenwen Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Matthew Guzdial",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Procedural content generation via machine learning (PCGML) is the process of procedurally generating game content using models trained on existing game content. PCGML methods can struggle to capture the true variance present in underlying data with a single model. In this paper, we investigated the use of ensembles of Markov chains for procedurally generating \\emph{Mega Man} levels. We conduct an initial investigation of our approach and evaluate it on measures of playability and stylistic similarity in comparison to a non-ensemble, existing Markov chain approach.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "10.1145/3472538.3472600",
+      "arxiv_id": "2107.12524",
+      "url": "https://arxiv.org/abs/2107.12524",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2107.12506",
+      "title": "TaikoNation: Patterning-focused Chart Generation for Rhythm Action Games",
+      "authors": [
+        {
+          "name": "Emily Halina",
+          "affiliation": ""
+        },
+        {
+          "name": "Matthew Guzdial",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Generating rhythm game charts from songs via machine learning has been a problem of increasing interest in recent years. However, all existing systems struggle to replicate human-like patterning: the placement of game objects in relation to each other to form congruent patterns based on events in the song. Patterning is a key identifier of high quality rhythm game content, seen as a necessary component in human rankings. We establish a new approach for chart generation that produces charts with more congruent, human-like patterning than seen in prior work.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "10.1145/3472538.3472589",
+      "arxiv_id": "2107.12506",
+      "url": "https://arxiv.org/abs/2107.12506",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

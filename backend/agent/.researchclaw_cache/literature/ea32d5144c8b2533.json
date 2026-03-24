@@ -1,0 +1,1692 @@
+{
+  "query": "MNIST comparing layer vs",
+  "source": "openalex",
+  "limit": 40,
+  "timestamp": 1773985152.7921956,
+  "papers": [
+    {
+      "paper_id": "oalex-W3216490468",
+      "title": "Vision-Based Malware Detection: A Transfer Learning Approach Using Optimal ECOC-SVM Configuration",
+      "authors": [
+        {
+          "name": "W. K. Wong",
+          "affiliation": "Curtin University Sarawak"
+        },
+        {
+          "name": "Filbert H. Juwono",
+          "affiliation": "Curtin University Sarawak"
+        },
+        {
+          "name": "Catur Apriono",
+          "affiliation": "University of Indonesia"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Malware detection in current times is increasingly important due to the presence of dangerous malicious software (malware) as well as ransomware in digital cyberspace. Conventional approaches such as using malware features (either static or dynamic or hybrid) have been applied for detection. Advances in Deep Learning (DL) has attracted a lot of interests in applications of malware detection. In particular, the file binaries are fed in to the DL neural network for training and testing. Despite the theoretical basis, we find that overfitting has occurred despite applying precaution, such as applying sufficient dropout layers. Limitations can also be attributed to the final classification layers (fully connected shallow network and softmax classification). In this paper, we apply transfer learning using ShuffleNet and DenseNet-201, two models trained on large dataset to recognize daily objects. This is done with the entire layers frozen to prevent overfitting and an optimal Error correction output code (ECOC) ensemble configuration of Support Vector Machines (SVM). Several ECOC coding matrices were applied, e.g., One vs. All (OVA), One vs. One (OVO), Dense Random (DR), and Sparse Random (SR). Each of these configurations represents varying complexity and ensemble size and, hence, a tradeoff between computation reduction and complex non-linear separation appears. Given that the continuous values of SVM parameters may take up high computation for acquiring the optimal parameter configuration, we apply discrete values combination using a grid search approach for parameter optimization. We test the proposed model on Malimg, MaleVis, virus-MNIST, and Dumpware10 datasets. The results show better/comparable accuracy compared with the existing work. The best/average accuracy values for each dataset over 10 trials are: Malimg (99.14%/98.87%), MaleVis (95.01%/93.91%), Virus-MNIST (86.36%/85.79%), Dumpware10 (96.62%/95.79%).",
+      "venue": "IEEE Access",
+      "citation_count": 48,
+      "doi": "10.1109/access.2021.3131713",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/access.2021.3131713",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2566079294",
+      "title": "Understanding deep learning (still) requires rethinking generalization",
+      "authors": [
+        {
+          "name": "Chiyuan Zhang",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Samy Bengio",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Moritz Hardt",
+          "affiliation": "University of California, Berkeley"
+        },
+        {
+          "name": "Benjamin Recht",
+          "affiliation": "University of California, Berkeley"
+        },
+        {
+          "name": "Oriol Vinyals",
+          "affiliation": "DeepMind (United Kingdom)"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Despite their massive size, successful deep artificial neural networks can exhibit a remarkably small gap between training and test performance. Conventional wisdom attributes small generalization error either to properties of the model family or to the regularization techniques used during training. Through extensive systematic experiments, we show how these traditional approaches fail to explain why large neural networks generalize well in practice. Specifically, our experiments establish that state-of-the-art convolutional networks for image classification trained with stochastic gradient methods easily fit a random labeling of the training data. This phenomenon is qualitatively unaffected by explicit regularization and occurs even if we replace the true images by completely unstructured random noise. We corroborate these experimental findings with a theoretical construction showing that simple depth two neural networks already have perfect finite sample expressivity as soon as the number of parameters exceeds the number of data points as it usually does in practice. We interpret our experimental findings by comparison with traditional models. We supplement this republication with a new section at the end summarizing recent progresses in the field since the original version of this paper.",
+      "venue": "Communications of the ACM",
+      "citation_count": 2203,
+      "doi": "10.1145/3446776",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3446776",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3138597937",
+      "title": "FLTrust: Byzantine-robust Federated Learning via Trust Bootstrapping",
+      "authors": [
+        {
+          "name": "Xiaoyu Cao",
+          "affiliation": "Duke University"
+        },
+        {
+          "name": "Minghong Fang",
+          "affiliation": "The Ohio State University"
+        },
+        {
+          "name": "Jia Liu",
+          "affiliation": "The Ohio State University"
+        },
+        {
+          "name": "Neil Zhenqiang Gong",
+          "affiliation": "Duke University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Byzantine-robust federated learning aims to enable a service provider to learn an accurate global model when a bounded number of clients are malicious. The key idea of existing Byzantine-robust federated learning methods is that the service provider performs statistical analysis among the clients' local model updates and removes suspicious ones, before aggregating them to update the global model. However, malicious clients can still corrupt the global models in these methods via sending carefully crafted local model updates to the service provider. The fundamental reason is that there is no root of trust in existing federated learning methods. In this work, we bridge the gap via proposing FLTrust, a new federated learning method in which the service provider itself bootstraps trust. In particular, the service provider itself collects a clean small training dataset (called root dataset) for the learning task and the service provider maintains a model (called server model) based on it to bootstrap trust. In each iteration, the service provider first assigns a trust score to each local model update from the clients, where a local model update has a lower trust score if its direction deviates more from the direction of the server model update. Then, the service provider normalizes the magnitudes of the local model updates such that they lie in the same hyper-sphere as the server model update in the vector space. Our normalization limits the impact of malicious local model updates with large magnitudes. Finally, the service provider computes the average of the normalized local model updates weighted by their trust scores as a global model update, which is used to update the global model. Our extensive evaluations on six datasets from different domains show that our FLTrust is secure against both existing attacks and strong adaptive attacks.",
+      "venue": "",
+      "citation_count": 740,
+      "doi": "10.14722/ndss.2021.24434",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.14722/ndss.2021.24434",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4292121737",
+      "title": "A compute-in-memory chip based on resistive random-access memory",
+      "authors": [
+        {
+          "name": "Weier Wan",
+          "affiliation": "Stanford University"
+        },
+        {
+          "name": "Rajkumar Kubendran",
+          "affiliation": "University of Pittsburgh"
+        },
+        {
+          "name": "Clemens Schaefer",
+          "affiliation": "University of Notre Dame"
+        },
+        {
+          "name": "Sukru Burc Eryilmaz",
+          "affiliation": "Stanford University"
+        },
+        {
+          "name": "Wenqiang Zhang",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Dabin Wu",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Stephen Deiss",
+          "affiliation": "University of California, San Diego"
+        },
+        {
+          "name": "Priyanka Raina",
+          "affiliation": "Stanford University"
+        },
+        {
+          "name": "He Qian",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Bin Gao",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Siddharth Joshi",
+          "affiliation": "University of Notre Dame"
+        },
+        {
+          "name": "Huaqiang Wu",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "H.\u2010S. Philip Wong",
+          "affiliation": "Stanford University"
+        },
+        {
+          "name": "Gert Cauwenberghs",
+          "affiliation": "University of California, San Diego"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Realizing increasingly complex artificial intelligence (AI) functionalities directly on edge devices calls for unprecedented energy efficiency of edge hardware. Compute-in-memory (CIM) based on resistive random-access memory (RRAM)<sup>1</sup> promises to meet such demand by storing AI model weights in dense, analogue and non-volatile RRAM devices, and by performing AI computation directly within RRAM, thus eliminating power-hungry data movement between separate compute and memory<sup>2-5</sup>. Although recent studies have demonstrated in-memory matrix-vector multiplication on fully integrated RRAM-CIM hardware<sup>6-17</sup>, it remains a goal for a RRAM-CIM chip to simultaneously deliver high energy efficiency, versatility to support diverse models and software-comparable accuracy. Although efficiency, versatility and accuracy are all indispensable for broad adoption of the technology, the inter-related trade-offs among them cannot be addressed by isolated improvements on any single abstraction level of the design. Here, by co-optimizing across all hierarchies of the design from algorithms and architecture to circuits and devices, we present NeuRRAM-a RRAM-based CIM chip that simultaneously delivers versatility in reconfiguring CIM cores for diverse model architectures, energy efficiency that is two-times better than previous state-of-the-art RRAM-CIM chips across various computational bit-precisions, and inference accuracy comparable to software models quantized to four-bit weights across various AI tasks, including accuracy of 99.0 percent on MNIST<sup>18</sup> and 85.7 percent on CIFAR-10<sup>19</sup> image classification, 84.7-percent accuracy on Google speech command recognition<sup>20</sup>, and a 70-percent reduction in image-reconstruction error on a Bayesian image-recovery task.",
+      "venue": "Nature",
+      "citation_count": 756,
+      "doi": "10.1038/s41586-022-04992-8",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41586-022-04992-8",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4294559022",
+      "title": "Explainable AI (XAI): Core Ideas, Techniques, and Solutions",
+      "authors": [
+        {
+          "name": "Rudresh Dwivedi",
+          "affiliation": "Netaji Subhas University of Technology"
+        },
+        {
+          "name": "Devam Dave",
+          "affiliation": "Pandit Deendayal Petroleum University"
+        },
+        {
+          "name": "Het Naik",
+          "affiliation": "Pandit Deendayal Petroleum University"
+        },
+        {
+          "name": "Smiti Singhal",
+          "affiliation": "Pandit Deendayal Petroleum University"
+        },
+        {
+          "name": "Omer Rana",
+          "affiliation": "Cardiff University"
+        },
+        {
+          "name": "Pankesh Patel",
+          "affiliation": "University of South Carolina"
+        },
+        {
+          "name": "Bin Qian",
+          "affiliation": "Newcastle University"
+        },
+        {
+          "name": "Zhenyu Wen",
+          "affiliation": ""
+        },
+        {
+          "name": "Tejal Shah",
+          "affiliation": "Newcastle University"
+        },
+        {
+          "name": "Graham Morgan",
+          "affiliation": "Newcastle University"
+        },
+        {
+          "name": "Rajiv Ranjan",
+          "affiliation": "Newcastle University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "As our dependence on intelligent machines continues to grow, so does the demand for more transparent and interpretable models. In addition, the ability to explain the model generally is now the gold standard for building trust and deployment of artificial intelligence systems in critical domains. Explainable artificial intelligence (XAI) aims to provide a suite of machine learning techniques that enable human users to understand, appropriately trust, and produce more explainable models. Selecting an appropriate approach for building an XAI-enabled application requires a clear understanding of the core ideas within XAI and the associated programming frameworks. We survey state-of-the-art programming techniques for XAI and present the different phases of XAI in a typical machine learning development process. We classify the various XAI approaches and, using this taxonomy, discuss the key differences among the existing XAI techniques. Furthermore, concrete examples are used to describe these techniques that are mapped to programming frameworks and software toolkits. It is the intention that this survey will help stakeholders in selecting the appropriate approaches, programming frameworks, and software toolkits by comparing them through the lens of the presented taxonomy.",
+      "venue": "ACM Computing Surveys",
+      "citation_count": 1020,
+      "doi": "10.1145/3561048",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3561048",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3133814152",
+      "title": "Towards Personalized Federated Learning",
+      "authors": [
+        {
+          "name": "Alysa Ziying Tan",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Han Yu",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Lizhen Cui",
+          "affiliation": "Shandong University"
+        },
+        {
+          "name": "Qiang Yang",
+          "affiliation": "Hong Kong University of Science and Technology"
+        }
+      ],
+      "year": 2022,
+      "abstract": "In parallel with the rapid adoption of artificial intelligence (AI) empowered by advances in AI research, there has been growing awareness and concerns of data privacy. Recent significant developments in the data regulation landscape have prompted a seismic shift in interest toward privacy-preserving AI. This has contributed to the popularity of Federated Learning (FL), the leading paradigm for the training of machine learning models on data silos in a privacy-preserving manner. In this survey, we explore the domain of personalized FL (PFL) to address the fundamental challenges of FL on heterogeneous data, a universal characteristic inherent in all real-world datasets. We analyze the key motivations for PFL and present a unique taxonomy of PFL techniques categorized according to the key challenges and personalization strategies in PFL. We highlight their key ideas, challenges, opportunities, and envision promising future trajectories of research toward a new PFL architectural design, realistic PFL benchmarking, and trustworthy PFL approaches.",
+      "venue": "IEEE Transactions on Neural Networks and Learning Systems",
+      "citation_count": 935,
+      "doi": "10.1109/tnnls.2022.3160699",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tnnls.2022.3160699",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3102040318",
+      "title": "Incorporating Learnable Membrane Time Constant to Enhance Learning of Spiking Neural Networks",
+      "authors": [
+        {
+          "name": "Wei Fang",
+          "affiliation": "Peng Cheng Laboratory"
+        },
+        {
+          "name": "Zhaofei Yu",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Yanqi Chen",
+          "affiliation": "Peng Cheng Laboratory"
+        },
+        {
+          "name": "Timoth\u00e9e Masquelier",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Tiejun Huang",
+          "affiliation": "Peng Cheng Laboratory"
+        },
+        {
+          "name": "Yonghong Tian",
+          "affiliation": "Peng Cheng Laboratory"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Spiking Neural Networks (SNNs) have attracted enormous research interest due to temporal information processing capability, low power consumption, and high biological plausibility. However, the formulation of efficient and high-performance learning algorithms for SNNs is still challenging. Most existing learning methods learn weights only, and require manual tuning of the membrane-related parameters that determine the dynamics of a single spiking neuron. These parameters are typically chosen to be the same for all neurons, which limits the diversity of neurons and thus the expressiveness of the resulting SNNs. In this paper, we take inspiration from the observation that membrane-related parameters are different across brain regions, and propose a training algorithm that is capable of learning not only the synaptic weights but also the membrane time constants of SNNs. We show that incorporating learnable membrane time constants can make the network less sensitive to initial values and can speed up learning. In addition, we reevaluate the pooling methods in SNNs and find that max-pooling will not lead to significant information loss and have the advantage of low computation cost and binary compatibility. We evaluate the proposed method for image classification tasks on both traditional static MNIST, Fashion-MNIST, CIFAR-10 datasets, and neuromorphic N-MNIST, CIFAR10-DVS, DVS128 Gesture datasets. The experiment results show that the proposed method outperforms the state-of-the-art accuracy on nearly all datasets, using fewer time-steps. Our codes are available at https://github.com/fangwei123456/Parametric-Leaky-Integrate-and-Fire-Spiking-Neuron.",
+      "venue": "2021 IEEE/CVF International Conference on Computer Vision (ICCV)",
+      "citation_count": 527,
+      "doi": "10.1109/iccv48922.2021.00266",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/iccv48922.2021.00266",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3007283957",
+      "title": "Enabling Spike-Based Backpropagation for Training Deep Neural Network Architectures",
+      "authors": [
+        {
+          "name": "Chankyu Lee",
+          "affiliation": "Purdue University West Lafayette"
+        },
+        {
+          "name": "Syed Shakib Sarwar",
+          "affiliation": "Purdue University West Lafayette"
+        },
+        {
+          "name": "Priyadarshini Panda",
+          "affiliation": "Purdue University West Lafayette"
+        },
+        {
+          "name": "Gopalakrishnan Srinivasan",
+          "affiliation": "Purdue University West Lafayette"
+        },
+        {
+          "name": "Kaushik Roy",
+          "affiliation": "Purdue University West Lafayette"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Spiking Neural Networks (SNNs) have recently emerged as a prominent neural computing paradigm. However, the typical shallow SNN architectures have limited capacity for expressing complex representations while training deep SNNs using input spikes has not been successful so far. Diverse methods have been proposed to get around this issue such as converting off-the-shelf trained deep Artificial Neural Networks (ANNs) to SNNs. However, the ANN-SNN conversion scheme fails to capture the temporal dynamics of a spiking system. On the other hand, it is still a difficult problem to directly train deep SNNs using input spike events due to the discontinuous, non-differentiable nature of the spike generation function. To overcome this problem, we propose an approximate derivative method that accounts for the leaky behavior of LIF neurons. This method enables training deep convolutional SNNs directly (with input spike events) using spike-based backpropagation. Our experiments show the effectiveness of the proposed spike-based learning on deep networks (VGG and Residual architectures) by achieving the best classification accuracies in MNIST, SVHN, and CIFAR-10 datasets compared to other SNNs trained with a spike-based learning. Moreover, we analyze sparse event-based computations to demonstrate the efficacy of the proposed SNN training method for inference operation in the spiking domain.",
+      "venue": "Frontiers in Neuroscience",
+      "citation_count": 422,
+      "doi": "10.3389/fnins.2020.00119",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3389/fnins.2020.00119",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2958089299",
+      "title": "A Survey on Explainable Artificial Intelligence (XAI): Toward Medical XAI",
+      "authors": [
+        {
+          "name": "Erico Tjoa",
+          "affiliation": "Alibaba Group (China)"
+        },
+        {
+          "name": "Cuntai Guan",
+          "affiliation": "Nanyang Technological University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Recently, artificial intelligence and machine learning in general have demonstrated remarkable performances in many tasks, from image processing to natural language processing, especially with the advent of deep learning (DL). Along with research progress, they have encroached upon many different fields and disciplines. Some of them require high level of accountability and thus transparency, for example, the medical sector. Explanations for machine decisions and predictions are thus needed to justify their reliability. This requires greater interpretability, which often means we need to understand the mechanism underlying the algorithms. Unfortunately, the blackbox nature of the DL is still unresolved, and many machine decisions are still poorly understood. We provide a review on interpretabilities suggested by different research works and categorize them. The different categories show different dimensions in interpretability research, from approaches that provide \"obviously\" interpretable information to the studies of complex patterns. By applying the same categorization to interpretability in medical research, it is hoped that: 1) clinicians and practitioners can subsequently approach these methods with caution; 2) insight into interpretability will be born with more considerations for medical practices; and 3) initiatives to push forward data-based, mathematically grounded, and technically grounded medical education are encouraged.",
+      "venue": "IEEE Transactions on Neural Networks and Learning Systems",
+      "citation_count": 1988,
+      "doi": "10.1109/tnnls.2020.3027314",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tnnls.2020.3027314",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4365504037",
+      "title": "A survey on deep learning tools dealing with data scarcity: definitions, challenges, solutions, tips, and applications",
+      "authors": [
+        {
+          "name": "Laith Alzubaidi",
+          "affiliation": "Queensland University of Technology"
+        },
+        {
+          "name": "Jinshuai Bai",
+          "affiliation": "Queensland University of Technology"
+        },
+        {
+          "name": "Aiman Al-Sabaawi",
+          "affiliation": "Queensland University of Technology"
+        },
+        {
+          "name": "Jos\u00e9 Santamar\u00eda",
+          "affiliation": "Universidad de Ja\u00e9n"
+        },
+        {
+          "name": "A. S. Albahri",
+          "affiliation": "Sultan Idris Education University"
+        },
+        {
+          "name": "Bashar Sami Nayyef Al-dabbagh",
+          "affiliation": "Universidad Carlos III de Madrid"
+        },
+        {
+          "name": "Mohammed A. Fadhel",
+          "affiliation": "Thi Qar University"
+        },
+        {
+          "name": "Mohamed Manoufali",
+          "affiliation": "The University of Queensland"
+        },
+        {
+          "name": "Jinglan Zhang",
+          "affiliation": "Queensland University of Technology"
+        },
+        {
+          "name": "Ali H. Al\u2010Timemy",
+          "affiliation": "University of Baghdad"
+        },
+        {
+          "name": "Ye Duan",
+          "affiliation": "University of Missouri"
+        },
+        {
+          "name": "Amjed Abdullah",
+          "affiliation": "University of Missouri"
+        },
+        {
+          "name": "Laith Farhan",
+          "affiliation": "Manchester Metropolitan University"
+        },
+        {
+          "name": "Yi Lu",
+          "affiliation": "Queensland University of Technology"
+        },
+        {
+          "name": "Ashish Gupta",
+          "affiliation": "Queensland University of Technology"
+        },
+        {
+          "name": "Felix Albu",
+          "affiliation": "Valahia University of Targoviste"
+        },
+        {
+          "name": "Amin Abbosh",
+          "affiliation": "The University of Queensland"
+        },
+        {
+          "name": "Yuantong Gu",
+          "affiliation": "Queensland University of Technology"
+        }
+      ],
+      "year": 2023,
+      "abstract": "",
+      "venue": "Journal Of Big Data",
+      "citation_count": 705,
+      "doi": "10.1186/s40537-023-00727-2",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1186/s40537-023-00727-2",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2998712190",
+      "title": "Deep Domain-Adversarial Image Generation for Domain Generalisation",
+      "authors": [
+        {
+          "name": "Kaiyang Zhou",
+          "affiliation": "University of Surrey"
+        },
+        {
+          "name": "Yongxin Yang",
+          "affiliation": "University of Surrey"
+        },
+        {
+          "name": "Timothy M. Hospedales",
+          "affiliation": "University of Edinburgh"
+        },
+        {
+          "name": "Tao Xiang",
+          "affiliation": "University of Surrey"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Machine learning models typically suffer from the domain shift problem when trained on a source dataset and evaluated on a target dataset of different distribution. To overcome this problem, domain generalisation (DG) methods aim to leverage data from multiple source domains so that a trained model can generalise to unseen domains. In this paper, we propose a novel DG approach based on Deep Domain-Adversarial Image Generation (DDAIG). Specifically, DDAIG consists of three components, namely a label classifier, a domain classifier and a domain transformation network (DoTNet). The goal for DoTNet is to map the source training data to unseen domains. This is achieved by having a learning objective formulated to ensure that the generated data can be correctly classified by the label classifier while fooling the domain classifier. By augmenting the source training data with the generated unseen domain data, we can make the label classifier more robust to unknown domain changes. Extensive experiments on four DG datasets demonstrate the effectiveness of our approach.",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 372,
+      "doi": "10.1609/aaai.v34i07.7003",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v34i07.7003",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2998119008",
+      "title": "Spiking-YOLO: Spiking Neural Network for Energy-Efficient Object Detection",
+      "authors": [
+        {
+          "name": "Seijoon Kim",
+          "affiliation": "Seoul National University"
+        },
+        {
+          "name": "Seongsik Park",
+          "affiliation": "Seoul National University"
+        },
+        {
+          "name": "Byunggook Na",
+          "affiliation": "Seoul National University"
+        },
+        {
+          "name": "Sungroh Yoon",
+          "affiliation": "Seoul National University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Over the past decade, deep neural networks (DNNs) have demonstrated remarkable performance in a variety of applications. As we try to solve more advanced problems, increasing demands for computing and power resources has become inevitable. Spiking neural networks (SNNs) have attracted widespread interest as the third-generation of neural networks due to their event-driven and low-powered nature. SNNs, however, are difficult to train, mainly owing to their complex dynamics of neurons and non-differentiable spike operations. Furthermore, their applications have been limited to relatively simple tasks such as image classification. In this study, we investigate the performance degradation of SNNs in a more challenging regression problem (i.e., object detection). Through our in-depth analysis, we introduce two novel methods: channel-wise normalization and signed neuron with imbalanced threshold, both of which provide fast and accurate information transmission for deep SNNs. Consequently, we present a first spiked-based object detection model, called Spiking-YOLO. Our experiments show that Spiking-YOLO achieves remarkable results that are comparable (up to 98%) to those of Tiny YOLO on non-trivial datasets, PASCAL VOC and MS COCO. Furthermore, Spiking-YOLO on a neuromorphic chip consumes approximately 280 times less energy than Tiny YOLO and converges 2.3 to 4 times faster than previous SNN conversion methods.",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 407,
+      "doi": "10.1609/aaai.v34i07.6787",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v34i07.6787",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4226319939",
+      "title": "Edge-IIoTset: A New Comprehensive Realistic Cyber Security Dataset of IoT and IIoT Applications for Centralized and Federated Learning",
+      "authors": [
+        {
+          "name": "Mohamed Amine Ferrag",
+          "affiliation": "University of Guelma"
+        },
+        {
+          "name": "Othmane Friha",
+          "affiliation": "Badji Mokhtar University"
+        },
+        {
+          "name": "Djallel Hamouda",
+          "affiliation": "University of Guelma"
+        },
+        {
+          "name": "\u039b\u03ad\u03b1\u03bd\u03b4\u03c1\u03bf\u03c2 \u039c\u03b1\u03b3\u03bb\u03b1\u03c1\u03ac\u03c2",
+          "affiliation": "De Montfort University"
+        },
+        {
+          "name": "Helge Janicke",
+          "affiliation": "Edith Cowan University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "In this paper, we propose a new comprehensive realistic cyber security dataset of IoT and IIoT applications, called Edge-IIoTset, which can be used by machine learning-based intrusion detection systems in two different modes, namely, centralized and federated learning. Specifically, the dataset has been generated using a purpose-built IoT/IIoT testbed with a large representative set of devices, sensors, protocols and cloud/edge configurations. The IoT data are generated from various IoT devices (more than 10 types) such as Low-cost digital sensors for sensing temperature and humidity, Ultrasonic sensor, Water level detection sensor, pH Sensor Meter, Soil Moisture sensor, Heart Rate Sensor, Flame Sensor, etc.). Furthermore, we identify and analyze fourteen attacks related to IoT and IIoT connectivity protocols, which are categorized into five threats, including, DoS/DDoS attacks, Information gathering, Man in the middle attacks, Injection attacks, and Malware attacks. In addition, we extract features obtained from different sources, including alerts, system resources, logs, network traffic, and propose new 61 features with high correlations from 1176 found features. After processing and analyzing the proposed realistic cyber security dataset, we provide a primary exploratory data analysis and evaluate the performance of machine learning approaches (i.e., traditional machine learning as well as deep learning) in both centralized and federated learning modes. The Edge-IIoTset dataset can be publicly accessed from <uri xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">http://ieee-dataport.org/8939</uri> .",
+      "venue": "IEEE Access",
+      "citation_count": 835,
+      "doi": "10.1109/access.2022.3165809",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/access.2022.3165809",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4295122555",
+      "title": "Deep Residual Learning for Image Recognition: A Survey",
+      "authors": [
+        {
+          "name": "Muhammad Shafiq",
+          "affiliation": "Guangzhou University"
+        },
+        {
+          "name": "Zhaoquan Gu",
+          "affiliation": "Harbin Institute of Technology"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Deep Residual Networks have recently been shown to significantly improve the performance of neural networks trained on ImageNet, with results beating all previous methods on this dataset by large margins in the image classification task. However, the meaning of these impressive numbers and their implications for future research are not fully understood yet. In this survey, we will try to explain what Deep Residual Networks are, how they achieve their excellent results, and why their successful implementation in practice represents a significant advance over existing techniques. We also discuss some open questions related to residual learning as well as possible applications of Deep Residual Networks beyond ImageNet. Finally, we discuss some issues that still need to be resolved before deep residual learning can be applied on more complex problems.",
+      "venue": "Applied Sciences",
+      "citation_count": 856,
+      "doi": "10.3390/app12188972",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/app12188972",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3006781240",
+      "title": "An Introductory Review of Deep Learning for Prediction Models With Big Data",
+      "authors": [
+        {
+          "name": "Frank Emmert\u2010Streib",
+          "affiliation": "Tampere University"
+        },
+        {
+          "name": "Zhen Yang",
+          "affiliation": "Tampere University"
+        },
+        {
+          "name": "Feng Han",
+          "affiliation": "University of Applied Sciences Upper Austria"
+        },
+        {
+          "name": "Shailesh Tripathi",
+          "affiliation": "University of Applied Sciences Upper Austria"
+        },
+        {
+          "name": "Matthias Dehmer",
+          "affiliation": "University of Applied Sciences Upper Austria"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Deep learning models stand for a new learning paradigm in artificial intelligence (AI) and machine learning. Recent breakthrough results in image analysis and speech recognition have generated a massive interest in this field because also applications in many other domains providing big data seem possible. On a downside, the mathematical and computational methodology underlying deep learning models is very challenging, especially for interdisciplinary scientists. For this reason, we present in this paper an introductory review of deep learning approaches including Deep Feedforward Neural Networks (D-FFNN), Convolutional Neural Networks (CNNs), Deep Belief Networks (DBNs), Autoencoders (AEs), and Long Short-Term Memory (LSTM) networks. These models form the major core architectures of deep learning models currently used and should belong in any data scientist's toolbox. Importantly, those core architectural building blocks can be composed flexibly-in an almost Lego-like manner-to build new application-specific network architectures. Hence, a basic understanding of these network architectures is important to be prepared for future developments in AI.",
+      "venue": "Frontiers in Artificial Intelligence",
+      "citation_count": 575,
+      "doi": "10.3389/frai.2020.00004",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3389/frai.2020.00004",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3131397572",
+      "title": "On the transferability of adversarial examples between convex and 01 loss models",
+      "authors": [
+        {
+          "name": "Yunzhe Xue",
+          "affiliation": "New Jersey Institute of Technology"
+        },
+        {
+          "name": "Meiyan Xie",
+          "affiliation": "New Jersey Institute of Technology"
+        },
+        {
+          "name": "Usman Roshan",
+          "affiliation": "New Jersey Institute of Technology"
+        }
+      ],
+      "year": 2020,
+      "abstract": "The 01 loss gives different and more accurate boundaries than convex loss models in the presence of outliers. Could the difference of boundaries translate to adversarial examples that are non-transferable between 01 loss and convex models? We explore this empirically in this paper by studying transferability of adversarial examples between linear 01 loss and convex (hinge) loss models, and between dual layer neural networks with sign activation and 01 loss vs sigmoid activation and logistic loss. We first show that white box adversarial examples do not transfer effectively between convex and 01 loss and between 01 loss models compared to between convex models. As a result of this non-transferability we see that convex substitute model black box attacks are less effective on 01 loss than convex models. Interestingly we also see that 01 loss substitute model attacks are ineffective on both convex and 01 loss models mostly likely due to the non-uniqueness of 01 loss models. We show intuitively by example how the presence of outliers can cause different decision boundaries between 01 and convex loss models which in turn produces adversaries that are non-transferable. Indeed we see on MNIST that adversaries transfer between 01 loss and convex models more easily than on CIFAR10 and ImageNet which are likely to contain outliers. We show intuitively by example how the non-continuity of 01 loss makes adversaries non-transferable in a dual layer neural network. We discretize CIFAR10 features to be more like MNIST and find that it does not improve transferability, thus suggesting that different boundaries due to outliers are more likely the cause of non-transferability. As a result of this non-transferability we show that our dual layer sign activation network with 01 loss can attain robustness on par with simple convolutional networks.",
+      "venue": "",
+      "citation_count": 5,
+      "doi": "10.1109/icmla51294.2020.00226",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/icmla51294.2020.00226",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3080221164",
+      "title": "Different scaling of linear models and deep learning in UKBiobank brain images versus machine-learning datasets",
+      "authors": [
+        {
+          "name": "Marc-Andr\u00e9 Schulz",
+          "affiliation": "RWTH Aachen University"
+        },
+        {
+          "name": "B.T. Thomas Yeo",
+          "affiliation": "National University Cancer Institute, Singapore"
+        },
+        {
+          "name": "Joshua T Vogelstein",
+          "affiliation": "Discovery Institute"
+        },
+        {
+          "name": "Janaina Mourao-Miranada",
+          "affiliation": "University College London"
+        },
+        {
+          "name": "Jakob Nikolas Kather",
+          "affiliation": "Heidelberg University"
+        },
+        {
+          "name": "Konrad P. K\u00f6rding",
+          "affiliation": "University of Pennsylvania"
+        },
+        {
+          "name": "Blake A. Richards",
+          "affiliation": "Canadian Institute for Advanced Research"
+        },
+        {
+          "name": "Danilo Bzdok",
+          "affiliation": "Mila - Quebec Artificial Intelligence Institute"
+        }
+      ],
+      "year": 2020,
+      "abstract": "",
+      "venue": "Nature Communications",
+      "citation_count": 294,
+      "doi": "10.1038/s41467-020-18037-z",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41467-020-18037-z",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3023935494",
+      "title": "Edge Machine Learning for AI-Enabled IoT Devices: A Review",
+      "authors": [
+        {
+          "name": "Massimo Merenda",
+          "affiliation": "University of Reggio Calabria"
+        },
+        {
+          "name": "Carlo Porcaro",
+          "affiliation": "University of Reggio Calabria"
+        },
+        {
+          "name": "Demetrio Iero",
+          "affiliation": "University of Reggio Calabria"
+        }
+      ],
+      "year": 2020,
+      "abstract": "In a few years, the world will be populated by billions of connected devices that will be placed in our homes, cities, vehicles, and industries. Devices with limited resources will interact with the surrounding environment and users. Many of these devices will be based on machine learning models to decode meaning and behavior behind sensors' data, to implement accurate predictions and make decisions. The bottleneck will be the high level of connected things that could congest the network. Hence, the need to incorporate intelligence on end devices using machine learning algorithms. Deploying machine learning on such edge devices improves the network congestion by allowing computations to be performed close to the data sources. The aim of this work is to provide a review of the main techniques that guarantee the execution of machine learning models on hardware with low performances in the Internet of Things paradigm, paving the way to the Internet of Conscious Things. In this work, a detailed review on models, architecture, and requirements on solutions that implement edge machine learning on Internet of Things devices is presented, with the main goal to define the state of the art and envisioning development requirements. Furthermore, an example of edge machine learning implementation on a microcontroller will be provided, commonly regarded as the machine learning \"Hello World\".",
+      "venue": "Sensors",
+      "citation_count": 460,
+      "doi": "10.3390/s20092533",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/s20092533",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3035558131",
+      "title": "Improved Handwritten Digit Recognition Using Convolutional Neural Networks (CNN)",
+      "authors": [
+        {
+          "name": "Savita Ahlawat",
+          "affiliation": ""
+        },
+        {
+          "name": "Amit Choudhary",
+          "affiliation": ""
+        },
+        {
+          "name": "Anand Nayyar",
+          "affiliation": "Duy Tan University"
+        },
+        {
+          "name": "Saurabh Singh",
+          "affiliation": "Dongguk University"
+        },
+        {
+          "name": "Byungun Yoon",
+          "affiliation": "Dongguk University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Traditional systems of handwriting recognition have relied on handcrafted features and a large amount of prior knowledge. Training an Optical character recognition (OCR) system based on these prerequisites is a challenging task. Research in the handwriting recognition field is focused around deep learning techniques and has achieved breakthrough performance in the last few years. Still, the rapid growth in the amount of handwritten data and the availability of massive processing power demands improvement in recognition accuracy and deserves further investigation. Convolutional neural networks (CNNs) are very effective in perceiving the structure of handwritten characters/words in ways that help in automatic extraction of distinct features and make CNN the most suitable approach for solving handwriting recognition problems. Our aim in the proposed work is to explore the various design options like number of layers, stride size, receptive field, kernel size, padding and dilution for CNN-based handwritten digit recognition. In addition, we aim to evaluate various SGD optimization algorithms in improving the performance of handwritten digit recognition. A network's recognition accuracy increases by incorporating ensemble architecture. Here, our objective is to achieve comparable accuracy by using a pure CNN architecture without ensemble architecture, as ensemble architectures introduce increased computational cost and high testing complexity. Thus, a CNN architecture is proposed in order to achieve accuracy even better than that of ensemble architectures, along with reduced operational complexity and cost. Moreover, we also present an appropriate combination of learning parameters in designing a CNN that leads us to reach a new absolute record in classifying MNIST handwritten digits. We carried out extensive experiments and achieved a recognition accuracy of 99.87% for a MNIST dataset.",
+      "venue": "Sensors",
+      "citation_count": 287,
+      "doi": "10.3390/s20123344",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/s20123344",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3121141908",
+      "title": "An optical neural chip for implementing complex-valued neural network",
+      "authors": [
+        {
+          "name": "Hui Zhang",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Mile Gu",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Xudong Jiang",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Jayne Thompson",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Hong Cai",
+          "affiliation": "Agency for Science, Technology and Research"
+        },
+        {
+          "name": "Stefano Paesani",
+          "affiliation": "University of Bristol"
+        },
+        {
+          "name": "Raffaele Santagati",
+          "affiliation": "University of Bristol"
+        },
+        {
+          "name": "Anthony Laing",
+          "affiliation": "University of Bristol"
+        },
+        {
+          "name": "Yi Zhang",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Man\u2010Hong Yung",
+          "affiliation": "Southern University of Science and Technology"
+        },
+        {
+          "name": "Yuzhi Shi",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Faseeh Muhammad",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "G. Q. Lo",
+          "affiliation": "Singapore Science Park"
+        },
+        {
+          "name": "Xianshu Luo",
+          "affiliation": "Singapore Science Park"
+        },
+        {
+          "name": "Binhua Dong",
+          "affiliation": "Singapore Science Park"
+        },
+        {
+          "name": "D. L. Kwong",
+          "affiliation": "Agency for Science, Technology and Research"
+        },
+        {
+          "name": "L. C. Kwek",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Q. Liu",
+          "affiliation": "Nanyang Technological University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "",
+      "venue": "Nature Communications",
+      "citation_count": 635,
+      "doi": "10.1038/s41467-020-20719-7",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41467-020-20719-7",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3039560462",
+      "title": "Spiking neurons with spatiotemporal dynamics and gain modulation for monolithically integrated memristive neural networks",
+      "authors": [
+        {
+          "name": "Qingxi Duan",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Zhaokun Jing",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Xiaolong Zou",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Yanghao Wang",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Yang Ke",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Teng Zhang",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Si Wu",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Ru Huang",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Yuchao Yang",
+          "affiliation": "Peking University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "",
+      "venue": "Nature Communications",
+      "citation_count": 316,
+      "doi": "10.1038/s41467-020-17215-3",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41467-020-17215-3",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3201870057",
+      "title": "Training Spiking Neural Networks Using Lessons From Deep Learning",
+      "authors": [
+        {
+          "name": "Jason K. Eshraghian",
+          "affiliation": "University of Michigan\u2013Ann Arbor"
+        },
+        {
+          "name": "Max Ward",
+          "affiliation": "Harvard University"
+        },
+        {
+          "name": "Emre Neftci",
+          "affiliation": "RWTH Aachen University"
+        },
+        {
+          "name": "Xinxin Wang",
+          "affiliation": "University of Michigan\u2013Ann Arbor"
+        },
+        {
+          "name": "Gregor Lenz",
+          "affiliation": "Syngenta (Switzerland)"
+        },
+        {
+          "name": "Girish Dwivedi",
+          "affiliation": "University of Western Australia"
+        },
+        {
+          "name": "Mohammed Bennamoun",
+          "affiliation": "University of Western Australia"
+        },
+        {
+          "name": "Doo Seok Jeong",
+          "affiliation": "Hanyang University"
+        },
+        {
+          "name": "Wei L\u00fc",
+          "affiliation": "University of Michigan\u2013Ann Arbor"
+        }
+      ],
+      "year": 2023,
+      "abstract": "The brain is the perfect place to look for inspiration to develop more efficient neural networks. The inner workings of our synapses and neurons provide a glimpse at what the future of deep learning might look like. This article serves as a tutorial and perspective showing how to apply the lessons learned from several decades of research in deep learning, gradient descent, backpropagation, and neuroscience to biologically plausible spiking neural networks (SNNs). We also explore the delicate interplay between encoding data as spikes and the learning process; the challenges and solutions of applying gradient-based learning to SNNs; the subtle link between temporal backpropagation and spike timing-dependent plasticity; and how deep learning might move toward biologically plausible online learning. Some ideas are well accepted and commonly used among the neuromorphic engineering community, while others are presented or justified for the first time here. A series of companion interactive tutorials complementary to this article using our Python package, <italic xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">snnTorch</i> , are also made available: https://snntorch.readthedocs.io/en/latest/tutorials/index.html.",
+      "venue": "Proceedings of the IEEE",
+      "citation_count": 603,
+      "doi": "10.1109/jproc.2023.3308088",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/jproc.2023.3308088",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3138815606",
+      "title": "Membership Inference Attacks on Machine Learning: A Survey",
+      "authors": [
+        {
+          "name": "Hongsheng Hu",
+          "affiliation": "University of Auckland"
+        },
+        {
+          "name": "Zoran Sal\u010di\u0107",
+          "affiliation": "University of Auckland"
+        },
+        {
+          "name": "Lichao Sun",
+          "affiliation": "Lehigh University"
+        },
+        {
+          "name": "Gillian Dobbie",
+          "affiliation": "University of Auckland"
+        },
+        {
+          "name": "Philip S. Yu",
+          "affiliation": "University of Illinois Chicago"
+        },
+        {
+          "name": "Xuyun Zhang",
+          "affiliation": "Macquarie University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Machine learning (ML) models have been widely applied to various applications, including image classification, text generation, audio recognition, and graph data analysis. However, recent studies have shown that ML models are vulnerable to membership inference attacks (MIAs), which aim to infer whether a data record was used to train a target model or not. MIAs on ML models can directly lead to a privacy breach. For example, via identifying the fact that a clinical record that has been used to train a model associated with a certain disease, an attacker can infer that the owner of the clinical record has the disease with a high chance. In recent years, MIAs have been shown to be effective on various ML models, e.g., classification models and generative models. Meanwhile, many defense methods have been proposed to mitigate MIAs. Although MIAs on ML models form a newly emerging and rapidly growing research area, there has been no systematic survey on this topic yet. In this article, we conduct the first comprehensive survey on membership inference attacks and defenses. We provide the taxonomies for both attacks and defenses, based on their characterizations, and discuss their pros and cons. Based on the limitations and gaps identified in this survey, we point out several promising future research directions to inspire the researchers who wish to follow this area. This survey not only serves as a reference for the research community but also provides a clear description for researchers outside this research domain. To further help the researchers, we have created an online resource repository, which we will keep updated with future relevant work. Interested readers can find the repository at https://github.com/HongshengHu/membership-inference-machine-learning-literature.",
+      "venue": "ACM Computing Surveys",
+      "citation_count": 461,
+      "doi": "10.1145/3523273",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3523273",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4206569030",
+      "title": "Avoiding Overfitting: A Survey on Regularization Methods for Convolutional Neural Networks",
+      "authors": [
+        {
+          "name": "Claudio Filipi Gon\u00e7alves dos Santos",
+          "affiliation": "Universidade Federal de S\u00e3o Carlos"
+        },
+        {
+          "name": "Jo\u00e3o Paulo Papa",
+          "affiliation": "Universidade Estadual Paulista (Unesp)"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Several image processing tasks, such as image classification and object detection, have been significantly improved using Convolutional Neural Networks (CNN). Like ResNet and EfficientNet, many architectures have achieved outstanding results in at least one dataset by the time of their creation. A critical factor in training concerns the network\u2019s regularization, which prevents the structure from overfitting. This work analyzes several regularization methods developed in the past few years, showing significant improvements for different CNN models. The works are classified into three main areas: the first one is called \u201cdata augmentation,\u201d where all the techniques focus on performing changes in the input data. The second, named \u201cinternal changes,\u201d aims to describe procedures to modify the feature maps generated by the neural network or the kernels. The last one, called \u201clabel,\u201d concerns transforming the labels of a given input. This work presents two main differences comparing to other available surveys about regularization: (i) the first concerns the papers gathered in the manuscript, which are not older than five years, and (ii) the second distinction is about reproducibility, i.e., all works referred here have their code available in public repositories or they have been directly implemented in some framework, such as TensorFlow or Torch.",
+      "venue": "ACM Computing Surveys",
+      "citation_count": 353,
+      "doi": "10.1145/3510413",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3510413",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4313596643",
+      "title": "Microcomb-based integrated photonic processing unit",
+      "authors": [
+        {
+          "name": "Bowen Bai",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Qipeng Yang",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Haowen Shu",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Lin Chang",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Fenghe Yang",
+          "affiliation": "Shanghai Zhangjiang Laboratory"
+        },
+        {
+          "name": "Bitao Shen",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Zihan Tao",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Jing Wang",
+          "affiliation": "Shanghai Jiao Tong University"
+        },
+        {
+          "name": "Shaofu Xu",
+          "affiliation": "Shanghai Jiao Tong University"
+        },
+        {
+          "name": "Weiqiang Xie",
+          "affiliation": "University of California, Santa Barbara"
+        },
+        {
+          "name": "Weiwen Zou",
+          "affiliation": "Shanghai Jiao Tong University"
+        },
+        {
+          "name": "Weiwei Hu",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "John E. Bowers",
+          "affiliation": "University of California, Santa Barbara"
+        },
+        {
+          "name": "Xingjun Wang",
+          "affiliation": "Peking University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "The emergence of parallel convolution-operation technology has substantially powered the complexity and functionality of optical neural networks (ONN) by harnessing the dimension of optical wavelength. However, this advanced architecture faces remarkable challenges in high-level integration and on-chip operation. In this work, convolution based on time-wavelength plane stretching approach is implemented on a microcomb-driven chip-based photonic processing unit (PPU). To support the operation of this processing unit, we develop a dedicated control and operation protocol, leading to a record high weight precision of 9 bits. Moreover, the compact architecture and high data loading speed enable a preeminent photonic-core compute density of over 1 trillion of operations per second per square millimeter (TOPS mm<sup>-2</sup>). Two proof-of-concept experiments are demonstrated, including image edge detection and handwritten digit recognition, showing comparable processing capability compared to that of a digital computer. Due to the advanced performance and the great scalability, this parallel photonic processing unit can potentially revolutionize sophisticated artificial intelligence tasks including autonomous driving, video action recognition and image reconstruction.",
+      "venue": "Nature Communications",
+      "citation_count": 299,
+      "doi": "10.1038/s41467-022-35506-9",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41467-022-35506-9",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2973319951",
+      "title": "FACE",
+      "authors": [
+        {
+          "name": "Rafael Poyiadzi",
+          "affiliation": "University of Bristol"
+        },
+        {
+          "name": "Kacper Sokol",
+          "affiliation": "University of Bristol"
+        },
+        {
+          "name": "Raul Santos-Rodriguez",
+          "affiliation": "University of Bristol"
+        },
+        {
+          "name": "Tijl De Bie",
+          "affiliation": "Ghent University Hospital"
+        },
+        {
+          "name": "Peter Flach",
+          "affiliation": "University of Bristol"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Work in Counterfactual Explanations tends to focus on the principle of \"the closest possible world\" that identifies small changes leading to the desired outcome. In this paper we argue that while this approach might initially seem intuitively appealing it exhibits shortcomings not addressed in the current literature. First, a counterfactual example generated by the state-of-the-art systems is not necessarily representative of the underlying data distribution, and may therefore prescribe unachievable goals (e.g., an unsuccessful life insurance applicant with severe disability may be advised to do more sports). Secondly, the counterfactuals may not be based on a \"feasible path\" between the current state of the subject and the suggested one, making actionable recourse infeasible (e.g., low-skilled unsuccessful mortgage applicants may be told to double their salary, which may be hard without first increasing their skill level). These two shortcomings may render counterfactual explanations impractical and sometimes outright offensive. To address these two major flaws, first of all, we propose a new line of Counterfactual Explanations research aimed at providing actionable and feasible paths to transform a selected instance into one that meets a certain goal. Secondly, we propose FACE: an algorithmically sound way of uncovering these \"feasible paths\" based on the shortest path distances defined via density-weighted metrics. Our approach generates counterfactuals that are coherent with the underlying data distribution and supported by the \"feasible paths\" of change, which are achievable and can be tailored to the problem at hand.",
+      "venue": "Proceedings of the AAAI/ACM Conference on AI Ethics and Society",
+      "citation_count": 257,
+      "doi": "10.1145/3375627.3375850",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3375627.3375850",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4210530467",
+      "title": "Reconfigurable perovskite nickelate electronics for artificial intelligence",
+      "authors": [
+        {
+          "name": "Haitian Zhang",
+          "affiliation": "Purdue University West Lafayette"
+        },
+        {
+          "name": "Tae Joon Park",
+          "affiliation": "Purdue University West Lafayette"
+        },
+        {
+          "name": "A N M Nafiul Islam",
+          "affiliation": "Pennsylvania State University"
+        },
+        {
+          "name": "Dat Tran",
+          "affiliation": "Santa Clara University"
+        },
+        {
+          "name": "Sukriti Manna",
+          "affiliation": "University of Illinois Chicago"
+        },
+        {
+          "name": "Qi Wang",
+          "affiliation": "Purdue University West Lafayette"
+        },
+        {
+          "name": "Sandip Mondal",
+          "affiliation": "Purdue University West Lafayette"
+        },
+        {
+          "name": "Haoming Yu",
+          "affiliation": "Purdue University West Lafayette"
+        },
+        {
+          "name": "Suvo Banik",
+          "affiliation": "Argonne National Laboratory"
+        },
+        {
+          "name": "Shaobo Cheng",
+          "affiliation": "Brookhaven National Laboratory"
+        },
+        {
+          "name": "Hua Zhou",
+          "affiliation": "Argonne National Laboratory"
+        },
+        {
+          "name": "Sampath Gamage",
+          "affiliation": "University of Georgia"
+        },
+        {
+          "name": "Sayantan Mahapatra",
+          "affiliation": "University of Illinois Chicago"
+        },
+        {
+          "name": "Yimei Zhu",
+          "affiliation": "Brookhaven National Laboratory"
+        },
+        {
+          "name": "Yohannes Abate",
+          "affiliation": "University of Georgia"
+        },
+        {
+          "name": "Nan Jiang",
+          "affiliation": "University of Illinois Chicago"
+        },
+        {
+          "name": "Subramanian K. R. S. Sankaranarayanan",
+          "affiliation": "Argonne National Laboratory"
+        },
+        {
+          "name": "Abhronil Sengupta",
+          "affiliation": "Pennsylvania State University"
+        },
+        {
+          "name": "Christof Teuscher",
+          "affiliation": "Portland State University"
+        },
+        {
+          "name": "Shriram Ramanathan",
+          "affiliation": "Purdue University West Lafayette"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Reconfigurable devices offer the ability to program electronic circuits on demand. In this work, we demonstrated on-demand creation of artificial neurons, synapses, and memory capacitors in post-fabricated perovskite NdNiO<sub>3</sub> devices that can be simply reconfigured for a specific purpose by single-shot electric pulses. The sensitivity of electronic properties of perovskite nickelates to the local distribution of hydrogen ions enabled these results. With experimental data from our memory capacitors, simulation results of a reservoir computing framework showed excellent performance for tasks such as digit recognition and classification of electrocardiogram heartbeat activity. Using our reconfigurable artificial neurons and synapses, simulated dynamic networks outperformed static networks for incremental learning scenarios. The ability to fashion the building blocks of brain-inspired computers on demand opens up new directions in adaptive networks.",
+      "venue": "Science",
+      "citation_count": 214,
+      "doi": "10.1126/science.abj7943",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1126/science.abj7943",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4313421210",
+      "title": "The class imbalance problem in deep learning",
+      "authors": [
+        {
+          "name": "Kushankur Ghosh",
+          "affiliation": "University of Alberta"
+        },
+        {
+          "name": "Colin Bellinger",
+          "affiliation": "National Research Council Canada"
+        },
+        {
+          "name": "Roberto Corizzo",
+          "affiliation": "American University"
+        },
+        {
+          "name": "Paula Branco",
+          "affiliation": "University of Ottawa"
+        },
+        {
+          "name": "Bartosz Krawczyk",
+          "affiliation": "Virginia Commonwealth University"
+        },
+        {
+          "name": "Nathalie Japkowicz",
+          "affiliation": "American University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "",
+      "venue": "Machine Learning",
+      "citation_count": 221,
+      "doi": "10.1007/s10994-022-06268-8",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s10994-022-06268-8",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3183719272",
+      "title": "A Survey of Encoding Techniques for Signal Processing in Spiking Neural Networks",
+      "authors": [
+        {
+          "name": "Daniel Auge",
+          "affiliation": "Technical University of Munich"
+        },
+        {
+          "name": "Julian Hille",
+          "affiliation": "Technical University of Munich"
+        },
+        {
+          "name": "Etienne Mueller",
+          "affiliation": "Technical University of Munich"
+        },
+        {
+          "name": "Alois Knoll",
+          "affiliation": "Technical University of Munich"
+        }
+      ],
+      "year": 2021,
+      "abstract": "",
+      "venue": "Neural Processing Letters",
+      "citation_count": 209,
+      "doi": "10.1007/s11063-021-10562-2",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s11063-021-10562-2",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3156313549",
+      "title": "Classification of Skin Disease Using Deep Learning Neural Networks with MobileNet V2 and LSTM",
+      "authors": [
+        {
+          "name": "Parvathaneni Naga Srinivasu",
+          "affiliation": "GITAM University"
+        },
+        {
+          "name": "Jalluri Gnana SivaSai",
+          "affiliation": "Tata Consultancy Services (India)"
+        },
+        {
+          "name": "Muhammad Fazal Ijaz",
+          "affiliation": "Sejong University"
+        },
+        {
+          "name": "Akash Kumar Bhoi",
+          "affiliation": "Sikkim Manipal University"
+        },
+        {
+          "name": "Wonjoon Kim",
+          "affiliation": "Dongduk Women's University"
+        },
+        {
+          "name": "James Jin Kang",
+          "affiliation": "Edith Cowan University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Deep learning models are efficient in learning the features that assist in understanding complex patterns precisely. This study proposed a computerized process of classifying skin disease through deep learning based MobileNet V2 and Long Short Term Memory (LSTM). The MobileNet V2 model proved to be efficient with a better accuracy that can work on lightweight computational devices. The proposed model is efficient in maintaining stateful information for precise predictions. A grey-level co-occurrence matrix is used for assessing the progress of diseased growth. The performance has been compared against other state-of-the-art models such as Fine-Tuned Neural Networks (FTNN), Convolutional Neural Network (CNN), Very Deep Convolutional Networks for Large-Scale Image Recognition developed by Visual Geometry Group (VGG), and convolutional neural network architecture that expanded with few changes. The HAM10000 dataset is used and the proposed method has outperformed other methods with more than 85% accuracy. Its robustness in recognizing the affected region much faster with almost 2\u00d7 lesser computations than the conventional MobileNet model results in minimal computational efforts. Furthermore, a mobile application is designed for instant and proper action. It helps the patient and dermatologists identify the type of disease from the affected region's image at the initial stage of the skin disease. These findings suggest that the proposed system can help general practitioners efficiently and effectively diagnose skin conditions, thereby reducing further complications and morbidity.",
+      "venue": "Sensors",
+      "citation_count": 714,
+      "doi": "10.3390/s21082852",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/s21082852",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4411450109",
+      "title": "SANTM: A Sparse Access Neural Turing Machine with local multi-head self-attention for long-term memorization",
+      "authors": [
+        {
+          "name": "Dongjing Shan",
+          "affiliation": "Nanjing University"
+        },
+        {
+          "name": "ZHU Jing",
+          "affiliation": "United States Department of the Navy"
+        },
+        {
+          "name": "Yamei Luo",
+          "affiliation": "Southwest Medical University"
+        }
+      ],
+      "year": 2025,
+      "abstract": "",
+      "venue": "Applied Soft Computing",
+      "citation_count": 1,
+      "doi": "10.1016/j.asoc.2025.113448",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.asoc.2025.113448",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3092053846",
+      "title": "A survey of deep meta-learning",
+      "authors": [
+        {
+          "name": "Mike Huisman",
+          "affiliation": ""
+        },
+        {
+          "name": "Jan N. van Rijn",
+          "affiliation": ""
+        },
+        {
+          "name": "Aske Plaat",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "",
+      "venue": "Artificial Intelligence Review",
+      "citation_count": 342,
+      "doi": "10.1007/s10462-021-10004-4",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s10462-021-10004-4",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2997510972",
+      "title": "Reliability of analog resistive switching memory for neuromorphic computing",
+      "authors": [
+        {
+          "name": "Meiran Zhao",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Bin Gao",
+          "affiliation": "Institute of Microelectronics"
+        },
+        {
+          "name": "Jianshi Tang",
+          "affiliation": "Beijing Microelectronics Technology Institute"
+        },
+        {
+          "name": "He Qian",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Huaqiang Wu",
+          "affiliation": "Tsinghua University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "As artificial intelligence calls for novel energy-efficient hardware, neuromorphic computing systems based on analog resistive switching memory (RSM) devices have drawn great attention recently. Different from the well-studied binary RSMs, the analog RSMs are featured by a continuous and controllable conductance-tuning ability and thus are capable of combining analog computing and data storage at the device level. Although significant research achievements on analog RSMs have been accomplished, there have been few works demonstrating large-scale neuromorphic systems. A major bottleneck lies in the reliability issues of the analog RSM, such as endurance and retention degradation and read/write noises and disturbances. Owing to the complexity of resistive switching mechanisms, studies on the origins of reliability degradation and the corresponding optimization methodology face many challenges. In this article, aiming on the high-performance neuromorphic computing applications, we provide a comprehensive review on the status of reliability studies of analog RSMs, the reliability requirements, and evaluation criteria and outlook for future reliability research directions in this field.",
+      "venue": "Applied Physics Reviews",
+      "citation_count": 326,
+      "doi": "10.1063/1.5124915",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1063/1.5124915",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4210619944",
+      "title": "High-precision and linear weight updates by subnanosecond pulses in ferroelectric tunnel junction for neuro-inspired computing",
+      "authors": [
+        {
+          "name": "Zhen Luo",
+          "affiliation": "University of Science and Technology of China"
+        },
+        {
+          "name": "Zijian Wang",
+          "affiliation": "University of Science and Technology of China"
+        },
+        {
+          "name": "Zeyu Guan",
+          "affiliation": "University of Science and Technology of China"
+        },
+        {
+          "name": "Chao Ma",
+          "affiliation": "University of Science and Technology of China"
+        },
+        {
+          "name": "Letian Zhao",
+          "affiliation": "University of Science and Technology of China"
+        },
+        {
+          "name": "Chuanchuan Liu",
+          "affiliation": "University of Science and Technology of China"
+        },
+        {
+          "name": "Haoyang Sun",
+          "affiliation": "University of Science and Technology of China"
+        },
+        {
+          "name": "He Wang",
+          "affiliation": "University of Science and Technology of China"
+        },
+        {
+          "name": "Yue Lin",
+          "affiliation": "University of Science and Technology of China"
+        },
+        {
+          "name": "Xi Jin",
+          "affiliation": "University of Science and Technology of China"
+        },
+        {
+          "name": "Yuewei Yin",
+          "affiliation": "University of Science and Technology of China"
+        },
+        {
+          "name": "Xiaoguang Li",
+          "affiliation": "Nanjing University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "The rapid development of neuro-inspired computing demands synaptic devices with ultrafast speed, low power consumption, and multiple non-volatile states, among other features. Here, a high-performance synaptic device is designed and established based on a Ag/PbZr<sub>0.52</sub>Ti<sub>0.48</sub>O<sub>3</sub> (PZT, (111)-oriented)/Nb:SrTiO<sub>3</sub> ferroelectric tunnel junction (FTJ). The advantages of (111)-oriented PZT (~1.2 nm) include its multiple ferroelectric switching dynamics, ultrafine ferroelectric domains, and small coercive voltage. The FTJ shows high-precision (256 states, 8 bits), reproducible (cycle-to-cycle variation, ~2.06%), linear (nonlinearity <1) and symmetric weight updates, with a good endurance of >10<sup>9</sup> cycles and an ultralow write energy consumption. In particular, manipulations among 150 states are realized under subnanosecond (~630 ps) pulse voltages \u22645 V, and the fastest resistance switching at 300 ps for the FTJs is achieved by voltages <13 V. Based on the experimental performance, the convolutional neural network simulation achieves a high online learning accuracy of ~94.7% for recognizing fashion product images, close to the calculated result of ~95.6% by floating-point-based convolutional neural network software. Interestingly, the FTJ-based neural network is very robust to input image noise, showing potential for practical applications. This work represents an important improvement in FTJs towards building neuro-inspired computing systems.",
+      "venue": "Nature Communications",
+      "citation_count": 203,
+      "doi": "10.1038/s41467-022-28303-x",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41467-022-28303-x",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3176786489",
+      "title": "PPFL",
+      "authors": [
+        {
+          "name": "Fan Mo",
+          "affiliation": "Imperial College London"
+        },
+        {
+          "name": "Hamed Haddadi",
+          "affiliation": "Imperial College London"
+        },
+        {
+          "name": "Kleomenis Katevas",
+          "affiliation": "Telefonica Research and Development"
+        },
+        {
+          "name": "Eduard Marin",
+          "affiliation": "Telefonica Research and Development"
+        },
+        {
+          "name": "Diego Perino",
+          "affiliation": "Telefonica Research and Development"
+        },
+        {
+          "name": "Nicolas Kourtellis",
+          "affiliation": "Telefonica Research and Development"
+        }
+      ],
+      "year": 2021,
+      "abstract": "We propose and implement a Privacy-preserving Federated Learning (PPFL) framework for mobile systems to limit privacy leakages in federated learning. Leveraging the widespread presence of Trusted Execution Environments (TEEs) in high-end and mobile devices, we utilize TEEs on clients for local training, and on servers for secure aggregation, so that model/gradient updates are hidden from adversaries. Challenged by the limited memory size of current TEEs, we leverage greedy layer-wise training to train each model's layer inside the trusted area until its convergence. The performance evaluation of our implementation shows that PPFL can significantly improve privacy while incurring small system overheads at the client-side. In particular, PPFL can successfully defend the trained model against data reconstruction, property inference, and membership inference attacks. Furthermore, it can achieve comparable model utility with fewer communication rounds (0.54x) and a similar amount of network traffic (1.002x) compared to the standard federated learning of a complete model. This is achieved while only introducing up to ~15% CPU time, ~18% memory usage, and ~21% energy consumption overhead in PPFL's client-side.",
+      "venue": "",
+      "citation_count": 192,
+      "doi": "10.1145/3458864.3466628",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3458864.3466628",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3142384962",
+      "title": "A biomimetic neural encoder for spiking neural network",
+      "authors": [
+        {
+          "name": "Shiva Subbulakshmi Radhakrishnan",
+          "affiliation": "Pennsylvania State University"
+        },
+        {
+          "name": "Amritanand Sebastian",
+          "affiliation": "Pennsylvania State University"
+        },
+        {
+          "name": "Aaryan Oberoi",
+          "affiliation": "Pennsylvania State University"
+        },
+        {
+          "name": "Sarbashis Das",
+          "affiliation": "Pennsylvania State University"
+        },
+        {
+          "name": "Saptarshi Das",
+          "affiliation": "Pennsylvania State University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "",
+      "venue": "Nature Communications",
+      "citation_count": 171,
+      "doi": "10.1038/s41467-021-22332-8",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41467-021-22332-8",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3164621419",
+      "title": "A review on extreme learning machine",
+      "authors": [
+        {
+          "name": "Jian Wang",
+          "affiliation": "University of Leicester"
+        },
+        {
+          "name": "Siyuan Lu",
+          "affiliation": "University of Leicester"
+        },
+        {
+          "name": "Shuihua Wang\u200e",
+          "affiliation": "Henan Polytechnic University"
+        },
+        {
+          "name": "Yudong Zhang",
+          "affiliation": "Henan Polytechnic University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Abstract Extreme learning machine (ELM) is a training algorithm for single hidden layer feedforward neural network (SLFN), which converges much faster than traditional methods and yields promising performance. In this paper, we hope to present a comprehensive review on ELM. Firstly, we will focus on the theoretical analysis including universal approximation theory and generalization. Then, the various improvements are listed, which help ELM works better in terms of stability, efficiency, and accuracy. Because of its outstanding performance, ELM has been successfully applied in many real-time learning tasks for classification, clustering, and regression. Besides, we report the applications of ELM in medical imaging: MRI, CT, and mammogram. The controversies of ELM were also discussed in this paper. We aim to report these advances and find some future perspectives.",
+      "venue": "Multimedia Tools and Applications",
+      "citation_count": 496,
+      "doi": "10.1007/s11042-021-11007-7",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s11042-021-11007-7",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3035321534",
+      "title": "On the transferability of adversarial examples between convex and 01 loss models",
+      "authors": [
+        {
+          "name": "Yunzhe Xue",
+          "affiliation": "New Jersey Institute of Technology"
+        },
+        {
+          "name": "Meiyan Xie",
+          "affiliation": "New Jersey Institute of Technology"
+        },
+        {
+          "name": "Usman Roshan",
+          "affiliation": "New Jersey Institute of Technology"
+        }
+      ],
+      "year": 2020,
+      "abstract": "The 01 loss gives different and more accurate boundaries than convex loss models in the presence of outliers. Could the difference of boundaries translate to adversarial examples that are non-transferable between 01 loss and convex models? We explore this empirically in this paper by studying transferability of adversarial examples between linear 01 loss and convex (hinge) loss models, and between dual layer neural networks with sign activation and 01 loss vs sigmoid activation and logistic loss. We first show that white box adversarial examples do not transfer effectively between convex and 01 loss and between 01 loss models compared to between convex models. As a result of this non-transferability we see that convex substitute model black box attacks are less effective on 01 loss than convex models. Interestingly we also see that 01 loss substitute model attacks are ineffective on both convex and 01 loss models mostly likely due to the non-uniqueness of 01 loss models. We show intuitively by example how the presence of outliers can cause different decision boundaries between 01 and convex loss models which in turn produces adversaries that are non-transferable. Indeed we see on MNIST that adversaries transfer between 01 loss and convex models more easily than on CIFAR10 and ImageNet which are likely to contain outliers. We show intuitively by example how the non-continuity of 01 loss makes adversaries non-transferable in a dual layer neural network. We discretize CIFAR10 features to be more like MNIST and find that it does not improve transferability, thus suggesting that different boundaries due to outliers are more likely the cause of non-transferability. As a result of this non-transferability we show that our dual layer sign activation network with 01 loss can attain robustness on par with simple convolutional networks.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 1,
+      "doi": "10.48550/arxiv.2006.07800",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2006.07800",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3048118328",
+      "title": "Artificial van der Waals hybrid synapse and its application to acoustic pattern recognition",
+      "authors": [
+        {
+          "name": "Seunghwan Seo",
+          "affiliation": "Sungkyunkwan University"
+        },
+        {
+          "name": "Beom\u2010Seok Kang",
+          "affiliation": "Sungkyunkwan University"
+        },
+        {
+          "name": "Je\u2010Jun Lee",
+          "affiliation": "Sungkyunkwan University"
+        },
+        {
+          "name": "Hyo-Jun Ryu",
+          "affiliation": "Sungkyunkwan University"
+        },
+        {
+          "name": "Sungjun Kim",
+          "affiliation": "Samsung (South Korea)"
+        },
+        {
+          "name": "Hyeongjun Kim",
+          "affiliation": "Sungkyunkwan University"
+        },
+        {
+          "name": "Seyong Oh",
+          "affiliation": "Sungkyunkwan University"
+        },
+        {
+          "name": "Jaewoo Shim",
+          "affiliation": "Massachusetts Institute of Technology"
+        },
+        {
+          "name": "Keun Heo",
+          "affiliation": "Sungkyunkwan University"
+        },
+        {
+          "name": "Saeroonter Oh",
+          "affiliation": "Hanyang University"
+        },
+        {
+          "name": "Jin\u2010Hong Park",
+          "affiliation": "Sungkyunkwan University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Brain-inspired parallel computing, which is typically performed using a hardware neural-network platform consisting of numerous artificial synapses, is a promising technology for effectively handling large amounts of informational data. However, the reported nonlinear and asymmetric conductance-update characteristics of artificial synapses prevent a hardware neural-network from delivering the same high-level training and inference accuracies as those delivered by a software neural-network. Here, we developed an artificial van-der-Waals hybrid synapse that features linear and symmetric conductance-update characteristics. Tungsten diselenide and molybdenum disulfide channels were used selectively to potentiate and depress conductance. Subsequently, via training and inference simulation, we demonstrated the feasibility of our hybrid synapse toward a hardware neural-network and also delivered high recognition rates that were comparable to those delivered using a software neural-network. This simulation involving the use of acoustic patterns was performed with a neural network that was theoretically formed with the characteristics of the hybrid synapses.",
+      "venue": "Nature Communications",
+      "citation_count": 224,
+      "doi": "10.1038/s41467-020-17849-3",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41467-020-17849-3",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4366091323",
+      "title": "Deep learning modelling techniques: current progress, applications, advantages, and challenges",
+      "authors": [
+        {
+          "name": "Shams Forruque Ahmed",
+          "affiliation": "Asian University for Women"
+        },
+        {
+          "name": "Md. Sakib Bin Alam",
+          "affiliation": "Asian Institute of Technology"
+        },
+        {
+          "name": "Maruf Hassan",
+          "affiliation": "Asian University for Women"
+        },
+        {
+          "name": "Mahtabin Rodela Rozbu",
+          "affiliation": "Carnegie Mellon University"
+        },
+        {
+          "name": "Taoseef Ishtiak",
+          "affiliation": "Carleton University"
+        },
+        {
+          "name": "Nazifa Rafa",
+          "affiliation": "University of Cambridge"
+        },
+        {
+          "name": "M. Mofijur",
+          "affiliation": "University of Technology Sydney"
+        },
+        {
+          "name": "A. B. M. Shawkat Ali",
+          "affiliation": "University of Fiji"
+        },
+        {
+          "name": "Amir H. Gandomi",
+          "affiliation": "Obuda University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Abstract Deep learning (DL) is revolutionizing evidence-based decision-making techniques that can be applied across various sectors. Specifically, it possesses the ability to utilize two or more levels of non-linear feature transformation of the given data via representation learning in order to overcome limitations posed by large datasets. As a multidisciplinary field that is still in its nascent phase, articles that survey DL architectures encompassing the full scope of the field are rather limited. Thus, this paper comprehensively reviews the state-of-art DL modelling techniques and provides insights into their advantages and challenges. It was found that many of the models exhibit a highly domain-specific efficiency and could be trained by two or more methods. However, training DL models can be very time-consuming, expensive, and requires huge samples for better accuracy. Since DL is also susceptible to deception and misclassification and tends to get stuck on local minima, improved optimization of parameters is required to create more robust models. Regardless, DL has already been leading to groundbreaking results in the healthcare, education, security, commercial, industrial, as well as government sectors. Some models, like the convolutional neural network (CNN), generative adversarial networks (GAN), recurrent neural network (RNN), recursive neural networks, and autoencoders, are frequently used, while the potential of other models remains widely unexplored. Pertinently, hybrid conventional DL architectures have the capacity to overcome the challenges experienced by conventional models. Considering that capsule architectures may dominate future DL models, this work aimed to compile information for stakeholders involved in the development and use of DL models in the contemporary world.",
+      "venue": "Artificial Intelligence Review",
+      "citation_count": 823,
+      "doi": "10.1007/s10462-023-10466-8",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s10462-023-10466-8",
+      "source": "openalex",
+      "_bibtex_override": ""
+    }
+  ]
+}

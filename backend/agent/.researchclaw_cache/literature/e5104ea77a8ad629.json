@@ -1,0 +1,1318 @@
+{
+  "query": "[\u8bc4\u4f30\u4e0e\u5e94\u7528] Adaptive multi-reference self-attention benchmark",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1774270765.7629647,
+  "papers": [
+    {
+      "paper_id": "arxiv-2603.00175",
+      "title": "Self-Attention And Beyond the Infinite: Towards Linear Transformers with Infinite Self-Attention",
+      "authors": [
+        {
+          "name": "Giorgio Roffo",
+          "affiliation": ""
+        },
+        {
+          "name": "Luke Palmer",
+          "affiliation": ""
+        },
+        {
+          "name": "Nilli Lavie",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "The quadratic cost of softmax attention limits Transformer scalability in high-resolution vision. We introduce Infinite Self-Attention (InfSA), a spectral reformulation that treats each attention layer as a diffusion step on a content-adaptive token graph, accumulating multi-hop interactions through a discounted Neumann series over attention matrices. This links self-attention to classical graph centrality (Katz, PageRank, eigenvector centrality) for interpretable token weighting. We also show the Neumann kernel equals the fundamental matrix of an absorbing Markov chain, so a token's centrality is its expected number of random-walk visits before absorption. We then propose Linear-InfSA, a linear-time variant that approximates the principal eigenvector of the implicit attention operator without forming the full attention matrix. It keeps an auxiliary state of fixed size proportional to per-head dimension dh (independent of sequence length N), is drop-in compatible with Vision Transformers, and supports stable training at 4096 by 4096 and inference at 9216 by 9216 (about 332k tokens). In a 4-layer ViT (53.5M parameters, 59 GFLOPs at 224 by 224), Linear-InfSA reaches 84.7% top-1 on ImageNet-1K, a +3.2 point architectural gain over an equal-depth softmax ViT trained with the same recipe. On ImageNet-V2, InfViT variants outperform all compared baselines (up to 79.8% vs 76.8%), indicating robustness under distribution shift. On an A100 40GB GPU, Linear-InfViT runs at 231 images/s and 0.87 J/image (13x better throughput and energy than equal-depth ViT) and is the only tested model to complete 9216 by 9216 inference without out-of-memory. The linear approximation closely matches the dominant eigenvector of the quadratic operator (cosine 0.985). Code available at: https://huggingface.co/groffo/infinite-self-attention or https://github.com/giorgioroffo/infinite-self-attention",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2603.00175",
+      "url": "https://arxiv.org/abs/2603.00175",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2305.19798",
+      "title": "Primal-Attention: Self-attention through Asymmetric Kernel SVD in Primal Representation",
+      "authors": [
+        {
+          "name": "Yingyi Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Qinghua Tao",
+          "affiliation": ""
+        },
+        {
+          "name": "Francesco Tonin",
+          "affiliation": ""
+        },
+        {
+          "name": "Johan A. K. Suykens",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Recently, a new line of works has emerged to understand and improve self-attention in Transformers by treating it as a kernel machine. However, existing works apply the methods for symmetric kernels to the asymmetric self-attention, resulting in a nontrivial gap between the analytical understanding and numerical implementation. In this paper, we provide a new perspective to represent and optimize self-attention through asymmetric Kernel Singular Value Decomposition (KSVD), which is also motivated by the low-rank property of self-attention normally observed in deep layers. Through asymmetric KSVD, $i$) a primal-dual representation of self-attention is formulated, where the optimization objective is cast to maximize the projection variances in the attention outputs; $ii$) a novel attention mechanism, i.e., Primal-Attention, is proposed via the primal representation of KSVD, avoiding explicit computation of the kernel matrix in the dual; $iii$) with KKT conditions, we prove that the stationary solution to the KSVD optimization in Primal-Attention yields a zero-value objective. In this manner, KSVD optimization can be implemented by simply minimizing a regularization loss, so that low-rank property is promoted without extra decomposition. Numerical experiments show state-of-the-art performance of our Primal-Attention with improved efficiency. Moreover, we demonstrate that the deployed KSVD optimization regularizes Primal-Attention with a sharper singular value decay than that of the canonical self-attention, further verifying the great potential of our method. To the best of our knowledge, this is the first work that provides a primal-dual representation for the asymmetric kernel in self-attention and successfully applies it to modeling and optimization.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2305.19798",
+      "url": "https://arxiv.org/abs/2305.19798",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2204.12077",
+      "title": "AAU-net: An Adaptive Attention U-net for Breast Lesions Segmentation in Ultrasound Images",
+      "authors": [
+        {
+          "name": "Gongping Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Dai",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianxun Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Moi Hoon Yap",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Various deep learning methods have been proposed to segment breast lesion from ultrasound images. However, similar intensity distributions, variable tumor morphology and blurred boundaries present challenges for breast lesions segmentation, especially for malignant tumors with irregular shapes. Considering the complexity of ultrasound images, we develop an adaptive attention U-net (AAU-net) to segment breast lesions automatically and stably from ultrasound images. Specifically, we introduce a hybrid adaptive attention module, which mainly consists of a channel self-attention block and a spatial self-attention block, to replace the traditional convolution operation. Compared with the conventional convolution operation, the design of the hybrid adaptive attention module can help us capture more features under different receptive fields. Different from existing attention mechanisms, the hybrid adaptive attention module can guide the network to adaptively select more robust representation in channel and space dimensions to cope with more complex breast lesions segmentation. Extensive experiments with several state-of-the-art deep learning segmentation methods on three public breast ultrasound datasets show that our method has better performance on breast lesion segmentation. Furthermore, robustness analysis and external experiments demonstrate that our proposed AAU-net has better generalization performance on the segmentation of breast lesions. Moreover, the hybrid adaptive attention module can be flexibly applied to existing network frameworks.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "10.1109/TMI.2022.3226268",
+      "arxiv_id": "2204.12077",
+      "url": "https://arxiv.org/abs/2204.12077",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2009.04544",
+      "title": "Self-Adaptive Physics-Informed Neural Networks using a Soft Attention Mechanism",
+      "authors": [
+        {
+          "name": "Levi McClenny",
+          "affiliation": ""
+        },
+        {
+          "name": "Ulisses Braga-Neto",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Physics-Informed Neural Networks (PINNs) have emerged recently as a promising application of deep neural networks to the numerical solution of nonlinear partial differential equations (PDEs). However, it has been recognized that adaptive procedures are needed to force the neural network to fit accurately the stubborn spots in the solution of \"stiff\" PDEs. In this paper, we propose a fundamentally new way to train PINNs adaptively, where the adaptation weights are fully trainable and applied to each training point individually, so the neural network learns autonomously which regions of the solution are difficult and is forced to focus on them. The self-adaptation weights specify a soft multiplicative soft attention mask, which is reminiscent of similar mechanisms used in computer vision. The basic idea behind these SA-PINNs is to make the weights increase as the corresponding losses increase, which is accomplished by training the network to simultaneously minimize the losses and maximize the weights. In addition, we show how to build a continuous map of self-adaptive weights using Gaussian Process regression, which allows the use of stochastic gradient descent in problems where conventional gradient descent is not enough to produce accurate solutions. Finally, we derive the Neural Tangent Kernel matrix for SA-PINNs and use it to obtain a heuristic understanding of the effect of the self-adaptive weights on the dynamics of training in the limiting case of infinitely-wide PINNs, which suggests that SA-PINNs work by producing a smooth equalization of the eigenvalues of the NTK matrix corresponding to the different loss terms. In numerical experiments with several linear and nonlinear benchmark problems, the SA-PINN outperformed other state-of-the-art PINN algorithm in L2 error, while using a smaller number of training epochs.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "10.1016/j.jcp.2022.111722",
+      "arxiv_id": "2009.04544",
+      "url": "https://arxiv.org/abs/2009.04544",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.13780",
+      "title": "Self-Attention as Distributional Projection: A Unified Interpretation of Transformer Architecture",
+      "authors": [
+        {
+          "name": "Nihal Mehta",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "This paper presents a mathematical interpretation of self-attention by connecting it to distributional semantics principles. We show that self-attention emerges from projecting corpus-level co-occurrence statistics into sequence context. Starting from the co-occurrence matrix underlying GloVe embeddings, we demonstrate how the projection naturally captures contextual influence, with the query-key-value mechanism arising as the natural asymmetric extension for modeling directional relationships. Positional encodings and multi-head attention then follow as structured refinements of this same projection principle. Our analysis demonstrates that the Transformer architecture's particular algebraic form follows from these projection principles rather than being an arbitrary design choice.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.13780",
+      "url": "https://arxiv.org/abs/2511.13780",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2402.04563",
+      "title": "Attention Guided CAM: Visual Explanations of Vision Transformer Guided by Self-Attention",
+      "authors": [
+        {
+          "name": "Saebom Leem",
+          "affiliation": ""
+        },
+        {
+          "name": "Hyunseok Seo",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Vision Transformer(ViT) is one of the most widely used models in the computer vision field with its great performance on various tasks. In order to fully utilize the ViT-based architecture in various applications, proper visualization methods with a decent localization performance are necessary, but these methods employed in CNN-based models are still not available in ViT due to its unique structure. In this work, we propose an attention-guided visualization method applied to ViT that provides a high-level semantic explanation for its decision. Our method selectively aggregates the gradients directly propagated from the classification output to each self-attention, collecting the contribution of image features extracted from each location of the input image. These gradients are additionally guided by the normalized self-attention scores, which are the pairwise patch correlation scores. They are used to supplement the gradients on the patch-level context information efficiently detected by the self-attention mechanism. This approach of our method provides elaborate high-level semantic explanations with great localization performance only with the class labels. As a result, our method outperforms the previous leading explainability methods of ViT in the weakly-supervised localization task and presents great capability in capturing the full instances of the target class object. Meanwhile, our method provides a visualization that faithfully explains the model, which is demonstrated in the perturbation comparison test.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2402.04563",
+      "url": "https://arxiv.org/abs/2402.04563",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2210.00939",
+      "title": "Improving Sample Quality of Diffusion Models Using Self-Attention Guidance",
+      "authors": [
+        {
+          "name": "Susung Hong",
+          "affiliation": ""
+        },
+        {
+          "name": "Gyuseong Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Wooseok Jang",
+          "affiliation": ""
+        },
+        {
+          "name": "Seungryong Kim",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Denoising diffusion models (DDMs) have attracted attention for their exceptional generation quality and diversity. This success is largely attributed to the use of class- or text-conditional diffusion guidance methods, such as classifier and classifier-free guidance. In this paper, we present a more comprehensive perspective that goes beyond the traditional guidance methods. From this generalized perspective, we introduce novel condition- and training-free strategies to enhance the quality of generated images. As a simple solution, blur guidance improves the suitability of intermediate samples for their fine-scale information and structures, enabling diffusion models to generate higher quality samples with a moderate guidance scale. Improving upon this, Self-Attention Guidance (SAG) uses the intermediate self-attention maps of diffusion models to enhance their stability and efficacy. Specifically, SAG adversarially blurs only the regions that diffusion models attend to at each iteration and guides them accordingly. Our experimental results show that our SAG improves the performance of various diffusion models, including ADM, IDDPM, Stable Diffusion, and DiT. Moreover, combining SAG with conventional guidance methods leads to further improvement.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2210.00939",
+      "url": "https://arxiv.org/abs/2210.00939",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2603.01036",
+      "title": "SMR-Net:Robot Snap Detection Based on Multi-Scale Features and Self-Attention Network",
+      "authors": [
+        {
+          "name": "Kuanxu Hou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "In robot automated assembly, snap assembly precision and efficiency directly determine overall production quality. As a core prerequisite, snap detection and localization critically affect subsequent assembly success. Traditional visual methods suffer from poor robustness and large localization errors when handling complex scenarios (e.g., transparent or low-contrast snaps), failing to meet high-precision assembly demands. To address this, this paper designs a dedicated sensor and proposes SMR-Net, an self-attention-based multi-scale object detection algorithm, to synergistically enhance detection and localization performance. SMR-Net adopts an attention-enhanced multi-scale feature fusion architecture: raw sensor data is encoded via an attention-embedded feature extractor to strengthen key snap features and suppress noise; three multi-scale feature maps are processed in parallel with standard and dilated convolution for dimension unification while preserving resolution; an adaptive reweighting network dynamically assigns weights to fused features, generating fine representations integrating details and global semantics. Experimental results on Type A and Type B snap datasets show SMR-Net outperforms traditional Faster R-CNN significantly: Intersection over Union (IoU) improves by 6.52% and 5.8%, and mean Average Precision (mAP) increases by 2.8% and 1.5% respectively. This fully demonstrates the method's superiority in complex snap detection and localization tasks.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2603.01036",
+      "url": "https://arxiv.org/abs/2603.01036",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2103.11481",
+      "title": "How do we Evaluate Self-adaptive Software Systems?",
+      "authors": [
+        {
+          "name": "Ilias Gerostathopoulos",
+          "affiliation": ""
+        },
+        {
+          "name": "Thomas Vogel",
+          "affiliation": ""
+        },
+        {
+          "name": "Danny Weyns",
+          "affiliation": ""
+        },
+        {
+          "name": "Patricia Lago",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "With the increase of research in self-adaptive systems, there is a need to better understand the way research contributions are evaluated. Such insights will support researchers to better compare new findings when developing new knowledge for the community. However, so far there is no clear overview of how evaluations are performed in self-adaptive systems. To address this gap, we conduct a mapping study. The study focuses on experimental evaluations published in the last decade at the prime venue of research in software engineering for self-adaptive systems -- the International Symposium on Software Engineering for Adaptive and Self-Managing Systems (SEAMS). Results point out that specifics of self-adaptive systems require special attention in the experimental process, including the distinction of the managing system (i.e., the target of evaluation) and the managed system, the presence of uncertainties that affect the system behavior and hence need to be taken into account in data analysis, and the potential of managed systems to be reused across experiments, beyond replications. To conclude, we offer a set of suggestions derived from our study that can be used as input to enhance future experiments in self-adaptive systems.",
+      "venue": "cs.SE",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2103.11481",
+      "url": "https://arxiv.org/abs/2103.11481",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2402.01476",
+      "title": "Self-Attention through Kernel-Eigen Pair Sparse Variational Gaussian Processes",
+      "authors": [
+        {
+          "name": "Yingyi Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Qinghua Tao",
+          "affiliation": ""
+        },
+        {
+          "name": "Francesco Tonin",
+          "affiliation": ""
+        },
+        {
+          "name": "Johan A. K. Suykens",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "While the great capability of Transformers significantly boosts prediction accuracy, it could also yield overconfident predictions and require calibrated uncertainty estimation, which can be commonly tackled by Gaussian processes (GPs). Existing works apply GPs with symmetric kernels under variational inference to the attention kernel; however, omitting the fact that attention kernels are in essence asymmetric. Moreover, the complexity of deriving the GP posteriors remains high for large-scale data. In this work, we propose Kernel-Eigen Pair Sparse Variational Gaussian Processes (KEP-SVGP) for building uncertainty-aware self-attention where the asymmetry of attention kernels is tackled by Kernel SVD (KSVD) and a reduced complexity is acquired. Through KEP-SVGP, i) the SVGP pair induced by the two sets of singular vectors from KSVD w.r.t. the attention kernel fully characterizes the asymmetry; ii) using only a small set of adjoint eigenfunctions from KSVD, the derivation of SVGP posteriors can be based on the inversion of a diagonal matrix containing singular values, contributing to a reduction in time complexity; iii) an evidence lower bound is derived so that variational parameters and network weights can be optimized with it. Experiments verify our excellent performances and efficiency on in-distribution, distribution-shift and out-of-distribution benchmarks.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2402.01476",
+      "url": "https://arxiv.org/abs/2402.01476",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2301.07608",
+      "title": "Human-Timescale Adaptation in an Open-Ended Task Space",
+      "authors": [
+        {
+          "name": "Adaptive Agent Team",
+          "affiliation": ""
+        },
+        {
+          "name": "Jakob Bauer",
+          "affiliation": ""
+        },
+        {
+          "name": "Kate Baumli",
+          "affiliation": ""
+        },
+        {
+          "name": "Satinder Baveja",
+          "affiliation": ""
+        },
+        {
+          "name": "Feryal Behbahani",
+          "affiliation": ""
+        },
+        {
+          "name": "Avishkar Bhoopchand",
+          "affiliation": ""
+        },
+        {
+          "name": "Nathalie Bradley-Schmieg",
+          "affiliation": ""
+        },
+        {
+          "name": "Michael Chang",
+          "affiliation": ""
+        },
+        {
+          "name": "Natalie Clay",
+          "affiliation": ""
+        },
+        {
+          "name": "Adrian Collister",
+          "affiliation": ""
+        },
+        {
+          "name": "Vibhavari Dasagi",
+          "affiliation": ""
+        },
+        {
+          "name": "Lucy Gonzalez",
+          "affiliation": ""
+        },
+        {
+          "name": "Karol Gregor",
+          "affiliation": ""
+        },
+        {
+          "name": "Edward Hughes",
+          "affiliation": ""
+        },
+        {
+          "name": "Sheleem Kashem",
+          "affiliation": ""
+        },
+        {
+          "name": "Maria Loks-Thompson",
+          "affiliation": ""
+        },
+        {
+          "name": "Hannah Openshaw",
+          "affiliation": ""
+        },
+        {
+          "name": "Jack Parker-Holder",
+          "affiliation": ""
+        },
+        {
+          "name": "Shreya Pathak",
+          "affiliation": ""
+        },
+        {
+          "name": "Nicolas Perez-Nieves",
+          "affiliation": ""
+        },
+        {
+          "name": "Nemanja Rakicevic",
+          "affiliation": ""
+        },
+        {
+          "name": "Tim Rockt\u00e4schel",
+          "affiliation": ""
+        },
+        {
+          "name": "Yannick Schroecker",
+          "affiliation": ""
+        },
+        {
+          "name": "Jakub Sygnowski",
+          "affiliation": ""
+        },
+        {
+          "name": "Karl Tuyls",
+          "affiliation": ""
+        },
+        {
+          "name": "Sarah York",
+          "affiliation": ""
+        },
+        {
+          "name": "Alexander Zacherl",
+          "affiliation": ""
+        },
+        {
+          "name": "Lei Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Foundation models have shown impressive adaptation and scalability in supervised and self-supervised learning problems, but so far these successes have not fully translated to reinforcement learning (RL). In this work, we demonstrate that training an RL agent at scale leads to a general in-context learning algorithm that can adapt to open-ended novel embodied 3D problems as quickly as humans. In a vast space of held-out environment dynamics, our adaptive agent (AdA) displays on-the-fly hypothesis-driven exploration, efficient exploitation of acquired knowledge, and can successfully be prompted with first-person demonstrations. Adaptation emerges from three ingredients: (1) meta-reinforcement learning across a vast, smooth and diverse task distribution, (2) a policy parameterised as a large-scale attention-based memory architecture, and (3) an effective automated curriculum that prioritises tasks at the frontier of an agent's capabilities. We demonstrate characteristic scaling laws with respect to network size, memory length, and richness of the training task distribution. We believe our results lay the foundation for increasingly general and adaptive RL agents that perform well across ever-larger open-ended domains.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2301.07608",
+      "url": "https://arxiv.org/abs/2301.07608",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2512.14523",
+      "title": "Interfacing adaptive optics simulations with the optical model: a powerful tool for MORFEO",
+      "authors": [
+        {
+          "name": "Giorgio Pariani",
+          "affiliation": ""
+        },
+        {
+          "name": "Guido Agapito",
+          "affiliation": ""
+        },
+        {
+          "name": "Demetrio Magrin",
+          "affiliation": ""
+        },
+        {
+          "name": "Matteo Munari",
+          "affiliation": ""
+        },
+        {
+          "name": "Lorenzo Busoni",
+          "affiliation": ""
+        },
+        {
+          "name": "Marco Riva",
+          "affiliation": ""
+        },
+        {
+          "name": "Andrea Di Rocco",
+          "affiliation": ""
+        },
+        {
+          "name": "Paolo Ciliegi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "In the framework of the MORFEO project, the Multi-Conjugated Adaptive Optics (MCAO) module for the European Extremely Large Telescope (ELT), we developed an integrated modeling tool to interface the optical model with the adaptive optics simulations, called ASSO (Adaptive opticS Simulation interfaced with Optical model). This tool is our asso nella manica (ace in the hole) to predict the performances of the AO relay, i.e., to estimate the wavefront error within the technical and scientific fields of view after AO correction. The tool is based on the IDL based simulator PyrAmid Simulator Software for Adaptive opTics Arcetri (PASSATA), on Zemax OpticStudio for the optical modelling, and on Matlab as interface software.",
+      "venue": "astro-ph.IM",
+      "citation_count": 0,
+      "doi": "10.1117/12.3018817",
+      "arxiv_id": "2512.14523",
+      "url": "https://arxiv.org/abs/2512.14523",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2105.02358",
+      "title": "Beyond Self-attention: External Attention using Two Linear Layers for Visual Tasks",
+      "authors": [
+        {
+          "name": "Meng-Hao Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Zheng-Ning Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Tai-Jiang Mu",
+          "affiliation": ""
+        },
+        {
+          "name": "Shi-Min Hu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Attention mechanisms, especially self-attention, have played an increasingly important role in deep feature representation for visual tasks. Self-attention updates the feature at each position by computing a weighted sum of features using pair-wise affinities across all positions to capture the long-range dependency within a single sample. However, self-attention has quadratic complexity and ignores potential correlation between different samples. This paper proposes a novel attention mechanism which we call external attention, based on two external, small, learnable, shared memories, which can be implemented easily by simply using two cascaded linear layers and two normalization layers; it conveniently replaces self-attention in existing popular architectures. External attention has linear complexity and implicitly considers the correlations between all data samples. We further incorporate the multi-head mechanism into external attention to provide an all-MLP architecture, external attention MLP (EAMLP), for image classification. Extensive experiments on image classification, object detection, semantic segmentation, instance segmentation, image generation, and point cloud analysis reveal that our method provides results comparable or superior to the self-attention mechanism and some of its variants, with much lower computational and memory costs.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2105.02358",
+      "url": "https://arxiv.org/abs/2105.02358",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2006.03265",
+      "title": "Understanding Self-Attention of Self-Supervised Audio Transformers",
+      "authors": [
+        {
+          "name": "Shu-wen Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Andy T. Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hung-yi Lee",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Self-supervised Audio Transformers (SAT) enable great success in many downstream speech applications like ASR, but how they work has not been widely explored yet. In this work, we present multiple strategies for the analysis of attention mechanisms in SAT. We categorize attentions into explainable categories, where we discover each category possesses its own unique functionality. We provide a visualization tool for understanding multi-head self-attention, importance ranking strategies for identifying critical attention, and attention refinement techniques to improve model performance.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2006.03265",
+      "url": "https://arxiv.org/abs/2006.03265",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2002.00741",
+      "title": "D\u00e9j\u00e0 vu: A Contextualized Temporal Attention Mechanism for Sequential Recommendation",
+      "authors": [
+        {
+          "name": "Jibang Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Renqin Cai",
+          "affiliation": ""
+        },
+        {
+          "name": "Hongning Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Predicting users' preferences based on their sequential behaviors in history is challenging and crucial for modern recommender systems. Most existing sequential recommendation algorithms focus on transitional structure among the sequential actions, but largely ignore the temporal and context information, when modeling the influence of a historical event to current prediction.\n  In this paper, we argue that the influence from the past events on a user's current action should vary over the course of time and under different context. Thus, we propose a Contextualized Temporal Attention Mechanism that learns to weigh historical actions' influence on not only what action it is, but also when and how the action took place. More specifically, to dynamically calibrate the relative input dependence from the self-attention mechanism, we deploy multiple parameterized kernel functions to learn various temporal dynamics, and then use the context information to determine which of these reweighing kernels to follow for each input. In empirical evaluations on two large public recommendation datasets, our model consistently outperformed an extensive set of state-of-the-art sequential recommendation methods.",
+      "venue": "cs.IR",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2002.00741",
+      "url": "https://arxiv.org/abs/2002.00741",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.22989",
+      "title": "MultiBanana: A Challenging Benchmark for Multi-Reference Text-to-Image Generation",
+      "authors": [
+        {
+          "name": "Yuta Oshima",
+          "affiliation": ""
+        },
+        {
+          "name": "Daiki Miyake",
+          "affiliation": ""
+        },
+        {
+          "name": "Kohsei Matsutani",
+          "affiliation": ""
+        },
+        {
+          "name": "Yusuke Iwasawa",
+          "affiliation": ""
+        },
+        {
+          "name": "Masahiro Suzuki",
+          "affiliation": ""
+        },
+        {
+          "name": "Yutaka Matsuo",
+          "affiliation": ""
+        },
+        {
+          "name": "Hiroki Furuta",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Recent text-to-image generation models have acquired the ability of multi-reference generation and editing; the ability to inherit the appearance of subjects from multiple reference images and re-render them under new contexts. However, the existing benchmark datasets often focus on the generation with single or a few reference images, which prevents us from measuring the progress on how model performance advances or pointing out their weaknesses, under different multi-reference conditions. In addition, their task definitions are still vague, typically limited to axes such as \"what to edit\" or \"how many references are given\", and therefore fail to capture the intrinsic difficulty of multi-reference settings. To address this gap, we introduce $\\textbf{MultiBanana}$, which is carefully designed to assesses the edge of model capabilities by widely covering multi-reference-specific problems at scale: (1) varying the number of references, (2) domain mismatch among references (e.g., photo vs. anime), (3) scale mismatch between reference and target scenes, (4) references containing rare concepts (e.g., a red banana), and (5) multilingual textual references for rendering. Our analysis among a variety of text-to-image models reveals their superior performances, typical failure modes, and areas for improvement. MultiBanana will be released as an open benchmark to push the boundaries and establish a standardized basis for fair comparison in multi-reference image generation. Our data and code are available at https://github.com/matsuolab/multibanana .",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.22989",
+      "url": "https://arxiv.org/abs/2511.22989",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2102.04762",
+      "title": "Referring Segmentation in Images and Videos with Cross-Modal Self-Attention Network",
+      "authors": [
+        {
+          "name": "Linwei Ye",
+          "affiliation": ""
+        },
+        {
+          "name": "Mrigank Rochan",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhi Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaoqin Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "We consider the problem of referring segmentation in images and videos with natural language. Given an input image (or video) and a referring expression, the goal is to segment the entity referred by the expression in the image or video. In this paper, we propose a cross-modal self-attention (CMSA) module to utilize fine details of individual words and the input image or video, which effectively captures the long-range dependencies between linguistic and visual features. Our model can adaptively focus on informative words in the referring expression and important regions in the visual input. We further propose a gated multi-level fusion (GMLF) module to selectively integrate self-attentive cross-modal features corresponding to different levels of visual features. This module controls the feature fusion of information flow of features at different levels with high-level and low-level semantic information related to different attentive words. Besides, we introduce cross-frame self-attention (CFSA) module to effectively integrate temporal information in consecutive frames which extends our method in the case of referring segmentation in videos. Experiments on benchmark datasets of four referring image datasets and two actor and action video segmentation datasets consistently demonstrate that our proposed approach outperforms existing state-of-the-art methods.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1109/TPAMI.2021.3054384",
+      "arxiv_id": "2102.04762",
+      "url": "https://arxiv.org/abs/2102.04762",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2106.07597",
+      "title": "MLPerf Tiny Benchmark",
+      "authors": [
+        {
+          "name": "Colby Banbury",
+          "affiliation": ""
+        },
+        {
+          "name": "Vijay Janapa Reddi",
+          "affiliation": ""
+        },
+        {
+          "name": "Peter Torelli",
+          "affiliation": ""
+        },
+        {
+          "name": "Jeremy Holleman",
+          "affiliation": ""
+        },
+        {
+          "name": "Nat Jeffries",
+          "affiliation": ""
+        },
+        {
+          "name": "Csaba Kiraly",
+          "affiliation": ""
+        },
+        {
+          "name": "Pietro Montino",
+          "affiliation": ""
+        },
+        {
+          "name": "David Kanter",
+          "affiliation": ""
+        },
+        {
+          "name": "Sebastian Ahmed",
+          "affiliation": ""
+        },
+        {
+          "name": "Danilo Pau",
+          "affiliation": ""
+        },
+        {
+          "name": "Urmish Thakker",
+          "affiliation": ""
+        },
+        {
+          "name": "Antonio Torrini",
+          "affiliation": ""
+        },
+        {
+          "name": "Peter Warden",
+          "affiliation": ""
+        },
+        {
+          "name": "Jay Cordaro",
+          "affiliation": ""
+        },
+        {
+          "name": "Giuseppe Di Guglielmo",
+          "affiliation": ""
+        },
+        {
+          "name": "Javier Duarte",
+          "affiliation": ""
+        },
+        {
+          "name": "Stephen Gibellini",
+          "affiliation": ""
+        },
+        {
+          "name": "Videet Parekh",
+          "affiliation": ""
+        },
+        {
+          "name": "Honson Tran",
+          "affiliation": ""
+        },
+        {
+          "name": "Nhan Tran",
+          "affiliation": ""
+        },
+        {
+          "name": "Niu Wenxu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xu Xuesong",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Advancements in ultra-low-power tiny machine learning (TinyML) systems promise to unlock an entirely new class of smart applications. However, continued progress is limited by the lack of a widely accepted and easily reproducible benchmark for these systems. To meet this need, we present MLPerf Tiny, the first industry-standard benchmark suite for ultra-low-power tiny machine learning systems. The benchmark suite is the collaborative effort of more than 50 organizations from industry and academia and reflects the needs of the community. MLPerf Tiny measures the accuracy, latency, and energy of machine learning inference to properly evaluate the tradeoffs between systems. Additionally, MLPerf Tiny implements a modular design that enables benchmark submitters to show the benefits of their product, regardless of where it falls on the ML deployment stack, in a fair and reproducible manner. The suite features four benchmarks: keyword spotting, visual wake words, image classification, and anomaly detection.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2106.07597",
+      "url": "https://arxiv.org/abs/2106.07597",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2202.09741",
+      "title": "Visual Attention Network",
+      "authors": [
+        {
+          "name": "Meng-Hao Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Cheng-Ze Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zheng-Ning Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ming-Ming Cheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Shi-Min Hu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "While originally designed for natural language processing tasks, the self-attention mechanism has recently taken various computer vision areas by storm. However, the 2D nature of images brings three challenges for applying self-attention in computer vision. (1) Treating images as 1D sequences neglects their 2D structures. (2) The quadratic complexity is too expensive for high-resolution images. (3) It only captures spatial adaptability but ignores channel adaptability. In this paper, we propose a novel linear attention named large kernel attention (LKA) to enable self-adaptive and long-range correlations in self-attention while avoiding its shortcomings. Furthermore, we present a neural network based on LKA, namely Visual Attention Network (VAN). While extremely simple, VAN surpasses similar size vision transformers(ViTs) and convolutional neural networks(CNNs) in various tasks, including image classification, object detection, semantic segmentation, panoptic segmentation, pose estimation, etc. For example, VAN-B6 achieves 87.8% accuracy on ImageNet benchmark and set new state-of-the-art performance (58.2 PQ) for panoptic segmentation. Besides, VAN-B2 surpasses Swin-T 4% mIoU (50.1 vs. 46.1) for semantic segmentation on ADE20K benchmark, 2.6% AP (48.8 vs. 46.2) for object detection on COCO dataset. It provides a novel method and a simple yet strong baseline for the community. Code is available at https://github.com/Visual-Attention-Network.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2202.09741",
+      "url": "https://arxiv.org/abs/2202.09741",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2505.16964",
+      "title": "MedFrameQA: A Multi-Image Medical VQA Benchmark for Clinical Reasoning",
+      "authors": [
+        {
+          "name": "Suhao Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Haojin Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Juncheng Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Luyang Luo",
+          "affiliation": ""
+        },
+        {
+          "name": "Jingshen Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Cihang Xie",
+          "affiliation": ""
+        },
+        {
+          "name": "Pranav Rajpurkar",
+          "affiliation": ""
+        },
+        {
+          "name": "Carl Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Kang Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yannan Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuyin Zhou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Real-world clinical practice demands multi-image comparative reasoning, yet current medical benchmarks remain limited to single-frame interpretation. We present MedFrameQA, the first benchmark explicitly designed to test multi-image medical VQA through educationally-validated diagnostic sequences. To construct this dataset, we develop a scalable pipeline that leverages narrative transcripts from medical education videos to align visual frames with textual concepts, automatically producing 2,851 high-quality multi-image VQA pairs with explicit, transcript-grounded reasoning chains. Our evaluation of 11 advanced MLLMs (including reasoning models) exposes severe deficiencies in multi-image synthesis, where accuracies mostly fall below 50% and exhibit instability across varying image counts. Error analysis demonstrates that models often treat images as isolated instances, failing to track pathological progression or cross-reference anatomical shifts. MedFrameQA provides a rigorous standard for evaluating the next generation of MLLMs in handling complex, temporally grounded medical narratives.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2505.16964",
+      "url": "https://arxiv.org/abs/2505.16964",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2504.05336",
+      "title": "Quantum Adaptive Self-Attention for Quantum Transformer Models",
+      "authors": [
+        {
+          "name": "Chi-Sheng Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "En-Jui Kuo",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Transformer models have revolutionized sequential learning across various domains, yet their self-attention mechanism incurs quadratic computational cost, posing limitations for real-time and resource-constrained tasks. To address this, we propose Quantum Adaptive Self-Attention (QASA), a novel hybrid architecture that enhances classical Transformer models with a quantum attention mechanism. QASA replaces dot-product attention with a parameterized quantum circuit (PQC) that adaptively captures inter-token relationships in the quantum Hilbert space. Additionally, a residual quantum projection module is introduced before the feedforward network to further refine temporal features. Our design retains classical efficiency in earlier layers while injecting quantum expressiveness in the final encoder block, ensuring compatibility with current NISQ hardware. Experiments on synthetic time-series tasks demonstrate that QASA achieves faster convergence and superior generalization compared to both standard Transformers and reduced classical variants. Preliminary complexity analysis suggests potential quantum advantages in gradient computation, opening new avenues for efficient quantum deep learning models.",
+      "venue": "quant-ph",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2504.05336",
+      "url": "https://arxiv.org/abs/2504.05336",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2510.10060",
+      "title": "Translution: Unifying Self-attention and Convolution for Adaptive and Relative Modeling",
+      "authors": [
+        {
+          "name": "Hehe Fan",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Mohan Kankanhalli",
+          "affiliation": ""
+        },
+        {
+          "name": "Fei Wu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "When modeling a given type of data, we consider it to involve two key aspects: 1) identifying relevant elements (e.g., image pixels or textual words) to a central element, as in a convolutional receptive field, or to a query element, as in self-attention, and 2) encoding these tokens effectively. Self-attention can adaptively identify these elements but relies on absolute positional embedding for structural representation learning. In contrast, convolution encodes elements in a relative manner, yet their fixed kernel size limits their ability to adaptively select the relevant elements. In this paper, we introduce Translution, an operation that unifies the adaptive identification capability of self-attention and the relative encoding advantage of convolution. However, this integration leads to a substantial increase in the number of parameters, exceeding most currently available computational resources. Therefore, we propose a lightweight variant of Translution, named \u03b1-Translution. Experiments on computer vision and natural language processing tasks show that Translution (including \u03b1-Translution) achieves superior accuracy compared to self-attention. The code is available at https://github.com/hehefan/Translution.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2510.10060",
+      "url": "https://arxiv.org/abs/2510.10060",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2403.17377",
+      "title": "Self-Rectifying Diffusion Sampling with Perturbed-Attention Guidance",
+      "authors": [
+        {
+          "name": "Donghoon Ahn",
+          "affiliation": ""
+        },
+        {
+          "name": "Hyoungwon Cho",
+          "affiliation": ""
+        },
+        {
+          "name": "Jaewon Min",
+          "affiliation": ""
+        },
+        {
+          "name": "Wooseok Jang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jungwoo Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "SeonHwa Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Hyun Hee Park",
+          "affiliation": ""
+        },
+        {
+          "name": "Kyong Hwan Jin",
+          "affiliation": ""
+        },
+        {
+          "name": "Seungryong Kim",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Recent studies have demonstrated that diffusion models are capable of generating high-quality samples, but their quality heavily depends on sampling guidance techniques, such as classifier guidance (CG) and classifier-free guidance (CFG). These techniques are often not applicable in unconditional generation or in various downstream tasks such as image restoration. In this paper, we propose a novel sampling guidance, called Perturbed-Attention Guidance (PAG), which improves diffusion sample quality across both unconditional and conditional settings, achieving this without requiring additional training or the integration of external modules. PAG is designed to progressively enhance the structure of samples throughout the denoising process. It involves generating intermediate samples with degraded structure by substituting selected self-attention maps in diffusion U-Net with an identity matrix, by considering the self-attention mechanisms' ability to capture structural information, and guiding the denoising process away from these degraded samples. In both ADM and Stable Diffusion, PAG surprisingly improves sample quality in conditional and even unconditional scenarios. Moreover, PAG significantly improves the baseline performance in various downstream tasks where existing guidances such as CG or CFG cannot be fully utilized, including ControlNet with empty prompts and image restoration such as inpainting and deblurring.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2403.17377",
+      "url": "https://arxiv.org/abs/2403.17377",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2003.09833",
+      "title": "SAC: Accelerating and Structuring Self-Attention via Sparse Adaptive Connection",
+      "authors": [
+        {
+          "name": "Xiaoya Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuxian Meng",
+          "affiliation": ""
+        },
+        {
+          "name": "Mingxin Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Qinghong Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Fei Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiwei Li",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "While the self-attention mechanism has been widely used in a wide variety of tasks, it has the unfortunate property of a quadratic cost with respect to the input length, which makes it difficult to deal with long inputs. In this paper, we present a method for accelerating and structuring self-attentions: Sparse Adaptive Connection (SAC). In SAC, we regard the input sequence as a graph and attention operations are performed between linked nodes. In contrast with previous self-attention models with pre-defined structures (edges), the model learns to construct attention edges to improve task-specific performances. In this way, the model is able to select the most salient nodes and reduce the quadratic complexity regardless of the sequence length. Based on SAC, we show that previous variants of self-attention models are its special cases. Through extensive experiments on neural machine translation, language modeling, graph representation learning and image classification, we demonstrate SAC is competitive with state-of-the-art models while significantly reducing memory cost.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2003.09833",
+      "url": "https://arxiv.org/abs/2003.09833",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2304.13998",
+      "title": "Mimic-IV-ICD: A new benchmark for eXtreme MultiLabel Classification",
+      "authors": [
+        {
+          "name": "Thanh-Tung Nguyen",
+          "affiliation": ""
+        },
+        {
+          "name": "Viktor Schlegel",
+          "affiliation": ""
+        },
+        {
+          "name": "Abhinav Kashyap",
+          "affiliation": ""
+        },
+        {
+          "name": "Stefan Winkler",
+          "affiliation": ""
+        },
+        {
+          "name": "Shao-Syuan Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jie-Jyun Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Chih-Jen Lin",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Clinical notes are assigned ICD codes - sets of codes for diagnoses and procedures. In the recent years, predictive machine learning models have been built for automatic ICD coding. However, there is a lack of widely accepted benchmarks for automated ICD coding models based on large-scale public EHR data.\n  This paper proposes a public benchmark suite for ICD-10 coding using a large EHR dataset derived from MIMIC-IV, the most recent public EHR dataset. We implement and compare several popular methods for ICD coding prediction tasks to standardize data preprocessing and establish a comprehensive ICD coding benchmark dataset. This approach fosters reproducibility and model comparison, accelerating progress toward employing automated ICD coding in future studies. Furthermore, we create a new ICD-9 benchmark using MIMIC-IV data, providing more data points and a higher number of ICD codes than MIMIC-III. Our open-source code offers easy access to data processing steps, benchmark creation, and experiment replication for those with MIMIC-IV access, providing insights, guidance, and protocols to efficiently develop ICD coding models.",
+      "venue": "cs.AI",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2304.13998",
+      "url": "https://arxiv.org/abs/2304.13998",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2409.05022",
+      "title": "Sequential Recommendation via Adaptive Robust Attention with Multi-dimensional Embeddings",
+      "authors": [
+        {
+          "name": "Linsey Pang",
+          "affiliation": ""
+        },
+        {
+          "name": "Amir Hossein Raffiee",
+          "affiliation": ""
+        },
+        {
+          "name": "Wei Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Keld Lundgaard",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Sequential recommendation models have achieved state-of-the-art performance using self-attention mechanism. It has since been found that moving beyond only using item ID and positional embeddings leads to a significant accuracy boost when predicting the next item. In recent literature, it was reported that a multi-dimensional kernel embedding with temporal contextual kernels to capture users' diverse behavioral patterns results in a substantial performance improvement. In this study, we further improve the sequential recommender model's robustness and generalization by introducing a mix-attention mechanism with a layer-wise noise injection (LNI) regularization. We refer to our proposed model as adaptive robust sequential recommendation framework (ADRRec), and demonstrate through extensive experiments that our model outperforms existing self-attention architectures.",
+      "venue": "cs.IR",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2409.05022",
+      "url": "https://arxiv.org/abs/2409.05022",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2603.11734",
+      "title": "VTEdit-Bench: A Comprehensive Benchmark for Multi-Reference Image Editing Models in Virtual Try-On",
+      "authors": [
+        {
+          "name": "Xiaoye Liang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiyuan Qu",
+          "affiliation": ""
+        },
+        {
+          "name": "Mingye Zou",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiaxin Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Lai Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Mai Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yiheng Zhu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "As virtual try-on (VTON) continues to advance, a growing number of real-world scenarios have emerged, pushing beyond the ability of the existing specialized VTON models. Meanwhile, universal multi-reference image editing models have progressed rapidly and exhibit strong generalization in visual editing, suggesting a promising route toward more flexible VTON systems. However, despite their strong capabilities, the strengths and limitations of universal editors for VTON remain insufficiently explored due to the lack of systematic evaluation benchmarks. To address this gap, we introduce VTEdit-Bench, a comprehensive benchmark designed to evaluate universal multi-reference image editing models across various realistic VTON scenarios. VTEdit-Bench contains 24,220 test image pairs spanning five representative VTON tasks with progressively increasing complexity, enabling systematic analysis of robustness and generalization. We further propose VTEdit-QA, a reference-aware VLM-based evaluator that assesses VTON performance from three key aspects: model consistency, cloth consistency, and overall image quality. Through this framework, we systematically evaluate eight universal editing models and compare them with seven specialized VTON models. Results show that top universal editors are competitive on conventional tasks and generalize more stably to harder scenarios, but remain challenged by complex reference configurations, particularly multi-cloth conditioning.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2603.11734",
+      "url": "https://arxiv.org/abs/2603.11734",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2212.05680",
+      "title": "REAP: A Large-Scale Realistic Adversarial Patch Benchmark",
+      "authors": [
+        {
+          "name": "Nabeel Hingun",
+          "affiliation": ""
+        },
+        {
+          "name": "Chawin Sitawarin",
+          "affiliation": ""
+        },
+        {
+          "name": "Jerry Li",
+          "affiliation": ""
+        },
+        {
+          "name": "David Wagner",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Machine learning models are known to be susceptible to adversarial perturbation. One famous attack is the adversarial patch, a sticker with a particularly crafted pattern that makes the model incorrectly predict the object it is placed on. This attack presents a critical threat to cyber-physical systems that rely on cameras such as autonomous cars. Despite the significance of the problem, conducting research in this setting has been difficult; evaluating attacks and defenses in the real world is exceptionally costly while synthetic data are unrealistic. In this work, we propose the REAP (REalistic Adversarial Patch) benchmark, a digital benchmark that allows the user to evaluate patch attacks on real images, and under real-world conditions. Built on top of the Mapillary Vistas dataset, our benchmark contains over 14,000 traffic signs. Each sign is augmented with a pair of geometric and lighting transformations, which can be used to apply a digitally generated patch realistically onto the sign. Using our benchmark, we perform the first large-scale assessments of adversarial patch attacks under realistic conditions. Our experiments suggest that adversarial patch attacks may present a smaller threat than previously believed and that the success rate of an attack on simpler digital simulations is not predictive of its actual effectiveness in practice. We release our benchmark publicly at https://github.com/wagner-group/reap-benchmark.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2212.05680",
+      "url": "https://arxiv.org/abs/2212.05680",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2112.01019",
+      "title": "Unconstrained Face Sketch Synthesis via Perception-Adaptive Network and A New Benchmark",
+      "authors": [
+        {
+          "name": "Lin Nie",
+          "affiliation": ""
+        },
+        {
+          "name": "Lingbo Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhengtao Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenxiong Kang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Face sketch generation has attracted much attention in the field of visual computing. However, existing methods either are limited to constrained conditions or heavily rely on various preprocessing steps to deal with in-the-wild cases. In this paper, we argue that accurately perceiving facial region and facial components is crucial for unconstrained sketch synthesis. To this end, we propose a novel Perception-Adaptive Network (PANet), which can generate high-quality face sketches under unconstrained conditions in an end-to-end scheme. Specifically, our PANet is composed of i) a Fully Convolutional Encoder for hierarchical feature extraction, ii) a Face-Adaptive Perceiving Decoder for extracting potential facial region and handling face variations, and iii) a Component-Adaptive Perceiving Module for facial component aware feature representation learning. To facilitate further researches of unconstrained face sketch synthesis, we introduce a new benchmark termed WildSketch, which contains 800 pairs of face photo-sketch with large variations in pose, expression, ethnic origin, background, and illumination. Extensive experiments demonstrate that the proposed method is capable of achieving state-of-the-art performance under both constrained and unconstrained conditions. Our source codes and the WildSketch benchmark are resealed on the project page http://lingboliu.com/unconstrained_face_sketch.html.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2112.01019",
+      "url": "https://arxiv.org/abs/2112.01019",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2505.16850",
+      "title": "ATR-Bench: A Federated Learning Benchmark for Adaptation, Trust, and Reasoning",
+      "authors": [
+        {
+          "name": "Tajamul Ashraf",
+          "affiliation": ""
+        },
+        {
+          "name": "Mohammed Mohsen Peerzada",
+          "affiliation": ""
+        },
+        {
+          "name": "Moloud Abdar",
+          "affiliation": ""
+        },
+        {
+          "name": "Yutong Xie",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuyin Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaofeng Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Iqra Altaf Gillani",
+          "affiliation": ""
+        },
+        {
+          "name": "Janibul Bashir",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Federated Learning (FL) has emerged as a promising paradigm for collaborative model training while preserving data privacy across decentralized participants. As FL adoption grows, numerous techniques have been proposed to tackle its practical challenges. However, the lack of standardized evaluation across key dimensions hampers systematic progress and fair comparison of FL methods. In this work, we introduce ATR-Bench, a unified framework for analyzing federated learning through three foundational dimensions: Adaptation, Trust, and Reasoning. We provide an in-depth examination of the conceptual foundations, task formulations, and open research challenges associated with each theme. We have extensively benchmarked representative methods and datasets for adaptation to heterogeneous clients and trustworthiness in adversarial or unreliable environments. Due to the lack of reliable metrics and models for reasoning in FL, we only provide literature-driven insights for this dimension. ATR-Bench lays the groundwork for a systematic and holistic evaluation of federated learning with real-world relevance. We will make our complete codebase publicly accessible and a curated repository that continuously tracks new developments and research in the FL literature.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2505.16850",
+      "url": "https://arxiv.org/abs/2505.16850",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2505.17166",
+      "title": "ViDoRe Benchmark V2: Raising the Bar for Visual Retrieval",
+      "authors": [
+        {
+          "name": "Quentin Mac\u00e9",
+          "affiliation": ""
+        },
+        {
+          "name": "Ant\u00f3nio Loison",
+          "affiliation": ""
+        },
+        {
+          "name": "Manuel Faysse",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The ViDoRe Benchmark V1 was approaching saturation with top models exceeding 90% nDCG@5, limiting its ability to discern improvements. ViDoRe Benchmark V2 introduces realistic, challenging retrieval scenarios via blind contextual querying, long and cross-document queries, and a hybrid synthetic and human-in-the-loop query generation process. It comprises four diverse, multilingual datasets and provides clear evaluation instructions. Initial results demonstrate substantial room for advancement and highlight insights on model generalization and multilingual capability. This benchmark is designed as a living resource, inviting community contributions to maintain relevance through future evaluations.",
+      "venue": "cs.IR",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2505.17166",
+      "url": "https://arxiv.org/abs/2505.17166",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2410.01251",
+      "title": "Facial Action Unit Detection by Adaptively Constraining Self-Attention and Causally Deconfounding Sample",
+      "authors": [
+        {
+          "name": "Zhiwen Shao",
+          "affiliation": ""
+        },
+        {
+          "name": "Hancheng Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yong Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiang Xiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Bing Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Rui Yao",
+          "affiliation": ""
+        },
+        {
+          "name": "Lizhuang Ma",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Facial action unit (AU) detection remains a challenging task, due to the subtlety, dynamics, and diversity of AUs. Recently, the prevailing techniques of self-attention and causal inference have been introduced to AU detection. However, most existing methods directly learn self-attention guided by AU detection, or employ common patterns for all AUs during causal intervention. The former often captures irrelevant information in a global range, and the latter ignores the specific causal characteristic of each AU. In this paper, we propose a novel AU detection framework called AC2D by adaptively constraining self-attention weight distribution and causally deconfounding the sample confounder. Specifically, we explore the mechanism of self-attention weight distribution, in which the self-attention weight distribution of each AU is regarded as spatial distribution and is adaptively learned under the constraint of location-predefined attention and the guidance of AU detection. Moreover, we propose a causal intervention module for each AU, in which the bias caused by training samples and the interference from irrelevant AUs are both suppressed. Extensive experiments show that our method achieves competitive performance compared to state-of-the-art AU detection approaches on challenging benchmarks, including BP4D, DISFA, GFT, and BP4D+ in constrained scenarios and Aff-Wild2 in unconstrained scenarios. The code is available at https://github.com/ZhiwenShao/AC2D.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1007/s11263-024-02258-6",
+      "arxiv_id": "2410.01251",
+      "url": "https://arxiv.org/abs/2410.01251",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2512.12673",
+      "title": "Progressive Conditioned Scale-Shift Recalibration of Self-Attention for Online Test-time Adaptation",
+      "authors": [
+        {
+          "name": "Yushun Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ziqiong Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiyuan Jia",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhihai He",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Online test-time adaptation aims to dynamically adjust a network model in real-time based on sequential input samples during the inference stage. In this work, we find that, when applying a transformer network model to a new target domain, the Query, Key, and Value features of its self-attention module often change significantly from those in the source domain, leading to substantial performance degradation of the transformer model. To address this important issue, we propose to develop a new approach to progressively recalibrate the self-attention at each layer using a local linear transform parameterized by conditioned scale and shift factors. We consider the online model adaptation from the source domain to the target domain as a progressive domain shift separation process. At each transformer network layer, we learn a Domain Separation Network to extract the domain shift feature, which is used to predict the scale and shift parameters for self-attention recalibration using a Factor Generator Network. These two lightweight networks are adapted online during inference. Experimental results on benchmark datasets demonstrate that the proposed progressive conditioned scale-shift recalibration (PCSR) method is able to significantly improve the online test-time domain adaptation performance by a large margin of up to 3.9\\% in classification accuracy on the ImageNet-C dataset.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2512.12673",
+      "url": "https://arxiv.org/abs/2512.12673",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2602.11674",
+      "title": "Benchmark Health Index: A Systematic Framework for Benchmarking the Benchmarks of LLMs",
+      "authors": [
+        {
+          "name": "Longyuan Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hairan Hua",
+          "affiliation": ""
+        },
+        {
+          "name": "Linlin Miao",
+          "affiliation": ""
+        },
+        {
+          "name": "Bing Zhao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Large Language Models (LLMs) are advancing rapidly, yet the benchmarks used to measure this progress are becoming increasingly unreliable. Score inflation and selective reporting have eroded the authority of standard benchmarks, leaving the community uncertain about which evaluation results remain trustworthy. We introduce the Benchmark Health Index (BHI), a pure data-driven framework for auditing evaluation sets along three orthogonal and complementary axes: (1) Capability Discrimination, measuring how sharply a benchmark separates model performance beyond noise; (2) Anti-Saturation, estimating remaining headroom before ceiling effects erode resolution and thus the benchmark's expected longevity; and (3) Impact, quantifying influence across academic and industrial ecosystems via adoption breadth and practice-shaping power. By distilling 106 validated benchmarks from the technical reports of 91 representative models in 2025, we systematically characterize the evaluation landscape. BHI is the first framework to quantify benchmark health at a macro level, providing a principled basis for benchmark selection and enabling dynamic lifecycle management for next-generation evaluation protocols.",
+      "venue": "cs.AI",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2602.11674",
+      "url": "https://arxiv.org/abs/2602.11674",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

@@ -1,0 +1,1648 @@
+{
+  "query": "Parameter efficient fine comparison",
+  "source": "openalex",
+  "limit": 40,
+  "timestamp": 1773944622.2128625,
+  "papers": [
+    {
+      "paper_id": "oalex-W4396611057",
+      "title": "Comparison between parameter-efficient techniques and full fine-tuning: A case study on multilingual news article classification",
+      "authors": [
+        {
+          "name": "Olesya Razuvayevskaya",
+          "affiliation": "University of Sheffield"
+        },
+        {
+          "name": "Benjamin M. Wu",
+          "affiliation": "University of Sheffield"
+        },
+        {
+          "name": "Jo\u00e3o Leite",
+          "affiliation": "University of Sheffield"
+        },
+        {
+          "name": "Freddy Heppell",
+          "affiliation": "University of Sheffield"
+        },
+        {
+          "name": "Ivan Srba",
+          "affiliation": "Kempelen Institute of Intelligent Technologies"
+        },
+        {
+          "name": "Carolina Scarton",
+          "affiliation": "University of Sheffield"
+        },
+        {
+          "name": "Kalina Bontcheva",
+          "affiliation": "University of Sheffield"
+        },
+        {
+          "name": "Xingyi Song",
+          "affiliation": "University of Sheffield"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Adapters and Low-Rank Adaptation (LoRA) are parameter-efficient fine-tuning techniques designed to make the training of language models more efficient. Previous results demonstrated that these methods can even improve performance on some classification tasks. This paper complements existing research by investigating how these techniques influence classification performance and computation costs compared to full fine-tuning. We focus specifically on multilingual text classification tasks (genre, framing, and persuasion techniques detection; with different input lengths, number of predicted classes and classification difficulty), some of which have limited training data. In addition, we conduct in-depth analyses of their efficacy across different training scenarios (training on the original multilingual data; on the translations into English; and on a subset of English-only data) and different languages. Our findings provide valuable insights into the applicability of parameter-efficient fine-tuning techniques, particularly for multilabel classification and non-parallel multilingual tasks which are aimed at analysing input texts of varying length.",
+      "venue": "PLoS ONE",
+      "citation_count": 15,
+      "doi": "10.1371/journal.pone.0301738",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1371/journal.pone.0301738",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3158304688",
+      "title": "Dynamic Graph Convolutional Recurrent Network for Traffic Prediction: Benchmark and Solution",
+      "authors": [
+        {
+          "name": "Fuxian Li",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Jie Feng",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Huan Yan",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Guangyin Jin",
+          "affiliation": "National University of Defense Technology"
+        },
+        {
+          "name": "Fan Yang",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Funing Sun",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Depeng Jin",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Yong Li",
+          "affiliation": "Tsinghua University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Traffic prediction is the cornerstone of intelligent transportation system. Accurate traffic forecasting is essential for the applications of smart cities, i.e., intelligent traffic management and urban planning. Although various methods are proposed for spatio-temporal modeling, they ignore the dynamic characteristics of correlations among locations on road network. Meanwhile, most Recurrent Neural Network based works are not efficient enough due to their recurrent operations. Additionally, there is a severe lack of fair comparison among different methods on the same datasets. To address the above challenges, in this article, we propose a novel traffic prediction framework, named Dynamic Graph Convolutional Recurrent Network (DGCRN). In DGCRN, hyper-networks are designed to leverage and extract dynamic characteristics from node attributes, while the parameters of dynamic filters are generated at each time step. We filter the node embeddings and then use them to generate dynamic graph, which is integrated with pre-defined static graph. As far as we know, we are first to employ a generation method to model fine topology of dynamic graph at each time step. Furthermore, to enhance efficiency and performance, we employ a training strategy for DGCRN by restricting the iteration number of decoder during forward and backward propagation. Finally, a reproducible standardized benchmark and a brand new representative traffic dataset are opened for fair comparison and further research. Extensive experiments on three datasets demonstrate that our model outperforms 15 baselines consistently. Source codes are available at https://github.com/tsinghua-fib-lab/Traffic-Benchmark .",
+      "venue": "ACM Transactions on Knowledge Discovery from Data",
+      "citation_count": 472,
+      "doi": "10.1145/3532611",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3532611",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4221145545",
+      "title": "Delta Tuning: A Comprehensive Study of Parameter Efficient Methods for Pre-trained Language Models",
+      "authors": [
+        {
+          "name": "Ning Ding",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Yujia Qin",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Guang Yang",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Fuchao Wei",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Zonghan Yang",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Yusheng Su",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Shengding Hu",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Yulin Chen",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Chi-Min Chan",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Weize Chen",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Jing Yi",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Weilin Zhao",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Xiaozhi Wang",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Zhiyuan Liu",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Hai-Tao Zheng",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Jianfei Chen",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Yang Liu",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Jie Tang",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Juanzi Li",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Maosong Sun",
+          "affiliation": "Tsinghua University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "<title>Abstract</title> As pre-trained language models (PLMs) have become the fundamental infrastructure for various NLP tasks and researchers have readily enjoyed themselves in the pretraining-finetuning paradigm, evidence from emerging research has continuously proven that larger models tend to yield better performance. However, despite the welcome outcome, the process of fine-tuning large-scale PLMs brings prohibitive adaptation costs. In fact, fine- tuning all the parameters of a colossal model and retaining separate instances for different tasks are practically infeasible. This necessitates a new branch of research focusing on the parameter-efficient adaptation of PLMs. In order to unleash the imagination of the possible advantages of such methods, not limited to parameter efficiency, we coined a new term delta tuning from a morphological point of view to refer to the original \u201cparameter efficient tuning\u201d. In contrast with the standard fine-tuning, delta tuning only fine-tunes a small portion of the model parameters while keeping the rest untouched, largely reducing both the computation and storage costs. Recent studies have demonstrated that a series of delta tuning methods with distinct tuned parameter selection could achieve performance on a par with full-parameter fine-tuning, suggesting a new promising way of stimulating large-scale PLMs. In this paper, we first formally describe the problem of delta tuning and then comprehensively review recent delta tuning approaches. We also propose a unified categorization criterion that divides existing delta tuning methods into three groups: addition-based, specification-based, and reparameterization-based methods. Though initially proposed as an efficient method to steer large models, we believe that some of the fascinating evidence discovered along with delta tuning could help further reveal the mechanisms of PLMs and even deep neural networks. To this end, we discuss the theoretical principles underlying the effectiveness of delta tuning and propose frameworks to interpret delta tuning from the perspective of optimization and optimal control, respectively. Furthermore, we provide a holistic empirical study of representative methods, where results on over 100 NLP tasks demonstrate a comprehensive performance comparison of different approaches. The experimental results also cover the analysis of combinatorial, scaling and transferable properties of delta tuning. To facilitate the research of delta tuning, we are also developing an open-source toolkit, OpenDelta2, that enables practitioners to efficiently and flexibly implement delta tuning on PLMs. At last, we discuss a series of real-world applications of delta tuning.",
+      "venue": "",
+      "citation_count": 120,
+      "doi": "10.21203/rs.3.rs-1553541/v1",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.21203/rs.3.rs-1553541/v1",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4361230739",
+      "title": "Scaling Down to Scale Up: A Guide to Parameter-Efficient Fine-Tuning",
+      "authors": [
+        {
+          "name": "Vladislav Lialin",
+          "affiliation": ""
+        },
+        {
+          "name": "Vijeta Deshpande",
+          "affiliation": ""
+        },
+        {
+          "name": "Anna Rumshisky",
+          "affiliation": ""
+        },
+        {
+          "name": "Rumshisky, Anna",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "This paper presents a systematic overview of parameter-efficient fine-tuning methods, covering over 50 papers published between early 2019 and mid-2024. These methods aim to address the challenges of fine-tuning large language models by training only a small subset of parameters. We provide a taxonomy that covers a broad range of methods and present a detailed method comparison with a specific focus on real-life efficiency in fine-tuning multibillion-scale language models. We also conduct an extensive head-to-head experimental comparison of 15 diverse PEFT methods, evaluating their performance and efficiency on models up to 11B parameters. Our findings reveal that methods previously shown to surpass a strong LoRA baseline face difficulties in resource-constrained settings, where hyperparameter optimization is limited and the network is fine-tuned only for a few epochs. Finally, we provide a set of practical recommendations for using PEFT methods and outline potential future research directions.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 68,
+      "doi": "10.48550/arxiv.2303.15647",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2303.15647",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4293584584",
+      "title": "A Multi-Modal Distributed Real-Time IoT System for Urban Traffic Control (Invited Paper)",
+      "authors": [
+        {
+          "name": "Joseph Redmon",
+          "affiliation": "BT Research"
+        },
+        {
+          "name": "Ali Farhadi",
+          "affiliation": "Keele University"
+        },
+        {
+          "name": "Boukhennoufa, Issam",
+          "affiliation": "University of Essex"
+        },
+        {
+          "name": "Jindal, Anish",
+          "affiliation": "Durham University"
+        },
+        {
+          "name": "Singh, Amit Kumar",
+          "affiliation": "University of Essex"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Traffic congestion is one of the growing urban problem with associated problems like fuel wastage, loss of lives, and slow productivity. The existing traffic system uses programming logic control (PLC) with round-robin scheduling algorithm. Recent works have proposed IoT-based frameworks that use traffic density of each lane to control traffic movement, but they suffer from low accuracy due to lack of emergency vehicle image datasets for training deep neural networks. In this paper, we propose a novel distributed IoT framework that is based on two observations. The first observation is major structural changes to road are rare. This observation is exploited by proposing a novel two stage vehicle detector that is able to achieve 77% vehicle detection accuracy on UA-DETRAC dataset. The second observation is emergency vehicle have distinct siren sound that is detected using a novel acoustic detection algorithm on an edge device. The proposed system is able to detect emergency vehicles with an average accuracy of 99.4%.",
+      "venue": "DROPS (Schloss Dagstuhl \u2013 Leibniz Center for Informatics)",
+      "citation_count": 14256,
+      "doi": "10.4230/oasics.ng-res.2024.2",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.4230/oasics.ng-res.2024.2",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3036256591",
+      "title": "Design and Control of Magnetic Levitation System by Optimizing Fractional Order PID Controller Using Ant Colony Optimization Algorithm",
+      "authors": [
+        {
+          "name": "Abdullah Mughees",
+          "affiliation": "National University of Computer and Emerging Sciences"
+        },
+        {
+          "name": "Syed Ali Mohsin",
+          "affiliation": "National University of Computer and Emerging Sciences"
+        }
+      ],
+      "year": 2020,
+      "abstract": "MAGnetic LEVitation (Maglev) is a multi-variable, non-linear and unstable system that is used to levitate a ferromagnetic object in free space. This paper presents the stability control of a levitating object in a magnetic levitation plant using Fractional order PID (FOPID) controller. Fractional calculus, which is used to design the FOPID controller, has been a subject of great interest over the last few decades. FOPID controller has five tunning parameters including two fractional-order parameters ($\\lambda $ and $\\mu $ ). The mathematical model of the Maglev plant is obtained by using first principle modeling and the laboratory model (CE152). Maglev plant and FOPID controller both have been designed in MATLAB-Simulink. The designed model of the Maglev system can be further used in the process of controller design for other applications. The stability of the proposed system is determined via the Routh Hurwitz stability criterion. Ant Colony Optimization (ACO) algorithm and Ziegler Nichols method has been used to fine-tune the parameters of FOPID controller. FOPID controller output results are compared with the traditional IOPID controller for comparative analysis. FOPID controller, due to its extra tuned parameters, has shown extremely efficient results in comparison to the traditional IOPID controller.",
+      "venue": "IEEE Access",
+      "citation_count": 94,
+      "doi": "10.1109/access.2020.3004025",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/access.2020.3004025",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4385572063",
+      "title": "FedPETuning: When Federated Learning Meets the Parameter-Efficient Tuning Methods of Pre-trained Language Models",
+      "authors": [
+        {
+          "name": "Zhuo Zhang",
+          "affiliation": "Harbin Institute of Technology"
+        },
+        {
+          "name": "Yuanhang Yang",
+          "affiliation": "Harbin Institute of Technology"
+        },
+        {
+          "name": "Yong Dai",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Qifan Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yue Yu",
+          "affiliation": "Peng Cheng Laboratory"
+        },
+        {
+          "name": "Lizhen Qu",
+          "affiliation": "Monash University"
+        },
+        {
+          "name": "Zenglin Xu",
+          "affiliation": "Harbin Institute of Technology"
+        }
+      ],
+      "year": 2023,
+      "abstract": "With increasing concerns about data privacy, there is an increasing necessity of fine-tuning pre-trained language models (PLMs) for adapting to downstream tasks located in end-user devices or local clients without transmitting data to the central server. This urgent necessity therefore calls the research of investigating federated learning (FL) for PLMs. However, large PLMs bring the curse of prohibitive communication overhead and local model adaptation costs for the FL system. To this end, we investigate the parameter-efficient tuning (PETuning) of PLMs and develop a corresponding federated benchmark for four representative PETuning methods, dubbed FedPETuning. Specifically, FedPETuning provides the first holistic empirical study of representative PLMs tuning methods in FL, covering privacy attacks, performance comparisons, and resource-constrained analysis. Intensive experimental results have indicated that FedPETuning can efficiently defend against privacy attacks and maintains acceptable performance with reducing heavy resource consumption. The open-source code and data are available at https://github.com/SMILELab-FL/FedPETuning.",
+      "venue": "",
+      "citation_count": 65,
+      "doi": "10.18653/v1/2023.findings-acl.632",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.18653/v1/2023.findings-acl.632",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4212965957",
+      "title": "Intensification strategies for improving the performance of photocatalytic processes: A review",
+      "authors": [
+        {
+          "name": "D\u00e2nia S. M. Constantino",
+          "affiliation": "Universidade do Porto"
+        },
+        {
+          "name": "Madalena M. Dias",
+          "affiliation": "Universidade do Porto"
+        },
+        {
+          "name": "Adri\u00e1n M.T. Silva",
+          "affiliation": "Universidade do Porto"
+        },
+        {
+          "name": "Joaquim L. Faria",
+          "affiliation": "Universidade do Porto"
+        },
+        {
+          "name": "Cl\u00e1udia G. Silva",
+          "affiliation": "Universidade do Porto"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Green and efficient technologies are one of the biggest challenges in Chemical Engineering. Photocatalysis has been reported as one of the most promising eco-friendly technologies, allowing it to work at milder operating conditions than the conventional processes when using cost-effective light sources for the photonic activation instead of thermal activation. Numerous studies have focused on heterogeneous photocatalysis for several applications, such as air and water purification, organic synthesis, and hydrogen production. Although some of these processes can be found industrially implemented, they are mainly related to water and wastewater treatment. Sustainable processes imply high productivities with reduced costs, requiring high selectivity and kinetic rates, mainly in synthesizing fine chemicals and fuels via photocatalysis. These parameters are deeply linked to mass and photon transfer resistance, which have triggered much research in the process intensification field to overcome these drawbacks. In this way, process intensification strategies have been proposed in the open literature to increase yield and selectivity values towards more sustainable processes from the industrial point of view. Nevertheless, there is still a lack of feasible information on photocatalytic processes at the pilot or industrial scale for other applications rather than aqueous streams treatment. This review aims to systematize novel approaches based on multicomponent hybrid systems and innovative photoreactor design (singles units) for enhanced photocatalytic processes, focusing on the respective advantages and limitations of the application field. For some applications, a comparison between different process intensification methods is presented. Thus, this work can be a helpful tool for the development of new strategies for emerging sustainable and more efficient photocatalytic processes. Moreover, challenges and future perspectives are also addressed.",
+      "venue": "Journal of Cleaner Production",
+      "citation_count": 123,
+      "doi": "10.1016/j.jclepro.2022.130800",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.jclepro.2022.130800",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4392120658",
+      "title": "Yolo-tla: An Efficient and Lightweight Small Object Detection Model based on YOLOv5",
+      "authors": [
+        {
+          "name": "Chun-Lin Ji",
+          "affiliation": "Qufu Normal University"
+        },
+        {
+          "name": "Tao Yu",
+          "affiliation": "Qufu Normal University"
+        },
+        {
+          "name": "Peng Gao",
+          "affiliation": "Qufu Normal University"
+        },
+        {
+          "name": "Fei Wang",
+          "affiliation": "Harbin Institute of Technology"
+        },
+        {
+          "name": "Ru-Yue Yuan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "",
+      "venue": "Journal of Real-Time Image Processing",
+      "citation_count": 85,
+      "doi": "10.1007/s11554-024-01519-4",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s11554-024-01519-4",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4321352267",
+      "title": "Prediction model of volume average diameter and analysis of atomization characteristics in electrostatic atomization minimum quantity lubrication",
+      "authors": [
+        {
+          "name": "Dongzhou Jia",
+          "affiliation": "Qingdao University of Technology"
+        },
+        {
+          "name": "Changhe Li",
+          "affiliation": "Qingdao University of Science and Technology"
+        },
+        {
+          "name": "Jiahao Liu",
+          "affiliation": "Liaoning University of Technology"
+        },
+        {
+          "name": "Yanbin Zhang",
+          "affiliation": "Hong Kong Polytechnic University"
+        },
+        {
+          "name": "Min Yang",
+          "affiliation": "Qingdao University of Science and Technology"
+        },
+        {
+          "name": "Teng Gao",
+          "affiliation": "Qingdao University of Technology"
+        },
+        {
+          "name": "Zafar Said",
+          "affiliation": "University of Sharjah"
+        },
+        {
+          "name": "Shubham Sharma",
+          "affiliation": "Chandigarh University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Abstract Minimum quantity lubrication (MQL) is a relatively efficient and clean alternative to flooding workpiece machining. Electrostatic atomization has the merits of small droplet diameter, high uniformity of droplet size, and strong coating, hence its superiority to pneumatic atomization. However, as the current research hotspot, the influence of jet parameters and electrical parameters on the average diameter of droplets is not clear. First, by observing the shape of the liquid film at the nozzle outlet, the influence law of air pressure and voltage on liquid film thickness ( h ) and transverse and longitudinal fluctuations are determined. Then, the mathematical model of charged droplet volume average diameter (VAD) is constructed based on three dimensions of the liquid film, namely its thickness, transverse wavelength ( \u03bb h ), and longitudinal wavelength ( \u03bb z ). The model results under different working conditions are obtained by numerical simulation. Comparisons of the model results with the experimental VAD of the droplet confirm the error of the mathematical model to be less than 10%. The droplet diameter distribution span value Rosin-Rammler distribution span (R.S) and percentage concentrations of PM10 (particle size of less than 10 \u00b5m)/PM2.5 (particle size of less than 2.5 \u00b5m) under different working conditions are further analyzed. The results show that electrostatic atomization not only reduces the diameter distribution span of atomized droplets but also significantly inhibits the formation of PM10 and PM2.5 fine-suspension droplets. When the air pressure is 0.3 MPa, and the voltage is 40 kV, the percentage concentrations of PM10 and PM2.5 can be reduced by 80.72% and 92.05%, respectively, compared with that under the pure pneumatic atomization condition at 0.3 MPa.",
+      "venue": "Friction",
+      "citation_count": 101,
+      "doi": "10.1007/s40544-022-0734-2",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s40544-022-0734-2",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4281790889",
+      "title": "ColabFold: making protein folding accessible to all",
+      "authors": [
+        {
+          "name": "Milot Mirdita",
+          "affiliation": "Max Planck Institute for Multidisciplinary Sciences"
+        },
+        {
+          "name": "Konstantin Sch\u00fctze",
+          "affiliation": "Seoul National University"
+        },
+        {
+          "name": "Yoshitaka Moriwaki",
+          "affiliation": "The University of Tokyo"
+        },
+        {
+          "name": "Lim Heo",
+          "affiliation": "Michigan State University"
+        },
+        {
+          "name": "Sergey Ovchinnikov",
+          "affiliation": "Harvard University Press"
+        },
+        {
+          "name": "Martin Steinegger",
+          "affiliation": "Seoul National University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "",
+      "venue": "Nature Methods",
+      "citation_count": 9228,
+      "doi": "10.1038/s41592-022-01488-1",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41592-022-01488-1",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3126428830",
+      "title": "Effects of oil contamination and bioremediation on geotechnical properties of highly plastic clayey soil",
+      "authors": [
+        {
+          "name": "Araz Salimnezhad",
+          "affiliation": "\u00d6zye\u011fin University"
+        },
+        {
+          "name": "Hossein Soltani-Jigheh",
+          "affiliation": "Azarbaijan Shahid Madani University"
+        },
+        {
+          "name": "Ali Abolhasani Soorki",
+          "affiliation": "Academic Center for Education, Culture and Research"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Leakage of oil and its derivatives into the soil can change the engineering behavior of soil as well as cause environmental disasters. Also, recovering the contaminated sites into their natural condition and making contaminated materials as both environmentally and geotechnically suitable construction materials need the employment of remediation techniques. Bioremediation, as an efficient, low cost and environmental-friendly approach, was used in the case of highly plastic clayey soils. To better understand the change in geotechnical properties of highly plastic fine-grained soil due to crude oil contamination and bioremediation, Atterberg limits, compaction, unconfined compression, direct shear, and consolidation tests were conducted on natural, contaminated, and bioremediated soil samples to investigate the effects of contamination and remediation on fine-grained soil properties. Oil contamination reduced maximum dry density (MDD), optimum moisture content (OMC), unconfined compressive strength (UCS), shear strength, swelling pressure, and coefficient of consolidation of soil. In addition, contamination increased the compression and swelling indices and compressibility of soil. Bioremediation reduced soil contamination by about 50%. Moreover, in comparison with contaminated soil, bioremediation reduced the MDD, UCS, swelling index, free swelling and swelling pressure of soil, and also increased OMC, shear strength, cohesion, internal friction angle, failure strain, porosity, compression index, and settlement. Microstructural analyses showed that oil contamination does not alter the soil structure in terms of chemical compounds, elements, and constituent minerals. While it decreased the specific surface area of the soil, and the bioremediation significantly increased the mentioned parameters. Bioremediation resulted in the formation of quasi-fibrous textures and porous and agglomerated structures. As a result, oil contamination affected the mechanical properties of soil negatively, but bioremediation improved these properties.",
+      "venue": "Journal of Rock Mechanics and Geotechnical Engineering",
+      "citation_count": 82,
+      "doi": "10.1016/j.jrmge.2020.11.011",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.jrmge.2020.11.011",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3140854437",
+      "title": "Review of deep learning: concepts, CNN architectures, challenges, applications, future directions",
+      "authors": [
+        {
+          "name": "Laith Alzubaidi",
+          "affiliation": "Queensland University of Technology"
+        },
+        {
+          "name": "Jinglan Zhang",
+          "affiliation": "Queensland University of Technology"
+        },
+        {
+          "name": "Amjad J. Humaidi",
+          "affiliation": "University of Technology - Iraq"
+        },
+        {
+          "name": "Ayad Q. Al-Dujaili",
+          "affiliation": "Middle Technical University"
+        },
+        {
+          "name": "Ye Duan",
+          "affiliation": "University of Missouri"
+        },
+        {
+          "name": "Omran Al-Shamma",
+          "affiliation": "University of Information Technology and Communications"
+        },
+        {
+          "name": "Jos\u00e9 Santamar\u00eda",
+          "affiliation": "Universidad de Ja\u00e9n"
+        },
+        {
+          "name": "Mohammed A. Fadhel",
+          "affiliation": "Thi Qar University"
+        },
+        {
+          "name": "Muthana Al\u2010Amidie",
+          "affiliation": "University of Missouri"
+        },
+        {
+          "name": "Laith Farhan",
+          "affiliation": "Manchester Metropolitan University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "In the last few years, the deep learning (DL) computing paradigm has been deemed the Gold Standard in the machine learning (ML) community. Moreover, it has gradually become the most widely used computational approach in the field of ML, thus achieving outstanding results on several complex cognitive tasks, matching or even beating those provided by human performance. One of the benefits of DL is the ability to learn massive amounts of data. The DL field has grown fast in the last few years and it has been extensively used to successfully address a wide range of traditional applications. More importantly, DL has outperformed well-known ML techniques in many domains, e.g., cybersecurity, natural language processing, bioinformatics, robotics and control, and medical information processing, among many others. Despite it has been contributed several works reviewing the State-of-the-Art on DL, all of them only tackled one aspect of the DL, which leads to an overall lack of knowledge about it. Therefore, in this contribution, we propose using a more holistic approach in order to provide a more suitable starting point from which to develop a full understanding of DL. Specifically, this review attempts to provide a more comprehensive survey of the most important aspects of DL and including those enhancements recently added to the field. In particular, this paper outlines the importance of DL, presents the types of DL techniques and networks. It then presents convolutional neural networks (CNNs) which the most utilized DL network type and describes the development of CNNs architectures together with their main features, e.g., starting with the AlexNet network and closing with the High-Resolution network (HR.Net). Finally, we further present the challenges and suggested solutions to help researchers understand the existing research gaps. It is followed by a list of the major DL applications. Computational tools including FPGA, GPU, and CPU are summarized along with a description of their influence on DL. The paper ends with the evolution matrix, benchmark datasets, and summary and conclusion.",
+      "venue": "Journal Of Big Data",
+      "citation_count": 7130,
+      "doi": "10.1186/s40537-021-00444-8",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1186/s40537-021-00444-8",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4392876411",
+      "title": "CPMI-ChatGLM: parameter-efficient fine-tuning ChatGLM with Chinese patent medicine instructions",
+      "authors": [
+        {
+          "name": "Can Liu",
+          "affiliation": "Anhui University of Traditional Chinese Medicine"
+        },
+        {
+          "name": "Kaijie Sun",
+          "affiliation": "Anhui University of Traditional Chinese Medicine"
+        },
+        {
+          "name": "Qingqing Zhou",
+          "affiliation": "Anhui University of Traditional Chinese Medicine"
+        },
+        {
+          "name": "Yuchen Duan",
+          "affiliation": "Anhui University of Traditional Chinese Medicine"
+        },
+        {
+          "name": "Jianhua Shu",
+          "affiliation": "Anhui University of Traditional Chinese Medicine"
+        },
+        {
+          "name": "Hongxing Kan",
+          "affiliation": "China Academy of Chinese Medical Sciences"
+        },
+        {
+          "name": "Zongyun Gu",
+          "affiliation": "Anhui University of Traditional Chinese Medicine"
+        },
+        {
+          "name": "Jili Hu",
+          "affiliation": "Anhui Medical University"
+        }
+      ],
+      "year": 2024,
+      "abstract": "",
+      "venue": "Scientific Reports",
+      "citation_count": 40,
+      "doi": "10.1038/s41598-024-56874-w",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41598-024-56874-w",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3046805716",
+      "title": "Remaining Useful Life Estimation Using Deep Convolutional Generative Adversarial Networks Based on an Autoencoder Scheme",
+      "authors": [
+        {
+          "name": "Guisheng Hou",
+          "affiliation": "Shandong University of Science and Technology"
+        },
+        {
+          "name": "Shuo Xu",
+          "affiliation": "Shandong University of Science and Technology"
+        },
+        {
+          "name": "Nan Zhou",
+          "affiliation": "Shandong University of Science and Technology"
+        },
+        {
+          "name": "Lei Yang",
+          "affiliation": "Shandong University of Science and Technology"
+        },
+        {
+          "name": "Quanhao Fu",
+          "affiliation": "Shandong University of Science and Technology"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Accurate predictions of remaining useful life (RUL) of important components play a crucial role in system reliability, which is the basis of prognostics and health management (PHM). This paper proposed an integrated deep learning approach for RUL prediction of a turbofan engine by integrating an autoencoder (AE) with a deep convolutional generative adversarial network (DCGAN). In the pretraining stage, the reconstructed data of the AE not only participate in its error reconstruction but also take part in the DCGAN parameter training as the generated data of the DCGAN. Through double-error reconstructions, the capability of feature extraction is enhanced, and high-level abstract information is obtained. In the fine-tuning stage, a long short-term memory (LSTM) network is used to extract the sequential information from the features to predict the RUL. The effectiveness of the proposed scheme is verified on the NASA commercial modular aero-propulsion system simulation (C-MAPSS) dataset. The superiority of the proposed method is demonstrated via excellent prediction performance and comparisons with other existing state-of-the-art prognostics. The results of this study suggest that the proposed data-driven prognostic method offers a new and promising prediction approach and an efficient feature extraction scheme.",
+      "venue": "Computational Intelligence and Neuroscience",
+      "citation_count": 51,
+      "doi": "10.1155/2020/9601389",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1155/2020/9601389",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3021416273",
+      "title": "Proposed mix design method for sustainable high-strength concrete using particle packing optimization",
+      "authors": [
+        {
+          "name": "Heloisa Fuganti Campos",
+          "affiliation": "Universidade Federal do Paran\u00e1"
+        },
+        {
+          "name": "Nayara Soares Klein",
+          "affiliation": "Universidade Federal do Paran\u00e1"
+        },
+        {
+          "name": "J. Marques Filho",
+          "affiliation": "Universidade Federal do Paran\u00e1"
+        }
+      ],
+      "year": 2020,
+      "abstract": "",
+      "venue": "Journal of Cleaner Production",
+      "citation_count": 63,
+      "doi": "10.1016/j.jclepro.2020.121907",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.jclepro.2020.121907",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4392246839",
+      "title": "Modified genetic algorithm and fine-tuned long short-term memory network for intrusion detection in the internet of things networks with edge capabilities",
+      "authors": [
+        {
+          "name": "Yakub Kayode Saheed",
+          "affiliation": "American University of Nigeria"
+        },
+        {
+          "name": "Oluwadamilare Harazeem Abdulganiyu",
+          "affiliation": "Euro-Mediterranean University of Fes"
+        },
+        {
+          "name": "Taha Ait Tchakoucht",
+          "affiliation": "Euro-Mediterranean University of Fes"
+        }
+      ],
+      "year": 2024,
+      "abstract": "",
+      "venue": "Applied Soft Computing",
+      "citation_count": 108,
+      "doi": "10.1016/j.asoc.2024.111434",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.asoc.2024.111434",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4296344711",
+      "title": "An intelligent intrusion detection system for distributed denial of service attacks: A support vector machine with hybrid optimization algorithm based approach",
+      "authors": [
+        {
+          "name": "S. Sumathi",
+          "affiliation": "Government Medical College Thoothukudi"
+        },
+        {
+          "name": "R. Rajesh",
+          "affiliation": "Indian Institute of Technology Madras"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Summary Cloud computing offers comfortable service to business sectors as they can concentrate on their products. Over the internet, cloud computing is liable to various security threats and attacks which is a primary obstacle to the growth of cloud computing services. Distributed denial of service (DDoS) is one such attack that exploits cloud computing services using compromised machines; hence, its detection is a significant field of research. Several DDoS detection schemes have been proposed in the past, but they fail to detect real\u2010time active DDoS attacks because of their growth in severity and volume. Machine learning (ML) techniques are efficient in making predictions; hence, in this study, a hybrid ML intrusion detection system (IDS) model is proposed. The performance of the proposed IDS model is improved by employing a 10\u2010fold cross\u2010validation technique to perform feature selection, reducing data dimensions on the publicly available benchmark NSL\u2010KDD dataset. Performance validation of the proposed hybrid IDS model is done using the confusion matrix. Support vector machine (SVM) parameters are fine\u2010tuned using hybrid Harris Hawks optimization (HHO) and particle swarm optimization (PSO) algorithms. The performance of these hybrid algorithms is compared with other classical algorithms such as C4.5, K\u2010nearest neighbor, and SVM using performance metrics such as precision, sensitivity, specificity, F1 score, and accuracy. From these comparisons, it can be inferred that the proposed SVM with hybrid optimization HHO\u2010PSO machine learning IDS model performs better DDoS detection with good performance metric values.",
+      "venue": "Concurrency and Computation Practice and Experience",
+      "citation_count": 81,
+      "doi": "10.1002/cpe.7334",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1002/cpe.7334",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3206066344",
+      "title": "Differentially Private Fine-tuning of Language Models",
+      "authors": [
+        {
+          "name": "Dahua Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Saurabh Naik",
+          "affiliation": ""
+        },
+        {
+          "name": "Art\u016brs Ba\u010dkurs",
+          "affiliation": ""
+        },
+        {
+          "name": "Sivakanth Gopi",
+          "affiliation": ""
+        },
+        {
+          "name": "Huseyin A. Inan",
+          "affiliation": ""
+        },
+        {
+          "name": "Gautam Kamath",
+          "affiliation": ""
+        },
+        {
+          "name": "Janardhan Kulkarni",
+          "affiliation": ""
+        },
+        {
+          "name": "Yin Tat Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Andre Manoel",
+          "affiliation": ""
+        },
+        {
+          "name": "Lukas Wutschitz",
+          "affiliation": ""
+        },
+        {
+          "name": "Sergey Yekhanin",
+          "affiliation": ""
+        },
+        {
+          "name": "Huishuai Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "We give simpler, sparser, and faster algorithms for differentially private fine-tuning of large-scale pre-trained language models, which achieve the state-of-the-art privacy versus utility tradeoffs on many standard NLP tasks. We propose a meta-framework for this problem, inspired by the recent success of highly parameter-efficient methods for fine-tuning. Our experiments show that differentially private adaptations of these approaches outperform previous private algorithms in three important dimensions: utility, privacy, and the computational and memory cost of private training. On many commonly studied datasets, the utility of private models approaches that of non-private models. For example, on the MNLI dataset we achieve an accuracy of $87.8\\%$ using RoBERTa-Large and $83.5\\%$ using RoBERTa-Base with a privacy budget of $\u03b5= 6.7$. In comparison, absent privacy constraints, RoBERTa-Large achieves an accuracy of $90.2\\%$. Our findings are similar for natural language generation tasks. Privately fine-tuning with DART, GPT-2-Small, GPT-2-Medium, GPT-2-Large, and GPT-2-XL achieve BLEU scores of 38.5, 42.0, 43.1, and 43.8 respectively (privacy budget of $\u03b5= 6.8,\u03b4=$ 1e-5) whereas the non-private baseline is $48.1$. All our experiments suggest that larger models are better suited for private fine-tuning: while they are well known to achieve superior accuracy non-privately, we find that they also better maintain their accuracy when privacy is introduced.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 45,
+      "doi": "10.48550/arxiv.2110.06500",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2110.06500",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4402701012",
+      "title": "The Ultimate Guide to Fine-Tuning LLMs from Basics to Breakthroughs: An Exhaustive Review of Technologies, Research, Best Practices, Applied Research Challenges and Opportunities",
+      "authors": [
+        {
+          "name": "Venkatesh Balavadhani Parthasarathy",
+          "affiliation": ""
+        },
+        {
+          "name": "Ahtsham Zafar",
+          "affiliation": ""
+        },
+        {
+          "name": "Aafaq Khan",
+          "affiliation": ""
+        },
+        {
+          "name": "Arsalan Shahid",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "This report examines the fine-tuning of Large Language Models (LLMs), integrating theoretical insights with practical applications. It outlines the historical evolution of LLMs from traditional Natural Language Processing (NLP) models to their pivotal role in AI. A comparison of fine-tuning methodologies, including supervised, unsupervised, and instruction-based approaches, highlights their applicability to different tasks. The report introduces a structured seven-stage pipeline for fine-tuning LLMs, spanning data preparation, model initialization, hyperparameter tuning, and model deployment. Emphasis is placed on managing imbalanced datasets and optimization techniques. Parameter-efficient methods like Low-Rank Adaptation (LoRA) and Half Fine-Tuning are explored for balancing computational efficiency with performance. Advanced techniques such as memory fine-tuning, Mixture of Experts (MoE), and Mixture of Agents (MoA) are discussed for leveraging specialized networks and multi-agent collaboration. The report also examines novel approaches like Proximal Policy Optimization (PPO) and Direct Preference Optimization (DPO), which align LLMs with human preferences, alongside pruning and routing optimizations to improve efficiency. Further sections cover validation frameworks, post-deployment monitoring, and inference optimization, with attention to deploying LLMs on distributed and cloud-based platforms. Emerging areas such as multimodal LLMs, fine-tuning for audio and speech, and challenges related to scalability, privacy, and accountability are also addressed. This report offers actionable insights for researchers and practitioners navigating LLM fine-tuning in an evolving landscape.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 38,
+      "doi": "10.48550/arxiv.2408.13296",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2408.13296",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4402916156",
+      "title": "Low-Rank Few-Shot Adaptation of Vision-Language Models",
+      "authors": [
+        {
+          "name": "Maxime Zanella",
+          "affiliation": ""
+        },
+        {
+          "name": "Ismail Ben Ayed",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Recent progress in the few-shot adaptation of VisionLanguage Models (VLMs) has further pushed their generalization capabilities, at the expense of just a few labeled samples within the target downstream task. However, this promising, already quite abundant few-shot literature has focused principally on prompt learning and, to a lesser extent, on adapters, overlooking the recent advances in Parameter-Efficient Fine-Tuning (PEFT). Furthermore, existing few-shot learning methods for VLMs often rely on heavy training procedures and/or carefully chosen, taskspecific hyper-parameters, which might impede their applicability. In response, we introduce Low-Rank Adaptation (LoRA) in few-shot learning for VLMs, and show its potential on 11 datasets, in comparison to current state-of-the-art prompt- and adapter-based approaches. Surprisingly, our simple CLIP-LoRA method exhibits substantial improvements, while reducing the training times and keeping the same hyper-parameters in all the target tasks, i.e., across all the datasets and numbers of shots. Certainly, our surprising results do not dismiss the potential of promptlearning and adapter-based research. However, we believe that our strong baseline could be used to evaluate progress in these emergent subjects in few-shot VLMs.",
+      "venue": "",
+      "citation_count": 43,
+      "doi": "10.1109/cvprw63382.2024.00166",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvprw63382.2024.00166",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4388483108",
+      "title": "An Empirical Study of Parameter-Efficient Fine-Tuning Methods for Pre-Trained Code Models",
+      "authors": [
+        {
+          "name": "Jiaxing Liu",
+          "affiliation": "Fudan University"
+        },
+        {
+          "name": "Chaofeng Sha",
+          "affiliation": "Fudan University"
+        },
+        {
+          "name": "Xin Peng",
+          "affiliation": "Fudan University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Pre-trained code models (e.g. CodeBERT and CodeT5) have demonstrated their code intelligence in various software engineering tasks, such as code summarization. And full fine-tuning has become the typical approach to adapting these models to downstream tasks. However, full fine-tuning these large models can be computationally expensive and memory-intensive, particularly when training for multiple tasks. To alleviate this issue, several parameter-efficient fine-tuning methods (e.g. Adapter and LoRA) have been proposed to only train a small number of additional parameters, while keeping the original pre-trained parameters frozen. Although these methods claim superiority over the prior techniques, they seldom make a comprehensive and fair comparison on multiple software engineering tasks. Moreover, besides their potential in reducing fine-tuning costs and maintaining approximate performance, the effectiveness of these methods in low-resource, cross-language, and cross-project scenarios is inadequately studied. To this end, we first conduct experiments by fine-tuning state-of-the-art code models with these methods on both code understanding tasks and code generation tasks. The results show that, by tuning only 0.5% additional parameters, these methods may achieve comparable or higher performance than full fine-tuning in code understanding tasks, but they may exhibit slightly weaker performance in code generation tasks. We also investigate the impact of these methods with varying numbers of training samples and find that, a considerable number of samples (e.g. 1000 for clone detection) may be required for them to approximate the performance of full fine-tuning. Our experimental results in cross-language and cross-project scenarios demonstrate that by freezing most pre-trained parameters and tuning only 0.5% additional parameters, these methods achieve consistent improvements in models' transfer learning ability in comparison to full fine-tuning. Our code and data are available at https://github.com/anonymous-ase23/ CodeModelParameterEfficientFinetuning.",
+      "venue": "",
+      "citation_count": 24,
+      "doi": "10.1109/ase56229.2023.00125",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/ase56229.2023.00125",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4386027815",
+      "title": "Self-adaptive polynomial mutation in NSGA-II",
+      "authors": [
+        {
+          "name": "Jose L. Carles-Bou",
+          "affiliation": "Universidad Nacional de Educaci\u00f3n a Distancia"
+        },
+        {
+          "name": "Severino F. Gal\u00e1n",
+          "affiliation": "Universidad Nacional de Educaci\u00f3n a Distancia"
+        }
+      ],
+      "year": 2023,
+      "abstract": "",
+      "venue": "Soft Computing",
+      "citation_count": 31,
+      "doi": "10.1007/s00500-023-09049-0",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s00500-023-09049-0",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4380050937",
+      "title": "Boosting battery state of health estimation based on self-supervised learning",
+      "authors": [
+        {
+          "name": "Yunhong Che",
+          "affiliation": "Aalborg University"
+        },
+        {
+          "name": "Yusheng Zheng",
+          "affiliation": "Aalborg University"
+        },
+        {
+          "name": "Xin Sui",
+          "affiliation": "Aalborg University"
+        },
+        {
+          "name": "Remus Teodorescu",
+          "affiliation": "Aalborg University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "",
+      "venue": "Journal of Energy Chemistry",
+      "citation_count": 53,
+      "doi": "10.1016/j.jechem.2023.05.034",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.jechem.2023.05.034",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4399971973",
+      "title": "Differentially Private Fine-tuning of Language Models",
+      "authors": [
+        {
+          "name": "Da Yu",
+          "affiliation": "Sun Yat-sen University"
+        },
+        {
+          "name": "Saurabh Naik",
+          "affiliation": "Microsoft Research (United Kingdom)"
+        },
+        {
+          "name": "Art\u016brs Ba\u010dkurs",
+          "affiliation": "Microsoft Research (United Kingdom)"
+        },
+        {
+          "name": "Sivakanth Gopi",
+          "affiliation": "Microsoft Research (United Kingdom)"
+        },
+        {
+          "name": "Huseyin A. Inan",
+          "affiliation": "Microsoft Research (United Kingdom)"
+        },
+        {
+          "name": "Gautam Kamath",
+          "affiliation": "University of Waterloo"
+        },
+        {
+          "name": "Janardhan Kulkarni",
+          "affiliation": "Microsoft Research (United Kingdom)"
+        },
+        {
+          "name": "Yin Tat Lee",
+          "affiliation": "Microsoft Research (United Kingdom)"
+        },
+        {
+          "name": "Andre Manoel",
+          "affiliation": "Microsoft Research (United Kingdom)"
+        },
+        {
+          "name": "Lukas Wutschitz",
+          "affiliation": "Microsoft Research (United Kingdom)"
+        },
+        {
+          "name": "Sergey Yekhanin",
+          "affiliation": "Microsoft Research (United Kingdom)"
+        },
+        {
+          "name": "Huishuai Zhang",
+          "affiliation": "Microsoft Research (United Kingdom)"
+        }
+      ],
+      "year": 2024,
+      "abstract": "We give simpler, sparser, and faster algorithms for differentially private fine-tuning of large-scale pre-trained language models, which achieve the state-of-the-art privacy versus utility tradeoffs on many standard NLP tasks. We propose a meta-framework for this problem, inspired by the recent success of highly parameter-efficient methods for fine-tuning. Our experiments show that differentially private adaptations of these approaches outperform previous private algorithms in three important dimensions: utility, privacy, and the computational and memory cost of private training. On many commonly studied datasets, the utility of private models approaches that of non-private models. For example, on the MNLI dataset we achieve an accuracy of $87.8\\%$ using RoBERTa-Large and $83.5\\%$ using RoBERTa-Base with a privacy budget of $\\epsilon = 6.7$. In comparison, absent privacy constraints, RoBERTa-Large achieves an accuracy of $90.2\\%$. Our findings are similar for natural language generation tasks. Privately fine-tuning with DART, GPT-2-Small, GPT-2-Medium, GPT-2-Large, and GPT-2-XL achieve BLEU scores of 38.5, 42.0, 43.1, and 43.8 respectively (privacy budget of $\\epsilon = 6.8,\\delta=$ 1e-5) whereas the non-private baseline is $48.1$. All our experiments suggest that larger models are better suited for private fine-tuning: while they are well known to achieve superior accuracy non-privately, we find that they also better maintain their accuracy when privacy is introduced.",
+      "venue": "Journal of Privacy and Confidentiality",
+      "citation_count": 35,
+      "doi": "10.29012/jpc.880",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.29012/jpc.880",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4393942911",
+      "title": "IISAN: Efficiently Adapting Multimodal Representation for Sequential Recommendation with Decoupled PEFT",
+      "authors": [
+        {
+          "name": "Junchen Fu",
+          "affiliation": "University of Glasgow"
+        },
+        {
+          "name": "Xuri Ge",
+          "affiliation": "University of Glasgow"
+        },
+        {
+          "name": "Xin Xin",
+          "affiliation": "Shandong University"
+        },
+        {
+          "name": "Alexandros Karatzoglou",
+          "affiliation": ""
+        },
+        {
+          "name": "Ioannis Arapakis",
+          "affiliation": "Telefonica Research and Development"
+        },
+        {
+          "name": "Jie Wang",
+          "affiliation": "University of Glasgow"
+        },
+        {
+          "name": "Joemon M. Jose",
+          "affiliation": "University of Glasgow"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Multimodal foundation models are transformative in sequential recommender systems, leveraging powerful representation learning capabilities. While Parameter-efficient Fine-tuning (PEFT) is commonly used to adapt foundation models for recommendation tasks, most research prioritizes parameter efficiency, often overlooking critical factors like GPU memory efficiency and training speed. Addressing this gap, our paper introduces IISAN (Intra- and Inter-modal Side Adapted Network for Multimodal Representation), a simple plug-and-play architecture using a Decoupled PEFT structure and exploiting both intra- and inter-modal adaptation. IISAN matches the performance of full fine-tuning (FFT) and state-of-the-art PEFT. More importantly, it significantly reduces GPU memory usage - from 47GB to just 3GB for multimodal sequential recommendation tasks. Additionally, it accelerates training time per epoch from 443s to 22s compared to FFT. This is also a notable improvement over the Adapter and LoRA, which require 37-39 GB GPU memory and 350-380 seconds per epoch for training. Furthermore, we propose a new composite efficiency metric, TPME (Training-time, Parameter, and GPU Memory Efficiency) to alleviate the prevalent misconception that \"parameter efficiency represents overall efficiency\". TPME provides more comprehensive insights into practical efficiency comparisons between different methods. Besides, we give an accessible efficiency analysis of all PEFT and FFT approaches, which demonstrate the superiority of IISAN. We release our codes and other materials at https://github.com/GAIR-Lab/IISAN.",
+      "venue": "",
+      "citation_count": 25,
+      "doi": "10.1145/3626772.3657725",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3626772.3657725",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4200150166",
+      "title": "NeRF",
+      "authors": [
+        {
+          "name": "Ben Mildenhall",
+          "affiliation": "Berkeley College"
+        },
+        {
+          "name": "Pratul P. Srinivasan",
+          "affiliation": "Berkeley College"
+        },
+        {
+          "name": "Matthew Tancik",
+          "affiliation": "Berkeley College"
+        },
+        {
+          "name": "Jonathan T. Barron",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Ravi Ramamoorthi",
+          "affiliation": "University of California, San Diego"
+        },
+        {
+          "name": "Ren Ng",
+          "affiliation": "Berkeley College"
+        }
+      ],
+      "year": 2021,
+      "abstract": "We present a method that achieves state-of-the-art results for synthesizing novel views of complex scenes by optimizing an underlying continuous volumetric scene function using a sparse set of input views. Our algorithm represents a scene using a fully connected (nonconvolutional) deep network, whose input is a single continuous 5D coordinate (spatial location ( x , y , z ) and viewing direction ( \u03b8, \u03d5 )) and whose output is the volume density and view-dependent emitted radiance at that spatial location. We synthesize views by querying 5D coordinates along camera rays and use classic volume rendering techniques to project the output colors and densities into an image. Because volume rendering is naturally differentiable, the only input required to optimize our representation is a set of images with known camera poses. We describe how to effectively optimize neural radiance fields to render photorealistic novel views of scenes with complicated geometry and appearance, and demonstrate results that outperform prior work on neural rendering and view synthesis.",
+      "venue": "Communications of the ACM",
+      "citation_count": 5207,
+      "doi": "10.1145/3503250",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3503250",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3199886545",
+      "title": "Hydrogenation kinetics of m-dinitrobenzene in a continuous micro-packed bed reactor",
+      "authors": [
+        {
+          "name": "Xiaonan Duan",
+          "affiliation": "State Key Laboratory of Chemical Engineering"
+        },
+        {
+          "name": "Jiabin Yin",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Mengmeng Huang",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Aoxing Feng",
+          "affiliation": "State Key Laboratory of Chemical Engineering"
+        },
+        {
+          "name": "Weisong Fu",
+          "affiliation": ""
+        },
+        {
+          "name": "Huaxiang Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhenfu Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yagang Ding",
+          "affiliation": ""
+        },
+        {
+          "name": "Jisong Zhang",
+          "affiliation": "Tsinghua University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "",
+      "venue": "Chemical Engineering Science",
+      "citation_count": 32,
+      "doi": "10.1016/j.ces.2021.117113",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.ces.2021.117113",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3175954176",
+      "title": "Communication-efficient Decentralized Machine Learning over Heterogeneous Networks",
+      "authors": [
+        {
+          "name": "Pan Zhou",
+          "affiliation": "University of Electronic Science and Technology of China"
+        },
+        {
+          "name": "Qian Lin",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Dumitrel Loghin",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Beng Chin Ooi",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Yuncheng Wu",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Hongfang Yu",
+          "affiliation": "University of Electronic Science and Technology of China"
+        }
+      ],
+      "year": 2021,
+      "abstract": "In the last few years, distributed machine learning has been usually executed over heterogeneous networks such as a local area network within a multi-tenant cluster or a wide area network connecting data centers and edge clusters. In these heterogeneous networks, the link speeds among worker nodes vary significantly, making it challenging for state-of-the-art machine learning approaches to perform efficient training. Both centralized and decentralized training approaches suffer from low-speed links. In this paper, we propose a decentralized approach, namely NetMax, that enables worker nodes to communicate via high-speed links and, thus, significantly speed up the training process. NetMax possesses the following novel features. First, it consists of a novel consensus algorithm that allows worker nodes to train model copies on their local dataset asynchronously and exchange information via peer-to-peer communication to synchronize their local copies, instead of a central master node (i.e., parameter server). Second, each worker node selects one peer randomly with a fine-tuned probability to exchange information per iteration. In particular, peers with high-speed links are selected with high probability. Third, the probabilities of selecting peers are designed to minimize the total convergence time. Moreover, we mathematically prove the convergence of NetMax. We evaluate NetMax on heterogeneous cluster networks and show that it achieves speedups of 3.7\u00d7, 3.4\u00d7, and 1.9\u00d7 in comparison with the state-of-the-art decentralized training approaches Prague, Allreduce-SGD, and AD-PSGD, respectively.",
+      "venue": "",
+      "citation_count": 57,
+      "doi": "10.1109/icde51399.2021.00040",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/icde51399.2021.00040",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4221151978",
+      "title": "Instant neural graphics primitives with a multiresolution hash encoding",
+      "authors": [
+        {
+          "name": "Thomas M\u00fcller",
+          "affiliation": ""
+        },
+        {
+          "name": "Alex Evans",
+          "affiliation": "Nvidia (United Kingdom)"
+        },
+        {
+          "name": "Christoph Schied",
+          "affiliation": ""
+        },
+        {
+          "name": "Alexander Keller",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Neural graphics primitives, parameterized by fully connected neural networks, can be costly to train and evaluate. We reduce this cost with a versatile new input encoding that permits the use of a smaller network without sacrificing quality, thus significantly reducing the number of floating point and memory access operations: a small neural network is augmented by a multiresolution hash table of trainable feature vectors whose values are optimized through stochastic gradient descent. The multiresolution structure allows the network to disambiguate hash collisions, making for a simple architecture that is trivial to parallelize on modern GPUs. We leverage this parallelism by implementing the whole system using fully-fused CUDA kernels with a focus on minimizing wasted bandwidth and compute operations. We achieve a combined speedup of several orders of magnitude, enabling training of high-quality neural graphics primitives in a matter of seconds, and rendering in tens of milliseconds at a resolution of 1920\u00d71080.",
+      "venue": "ACM Transactions on Graphics",
+      "citation_count": 3424,
+      "doi": "10.1145/3528223.3530127",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3528223.3530127",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4294808066",
+      "title": "Delta Tuning: A Comprehensive Study of Parameter Efficient Methods for Pre-trained Language Models",
+      "authors": [
+        {
+          "name": "Ning Ding",
+          "affiliation": ""
+        },
+        {
+          "name": "Yujia Qin",
+          "affiliation": ""
+        },
+        {
+          "name": "Guang Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Fuchao Wei",
+          "affiliation": ""
+        },
+        {
+          "name": "Zonghan Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu-Sheng Su",
+          "affiliation": ""
+        },
+        {
+          "name": "Shengding Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yulin Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Chi-Min Chan",
+          "affiliation": ""
+        },
+        {
+          "name": "Weize Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Jing Yi",
+          "affiliation": ""
+        },
+        {
+          "name": "Weilin Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaozhi Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiyuan Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hai-Tao Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianfei Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jie Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Juanzi Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Maosong Sun",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Despite the success, the process of fine-tuning large-scale PLMs brings prohibitive adaptation costs. In fact, fine-tuning all the parameters of a colossal model and retaining separate instances for different tasks are practically infeasible. This necessitates a new branch of research focusing on the parameter-efficient adaptation of PLMs, dubbed as delta tuning in this paper. In contrast with the standard fine-tuning, delta tuning only fine-tunes a small portion of the model parameters while keeping the rest untouched, largely reducing both the computation and storage costs. Recent studies have demonstrated that a series of delta tuning methods with distinct tuned parameter selection could achieve performance on a par with full-parameter fine-tuning, suggesting a new promising way of stimulating large-scale PLMs. In this paper, we first formally describe the problem of delta tuning and then comprehensively review recent delta tuning approaches. We also propose a unified categorization criterion that divide existing delta tuning methods into three groups: addition-based, specification-based, and reparameterization-based methods. Though initially proposed as an efficient method to steer large models, we believe that some of the fascinating evidence discovered along with delta tuning could help further reveal the mechanisms of PLMs and even deep neural networks. To this end, we discuss the theoretical principles underlying the effectiveness of delta tuning and propose frameworks to interpret delta tuning from the perspective of optimization and optimal control, respectively. Furthermore, we provide a holistic empirical study of representative methods, where results on over 100 NLP tasks demonstrate a comprehensive performance comparison of different approaches. The experimental results also cover the analysis of combinatorial, scaling and transferable properties of delta tuning.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 20,
+      "doi": "10.48550/arxiv.2203.06904",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2203.06904",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3042715759",
+      "title": "A novel and rapid extraction protocol for sensitive and accurate determination of prochloraz in orange juice samples: Vortex\u2010assisted spraying\u2010based fine droplet formation liquid\u2010phase microextraction before gas chromatography\u2013mass spectrometry",
+      "authors": [
+        {
+          "name": "Yaren Dikmen",
+          "affiliation": "Y\u0131ld\u0131z Technical University"
+        },
+        {
+          "name": "Ayb\u00fcke G\u00fclery\u00fcz",
+          "affiliation": "Y\u0131ld\u0131z Technical University"
+        },
+        {
+          "name": "Berfin Metin",
+          "affiliation": "Y\u0131ld\u0131z Technical University"
+        },
+        {
+          "name": "S\u00fcleyman Bodur",
+          "affiliation": "Y\u0131ld\u0131z Technical University"
+        },
+        {
+          "name": "Miray \u00d6ner",
+          "affiliation": "Y\u0131ld\u0131z Technical University"
+        },
+        {
+          "name": "Sezgin Bak\u0131rdere",
+          "affiliation": "Turkish Academy of Sciences"
+        }
+      ],
+      "year": 2020,
+      "abstract": "A novel, ecofriendly, and easy extraction and preconcentration method named as vortex-assisted spraying-based fine droplet formation liquid-phase microextraction was proposed for the determination of prochloraz at trace levels in orange juice samples by gas chromatography-mass spectrometry (GC-MS). In this novel system, extraction solvent is dispersed by the help of spraying apparatus instead of dispersive solvent. Various parameters of the method were carefully optimized to increase signal-to-noise ratio of the analyte. Under the optimum chromatographic and extraction conditions, limit of detection and limit of quantification were calculated as 3.2 and 10.8 \u03bcg/kg, respectively. Moreover, enhancement in quantification power for the GC-MS system was determined as 372 folds based on LOQ comparison. Relative recovery results for orange juice samples were found to be between 95.0-107.7% by utilizing matrix matching calibration. Furthermore, the developed method may be used to efficiently and simply extract other organic compounds for their determinations in several matrices.",
+      "venue": "Journal of Mass Spectrometry",
+      "citation_count": 33,
+      "doi": "10.1002/jms.4622",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1002/jms.4622",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4396640642",
+      "title": "Recent advances and developments of the application of hybrid nanofluids in parabolic solar collector energy systems and guidelines for future prospects",
+      "authors": [
+        {
+          "name": "Farhan Lafta Rashid",
+          "affiliation": "University of Kerbala"
+        },
+        {
+          "name": "Hakim S. Sultan Aljibori",
+          "affiliation": "University of Kerbala"
+        },
+        {
+          "name": "Hayder I. Mohammed",
+          "affiliation": "Imam Ja\u2019afar Al-Sadiq University"
+        },
+        {
+          "name": "Arman Ameen",
+          "affiliation": "University of G\u00e4vle"
+        },
+        {
+          "name": "Shabbir Ahmad",
+          "affiliation": "China University of Geosciences"
+        },
+        {
+          "name": "Mohamed Bechir Ben Hamida",
+          "affiliation": "University of Monastir"
+        },
+        {
+          "name": "Ameer H. Al\u2010Rubaye",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "This study addresses challenges in enhancing the thermal efficiency of parabolic solar collector energy systems using hybrid nanofluids, focusing on issues like nanoparticle clumping and decreased effectiveness. The objective is to optimize design parameters for improved energy absorption and efficiency by evaluating the thermal performance of hybrid nanofluids through theoretical and experimental analyses, aiming to enhance the overall efficiency of solar collector systems. The thermal performance of solar collector systems was evaluated by conducting numerical simulations and experimental analyses to investigate the effects of various nanoparticle compositions and concentrations. The findings suggest that hybrid nanofluids, specifically Au-Cu/EO and Cu-Al2O3, demonstrate enhanced heat transfer properties in comparison to conventional fluids, resulting in efficiency enhancements ranging from 22.44% to 35.01%. Compared to water, Al2O3/water (0.04%), and MWCNT/water (0.04%), the solar collector's thermal efficiency improves by 197.1%, 69.2%, and 6.1%, respectively. Furthermore, the research emphasizes the potential advantages of integrating precise nanoparticle concentrations to improve thermal efficiency while reducing the adverse effects of friction factors. The results emphasize the significance of tackling primary obstacles such as the clumping together of nanoparticles, heightened energy demands for pumping, and elevated expenses in the manufacture of hybrid nanofluids. The study enhances the advancement of cost-effective and efficient solar collector systems by identifying limits and suggesting alternative solutions. The research highlights the necessity for additional investigation into innovative combinations of nanomaterials, fine-tuning of fluid characteristics, and thorough evaluations of long-term stability in order to forward the practical use of hybrid nanofluids in solar energy systems.",
+      "venue": "Journal of Engineering Research",
+      "citation_count": 54,
+      "doi": "10.1016/j.jer.2024.04.023",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.jer.2024.04.023",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4395443393",
+      "title": "Med42 -- Evaluating Fine-Tuning Strategies for Medical LLMs: Full-Parameter vs. Parameter-Efficient Approaches",
+      "authors": [
+        {
+          "name": "Christophe Cl\u00e9ment",
+          "affiliation": ""
+        },
+        {
+          "name": "Praveen K Kanithi",
+          "affiliation": ""
+        },
+        {
+          "name": "Prateek Munjal",
+          "affiliation": ""
+        },
+        {
+          "name": "Tathagata Raha",
+          "affiliation": ""
+        },
+        {
+          "name": "Nasir Hayat",
+          "affiliation": ""
+        },
+        {
+          "name": "Ronnie Rajan",
+          "affiliation": ""
+        },
+        {
+          "name": "Ahmed Al-Mahrooqi",
+          "affiliation": ""
+        },
+        {
+          "name": "Avani Gupta",
+          "affiliation": ""
+        },
+        {
+          "name": "Muhammad Salman",
+          "affiliation": ""
+        },
+        {
+          "name": "Gurpreet Gosal",
+          "affiliation": ""
+        },
+        {
+          "name": "Bhargav M Kanakiya",
+          "affiliation": ""
+        },
+        {
+          "name": "Charles Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Natalia Vassilieva",
+          "affiliation": ""
+        },
+        {
+          "name": "Boulbaba Ben Amor",
+          "affiliation": ""
+        },
+        {
+          "name": "Marco AF Pimentel",
+          "affiliation": ""
+        },
+        {
+          "name": "Shadab Ahmad Khan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "This study presents a comprehensive analysis and comparison of two predominant fine-tuning methodologies - full-parameter fine-tuning and parameter-efficient tuning - within the context of medical Large Language Models (LLMs). We developed and refined a series of LLMs, based on the Llama-2 architecture, specifically designed to enhance medical knowledge retrieval, reasoning, and question-answering capabilities. Our experiments systematically evaluate the effectiveness of these tuning strategies across various well-known medical benchmarks. Notably, our medical LLM Med42 showed an accuracy level of 72% on the US Medical Licensing Examination (USMLE) datasets, setting a new standard in performance for openly available medical LLMs. Through this comparative analysis, we aim to identify the most effective and efficient method for fine-tuning LLMs in the medical domain, thereby contributing significantly to the advancement of AI-driven healthcare applications.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 12,
+      "doi": "10.48550/arxiv.2404.14779",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2404.14779",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W1524333225",
+      "title": "Kaldi Speech Recognition Toolkit",
+      "authors": [
+        {
+          "name": "Daniel Povey",
+          "affiliation": "Microsoft (United States)"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Abstract\u2014We describe the design of Kaldi, a free, open-source toolkit for speech recognition research. Kaldi provides a speech recognition system based on finite-state transducers (using the freely available OpenFst), together with detailed documentation and scripts for building complete recognition systems. Kaldi is written is C++, and the core library supports modeling of arbitrary phonetic-context sizes, acoustic modeling with subspace Gaussian mixture models (SGMM) as well as standard Gaussian mixture models, together with all commonly used linear and affine transforms. Kaldi is released under the Apache License v2.0, which is highly nonrestrictive, making it suitable for a wide community of users. I.",
+      "venue": "Infoscience (Ecole Polytechnique F\u00e9d\u00e9rale de Lausanne)",
+      "citation_count": 4893,
+      "doi": "10.57702/jb3fvbn9",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.57702/jb3fvbn9",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4392908897",
+      "title": "Predictive modelling of cohesion and friction angle of soil using gene expression programming: a step towards smart and sustainable construction",
+      "authors": [
+        {
+          "name": "Muhammad Naqeeb Nawaz",
+          "affiliation": "National University of Sciences and Technology"
+        },
+        {
+          "name": "Badee Alshameri",
+          "affiliation": "National University of Sciences and Technology"
+        },
+        {
+          "name": "Zain Maqsood",
+          "affiliation": "National University of Sciences and Technology"
+        },
+        {
+          "name": "Waqas Hassan",
+          "affiliation": "National University of Sciences and Technology"
+        }
+      ],
+      "year": 2024,
+      "abstract": "",
+      "venue": "Neural Computing and Applications",
+      "citation_count": 32,
+      "doi": "10.1007/s00521-024-09626-w",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s00521-024-09626-w",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4210755502",
+      "title": "Hydrogenation kinetics of halogenated nitroaromatics over Pt/C in a continuous Micro-packed bed reactor",
+      "authors": [
+        {
+          "name": "Xiaonan Duan",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Jiabin Yin",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Mengmeng Huang",
+          "affiliation": "State Key Laboratory of Chemical Engineering"
+        },
+        {
+          "name": "Peixia Wang",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Jisong Zhang",
+          "affiliation": "Tsinghua University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "",
+      "venue": "Chemical Engineering Science",
+      "citation_count": 30,
+      "doi": "10.1016/j.ces.2022.117483",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.ces.2022.117483",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4394593224",
+      "title": "PECoP: Parameter Efficient Continual Pretraining for Action Quality Assessment",
+      "authors": [
+        {
+          "name": "Amirhossein Dadashzadeh",
+          "affiliation": "University of Bristol"
+        },
+        {
+          "name": "Shuchao Duan",
+          "affiliation": "University of Bristol"
+        },
+        {
+          "name": "Alan Whone",
+          "affiliation": "University of Bristol"
+        },
+        {
+          "name": "Majid Mirmehdi",
+          "affiliation": "University of Bristol"
+        }
+      ],
+      "year": 2024,
+      "abstract": "The limited availability of labelled data in Action Quality Assessment (AQA), has forced previous works to fine-tune their models pretrained on large-scale domain-general datasets. This common approach results in weak generalisation, particularly when there is a significant domain shift. We propose a novel, parameter efficient, continual pretraining framework, PECoP, to reduce such domain shift via an additional pretraining stage. In PECoP, we introduce 3D-Adapters, inserted into the pretrained model, to learn spatiotemporal, in-domain information via self-supervised learning where only the adapter modules\u2019 parameters are updated. We demonstrate PECoP\u2019s ability to enhance the performance of recent state-of-the-art methods (MUSDL, CoRe, and TSA) applied to AQA, leading to considerable improvements on benchmark datasets, JIGSAWS (\u2191 6.0%), MTL-AQA (\u2191 0.99%), and FineDiving (\u2191 2.54%). We also present a new Parkinson\u2019s Disease dataset, PD4T, of real patients performing four various actions, where we surpass (\u2191 3.56%) the state-of-the-art in comparison. Our code, pretrained models, and the PD4T dataset are available at https://github.com/Plrbear/PECoP.",
+      "venue": "",
+      "citation_count": 30,
+      "doi": "10.1109/wacv57701.2024.00012",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/wacv57701.2024.00012",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2997502326",
+      "title": "Fast and Robust Face-to-Parameter Translation for Game Character Auto-Creation",
+      "authors": [
+        {
+          "name": "Tianyang Shi",
+          "affiliation": "NetEase (China)"
+        },
+        {
+          "name": "Zhengxia Zuo",
+          "affiliation": "University of Michigan\u2013Ann Arbor"
+        },
+        {
+          "name": "Yi Yuan",
+          "affiliation": "NetEase (China)"
+        },
+        {
+          "name": "Changjie Fan",
+          "affiliation": "NetEase (China)"
+        },
+        {
+          "name": "Tianyang Shi",
+          "affiliation": "NetEase (China)"
+        },
+        {
+          "name": "Zhengxia Zuo",
+          "affiliation": "University of Michigan\u2013Ann Arbor"
+        },
+        {
+          "name": "Yi Yuan",
+          "affiliation": "NetEase (China)"
+        },
+        {
+          "name": "Changjie Fan",
+          "affiliation": "NetEase (China)"
+        }
+      ],
+      "year": 2020,
+      "abstract": "With the rapid development of Role-Playing Games (RPGs), players are now allowed to edit the facial appearance of their in-game characters with their preferences rather than using default templates. This paper proposes a game character auto-creation framework that generates in-game characters according to a player's input face photo. Different from the previous methods that are designed based on neural style transfer or monocular 3D face reconstruction, we re-formulate the character auto-creation process in a different point of view: by predicting a large set of physically meaningful facial parameters under a self-supervised learning paradigm. Instead of updating facial parameters iteratively at the input end of the renderer as suggested by previous methods, which are time-consuming, we introduce a facial parameter translator so that the creation can be done efficiently through a single forward propagation from the face embeddings to parameters, with a considerable 1000x computational speedup. Despite its high efficiency, the interactivity is preserved in our method where users are allowed to optionally fine-tune the facial parameters on our creation according to their needs. Our approach also shows better robustness than previous methods, especially for those photos with head-pose variance. Comparison results and ablation analysis on seven public face verification datasets suggest the effectiveness of our method.",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 23,
+      "doi": "10.1609/aaai.v34i02.5537",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v34i02.5537",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3185341429",
+      "title": "Pre-train, Prompt, and Predict: A Systematic Survey of Prompting Methods in Natural Language Processing",
+      "authors": [
+        {
+          "name": "Pengfei Liu",
+          "affiliation": "Carnegie Mellon University"
+        },
+        {
+          "name": "Weizhe Yuan",
+          "affiliation": "Carnegie Mellon University"
+        },
+        {
+          "name": "Jinlan Fu",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Zhengbao Jiang",
+          "affiliation": "Carnegie Mellon University"
+        },
+        {
+          "name": "Hiroaki Hayashi",
+          "affiliation": "Carnegie Mellon University"
+        },
+        {
+          "name": "Graham Neubig",
+          "affiliation": "Carnegie Mellon University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "This article surveys and organizes research works in a new paradigm in natural language processing, which we dub \u201cprompt-based learning.\u201d Unlike traditional supervised learning, which trains a model to take in an input x and predict an output y as P ( y|x ), prompt-based learning is based on language models that model the probability of text directly. To use these models to perform prediction tasks, the original input x is modified using a template into a textual string prompt x\u2032 that has some unfilled slots, and then the language model is used to probabilistically fill the unfilled information to obtain a final string x\u0302 , from which the final output y can be derived. This framework is powerful and attractive for a number of reasons: It allows the language model to be pre-trained on massive amounts of raw text, and by defining a new prompting function the model is able to perform few-shot or even zero-shot learning, adapting to new scenarios with few or no labeled data. In this article, we introduce the basics of this promising paradigm, describe a unified set of mathematical notations that can cover a wide variety of existing work, and organize existing work along several dimensions, e.g., the choice of pre-trained language models, prompts, and tuning strategies. To make the field more accessible to interested beginners, we not only make a systematic review of existing works and a highly structured typology of prompt-based concepts but also release other resources, e.g., a website NLPedia\u2013Pretrain including constantly updated survey and paperlist.",
+      "venue": "ACM Computing Surveys",
+      "citation_count": 3411,
+      "doi": "10.1145/3560815",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3560815",
+      "source": "openalex",
+      "_bibtex_override": ""
+    }
+  ]
+}

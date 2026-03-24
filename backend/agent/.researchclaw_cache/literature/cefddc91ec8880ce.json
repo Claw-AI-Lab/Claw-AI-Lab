@@ -1,0 +1,1660 @@
+{
+  "query": "Parameter efficient fine tuning benchmark",
+  "source": "openalex",
+  "limit": 40,
+  "timestamp": 1773944596.8247895,
+  "papers": [
+    {
+      "paper_id": "oalex-W4391590853",
+      "title": "Parameter-Efficient Fine-Tuning for Pre-Trained Vision Models: A Survey and Benchmark",
+      "authors": [
+        {
+          "name": "Yi Xin",
+          "affiliation": ""
+        },
+        {
+          "name": "Siqi Luo",
+          "affiliation": ""
+        },
+        {
+          "name": "Haodi Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Junlong Du",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaohong Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yue Fan",
+          "affiliation": ""
+        },
+        {
+          "name": "Qing Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuntao Du",
+          "affiliation": ""
+        },
+        {
+          "name": "Fu, Bin",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang, Xiaokang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhai, Guangtao",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang, Ming-Hsuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Liu, Xiaohong",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Pre-trained vision models (PVMs) have demonstrated remarkable adaptability across a wide range of downstream vision tasks, showcasing exceptional performance. However, as these models scale to billions or even trillions of parameters, conventional full fine-tuning has become increasingly impractical due to its high computational and storage demands. To address these challenges, parameter-efficient fine-tuning (PEFT) has emerged as a promising alternative, aiming to achieve performance comparable to full fine-tuning while making minimal adjustments to the model parameters. This paper presents a comprehensive survey of the latest advancements in the visual PEFT field, systematically reviewing current methodologies and categorizing them into four primary categories: addition-based, partial-based, unified-based, and multi-task tuning. In addition, this paper offers an in-depth analysis of widely used visual datasets and real-world applications where PEFT methods have been successfully applied. Furthermore, this paper introduces the V-PEFT Bench, a unified benchmark designed to standardize the evaluation of PEFT methods across a diverse set of vision tasks, ensuring consistency and fairness in comparison. Finally, the paper outlines potential directions for future research to propel advances in the PEFT field. A comprehensive collection of resources is available at https://github.com/synbol/Awesome-Parameter-Efficient-Transfer-Learning.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 15,
+      "doi": "10.48550/arxiv.2402.02242",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2402.02242",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3205949070",
+      "title": "Towards a Unified View of Parameter-Efficient Transfer Learning",
+      "authors": [
+        {
+          "name": "Junxian He",
+          "affiliation": ""
+        },
+        {
+          "name": "Chunting Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Xuezhe Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Taylor Berg-Kirkpatrick",
+          "affiliation": ""
+        },
+        {
+          "name": "Graham Neubig",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Fine-tuning large pre-trained language models on downstream tasks has become the de-facto learning paradigm in NLP. However, conventional approaches fine-tune all the parameters of the pre-trained model, which becomes prohibitive as the model size and the number of tasks grow. Recent work has proposed a variety of parameter-efficient transfer learning methods that only fine-tune a small number of (extra) parameters to attain strong performance. While effective, the critical ingredients for success and the connections among the various methods are poorly understood. In this paper, we break down the design of state-of-the-art parameter-efficient transfer learning methods and present a unified framework that establishes connections between them. Specifically, we re-frame them as modifications to specific hidden states in pre-trained models, and define a set of design dimensions along which different methods vary, such as the function to compute the modification and the position to apply the modification. Through comprehensive empirical studies across machine translation, text summarization, language understanding, and text classification benchmarks, we utilize the unified view to identify important design choices in previous methods. Furthermore, our unified framework enables the transfer of design elements across different approaches, and as a result we are able to instantiate new parameter-efficient fine-tuning methods that tune less parameters than previous methods while being more effective, achieving comparable results to fine-tuning all parameters on all four tasks.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 278,
+      "doi": "10.48550/arxiv.2110.04366",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2110.04366",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4361229539",
+      "title": "LLaMA-Adapter: Efficient Fine-tuning of Language Models with Zero-init Attention",
+      "authors": [
+        {
+          "name": "Renrui Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiaming Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Aojun Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiangfei Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Shilin Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Pan Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hongsheng Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Peng Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Qiao",
+          "affiliation": ""
+        },
+        {
+          "name": "Qiao, Yu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We present LLaMA-Adapter, a lightweight adaption method to efficiently fine-tune LLaMA into an instruction-following model. Using 52K self-instruct demonstrations, LLaMA-Adapter only introduces 1.2M learnable parameters upon the frozen LLaMA 7B model, and costs less than one hour for fine-tuning on 8 A100 GPUs. Specifically, we adopt a set of learnable adaption prompts, and prepend them to the word tokens at higher transformer layers. Then, a zero-initialized attention mechanism with zero gating is proposed, which adaptively injects the new instructional cues into LLaMA, while effectively preserves its pre-trained knowledge. With our efficient training, LLaMA-Adapter can generate high-quality responses, comparable to Alpaca with fully fine-tuned 7B parameters. Besides language commands, our approach can be simply extended to multi-modal instructions for learning image-conditioned LLaMA model, which achieves superior reasoning performance on ScienceQA and COCO Caption benchmarks. Furthermore, we also evaluate the zero-initialized attention mechanism for fine-tuning other pre-trained models (ViT, RoBERTa) on traditional vision and language tasks, demonstrating the superior generalization capacity of our approach. Code is released at https://github.com/OpenGVLab/LLaMA-Adapter.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 167,
+      "doi": "10.48550/arxiv.2303.16199",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2303.16199",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4280534475",
+      "title": "Few-Shot Parameter-Efficient Fine-Tuning is Better and Cheaper than In-Context Learning",
+      "authors": [
+        {
+          "name": "Haokun Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Derek Tam",
+          "affiliation": ""
+        },
+        {
+          "name": "Abdul Mohammed",
+          "affiliation": ""
+        },
+        {
+          "name": "Jay Mohta",
+          "affiliation": ""
+        },
+        {
+          "name": "Tenghao Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Mohit Bansal",
+          "affiliation": ""
+        },
+        {
+          "name": "Colin Raffel",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Few-shot in-context learning (ICL) enables pre-trained language models to perform a previously-unseen task without any gradient-based training by feeding a small number of training examples as part of the input. ICL incurs substantial computational, memory, and storage costs because it involves processing all of the training examples every time a prediction is made. Parameter-efficient fine-tuning (PEFT) (e.g. adapter modules, prompt tuning, sparse update methods, etc.) offers an alternative paradigm where a small set of parameters are trained to enable a model to perform the new task. In this paper, we rigorously compare few-shot ICL and PEFT and demonstrate that the latter offers better accuracy as well as dramatically lower computational costs. Along the way, we introduce a new PEFT method called (IA)$^3$ that scales activations by learned vectors, attaining stronger performance while only introducing a relatively tiny amount of new parameters. We also propose a simple recipe based on the T0 model called T-Few that can be applied to new tasks without task-specific tuning or modifications. We validate the effectiveness of T-Few on completely unseen tasks by applying it to the RAFT benchmark, attaining super-human performance for the first time and outperforming the state-of-the-art by 6% absolute. All of the code used in our experiments is publicly available.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 292,
+      "doi": "10.48550/arxiv.2205.05638",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2205.05638",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4282005462",
+      "title": "AdaptFormer: Adapting Vision Transformers for Scalable Visual Recognition",
+      "authors": [
+        {
+          "name": "Shoufa Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Chongjian Ge",
+          "affiliation": ""
+        },
+        {
+          "name": "Tong Zhan",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiangliu Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yibing Song",
+          "affiliation": ""
+        },
+        {
+          "name": "Jue Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ping Luo",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Pretraining Vision Transformers (ViTs) has achieved great success in visual recognition. A following scenario is to adapt a ViT to various image and video recognition tasks. The adaptation is challenging because of heavy computation and memory storage. Each model needs an independent and complete finetuning process to adapt to different tasks, which limits its transferability to different visual domains. To address this challenge, we propose an effective adaptation approach for Transformer, namely AdaptFormer, which can adapt the pre-trained ViTs into many different image and video tasks efficiently. It possesses several benefits more appealing than prior arts. Firstly, AdaptFormer introduces lightweight modules that only add less than 2% extra parameters to a ViT, while it is able to increase the ViT's transferability without updating its original pre-trained parameters, significantly outperforming the existing 100\\% fully fine-tuned models on action recognition benchmarks. Secondly, it can be plug-and-play in different Transformers and scalable to many visual tasks. Thirdly, extensive experiments on five image and video datasets show that AdaptFormer largely improves ViTs in the target domains. For example, when updating just 1.5% extra parameters, it achieves about 10% and 19% relative improvement compared to the fully fine-tuned models on Something-Something~v2 and HMDB51, respectively. Code is available at https://github.com/ShoufaChen/AdaptFormer.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 259,
+      "doi": "10.48550/arxiv.2205.13535",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2205.13535",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4416017084",
+      "title": "Benchmarking Foundation Models and Parameter-Efficient Fine-Tuning for Prognosis Prediction in Medical Imaging",
+      "authors": [
+        {
+          "name": "Filippo Ruffini",
+          "affiliation": ""
+        },
+        {
+          "name": "Elena Mulero Ayll\u00f3n",
+          "affiliation": ""
+        },
+        {
+          "name": "Linlin Shen",
+          "affiliation": ""
+        },
+        {
+          "name": "Paolo Soda",
+          "affiliation": ""
+        },
+        {
+          "name": "Valerio Guarrasi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Despite the significant potential of Foundation Models (FMs) in medical imaging, their application to prognosis prediction remains challenging due to data scarcity, class imbalance, and task complexity, which limit their clinical adoption. This study introduces the first structured benchmark to assess the robustness and efficiency of transfer learning strategies for FMs compared with convolutional neural networks (CNNs) in predicting COVID-19 patient outcomes from chest X-rays. The goal is to systematically compare finetuning strategies, both classical and parameter efficient, under realistic clinical constraints related to data scarcity and class imbalance, offering empirical guidance for AI deployment in clinical workflows. Four publicly available COVID-19 chest X-ray datasets were used, covering mortality, severity, and ICU admission, with varying sample sizes and class imbalances. CNNs pretrained on ImageNet and FMs pretrained on general or biomedical datasets were adapted using full finetuning, linear probing, and parameter-efficient methods. Models were evaluated under full data and few shot regimes using the Matthews Correlation Coefficient (MCC) and Precision Recall AUC (PR-AUC), with cross validation and class weighted losses. CNNs with full fine-tuning performed robustly on small, imbalanced datasets, while FMs with Parameter-Efficient Fine-Tuning (PEFT), particularly LoRA and BitFit, achieved competitive results on larger datasets. Severe class imbalance degraded PEFT performance, whereas balanced data mitigated this effect. In few-shot settings, FMs showed limited generalization, with linear probing yielding the most stable results. No single fine-tuning strategy proved universally optimal: CNNs remain dependable for low-resource scenarios, whereas FMs benefit from parameter-efficient methods when data are sufficient.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 1,
+      "doi": "10.48550/arxiv.2506.18434",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2506.18434",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3095883070",
+      "title": "Self-Supervised Graph Transformer on Large-Scale Molecular Data",
+      "authors": [
+        {
+          "name": "Yu Rong",
+          "affiliation": ""
+        },
+        {
+          "name": "Yatao Bian",
+          "affiliation": ""
+        },
+        {
+          "name": "Tingyang Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Weiyang Xie",
+          "affiliation": ""
+        },
+        {
+          "name": "Ying Wei",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenbing Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Junzhou Huang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "How to obtain informative representations of molecules is a crucial prerequisite in AI-driven drug design and discovery. Recent researches abstract molecules as graphs and employ Graph Neural Networks (GNNs) for molecular representation learning. Nevertheless, two issues impede the usage of GNNs in real scenarios: (1) insufficient labeled molecules for supervised training; (2) poor generalization capability to new-synthesized molecules. To address them both, we propose a novel framework, GROVER, which stands for Graph Representation frOm self-superVised mEssage passing tRansformer. With carefully designed self-supervised tasks in node-, edge- and graph-level, GROVER can learn rich structural and semantic information of molecules from enormous unlabelled molecular data. Rather, to encode such complex information, GROVER integrates Message Passing Networks into the Transformer-style architecture to deliver a class of more expressive encoders of molecules. The flexibility of GROVER allows it to be trained efficiently on large-scale molecular dataset without requiring any supervision, thus being immunized to the two issues mentioned above. We pre-train GROVER with 100 million parameters on 10 million unlabelled molecules -- the biggest GNN and the largest training dataset in molecular representation learning. We then leverage the pre-trained GROVER for molecular property prediction followed by task-specific fine-tuning, where we observe a huge improvement (more than 6% on average) from current state-of-the-art methods on 11 challenging benchmarks. The insights we gained are that well-designed self-supervision losses and largely-expressive pre-trained models enjoy the significant potential on performance boosting.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 415,
+      "doi": "10.48550/arxiv.2007.02835",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2007.02835",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4293584584",
+      "title": "A Multi-Modal Distributed Real-Time IoT System for Urban Traffic Control (Invited Paper)",
+      "authors": [
+        {
+          "name": "Joseph Redmon",
+          "affiliation": "BT Research"
+        },
+        {
+          "name": "Ali Farhadi",
+          "affiliation": "Keele University"
+        },
+        {
+          "name": "Boukhennoufa, Issam",
+          "affiliation": "University of Essex"
+        },
+        {
+          "name": "Jindal, Anish",
+          "affiliation": "Durham University"
+        },
+        {
+          "name": "Singh, Amit Kumar",
+          "affiliation": "University of Essex"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Traffic congestion is one of the growing urban problem with associated problems like fuel wastage, loss of lives, and slow productivity. The existing traffic system uses programming logic control (PLC) with round-robin scheduling algorithm. Recent works have proposed IoT-based frameworks that use traffic density of each lane to control traffic movement, but they suffer from low accuracy due to lack of emergency vehicle image datasets for training deep neural networks. In this paper, we propose a novel distributed IoT framework that is based on two observations. The first observation is major structural changes to road are rare. This observation is exploited by proposing a novel two stage vehicle detector that is able to achieve 77% vehicle detection accuracy on UA-DETRAC dataset. The second observation is emergency vehicle have distinct siren sound that is detected using a novel acoustic detection algorithm on an edge device. The proposed system is able to detect emergency vehicles with an average accuracy of 99.4%.",
+      "venue": "DROPS (Schloss Dagstuhl \u2013 Leibniz Center for Informatics)",
+      "citation_count": 14256,
+      "doi": "10.4230/oasics.ng-res.2024.2",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.4230/oasics.ng-res.2024.2",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4282831800",
+      "title": "Waste Classification for Sustainable Development Using Image Recognition with Deep Learning Neural Network Models",
+      "authors": [
+        {
+          "name": "Meena Malik",
+          "affiliation": "Dr. Hari Singh Gour University"
+        },
+        {
+          "name": "Sachin Sharma",
+          "affiliation": "Koneru Lakshmaiah Education Foundation"
+        },
+        {
+          "name": "Mueen Uddin",
+          "affiliation": "Qatar Science and Technology Park"
+        },
+        {
+          "name": "Chin\u2010Ling Chen",
+          "affiliation": "Xiamen University of Technology"
+        },
+        {
+          "name": "Chih-Ming Wu",
+          "affiliation": "Xiamen University of Technology"
+        },
+        {
+          "name": "Punit Soni",
+          "affiliation": "Chandigarh University"
+        },
+        {
+          "name": "Shikha Chaudhary",
+          "affiliation": "Manipal University Jaipur"
+        }
+      ],
+      "year": 2022,
+      "abstract": "The proper handling of waste is one of the biggest challenges of modern society. Municipal Solid Waste (MSW) requires categorization into a number of types, including bio, plastic, glass, metal, paper, etc. The most efficient techniques proposed by researchers so far include neural networks. In this paper, a detailed summarization was made of the existing deep learning techniques that have been proposed to classify waste. This paper proposes an architecture for the classification of litter into the categories specified in the benchmark approaches. The architecture used for classification was EfficientNet-B0. These are compound-scaling based models proposed by Google that are pretrained on ImageNet and have an accuracy of 74% to 84% in top-1 over ImageNet. This research proposes EfficientNet-B0 model tuning for images specific to particular demographic regions for efficient classification. This type of model tuning over transfer learning provides a customized model for classification, highly optimized for a particular region. It was shown that such a model had comparable accuracy to that of EfficientNet-B3, however, with a significantly smaller number of parameters required by the B3 model. Thus, the proposed technique achieved efficiency on the order of 4X in terms of FLOPS. Moreover, it resulted in improvised classifications as a result of fine-tuning over region-wise specific litter images.",
+      "venue": "Sustainability",
+      "citation_count": 141,
+      "doi": "10.3390/su14127222",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/su14127222",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4382463911",
+      "title": "FacT: Factor-Tuning for Lightweight Adaptation on Vision Transformer",
+      "authors": [
+        {
+          "name": "Shibo Jie",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Zhihong Deng",
+          "affiliation": "Peking University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Recent work has explored the potential to adapt a pre-trained vision transformer (ViT) by updating only a few parameters so as to improve storage efficiency, called parameter-efficient transfer learning (PETL). Current PETL methods have shown that by tuning only 0.5% of the parameters, ViT can be adapted to downstream tasks with even better performance than full fine-tuning. In this paper, we aim to further promote the efficiency of PETL to meet the extreme storage constraint in real-world applications. To this end, we propose a tensorization-decomposition framework to store the weight increments, in which the weights of each ViT are tensorized into a single 3D tensor, and their increments are then decomposed into lightweight factors. In the fine-tuning process, only the factors need to be updated and stored, termed Factor-Tuning (FacT). On VTAB-1K benchmark, our method performs on par with NOAH, the state-of-the-art PETL method, while being 5x more parameter-efficient. We also present a tiny version that only uses 8K (0.01% of ViT's parameters) trainable parameters but outperforms full fine-tuning and many other PETL methods such as VPT and BitFit. In few-shot settings, FacT also beats all PETL baselines using the fewest parameters, demonstrating its strong capability in the low-data regime.",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 81,
+      "doi": "10.1609/aaai.v37i1.25187",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v37i1.25187",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3166140588",
+      "title": "Compacter: Efficient Low-Rank Hypercomplex Adapter Layers",
+      "authors": [
+        {
+          "name": "Rabeeh Karimi Mahabadi",
+          "affiliation": "Idiap Research Institute"
+        },
+        {
+          "name": "James Henderson",
+          "affiliation": "Idiap Research Institute"
+        },
+        {
+          "name": "Sebastian Ruder",
+          "affiliation": "Google (United States)"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Adapting large-scale pretrained language models to downstream tasks via fine-tuning is the standard method for achieving state-of-the-art performance on NLP benchmarks. However, fine-tuning all weights of models with millions or billions of parameters is sample-inefficient, unstable in low-resource settings, and wasteful as it requires storing a separate copy of the model for each task. Recent work has developed parameter-efficient fine-tuning methods, but these approaches either still require a relatively large number of parameters or underperform standard fine-tuning. In this work, we propose Compacter, a method for fine-tuning large-scale language models with a better trade-off between task performance and the number of trainable parameters than prior work. Compacter accomplishes this by building on top of ideas from adapters, low-rank optimization, and parameterized hypercomplex multiplication layers. Specifically, Compacter inserts task-specific weight matrices into a pretrained model's weights, which are computed efficiently as a sum of Kronecker products between shared \"slow\" weights and \"fast\" rank-one matrices defined per Compacter layer. By only training 0.047% of a pretrained model's parameters, Compacter performs on par with standard fine-tuning on GLUE and outperforms standard fine-tuning on SuperGLUE and low-resource settings. Our code is publicly available at~\\url{https://github.com/rabeehk/compacter}.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 82,
+      "doi": "10.48550/arxiv.2106.04647",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2106.04647",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4385572063",
+      "title": "FedPETuning: When Federated Learning Meets the Parameter-Efficient Tuning Methods of Pre-trained Language Models",
+      "authors": [
+        {
+          "name": "Zhuo Zhang",
+          "affiliation": "Harbin Institute of Technology"
+        },
+        {
+          "name": "Yuanhang Yang",
+          "affiliation": "Harbin Institute of Technology"
+        },
+        {
+          "name": "Yong Dai",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Qifan Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yue Yu",
+          "affiliation": "Peng Cheng Laboratory"
+        },
+        {
+          "name": "Lizhen Qu",
+          "affiliation": "Monash University"
+        },
+        {
+          "name": "Zenglin Xu",
+          "affiliation": "Harbin Institute of Technology"
+        }
+      ],
+      "year": 2023,
+      "abstract": "With increasing concerns about data privacy, there is an increasing necessity of fine-tuning pre-trained language models (PLMs) for adapting to downstream tasks located in end-user devices or local clients without transmitting data to the central server. This urgent necessity therefore calls the research of investigating federated learning (FL) for PLMs. However, large PLMs bring the curse of prohibitive communication overhead and local model adaptation costs for the FL system. To this end, we investigate the parameter-efficient tuning (PETuning) of PLMs and develop a corresponding federated benchmark for four representative PETuning methods, dubbed FedPETuning. Specifically, FedPETuning provides the first holistic empirical study of representative PLMs tuning methods in FL, covering privacy attacks, performance comparisons, and resource-constrained analysis. Intensive experimental results have indicated that FedPETuning can efficiently defend against privacy attacks and maintains acceptable performance with reducing heavy resource consumption. The open-source code and data are available at https://github.com/SMILELab-FL/FedPETuning.",
+      "venue": "",
+      "citation_count": 65,
+      "doi": "10.18653/v1/2023.findings-acl.632",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.18653/v1/2023.findings-acl.632",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4281790889",
+      "title": "ColabFold: making protein folding accessible to all",
+      "authors": [
+        {
+          "name": "Milot Mirdita",
+          "affiliation": "Max Planck Institute for Multidisciplinary Sciences"
+        },
+        {
+          "name": "Konstantin Sch\u00fctze",
+          "affiliation": "Seoul National University"
+        },
+        {
+          "name": "Yoshitaka Moriwaki",
+          "affiliation": "The University of Tokyo"
+        },
+        {
+          "name": "Lim Heo",
+          "affiliation": "Michigan State University"
+        },
+        {
+          "name": "Sergey Ovchinnikov",
+          "affiliation": "Harvard University Press"
+        },
+        {
+          "name": "Martin Steinegger",
+          "affiliation": "Seoul National University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "",
+      "venue": "Nature Methods",
+      "citation_count": 9228,
+      "doi": "10.1038/s41592-022-01488-1",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41592-022-01488-1",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4401863415",
+      "title": "FederatedScope-LLM: A Comprehensive Package for Fine-tuning Large Language Models in Federated Learning",
+      "authors": [
+        {
+          "name": "Weirui Kuang",
+          "affiliation": "Alibaba Group (China)"
+        },
+        {
+          "name": "Bingchen Qian",
+          "affiliation": "Alibaba Group (China)"
+        },
+        {
+          "name": "Zitao Li",
+          "affiliation": "Alibaba Group (United States)"
+        },
+        {
+          "name": "Daoyuan Chen",
+          "affiliation": "Alibaba Group (China)"
+        },
+        {
+          "name": "Dawei Gao",
+          "affiliation": "Alibaba Group (China)"
+        },
+        {
+          "name": "Xuchen Pan",
+          "affiliation": "Alibaba Group (China)"
+        },
+        {
+          "name": "Yuexiang Xie",
+          "affiliation": "Alibaba Group (China)"
+        },
+        {
+          "name": "Yaliang Li",
+          "affiliation": "Alibaba Group (China)"
+        },
+        {
+          "name": "Bolin Ding",
+          "affiliation": "Bellevue Hospital Center"
+        },
+        {
+          "name": "Jingren Zhou",
+          "affiliation": "Alibaba Group (United States)"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Large language models (LLMs) have demonstrated great capabilities in various natural language understanding and generation tasks. These pre-trained LLMs can be further improved for specific downstream tasks by fine-tuning. However, the adoption of LLM in real-world applications can be hindered by privacy concerns and the resource-intensive nature of model training and fine-tuning. When multiple entities have similar interested tasks but cannot directly share their local data due to privacy regulations, federated learning (FL) is a mainstream solution to leverage the data of different entities. Besides avoiding direct data sharing, FL can also achieve rigorous data privacy protection, model intelligent property protection, and model customization via composition with different techniques. Despite the aforementioned advantages of FL, fine-tuning LLMs in FL settings still lacks adequate support from the existing frameworks and, therefore, faces challenges in optimizing the consumption of significant communication and computational resources, preparing various data for different tasks, and satisfying diverse information protection demands. In this paper, we discuss these challenges and introduce our package FederatedScope-LLM (FS-LLM) as a main contribution, which consists: (1) We build a complete end-to-end benchmarking pipeline under real-world scenarios, automizing the processes of dataset preprocessing, federated fine-tuning execution or simulation, and performance evaluation; (2) We provide comprehensive and off-the-shelf federated parameter-efficient fine-tuning (PEFT) algorithm implementations and versatile programming interfaces for future extension, enhancing the capabilities of LLMs in FL scenarios with low communication and computation costs, even without accessing the full model; (3) We adopt several accelerating and resource-efficient operators, and provide flexible pluggable sub-routines for interdisciplinary study. We conduct extensive and reproducible experiments to show the effectiveness of FS-LLM and benchmark advanced LLMs with PEFT algorithms in FL. We release FS-LLM at https://github.com/alibaba/FederatedScope/tree/llm.",
+      "venue": "",
+      "citation_count": 77,
+      "doi": "10.1145/3637528.3671573",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3637528.3671573",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4386212341",
+      "title": "Parameter-Efficient Transfer Learning for Remote Sensing Image\u2013Text Retrieval",
+      "authors": [
+        {
+          "name": "Yuan Yuan",
+          "affiliation": "Northwestern Polytechnical University"
+        },
+        {
+          "name": "Yang Zhan",
+          "affiliation": "Northwestern Polytechnical University"
+        },
+        {
+          "name": "Zhitong Xiong",
+          "affiliation": "Technical University of Munich"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Vision-and-language pre-training (VLP) models have experienced a surge in popularity recently. By fine-tuning them on specific datasets, significant performance improvements have been observed in various tasks. However, full fine-tuning of VLP models not only consumes a significant amount of computational resources but also has a significant environmental impact. Moreover, as remote sensing (RS) data is constantly being updated, full fine-tuning may not be practical for real-world applications. To address this issue, in this work, we investigate the parameter-efficient transfer learning (PETL) method to effectively and efficiently transfer visual-language knowledge from the natural domain to the RS domain on the image-text retrieval task. To this end, we make the following contributions. 1) We construct a novel and sophisticated PETL framework for the RS image-text retrieval (RSITR) task, which includes the pretrained CLIP model, a multimodal remote sensing adapter, and a hybrid multi-modal contrastive (HMMC) learning objective; 2) To deal with the problem of high intra-modal similarity in RS data, we design a simple yet effective HMMC loss; 3) We provide comprehensive empirical studies for PETL-based RS image-text retrieval. Our results demonstrate that the proposed method is promising and of great potential for practical applications. 4) We benchmark extensive state-of-the-art PETL methods on the RSITR task. Our proposed model only contains 0.16M training parameters, which can achieve a parameter reduction of 98.9% compared to full fine-tuning, resulting in substantial savings in training costs. Our retrieval performance exceeds traditional methods by 7-13% and achieves comparable or better performance than full fine-tuning. This work can provide new ideas and useful insights for RS vision-language tasks.",
+      "venue": "IEEE Transactions on Geoscience and Remote Sensing",
+      "citation_count": 69,
+      "doi": "10.1109/tgrs.2023.3308969",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tgrs.2023.3308969",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4390873881",
+      "title": "E<sup>2</sup>VPT: An Effective and Efficient Approach for Visual Prompt Tuning",
+      "authors": [
+        {
+          "name": "Cheng Han",
+          "affiliation": "Rochester Institute of Technology"
+        },
+        {
+          "name": "Qifan Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yiming Cui",
+          "affiliation": "University of Florida"
+        },
+        {
+          "name": "Zhiwen Cao",
+          "affiliation": "Purdue University West Lafayette"
+        },
+        {
+          "name": "Wenguan Wang",
+          "affiliation": "Zhejiang University"
+        },
+        {
+          "name": "Siyuan Qi",
+          "affiliation": ""
+        },
+        {
+          "name": "Dongfang Liu",
+          "affiliation": "Rochester Institute of Technology"
+        }
+      ],
+      "year": 2023,
+      "abstract": "As the size of transformer-based, models continues to grow, fine-tuning these large-scale pretrained vision models for new tasks has become increasingly parameter-intensive. Parameter-efficient learning has been developed to reduce the number of tunable parameters during fine-tuning. Although these methods show promising results, there is still a significant performance gap compared to full fine-tuning. To address this challenge, we propose an Effective and Efficient Visual Prompt Tuning (E <sup xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">2</sup> VPT) approach for large-scale transformer-based model adaptation. Specifically, we introduce a set of learnable key-value prompts and visual prompts into self-attention and input layers, respectively, to improve the effectiveness of model fine-tuning. Moreover, we design a prompt pruning procedure to systematically prune low importance prompts while preserving model performance, which largely enhances the model\u2019s efficiency. Empirical results demonstrate that our approach outperforms several state-of-the-art baselines on two benchmarks, with considerably low parameter usage (e.g., 0.32% of model parameters on VTAB-1k). Our code is available at https://github.com/ChengHan111/E2VPT.",
+      "venue": "",
+      "citation_count": 46,
+      "doi": "10.1109/iccv51070.2023.01604",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/iccv51070.2023.01604",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4386076600",
+      "title": "VoP: Text-Video Co-Operative Prompt Tuning for Cross-Modal Retrieval",
+      "authors": [
+        {
+          "name": "Siteng Huang",
+          "affiliation": "Westlake University"
+        },
+        {
+          "name": "Biao Gong",
+          "affiliation": "Alibaba Group (United States)"
+        },
+        {
+          "name": "Yulin Pan",
+          "affiliation": "Alibaba Group (United States)"
+        },
+        {
+          "name": "Jianwen Jiang",
+          "affiliation": "Alibaba Group (United States)"
+        },
+        {
+          "name": "Yiliang Lv",
+          "affiliation": "Alibaba Group (United States)"
+        },
+        {
+          "name": "Yuyuan Li",
+          "affiliation": "Zhejiang University"
+        },
+        {
+          "name": "Donglin Wang",
+          "affiliation": "Westlake University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Many recent studies leverage the pre-trained CLIP for text-video cross-modal retrieval by tuning the backbone with additional heavy modules, which not only brings huge computational burdens with much more parameters, but also leads to the knowledge forgetting from upstream models. In this work, we propose the VoP: Text-Video Cooperative Prompt Tuning for efficient tuning on the text-video retrieval task. The proposed VoP is an end-to-end framework with both video & text prompts introducing, which can be regarded as a powerful baseline with only 0.1% trainable parameters. Further, based on the spatiotemporal characteristics of videos, we develop three novel video prompt mechanisms to improve the performance with different scales of trainable parameters. The basic idea of the VoP enhancement is to model the frame position, frame context, and layer function with specific trainable prompts, respectively. Extensive experiments show that compared to full fine-tuning, the enhanced VoP achieves a 1.4% average R@1 gain across five text-video retrieval benchmarks with 6\u00d7 less parameter overhead. The code will be available at https://github.com/bighuang624/VoP.",
+      "venue": "",
+      "citation_count": 62,
+      "doi": "10.1109/cvpr52729.2023.00635",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr52729.2023.00635",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4382458283",
+      "title": "CALIP: Zero-Shot Enhancement of CLIP with Parameter-Free Attention",
+      "authors": [
+        {
+          "name": "Z. J. Guo",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Renrui Zhang",
+          "affiliation": "Chinese University of Hong Kong"
+        },
+        {
+          "name": "Longtian Qiu",
+          "affiliation": "ShanghaiTech University"
+        },
+        {
+          "name": "Xianzheng Ma",
+          "affiliation": "Shanghai Artificial Intelligence Laboratory"
+        },
+        {
+          "name": "Xupeng Miao",
+          "affiliation": "Carnegie Mellon University"
+        },
+        {
+          "name": "Xuming He",
+          "affiliation": "ShanghaiTech University"
+        },
+        {
+          "name": "Bin Cui",
+          "affiliation": "Peking University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Contrastive Language-Image Pre-training (CLIP) has been shown to learn visual representations with promising zero-shot performance. To further improve its downstream accuracy, existing works propose additional learnable modules upon CLIP and fine-tune them by few-shot training sets. However, the resulting extra training cost and data requirement severely hinder the efficiency for model deployment and knowledge transfer. In this paper, we introduce a free-lunch enhancement method, CALIP, to boost CLIP's zero-shot performance via a parameter-free attention module. Specifically, we guide visual and textual representations to interact with each other and explore cross-modal informative features via attention. As the pre-training has largely reduced the embedding distances between two modalities, we discard all learnable parameters in the attention and bidirectionally update the multi-modal features, enabling the whole process to be parameter-free and training-free. In this way, the images are blended with textual-aware signals and the text representations become visual-guided for better adaptive zero-shot alignment. We evaluate CALIP on various benchmarks of 14 datasets for both 2D image and 3D point cloud few-shot classification, showing consistent zero-shot performance improvement over CLIP. Based on that, we further insert a small number of linear layers in CALIP's attention module and verify our robustness under the few-shot settings, which also achieves leading performance compared to existing methods. Those extensive experiments demonstrate the superiority of our approach for efficient enhancement of CLIP. Code is available at https://github.com/ZiyuGuo99/CALIP.",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 87,
+      "doi": "10.1609/aaai.v37i1.25152",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v37i1.25152",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4385681674",
+      "title": "Towards General Text Embeddings with Multi-stage Contrastive Learning",
+      "authors": [
+        {
+          "name": "Zehan Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Xin Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yanzhao Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Dingkun Long",
+          "affiliation": ""
+        },
+        {
+          "name": "Pengjun Xie",
+          "affiliation": ""
+        },
+        {
+          "name": "Meishan Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We present GTE, a general-purpose text embedding model trained with multi-stage contrastive learning. In line with recent advancements in unifying various NLP tasks into a single format, we train a unified text embedding model by employing contrastive learning over a diverse mixture of datasets from multiple sources. By significantly increasing the number of training data during both unsupervised pre-training and supervised fine-tuning stages, we achieve substantial performance gains over existing embedding models. Notably, even with a relatively modest parameter count of 110M, GTE$_\\text{base}$ outperforms the black-box embedding API provided by OpenAI and even surpasses 10x larger text embedding models on the massive text embedding benchmark. Furthermore, without additional fine-tuning on each programming language individually, our model outperforms previous best code retrievers of similar size by treating code as text. In summary, our model achieves impressive results by effectively harnessing multi-stage contrastive learning, offering a powerful and efficient text embedding model with broad applicability across various NLP and code-related tasks.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 57,
+      "doi": "10.48550/arxiv.2308.03281",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2308.03281",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4210338699",
+      "title": "TensorRT-Based Framework and Optimization Methodology for Deep Learning Inference on Jetson Boards",
+      "authors": [
+        {
+          "name": "Eunjin Jeong",
+          "affiliation": "Seoul National University"
+        },
+        {
+          "name": "Jangryul Kim",
+          "affiliation": "Seoul National University"
+        },
+        {
+          "name": "Soonhoi Ha",
+          "affiliation": "Seoul National University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "As deep learning inference applications are increasing in embedded devices, an embedded device tends to equip neural processing units (NPUs) in addition to a multi-core CPU and a GPU. NVIDIA Jetson AGX Xavier is an example. For fast and efficient development of deep learning applications, TensorRT is provided as the SDK for high-performance inference, including an optimizer and runtime that delivers low latency and high throughput for deep learning inference applications. Like most deep learning frameworks, TensorRT assumes that the inference is executed on a single processing element, GPU or NPU, not both. In this article, we present a TensorRT-based framework supporting various optimization parameters to accelerate a deep learning application targeted on an NVIDIA Jetson embedded platform with heterogeneous processors, including multi-threading, pipelining, buffer assignment, and network duplication. Since the design space of allocating layers to diverse processing elements and optimizing other parameters is huge, we devise a parameter optimization methodology that consists of a heuristic for balancing pipeline stages among heterogeneous processors and fine-tuning the process for optimizing parameters. With nine real-life benchmarks, we could achieve 101%~680% performance improvement and up to 55% energy reduction over the baseline inference using a GPU only.",
+      "venue": "ACM Transactions on Embedded Computing Systems",
+      "citation_count": 95,
+      "doi": "10.1145/3508391",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3508391",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4387211791",
+      "title": "Open-Ended Medical Visual Question Answering Through Prefix Tuning of Language Models",
+      "authors": [
+        {
+          "name": "Tom van Sonsbeek",
+          "affiliation": "University of Amsterdam"
+        },
+        {
+          "name": "Mohammad Mahdi Derakhshani",
+          "affiliation": "University of Amsterdam"
+        },
+        {
+          "name": "Ivona Najdenkoska",
+          "affiliation": "University of Amsterdam"
+        },
+        {
+          "name": "Cees G. M. Snoek",
+          "affiliation": "University of Amsterdam"
+        },
+        {
+          "name": "Marcel Worring",
+          "affiliation": "University of Amsterdam"
+        }
+      ],
+      "year": 2023,
+      "abstract": "",
+      "venue": "Lecture notes in computer science",
+      "citation_count": 59,
+      "doi": "10.1007/978-3-031-43904-9_70",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/978-3-031-43904-9_70",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4390874728",
+      "title": "Sensitivity-Aware Visual Parameter-Efficient Fine-Tuning",
+      "authors": [
+        {
+          "name": "Haoyu He",
+          "affiliation": "Monash University"
+        },
+        {
+          "name": "Jianfei Cai",
+          "affiliation": "Monash University"
+        },
+        {
+          "name": "Jing Zhang",
+          "affiliation": "University of Sydney"
+        },
+        {
+          "name": "Dacheng Tao",
+          "affiliation": "University of Sydney"
+        },
+        {
+          "name": "Bohan Zhuang",
+          "affiliation": "Monash University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Visual Parameter-Efficient Fine-Tuning (PEFT) has become a powerful alternative for full fine-tuning so as to adapt pre-trained vision models to downstream tasks, which only tunes a small number of parameters while freezing the vast majority ones to ease storage burden and optimization difficulty. However, existing PEFT methods introduce trainable parameters to the same positions across different tasks depending solely on human heuristics and neglect the domain gaps. To this end, we study where to introduce and how to allocate trainable parameters by proposing a novel Sensitivity-aware visual Parameter-efficient fine-Tuning (SPT) scheme, which adaptively allocates trainable parameters to task-specific important positions given a desired tunable parameter budget. Specifically, our SPT first quickly identifies the sensitive parameters that require tuning for a given task in a data-dependent way. Next, our SPT further boosts the representational capability for the weight matrices whose number of sensitive parameters exceeds a pre-defined threshold by utilizing existing structured tuning methods, e.g., LoRA [21] or Adapter [20], to replace directly tuning the selected sensitive parameters (unstructured tuning) under the budget. Extensive experiments on a wide range of downstream recognition tasks show that our SPT is complementary to the existing PEFT methods and largely boosts their performance, e.g., SPT improves Adapter with supervised pre-trained ViT-B/16 backbone by 4.2% and 1.4% mean Top-1 accuracy, reaching SOTA performance on FGVC and VTAB-1k benchmarks, respectively. Source code is at https://github.com/ziplab/SPT.",
+      "venue": "",
+      "citation_count": 44,
+      "doi": "10.1109/iccv51070.2023.01086",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/iccv51070.2023.01086",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4385570815",
+      "title": "Parameter-Efficient Fine-Tuning without Introducing New Latency",
+      "authors": [
+        {
+          "name": "Baohao Liao",
+          "affiliation": "University of Amsterdam"
+        },
+        {
+          "name": "Yan Meng",
+          "affiliation": "University of Amsterdam"
+        },
+        {
+          "name": "Christof Monz",
+          "affiliation": "University of Amsterdam"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Parameter-efficient fine-tuning (PEFT) of pre-trained language models has recently demonstrated remarkable achievements, effectively matching the performance of full fine-tuning while utilizing significantly fewer trainable parameters, and consequently addressing the storage and communication constraints. Nonetheless, various PEFT methods are limited by their inherent characteristics. In the case of sparse fine-tuning, which involves modifying only a small subset of the existing parameters, the selection of fine-tuned parameters is task- and domain-specific, making it unsuitable for federated learning. On the other hand, PEFT methods with adding new parameters typically introduce additional inference latency. In this paper, we demonstrate the feasibility of generating a sparse mask in a task-agnostic manner, wherein all downstream tasks share a common mask. Our approach, which relies solely on the magnitude information of pre-trained parameters, surpasses existing methodologies by a significant margin when evaluated on the GLUE benchmark. Additionally, we introduce a novel adapter technique that directly applies the adapter to pre-trained parameters instead of the hidden representation, thereby achieving identical inference speed to that of full fine-tuning. Through extensive experiments, our proposed method attains a new state-of-the-art outcome in terms of both performance and storage efficiency, storing only 0.03% parameters of full fine-tuning.",
+      "venue": "",
+      "citation_count": 26,
+      "doi": "10.18653/v1/2023.acl-long.233",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.18653/v1/2023.acl-long.233",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4386566659",
+      "title": "DyLoRA: Parameter-Efficient Tuning of Pre-trained Models using Dynamic Search-Free Low-Rank Adaptation",
+      "authors": [
+        {
+          "name": "Mojtaba Valipour",
+          "affiliation": "Huawei Technologies (Sweden)"
+        },
+        {
+          "name": "Mehdi Rezagholizadeh",
+          "affiliation": "Huawei Technologies (Sweden)"
+        },
+        {
+          "name": "Ivan Kobyzev",
+          "affiliation": "Huawei Technologies (Sweden)"
+        },
+        {
+          "name": "Ali Ghodsi",
+          "affiliation": "University of Waterloo"
+        }
+      ],
+      "year": 2023,
+      "abstract": "With the ever-growing size of pretrained models (PMs), fine-tuning them has become more expensive and resource-hungry. As a remedy, low-rank adapters (LoRA) keep the main pretrained weights of the model frozen and just introduce some learnable truncated SVD modules (so-called LoRA blocks) to the model. While LoRA blocks are parameter-efficient, they suffer from two major problems: first, the size of these blocks is fixed and cannot be modified after training (for example, if we need to change the rank of LoRA blocks, then we need to re-train them from scratch); second, optimizing their rank requires an exhaustive search and effort. In this work, we introduce a dynamic low-rank adaptation (DyLoRA) technique to address these two problems together. Our DyLoRA method trains LoRA blocks for a range of ranks instead of a single rank by sorting the representation learned by the adapter module at different ranks during training. We evaluate our solution on different natural language understanding (GLUE benchmark) and language generation tasks (E2E, DART and WebNLG) using different pretrained models such as RoBERTa and GPT with different sizes. Our results show that we can train dynamic search-free models with DyLoRA at least 4 to 7 times (depending to the task) faster than LoRA without significantly compromising performance. Moreover, our models can perform consistently well on a much larger range of ranks compared to LoRA.",
+      "venue": "",
+      "citation_count": 79,
+      "doi": "10.18653/v1/2023.eacl-main.239",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.18653/v1/2023.eacl-main.239",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4391021542",
+      "title": "Fast Conformer With Linearly Scalable Attention For Efficient Speech Recognition",
+      "authors": [
+        {
+          "name": "Dima Rekesh",
+          "affiliation": "Nvidia (United States)"
+        },
+        {
+          "name": "Nithin Rao Koluguri",
+          "affiliation": "Nvidia (United States)"
+        },
+        {
+          "name": "Samuel Kriman",
+          "affiliation": "Nvidia (United States)"
+        },
+        {
+          "name": "Somshubra Majumdar",
+          "affiliation": "Nvidia (United States)"
+        },
+        {
+          "name": "Vahid Noroozi",
+          "affiliation": "Nvidia (United States)"
+        },
+        {
+          "name": "He Huang",
+          "affiliation": "Nvidia (United States)"
+        },
+        {
+          "name": "Oleksii Hrinchuk",
+          "affiliation": "Nvidia (United States)"
+        },
+        {
+          "name": "Krishna C. Puvvada",
+          "affiliation": "Nvidia (United States)"
+        },
+        {
+          "name": "Ankur Kumar",
+          "affiliation": "University of California, Los Angeles"
+        },
+        {
+          "name": "Jagadeesh Balam",
+          "affiliation": "Nvidia (United States)"
+        },
+        {
+          "name": "Boris Ginsburg",
+          "affiliation": "Nvidia (United States)"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Conformer-based models have become the dominant end-to-end architecture for speech processing tasks. With the objective of enhancing the conformer architecture for efficient training and inference, we carefully redesigned Conformer with a novel downsampling schema. The proposed model, named Fast Conformer(FC), is 2.8 \u00d7 faster than the original Conformer, supports scaling to Billion parameters without any changes to the core architecture and also achieves state-of-the-art accuracy on Automatic Speech Recognition benchmarks. To enable transcription of long-form speech up to 11 hours, we replaced global attention with limited context attention post-training, while also improving accuracy through fine-tuning with the addition of a global token. Fast Conformer, when combined with a Transformer decoder also outperforms the original Conformer in accuracy and in speed for Speech Translation and Spoken Language Understanding.",
+      "venue": "",
+      "citation_count": 64,
+      "doi": "10.1109/asru57964.2023.10389701",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/asru57964.2023.10389701",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4379538405",
+      "title": "Estimating Compressive Strength of Concrete Using Neural Electromagnetic Field Optimization",
+      "authors": [
+        {
+          "name": "Mohammad Reza Akbarzadeh",
+          "affiliation": "Sharif University of Technology"
+        },
+        {
+          "name": "Hossein Ghafourian",
+          "affiliation": "University of Massachusetts Amherst"
+        },
+        {
+          "name": "Arsalan Anvari",
+          "affiliation": "Islamic Azad University, Science and Research Branch"
+        },
+        {
+          "name": "Ramin Pourhanasa",
+          "affiliation": "Shahrekord University"
+        },
+        {
+          "name": "Moncef L. Nehdi",
+          "affiliation": "McMaster University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Concrete compressive strength (CCS) is among the most important mechanical characteristics of this widely used material. This study develops a novel integrative method for efficient prediction of CCS. The suggested method is an artificial neural network (ANN) favorably tuned by electromagnetic field optimization (EFO). The EFO simulates a physics-based strategy, which in this work is employed to find the best contribution of the concrete parameters (i.e., cement (<i>C</i>), blast furnace slag (SBF), fly ash (FA1), water (<i>W</i>), superplasticizer (<i>SP</i>), coarse aggregate (AC), fine aggregate (FA2), and the age of testing (AT)) to the CCS. The same effort is carried out by three benchmark optimizers, namely the water cycle algorithm (WCA), sine cosine algorithm (SCA), and cuttlefish optimization algorithm (CFOA) to be compared with the EFO. The results show that hybridizing the ANN using the mentioned algorithms led to reliable approaches for predicting the CCS. However, comparative analysis indicates that there are appreciable distinctions between the prediction capacity of the ANNs created by the EFO and WCA vs. the SCA and CFOA. For example, the mean absolute error calculated for the testing phase of the ANN-WCA, ANN-SCA, ANN-CFOA, and ANN-EFO was 5.8363, 7.8248, 7.6538, and 5.6236, respectively. Moreover, the EFO was considerably faster than the other strategies. In short, the ANN-EFO is a highly efficient hybrid model, and can be recommended for the early prediction of the CCS. A user-friendly explainable and explicit predictive formula is also derived for the convenient estimation of the CCS.",
+      "venue": "Materials",
+      "citation_count": 69,
+      "doi": "10.3390/ma16114200",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/ma16114200",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3140854437",
+      "title": "Review of deep learning: concepts, CNN architectures, challenges, applications, future directions",
+      "authors": [
+        {
+          "name": "Laith Alzubaidi",
+          "affiliation": "Queensland University of Technology"
+        },
+        {
+          "name": "Jinglan Zhang",
+          "affiliation": "Queensland University of Technology"
+        },
+        {
+          "name": "Amjad J. Humaidi",
+          "affiliation": "University of Technology - Iraq"
+        },
+        {
+          "name": "Ayad Q. Al-Dujaili",
+          "affiliation": "Middle Technical University"
+        },
+        {
+          "name": "Ye Duan",
+          "affiliation": "University of Missouri"
+        },
+        {
+          "name": "Omran Al-Shamma",
+          "affiliation": "University of Information Technology and Communications"
+        },
+        {
+          "name": "Jos\u00e9 Santamar\u00eda",
+          "affiliation": "Universidad de Ja\u00e9n"
+        },
+        {
+          "name": "Mohammed A. Fadhel",
+          "affiliation": "Thi Qar University"
+        },
+        {
+          "name": "Muthana Al\u2010Amidie",
+          "affiliation": "University of Missouri"
+        },
+        {
+          "name": "Laith Farhan",
+          "affiliation": "Manchester Metropolitan University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "In the last few years, the deep learning (DL) computing paradigm has been deemed the Gold Standard in the machine learning (ML) community. Moreover, it has gradually become the most widely used computational approach in the field of ML, thus achieving outstanding results on several complex cognitive tasks, matching or even beating those provided by human performance. One of the benefits of DL is the ability to learn massive amounts of data. The DL field has grown fast in the last few years and it has been extensively used to successfully address a wide range of traditional applications. More importantly, DL has outperformed well-known ML techniques in many domains, e.g., cybersecurity, natural language processing, bioinformatics, robotics and control, and medical information processing, among many others. Despite it has been contributed several works reviewing the State-of-the-Art on DL, all of them only tackled one aspect of the DL, which leads to an overall lack of knowledge about it. Therefore, in this contribution, we propose using a more holistic approach in order to provide a more suitable starting point from which to develop a full understanding of DL. Specifically, this review attempts to provide a more comprehensive survey of the most important aspects of DL and including those enhancements recently added to the field. In particular, this paper outlines the importance of DL, presents the types of DL techniques and networks. It then presents convolutional neural networks (CNNs) which the most utilized DL network type and describes the development of CNNs architectures together with their main features, e.g., starting with the AlexNet network and closing with the High-Resolution network (HR.Net). Finally, we further present the challenges and suggested solutions to help researchers understand the existing research gaps. It is followed by a list of the major DL applications. Computational tools including FPGA, GPU, and CPU are summarized along with a description of their influence on DL. The paper ends with the evolution matrix, benchmark datasets, and summary and conclusion.",
+      "venue": "Journal Of Big Data",
+      "citation_count": 7130,
+      "doi": "10.1186/s40537-021-00444-8",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1186/s40537-021-00444-8",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4205521168",
+      "title": "An Automated Vision-Based Deep Learning Model for Efficient Detection of Android Malware Attacks",
+      "authors": [
+        {
+          "name": "Iman Almomani",
+          "affiliation": "University of Jordan"
+        },
+        {
+          "name": "Aala Alkhayer",
+          "affiliation": "Prince Sultan University"
+        },
+        {
+          "name": "Walid El\u2010Shafai",
+          "affiliation": "Prince Sultan University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Recently, cybersecurity experts and researchers have given special attention to developing cost-effective deep learning (DL)-based algorithms for Android malware detection (AMD) systems. However, the conventional AMD solutions necessitate extensive computations to achieve high accuracy in detecting Android malware apps. Consequently, there is a significant benefit in utilizing convolution neural networks (CNNs) in vision-based AMD applications to quickly and efficiently learn without prior stages of reverse engineering processes. Thus, this paper introduces an efficient and automated vision-based AMD model composed of 16 well-developed and fine-tuned CNN algorithms. This model precludes the need for a pre-designated features extraction process while generating accurate predictions of malware images with minimum cost and high detection speed. Such performance is achieved with colored or grayscale malware images, whether by using balanced or imbalanced datasets. Firstly, the bytecodes of the \u201cclasses.dex\u201d files extracted from the Android benign and malware apps were converted to color and grayscale visual images before forwarding them to the developed CNN algorithms for classification. Then, the detection efficiency of the proposed AMD model was examined and evaluated using the imbalanced benchmark Leopard Android dataset that composes 14733 samples of malware apps and 2486 samples of benign apps. Finally, different experimental scenarios were conducted using balanced and imbalanced Android samples of color and grayscale images generated from the Leopard dataset; to extensively and sufficiently validate the detection and classification performance of the suggested model. Comprehensive assessment classification parameters in the evaluation experiments were applied to prove the high capability of the developed fine-tuned CNN algorithms in recognizing Android malware attacks with low computational overhead. As a result, the detection accuracy reached 99.40% for balanced samples and 98.05% for imbalanced samples. Furthermore, the proposed AMD model outperforms the existing approaches that utilize conventional vision-based algorithms and are tested on the same benchmark Android dataset.",
+      "venue": "IEEE Access",
+      "citation_count": 64,
+      "doi": "10.1109/access.2022.3140341",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/access.2022.3140341",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3139017368",
+      "title": "Retrieve Fast, Rerank Smart: Cooperative and Joint Approaches for Improved Cross-Modal Retrieval",
+      "authors": [
+        {
+          "name": "Gregor Geigle",
+          "affiliation": "Technical University of Darmstadt"
+        },
+        {
+          "name": "Jonas Pfeiffer",
+          "affiliation": "Technical University of Darmstadt"
+        },
+        {
+          "name": "Nils Reimers",
+          "affiliation": "Technical University of Darmstadt"
+        },
+        {
+          "name": "Ivan Vuli\u0107",
+          "affiliation": "University of Cambridge"
+        },
+        {
+          "name": "Iryna Gurevych",
+          "affiliation": "Technical University of Darmstadt"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Abstract Current state-of-the-art approaches to cross- modal retrieval process text and visual input jointly, relying on Transformer-based architectures with cross-attention mechanisms that attend over all words and objects in an image. While offering unmatched retrieval performance, such models: 1) are typically pretrained from scratch and thus less scalable, 2) suffer from huge retrieval latency and inefficiency issues, which makes them impractical in realistic applications. To address these crucial gaps towards both improved and efficient cross- modal retrieval, we propose a novel fine-tuning framework that turns any pretrained text-image multi-modal model into an efficient retrieval model. The framework is based on a cooperative retrieve-and-rerank approach that combines: 1) twin networks (i.e., a bi-encoder) to separately encode all items of a corpus, enabling efficient initial retrieval, and 2) a cross-encoder component for a more nuanced (i.e., smarter) ranking of the retrieved small set of items. We also propose to jointly fine- tune the two components with shared weights, yielding a more parameter-efficient model. Our experiments on a series of standard cross-modal retrieval benchmarks in monolingual, multilingual, and zero-shot setups, demonstrate improved accuracy and huge efficiency benefits over the state-of-the-art cross- encoders.1",
+      "venue": "Transactions of the Association for Computational Linguistics",
+      "citation_count": 49,
+      "doi": "10.1162/tacl_a_00473",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1162/tacl_a_00473",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4400227417",
+      "title": "Enhancing efficiency of protein language models with minimal wet-lab data through few-shot learning",
+      "authors": [
+        {
+          "name": "Ziyi Zhou",
+          "affiliation": "Shanghai Jiao Tong University"
+        },
+        {
+          "name": "Liang Zhang",
+          "affiliation": "Shanghai Jiao Tong University"
+        },
+        {
+          "name": "Yuanxi Yu",
+          "affiliation": "Shanghai Jiao Tong University"
+        },
+        {
+          "name": "Banghao Wu",
+          "affiliation": "Shanghai Jiao Tong University"
+        },
+        {
+          "name": "Mingchen Li",
+          "affiliation": "East China University of Science and Technology"
+        },
+        {
+          "name": "Liang Hong",
+          "affiliation": "Shanghai Jiao Tong University"
+        },
+        {
+          "name": "Pan Tan",
+          "affiliation": "Shanghai Jiao Tong University"
+        }
+      ],
+      "year": 2024,
+      "abstract": "",
+      "venue": "Nature Communications",
+      "citation_count": 60,
+      "doi": "10.1038/s41467-024-49798-6",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41467-024-49798-6",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4390793745",
+      "title": "Towards provably efficient quantum algorithms for large-scale machine-learning models",
+      "authors": [
+        {
+          "name": "Junyu Liu",
+          "affiliation": "University of Chicago"
+        },
+        {
+          "name": "Minzhao Liu",
+          "affiliation": "University of Chicago"
+        },
+        {
+          "name": "Jin-Peng Liu",
+          "affiliation": "American Academy of Implant Dentistry"
+        },
+        {
+          "name": "Ziyu Ye",
+          "affiliation": "University of Chicago"
+        },
+        {
+          "name": "Yunfei Wang",
+          "affiliation": "Brandeis University"
+        },
+        {
+          "name": "Yuri Alexeev",
+          "affiliation": "University of Chicago"
+        },
+        {
+          "name": "Jens Eisert",
+          "affiliation": ""
+        },
+        {
+          "name": "Liang Jiang",
+          "affiliation": "University of Chicago"
+        }
+      ],
+      "year": 2024,
+      "abstract": "",
+      "venue": "Nature Communications",
+      "citation_count": 64,
+      "doi": "10.1038/s41467-023-43957-x",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41467-023-43957-x",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3034731255",
+      "title": "An End-to-End Edge Aggregation Network for Moving Object Segmentation",
+      "authors": [
+        {
+          "name": "Prashant W. Patil",
+          "affiliation": "Indian Institute of Technology Ropar"
+        },
+        {
+          "name": "Kuldeep Biradar",
+          "affiliation": "Indian Institute of Technology Ropar"
+        },
+        {
+          "name": "Akshay Dudhane",
+          "affiliation": "Indian Institute of Technology Ropar"
+        },
+        {
+          "name": "Subrahmanyam Murala",
+          "affiliation": "Indian Institute of Technology Ropar"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Moving object segmentation in videos (MOS) is a highly demanding task for security-based applications like automated outdoor video surveillance. Most of the existing techniques proposed for MOS are highly depend on fine-tuning a model on the first frame(s) of test sequence or complicated training procedure, which leads to limited practical serviceability of the algorithm. In this paper, the inherent correlation learning-based edge extraction mechanism (EEM) and dense residual block (DRB) are proposed for the discriminative foreground representation. The multi-scale EEM module provides the efficient foreground edge related information (with the help of encoder) to the decoder through skip connection at subsequent scale. Further, the response of the optical flow encoder stream and the last EEM module are embedded in the bridge network. The bridge network comprises of multi-scale residual blocks with dense connections to learn the effective and efficient foreground relevant features. Finally, to generate accurate and consistent foreground object maps, a decoder block is proposed with skip connections from respective multi-scale EEM module feature maps and the subsequent down-sampled response of previous frame output. Specifically, the proposed network does not require any pre-trained models or fine-tuning of the parameters with the initial frame(s) of the test video. The performance of the proposed network is evaluated with different configurations like disjoint, cross-data, and global training-testing techniques. The ablation study is conducted to analyse each model of the proposed network. To demonstrate the effectiveness of the proposed framework, a comprehensive analysis on four benchmark video datasets is conducted. Experimental results show that the proposed approach outperforms the state-of-the-art methods for MOS",
+      "venue": "",
+      "citation_count": 63,
+      "doi": "10.1109/cvpr42600.2020.00817",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr42600.2020.00817",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4390872006",
+      "title": "DiffFit: Unlocking Transferability of Large Diffusion Models via Simple Parameter-Efficient Fine-Tuning",
+      "authors": [
+        {
+          "name": "Enze Xie",
+          "affiliation": "Huawei Technologies (Sweden)"
+        },
+        {
+          "name": "Lewei Yao",
+          "affiliation": "Huawei Technologies (Sweden)"
+        },
+        {
+          "name": "Han Shi",
+          "affiliation": "Huawei Technologies (Sweden)"
+        },
+        {
+          "name": "Zhili Liu",
+          "affiliation": "Huawei Technologies (Sweden)"
+        },
+        {
+          "name": "Daquan Zhou",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Zhaoqiang Liu",
+          "affiliation": "Huawei Technologies (Sweden)"
+        },
+        {
+          "name": "Jiawei Li",
+          "affiliation": "Huawei Technologies (Sweden)"
+        },
+        {
+          "name": "Zhenguo Li",
+          "affiliation": "Huawei Technologies (Sweden)"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Diffusion models have proven to be highly effective in generating high-quality images. However, adapting large pre-trained diffusion models to new domains remains an open challenge, which is critical for real-world applications. This paper proposes DiffFit, a parameter-efficient strategy to fine-tune large pre-trained diffusion models that enable fast adaptation to new domains. DiffFit is embarrassingly simple that only fine-tunes the bias term and newly-added scaling factors in specific layers, yet resulting in significant training speed-up and reduced model storage costs. Compared with full fine-tuning, DiffFit achieves 2\u00d7 training speed-up and only needs to store approximately 0.12% of the total model parameters. Intuitive theoretical analysis has been provided to justify the efficacy of scaling factors on fast adaptation. On 8 downstream datasets, DiffFit achieves superior or competitive performances compared to the full fine-tuning while being more efficient. Remarkably, we show that DiffFit can adapt a pre-trained low-resolution generative model to a high-resolution one by adding minimal cost. Among diffusion-based methods, DiffFit sets a new state-of-the-art FID of 3.02 on ImageNet 512\u00d7512 benchmark by fine-tuning only 25 epochs from a public pre-trained ImageNet 256\u00d7256 checkpoint while being 30\u00d7 more training efficient than the closest competitor.",
+      "venue": "",
+      "citation_count": 31,
+      "doi": "10.1109/iccv51070.2023.00390",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/iccv51070.2023.00390",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4226464635",
+      "title": "Learning to Compose Soft Prompts for Compositional Zero-Shot Learning",
+      "authors": [
+        {
+          "name": "Nihal V. Nayak",
+          "affiliation": ""
+        },
+        {
+          "name": "Peilin Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Stephen H. Bach",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "We introduce compositional soft prompting (CSP), a parameter-efficient learning technique to improve the zero-shot compositionality of large-scale pretrained vision-language models (VLMs) like CLIP. We develop CSP for compositional zero-shot learning, the task of predicting unseen attribute-object compositions (e.g., old cat and young tiger). VLMs have a flexible text encoder that can represent arbitrary classes as natural language prompts but they often underperform task-specific architectures on the compositional zero-shot benchmark datasets. CSP treats the attributes and objects that define classes as learnable tokens of vocabulary. During training, the vocabulary is tuned to recognize classes that compose tokens in multiple ways (e.g., old cat and white cat). At test time, we recompose the learned attribute-object vocabulary in new combinations to recognize novel classes. We show that CSP outperforms the CLIP on benchmark datasets by an average of 10.9 percentage points on AUC. CSP also outperforms CoOp, a soft prompting method that fine-tunes the prefix context tokens, by an average of 5.8 percentage points on AUC. We perform additional experiments to show that CSP improves generalization to higher-order attribute-attribute-object compositions (e.g., old white cat) and combinations of pretrained attributes and fine-tuned objects. The code is available at https://github.com/BatsResearch/csp.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 41,
+      "doi": "10.48550/arxiv.2204.03574",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2204.03574",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3035483468",
+      "title": "A Novel Recurrent Encoder-Decoder Structure for Large-Scale Multi-View Stereo Reconstruction From an Open Aerial Dataset",
+      "authors": [
+        {
+          "name": "Jin Liu",
+          "affiliation": "Wuhan University"
+        },
+        {
+          "name": "Shunping Ji",
+          "affiliation": "Wuhan University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "A great deal of research has demonstrated recently that multi-view stereo (MVS) matching can be solved with deep learning methods. However, these efforts were focused on close-range objects and only a very few of the deep learning-based methods were specifically designed for large-scale 3D urban reconstruction due to the lack of multi-view aerial image benchmarks. In this paper, we present a synthetic aerial dataset, called the WHU dataset, we created for MVS tasks, which, to our knowledge, is the first large-scale multi-view aerial dataset. It was generated from a highly accurate 3D digital surface model produced from thousands of real aerial images with precise camera parameters. We also introduce in this paper a novel network, called RED-Net, for wide-range depth inference, which we developed from a recurrent encoder-decoder structure to regularize cost maps across depths and a 2D fully convolutional network as framework. RED-Net's low memory requirements and high performance make it suitable for large-scale and highly accurate 3D Earth surface reconstruction. Our experiments confirmed that not only did our method exceed the current state-of-the-art MVS methods by more than 50% mean absolute error (MAE) with less memory and computational cost, but its efficiency as well. It outperformed one of the best commercial software programs based on conventional methods, improving their efficiency 16 times over. Moreover, we proved that our RED-Net model pre-trained on the synthetic WHU dataset can be efficiently transferred to very different multi-view aerial image datasets without any fine-tuning. Dataset and code are available at http://gpcv.whu.edu.cn/data.",
+      "venue": "",
+      "citation_count": 108,
+      "doi": "10.1109/cvpr42600.2020.00609",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr42600.2020.00609",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3185341429",
+      "title": "Pre-train, Prompt, and Predict: A Systematic Survey of Prompting Methods in Natural Language Processing",
+      "authors": [
+        {
+          "name": "Pengfei Liu",
+          "affiliation": "Carnegie Mellon University"
+        },
+        {
+          "name": "Weizhe Yuan",
+          "affiliation": "Carnegie Mellon University"
+        },
+        {
+          "name": "Jinlan Fu",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Zhengbao Jiang",
+          "affiliation": "Carnegie Mellon University"
+        },
+        {
+          "name": "Hiroaki Hayashi",
+          "affiliation": "Carnegie Mellon University"
+        },
+        {
+          "name": "Graham Neubig",
+          "affiliation": "Carnegie Mellon University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "This article surveys and organizes research works in a new paradigm in natural language processing, which we dub \u201cprompt-based learning.\u201d Unlike traditional supervised learning, which trains a model to take in an input x and predict an output y as P ( y|x ), prompt-based learning is based on language models that model the probability of text directly. To use these models to perform prediction tasks, the original input x is modified using a template into a textual string prompt x\u2032 that has some unfilled slots, and then the language model is used to probabilistically fill the unfilled information to obtain a final string x\u0302 , from which the final output y can be derived. This framework is powerful and attractive for a number of reasons: It allows the language model to be pre-trained on massive amounts of raw text, and by defining a new prompting function the model is able to perform few-shot or even zero-shot learning, adapting to new scenarios with few or no labeled data. In this article, we introduce the basics of this promising paradigm, describe a unified set of mathematical notations that can cover a wide variety of existing work, and organize existing work along several dimensions, e.g., the choice of pre-trained language models, prompts, and tuning strategies. To make the field more accessible to interested beginners, we not only make a systematic review of existing works and a highly structured typology of prompt-based concepts but also release other resources, e.g., a website NLPedia\u2013Pretrain including constantly updated survey and paperlist.",
+      "venue": "ACM Computing Surveys",
+      "citation_count": 3411,
+      "doi": "10.1145/3560815",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3560815",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4385262268",
+      "title": "Aligning Large Language Models with Human: A Survey",
+      "authors": [
+        {
+          "name": "Yufei Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wanjun Zhong",
+          "affiliation": ""
+        },
+        {
+          "name": "Liangyou Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Fei Mi",
+          "affiliation": ""
+        },
+        {
+          "name": "Xingshan Zeng",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenyong Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Lifeng Shang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xin Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Qun Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Large Language Models (LLMs) trained on extensive textual corpora have emerged as leading solutions for a broad array of Natural Language Processing (NLP) tasks. Despite their notable performance, these models are prone to certain limitations such as misunderstanding human instructions, generating potentially biased content, or factually incorrect (hallucinated) information. Hence, aligning LLMs with human expectations has become an active area of interest within the research community. This survey presents a comprehensive overview of these alignment technologies, including the following aspects. (1) Data collection: the methods for effectively collecting high-quality instructions for LLM alignment, including the use of NLP benchmarks, human annotations, and leveraging strong LLMs. (2) Training methodologies: a detailed review of the prevailing training methods employed for LLM alignment. Our exploration encompasses Supervised Fine-tuning, both Online and Offline human preference training, along with parameter-efficient training mechanisms. (3) Model Evaluation: the methods for evaluating the effectiveness of these human-aligned LLMs, presenting a multifaceted approach towards their assessment. In conclusion, we collate and distill our findings, shedding light on several promising future research avenues in the field. This survey, therefore, serves as a valuable resource for anyone invested in understanding and advancing the alignment of LLMs to better suit human-oriented tasks and expectations. An associated GitHub link collecting the latest papers is available at https://github.com/GaryYufei/AlignLLMHumanSurvey.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 53,
+      "doi": "10.48550/arxiv.2307.12966",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2307.12966",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4384071683",
+      "title": "Large language models encode clinical knowledge",
+      "authors": [
+        {
+          "name": "Karan Singhal",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Shekoofeh Azizi",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Tao Tu",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "S. Sara Mahdavi",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Jason Lee",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Hyung Won Chung",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Nathan Scales",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Ajay Kumar Tanwani",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Heather Cole-Lewis",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Stephen Pfohl",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Perry W. Payne",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Martin Seneviratne",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Paul Gamble",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Christopher Kelly",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Abubakr Babiker",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Nathanael Sch\u00e4rli",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Aakanksha Chowdhery",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "P. Mansfield",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Dina Demner\u2010Fushman",
+          "affiliation": "United States National Library of Medicine"
+        },
+        {
+          "name": "Blaise Ag\u00fcera y Arcas",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Dale R. Webster",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Greg S. Corrado",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Yossi Matias",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Katherine Chou",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Juraj Gottweis",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Nenad Toma\u0161ev",
+          "affiliation": "DeepMind (United Kingdom)"
+        },
+        {
+          "name": "Yun Liu",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Alvin Rajkomar",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Jo\u00eblle Barral",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Christopher Semturs",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Alan Karthikesalingam",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Vivek Natarajan",
+          "affiliation": "Google (United States)"
+        }
+      ],
+      "year": 2023,
+      "abstract": "",
+      "venue": "Nature",
+      "citation_count": 2721,
+      "doi": "10.1038/s41586-023-06291-2",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41586-023-06291-2",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4296344711",
+      "title": "An intelligent intrusion detection system for distributed denial of service attacks: A support vector machine with hybrid optimization algorithm based approach",
+      "authors": [
+        {
+          "name": "S. Sumathi",
+          "affiliation": "Government Medical College Thoothukudi"
+        },
+        {
+          "name": "R. Rajesh",
+          "affiliation": "Indian Institute of Technology Madras"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Summary Cloud computing offers comfortable service to business sectors as they can concentrate on their products. Over the internet, cloud computing is liable to various security threats and attacks which is a primary obstacle to the growth of cloud computing services. Distributed denial of service (DDoS) is one such attack that exploits cloud computing services using compromised machines; hence, its detection is a significant field of research. Several DDoS detection schemes have been proposed in the past, but they fail to detect real\u2010time active DDoS attacks because of their growth in severity and volume. Machine learning (ML) techniques are efficient in making predictions; hence, in this study, a hybrid ML intrusion detection system (IDS) model is proposed. The performance of the proposed IDS model is improved by employing a 10\u2010fold cross\u2010validation technique to perform feature selection, reducing data dimensions on the publicly available benchmark NSL\u2010KDD dataset. Performance validation of the proposed hybrid IDS model is done using the confusion matrix. Support vector machine (SVM) parameters are fine\u2010tuned using hybrid Harris Hawks optimization (HHO) and particle swarm optimization (PSO) algorithms. The performance of these hybrid algorithms is compared with other classical algorithms such as C4.5, K\u2010nearest neighbor, and SVM using performance metrics such as precision, sensitivity, specificity, F1 score, and accuracy. From these comparisons, it can be inferred that the proposed SVM with hybrid optimization HHO\u2010PSO machine learning IDS model performs better DDoS detection with good performance metric values.",
+      "venue": "Concurrency and Computation Practice and Experience",
+      "citation_count": 81,
+      "doi": "10.1002/cpe.7334",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1002/cpe.7334",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4386019297",
+      "title": "OneOPES, a Combined Enhanced Sampling Method to Rule Them All",
+      "authors": [
+        {
+          "name": "Valerio Rizzi",
+          "affiliation": "University of Geneva"
+        },
+        {
+          "name": "Simone Aureli",
+          "affiliation": "University of Geneva"
+        },
+        {
+          "name": "Narjes Ansari",
+          "affiliation": "Italian Institute of Technology"
+        },
+        {
+          "name": "Francesco Luigi Gervasio",
+          "affiliation": "SIB Swiss Institute of Bioinformatics"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Enhanced sampling techniques have revolutionized molecular dynamics (MD) simulations, enabling the study of rare events and the calculation of free energy differences in complex systems. One of the main families of enhanced sampling techniques uses physical degrees of freedom called collective variables (CVs) to accelerate a system's dynamics and recover the original system's statistics. However, encoding all the relevant degrees of freedom in a limited number of CVs is challenging, particularly in large biophysical systems. Another category of techniques, such as parallel tempering, simulates multiple replicas of the system in parallel, without requiring CVs. However, these methods may explore less relevant high-energy portions of the phase space and become computationally expensive for large systems. To overcome the limitations of both approaches, we propose a replica exchange method called OneOPES that combines the power of multireplica simulations and CV-based enhanced sampling. This method efficiently accelerates the phase space sampling without the need for ideal CVs, extensive parameters fine tuning nor the use of a large number of replicas, as demonstrated by its successful applications to protein-ligand binding and protein folding benchmark systems. Our approach shows promise as a new direction in the development of enhanced sampling techniques for molecular dynamics simulations, providing an efficient and robust framework for the study of complex and unexplored problems.",
+      "venue": "Journal of Chemical Theory and Computation",
+      "citation_count": 46,
+      "doi": "10.1021/acs.jctc.3c00254",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1021/acs.jctc.3c00254",
+      "source": "openalex",
+      "_bibtex_override": ""
+    }
+  ]
+}

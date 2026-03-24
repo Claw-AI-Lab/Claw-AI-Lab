@@ -1,0 +1,542 @@
+{
+  "query": "cross-attention overlap metric diffusion",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1774164066.5089726,
+  "papers": [
+    {
+      "paper_id": "arxiv-2303.17696",
+      "title": "Dual Cross-Attention for Medical Image Segmentation",
+      "authors": [
+        {
+          "name": "Gorkem Can Ates",
+          "affiliation": ""
+        },
+        {
+          "name": "Prasoon Mohan",
+          "affiliation": ""
+        },
+        {
+          "name": "Emrah Celik",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We propose Dual Cross-Attention (DCA), a simple yet effective attention module that is able to enhance skip-connections in U-Net-based architectures for medical image segmentation. DCA addresses the semantic gap between encoder and decoder features by sequentially capturing channel and spatial dependencies across multi-scale encoder features. First, the Channel Cross-Attention (CCA) extracts global channel-wise dependencies by utilizing cross-attention across channel tokens of multi-scale encoder features. Then, the Spatial Cross-Attention (SCA) module performs cross-attention to capture spatial dependencies across spatial tokens. Finally, these fine-grained encoder features are up-sampled and connected to their corresponding decoder parts to form the skip-connection scheme. Our proposed DCA module can be integrated into any encoder-decoder architecture with skip-connections such as U-Net and its variants. We test our DCA module by integrating it into six U-Net-based architectures such as U-Net, V-Net, R2Unet, ResUnet++, DoubleUnet and MultiResUnet. Our DCA module shows Dice Score improvements up to 2.05% on GlaS, 2.74% on MoNuSeg, 1.37% on CVC-ClinicDB, 1.12% on Kvasir-Seg and 1.44% on Synapse datasets. Our codes are available at: https://github.com/gorkemcanates/Dual-Cross-Attention",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1016/j.engappai.2023.107139",
+      "arxiv_id": "2303.17696",
+      "url": "https://arxiv.org/abs/2303.17696",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2311.03335",
+      "title": "Cross-Image Attention for Zero-Shot Appearance Transfer",
+      "authors": [
+        {
+          "name": "Yuval Alaluf",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniel Garibi",
+          "affiliation": ""
+        },
+        {
+          "name": "Or Patashnik",
+          "affiliation": ""
+        },
+        {
+          "name": "Hadar Averbuch-Elor",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniel Cohen-Or",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Recent advancements in text-to-image generative models have demonstrated a remarkable ability to capture a deep semantic understanding of images. In this work, we leverage this semantic knowledge to transfer the visual appearance between objects that share similar semantics but may differ significantly in shape. To achieve this, we build upon the self-attention layers of these generative models and introduce a cross-image attention mechanism that implicitly establishes semantic correspondences across images. Specifically, given a pair of images -- one depicting the target structure and the other specifying the desired appearance -- our cross-image attention combines the queries corresponding to the structure image with the keys and values of the appearance image. This operation, when applied during the denoising process, leverages the established semantic correspondences to generate an image combining the desired structure and appearance. In addition, to improve the output image quality, we harness three mechanisms that either manipulate the noisy latent codes or the model's internal representations throughout the denoising process. Importantly, our approach is zero-shot, requiring no optimization or training. Experiments show that our method is effective across a wide range of object categories and is robust to variations in shape, size, and viewpoint between the two input images.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2311.03335",
+      "url": "https://arxiv.org/abs/2311.03335",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2204.00452",
+      "title": "Vision Transformer with Cross-attention by Temporal Shift for Efficient Action Recognition",
+      "authors": [
+        {
+          "name": "Ryota Hashiguchi",
+          "affiliation": ""
+        },
+        {
+          "name": "Toru Tamaki",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Feature shifts have been shown to be useful for action recognition with CNN-based models since Temporal Shift Module (TSM) was proposed. It is based on frame-wise feature extraction with late fusion, and layer features are shifted along the time direction for the temporal interaction. TokenShift, a recent model based on Vision Transformer (ViT), also uses the temporal feature shift mechanism, which, however, does not fully exploit the structure of Multi-head Self-Attention (MSA) in ViT. In this paper, we propose Multi-head Self/Cross-Attention (MSCA), which fully utilizes the attention structure. TokenShift is based on a frame-wise ViT with features temporally shifted with successive frames (at time t+1 and t-1). In contrast, the proposed MSCA replaces MSA in the frame-wise ViT, and some MSA heads attend to successive frames instead of the current frame. The computation cost is the same as the frame-wise ViT and TokenShift as it simply changes the target to which the attention is taken. There is a choice about which of key, query, and value are taken from the successive frames, then we experimentally compared these variants with Kinetics400. We also investigate other variants in which the proposed MSCA is used along the patch dimension of ViT, instead of the head dimension. Experimental results show that a variant, MSCA-KV, shows the best performance and is better than TokenShift by 0.1% and then ViT by 1.2%.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2204.00452",
+      "url": "https://arxiv.org/abs/2204.00452",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2410.20972",
+      "title": "Attention Overlap Is Responsible for The Entity Missing Problem in Text-to-image Diffusion Models!",
+      "authors": [
+        {
+          "name": "Arash Marioriyad",
+          "affiliation": ""
+        },
+        {
+          "name": "Mohammadali Banayeeanzade",
+          "affiliation": ""
+        },
+        {
+          "name": "Reza Abbasi",
+          "affiliation": ""
+        },
+        {
+          "name": "Mohammad Hossein Rohban",
+          "affiliation": ""
+        },
+        {
+          "name": "Mahdieh Soleymani Baghshah",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Text-to-image diffusion models, such as Stable Diffusion and DALL-E, are capable of generating high-quality, diverse, and realistic images from textual prompts. However, they sometimes struggle to accurately depict specific entities described in prompts, a limitation known as the entity missing problem in compositional generation. While prior studies suggested that adjusting cross-attention maps during the denoising process could alleviate this problem, they did not systematically investigate which objective functions could best address it. This study examines three potential causes of the entity-missing problem, focusing on cross-attention dynamics: (1) insufficient attention intensity for certain entities, (2) overly broad attention spread, and (3) excessive overlap between attention maps of different entities. We found that reducing overlap in attention maps between entities can effectively minimize the rate of entity missing. Specifically, we hypothesize that tokens related to specific entities compete for attention on certain image regions during the denoising process, which can lead to divided attention across tokens and prevent accurate representation of each entity. To address this issue, we introduced four loss functions, Intersection over Union (IoU), center-of-mass (CoM) distance, Kullback-Leibler (KL) divergence, and clustering compactness (CC) to regulate attention overlap during denoising steps without the need for retraining. Experimental results across a wide variety of benchmarks reveal that these proposed training-free methods significantly improve compositional accuracy, outperforming previous approaches in visual question answering (VQA), captioning scores, CLIP similarity, and human evaluations. Notably, these methods improved human evaluation scores by 9% over the best baseline, demonstrating substantial improvements in compositional alignment.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2410.20972",
+      "url": "https://arxiv.org/abs/2410.20972",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2505.08426",
+      "title": "DHECA-SuperGaze: Dual Head-Eye Cross-Attention and Super-Resolution for Unconstrained Gaze Estimation",
+      "authors": [
+        {
+          "name": "Franko \u0160iki\u0107",
+          "affiliation": ""
+        },
+        {
+          "name": "Donik Vr\u0161nak",
+          "affiliation": ""
+        },
+        {
+          "name": "Sven Lon\u010dari\u0107",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Unconstrained gaze estimation is the process of determining where a subject is directing their visual attention in uncontrolled environments. Gaze estimation systems are important for a myriad of tasks such as driver distraction monitoring, exam proctoring, accessibility features in modern software, etc. However, these systems face challenges in real-world scenarios, partially due to the low resolution of in-the-wild images and partially due to insufficient modeling of head-eye interactions in current state-of-the-art (SOTA) methods. This paper introduces DHECA-SuperGaze, a deep learning-based method that advances gaze prediction through super-resolution (SR) and a dual head-eye cross-attention (DHECA) module. Our dual-branch convolutional backbone processes eye and multiscale SR head images, while the proposed DHECA module enables bidirectional feature refinement between the extracted visual features through cross-attention mechanisms. Furthermore, we identified critical annotation errors in one of the most diverse and widely used gaze estimation datasets, Gaze360, and rectified the mislabeled data. Performance evaluation on Gaze360 and GFIE datasets demonstrates superior within-dataset performance of the proposed method, reducing angular error (AE) by 0.48\u00b0 (Gaze360) and 2.95\u00b0 (GFIE) in static configurations, and 0.59\u00b0 (Gaze360) and 3.00\u00b0 (GFIE) in temporal settings compared to prior SOTA methods. Cross-dataset testing shows improvements in AE of more than 1.53\u00b0 (Gaze360) and 3.99\u00b0 (GFIE) in both static and temporal settings, validating the robust generalization properties of our approach.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1007/s00521-026-11849-y",
+      "arxiv_id": "2505.08426",
+      "url": "https://arxiv.org/abs/2505.08426",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2012.07298",
+      "title": "Coarse metric and uniform metric",
+      "authors": [
+        {
+          "name": "Chi-Keung Ng",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "We introduce the notion of coarse metric. Every coarse metric induces a coarse structure on the underlying set. Conversely, we observe that all coarse spaces come from a particular type of coarse metric in a unique way. In the case when the coarse structure $\\mathcal{E}$ on a set $X$ is defined by a coarse metric that takes values in a meet-complete totally ordered set, we define the associated Hausdorff coarse metric on the set $\\mathcal{P}_0(X)$ of non-empty subsets of $X$ and show that it induces the Hausdorff coarse structure on $\\mathcal{P}_0(X)$.\n  On the other hand, we define the notion of pseudo uniform metric. Each pseudo uniform metric induces a uniform structure on the underlying space. In the reverse direction, we show that a uniform structure $\\mathcal{U}$ on a set $X$ is induced by a map $d$ from $X\\times X$ to a partially ordered set (with no requirement on $d$) if and only if $\\mathcal{U}$ admits a base $\\mathcal{B}$ such that $\\mathcal{B}\\cup \\{\\bigcap \\mathcal{U}\\}$ is closed under arbitrary intersections. In this case, $\\mathcal{U}$ is actually defined by a pseudo uniform metric. We also show that a uniform structures $\\mathcal{U}$ comes from a pseudo uniform metric that takes values in a totally ordered set if and only if $\\mathcal{U}$ admits a totally ordered base.\n  Finally, a valuation ring will produce an example of a coarse and pseudo uniform metric that take values in a totally ordered set.",
+      "venue": "math.MG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2012.07298",
+      "url": "https://arxiv.org/abs/2012.07298",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2407.03030",
+      "title": "An isometric extensor of metrics",
+      "authors": [
+        {
+          "name": "Yoshito Ishiki",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "In this paper, for a metrizable space $Z$, we consider the space of metrics that generate the same topology of $Z$, and that space of metrics is equipped with the supremum metrics. For a metrizable space $X$ and a closed subset $A$ of it, we construct a map $E$ from the space of metrics on $A$ into the space of metrics on $X$ such that $E$ is an extension of metrics and preserves the supremum metrics between metrics.",
+      "venue": "math.MG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2407.03030",
+      "url": "https://arxiv.org/abs/2407.03030",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2402.09712",
+      "title": "Diffusion Model with Cross Attention as an Inductive Bias for Disentanglement",
+      "authors": [
+        {
+          "name": "Tao Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Cuiling Lan",
+          "affiliation": ""
+        },
+        {
+          "name": "Yan Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Nanning zheng",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Disentangled representation learning strives to extract the intrinsic factors within observed data. Factorizing these representations in an unsupervised manner is notably challenging and usually requires tailored loss functions or specific structural designs. In this paper, we introduce a new perspective and framework, demonstrating that diffusion models with cross-attention can serve as a powerful inductive bias to facilitate the learning of disentangled representations. We propose to encode an image to a set of concept tokens and treat them as the condition of the latent diffusion for image reconstruction, where cross-attention over the concept tokens is used to bridge the interaction between the encoder and diffusion. Without any additional regularization, this framework achieves superior disentanglement performance on the benchmark datasets, surpassing all previous methods with intricate designs. We have conducted comprehensive ablation studies and visualization analysis, shedding light on the functioning of this model. This is the first work to reveal the potent disentanglement capability of diffusion models with cross-attention, requiring no complex designs. We anticipate that our findings will inspire more investigation on exploring diffusion for disentangled representation learning towards more sophisticated data analysis and understanding.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2402.09712",
+      "url": "https://arxiv.org/abs/2402.09712",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2104.03484",
+      "title": "Advances in Metric Ramsey Theory and its Applications",
+      "authors": [
+        {
+          "name": "Yair Bartal",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Metric Ramsey theory is concerned with finding large well-structured subsets of more complex metric spaces. For finite metric spaces this problem was first studies by Bourgain, Figiel and Milman \\cite{bfm}, and studied further in depth by Bartal et. al \\cite{BLMN03}. In this paper we provide deterministic constructions for this problem via a novel notion of \\emph{metric Ramsey decomposition}. This method yields several more applications, reflecting on some basic results in metric embedding theory.\n  The applications include various results in metric Ramsey theory including the first deterministic construction yielding Ramsey theorems with tight bounds, a well as stronger theorems and properties, implying appropriate distance oracle applications.\n  In addition, this decomposition provides the first deterministic Bourgain-type embedding of finite metric spaces into Euclidean space, and an optimal multi-embedding into ultrametrics, thus improving its applications in approximation and online algorithms.\n  The decomposition presented here, the techniques and its consequences have already been used in recent research in the field of metric embedding for various applications.",
+      "venue": "cs.DS",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2104.03484",
+      "url": "https://arxiv.org/abs/2104.03484",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2109.03725",
+      "title": "Quasi-metric antipodal spaces and maximal Gromov hyperbolic spaces",
+      "authors": [
+        {
+          "name": "Kingshook Biswas",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Hyperbolic fillings of metric spaces are a well-known tool for proving results on extending quasi-Moebius maps between boundaries of Gromov hyperbolic spaces to quasi-isometries between the spaces.\n  For CAT(-1) spaces, and more generally boundary continuous Gromov hyperbolic spaces, one can refine the quasi-Moebius structure on the boundary to a Moebius structure. It is then natural to ask whether there exists a functorial hyperbolic filling of the boundary by a boundary continuous Gromov hyperbolic space with an identification between boundaries which is not just quasi-Moebius, but in fact Moebius.\n  We give a positive answer to this question for a large class of boundaries satisfying one crucial hypothesis, the {\\it antipodal property}. This gives a class of compact spaces called {\\it quasi-metric antipodal spaces}. For any such space $Z$, we give a functorial construction of a boundary continuous Gromov hyperbolic space $\\mathcal{M}(Z)$ together with a Moebius identification of its boundary with $Z$. The space $\\mathcal{M}(Z)$ is maximal amongst all fillings of $Z$. These spaces $\\mathcal{M}(Z)$ give in fact all examples of a natural class of spaces called {\\it maximal Gromov hyperbolic spaces}.\n  We prove an equivalence of categories between quasi-metric antipodal spaces and maximal Gromov hyperbolic spaces. This is part of a more general equivalence we prove between the larger categories of certain spaces called {\\it antipodal spaces} and {\\it maximal Gromov product spaces}. We prove that the injective hull of a Gromov product space $X$ is isometric to the maximal Gromov product space $\\mathcal{M}(Z)$, where $Z$ is the boundary of $X$. We also show that a Gromov product space is injective if and only if it is maximal.",
+      "venue": "math.MG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2109.03725",
+      "url": "https://arxiv.org/abs/2109.03725",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2403.14479",
+      "title": "Weak Carleson conditions in uniformly rectifiable metric spaces: the WCD and alpha numbers",
+      "authors": [
+        {
+          "name": "Jared Krandel",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "We investigate characterizations of uniformly rectifiable (UR) metric spaces by so-called weak Carleson conditions for flatness coefficients which measure the extent to which Hausdorff measure on the metric space differs from Hausdorff measure on a normed space. First, we show that UR metric spaces satisfy David and Semmes's weak constant density condition, a quantitative regularity property which implies most balls in the space support a measure with nearly constant density in a neighborhood of scales and locations. Second, we introduce a metric space variant of Tolsa's alpha numbers that measure a local normalized $L_1$ mass transport cost between the space's Hausdorff measure and Hausdorff measure on a normed space. We show that a weak Carleson condition for these alpha numbers gives a characterization of metric uniform rectifiability. We derive both results as corollaries of a more general abstract result which gives a tool for transferring weak Carleson conditions to spaces with very big pieces of spaces with a given weak Carleson condition.",
+      "venue": "math.MG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2403.14479",
+      "url": "https://arxiv.org/abs/2403.14479",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2403.11052",
+      "title": "Unveiling and Mitigating Memorization in Text-to-image Diffusion Models through Cross Attention",
+      "authors": [
+        {
+          "name": "Jie Ren",
+          "affiliation": ""
+        },
+        {
+          "name": "Yaxin Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Shenglai Zeng",
+          "affiliation": ""
+        },
+        {
+          "name": "Han Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Lingjuan Lyu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yue Xing",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiliang Tang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Recent advancements in text-to-image diffusion models have demonstrated their remarkable capability to generate high-quality images from textual prompts. However, increasing research indicates that these models memorize and replicate images from their training data, raising tremendous concerns about potential copyright infringement and privacy risks. In our study, we provide a novel perspective to understand this memorization phenomenon by examining its relationship with cross-attention mechanisms. We reveal that during memorization, the cross-attention tends to focus disproportionately on the embeddings of specific tokens. The diffusion model is overfitted to these token embeddings, memorizing corresponding training images. To elucidate this phenomenon, we further identify and discuss various intrinsic findings of cross-attention that contribute to memorization. Building on these insights, we introduce an innovative approach to detect and mitigate memorization in diffusion models. The advantage of our proposed method is that it will not compromise the speed of either the training or the inference processes in these models while preserving the quality of generated images. Our code is available at https://github.com/renjie3/MemAttn .",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2403.11052",
+      "url": "https://arxiv.org/abs/2403.11052",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2509.08641",
+      "title": "On the dichotomy of $p$-walk dimensions on metric measure spaces",
+      "authors": [
+        {
+          "name": "Meng Yang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "On a volume doubling metric measure space endowed with a family of $p$-energies such that the Poincar\u00e9 inequality and the cutoff Sobolev inequality with $p$-walk dimension $\u03b2_p$ hold, for $p$ in an open interval $I\\subseteq (1,+\\infty)$, we prove the following dichotomy: either $\u03b2_p=p$ for all $p\\in I$, or $\u03b2_p>p$ for all $p\\in I$.",
+      "venue": "math.FA",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2509.08641",
+      "url": "https://arxiv.org/abs/2509.08641",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2312.04410",
+      "title": "Smooth Diffusion: Crafting Smooth Latent Spaces in Diffusion Models",
+      "authors": [
+        {
+          "name": "Jiayi Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Xingqian Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yifan Pu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zanlin Ni",
+          "affiliation": ""
+        },
+        {
+          "name": "Chaofei Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Manushree Vasu",
+          "affiliation": ""
+        },
+        {
+          "name": "Shiji Song",
+          "affiliation": ""
+        },
+        {
+          "name": "Gao Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Humphrey Shi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Recently, diffusion models have made remarkable progress in text-to-image (T2I) generation, synthesizing images with high fidelity and diverse contents. Despite this advancement, latent space smoothness within diffusion models remains largely unexplored. Smooth latent spaces ensure that a perturbation on an input latent corresponds to a steady change in the output image. This property proves beneficial in downstream tasks, including image interpolation, inversion, and editing. In this work, we expose the non-smoothness of diffusion latent spaces by observing noticeable visual fluctuations resulting from minor latent variations. To tackle this issue, we propose Smooth Diffusion, a new category of diffusion models that can be simultaneously high-performing and smooth. Specifically, we introduce Step-wise Variation Regularization to enforce the proportion between the variations of an arbitrary input latent and that of the output image is a constant at any diffusion training step. In addition, we devise an interpolation standard deviation (ISTD) metric to effectively assess the latent space smoothness of a diffusion model. Extensive quantitative and qualitative experiments demonstrate that Smooth Diffusion stands out as a more desirable solution not only in T2I generation but also across various downstream tasks. Smooth Diffusion is implemented as a plug-and-play Smooth-LoRA to work with various community models. Code is available at https://github.com/SHI-Labs/Smooth-Diffusion.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2312.04410",
+      "url": "https://arxiv.org/abs/2312.04410",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2409.00588",
+      "title": "Diffusion Policy Policy Optimization",
+      "authors": [
+        {
+          "name": "Allen Z. Ren",
+          "affiliation": ""
+        },
+        {
+          "name": "Justin Lidard",
+          "affiliation": ""
+        },
+        {
+          "name": "Lars L. Ankile",
+          "affiliation": ""
+        },
+        {
+          "name": "Anthony Simeonov",
+          "affiliation": ""
+        },
+        {
+          "name": "Pulkit Agrawal",
+          "affiliation": ""
+        },
+        {
+          "name": "Anirudha Majumdar",
+          "affiliation": ""
+        },
+        {
+          "name": "Benjamin Burchfiel",
+          "affiliation": ""
+        },
+        {
+          "name": "Hongkai Dai",
+          "affiliation": ""
+        },
+        {
+          "name": "Max Simchowitz",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "We introduce Diffusion Policy Policy Optimization, DPPO, an algorithmic framework including best practices for fine-tuning diffusion-based policies (e.g. Diffusion Policy) in continuous control and robot learning tasks using the policy gradient (PG) method from reinforcement learning (RL). PG methods are ubiquitous in training RL policies with other policy parameterizations; nevertheless, they had been conjectured to be less efficient for diffusion-based policies. Surprisingly, we show that DPPO achieves the strongest overall performance and efficiency for fine-tuning in common benchmarks compared to other RL methods for diffusion-based policies and also compared to PG fine-tuning of other policy parameterizations. Through experimental investigation, we find that DPPO takes advantage of unique synergies between RL fine-tuning and the diffusion parameterization, leading to structured and on-manifold exploration, stable training, and strong policy robustness. We further demonstrate the strengths of DPPO in a range of realistic settings, including simulated robotic tasks with pixel observations, and via zero-shot deployment of simulation-trained policies on robot hardware in a long-horizon, multi-stage manipulation task. Website with code: diffusion-ppo.github.io",
+      "venue": "cs.RO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2409.00588",
+      "url": "https://arxiv.org/abs/2409.00588",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2404.05519",
+      "title": "Investigating the Effectiveness of Cross-Attention to Unlock Zero-Shot Editing of Text-to-Video Diffusion Models",
+      "authors": [
+        {
+          "name": "Saman Motamed",
+          "affiliation": ""
+        },
+        {
+          "name": "Wouter Van Gansbeke",
+          "affiliation": ""
+        },
+        {
+          "name": "Luc Van Gool",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "With recent advances in image and video diffusion models for content creation, a plethora of techniques have been proposed for customizing their generated content. In particular, manipulating the cross-attention layers of Text-to-Image (T2I) diffusion models has shown great promise in controlling the shape and location of objects in the scene. Transferring image-editing techniques to the video domain, however, is extremely challenging as object motion and temporal consistency are difficult to capture accurately. In this work, we take a first look at the role of cross-attention in Text-to-Video (T2V) diffusion models for zero-shot video editing. While one-shot models have shown potential in controlling motion and camera movement, we demonstrate zero-shot control over object shape, position and movement in T2V models. We show that despite the limitations of current T2V models, cross-attention guidance can be a promising approach for editing videos.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2404.05519",
+      "url": "https://arxiv.org/abs/2404.05519",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2504.03362",
+      "title": "Metric spaces with small rough angles and the rectifiability of rough self-contracting curves",
+      "authors": [
+        {
+          "name": "Estibalitz Durand-Cartagena",
+          "affiliation": ""
+        },
+        {
+          "name": "Jeremy T. Tyson",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The small rough angle ($\\mbox{SRA}$) condition, introduced by Zolotov in arXiv:1804.00234, captures the idea that all angles formed by triples of points in a metric space are small. In the first part of the paper, we develop the theory of metric spaces $(X,d)$ satisfying the $\\mbox{SRA}(\u03b1)$ condition for some $\u03b1<1$. Given a metric space $(X,d)$ and $0<\u03b1<1$, the space $(X,d^\u03b1)$ satisfies the $\\mbox{SRA}(2^\u03b1-1)$ condition. We prove a quantitative converse up to bi-Lipschitz change of the metric. We also consider metric spaces which are $\\mbox{SRA}(\u03b1)$ free (there exists a uniform upper bound on the cardinality of any $\\mbox{SRA}(\u03b1)$ subset) or $\\mbox{SRA}(\u03b1)$ full (there exists an infinite $\\mbox{SRA}(\u03b1)$ subset). Examples of SRA free spaces include Euclidean spaces, finite-dimensional Alexandrov spaces of non-negative curvature, and Cayley graphs of virtually abelian groups; examples of $\\mbox{SRA}$ full spaces include the sub-Riemannian Heisenberg group, Laakso graphs, and Hilbert space. We study the existence or nonexistence of $\\mbox{SRA}(\u03b5)$ subsets for $0<\u03b5<2^\u03b1-1$ in metric spaces $(X,d^\u03b1)$ for $0<\u03b1<1$. In the second part of the paper, we apply the theory of metric spaces with small rough angles to study the rectifiability of roughly self-contracting curves. In the Euclidean setting, this question was studied by Daniilidis, Deville, and the first author using direct geometric methods. We show that in any $\\mbox{SRA}(\u03b1)$ free metric space $(X,d)$, there exists $\u03bb_0 = \u03bb_0(\u03b1)>0$ so that any bounded roughly $\u03bb$-self-contracting curve in $X$, $\u03bb\\le \u03bb_0$, is rectifiable. The proof is a generalization and extension of an argument due to Zolotov, who treated the case $\u03bb=0$, i.e., the rectifiability of self-contracting curves in $\\mbox{SRA}$ free spaces.",
+      "venue": "math.MG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2504.03362",
+      "url": "https://arxiv.org/abs/2504.03362",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2601.22054",
+      "title": "MetricAnything: Scaling Metric Depth Pretraining with Noisy Heterogeneous Sources",
+      "authors": [
+        {
+          "name": "Baorui Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiahui Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Donglin Di",
+          "affiliation": ""
+        },
+        {
+          "name": "Xuancheng Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianxun Cui",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yan Xie",
+          "affiliation": ""
+        },
+        {
+          "name": "Wei Chen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Scaling has powered recent advances in vision foundation models, yet extending this paradigm to metric depth estimation remains challenging due to heterogeneous sensor noise, camera-dependent biases, and metric ambiguity in noisy cross-source 3D data. We introduce Metric Anything, a simple and scalable pretraining framework that learns metric depth from noisy, diverse 3D sources without manually engineered prompts, camera-specific modeling, or task-specific architectures. Central to our approach is the Sparse Metric Prompt, created by randomly masking depth maps, which serves as a universal interface that decouples spatial reasoning from sensor and camera biases. Using about 20M image-depth pairs spanning reconstructed, captured, and rendered 3D data across 10000 camera models, we demonstrate-for the first time-a clear scaling trend in the metric depth track. The pretrained model excels at prompt-driven tasks such as depth completion, super-resolution and Radar-camera fusion, while its distilled prompt-free student achieves state-of-the-art results on monocular depth estimation, camera intrinsics recovery, single/multi-view metric 3D reconstruction, and VLA planning. We also show that using pretrained ViT of Metric Anything as a visual encoder significantly boosts Multimodal Large Language Model capabilities in spatial intelligence. These results show that metric depth estimation can benefit from the same scaling laws that drive modern foundation models, establishing a new path toward scalable and efficient real-world metric perception. We open-source MetricAnything at http://metric-anything.github.io/metric-anything-io/ to support community research.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2601.22054",
+      "url": "https://arxiv.org/abs/2601.22054",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

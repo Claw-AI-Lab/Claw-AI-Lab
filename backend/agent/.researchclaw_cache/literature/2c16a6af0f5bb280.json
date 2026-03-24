@@ -1,0 +1,1452 @@
+{
+  "query": "LPIPS and PSNR for texture quality",
+  "source": "openalex",
+  "limit": 40,
+  "timestamp": 1773979043.513397,
+  "papers": [
+    {
+      "paper_id": "oalex-W4200150166",
+      "title": "NeRF",
+      "authors": [
+        {
+          "name": "Ben Mildenhall",
+          "affiliation": "Berkeley College"
+        },
+        {
+          "name": "Pratul P. Srinivasan",
+          "affiliation": "Berkeley College"
+        },
+        {
+          "name": "Matthew Tancik",
+          "affiliation": "Berkeley College"
+        },
+        {
+          "name": "Jonathan T. Barron",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Ravi Ramamoorthi",
+          "affiliation": "University of California, San Diego"
+        },
+        {
+          "name": "Ren Ng",
+          "affiliation": "Berkeley College"
+        }
+      ],
+      "year": 2021,
+      "abstract": "We present a method that achieves state-of-the-art results for synthesizing novel views of complex scenes by optimizing an underlying continuous volumetric scene function using a sparse set of input views. Our algorithm represents a scene using a fully connected (nonconvolutional) deep network, whose input is a single continuous 5D coordinate (spatial location ( x , y , z ) and viewing direction ( \u03b8, \u03d5 )) and whose output is the volume density and view-dependent emitted radiance at that spatial location. We synthesize views by querying 5D coordinates along camera rays and use classic volume rendering techniques to project the output colors and densities into an image. Because volume rendering is naturally differentiable, the only input required to optimize our representation is a set of images with known camera poses. We describe how to effectively optimize neural radiance fields to render photorealistic novel views of scenes with complicated geometry and appearance, and demonstrate results that outperform prior work on neural rendering and view synthesis.",
+      "venue": "Communications of the ACM",
+      "citation_count": 5207,
+      "doi": "10.1145/3503250",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3503250",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3212516020",
+      "title": "Palette: Image-to-Image Diffusion Models",
+      "authors": [
+        {
+          "name": "Chitwan Saharia",
+          "affiliation": "Google (Canada)"
+        },
+        {
+          "name": "William Chan",
+          "affiliation": "Google (Canada)"
+        },
+        {
+          "name": "Huiwen Chang",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Chris Lee",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Jonathan Ho",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Tim Salimans",
+          "affiliation": ""
+        },
+        {
+          "name": "David J. Fleet",
+          "affiliation": "Google (Canada)"
+        },
+        {
+          "name": "Mohammad Norouzi",
+          "affiliation": "Google (Canada)"
+        }
+      ],
+      "year": 2022,
+      "abstract": "This paper develops a unified framework for image-to-image translation based on conditional diffusion models and evaluates this framework on four challenging image-to-image translation tasks, namely colorization, inpainting, uncropping, and JPEG restoration. Our simple implementation of image-to-image diffusion models outperforms strong GAN and regression baselines on all tasks, without task-specific hyper-parameter tuning, architecture customization, or any auxiliary loss or sophisticated new techniques needed. We uncover the impact of an L2 vs. L1 loss in the denoising diffusion objective on sample diversity, and demonstrate the importance of self-attention in the neural architecture through empirical studies. Importantly, we advocate a unified evaluation protocol based on ImageNet, with human evaluation and sample quality scores (FID, Inception Score, Classification Accuracy of a pre-trained ResNet-50, and Perceptual Distance against original images). We expect this standardized evaluation protocol to play a role in advancing image-to-image translation research. Finally, we show that a generalist, multi-task diffusion model performs as well or better than task-specific specialist counterparts. Check out https://diffusion-palette.github.io/ for an overview of the results and code.",
+      "venue": "",
+      "citation_count": 1414,
+      "doi": "10.1145/3528233.3530757",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3528233.3530757",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3173274771",
+      "title": "Variable Rate ROI Image Compression Optimized for Visual Quality",
+      "authors": [
+        {
+          "name": "Yi Ma",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Yongqi Zhai",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Chunhui Yang",
+          "affiliation": "Peng Cheng Laboratory"
+        },
+        {
+          "name": "Jiayu Yang",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Ruofan Wang",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Jing Zhou",
+          "affiliation": "Alibaba Group (China)"
+        },
+        {
+          "name": "Kai Li",
+          "affiliation": "Alibaba Group (China)"
+        },
+        {
+          "name": "Ying Chen",
+          "affiliation": "Alibaba Group (China)"
+        },
+        {
+          "name": "Ronggang Wang",
+          "affiliation": "Peng Cheng Laboratory"
+        }
+      ],
+      "year": 2021,
+      "abstract": "With the development of compression technology, objective metrics (e.g. PSNR, MS SSIM) cannot satisfy our need, especially in extreme low bit-rate compression, thus more attention is being paid on perceptual quality. Since people have different standards for objective evaluation. For this reason, we simplify the topic with the consideration that people will strict more on interested region, so a ROI(region of interest) based image compression model is proposed with team name \u2018Sub201\u2019. For the ROI, we expect its reconstructed part to be more accurate, while the background, server distortion is tolerable, and fake texture can be generated. Firstly, a weighted mask from saliency map is used. Secondly, to balance the difference of ROI and background area, different losses are applied separately. What\u2019s more, GAN and LPIPS are utilized to generate more texture in background. At last, variable rate method is adopted to realize rate control, and it performs well with perceptual metric. Experiment shows that our method can achieve better performance both in visual and objective quality.",
+      "venue": "",
+      "citation_count": 23,
+      "doi": "10.1109/cvprw53098.2021.00221",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvprw53098.2021.00221",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4391092489",
+      "title": "FEGAN: A Feature-Oriented Enhanced GAN for Enhancing Thermal Image Super-Resolution",
+      "authors": [
+        {
+          "name": "Linzhen Zhu",
+          "affiliation": "University of Nottingham Ningbo China"
+        },
+        {
+          "name": "Renjie Wu",
+          "affiliation": "University of Nottingham Ningbo China"
+        },
+        {
+          "name": "Boon Giin Lee",
+          "affiliation": "University of Nottingham Ningbo China"
+        },
+        {
+          "name": "Lionel Nkenyereye",
+          "affiliation": "Pukyong National University"
+        },
+        {
+          "name": "Wan\u2010Young Chung",
+          "affiliation": "Pukyong National University"
+        },
+        {
+          "name": "Gen Xu",
+          "affiliation": "Chinese Academy of Sciences"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Infrared thermal imaging presents significant potential in various domains. However, the widespread development of this technology is hindered by the high cost associated with acquiring high-quality thermal imaging sensors. To overcome this challenge, super-resolution techniques have emerged as a viable solution for extracting valuable information from low-resolution thermal images. While generative adversarial networks (GANs) have been widely adopted for thermal imaging super-resolution, their performance is limited by the inherent lack of detail in low-resolution training images, resulting in reduced fidelity and accuracy in generating high-resolution reconstructions. To tackle this challenge, this letter introduces FEGAN, a novel approach that enhances the performance of GANs by incorporating a feature-oriented enhanced (FE) mechanism within the generative network (GN). The FE plays a pivotal role in extracting high-frequency texture and edge details from lowresolution inputs and reconstructing them into enhanced images. This process substantially improves textures and edges within the training set of thermal images. Furthermore, refinements have been applied to both the GN and the discriminative network (DN) to enhance feature extraction efficiency. The experimental findings unequivocally demonstrate the superior performance of FEGAN compared to state-of-the-art methods. FEGAN achieves impressive performance metrics, including PSNR of 27.18, SSIM of 0.6523, FSIM of 0.5500, and LPIPS of 0.1221, highlighting its remarkable capabilities in the realm of thermal image superresolution.",
+      "venue": "IEEE Signal Processing Letters",
+      "citation_count": 21,
+      "doi": "10.1109/lsp.2024.3356751",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/lsp.2024.3356751",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4405377464",
+      "title": "Intelligent Detection Method for Surface Defects of Particleboard Based on Super-Resolution Reconstruction",
+      "authors": [
+        {
+          "name": "Haiyan Zhou",
+          "affiliation": "Nanjing Forestry University"
+        },
+        {
+          "name": "Haifei Xia",
+          "affiliation": "Nanjing Forestry University"
+        },
+        {
+          "name": "Chenlong Fan",
+          "affiliation": "Nanjing Forestry University"
+        },
+        {
+          "name": "Tianxiang Lan",
+          "affiliation": "Nanjing Forestry University"
+        },
+        {
+          "name": "Ying Liu",
+          "affiliation": "Nanjing Forestry University"
+        },
+        {
+          "name": "Yutu Yang",
+          "affiliation": "Nanjing Forestry University"
+        },
+        {
+          "name": "Yinxi Shen",
+          "affiliation": "Nanjing Forestry University"
+        },
+        {
+          "name": "Wei Yu",
+          "affiliation": "Nanjing Forestry University"
+        }
+      ],
+      "year": 2024,
+      "abstract": "To improve the intelligence level of particleboard inspection lines, machine vision and artificial intelligence technologies are combined to replace manual inspection with automatic detection. Aiming at the problem of missed detection and false detection on small defects due to the large surface width, complex texture and different surface defect shapes of particleboard, this paper introduces image super-resolution technology and proposes a super-resolution reconstruction model for particleboard images. Based on the Transformer network, this model incorporates an improved SRResNet (Super-Resolution Residual Network) backbone network in the deep feature extraction module to extract deep texture information. The shallow features extracted by conv 3 \u00d7 3 are then fused with features extracted by the Transformer, considering both local texture features and global feature information. This enhances image quality and makes defect details clearer. Through comparison with the traditional bicubic B-spline interpolation method, ESRGAN (Enhanced Super-Resolution Generative Adversarial Network), and SwinIR (Image Restoration Using Swin Transformer), the effectiveness of the particleboard super-resolution reconstruction model is verified using objective evaluation metrics including PSNR, SSIM, and LPIPS, demonstrating its ability to produce higher-quality images with more details and better visual characteristics. Finally, using the YOLOv8 model to compare defect detection rates between super-resolution images and low-resolution images, the mAP can reach 96.5%, which is 25.6% higher than the low-resolution image recognition rate.",
+      "venue": "Forests",
+      "citation_count": 10,
+      "doi": "10.3390/f15122196",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/f15122196",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4380369234",
+      "title": "Exploring efficient and effective generative adversarial network for thermal infrared image colorization",
+      "authors": [
+        {
+          "name": "Yu Chen",
+          "affiliation": "Changchun University of Science and Technology"
+        },
+        {
+          "name": "Weida Zhan",
+          "affiliation": "Changchun University of Science and Technology"
+        },
+        {
+          "name": "Yichun Jiang",
+          "affiliation": "Changchun University of Science and Technology"
+        },
+        {
+          "name": "Depeng Zhu",
+          "affiliation": "Changchun University of Science and Technology"
+        },
+        {
+          "name": "Xiaoyu Xu",
+          "affiliation": "Changchun University of Science and Technology"
+        },
+        {
+          "name": "Renzhong Guo",
+          "affiliation": "Changchun University of Science and Technology"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Abstract Thermal infrared image colorization is very difficult, and colorized images suffer from poor texture detail recovery and low color matching. To solve the above problems, this paper proposes an Efficient and Effective Generative Adversarial Network (E2GAN). This paper proposes multi-level dense module, feature fusion module, and color-aware attention module in the improved generator. Adding multi-level dense module can enhance the feature extraction capability and the improve detail recovery capability Using the feature fusion module in the middle of the encoder\u2013decoder reduces the information loss caused by encoder down-sampling and improves the prediction of fine color of the image. Using the color-aware attention module during up-sampling allows for capturing more semantic details, focusing on more key objects, and generating high-quality colorized images. And the proposed discriminator is the PatchGAN with color-aware attention module, which enhances its ability to discriminate between true and false colorized images. Meanwhile, this paper proposes a novel composite loss function that can improve the quality of colorized images, generate fine local details, and recover semantic and texture information. Extensive experiments demonstrate that the proposed E2GAN has significantly improved SSIM, PSNR, LPIPS, and NIQE on the KAIST dataset and the FLIR dataset compared to existing methods.",
+      "venue": "Complex & Intelligent Systems",
+      "citation_count": 9,
+      "doi": "10.1007/s40747-023-01079-3",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s40747-023-01079-3",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4386601839",
+      "title": "Super-Resolution Reconstruction of Particleboard Images Based on Improved SRGAN",
+      "authors": [
+        {
+          "name": "Wei Yu",
+          "affiliation": "Nanjing Forestry University"
+        },
+        {
+          "name": "Haiyan Zhou",
+          "affiliation": "Nanjing Forestry University"
+        },
+        {
+          "name": "Ying Liu",
+          "affiliation": "Nanjing Forestry University"
+        },
+        {
+          "name": "Yutu Yang",
+          "affiliation": "Nanjing Forestry University"
+        },
+        {
+          "name": "Yinxi Shen",
+          "affiliation": "Nanjing Forestry University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "As an important forest product, particleboard can greatly save forestry resources and promote low-carbon development by reusing wood processing residues. The size of the entire particleboard is large, and there are problems with less image feature information and blurred defect outlines when obtaining the particleboard images. The super-resolution reconstruction technology can improve the quality of the particleboard surface images, making the defects clearer. In this study, the super-resolution dense attention generative adversarial network (SRDAGAN) model was improved to solve the problem that the super-resolution generative adversarial network (SRGAN) reconstructed image would produce artifacts and its performance needed to be improved. The Batch Normalization (BN) layer was removed, the convolutional block attention module (CBAM) was optimized to construct the dense block, and the dense blocks were constructed via a densely skip connection. Then, the corresponding 52,400 image blocks with high resolution and low resolution were trained, verified, and tested according to the ratio of 3:1:1. The model was comprehensively evaluated from the effect of image reconstruction and the three indexes of PSNR, SSIM, and LPIPS. It was found that compared with BICUBIC, SRGAN, and SWINIR, the PSNR index of SRDAGAN increased by 4.88 dB, 3.25 dB, and 2.68 dB, respectively; SSIM increased by 0.0507, 0.1122, and 0.0648, respectively; and LPIPS improved by 0.1948, 0.1065, and 0.0639, respectively. The reconstructed images not only had a clearer texture, but also had a more realistic expression of various features, and the performance of the model had been greatly improved. At the same time, this study also emphatically discussed the image reconstruction effect with defects. The result showed that the SRDAGAN proposed in this study can complete the super-resolution reconstruction of the particleboard images with high quality. In the future, it can also be further combined with defect detection for the actual production to improve the quality of forestry products and increase economic benefits.",
+      "venue": "Forests",
+      "citation_count": 7,
+      "doi": "10.3390/f14091842",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/f14091842",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3026239318",
+      "title": "Using a Generative Adversarial Network for CT Normalization and Its Impact on Radiomic Features",
+      "authors": [
+        {
+          "name": "Leihao Wei",
+          "affiliation": "University of California, Los Angeles"
+        },
+        {
+          "name": "Yannan Lin",
+          "affiliation": "University of California, Los Angeles"
+        },
+        {
+          "name": "William Hsu",
+          "affiliation": "University of California, Los Angeles"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Computer-Aided-Diagnosis (CADx) systems assist radiologists with identifying and classifying potentially malignant pulmonary nodules on chest CT scans using morphology and texture-based (radiomic) features. However, radiomic features are sensitive to differences in acquisitions due to variations in dose levels and slice thickness. This study investigates the feasibility of generating a normalized scan from heterogeneous CT scans as input. We obtained projection data from 40 low-dose chest CT scans, simulating acquisitions at 10%, 25% and 50% dose and reconstructing the scans at 1.0mm and 2.0mm slice thickness. A 3D generative adversarial network (GAN) was used to simultaneously normalize reduced dose, thick slice (2.0mm) images to normal dose (100%), thinner slice (1.0mm) images. We evaluated the normalized image quality using peak signal-to-noise ratio (PSNR), structural similarity index (SSIM) and Learned Perceptual Image Patch Similarity (LPIPS). Our GAN improved perceptual similarity by 35%, compared to a baseline CNN method. Our analysis also shows that the GAN-based approach led to a significantly smaller error (p-value <; 0.05) in nine studied radiomic features. These results indicated that GANs could be used to normalize heterogeneous CT images and reduce the variability in radiomic feature values.",
+      "venue": "",
+      "citation_count": 15,
+      "doi": "10.1109/isbi45749.2020.9098724",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/isbi45749.2020.9098724",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4382469134",
+      "title": "3D-TOGO: Towards Text-Guided Cross-Category 3D Object Generation",
+      "authors": [
+        {
+          "name": "Zutao Jiang",
+          "affiliation": "Peng Cheng Laboratory"
+        },
+        {
+          "name": "Guansong Lu",
+          "affiliation": "Huawei Technologies (Sweden)"
+        },
+        {
+          "name": "Xiaodan Liang",
+          "affiliation": "Sun Yat-sen University"
+        },
+        {
+          "name": "Jihua Zhu",
+          "affiliation": "Xi'an Jiaotong University"
+        },
+        {
+          "name": "Wei Zhang",
+          "affiliation": "Huawei Technologies (Sweden)"
+        },
+        {
+          "name": "Xiaojun Chang",
+          "affiliation": "University of Technology Sydney"
+        },
+        {
+          "name": "Hang Xu",
+          "affiliation": "Huawei Technologies (Sweden)"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Text-guided 3D object generation aims to generate 3D objects described by user-defined captions, which paves a flexible way to visualize what we imagined. Although some works have been devoted to solving this challenging task, these works either utilize some explicit 3D representations (e.g., mesh), which lack texture and require post-processing for rendering photo-realistic views; or require individual time-consuming optimization for every single case. Here, we make the first attempt to achieve generic text-guided cross-category 3D object generation via a new 3D-TOGO model, which integrates a text-to-views generation module and a views-to-3D generation module. The text-to-views generation module is designed to generate different views of the target 3D object given an input caption. prior-guidance, caption-guidance and view contrastive learning are proposed for achieving better view-consistency and caption similarity. Meanwhile, a pixelNeRF model is adopted for the views-to-3D generation module to obtain the implicit 3D neural representation from the previously-generated views. Our 3D-TOGO model generates 3D objects in the form of the neural radiance field with good texture and requires no time-cost optimization for every single caption. Besides, 3D-TOGO can control the category, color and shape of generated 3D objects with the input caption. Extensive experiments on the largest 3D object dataset (i.e., ABO) are conducted to verify that 3D-TOGO can better generate high-quality 3D objects according to the input captions across 98 different categories, in terms of PSNR, SSIM, LPIPS and CLIP-score, compared with text-NeRF and Dreamfields.",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 9,
+      "doi": "10.1609/aaai.v37i1.25186",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v37i1.25186",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3167297682",
+      "title": "GAN Prior Embedded Network for Blind Face Restoration in the Wild",
+      "authors": [
+        {
+          "name": "Tao Yang",
+          "affiliation": "Alibaba Group (Cayman Islands)"
+        },
+        {
+          "name": "Peiran Ren",
+          "affiliation": "Alibaba Group (Cayman Islands)"
+        },
+        {
+          "name": "Xuansong Xie",
+          "affiliation": "Alibaba Group (Cayman Islands)"
+        },
+        {
+          "name": "Lei Zhang",
+          "affiliation": "Alibaba Group (Cayman Islands)"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Blind face restoration (BFR) from severely degraded face images in the wild is a very challenging problem. Due to the high illness of the problem and the complex unknown degradation, directly training a deep neural network (DNN) usually cannot lead to acceptable results. Existing generative adversarial network (GAN) based methods can produce better results but tend to generate over-smoothed restorations. In this work, we propose a new method by first learning a GAN for high-quality face image generation and embedding it into a U-shaped DNN as a prior decoder, then fine-tuning the GAN prior embedded DNN with a set of synthesized low-quality face images. The GAN blocks are designed to ensure that the latent code and noise input to the GAN can be respectively generated from the deep and shallow features of the DNN, controlling the global face structure, local face details and background of the reconstructed image. The proposed GAN prior embedded network (GPEN) is easy-to-implement, and it can generate visually photo-realistic results. Our experiments demonstrated that the proposed GPEN achieves significantly superior results to state-of-the-art BFR methods both quantitatively and qualitatively, especially for the restoration of severely degraded face images in the wild. The source code and models can be found at https://github.com/yangxy/GPEN.",
+      "venue": "",
+      "citation_count": 271,
+      "doi": "10.1109/cvpr46437.2021.00073",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr46437.2021.00073",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3207673409",
+      "title": "Real-world single image super-resolution: A brief review",
+      "authors": [
+        {
+          "name": "Honggang Chen",
+          "affiliation": "Sichuan University"
+        },
+        {
+          "name": "Xiaohai He",
+          "affiliation": "Sichuan University"
+        },
+        {
+          "name": "Linbo Qing",
+          "affiliation": "Sichuan University"
+        },
+        {
+          "name": "Yuanyuan Wu",
+          "affiliation": "Chengdu University of Technology"
+        },
+        {
+          "name": "Chao Ren",
+          "affiliation": "Sichuan University"
+        },
+        {
+          "name": "Ray E. Sheriff",
+          "affiliation": "Edge Hill University"
+        },
+        {
+          "name": "Ce Zhu",
+          "affiliation": "University of Electronic Science and Technology of China"
+        }
+      ],
+      "year": 2021,
+      "abstract": "",
+      "venue": "Information Fusion",
+      "citation_count": 368,
+      "doi": "10.1016/j.inffus.2021.09.005",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.inffus.2021.09.005",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4401017119",
+      "title": "RetiGAN: A Hybrid Image Enhancement Method for Medical Images",
+      "authors": [
+        {
+          "name": "Zhen Huang",
+          "affiliation": "University of Science and Technology of China"
+        },
+        {
+          "name": "Shiyuan Wang",
+          "affiliation": "University of Science and Technology of China"
+        },
+        {
+          "name": "Huijie Hu",
+          "affiliation": "University of Science and Technology of China"
+        },
+        {
+          "name": "Yiyao Xu",
+          "affiliation": "University of Science and Technology of China"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Image enhancement can improve image quality and visual effects well, and there are many outstanding applications in natural images. Medical image enhancement is relatively difficult due to its particularity, such as lack of unified standards, scarce annotation, small data, high accuracy requirements, complex patterns, insufficient image contrast, fuzzy details, and large noise interference. Due to the large gap between natural and medical images, there is a lack of effective universal methods for both types of data. This paper proposes a hybrid model based on the Retinex theory and adversarial generative network to implement the RetiGAN model. Firstly, the image is processed by Gaussian filtering, inverse number transformation and image stretching, and then the data is amplified by the generative adversarial network (GAN) to realize data enhancement. In terms of experiments, nearly a thousand X-ray data based on two public and one private medical image datasets were compared with baseline, the most common image enhancement method, and adequate comparative experiments were conducted with mainstream methods such as LL-Net, Zero-DCE, PELE, etc. Experiments show that the method not only improves the image quality indexes such as PSNR, LPIPS and SSIM but also has remarkable visualization effects and enhancement effects in texture details, which shows that our method has great potential and application space in practical clinical diagnosis.",
+      "venue": "",
+      "citation_count": 8,
+      "doi": "10.1109/cvidl62147.2024.10603883",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvidl62147.2024.10603883",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4361273774",
+      "title": "Low-Light Image Enhancement by Combining Transformer and Convolutional Neural Network",
+      "authors": [
+        {
+          "name": "Nianzeng Yuan",
+          "affiliation": "Xi'an University of Technology"
+        },
+        {
+          "name": "Xingyun Zhao",
+          "affiliation": "Xi'an University of Technology"
+        },
+        {
+          "name": "Bangyong Sun",
+          "affiliation": "Xi'an Institute of Optics and Precision Mechanics"
+        },
+        {
+          "name": "Wenjia Han",
+          "affiliation": "Shandong Academy of Sciences"
+        },
+        {
+          "name": "Jiahai Tan",
+          "affiliation": "Chinese Academy of Sciences"
+        },
+        {
+          "name": "Tao Duan",
+          "affiliation": "Chinese Academy of Sciences"
+        },
+        {
+          "name": "Xiaomei Gao",
+          "affiliation": "China National Administration of Coal Geology"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Within low-light imaging environment, the insufficient reflected light from objects often results in unsatisfactory images with degradations of low contrast, noise artifacts, or color distortion. The captured low-light images usually lead to poor visual perception quality for color deficient or normal observers. To address the above problems, we propose an end-to-end low-light image enhancement network by combining transformer and CNN (convolutional neural network) to restore the normal light images. Specifically, the proposed enhancement network is designed into a U-shape structure with several functional fusion blocks. Each fusion block includes a transformer stem and a CNN stem, and those two stems collaborate to accurately extract the local and global features. In this way, the transformer stem is responsible for efficiently learning global semantic information and capturing long-term dependencies, while the CNN stem is good at learning local features and focusing on detailed features. Thus, the proposed enhancement network can accurately capture the comprehensive semantic information of low-light images, which significantly contribute to recover normal light images. The proposed method is compared with the current popular algorithms quantitatively and qualitatively. Subjectively, our method significantly improves the image brightness, suppresses the image noise, and maintains the texture details and color information. For objective metrics such as peak signal-to-noise ratio (PSNR), structural similarity (SSIM), image perceptual similarity (LPIPS), DeltaE, and NIQE, our method improves the optimal values by 1.73 dB, 0.05, 0.043, 0.7939, and 0.6906, respectively, compared with other methods. The experimental results show that our proposed method can effectively solve the problems of underexposure, noise interference, and color inconsistency in micro-optical images, and has certain application value.",
+      "venue": "Mathematics",
+      "citation_count": 13,
+      "doi": "10.3390/math11071657",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/math11071657",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4393159705",
+      "title": "DiffRAW: Leveraging Diffusion Model to Generate DSLR-Comparable Perceptual Quality sRGB from Smartphone RAW Images",
+      "authors": [
+        {
+          "name": "Mingxin Yi",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Kai Zhang",
+          "affiliation": "Tsinghua\u2013Berkeley Shenzhen Institute"
+        },
+        {
+          "name": "Peng Liu",
+          "affiliation": "Huawei Technologies (China)"
+        },
+        {
+          "name": "Tanli Zuo",
+          "affiliation": "Huawei Technologies (China)"
+        },
+        {
+          "name": "Jingduo Tian",
+          "affiliation": "Huawei Technologies (China)"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Deriving DSLR-quality sRGB images from smartphone RAW images has become a compelling challenge due to discernible detail disparity, color mapping instability, and spatial misalignment in RAW-sRGB data pairs. We present DiffRAW, a novel method that incorporates the diffusion model for the first time in learning RAW-to-sRGB mappings. By leveraging the diffusion model, our approach effectively learns the high-quality detail distribution of DSLR images, thereby enhancing the details of output images. Simultaneously, we use the RAW image as a diffusion condition to maintain image structure information such as contours and textures. To mitigate the interference caused by the color and spatial misalignment in training data pairs, we embed a color-position preserving condition within DiffRAW, ensuring that the output images do not exhibit color biases and pixel shift issues. To accelerate the inference process of DiffRAW, we designed the Domain Transform Diffusion Method, an efficient diffusion process with its corresponding reverse process. The Domain Transform Diffusion Method can reduce the required inference steps for diffusion model-based image restoration/enhancement algorithms while enhancing the quality of the generated images. Through evaluations on the ZRR dataset, DiffRAW consistently demonstrates state-of-the-art performance across all perceptual quality metrics (e.g., LPIPS, FID, MUSIQ), while achieving comparable results in PSNR and SSIM.",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 4,
+      "doi": "10.1609/aaai.v38i7.28494",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v38i7.28494",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4400229470",
+      "title": "A Noise-Robust Blind Deblurring Algorithm With Wavelet-Enhanced Diffusion Model for Optical Remote Sensing Images",
+      "authors": [
+        {
+          "name": "Zhiyuan Li",
+          "affiliation": "University of Chinese Academy of Sciences"
+        },
+        {
+          "name": "Jie Li",
+          "affiliation": "Aerospace Information Research Institute"
+        },
+        {
+          "name": "Yueting Zhang",
+          "affiliation": "Aerospace Information Research Institute"
+        },
+        {
+          "name": "Jiayi Guo",
+          "affiliation": "Aerospace Information Research Institute"
+        },
+        {
+          "name": "Yirong Wu",
+          "affiliation": "Aerospace Information Research Institute"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Blind deblurring of optical remote sensing images has been a longstanding challenge. In recent years, many learning-based deblurring algorithms have been greatly developed. However, these methods often suffer from losing image texture details and some artificial artifacts under low signalto- noise ratio (SNR) conditions. To tackle this challenge, we introduce an innovative end-to-end noise-robust blind deblurring algorithm based on the diffusion model joined with a denoising module and a wavelet-enhanced conditional embedding mechanism. Experiments have verified the effectiveness of our method. Compared to the image blind deblurring algorithms based on the diffusion model, the proposed algorithm demonstrates better performance in terms of quantitative metrics Peak Signal-to- Noise Ratio (PSNR) and Structural Similarity Index (SSIM). Compared to all the comparative algorithms, the proposed algorithm exhibits significant advantages in quantitative metrics Learned Perceptual Image Patch Similarity (LPIPS), Fr'echet Inception Distance (FID) and Natural Image Quality Evaluator (NIQE) and shows superior visual effects in restoring texture details in the restored images, especially in challenging low SNR conditions.",
+      "venue": "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing",
+      "citation_count": 5,
+      "doi": "10.1109/jstars.2024.3422175",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/jstars.2024.3422175",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3001949958",
+      "title": "Using a Generative Adversarial Network for CT Normalization and its Impact on Radiomic Features",
+      "authors": [
+        {
+          "name": "Leihao Wei",
+          "affiliation": "University of California, Los Angeles"
+        },
+        {
+          "name": "Yannan Lin",
+          "affiliation": "University of California, Los Angeles"
+        },
+        {
+          "name": "William Hsu",
+          "affiliation": "University of California, Los Angeles"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Computer-Aided-Diagnosis (CADx) systems assist radiologists with identifying and classifying potentially malignant pulmonary nodules on chest CT scans using morphology and texture-based (radiomic) features. However, radiomic features are sensitive to differences in acquisitions due to variations in dose levels and slice thickness. This study investigates the feasibility of generating a normalized scan from heterogeneous CT scans as input. We obtained projection data from 40 low-dose chest CT scans, simulating acquisitions at 10%, 25% and 50% dose and reconstructing the scans at 1.0mm and 2.0mm slice thickness. A 3D generative adversarial network (GAN) was used to simultaneously normalize reduced dose, thick slice (2.0mm) images to normal dose (100%), thinner slice (1.0mm) images. We evaluated the normalized image quality using peak signal-to-noise ratio (PSNR), structural similarity index (SSIM) and Learned Perceptual Image Patch Similarity (LPIPS). Our GAN improved perceptual similarity by 35%, compared to a baseline CNN method. Our analysis also shows that the GAN-based approach led to a significantly smaller error (p-value &lt; 0.05) in nine studied radiomic features. These results indicated that GANs could be used to normalize heterogeneous CT images and reduce the variability in radiomic feature values.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 4,
+      "doi": "10.48550/arxiv.2001.08741",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2001.08741",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4413755114",
+      "title": "Dehazing-DiffGAN: Sequential Fusion of Diffusion Models and GANs for High-Fidelity Remote Sensing Image Dehazing",
+      "authors": [
+        {
+          "name": "Anas M. Ali",
+          "affiliation": "Prince Sultan University"
+        },
+        {
+          "name": "Bilel Benjdira",
+          "affiliation": "Prince Sultan University"
+        },
+        {
+          "name": "Wadii Boulila",
+          "affiliation": "Prince Sultan University"
+        },
+        {
+          "name": "Anis Koub\u00e2a",
+          "affiliation": "Alfaisal University"
+        }
+      ],
+      "year": 2025,
+      "abstract": "Atmospheric haze significantly reduces image quality by obscuring important visual details, which in turn impairs the performance of computer vision tasks. Many existing dehazing methods struggle in heavy haze conditions, often resulting in images with poor visual quality, unrealistic features, or visible artifacts. To overcome these limitations, we propose Dehazing-DiffGAN, a novel deep learning framework that combines diffusion models with generative adversarial networks (GANs) in a dual-phase pipeline. In the Dehazing Phase, the diffusion model progressively removes haze by simulating atmospheric scattering, effectively capturing both local structures and global context. In the Enhancement Phase, a GAN-based enhancement module improves image quality by emphasizing fine details and textures, enabling precise restoration of edges and high-frequency components. This synergistic fusion approach allows Dehazing-DiffGAN to generate images of superior visual quality, often indistinguishable from real, haze-free images. Extensive experiments show that Dehazing-DiffGAN achieves state-of-the-art performance on several challenging benchmarks. On the high-resolution SateHaze1k dataset for remote sensing, our model achieves a peak signal-to-noise ratio (PSNR) of 27.21 dB, outperforming the next best method at 26.84 dB, and obtains a superior Learned Perceptual Image Patch Similarity (LPIPS) score of 0.0472 compared to 0.08. On the ultra-high-resolution DNH-HAZE dataset (6000\u00d74000 pixels), Dehazing-DiffGAN achieves the best LPIPS score of 0.267, significantly improving over the second-best score of 0.326. These results highlight the effectiveness of Dehazing-DiffGAN in improving image clarity and confirm its robustness and adaptability across a variety of dehazing tasks. The code is available at https://github.com/riotulab/Dehazing-DiffGAN.",
+      "venue": "IEEE Transactions on Geoscience and Remote Sensing",
+      "citation_count": 5,
+      "doi": "10.1109/tgrs.2025.3603430",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tgrs.2025.3603430",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4385416665",
+      "title": "The Power of Generative AI: A Review of Requirements, Models, Input\u2013Output Formats, Evaluation Metrics, and Challenges",
+      "authors": [
+        {
+          "name": "Ajay Bandi",
+          "affiliation": "Northwest Missouri State University"
+        },
+        {
+          "name": "Pydi Venkata Satya Ramesh Adapa",
+          "affiliation": "Northwest Missouri State University"
+        },
+        {
+          "name": "Yudu Eswar Vinay Pratap Kumar Kuchi",
+          "affiliation": "Northwest Missouri State University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Generative artificial intelligence (AI) has emerged as a powerful technology with numerous applications in various domains. There is a need to identify the requirements and evaluation metrics for generative AI models designed for specific tasks. The purpose of the research aims to investigate the fundamental aspects of generative AI systems, including their requirements, models, input\u2013output formats, and evaluation metrics. The study addresses key research questions and presents comprehensive insights to guide researchers, developers, and practitioners in the field. Firstly, the requirements necessary for implementing generative AI systems are examined and categorized into three distinct categories: hardware, software, and user experience. Furthermore, the study explores the different types of generative AI models described in the literature by presenting a taxonomy based on architectural characteristics, such as variational autoencoders (VAEs), generative adversarial networks (GANs), diffusion models, transformers, language models, normalizing flow models, and hybrid models. A comprehensive classification of input and output formats used in generative AI systems is also provided. Moreover, the research proposes a classification system based on output types and discusses commonly used evaluation metrics in generative AI. The findings contribute to advancements in the field, enabling researchers, developers, and practitioners to effectively implement and evaluate generative AI models for various applications. The significance of the research lies in understanding that generative AI system requirements are crucial for effective planning, design, and optimal performance. A taxonomy of models aids in selecting suitable options and driving advancements. Classifying input\u2013output formats enables leveraging diverse formats for customized systems, while evaluation metrics establish standardized methods to assess model quality and performance.",
+      "venue": "Future Internet",
+      "citation_count": 515,
+      "doi": "10.3390/fi15080260",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/fi15080260",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4406857927",
+      "title": "CLEAR-Net: A Cascaded Local and External Attention Network for Enhanced Dehazing of Remote Sensing Images",
+      "authors": [
+        {
+          "name": "Anas M. Ali",
+          "affiliation": "Prince Sultan University"
+        },
+        {
+          "name": "El\u2010Sayed M. El\u2010Rabaie",
+          "affiliation": "Menoufia University"
+        },
+        {
+          "name": "Khalil F. Ramadan",
+          "affiliation": "Menoufia University"
+        },
+        {
+          "name": "Fathi E. Abd El\u2010Samie",
+          "affiliation": "Menoufia University"
+        },
+        {
+          "name": "Walid El\u2010Shafai",
+          "affiliation": "Menoufia University"
+        }
+      ],
+      "year": 2025,
+      "abstract": "Atmospheric haze degrades remote sensing images by obscuring critical details, diminishing data interpretation accuracy. This paper presents CLEAR-Net: Cascaded Local and External Attention Resource Network, a novel dehazing framework designed to enhance clarity and detail in remote sensing images. CLEAR-Net employs a two-block cascaded architecture to address both global and local haze effects. The first block utilizes an Outer Global Attention (OGA) mechanism, processing global features via a U-Net Inner Attention (UIA) module to mitigate widespread haze. The second block focuses on Outer Local Attention (OLA), refining local image features through reintegration with the UIA module. An ensemble method selects the most effective model weights based on perceptual quality metrics, and a composite loss function emphasizes the preservation of high-frequency details to maintain textural and edge fidelity. CLEAR-Net's efficacy is evaluated on the SateHaze1k and RICE datasets, outperforming existing state-of-theart dehazing techniques. On SateHaze1k, CLEAR-Net achieves an average PSNR of 27.876 dB, surpassing the next best model by approximately 4.81%; under moderate fog, it attains a PSNR of 30.824 dB, about 9.8% higher than existing methods. On the RICE dataset, which includes challenging cloud cover, CLEARNet achieves PSNRs of 36.873 dB on RICE1 and 34.624 dB on RICE2, improving over next-best models by approximately 18.2% and 12%, respectively, and attains the lowest LPIPS values, indicating superior perceptual quality.",
+      "venue": "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing",
+      "citation_count": 4,
+      "doi": "10.1109/jstars.2025.3534984",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/jstars.2025.3534984",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4200502498",
+      "title": "Neural actor",
+      "authors": [
+        {
+          "name": "Lingjie Liu",
+          "affiliation": "Max Planck Institute for Informatics"
+        },
+        {
+          "name": "Marc Habermann",
+          "affiliation": "Max Planck Institute for Informatics"
+        },
+        {
+          "name": "Viktor Rudnev",
+          "affiliation": "Max Planck Institute for Informatics"
+        },
+        {
+          "name": "Kripasindhu Sarkar",
+          "affiliation": "Max Planck Institute for Informatics"
+        },
+        {
+          "name": "Jiatao Gu",
+          "affiliation": "Meta (Israel)"
+        },
+        {
+          "name": "Christian Theobalt",
+          "affiliation": "Max Planck Institute for Informatics"
+        }
+      ],
+      "year": 2021,
+      "abstract": "We propose Neural Actor (NA), a new method for high-quality synthesis of humans from arbitrary viewpoints and under arbitrary controllable poses. Our method is developed upon recent neural scene representation and rendering works which learn representations of geometry and appearance from only 2D images. While existing works demonstrated compelling rendering of static scenes and playback of dynamic scenes, photo-realistic reconstruction and rendering of humans with neural implicit methods, in particular under user-controlled novel poses, is still difficult. To address this problem, we utilize a coarse body model as a proxy to unwarp the surrounding 3D space into a canonical pose. A neural radiance field learns pose-dependent geometric deformations and pose- and view-dependent appearance effects in the canonical space from multi-view video input. To synthesize novel views of high-fidelity dynamic geometry and appearance, NA leverages 2D texture maps defined on the body model as latent variables for predicting residual deformations and the dynamic appearance. Experiments demonstrate that our method achieves better quality than the state-of-the-arts on playback as well as novel pose synthesis, and can even generalize well to new poses that starkly differ from the training poses. Furthermore, our method also supports shape control on the free-view synthesis of human actors.",
+      "venue": "ACM Transactions on Graphics",
+      "citation_count": 233,
+      "doi": "10.1145/3478513.3480528",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3478513.3480528",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4288081380",
+      "title": "Parametric regularization loss in super-resolution reconstruction",
+      "authors": [
+        {
+          "name": "Supatta Viriyavisuthisakul",
+          "affiliation": "Japan Advanced Institute of Science and Technology"
+        },
+        {
+          "name": "Natsuda Kaothanthong",
+          "affiliation": "Thammasat University"
+        },
+        {
+          "name": "Parinya Sanguansat",
+          "affiliation": ""
+        },
+        {
+          "name": "Le-Minh Nguyen",
+          "affiliation": "Japan Advanced Institute of Science and Technology"
+        },
+        {
+          "name": "Choochart Haruechaiyasak",
+          "affiliation": "National Electronics and Computer Technology Center"
+        }
+      ],
+      "year": 2022,
+      "abstract": "",
+      "venue": "Machine Vision and Applications",
+      "citation_count": 3,
+      "doi": "10.1007/s00138-022-01315-9",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s00138-022-01315-9",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4380365840",
+      "title": "MRS-Transformer: Texture Splicing Method to Remove Defects in Solid Wood Board",
+      "authors": [
+        {
+          "name": "Yizhuo Zhang",
+          "affiliation": "Changzhou University"
+        },
+        {
+          "name": "Xingyu Liu",
+          "affiliation": "Changzhou University"
+        },
+        {
+          "name": "Hantao Liu",
+          "affiliation": "Changzhou University"
+        },
+        {
+          "name": "Huiling Yu",
+          "affiliation": "Changzhou University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Defects in wood growth affect the product\u2019s quality and grade. At present, the research on texture defects of wood mainly focuses on defect localization, ignoring the splicing problem of maintaining texture consistency. In this paper, we designed the MRS-Transformer network and introduced image inpainting to the field of solid wood board splicing. First, we proposed an asymmetric encoder-decoder based on Vision Transformer, where the encoder uses a fixed mask(M) strategy, discarding the masked patches and using only the unmasked visual patches as input to reduce model calculations. Second, we designed a reverse Swin (RS) module with multi-scale characteristics as the decoder to adjust the divided image patches\u2019 size and complete the restoration from coarse to fine. Finally, we proposed a weighted L2 loss (MSE, mean square error), which assigns different weights to the unmasked region according to the distance from the defective region, allowing the model to make full use of the effective pixels to repair the masked region. To demonstrate the effectiveness of the designed modules, we used MSE (mean square error), LPIPS (learned perceptual image patch similarity), PSNR (peak signal to noise ratio), SSIM (structural similarity), and FLOPs (floating point operations) to measure the quality of the model generated wood texture images and the model computational complexity, we designed relevant ablation experiments. The results show that the MSE, LPIPS, PSNR, and SSIM of the wood images restored by the MRS-Transformer reached 0.0003, 0.154, 40.12, 0.9173, and the GFLOPs is 20.18. Compared with images generated by the Vision Transformer, the MSE and LPIPS were reduced by 51.7% and 30%, PSNR and SSIM were improved by 12.2% and 7.5%, and the GFLOPs were reduced by 38%. To verify the superiority of MRS-Transformer, we compared the image inpainting algorithms with Deepfill v2 and TG-Net, respectively, in which the MSE was 47.0% and 66.9% lower; the LPIPS was 60.6% and 42.5% lower; the FLOPs was 70.6% and 53.5% lower; the PSNR was 16.1% and 26.2% higher; and the SSIM was 7.3% and 5.8% higher. MRS-Transformer repairs a single image in 0.05 s, nearly five times faster than Deepfill v2 and TG-Net. The experimental results demonstrate that the RSwin module effectively alleviates the sense of fragmentation caused by the division of images into patches, the proposed weighted L2 loss improves the semantic consistency of the edges of the missing regions and makes the generated wood texture more detailed and coherent, and the adopted asymmetric encoder-decoder effectively reduces the computational effort of the model and speeds up the training.",
+      "venue": "Applied Sciences",
+      "citation_count": 1,
+      "doi": "10.3390/app13127006",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/app13127006",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3023338037",
+      "title": "Comparison of Full-Reference Image Quality Models for Optimization of Image Processing Systems",
+      "authors": [
+        {
+          "name": "Keyan Ding",
+          "affiliation": "City University of Hong Kong"
+        },
+        {
+          "name": "Kede Ma",
+          "affiliation": "City University of Hong Kong"
+        },
+        {
+          "name": "Shiqi Wang",
+          "affiliation": "City University of Hong Kong"
+        },
+        {
+          "name": "Eero P. Simoncelli",
+          "affiliation": "Howard Hughes Medical Institute"
+        }
+      ],
+      "year": 2021,
+      "abstract": "",
+      "venue": "International Journal of Computer Vision",
+      "citation_count": 203,
+      "doi": "10.1007/s11263-020-01419-7",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s11263-020-01419-7",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2998131124",
+      "title": "EEMEFN: Low-Light Image Enhancement via Edge-Enhanced Multi-Exposure Fusion Network",
+      "authors": [
+        {
+          "name": "Minfeng Zhu",
+          "affiliation": "Zhejiang University"
+        },
+        {
+          "name": "Pingbo Pan",
+          "affiliation": "University of Technology Sydney"
+        },
+        {
+          "name": "Wei Chen",
+          "affiliation": "Zhejiang University"
+        },
+        {
+          "name": "Yi Yang",
+          "affiliation": "University of Technology Sydney"
+        }
+      ],
+      "year": 2020,
+      "abstract": "This work focuses on the extremely low-light image enhancement, which aims to improve image brightness and reveal hidden information in darken areas. Recently, image enhancement approaches have yielded impressive progress. However, existing methods still suffer from three main problems: (1) low-light images usually are high-contrast. Existing methods may fail to recover images details in extremely dark or bright areas; (2) current methods cannot precisely correct the color of low-light images; (3) when the object edges are unclear, the pixel-wise loss may treat pixels of different objects equally and produce blurry images. In this paper, we propose a two-stage method called Edge-Enhanced Multi-Exposure Fusion Network (EEMEFN) to enhance extremely low-light images. In the first stage, we employ a multi-exposure fusion module to address the high contrast and color bias issues. We synthesize a set of images with different exposure time from a single image and construct an accurate normal-light image by combining well-exposed areas under different illumination conditions. Thus, it can produce realistic initial images with correct color from extremely noisy and low-light images. Secondly, we introduce an edge enhancement module to refine the initial images with the help of the edge information. Therefore, our method can reconstruct high-quality images with sharp edges when minimizing the pixel-wise loss. Experiments on the See-in-the-Dark dataset indicate that our EEMEFN approach achieves state-of-the-art performance.",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 202,
+      "doi": "10.1609/aaai.v34i07.7013",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v34i07.7013",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3212228063",
+      "title": "Restormer: Efficient Transformer for High-Resolution Image Restoration",
+      "authors": [
+        {
+          "name": "Syed Waqas Zamir",
+          "affiliation": ""
+        },
+        {
+          "name": "Aditya Arora",
+          "affiliation": ""
+        },
+        {
+          "name": "Salman Khan",
+          "affiliation": ""
+        },
+        {
+          "name": "Munawar Hayat",
+          "affiliation": ""
+        },
+        {
+          "name": "Fahad Shahbaz Khan",
+          "affiliation": ""
+        },
+        {
+          "name": "Ming\u2013Hsuan Yang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Since convolutional neural networks (CNNs) perform well at learning generalizable image priors from large-scale data, these models have been extensively applied to image restoration and related tasks. Recently, another class of neural architectures, Transformers, have shown significant performance gains on natural language and high-level vision tasks. While the Transformer model mitigates the shortcomings of CNNs (i.e., limited receptive field and inadaptability to input content), its computational complexity grows quadratically with the spatial resolution, therefore making it infeasible to apply to most image restoration tasks involving high-resolution images. In this work, we propose an efficient Transformer model by making several key designs in the building blocks (multi-head attention and feed-forward network) such that it can capture long-range pixel interactions, while still remaining applicable to large images. Our model, named Restoration Transformer (Restormer), achieves state-of-the-art results on several image restoration tasks, including image deraining, single-image motion deblurring, defocus deblurring (single-image and dual-pixel data), and image denoising (Gaussian grayscale/color denoising, and real image denoising). The source code and pre-trained models are available at https://github.com/swz30/Restormer.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 191,
+      "doi": "10.48550/arxiv.2111.09881",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2111.09881",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4401357352",
+      "title": "Image Super-Resolution Reconstruction Based on Enhanced Attention Mechanism and Gradient Correlation Loss",
+      "authors": [
+        {
+          "name": "Yanlan Shi",
+          "affiliation": "Liaoning University of Technology"
+        },
+        {
+          "name": "Huawei Yi",
+          "affiliation": "Liaoning University of Technology"
+        },
+        {
+          "name": "Xin Zhang",
+          "affiliation": "Liaoning University of Technology"
+        },
+        {
+          "name": "Lu Xu",
+          "affiliation": "Agricultural Bank of China"
+        },
+        {
+          "name": "Jie Lan",
+          "affiliation": "Liaoning University of Technology"
+        }
+      ],
+      "year": 2024,
+      "abstract": "In the field of super-resolution reconstruction, generative adversarial networks are able to generate textures that are more in line with the perception of the human eyes, but low-resolution images often encounter information loss and edge blurring problems in the process of reconstruction. In order to solve this problem, this article proposed an image super-resolution reconstruction model based on an enhanced attention mechanism and gradient correlation loss, which can better focus on important details in low-resolution images, thus improving the quality of reconstructed images. Firstly, an enhanced attention mechanism is proposed and incorporated into the generator model as a way to reduce the amount of information loss during image feature extraction and retain more image details. Furthermore, this paper proposed a gradient correlation loss function to maximize the correlation between the gradient of the generated image and the gradient of the original image. Thus, the generated image is more realistic and maintains a consistent edge structure. Finally, the experimental results on the standard dataset show that compared with other representative algorithms, the proposed algorithm has achieved some improvement in PSNR, SSIM, and LPIPS, which can verify the effectiveness of the algorithm.",
+      "venue": "IEEE Access",
+      "citation_count": 4,
+      "doi": "10.1109/access.2024.3439542",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/access.2024.3439542",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4391351836",
+      "title": "Image Inpainting Technique Incorporating Edge Prior and Attention Mechanism",
+      "authors": [
+        {
+          "name": "Jinxian Bai",
+          "affiliation": "Xizang Minzu University"
+        },
+        {
+          "name": "Yao Fan",
+          "affiliation": "Xizang Minzu University"
+        },
+        {
+          "name": "Zhiwei Zhao",
+          "affiliation": "Xizang Minzu University"
+        },
+        {
+          "name": "Lizhi Zheng",
+          "affiliation": "Xizang Minzu University"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Recently, deep learning-based image inpainting methods have made great strides in reconstructing damaged regions. However, these methods often struggle to produce satisfactory results when dealing with missing images with large holes, leading to distortions in the structure and blurring of textures. To address these problems, we combine the advantages of transformers and convolutions to propose an image inpainting method that incorporates edge priors and attention mechanisms. The proposed method aims to improve the results of inpainting large holes in images by enhancing the accuracy of structure restoration and the ability to recover texture details. This method divides the inpainting task into two phases: edge prediction and image inpainting. Specifically, in the edge prediction phase, a transformer architecture is designed to combine axial attention with standard self-attention. This design enhances the extraction capability of global structural features and location awareness. It also balances the complexity of self-attention operations, resulting in accurate prediction of the edge structure in the defective region. In the image inpainting phase, a multi-scale fusion attention module is introduced. This module makes full use of multi-level distant features and enhances local pixel continuity, thereby significantly improving the quality of image inpainting. To evaluate the performance of our method, comparative experiments are conducted on several datasets, including CelebA, Places2, and Facade. Quantitative experiments show that our method outperforms the other mainstream methods. Specifically, it improves Peak Signal-to-Noise Ratio (PSNR) and Structure Similarity Index Measure (SSIM) by 1.141~3.234 db and 0.083~0.235, respectively. Moreover, it reduces Learning Perceptual Image Patch Similarity (LPIPS) and Mean Absolute Error (MAE) by 0.0347~0.1753 and 0.0104~0.0402, respectively. Qualitative experiments reveal that our method excels at reconstructing images with complete structural information and clear texture details. Furthermore, our model exhibits impressive performance in terms of the number of parameters, memory cost, and testing time.",
+      "venue": "Computers, materials & continua/Computers, materials & continua (Print)",
+      "citation_count": 3,
+      "doi": "10.32604/cmc.2023.044612",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.32604/cmc.2023.044612",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4384159625",
+      "title": "Textural Detail Preservation Network for Video Frame Interpolation",
+      "authors": [
+        {
+          "name": "Kihwan Yoon",
+          "affiliation": "University of Seoul"
+        },
+        {
+          "name": "Jingang Huh",
+          "affiliation": "Korea Electronics Technology Institute"
+        },
+        {
+          "name": "Yong Han Kim",
+          "affiliation": "University of Seoul"
+        },
+        {
+          "name": "Sungjei Kim",
+          "affiliation": "Korea Electronics Technology Institute"
+        },
+        {
+          "name": "Jinwoo Jeong",
+          "affiliation": "Korea Electronics Technology Institute"
+        }
+      ],
+      "year": 2023,
+      "abstract": "The subjective image quality of the Video Frame Interpolation (VFI) result depends on whether image features such as edges, textures and blobs are preserved. With the development of deep learning, various algorithms have been proposed and the objective results of VFI have significantly improved. Moreover, perceptual loss has been used in a method that enhances subjective quality by preserving the features of the image, and as a result, the subjective quality is improved. Despite the quality enhancements achieved in VFI, no analysis has been performed to preserve specific features in the interpolated frames. Therefore, we conducted an analysis to preserve textural detail, such as film grain noise, which can represent the texture of an image, and weak textures, such as droplets or particles. Based on our analysis, we identify the importance of synthesis networks in textural detail preservation and propose an enhanced synthesis network, the Textural Detail Preservation Network (TDPNet). Furthermore, based on our analysis, we propose a Perceptual Training Method (PTM) to address the issue of degraded Peak Signal-to-Noise Ratio (PSNR) when simply applying perceptual loss and to preserve more textural detail. We also propose a Multi-scale Resolution Training Method (MRTM) to address the issue of poor performance when testing datasets with a resolution different from that of the training dataset. The experimental results of the proposed network was outperformed in LPIPS and DISTS on the Vimeo90K, HD, SNU-FILM and UVG datasets compared with the state-of-the-art VFI algorithms, and the subjective results were also outperformed. Furthermore, applying PTM improved PSNR results by an average of 0.293dB compared to simply applying perceptual loss.",
+      "venue": "IEEE Access",
+      "citation_count": 1,
+      "doi": "10.1109/access.2023.3294964",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/access.2023.3294964",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4377108351",
+      "title": "DVDR-SRGAN: Differential Value Dense Residual Super-Resolution Generative Adversarial Network",
+      "authors": [
+        {
+          "name": "Hang Qu",
+          "affiliation": "Liaoning University of Technology"
+        },
+        {
+          "name": "Huawei Yi",
+          "affiliation": "Liaoning University of Technology"
+        },
+        {
+          "name": "Yanlan Shi",
+          "affiliation": "Liaoning University of Technology"
+        },
+        {
+          "name": "Jie Lan",
+          "affiliation": "Liaoning University of Technology"
+        }
+      ],
+      "year": 2023,
+      "abstract": "In the field of single-image super-resolution reconstruction, GAN can obtain the image texture more in line with the human eye. However, during the reconstruction process, it is easy to generate artifacts, false textures, and large deviations in details between the reconstructed image and the Ground Truth. In order to further improve the visual quality, we study the feature correlation between adjacent layers and propose a differential value dense residual network to solve this problem. We first use the deconvolution layer to enlarge the features, then extract the features through the convolution layer, and finally make a difference between the features before being magnified and the features after being extracted so that the difference can better reflect the areas that need attention. In the process of extracting the differential value, using the dense residual connection method for each layer can make the magnified features more complete, so the differential value obtained is more accurate. Next, the joint loss function is introduced to fuse high-frequency information and low-frequency information, which improves the visual effect of the reconstructed image to a certain extent. The experimental results on Set5, Set14, BSD100, and Urban datasets show that our proposed DVDR-SRGAN model is improved in terms of PSNR, SSIM, and LPIPS compared with the Bicubic, SRGAN, ESRGAN, Beby-GAN, and SPSR models.",
+      "venue": "Sensors",
+      "citation_count": 2,
+      "doi": "10.3390/s23104854",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/s23104854",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2998154526",
+      "title": "Towards Ghost-Free Shadow Removal via Dual Hierarchical Aggregation Network and Shadow Matting GAN",
+      "authors": [
+        {
+          "name": "Xiaodong Cun",
+          "affiliation": "University of Macau"
+        },
+        {
+          "name": "Chi\u2010Man Pun",
+          "affiliation": "University of Macau"
+        },
+        {
+          "name": "Cheng Shi",
+          "affiliation": "Xi'an University of Technology"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Shadow removal is an essential task for scene understanding. Many studies consider only matching the image contents, which often causes two types of ghosts: color in-consistencies in shadow regions or artifacts on shadow boundaries (as shown in Figure. 1). In this paper, we tackle these issues in two ways. First, to carefully learn the border artifacts-free image, we propose a novel network structure named the dual hierarchically aggregation network (DHAN). It contains a series of growth dilated convolutions as the backbone without any down-samplings, and we hierarchically aggregate multi-context features for attention and prediction, respectively. Second, we argue that training on a limited dataset restricts the textural understanding of the network, which leads to the shadow region color in-consistencies. Currently, the largest dataset contains 2k+ shadow/shadow-free image pairs. However, it has only 0.1k+ unique scenes since many samples share exactly the same background with different shadow positions. Thus, we design a shadow matting generative adversarial network (SMGAN) to synthesize realistic shadow mattings from a given shadow mask and shadow-free image. With the help of novel masks or scenes, we enhance the current datasets using synthesized shadow images. Experiments show that our DHAN can erase the shadows and produce high-quality ghost-free images. After training on the synthesized and real datasets, our network outperforms other state-of-the-art methods by a large margin. The code is available: http://github.com/vinthony/ghost-free-shadow-removal/",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 217,
+      "doi": "10.1609/aaai.v34i07.6695",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v34i07.6695",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4406788572",
+      "title": "ColorBoost-LLIE: A multi-loss guided low-light image enhancement algorithm with decoupled color and luminance restoration",
+      "authors": [
+        {
+          "name": "Xiaoyang shen",
+          "affiliation": "Yanshan University"
+        },
+        {
+          "name": "Haibin Li",
+          "affiliation": "Yanshan University"
+        },
+        {
+          "name": "Yaqian Li",
+          "affiliation": "Yanshan University"
+        },
+        {
+          "name": "Wenming Zhang",
+          "affiliation": "Yanshan University"
+        }
+      ],
+      "year": 2025,
+      "abstract": "",
+      "venue": "Displays",
+      "citation_count": 2,
+      "doi": "10.1016/j.displa.2025.102979",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.displa.2025.102979",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4403585678",
+      "title": "Perceptual-Distortion Balanced Image Super-Resolution is a Multi-Objective Optimization Problem",
+      "authors": [
+        {
+          "name": "Zhu Qiwen",
+          "affiliation": "Huazhong University of Science and Technology"
+        },
+        {
+          "name": "Yanjie Wang",
+          "affiliation": "Huazhong University of Science and Technology"
+        },
+        {
+          "name": "Shilv Cai",
+          "affiliation": "Huazhong University of Science and Technology"
+        },
+        {
+          "name": "Liqun Chen",
+          "affiliation": "Huazhong University of Science and Technology"
+        },
+        {
+          "name": "Jiahuan Zhou",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Luxin Yan",
+          "affiliation": "Huazhong University of Science and Technology"
+        },
+        {
+          "name": "Sheng Zhong",
+          "affiliation": "Huazhong University of Science and Technology"
+        },
+        {
+          "name": "Xu Zou",
+          "affiliation": "Huazhong University of Science and Technology"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Training Single-Image Super-Resolution (SISR) models using pixel-based regression losses can achieve high distortion metrics scores (e.g., PSNR and SSIM), but often results in blurry images due to insufficient recovery of high-frequency details. Conversely, using GAN or perceptual losses can produce sharp images with high perceptual metric scores (e.g., LPIPS), but may introduce artifacts and incorrect textures. Balancing these two types of losses can help achieve a trade-off between distortion and perception, but the challenge lies in tuning the loss function weights. To address this issue, we propose a novel method that incorporates Multi-Objective Optimization (MOO) into the training process of SISR models to balance perceptual quality and distortion. We conceptualize the relationship between loss weights and image quality assessment (IQA) metrics as black-box objective functions to be optimized within our Multi-Objective Bayesian Optimization Super-Resolution (MOBOSR) framework. This approach automates the hyperparameter tuning process, reduces overall computational cost, and enables the use of numerous loss functions simultaneously. Extensive experiments demonstrate that MOBOSR outperforms state-of-the-art methods in terms of both perceptual quality and distortion, significantly advancing the perception-distortion Pareto frontier. Our work points towards a new direction for future research on balancing perceptual quality and fidelity in nearly all image restoration tasks. The source code and pretrained models are available at: https://github.com/ZhuKeven/MOBOSR.",
+      "venue": "",
+      "citation_count": 4,
+      "doi": "10.1145/3664647.3681512",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3664647.3681512",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3047146825",
+      "title": "NeRF in the Wild: Neural Radiance Fields for Unconstrained Photo Collections",
+      "authors": [
+        {
+          "name": "Ricardo Martin-Brualla",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Noha Radwan",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Mehdi S. M. Sajjadi",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Jonathan T. Barron",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Alexey Dosovitskiy",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Daniel Duckworth",
+          "affiliation": "Google (United States)"
+        }
+      ],
+      "year": 2021,
+      "abstract": "We present a learning-based method for synthesizing novel views of complex scenes using only unstructured collections of in-the-wild photographs. We build on Neural Radiance Fields (NeRF), which uses the weights of a multilayer perceptron to model the density and color of a scene as a function of 3D coordinates. While NeRF works well on images of static subjects captured under controlled settings, it is incapable of modeling many ubiquitous, real-world phenomena in uncontrolled images, such as variable illumination or transient occluders. We introduce a series of extensions to NeRF to address these issues, thereby enabling accurate reconstructions from unstructured image collections taken from the internet. We apply our system, dubbed NeRF-W, to internet photo collections of famous landmarks, and demonstrate temporally consistent novel view renderings that are significantly closer to photorealism than the prior state of the art.",
+      "venue": "",
+      "citation_count": 134,
+      "doi": "10.1109/cvpr46437.2021.00713",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr46437.2021.00713",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4396731196",
+      "title": "Reference Image-Assisted Auxiliary Feature Fusion in Image Inpainting",
+      "authors": [
+        {
+          "name": "Shaojie Bai",
+          "affiliation": "Beijing Institute of Graphic Communication"
+        },
+        {
+          "name": "Lixia Lin",
+          "affiliation": "Beijing Institute of Graphic Communication"
+        },
+        {
+          "name": "Zihan Hu",
+          "affiliation": "Beijing Institute of Graphic Communication"
+        },
+        {
+          "name": "Peng Cao",
+          "affiliation": "Beijing Institute of Graphic Communication"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Image inpainting has achieved remarkable advancement in improving image quality via reconstructing the corrupted area with perceptual rationality. However, when the key semantic features of the mask area are blurred, existing methods solely relying on the corrupted image surrounding information may not be sufficient to restore the precise semantics of the original image. To solve this problem, in this letter, we propose a dual codec network guided by reference images, which obtains the effective semantic priors to reconstruct the lost detail feature of the corrupted image. Our network first aligns the reference image using a SIFT aligned module, then, extracts the texture feature and the gradient detail through a Fourier texture restoration module and an auxiliary feature extraction module, respectively, which finally emerge for image inpainting. To validate our scheme, we introduce the Reimage3K dataset with more realistic and diverse scenarios than existing datasets. Comprehensive experiments show that our scheme outperforms SOTA on PSNR, FID, and LPIPS by 3.29 dB, 54.5%, and 51.3% on DPED10K and 3.74 dB, 48.4%, 55.8% on Reimag3k, respectively. The code is available at <uri xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">https://github.com/HiDrizzle/RDCIN</uri> .",
+      "venue": "IEEE Signal Processing Letters",
+      "citation_count": 3,
+      "doi": "10.1109/lsp.2024.3398536",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/lsp.2024.3398536",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4401007490",
+      "title": "Decoding the third dimension in the metaverse: A comprehensive method for reconstructing 2D NFT portraits into 3D models",
+      "authors": [
+        {
+          "name": "Erqiang Deng",
+          "affiliation": "University of Electronic Science and Technology of China"
+        },
+        {
+          "name": "Li You",
+          "affiliation": "Erasmus MC"
+        },
+        {
+          "name": "Fazlullah Khan",
+          "affiliation": "University of Nottingham Ningbo China"
+        },
+        {
+          "name": "Guosong Zhu",
+          "affiliation": "University of Electronic Science and Technology of China"
+        },
+        {
+          "name": "Zhen Qin",
+          "affiliation": "University of Electronic Science and Technology of China"
+        },
+        {
+          "name": "Saru Kumari",
+          "affiliation": "Chaudhary Charan Singh University"
+        },
+        {
+          "name": "Hu Xiong",
+          "affiliation": "University of Electronic Science and Technology of China"
+        },
+        {
+          "name": "Ryan Alturki",
+          "affiliation": "Umm al-Qura University"
+        }
+      ],
+      "year": 2024,
+      "abstract": "",
+      "venue": "Applied Soft Computing",
+      "citation_count": 3,
+      "doi": "10.1016/j.asoc.2024.111964",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.asoc.2024.111964",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3174166237",
+      "title": "Progressive Semantic-Aware Style Transformation for Blind Face Restoration",
+      "authors": [
+        {
+          "name": "Chaofeng Chen",
+          "affiliation": "Alibaba Group (Cayman Islands)"
+        },
+        {
+          "name": "Xiaoming Li",
+          "affiliation": "Hong Kong Polytechnic University"
+        },
+        {
+          "name": "Lingbo Yang",
+          "affiliation": "Alibaba Group (Cayman Islands)"
+        },
+        {
+          "name": "Xianhui Lin",
+          "affiliation": "Alibaba Group (Cayman Islands)"
+        },
+        {
+          "name": "Lei Zhang",
+          "affiliation": "Alibaba Group (Cayman Islands)"
+        },
+        {
+          "name": "Kenneth K. Wong",
+          "affiliation": "University of Hong Kong"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Face restoration is important in face image processing, and has been widely studied in recent years. However, previous works often fail to generate plausible high quality (HQ) results for real-world low quality (LQ) face images. In this paper, we propose a new progressive semantic-aware style transformation framework, named PSFR-GAN, for face restoration. Specifically, instead of using an encoder-decoder framework as previous methods, we formulate the restoration of LQ face images as a multi-scale progressive restoration procedure through semantic-aware style transformation. Given a pair of LQ face image and its corresponding parsing map, we first generate a multi-scale pyramid of the inputs, and then progressively modulate different scale features from coarse-to-fine in a semantic-aware style transfer way. Compared with previous networks, the proposed PSFR-GAN makes full use of the semantic (parsing maps) and pixel (LQ images) space information from different scales of input pairs. In addition, we further introduce a semantic aware style loss which calculates the feature style loss for each semantic region individually to improve the details of face textures. Finally, we pretrain a face parsing network which can generate decent parsing maps from real-world LQ face images. Experiment results show that our model trained with synthetic data can not only produce more realistic high-resolution results for synthetic LQ inputs but also generalize better to natural LQ face images compared with state-of-the-art methods.",
+      "venue": "",
+      "citation_count": 156,
+      "doi": "10.1109/cvpr46437.2021.01172",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr46437.2021.01172",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4401990955",
+      "title": "Integrating Multitemporal SAR and Optical Information for Missing Optical Imagery Generation",
+      "authors": [
+        {
+          "name": "Chunyu Dong",
+          "affiliation": "Ningbo University"
+        },
+        {
+          "name": "Gang Yang",
+          "affiliation": "Ningbo University"
+        },
+        {
+          "name": "Yumiao Wang",
+          "affiliation": "Ningbo University"
+        },
+        {
+          "name": "Weiwei Sun",
+          "affiliation": "Ningbo University"
+        },
+        {
+          "name": "Xiangchao Meng",
+          "affiliation": "Ningbo University"
+        },
+        {
+          "name": "Binjie Chen",
+          "affiliation": "Ningbo University"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Cloud cover and long revisit cycle of satellites can cause gaps in optical images and pose a significant obstacle to the consistency of Earth observation missions. Recently, synthetic aperture radar (SAR)-to-optical image translation (S2OIT) has become an emerging approach to reconstruct the missing information of optical remote sensing images. However, the previous studies ignored the mechanism difference between SAR and optical data and produced color distortion, image blurriness, and texture detail loss in the generated optical images. To tackle these challenges, we propose a multitemporal S2OIT network (MTS2ONet) for high-quality optical image generation. The proposed model comprises two subnetworks: change feature extraction subnetwork (Change_Extractor) and the S2OIT subnetwork (S2O_Translator). The first subnetwork is tasked with extracting change features from SAR images captured at dates T and <inline-formula xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"> <tex-math notation=\"LaTeX\">${T} +1$ </tex-math></inline-formula>, and then translating them from the SAR domain to the optical domain. Subsequently, the S2O_Translator integrates the optical image at date <inline-formula xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"> <tex-math notation=\"LaTeX\">${T} +1$ </tex-math></inline-formula> with the change features extracted by the Change_Extractor to generate the optical image at date T. In addition, we produce a dual-temporal SAR-optical dataset called DTSEN1-2 for model evaluation. Experiments on the DTSEN1-2 dataset reveal that our method is superior to the state-of-the-art (SOTA) methods with the metrics peak-signal-to-noise ratio (PSNR; 36.0435), structural similarity index measure (SSIM; 0.9896), learned perceptual image patch similarity (LPIPS; 0.0443), and root mean square error (RMSE; 0.0174) and exhibits preferable results in visual effects. Our dataset and codes can be accessed via the following link: <uri xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">https://github.com/hopeupup/MTS2ONet</uri>.",
+      "venue": "IEEE Transactions on Geoscience and Remote Sensing",
+      "citation_count": 8,
+      "doi": "10.1109/tgrs.2024.3451558",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tgrs.2024.3451558",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4205467938",
+      "title": "Deep Learning-based Face Super-resolution: A Survey",
+      "authors": [
+        {
+          "name": "Junjun Jiang",
+          "affiliation": "Harbin Institute of Technology"
+        },
+        {
+          "name": "Chenyang Wang",
+          "affiliation": "Harbin Institute of Technology"
+        },
+        {
+          "name": "Xianming Liu",
+          "affiliation": "Harbin Institute of Technology"
+        },
+        {
+          "name": "Jiayi Ma",
+          "affiliation": "Wuhan University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Face super-resolution (FSR), also known as face hallucination, which is aimed at enhancing the resolution of low-resolution (LR) face images to generate high-resolution face images, is a domain-specific image super-resolution problem. Recently, FSR has received considerable attention and witnessed dazzling advances with the development of deep learning techniques. To date, few summaries of the studies on the deep learning-based FSR are available. In this survey, we present a comprehensive review of deep learning-based FSR methods in a systematic manner. First, we summarize the problem formulation of FSR and introduce popular assessment metrics and loss functions. Second, we elaborate on the facial characteristics and popular datasets used in FSR. Third, we roughly categorize existing methods according to the utilization of facial characteristics. In each category, we start with a general description of design principles, present an overview of representative approaches, and then discuss the pros and cons among them. Fourth, we evaluate the performance of some state-of-the-art methods. Fifth, joint FSR and other tasks, and FSR-related applications are roughly introduced. Finally, we envision the prospects of further technological advancement in this field.",
+      "venue": "ACM Computing Surveys",
+      "citation_count": 134,
+      "doi": "10.1145/3485132",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3485132",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4403835675",
+      "title": "Joint Optimization-Based Texture and Geometry Enhancement Method for Single-Image-Based 3D Content Creation",
+      "authors": [
+        {
+          "name": "Jisun Park",
+          "affiliation": "Dongguk University"
+        },
+        {
+          "name": "M.H. Kim",
+          "affiliation": "Dongguk University"
+        },
+        {
+          "name": "Jaesung Kim",
+          "affiliation": "Dongguk University"
+        },
+        {
+          "name": "Won Shik Kim",
+          "affiliation": "Dongguk University"
+        },
+        {
+          "name": "Kyungeun Cho",
+          "affiliation": "Dongguk University"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Recent studies have explored the generation of three-dimensional (3D) meshes from single images. A key challenge in this area is the difficulty of improving both the generalization and detail simultaneously in 3D mesh generation. To address this issue, existing methods utilize fixed-resolution mesh features to train networks for generalization. This approach is capable of generating the overall 3D shape without limitations on object categories. However, the generated shape often exhibits a blurred surface and suffers from suboptimal texture resolution due to the fixed-resolution mesh features. In this study, we propose a joint optimization method that enhances geometry and texture by integrating generalized 3D mesh generation with adjustable mesh resolution. Specifically, we apply an inverse-rendering-based remeshing technique that enables the estimation of complex-shaped mesh estimations without relying on fixed-resolution structures. After remeshing, we enhance the texture to improve the detailed quality of the remeshed mesh via a texture enhancement diffusion model. By separating the tasks of generalization, detailed geometry estimation, and texture enhancement and adapting different target features for each specific network, the proposed joint optimization method effectively addresses the characteristics of individual objects, resulting in increased surface detail and the generation of high-quality textures. Experimental results on the Google Scanned Objects and ShapeNet datasets demonstrate that the proposed method significantly improves the accuracy of 3D geometry and texture estimation, as evaluated by the PSNR, SSIM, LPIPS, and CD metrics.",
+      "venue": "Mathematics",
+      "citation_count": 1,
+      "doi": "10.3390/math12213369",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/math12213369",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4410080747",
+      "title": "Deep Learning Image Compression Method Based On Efficient Channel-Time Attention Module",
+      "authors": [
+        {
+          "name": "Xiu Ji",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiao Yang",
+          "affiliation": "Changchun University of Technology"
+        },
+        {
+          "name": "Z.F. Yue",
+          "affiliation": "Changchun Institute of Technology"
+        },
+        {
+          "name": "Hongliu Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Boyang Zheng",
+          "affiliation": "Changchun University of Technology"
+        }
+      ],
+      "year": 2025,
+      "abstract": "Remote monitoring of transmission lines plays a vital role in ensuring the stable operation of power systems, especially in regions with weak or unstable network signals, where efficient data transmission and storage are essential. However, traditional image compression methods face significant limitations in both quality and efficiency when applied to high-resolution imagery in such scenarios.To address these challenges, this paper proposes a deep learning-based image compression approach incorporating an Efficient Channel-Temporal Attention Module (ETAM). The ETAM module integrates Efficient Channel Attention (ECA-Net) and a Temporal Attention Module (TAM) to jointly enhance the extraction of spatial and temporal features, thereby improving compression efficiency and reconstruction quality.Experimental results demonstrate that the proposed method consistently outperforms both traditional and state-of-the-art deep learning-based compression techniques across multiple evaluation metrics, including PSNR, SSIM, and LPIPS. Notably, evaluations on the STN PLAD dataset show that ETAM better preserves fine-grained details and textures, even under high compression ratios, resulting in reconstructions that closely resemble the original images.These findings underscore the practical potential of the ETAM method for efficient, high-quality image compression in real-world applications such as transmission line monitoring under constrained network conditions.",
+      "venue": "Scientific Reports",
+      "citation_count": 1,
+      "doi": "10.1038/s41598-025-00566-6",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41598-025-00566-6",
+      "source": "openalex",
+      "_bibtex_override": ""
+    }
+  ]
+}

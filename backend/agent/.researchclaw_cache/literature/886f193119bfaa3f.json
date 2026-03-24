@@ -1,0 +1,744 @@
+{
+  "query": "Batch normalization impact on MNIST",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1773985580.6595802,
+  "papers": [
+    {
+      "paper_id": "arxiv-2003.05569",
+      "title": "Extended Batch Normalization",
+      "authors": [
+        {
+          "name": "Chunjie Luo",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianfeng Zhan",
+          "affiliation": ""
+        },
+        {
+          "name": "Lei Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wanling Gao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Batch normalization (BN) has become a standard technique for training the modern deep networks. However, its effectiveness diminishes when the batch size becomes smaller, since the batch statistics estimation becomes inaccurate. That hinders batch normalization's usage for 1) training larger model which requires small batches constrained by memory consumption, 2) training on mobile or embedded devices of which the memory resource is limited. In this paper, we propose a simple but effective method, called extended batch normalization (EBN). For NCHW format feature maps, extended batch normalization computes the mean along the (N, H, W) dimensions, as the same as batch normalization, to maintain the advantage of batch normalization. To alleviate the problem caused by small batch size, extended batch normalization computes the standard deviation along the (N, C, H, W) dimensions, thus enlarges the number of samples from which the standard deviation is computed. We compare extended batch normalization with batch normalization and group normalization on the datasets of MNIST, CIFAR-10/100, STL-10, and ImageNet, respectively. The experiments show that extended batch normalization alleviates the problem of batch normalization with small batch size while achieving close performances to batch normalization with large batch size.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2003.05569",
+      "url": "https://arxiv.org/abs/2003.05569",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2504.08793",
+      "title": "Constraint Programming Models For Serial Batch Scheduling With Minimum Batch Size",
+      "authors": [
+        {
+          "name": "Jorge A. Huertas",
+          "affiliation": ""
+        },
+        {
+          "name": "Pascal Van Hentenryck",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "In serial batch (s-batch) scheduling, jobs are grouped in batches and processed sequentially within their batch. This paper considers multiple parallel machines, nonidentical job weights and release times, and sequence-dependent setup times between batches of different families. Although s-batch has been widely studied in the literature, very few papers have taken into account a minimum batch size, typical in practical settings such as semiconductor manufacturing and the metal industry. The problem with this minimum batch size requirement has been mostly tackled with dynamic programming and meta-heuristics, and no article has ever used constraint programming (CP) to do so. This paper fills this gap by proposing, three CP models for s-batching with minimum batch size: (i) an \\textit{Interval Assignment} model that computes and bounds the size of the batches using the presence literals of interval variables of the jobs. (ii) A \\textit{Global} model that exclusively uses global constraints that track the size of the batches over time. (iii) And a \\textit{Hybrid} model that combines the benefits of the extra global constraints with the efficiency of the sum-of-presences constraints to ensure the minimum batch sizes. The computational experiments on standard cases compare the three CP models with two existing mixed-integer programming (MIP) models from the literature. The results demonstrate the versatility of the proposed CP models to handle multiple variations of s-batching; and their ability to produce, in large instances, better solutions than the MIP models faster.",
+      "venue": "cs.DC",
+      "citation_count": 0,
+      "doi": "10.1016/j.orp.2025.100352",
+      "arxiv_id": "2504.08793",
+      "url": "https://arxiv.org/abs/2504.08793",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2405.17027",
+      "title": "Supervised Batch Normalization",
+      "authors": [
+        {
+          "name": "Bilal Faye",
+          "affiliation": ""
+        },
+        {
+          "name": "Mustapha Lebbah",
+          "affiliation": ""
+        },
+        {
+          "name": "Hanane Azzag",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Batch Normalization (BN), a widely-used technique in neural networks, enhances generalization and expedites training by normalizing each mini-batch to the same mean and variance. However, its effectiveness diminishes when confronted with diverse data distributions. To address this challenge, we propose Supervised Batch Normalization (SBN), a pioneering approach. We expand normalization beyond traditional single mean and variance parameters, enabling the identification of data modes prior to training. This ensures effective normalization for samples sharing common features. We define contexts as modes, categorizing data with similar characteristics. These contexts are explicitly defined, such as domains in domain adaptation or modalities in multimodal systems, or implicitly defined through clustering algorithms based on data similarity. We illustrate the superiority of our approach over BN and other commonly employed normalization techniques through various experiments on both single and multi-task datasets. Integrating SBN with Vision Transformer results in a remarkable \\textit{15.13}\\% accuracy enhancement on CIFAR-100. Additionally, in domain adaptation scenarios, employing AdaMatch demonstrates an impressive \\textit{22.25}\\% accuracy improvement on MNIST and SVHN compared to BN.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2405.17027",
+      "url": "https://arxiv.org/abs/2405.17027",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2211.02050",
+      "title": "Adaptive Batch Normalization for Training Data with Heterogeneous Features",
+      "authors": [
+        {
+          "name": "Wael Alsobhi",
+          "affiliation": ""
+        },
+        {
+          "name": "Tarik Alafif",
+          "affiliation": ""
+        },
+        {
+          "name": "Alaa Abdel-Hakim",
+          "affiliation": ""
+        },
+        {
+          "name": "Weiwei Zong",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Batch Normalization (BN) is an important preprocessing step to many deep learning applications. Since it is a data-dependent process, for some homogeneous datasets it is a redundant or even a performance-degrading process. In this paper, we propose an early-stage feasibility assessment method for estimating the benefits of applying BN on the given data batches. The proposed method uses a novel threshold-based approach to classify the training data batches into two sets according to their need for normalization. The need for normalization is decided based on the feature heterogeneity of the considered batch. The proposed approach is a pre-training processing, which implies no training overhead. The evaluation results show that the proposed approach achieves better performance mostly in small batch sizes than the traditional BN using MNIST, Fashion-MNIST, CIFAR-10, and CIFAR-100 datasets. Additionally, the network stability is increased by reducing the occurrence of internal variable transformation.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2211.02050",
+      "url": "https://arxiv.org/abs/2211.02050",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2507.07101",
+      "title": "Small Batch Size Training for Language Models: When Vanilla SGD Works, and Why Gradient Accumulation Is Wasteful",
+      "authors": [
+        {
+          "name": "Martin Marek",
+          "affiliation": ""
+        },
+        {
+          "name": "Sanae Lotfi",
+          "affiliation": ""
+        },
+        {
+          "name": "Aditya Somasundaram",
+          "affiliation": ""
+        },
+        {
+          "name": "Andrew Gordon Wilson",
+          "affiliation": ""
+        },
+        {
+          "name": "Micah Goldblum",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Conventional wisdom dictates that small batch sizes make language model pretraining and fine-tuning unstable, motivating gradient accumulation, which trades off the number of optimizer steps for a proportional increase in batch size. While it is common to decrease the learning rate for smaller batch sizes, other hyperparameters are often held fixed. In this work, we revisit small batch sizes all the way down to batch size one, and we propose a rule for scaling Adam hyperparameters to small batch sizes. In particular, rather than holding the decay rate of the second moment fixed across batch sizes, we propose to hold its half-life fixed in terms of tokens. We find that small batch sizes (1) train stably, (2) are consistently more robust to hyperparameter choices, (3) achieve equal or better per-FLOP performance than larger batch sizes, and (4) notably enable stable language model training with vanilla SGD, even without momentum, despite storing no optimizer state. Building on these results, we provide practical recommendations for selecting a batch size and setting optimizer hyperparameters. We further recommend against gradient accumulation unless training on multiple devices with multiple model replicas. Finally, we show that a small batch size combined with an optimizer with a small state size can provide the performance benefits of full fine-tuning while maintaining a similar memory footprint to LoRA.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2507.07101",
+      "url": "https://arxiv.org/abs/2507.07101",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2012.02782",
+      "title": "Batch Group Normalization",
+      "authors": [
+        {
+          "name": "Xiao-Yun Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiacheng Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Nanyang Ye",
+          "affiliation": ""
+        },
+        {
+          "name": "Xu Lan",
+          "affiliation": ""
+        },
+        {
+          "name": "Qijun Luo",
+          "affiliation": ""
+        },
+        {
+          "name": "Bo-Lin Lai",
+          "affiliation": ""
+        },
+        {
+          "name": "Pedro Esperanca",
+          "affiliation": ""
+        },
+        {
+          "name": "Guang-Zhong Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhenguo Li",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Deep Convolutional Neural Networks (DCNNs) are hard and time-consuming to train. Normalization is one of the effective solutions. Among previous normalization methods, Batch Normalization (BN) performs well at medium and large batch sizes and is with good generalizability to multiple vision tasks, while its performance degrades significantly at small batch sizes. In this paper, we find that BN saturates at extreme large batch sizes, i.e., 128 images per worker, i.e., GPU, as well and propose that the degradation/saturation of BN at small/extreme large batch sizes is caused by noisy/confused statistic calculation. Hence without adding new trainable parameters, using multiple-layer or multi-iteration information, or introducing extra computation, Batch Group Normalization (BGN) is proposed to solve the noisy/confused statistic calculation of BN at small/extreme large batch sizes with introducing the channel, height and width dimension to compensate. The group technique in Group Normalization (GN) is used and a hyper-parameter G is used to control the number of feature instances used for statistic calculation, hence to offer neither noisy nor confused statistic for different batch sizes. We empirically demonstrate that BGN consistently outperforms BN, Instance Normalization (IN), Layer Normalization (LN), GN, and Positional Normalization (PN), across a wide spectrum of vision tasks, including image classification, Neural Architecture Search (NAS), adversarial learning, Few Shot Learning (FSL) and Unsupervised Domain Adaptation (UDA), indicating its good performance, robust stability to batch size and wide generalizability. For example, for training ResNet-50 on ImageNet with a batch size of 2, BN achieves Top1 accuracy of 66.512% while BGN achieves 76.096% with notable improvement.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2012.02782",
+      "url": "https://arxiv.org/abs/2012.02782",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2502.17913",
+      "title": "Batch normalization does not improve initialization",
+      "authors": [
+        {
+          "name": "Joris Dannemann",
+          "affiliation": ""
+        },
+        {
+          "name": "Gero Junike",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Batch normalization is one of the most important regularization techniques for neural networks, significantly improving training by centering the layers of the neural network. There have been several attempts to provide a theoretical justification for batch ormalization. Santurkar and Tsipras (2018) [How does batch normalization help optimization? Advances in neural information rocessing systems, 31] claim that batch normalization improves initialization. We provide a counterexample showing that this claim s not true, i.e., batch normalization does not improve initialization.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2502.17913",
+      "url": "https://arxiv.org/abs/2502.17913",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2003.08761",
+      "title": "Exemplar Normalization for Learning Deep Representation",
+      "authors": [
+        {
+          "name": "Ruimao Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhanglin Peng",
+          "affiliation": ""
+        },
+        {
+          "name": "Lingyun Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhen Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Ping Luo",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Normalization techniques are important in different advanced neural networks and different tasks. This work investigates a novel dynamic learning-to-normalize (L2N) problem by proposing Exemplar Normalization (EN), which is able to learn different normalization methods for different convolutional layers and image samples of a deep network. EN significantly improves flexibility of the recently proposed switchable normalization (SN), which solves a static L2N problem by linearly combining several normalizers in each normalization layer (the combination is the same for all samples). Instead of directly employing a multi-layer perceptron (MLP) to learn data-dependent parameters as conditional batch normalization (cBN) did, the internal architecture of EN is carefully designed to stabilize its optimization, leading to many appealing benefits. (1) EN enables different convolutional layers, image samples, categories, benchmarks, and tasks to use different normalization methods, shedding light on analyzing them in a holistic view. (2) EN is effective for various network architectures and tasks. (3) It could replace any normalization layers in a deep network and still produce stable model training. Extensive experiments demonstrate the effectiveness of EN in a wide spectrum of tasks including image recognition, noisy label learning, and semantic segmentation. For example, by replacing BN in the ordinary ResNet50, improvement produced by EN is 300% more than that of SN on both ImageNet and the noisy WebVision dataset.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2003.08761",
+      "url": "https://arxiv.org/abs/2003.08761",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2112.10474",
+      "title": "Reciprocal Normalization for Domain Adaptation",
+      "authors": [
+        {
+          "name": "Zhiyong Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Kekai Sheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Ke Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Jian Liang",
+          "affiliation": ""
+        },
+        {
+          "name": "Taiping Yao",
+          "affiliation": ""
+        },
+        {
+          "name": "Weiming Dong",
+          "affiliation": ""
+        },
+        {
+          "name": "Dengwen Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Xing Sun",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Batch normalization (BN) is widely used in modern deep neural networks, which has been shown to represent the domain-related knowledge, and thus is ineffective for cross-domain tasks like unsupervised domain adaptation (UDA). Existing BN variant methods aggregate source and target domain knowledge in the same channel in normalization module. However, the misalignment between the features of corresponding channels across domains often leads to a sub-optimal transferability. In this paper, we exploit the cross-domain relation and propose a novel normalization method, Reciprocal Normalization (RN). Specifically, RN first presents a Reciprocal Compensation (RC) module to acquire the compensatory for each channel in both domains based on the cross-domain channel-wise correlation. Then RN develops a Reciprocal Aggregation (RA) module to adaptively aggregate the feature with its cross-domain compensatory components. As an alternative to BN, RN is more suitable for UDA problems and can be easily integrated into popular domain adaptation methods. Experiments show that the proposed RN outperforms existing normalization counterparts by a large margin and helps state-of-the-art adaptation approaches achieve better results. The source code is available on https://github.com/Openning07/reciprocal-normalization-for-DA.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2112.10474",
+      "url": "https://arxiv.org/abs/2112.10474",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2106.03743",
+      "title": "Proxy-Normalizing Activations to Match Batch Normalization while Removing Batch Dependence",
+      "authors": [
+        {
+          "name": "Antoine Labatie",
+          "affiliation": ""
+        },
+        {
+          "name": "Dominic Masters",
+          "affiliation": ""
+        },
+        {
+          "name": "Zach Eaton-Rosen",
+          "affiliation": ""
+        },
+        {
+          "name": "Carlo Luschi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "We investigate the reasons for the performance degradation incurred with batch-independent normalization. We find that the prototypical techniques of layer normalization and instance normalization both induce the appearance of failure modes in the neural network's pre-activations: (i) layer normalization induces a collapse towards channel-wise constant functions; (ii) instance normalization induces a lack of variability in instance statistics, symptomatic of an alteration of the expressivity. To alleviate failure mode (i) without aggravating failure mode (ii), we introduce the technique \"Proxy Normalization\" that normalizes post-activations using a proxy distribution. When combined with layer normalization or group normalization, this batch-independent normalization emulates batch normalization's behavior and consistently matches or exceeds its performance.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2106.03743",
+      "url": "https://arxiv.org/abs/2106.03743",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2002.05712",
+      "title": "Cross-Iteration Batch Normalization",
+      "authors": [
+        {
+          "name": "Zhuliang Yao",
+          "affiliation": ""
+        },
+        {
+          "name": "Yue Cao",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuxin Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Gao Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Stephen Lin",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "A well-known issue of Batch Normalization is its significantly reduced effectiveness in the case of small mini-batch sizes. When a mini-batch contains few examples, the statistics upon which the normalization is defined cannot be reliably estimated from it during a training iteration. To address this problem, we present Cross-Iteration Batch Normalization (CBN), in which examples from multiple recent iterations are jointly utilized to enhance estimation quality. A challenge of computing statistics over multiple iterations is that the network activations from different iterations are not comparable to each other due to changes in network weights. We thus compensate for the network weight changes via a proposed technique based on Taylor polynomials, so that the statistics can be accurately estimated and batch normalization can be effectively applied. On object detection and image classification with small mini-batch sizes, CBN is found to outperform the original batch normalization and a direct calculation of statistics over previous iterations without the proposed compensation technique. Code is available at https://github.com/Howal/Cross-iterationBatchNorm .",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2002.05712",
+      "url": "https://arxiv.org/abs/2002.05712",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2209.08898",
+      "title": "Batch Layer Normalization, A new normalization layer for CNNs and RNN",
+      "authors": [
+        {
+          "name": "Amir Ziaee",
+          "affiliation": ""
+        },
+        {
+          "name": "Erion \u00c7ano",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "This study introduces a new normalization layer termed Batch Layer Normalization (BLN) to reduce the problem of internal covariate shift in deep neural network layers. As a combined version of batch and layer normalization, BLN adaptively puts appropriate weight on mini-batch and feature normalization based on the inverse size of mini-batches to normalize the input to a layer during the learning process. It also performs the exact computation with a minor change at inference times, using either mini-batch statistics or population statistics. The decision process to either use statistics of mini-batch or population gives BLN the ability to play a comprehensive role in the hyper-parameter optimization process of models. The key advantage of BLN is the support of the theoretical analysis of being independent of the input data, and its statistical configuration heavily depends on the task performed, the amount of training data, and the size of batches. Test results indicate the application potential of BLN and its faster convergence than batch normalization and layer normalization in both Convolutional and Recurrent Neural Networks. The code of the experiments is publicly available online (https://github.com/A2Amir/Batch-Layer-Normalization).",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "10.1145/3571560.3571566",
+      "arxiv_id": "2209.08898",
+      "url": "https://arxiv.org/abs/2209.08898",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2202.05448",
+      "title": "Fast Rates in Pool-Based Batch Active Learning",
+      "authors": [
+        {
+          "name": "Claudio Gentile",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhilei Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Tong Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "We consider a batch active learning scenario where the learner adaptively issues batches of points to a labeling oracle. Sampling labels in batches is highly desirable in practice due to the smaller number of interactive rounds with the labeling oracle (often human beings). However, batch active learning typically pays the price of a reduced adaptivity, leading to suboptimal results. In this paper we propose a solution which requires a careful trade off between the informativeness of the queried points and their diversity. We theoretically investigate batch active learning in the practically relevant scenario where the unlabeled pool of data is available beforehand ({\\em pool-based} active learning). We analyze a novel stage-wise greedy algorithm and show that, as a function of the label complexity, the excess risk of this algorithm matches the known minimax rates in standard statistical learning settings. Our results also exhibit a mild dependence on the batch size. These are the first theoretical results that employ careful trade offs between informativeness and diversity to rigorously quantify the statistical performance of batch active learning in the pool-based scenario.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2202.05448",
+      "url": "https://arxiv.org/abs/2202.05448",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2205.07372",
+      "title": "Effect of Batch Normalization on Noise Resistant Property of Deep Learning Models",
+      "authors": [
+        {
+          "name": "Omobayode Fagbohungbe",
+          "affiliation": ""
+        },
+        {
+          "name": "Lijun Qian",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "The fast execution speed and energy efficiency of analog hardware has made them a strong contender for deployment of deep learning model at the edge. However, there are concerns about the presence of analog noise which causes changes to the weight of the models, leading to performance degradation of deep learning model, despite their inherent noise resistant characteristics. The effect of the popular batch normalization layer on the noise resistant ability of deep learning model is investigated in this work. This systematic study has been carried out by first training different models with and without batch normalization layer on CIFAR10 and CIFAR100 dataset. The weights of the resulting models are then injected with analog noise and the performance of the models on the test dataset is obtained and compared. The results show that the presence of batch normalization layer negatively impacts noise resistant property of deep learning model and the impact grows with the increase of the number of batch normalization layers.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2205.07372",
+      "url": "https://arxiv.org/abs/2205.07372",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2501.14441",
+      "title": "Impact of Batch Normalization on Convolutional Network Representations",
+      "authors": [
+        {
+          "name": "Hermanus L. Potgieter",
+          "affiliation": ""
+        },
+        {
+          "name": "Coenraad Mouton",
+          "affiliation": ""
+        },
+        {
+          "name": "Marelie H. Davel",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Batch normalization (BatchNorm) is a popular layer normalization technique used when training deep neural networks. It has been shown to enhance the training speed and accuracy of deep learning models. However, the mechanics by which BatchNorm achieves these benefits is an active area of research, and different perspectives have been proposed. In this paper, we investigate the effect of BatchNorm on the resulting hidden representations, that is, the vectors of activation values formed as samples are processed at each hidden layer. Specifically, we consider the sparsity of these representations, as well as their implicit clustering -- the creation of groups of representations that are similar to some extent. We contrast image classification models trained with and without batch normalization and highlight consistent differences observed. These findings highlight that BatchNorm's effect on representational sparsity is not a significant factor affecting generalization, while the representations of models trained with BatchNorm tend to show more advantageous clustering characteristics.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "10.1007/978-3-031-78255-8_14",
+      "arxiv_id": "2501.14441",
+      "url": "https://arxiv.org/abs/2501.14441",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2001.06838",
+      "title": "Towards Stabilizing Batch Statistics in Backward Propagation of Batch Normalization",
+      "authors": [
+        {
+          "name": "Junjie Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruosi Wan",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiangyu Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wei Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yichen Wei",
+          "affiliation": ""
+        },
+        {
+          "name": "Jian Sun",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Batch Normalization (BN) is one of the most widely used techniques in Deep Learning field. But its performance can awfully degrade with insufficient batch size. This weakness limits the usage of BN on many computer vision tasks like detection or segmentation, where batch size is usually small due to the constraint of memory consumption. Therefore many modified normalization techniques have been proposed, which either fail to restore the performance of BN completely, or have to introduce additional nonlinear operations in inference procedure and increase huge consumption. In this paper, we reveal that there are two extra batch statistics involved in backward propagation of BN, on which has never been well discussed before. The extra batch statistics associated with gradients also can severely affect the training of deep neural network. Based on our analysis, we propose a novel normalization method, named Moving Average Batch Normalization (MABN). MABN can completely restore the performance of vanilla BN in small batch cases, without introducing any additional nonlinear operations in inference procedure. We prove the benefits of MABN by both theoretical analysis and experiments. Our experiments demonstrate the effectiveness of MABN in multiple computer vision tasks including ImageNet and COCO. The code has been released in https://github.com/megvii-model/MABN.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2001.06838",
+      "url": "https://arxiv.org/abs/2001.06838",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2412.02843",
+      "title": "Batch Normalization Decomposed",
+      "authors": [
+        {
+          "name": "Ido Nachum",
+          "affiliation": ""
+        },
+        {
+          "name": "Marco Bondaschi",
+          "affiliation": ""
+        },
+        {
+          "name": "Michael Gastpar",
+          "affiliation": ""
+        },
+        {
+          "name": "Anatoly Khina",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "\\emph{Batch normalization} is a successful building block of neural network architectures. Yet, it is not well understood. A neural network layer with batch normalization comprises three components that affect the representation induced by the network: \\emph{recentering} the mean of the representation to zero, \\emph{rescaling} the variance of the representation to one, and finally applying a \\emph{non-linearity}. Our work follows the work of Hadi Daneshmand, Amir Joudaki, Francis Bach [NeurIPS~'21], which studied deep \\emph{linear} neural networks with only the rescaling stage between layers at initialization. In our work, we present an analysis of the other two key components of networks with batch normalization, namely, the recentering and the non-linearity. When these two components are present, we observe a curious behavior at initialization. Through the layers, the representation of the batch converges to a single cluster except for an odd data point that breaks far away from the cluster in an orthogonal direction. We shed light on this behavior from two perspectives: (1) we analyze the geometrical evolution of a simplified indicative model; (2) we prove a stability result for the aforementioned~configuration.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2412.02843",
+      "url": "https://arxiv.org/abs/2412.02843",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2003.03284",
+      "title": "TaskNorm: Rethinking Batch Normalization for Meta-Learning",
+      "authors": [
+        {
+          "name": "John Bronskill",
+          "affiliation": ""
+        },
+        {
+          "name": "Jonathan Gordon",
+          "affiliation": ""
+        },
+        {
+          "name": "James Requeima",
+          "affiliation": ""
+        },
+        {
+          "name": "Sebastian Nowozin",
+          "affiliation": ""
+        },
+        {
+          "name": "Richard E. Turner",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Modern meta-learning approaches for image classification rely on increasingly deep networks to achieve state-of-the-art performance, making batch normalization an essential component of meta-learning pipelines. However, the hierarchical nature of the meta-learning setting presents several challenges that can render conventional batch normalization ineffective, giving rise to the need to rethink normalization in this setting. We evaluate a range of approaches to batch normalization for meta-learning scenarios, and develop a novel approach that we call TaskNorm. Experiments on fourteen datasets demonstrate that the choice of batch normalization has a dramatic effect on both classification accuracy and training time for both gradient based and gradient-free meta-learning approaches. Importantly, TaskNorm is found to consistently improve performance. Finally, we provide a set of best practices for normalization that will allow fair comparison of meta-learning algorithms.",
+      "venue": "stat.ML",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2003.03284",
+      "url": "https://arxiv.org/abs/2003.03284",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2108.01110",
+      "title": "Batch Normalization Preconditioning for Neural Network Training",
+      "authors": [
+        {
+          "name": "Susanna Lange",
+          "affiliation": ""
+        },
+        {
+          "name": "Kyle Helfrich",
+          "affiliation": ""
+        },
+        {
+          "name": "Qiang Ye",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Batch normalization (BN) is a popular and ubiquitous method in deep learning that has been shown to decrease training time and improve generalization performance of neural networks. Despite its success, BN is not theoretically well understood. It is not suitable for use with very small mini-batch sizes or online learning. In this paper, we propose a new method called Batch Normalization Preconditioning (BNP). Instead of applying normalization explicitly through a batch normalization layer as is done in BN, BNP applies normalization by conditioning the parameter gradients directly during training. This is designed to improve the Hessian matrix of the loss function and hence convergence during training. One benefit is that BNP is not constrained on the mini-batch size and works in the online learning setting. Furthermore, its connection to BN provides theoretical insights on how BN improves training and how BN is applied to special architectures such as convolutional neural networks. For a theoretical foundation, we also present a novel Hessian condition number based convergence theory for a locally convex but not strong-convex loss, which is applicable to networks with a scale-invariant property.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2108.01110",
+      "url": "https://arxiv.org/abs/2108.01110",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2010.08251",
+      "title": "Filtered Batch Normalization",
+      "authors": [
+        {
+          "name": "Andras Horvath",
+          "affiliation": ""
+        },
+        {
+          "name": "Jalal Al-afandi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "It is a common assumption that the activation of different layers in neural networks follow Gaussian distribution. This distribution can be transformed using normalization techniques, such as batch-normalization, increasing convergence speed and improving accuracy. In this paper we would like to demonstrate, that activations do not necessarily follow Gaussian distribution in all layers. Neurons in deeper layers are more selective and specific which can result extremely large, out-of-distribution activations.\n  We will demonstrate that one can create more consistent mean and variance values for batch normalization during training by filtering out these activations which can further improve convergence speed and yield higher validation accuracy.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2010.08251",
+      "url": "https://arxiv.org/abs/2010.08251",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2312.00596",
+      "title": "BCN: Batch Channel Normalization for Image Classification",
+      "authors": [
+        {
+          "name": "Afifa Khaled",
+          "affiliation": ""
+        },
+        {
+          "name": "Chao Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Jia Ning",
+          "affiliation": ""
+        },
+        {
+          "name": "Kun He",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Normalization techniques have been widely used in the field of deep learning due to their capability of enabling higher learning rates and are less careful in initialization. However, the effectiveness of popular normalization technologies is typically limited to specific areas. Unlike the standard Batch Normalization (BN) and Layer Normalization (LN), where BN computes the mean and variance along the (N,H,W) dimensions and LN computes the mean and variance along the (C,H,W) dimensions (N, C, H and W are the batch, channel, spatial height and width dimension, respectively), this paper presents a novel normalization technique called Batch Channel Normalization (BCN). To exploit both the channel and batch dependence and adaptively and combine the advantages of BN and LN based on specific datasets or tasks, BCN separately normalizes inputs along the (N, H, W) and (C, H, W) axes, then combines the normalized outputs based on adaptive parameters. As a basic block, BCN can be easily integrated into existing models for various applications in the field of computer vision. Empirical results show that the proposed technique can be seamlessly applied to various versions of CNN or Vision Transformer architecture. The code is publicly available at https://github.com/AfifaKhaled/BatchChannel-Normalization",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2312.00596",
+      "url": "https://arxiv.org/abs/2312.00596",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2103.11642",
+      "title": "A Batch Normalization Classifier for Domain Adaptation",
+      "authors": [
+        {
+          "name": "Matthew R. Behrend",
+          "affiliation": ""
+        },
+        {
+          "name": "Sean M. Robinson",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Adapting a model to perform well on unforeseen data outside its training set is a common problem that continues to motivate new approaches. We demonstrate that application of batch normalization in the output layer, prior to softmax activation, results in improved generalization across visual data domains in a refined ResNet model. The approach adds negligible computational complexity yet outperforms many domain adaptation methods that explicitly learn to align data domains. We benchmark this technique on the Office-Home dataset and show that batch normalization is competitive with other leading methods. We show that this method is not sensitive to presence of source data during adaptation and further present the impact on trained tensor distributions tends toward sparsity. Code is available at https://github.com/matthewbehrend/BNC",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2103.11642",
+      "url": "https://arxiv.org/abs/2103.11642",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2011.11559",
+      "title": "Comparing Normalization Methods for Limited Batch Size Segmentation Neural Networks",
+      "authors": [
+        {
+          "name": "Martin Kolarik",
+          "affiliation": ""
+        },
+        {
+          "name": "Radim Burget",
+          "affiliation": ""
+        },
+        {
+          "name": "Kamil Riha",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "The widespread use of Batch Normalization has enabled training deeper neural networks with more stable and faster results. However, the Batch Normalization works best using large batch size during training and as the state-of-the-art segmentation convolutional neural network architectures are very memory demanding, large batch size is often impossible to achieve on current hardware. We evaluate the alternative normalization methods proposed to solve this issue on a problem of binary spine segmentation from 3D CT scan. Our results show the effectiveness of Instance Normalization in the limited batch size neural network training environment. Out of all the compared methods the Instance Normalization achieved the highest result with Dice coefficient = 0.96 which is comparable to our previous results achieved by deeper network with longer training time. We also show that the Instance Normalization implementation used in this experiment is computational time efficient when compared to the network without any normalization method.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1109/TSP49548.2020.9163397",
+      "arxiv_id": "2011.11559",
+      "url": "https://arxiv.org/abs/2011.11559",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2001.00129",
+      "title": "Attentive batch normalization for lstm-based acoustic modeling of speech recognition",
+      "authors": [
+        {
+          "name": "Fenglin Ding",
+          "affiliation": ""
+        },
+        {
+          "name": "Wu Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Lirong Dai",
+          "affiliation": ""
+        },
+        {
+          "name": "Jun Du",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Batch normalization (BN) is an effective method to accelerate model training and improve the generalization performance of neural networks. In this paper, we propose an improved batch normalization technique called attentive batch normalization (ABN) in Long Short Term Memory (LSTM) based acoustic modeling for automatic speech recognition (ASR). In the proposed method, an auxiliary network is used to dynamically generate the scaling and shifting parameters in batch normalization, and attention mechanisms are introduced to improve their regularized performance. Furthermore, two schemes, frame-level and utterance-level ABN, are investigated. We evaluate our proposed methods on Mandarin and Uyghur ASR tasks, respectively. The experimental results show that the proposed ABN greatly improves the performance of batch normalization in terms of transcription accuracy for both languages.",
+      "venue": "eess.AS",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2001.00129",
+      "url": "https://arxiv.org/abs/2001.00129",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

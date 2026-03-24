@@ -1,0 +1,1321 @@
+{
+  "query": "VLA video action comparison",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1774287614.1551876,
+  "papers": [
+    {
+      "paper_id": "arxiv-2503.00200",
+      "title": "Unified Video Action Model",
+      "authors": [
+        {
+          "name": "Shuang Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yihuai Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Dorsa Sadigh",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuran Song",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "A unified video and action model holds significant promise for robotics, where videos provide rich scene information for action prediction, and actions provide dynamics information for video prediction. However, effectively combining video generation and action prediction remains challenging, and current video generation-based methods struggle to match the performance of direct policy learning in action accuracy and inference speed. To bridge this gap, we introduce the Unified Video Action model (UVA), which jointly optimizes video and action predictions to achieve both high accuracy and efficient action inference. The key lies in learning a joint video-action latent representation and decoupling video-action decoding. The joint latent representation bridges the visual and action domains, effectively modeling the relationship between video and action sequences. Meanwhile, the decoupled decoding, powered by two lightweight diffusion heads, enables high-speed action inference by bypassing video generation during inference. Such a unified framework further enables versatile functionality through masked input training. By selectively masking actions or videos, a single model can tackle diverse tasks beyond policy learning, such as forward and inverse dynamics modeling and video generation. Via an extensive set of experiments, we demonstrate that UVA can serve as a general-purpose solution for a wide range of robotics tasks, such as policy learning, forward/inverse dynamics and video observation prediction, without compromising performance compared to methods tailored for specific applications. Results are best viewed on https://unified-video-action-model.github.io/.",
+      "venue": "cs.RO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2503.00200",
+      "url": "https://arxiv.org/abs/2503.00200",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2603.14523",
+      "title": "VLA-Thinker: Boosting Vision-Language-Action Models through Thinking-with-Image Reasoning",
+      "authors": [
+        {
+          "name": "Chaoyang Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenrui Bao",
+          "affiliation": ""
+        },
+        {
+          "name": "Sicheng Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Bingxin Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Tian",
+          "affiliation": ""
+        },
+        {
+          "name": "Yogesh S. Rawat",
+          "affiliation": ""
+        },
+        {
+          "name": "Yunhao Ge",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuzhang Shang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Vision-Language-Action (VLA) models have shown promising capabilities for embodied intelligence, but most existing approaches rely on text-based chain-of-thought reasoning where visual inputs are treated as static context. This limits the ability of the model to actively revisit the environment and resolve ambiguities during long-horizon tasks. We propose VLA-Thinker, a thinking-with-image reasoning framework that models perception as a dynamically invocable reasoning action. To train such a system, we introduce a two-stage training pipeline consisting of (1) an SFT cold-start phase with curated visual Chain-of-Thought data to activate structured reasoning and tool-use behaviors, and (2) GRPO-based reinforcement learning to align complete reasoning-action trajectories with task-level success. Extensive experiments on LIBERO and RoboTwin 2.0 benchmarks demonstrate that VLA-Thinker significantly improves manipulation performance, achieving 97.5% success rate on LIBERO and strong gains across long-horizon robotic tasks. Project and Codes: https://cywang735.github.io/VLA-Thinker/ .",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2603.14523",
+      "url": "https://arxiv.org/abs/2603.14523",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2509.09372",
+      "title": "VLA-Adapter: An Effective Paradigm for Tiny-Scale Vision-Language-Action Model",
+      "authors": [
+        {
+          "name": "Yihao Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Pengxiang Ding",
+          "affiliation": ""
+        },
+        {
+          "name": "Lingxiao Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Can Cui",
+          "affiliation": ""
+        },
+        {
+          "name": "Zirui Ge",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinyang Tong",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenxuan Song",
+          "affiliation": ""
+        },
+        {
+          "name": "Han Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Wei Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Pengxu Hou",
+          "affiliation": ""
+        },
+        {
+          "name": "Siteng Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yifan Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenhui Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ru Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianyi Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Donglin Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Vision-Language-Action (VLA) models typically bridge the gap between perceptual and action spaces by pre-training a large-scale Vision-Language Model (VLM) on robotic data. While this approach greatly enhances performance, it also incurs significant training costs. In this paper, we investigate how to effectively bridge vision-language (VL) representations to action (A). We introduce VLA-Adapter, a novel paradigm designed to reduce the reliance of VLA models on large-scale VLMs and extensive pre-training. To this end, we first systematically analyze the effectiveness of various VL conditions and present key findings on which conditions are essential for bridging perception and action spaces. Based on these insights, we propose a lightweight Policy module with Bridge Attention, which autonomously injects the optimal condition into the action space. In this way, our method achieves high performance using only a 0.5B-parameter backbone, without any robotic data pre-training. Extensive experiments on both simulated and real-world robotic benchmarks demonstrate that VLA-Adapter not only achieves state-of-the-art level performance, but also offers the fast inference speed reported to date. Furthermore, thanks to the proposed advanced bridging paradigm, VLA-Adapter enables the training of a powerful VLA model in just 8 hours on a single consumer-grade GPU, greatly lowering the barrier to deploying the VLA model. Project page: https://vla-adapter.github.io/.",
+      "venue": "cs.RO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2509.09372",
+      "url": "https://arxiv.org/abs/2509.09372",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2505.23757",
+      "title": "Impromptu VLA: Open Weights and Open Data for Driving Vision-Language-Action Models",
+      "authors": [
+        {
+          "name": "Haohan Chi",
+          "affiliation": ""
+        },
+        {
+          "name": "Huan-ang Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Ziming Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianing Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Chenyu Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jinwei Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Kaisen Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yangcheng Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zeda Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenyi Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Leichen Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xingtao Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Hang Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Zhao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Vision-Language-Action (VLA) models for autonomous driving show promise but falter in unstructured corner case scenarios, largely due to a scarcity of targeted benchmarks. To address this, we introduce Impromptu VLA. Our core contribution is the Impromptu VLA Dataset: over 80,000 meticulously curated video clips, distilled from over 2M source clips sourced from 8 open-source large-scale datasets. This dataset is built upon our novel taxonomy of four challenging unstructured categories and features rich, planning-oriented question-answering annotations and action trajectories. Crucially, experiments demonstrate that VLAs trained with our dataset achieve substantial performance gains on established benchmarks--improving closed-loop NeuroNCAP scores and collision rates, and reaching near state-of-the-art L2 accuracy in open-loop nuScenes trajectory prediction. Furthermore, our Q&A suite serves as an effective diagnostic, revealing clear VLM improvements in perception, prediction, and planning. Our code, data and models are available at https://github.com/ahydchh/Impromptu-VLA.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2505.23757",
+      "url": "https://arxiv.org/abs/2505.23757",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2510.09607",
+      "title": "VITA-VLA: Efficiently Teaching Vision-Language Models to Act via Action Expert Distillation",
+      "authors": [
+        {
+          "name": "Shaoqi Dong",
+          "affiliation": ""
+        },
+        {
+          "name": "Chaoyou Fu",
+          "affiliation": ""
+        },
+        {
+          "name": "Haihan Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi-Fan Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chi Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Chu Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaoyu Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yunhang Shen",
+          "affiliation": ""
+        },
+        {
+          "name": "Jing Huo",
+          "affiliation": ""
+        },
+        {
+          "name": "Deqiang Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Haoyu Cao",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Xing Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Ran He",
+          "affiliation": ""
+        },
+        {
+          "name": "Caifeng Shan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Vision-Language Action (VLA) models significantly advance robotic manipulation by leveraging the strong perception capabilities of pretrained vision-language models (VLMs). By integrating action modules into these pretrained models, VLA methods exhibit improved generalization. However, training them from scratch is costly. In this work, we propose a simple yet effective distillation-based framework that equips VLMs with action-execution capability by transferring knowledge from pretrained small action models. Our architecture retains the original VLM structure, adding only an action token and a state encoder to incorporate physical inputs. To distill action knowledge, we adopt a two-stage training strategy. First, we perform lightweight alignment by mapping VLM hidden states into the action space of the small action model, enabling effective reuse of its pretrained action decoder and avoiding expensive pretraining. Second, we selectively fine-tune the language model, state encoder, and action modules, enabling the system to integrate multimodal inputs with precise action generation. Specifically, the action token provides the VLM with a direct handle for predicting future actions, while the state encoder allows the model to incorporate robot dynamics not captured by vision alone. This design yields substantial efficiency gains over training large VLA models from scratch. Compared with previous state-of-the-art methods, our method achieves 97.3% average success rate on LIBERO (11.8% improvement) and 93.5% on LIBERO-LONG (24.5% improvement). In real-world experiments across five manipulation tasks, our method consistently outperforms the teacher model, achieving 82.0% success rate (17% improvement), which demonstrate that action distillation effectively enables VLMs to generate precise actions while substantially reducing training costs.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2510.09607",
+      "url": "https://arxiv.org/abs/2510.09607",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2512.18007",
+      "title": "Robotic VLA Benefits from Joint Learning with Motion Image Diffusion",
+      "authors": [
+        {
+          "name": "Yu Fang",
+          "affiliation": ""
+        },
+        {
+          "name": "Kanchana Ranasinghe",
+          "affiliation": ""
+        },
+        {
+          "name": "Le Xue",
+          "affiliation": ""
+        },
+        {
+          "name": "Honglu Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Juntao Tan",
+          "affiliation": ""
+        },
+        {
+          "name": "Ran Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Shelby Heinecke",
+          "affiliation": ""
+        },
+        {
+          "name": "Caiming Xiong",
+          "affiliation": ""
+        },
+        {
+          "name": "Silvio Savarese",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniel Szafir",
+          "affiliation": ""
+        },
+        {
+          "name": "Mingyu Ding",
+          "affiliation": ""
+        },
+        {
+          "name": "Michael S. Ryoo",
+          "affiliation": ""
+        },
+        {
+          "name": "Juan Carlos Niebles",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Vision-Language-Action (VLA) models have achieved remarkable progress in robotic manipulation by mapping multimodal observations and instructions directly to actions. However, they typically mimic expert trajectories without predictive motion reasoning, which limits their ability to reason about what actions to take. To address this limitation, we propose joint learning with motion image diffusion, a novel strategy that enhances VLA models with motion reasoning capabilities. Our method extends the VLA architecture with a dual-head design: while the action head predicts action chunks as in vanilla VLAs, an additional motion head, implemented as a Diffusion Transformer (DiT), predicts optical-flow-based motion images that capture future dynamics. The two heads are trained jointly, enabling the shared VLM backbone to learn representations that couple robot control with motion knowledge. This joint learning builds temporally coherent and physically grounded representations without modifying the inference pathway of standard VLAs, thereby maintaining test-time latency. Experiments in both simulation and real-world environments demonstrate that joint learning with motion image diffusion improves the success rate of pi-series VLAs to 97.5% on the LIBERO benchmark and 58.0% on the RoboTwin benchmark, yielding a 23% improvement in real-world performance and validating its effectiveness in enhancing the motion reasoning capability of large-scale VLAs.",
+      "venue": "cs.RO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2512.18007",
+      "url": "https://arxiv.org/abs/2512.18007",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2410.09380",
+      "title": "Prompting Video-Language Foundation Models with Domain-specific Fine-grained Heuristics for Video Question Answering",
+      "authors": [
+        {
+          "name": "Ting Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Kunhao Fu",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuhui Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Qingming Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jun Yu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Video Question Answering (VideoQA) represents a crucial intersection between video understanding and language processing, requiring both discriminative unimodal comprehension and sophisticated cross-modal interaction for accurate inference. Despite advancements in multi-modal pre-trained models and video-language foundation models, these systems often struggle with domain-specific VideoQA due to their generalized pre-training objectives. Addressing this gap necessitates bridging the divide between broad cross-modal knowledge and the specific inference demands of VideoQA tasks. To this end, we introduce HeurVidQA, a framework that leverages domain-specific entity-action heuristics to refine pre-trained video-language foundation models. Our approach treats these models as implicit knowledge engines, employing domain-specific entity-action prompters to direct the model's focus toward precise cues that enhance reasoning. By delivering fine-grained heuristics, we improve the model's ability to identify and interpret key entities and actions, thereby enhancing its reasoning capabilities. Extensive evaluations across multiple VideoQA datasets demonstrate that our method significantly outperforms existing models, underscoring the importance of integrating domain-specific knowledge into video-language models for more accurate and context-aware VideoQA.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1109/TCSVT.2024.3475510",
+      "arxiv_id": "2410.09380",
+      "url": "https://arxiv.org/abs/2410.09380",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2602.17659",
+      "title": "When Vision Overrides Language: Evaluating and Mitigating Counterfactual Failures in VLAs",
+      "authors": [
+        {
+          "name": "Yu Fang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuchun Feng",
+          "affiliation": ""
+        },
+        {
+          "name": "Dong Jing",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiaqi Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yue Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhenyu Wei",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniel Szafir",
+          "affiliation": ""
+        },
+        {
+          "name": "Mingyu Ding",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Vision-Language-Action models (VLAs) promise to ground language instructions in robot control, yet in practice often fail to faithfully follow language. When presented with instructions that lack strong scene-specific supervision, VLAs suffer from counterfactual failures: they act based on vision shortcuts induced by dataset biases, repeatedly executing well-learned behaviors and selecting objects frequently seen during training regardless of language intent. To systematically study it, we introduce LIBERO-CF, the first counterfactual benchmark for VLAs that evaluates language following capability by assigning alternative instructions under visually plausible LIBERO layouts. Our evaluation reveals that counterfactual failures are prevalent yet underexplored across state-of-the-art VLAs. We propose Counterfactual Action Guidance (CAG), a simple yet effective dual-branch inference scheme that explicitly regularizes language conditioning in VLAs. CAG combines a standard VLA policy with a language-unconditioned Vision-Action (VA) module, enabling counterfactual comparison during action selection. This design reduces reliance on visual shortcuts, improves robustness on under-observed tasks, and requires neither additional demonstrations nor modifications to existing architectures or pretrained models. Extensive experiments demonstrate its plug-and-play integration across diverse VLAs and consistent improvements. For example, on LIBERO-CF, CAG improves $\u03c0_{0.5}$ by 9.7% in language following accuracy and 3.6% in task success on under-observed tasks using a training-free strategy, with further gains of 15.5% and 8.5%, respectively, when paired with a VA model. In real-world evaluations, CAG reduces counterfactual failures of 9.4% and improves task success by 17.2% on average.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2602.17659",
+      "url": "https://arxiv.org/abs/2602.17659",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2510.26742",
+      "title": "Running VLAs at Real-time Speed",
+      "authors": [
+        {
+          "name": "Yunchao Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Yizhuang Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Yunhuan Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Tiancai Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Haoqiang Fan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "In this paper, we show how to run pi0-level multi-view VLA at 30Hz frame rate and at most 480Hz trajectory frequency using a single consumer GPU. This enables dynamic and real-time tasks that were previously believed to be unattainable by large VLA models. To achieve it, we introduce a bag of strategies to eliminate the overheads in model inference. The real-world experiment shows that the pi0 policy with our strategy achieves a 100% success rate in grasping a falling pen task. Based on the results, we further propose a full streaming inference framework for real-time robot control of VLA. Code is available at https://github.com/Dexmal/realtime-vla.",
+      "venue": "cs.RO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2510.26742",
+      "url": "https://arxiv.org/abs/2510.26742",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2105.08191",
+      "title": "Adaptive Video Encoding For Different Video Codecs",
+      "authors": [
+        {
+          "name": "Gangadharan Esakki",
+          "affiliation": ""
+        },
+        {
+          "name": "Andreas Panayides",
+          "affiliation": ""
+        },
+        {
+          "name": "Venkatesh Jatla",
+          "affiliation": ""
+        },
+        {
+          "name": "Marios Pattichis",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "By 2022, we expect video traffic to reach 82% of the total internet traffic. Undoubtedly, the abundance of video-driven applications will likely lead internet video traffic percentage to a further increase in the near future, enabled by associate advances in video devices' capabilities. In response to this ever-growing demand, the Alliance for Open Media (AOM) and the Joint Video Experts Team (JVET) have demonstrated strong and renewed interest in developing new video codecs. In the fast-changing video codecs' landscape, there is thus, a genuine need to develop adaptive methods that can be universally applied to different codecs. In this study, we formulate video encoding as a multi-objective optimization process where video quality (as a function of VMAF and PSNR), bitrate demands, and encoding rate (in encoded frames per second) are jointly optimized, going beyond the standard video encoding approaches that focus on rate control targeting specific bandwidths. More specifically, we create a dense video encoding space (offline) and then employ regression to generate forward prediction models for each one of the afore-described optimization objectives, using only Pareto-optimal points. We demonstrate our adaptive video encoding approach that leverages the generated forward prediction models that qualify for real-time adaptation using different codecs (e.g., SVT-AV1 and x265) for a variety of video datasets and resolutions. To motivate our approach and establish the promise for future fast VVC encoders, we also perform a comparative performance evaluation using both subjective and objective metrics and report on bitrate savings among all possible pairs between VVC, SVT-AV1, x265, and VP9 codecs.",
+      "venue": "cs.MM",
+      "citation_count": 0,
+      "doi": "10.1109/ACCESS.2021.3077313",
+      "arxiv_id": "2105.08191",
+      "url": "https://arxiv.org/abs/2105.08191",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2602.12351",
+      "title": "LongNav-R1: Horizon-Adaptive Multi-Turn RL for Long-Horizon VLA Navigation",
+      "authors": [
+        {
+          "name": "Yue Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Avery Xi",
+          "affiliation": ""
+        },
+        {
+          "name": "Qixin Xiao",
+          "affiliation": ""
+        },
+        {
+          "name": "Seth Isaacson",
+          "affiliation": ""
+        },
+        {
+          "name": "Henry X. Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ram Vasudevan",
+          "affiliation": ""
+        },
+        {
+          "name": "Maani Ghaffari",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "This paper develops LongNav-R1, an end-to-end multi-turn reinforcement learning (RL) framework designed to optimize Visual-Language-Action (VLA) models for long-horizon navigation. Unlike existing single-turn paradigm, LongNav-R1 reformulates the navigation decision process as a continuous multi-turn conversation between the VLA policy and the embodied environment. This multi-turn RL framework offers two distinct advantages: i) it enables the agent to reason about the causal effects of historical interactions and sequential future outcomes; and ii) it allows the model to learn directly from online interactions, fostering diverse trajectory generation and avoiding the behavioral rigidity often imposed by human demonstrations. Furthermore, we introduce Horizon-Adaptive Policy Optimization. This mechanism explicitly accounts for varying horizon lengths during advantage estimation, facilitating accurate temporal credit assignment over extended sequences. Consequently, the agent develops diverse navigation behaviors and resists collapse during long-horizon tasks. Experiments on object navigation benchmarks validate the framework's efficacy: With 4,000 rollout trajectories, LongNav-R1 boosts the Qwen3-VL-2B success rate from 64.3% to 73.0%. These results demonstrate superior sample efficiency and significantly outperform state-of-the-art methods. The model's generalizability and robustness are further validated by its zero-shot performance in long-horizon real-world navigation settings. All source code will be open-sourced upon publication.",
+      "venue": "cs.RO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2602.12351",
+      "url": "https://arxiv.org/abs/2602.12351",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2603.08122",
+      "title": "Towards Human-Like Manipulation through RL-Augmented Teleoperation and Mixture-of-Dexterous-Experts VLA",
+      "authors": [
+        {
+          "name": "Tutian Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xingyu Ji",
+          "affiliation": ""
+        },
+        {
+          "name": "Wanli Xing",
+          "affiliation": ""
+        },
+        {
+          "name": "Ce Hao",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenqiang Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Lin Shao",
+          "affiliation": ""
+        },
+        {
+          "name": "Cewu Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Qiaojun Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiangmiao Pang",
+          "affiliation": ""
+        },
+        {
+          "name": "Kaifeng Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "While Vision-Language-Action (VLA) models have demonstrated remarkable success in robotic manipulation, their application has largely been confined to low-degree-of-freedom end-effectors performing simple, vision-guided pick-and-place tasks. Extending these models to human-like, bimanual dexterous manipulation-specifically contact-rich in-hand operations-introduces critical challenges in high-fidelity data acquisition, multi-skill learning, and multimodal sensory fusion. In this paper, we propose an integrated framework to address these bottlenecks, built upon two components. First, we introduce IMCopilot (In-hand Manipulation Copilot), a suite of reinforcement learning-trained atomic skills that plays a dual role: it acts as a shared-autonomy assistant to simplify teleoperation data collection, and it serves as a callable low-level execution primitive for the VLA. Second, we present MoDE-VLA (Mixture-of-Dexterous-Experts VLA), an architecture that seamlessly integrates heterogeneous force and tactile modalities into a pretrained VLA backbone. By utilizing a residual injection mechanism, MoDE-VLA enables contact-aware refinement without degrading the model's pretrained knowledge. We validate our approach on four tasks of escalating complexity, demonstrating doubled success rate improvement over the baseline in dexterous contact-rich tasks.",
+      "venue": "cs.RO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2603.08122",
+      "url": "https://arxiv.org/abs/2603.08122",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2309.14364",
+      "title": "Automata Quest: NCAs as a Video Game Life Mechanic",
+      "authors": [
+        {
+          "name": "Hiroki Sato",
+          "affiliation": ""
+        },
+        {
+          "name": "Tanner Lund",
+          "affiliation": ""
+        },
+        {
+          "name": "Takahide Yoshida",
+          "affiliation": ""
+        },
+        {
+          "name": "Atsushi Masumori",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We study life over the course of video game history as represented by their mechanics. While there have been some variations depending on genre or \"character type\", we find that most games converge to a similar representation. We also examine the development of Conway's Game of Life (one of the first zero player games) and related automata that have developed over the years. With this history in mind, we investigate the viability of one popular form of automata, namely Neural Cellular Automata, as a way to more fully express life within video game settings and innovate new game mechanics or gameplay loops.",
+      "venue": "cs.HC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2309.14364",
+      "url": "https://arxiv.org/abs/2309.14364",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2509.14117",
+      "title": "GeoAware-VLA: Implicit Geometry Aware Vision-Language-Action Model",
+      "authors": [
+        {
+          "name": "Ali Abouzeid",
+          "affiliation": ""
+        },
+        {
+          "name": "Malak Mansour",
+          "affiliation": ""
+        },
+        {
+          "name": "Qinbo Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Zezhou Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Dezhen Song",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Vision-Language-Action (VLA) models often fail to generalize to unseen camera viewpoints, a limitation stemming from their difficulty in inferring robust 3D geometry from 2D images. We introduce GeoAware-VLA, a simple yet effective approach that enhances viewpoint invariance by integrating strong geometric priors into the vision backbone. Instead of training a visual encoder or relying on explicit 3D data, we leverage a frozen, pretrained geometric vision model as a feature extractor. A lightweight, trainable projection layer then adapts these geometrically-rich features for the policy decoder, relieving it of the burden of learning 3D consistency from scratch. Through extensive evaluations on the LIBERO and CALVIN benchmarks, we show that GeoAware-VLA preserves and even improves in-distribution performance while achieving substantial gains in zero-shot generalization to unseen camera poses, improving unseen-view success rates by an average of 35 percentage points on LIBERO and over 11 percentage points on CALVIN compared to their respective baselines. Crucially, these gains transfer to the physical world, where our model shows significant improvement on a real robotic platform. Our approach proves effective across both continuous and discrete action spaces, highlighting that robust geometric grounding is a key ingredient for building more generalizable robotic agents.",
+      "venue": "cs.RO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2509.14117",
+      "url": "https://arxiv.org/abs/2509.14117",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2201.12288",
+      "title": "VRT: A Video Restoration Transformer",
+      "authors": [
+        {
+          "name": "Jingyun Liang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiezhang Cao",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuchen Fan",
+          "affiliation": ""
+        },
+        {
+          "name": "Kai Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Rakesh Ranjan",
+          "affiliation": ""
+        },
+        {
+          "name": "Yawei Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Radu Timofte",
+          "affiliation": ""
+        },
+        {
+          "name": "Luc Van Gool",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Video restoration (e.g., video super-resolution) aims to restore high-quality frames from low-quality frames. Different from single image restoration, video restoration generally requires to utilize temporal information from multiple adjacent but usually misaligned video frames. Existing deep methods generally tackle with this by exploiting a sliding window strategy or a recurrent architecture, which either is restricted by frame-by-frame restoration or lacks long-range modelling ability. In this paper, we propose a Video Restoration Transformer (VRT) with parallel frame prediction and long-range temporal dependency modelling abilities. More specifically, VRT is composed of multiple scales, each of which consists of two kinds of modules: temporal mutual self attention (TMSA) and parallel warping. TMSA divides the video into small clips, on which mutual attention is applied for joint motion estimation, feature alignment and feature fusion, while self attention is used for feature extraction. To enable cross-clip interactions, the video sequence is shifted for every other layer. Besides, parallel warping is used to further fuse information from neighboring frames by parallel feature warping. Experimental results on five tasks, including video super-resolution, video deblurring, video denoising, video frame interpolation and space-time video super-resolution, demonstrate that VRT outperforms the state-of-the-art methods by large margins ($\\textbf{up to 2.16dB}$) on fourteen benchmark datasets.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2201.12288",
+      "url": "https://arxiv.org/abs/2201.12288",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2104.12770",
+      "title": "Adaptive Encoding for Constrained Video Delivery in HEVC, VP9, AV1 and VVC Compression Standards and Adaptation to Video Content",
+      "authors": [
+        {
+          "name": "Gangadharan Esakki",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "The dissertation proposes the use of a multi-objective optimization framework for designing and selecting among enhanced GOP configurations in video compression standards. The proposed methods achieve fine optimization over a set of general modes that include: (i) maximum video quality, (ii) minimum bitrate, (iii) maximum encoding rate (previously minimum encoding time mode) and (iv) can be shown to improve upon the YouTube/Netflix default encoder mode settings over a set of opposing constraints to guarantee satisfactory performance. The dissertation describes the implementation of a codec-agnostic approach using different video coding standards (x265, VP9, AV1) on a wide range of videos derived from different video datasets. The results demonstrate that the optimal encoding parameters obtained from the Pareto front space can provide significant bandwidth savings without sacrificing video quality. This is achieved by the use of effective regression models that allow for the selection of video encoding settings that are jointly optimal in the encoding time, bitrate, and video quality space. The dissertation applies the proposed methods to x265, VP9, AV1 and using new GOP configurations in x265, delivering over 40% of the optimal encodings in two standard reference videos.",
+      "venue": "cs.MM",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2104.12770",
+      "url": "https://arxiv.org/abs/2104.12770",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2601.18692",
+      "title": "A Pragmatic VLA Foundation Model",
+      "authors": [
+        {
+          "name": "Wei Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Fan Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yunnan Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuai Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Shi Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Fangjing Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Qian Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "He Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Yong Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuailei Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Yiyu Ren",
+          "affiliation": ""
+        },
+        {
+          "name": "Kejia Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Hui Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jingmei Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuai Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhenqi Qiu",
+          "affiliation": ""
+        },
+        {
+          "name": "Houlong Xiong",
+          "affiliation": ""
+        },
+        {
+          "name": "Ziyu Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zechen Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ran Cheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Yong-Lu Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yongtao Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xing Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yujun Shen",
+          "affiliation": ""
+        },
+        {
+          "name": "Kecheng Zheng",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Offering great potential in robotic manipulation, a capable Vision-Language-Action (VLA) foundation model is expected to faithfully generalize across tasks and platforms while ensuring cost efficiency (e.g., data and GPU hours required for adaptation). To this end, we develop LingBot-VLA with around 20,000 hours of real-world data from 9 popular dual-arm robot configurations. Through a systematic assessment on 3 robotic platforms, each completing 100 tasks with 130 post-training episodes per task, our model achieves clear superiority over competitors, showcasing its strong performance and broad generalizability. We have also built an efficient codebase, which delivers a throughput of 261 samples per second with an 8-GPU training setup, representing a 1.5~2.8$\\times$ (depending on the relied VLM base model) speedup over existing VLA-oriented codebases. The above features ensure that our model is well-suited for real-world deployment. To advance the field of robot learning, we provide open access to the code, base model, and benchmark data, with a focus on enabling more challenging tasks and promoting sound evaluation standards.",
+      "venue": "cs.RO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2601.18692",
+      "url": "https://arxiv.org/abs/2601.18692",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2512.09928",
+      "title": "HiF-VLA: Hindsight, Insight and Foresight through Motion Representation for Vision-Language-Action Models",
+      "authors": [
+        {
+          "name": "Minghui Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Pengxiang Ding",
+          "affiliation": ""
+        },
+        {
+          "name": "Shu Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zifeng Zhuang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinyang Tong",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenxuan Song",
+          "affiliation": ""
+        },
+        {
+          "name": "Shangke Lyu",
+          "affiliation": ""
+        },
+        {
+          "name": "Siteng Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Donglin Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Vision-Language-Action (VLA) models have recently enabled robotic manipulation by grounding visual and linguistic cues into actions. However, most VLAs assume the Markov property, relying only on the current observation and thus suffering from temporal myopia that degrades long-horizon coherence. In this work, we view motion as a more compact and informative representation of temporal context and world dynamics, capturing inter-state changes while filtering static pixel-level noise. Building on this idea, we propose HiF-VLA (Hindsight, Insight, and Foresight for VLAs), a unified framework that leverages motion for bidirectional temporal reasoning. HiF-VLA encodes past dynamics through hindsight priors, anticipates future motion via foresight reasoning, and integrates both through a hindsight-modulated joint expert to enable a ''think-while-acting'' paradigm for long-horizon manipulation. As a result, HiF-VLA surpasses strong baselines on LIBERO-Long and CALVIN ABC-D benchmarks, while incurring negligible additional inference latency. Furthermore, HiF-VLA achieves substantial improvements in real-world long-horizon manipulation tasks, demonstrating its broad effectiveness in practical robotic settings.",
+      "venue": "cs.RO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2512.09928",
+      "url": "https://arxiv.org/abs/2512.09928",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2512.15692",
+      "title": "mimic-video: Video-Action Models for Generalizable Robot Control Beyond VLAs",
+      "authors": [
+        {
+          "name": "Jonas Pai",
+          "affiliation": ""
+        },
+        {
+          "name": "Liam Achenbach",
+          "affiliation": ""
+        },
+        {
+          "name": "Victoriano Montesinos",
+          "affiliation": ""
+        },
+        {
+          "name": "Benedek Forrai",
+          "affiliation": ""
+        },
+        {
+          "name": "Oier Mees",
+          "affiliation": ""
+        },
+        {
+          "name": "Elvis Nava",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Prevailing Vision-Language-Action Models (VLAs) for robotic manipulation are built upon vision-language backbones pretrained on large-scale, but disconnected static web data. As a result, despite improved semantic generalization, the policy must implicitly infer complex physical dynamics and temporal dependencies solely from robot trajectories. This reliance creates an unsustainable data burden, necessitating continuous, large-scale expert data collection to compensate for the lack of innate physical understanding. We contend that while vision-language pretraining effectively captures semantic priors, it remains blind to physical causality. A more effective paradigm leverages video to jointly capture semantics and visual dynamics during pretraining, thereby isolating the remaining task of low-level control. To this end, we introduce mimic-video, a novel Video-Action Model (VAM) that pairs a pretrained Internet-scale video model with a flow matching-based action decoder conditioned on its latent representations. The decoder serves as an Inverse Dynamics Model (IDM), generating low-level robot actions from the latent representation of video-space action plans. Our extensive evaluation shows that our approach achieves state-of-the-art performance on simulated and real-world robotic manipulation tasks, improving sample efficiency by 10x and convergence speed by 2x compared to traditional VLA architectures.",
+      "venue": "cs.RO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2512.15692",
+      "url": "https://arxiv.org/abs/2512.15692",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2411.07223",
+      "title": "Grounding Video Models to Actions through Goal Conditioned Exploration",
+      "authors": [
+        {
+          "name": "Yunhao Luo",
+          "affiliation": ""
+        },
+        {
+          "name": "Yilun Du",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Large video models, pretrained on massive amounts of Internet video, provide a rich source of physical knowledge about the dynamics and motions of objects and tasks. However, video models are not grounded in the embodiment of an agent, and do not describe how to actuate the world to reach the visual states depicted in a video. To tackle this problem, current methods use a separate vision-based inverse dynamic model trained on embodiment-specific data to map image states to actions. Gathering data to train such a model is often expensive and challenging, and this model is limited to visual settings similar to the ones in which data are available. In this paper, we investigate how to directly ground video models to continuous actions through self-exploration in the embodied environment -- using generated video states as visual goals for exploration. We propose a framework that uses trajectory level action generation in combination with video guidance to enable an agent to solve complex tasks without any external supervision, e.g., rewards, action labels, or segmentation masks. We validate the proposed approach on 8 tasks in Libero, 6 tasks in MetaWorld, 4 tasks in Calvin, and 12 tasks in iThor Visual Navigation. We show how our approach is on par with or even surpasses multiple behavior cloning baselines trained on expert demonstrations while without requiring any action annotations.",
+      "venue": "cs.RO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2411.07223",
+      "url": "https://arxiv.org/abs/2411.07223",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2411.17160",
+      "title": "Motion Free B-frame Coding for Neural Video Compression",
+      "authors": [
+        {
+          "name": "Van Thang Nguyen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Typical deep neural video compression networks usually follow the hybrid approach of classical video coding that contains two separate modules: motion coding and residual coding. In addition, a symmetric auto-encoder is often used as a normal architecture for both motion and residual coding. In this paper, we propose a novel approach that handles the drawbacks of the two typical above-mentioned architectures, we call it kernel-based motion-free video coding. The advantages of the motion-free approach are twofold: it improves the coding efficiency of the network and significantly reduces computational complexity thanks to eliminating motion estimation, motion compensation, and motion coding which are the most time-consuming engines. In addition, the kernel-based auto-encoder alleviates blur artifacts that usually occur with the conventional symmetric autoencoder. Consequently, it improves the visual quality of the reconstructed frames. Experimental results show the proposed framework outperforms the SOTA deep neural video compression networks on the HEVC-class B dataset and is competitive on the UVG and MCL-JCV datasets. In addition, it generates high-quality reconstructed frames in comparison with conventional motion coding-based symmetric auto-encoder meanwhile its model size is much smaller than that of the motion-based networks around three to four times.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2411.17160",
+      "url": "https://arxiv.org/abs/2411.17160",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2309.05943",
+      "title": "Knowledge-Guided Short-Context Action Anticipation in Human-Centric Videos",
+      "authors": [
+        {
+          "name": "Sarthak Bhagat",
+          "affiliation": ""
+        },
+        {
+          "name": "Simon Stepputtis",
+          "affiliation": ""
+        },
+        {
+          "name": "Joseph Campbell",
+          "affiliation": ""
+        },
+        {
+          "name": "Katia Sycara",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "This work focuses on anticipating long-term human actions, particularly using short video segments, which can speed up editing workflows through improved suggestions while fostering creativity by suggesting narratives. To this end, we imbue a transformer network with a symbolic knowledge graph for action anticipation in video segments by boosting certain aspects of the transformer's attention mechanism at run-time. Demonstrated on two benchmark datasets, Breakfast and 50Salads, our approach outperforms current state-of-the-art methods for long-term action anticipation using short video context by up to 9%.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2309.05943",
+      "url": "https://arxiv.org/abs/2309.05943",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2207.00579",
+      "title": "Video + CLIP Baseline for Ego4D Long-term Action Anticipation",
+      "authors": [
+        {
+          "name": "Srijan Das",
+          "affiliation": ""
+        },
+        {
+          "name": "Michael S. Ryoo",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "In this report, we introduce our adaptation of image-text models for long-term action anticipation. Our Video + CLIP framework makes use of a large-scale pre-trained paired image-text model: CLIP and a video encoder Slowfast network. The CLIP embedding provides fine-grained understanding of objects relevant for an action whereas the slowfast network is responsible for modeling temporal information within a video clip of few frames. We show that the features obtained from both encoders are complementary to each other, thus outperforming the baseline on Ego4D for the task of long-term action anticipation. Our code is available at github.com/srijandas07/clip_baseline_LTA_Ego4d.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2207.00579",
+      "url": "https://arxiv.org/abs/2207.00579",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2207.10357",
+      "title": "Synthesizing Light Field Video from Monocular Video",
+      "authors": [
+        {
+          "name": "Shrisudhan Govindarajan",
+          "affiliation": ""
+        },
+        {
+          "name": "Prasan Shedligeri",
+          "affiliation": ""
+        },
+        {
+          "name": "Sarah",
+          "affiliation": ""
+        },
+        {
+          "name": "Kaushik Mitra",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "The hardware challenges associated with light-field(LF) imaging has made it difficult for consumers to access its benefits like applications in post-capture focus and aperture control. Learning-based techniques which solve the ill-posed problem of LF reconstruction from sparse (1, 2 or 4) views have significantly reduced the requirement for complex hardware. LF video reconstruction from sparse views poses a special challenge as acquiring ground-truth for training these models is hard. Hence, we propose a self-supervised learning-based algorithm for LF video reconstruction from monocular videos. We use self-supervised geometric, photometric and temporal consistency constraints inspired from a recent self-supervised technique for LF video reconstruction from stereo video. Additionally, we propose three key techniques that are relevant to our monocular video input. We propose an explicit disocclusion handling technique that encourages the network to inpaint disoccluded regions in a LF frame, using information from adjacent input temporal frames. This is crucial for a self-supervised technique as a single input frame does not contain any information about the disoccluded regions. We also propose an adaptive low-rank representation that provides a significant boost in performance by tailoring the representation to each input scene. Finally, we also propose a novel refinement block that is able to exploit the available LF image data using supervised learning to further refine the reconstruction quality. Our qualitative and quantitative analysis demonstrates the significance of each of the proposed building blocks and also the superior results compared to previous state-of-the-art monocular LF reconstruction techniques. We further validate our algorithm by reconstructing LF videos from monocular videos acquired using a commercial GoPro camera.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2207.10357",
+      "url": "https://arxiv.org/abs/2207.10357",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2506.01061",
+      "title": "AceVFI: A Comprehensive Survey of Advances in Video Frame Interpolation",
+      "authors": [
+        {
+          "name": "Dahyeon Kye",
+          "affiliation": ""
+        },
+        {
+          "name": "Changhyun Roh",
+          "affiliation": ""
+        },
+        {
+          "name": "Sukhun Ko",
+          "affiliation": ""
+        },
+        {
+          "name": "Chanho Eom",
+          "affiliation": ""
+        },
+        {
+          "name": "Jihyong Oh",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Video Frame Interpolation (VFI) is a core low-level vision task that synthesizes intermediate frames between existing ones while ensuring spatial and temporal coherence. Over the past decades, VFI methodologies have evolved from classical motion compensation-based approach to a wide spectrum of deep learning-based approaches, including kernel-, flow-, hybrid-, phase-, GAN-, Transformer-, Mamba-, and most recently, diffusion-based models. We introduce AceVFI, a comprehensive and up-to-date review of the VFI field, covering over 250 representative papers. We systematically categorize VFI methods based on their core design principles and architectural characteristics. Further, we classify them into two major learning paradigms: Center-Time Frame Interpolation (CTFI) and Arbitrary-Time Frame Interpolation (ATFI). We analyze key challenges in VFI, including large motion, occlusion, lighting variation, and non-linear motion. In addition, we review standard datasets, loss functions, evaluation metrics. We also explore VFI applications in other domains and highlight future research directions. This survey aims to serve as a valuable reference for researchers and practitioners seeking a thorough understanding of the modern VFI landscape.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1109/TCSVT.2026.3672288",
+      "arxiv_id": "2506.01061",
+      "url": "https://arxiv.org/abs/2506.01061",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2508.15003",
+      "title": "Scalable Event-Based Video Streaming for Machines with MoQ",
+      "authors": [
+        {
+          "name": "Andrew C. Freeman",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Lossy compression and rate-adaptive streaming are a mainstay in traditional video steams. However, a new class of neuromorphic ``event'' sensors records video with asynchronous pixel samples rather than image frames. These sensors are designed for computer vision applications, rather than human video consumption. Until now, researchers have focused their efforts primarily on application development, ignoring the crucial problem of data transmission. We survey the landscape of event-based video systems, discuss the technical issues with our recent scalable event streaming work, and propose a new low-latency event streaming format based on the latest additions to the Media Over QUIC protocol draft.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "10.1145/3715675.3715800",
+      "arxiv_id": "2508.15003",
+      "url": "https://arxiv.org/abs/2508.15003",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2407.14834",
+      "title": "Can VLMs be used on videos for action recognition? LLMs are Visual Reasoning Coordinators",
+      "authors": [
+        {
+          "name": "Harsh Lunia",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Recent advancements have introduced multiple vision-language models (VLMs) demonstrating impressive commonsense reasoning across various domains. Despite their individual capabilities, the potential of synergizing these complementary VLMs remains underexplored. The Cola Framework addresses this by showcasing how a large language model (LLM) can efficiently coordinate multiple VLMs through natural language communication, leveraging their distinct strengths. We have verified this claim on the challenging A-OKVQA dataset, confirming the effectiveness of such coordination. Building on this, our study investigates whether the same methodology can be applied to surveillance videos for action recognition. Specifically, we explore if leveraging the combined knowledge base of VLMs and LLM can effectively deduce actions from a video when presented with only a few selectively important frames and minimal temporal information. Our experiments demonstrate that LLM, when coordinating different VLMs, can successfully recognize patterns and deduce actions in various scenarios despite the weak temporal signals. However, our findings suggest that to enhance this approach as a viable alternative solution, integrating a stronger temporal signal and exposing the models to slightly more frames would be beneficial.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2407.14834",
+      "url": "https://arxiv.org/abs/2407.14834",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2301.13173",
+      "title": "Shape-aware Text-driven Layered Video Editing",
+      "authors": [
+        {
+          "name": "Yao-Chih Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Ji-Ze Genevieve Jang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi-Ting Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Elizabeth Qiu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jia-Bin Huang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Temporal consistency is essential for video editing applications. Existing work on layered representation of videos allows propagating edits consistently to each frame. These methods, however, can only edit object appearance rather than object shape changes due to the limitation of using a fixed UV mapping field for texture atlas. We present a shape-aware, text-driven video editing method to tackle this challenge. To handle shape changes in video editing, we first propagate the deformation field between the input and edited keyframe to all frames. We then leverage a pre-trained text-conditioned diffusion model as guidance for refining shape distortion and completing unseen regions. The experimental results demonstrate that our method can achieve shape-aware consistent video editing and compare favorably with the state-of-the-art.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2301.13173",
+      "url": "https://arxiv.org/abs/2301.13173",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2602.06508",
+      "title": "World-VLA-Loop: Closed-Loop Learning of Video World Model and VLA Policy",
+      "authors": [
+        {
+          "name": "Xiaokang Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zechen Bai",
+          "affiliation": ""
+        },
+        {
+          "name": "Hai Ci",
+          "affiliation": ""
+        },
+        {
+          "name": "Kevin Yuchen Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Mike Zheng Shou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Recent progress in robotic world models has leveraged video diffusion transformers to predict future observations conditioned on historical states and actions. While these models can simulate realistic visual outcomes, they often exhibit poor action-following precision, hindering their utility for downstream robotic learning. In this work, we introduce World-VLA-Loop, a closed-loop framework for the joint refinement of world models and Vision-Language-Action (VLA) policies. We propose a state-aware video world model that functions as a high-fidelity interactive simulator by jointly predicting future observations and reward signals. To enhance reliability, we introduce the SANS dataset, which incorporates near-success trajectories to improve action-outcome alignment within the world model. This framework enables a closed-loop for reinforcement learning (RL) post-training of VLA policies entirely within a virtual environment. Crucially, our approach facilitates a co-evolving cycle: failure rollouts generated by the VLA policy are iteratively fed back to refine the world model precision, which in turn enhances subsequent RL optimization. Evaluations across simulation and real-world tasks demonstrate that our framework significantly boosts VLA performance with minimal physical interaction, establishing a mutually beneficial relationship between world modeling and policy learning for general-purpose robotics. Project page: https://showlab.github.io/World-VLA-Loop/.",
+      "venue": "cs.RO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2602.06508",
+      "url": "https://arxiv.org/abs/2602.06508",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2206.08751",
+      "title": "Perceptual Quality Assessment of Virtual Reality Videos in the Wild",
+      "authors": [
+        {
+          "name": "Wen Wen",
+          "affiliation": ""
+        },
+        {
+          "name": "Mu Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yiru Yao",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiangjie Sui",
+          "affiliation": ""
+        },
+        {
+          "name": "Yabin Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Long Lan",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuming Fang",
+          "affiliation": ""
+        },
+        {
+          "name": "Kede Ma",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Investigating how people perceive virtual reality (VR) videos in the wild (i.e., those captured by everyday users) is a crucial and challenging task in VR-related applications due to complex authentic distortions localized in space and time. Existing panoramic video databases only consider synthetic distortions, assume fixed viewing conditions, and are limited in size. To overcome these shortcomings, we construct the VR Video Quality in the Wild (VRVQW) database, containing $502$ user-generated videos with diverse content and distortion characteristics. Based on VRVQW, we conduct a formal psychophysical experiment to record the scanpaths and perceived quality scores from $139$ participants under two different viewing conditions. We provide a thorough statistical analysis of the recorded data, observing significant impact of viewing conditions on both human scanpaths and perceived quality. Moreover, we develop an objective quality assessment model for VR videos based on pseudocylindrical representation and convolution. Results on the proposed VRVQW show that our method is superior to existing video quality assessment models. We have made the database and code available at https://github.com/limuhit/VR-Video-Quality-in-the-Wild.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2206.08751",
+      "url": "https://arxiv.org/abs/2206.08751",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2501.05442",
+      "title": "Progressive Growing of Video Tokenizers for Temporally Compact Latent Spaces",
+      "authors": [
+        {
+          "name": "Aniruddha Mahapatra",
+          "affiliation": ""
+        },
+        {
+          "name": "Long Mai",
+          "affiliation": ""
+        },
+        {
+          "name": "David Bourgin",
+          "affiliation": ""
+        },
+        {
+          "name": "Yitian Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Feng Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Video tokenizers are essential for latent video diffusion models, converting raw video data into spatiotemporally compressed latent spaces for efficient training. However, extending state-of-the-art video tokenizers to achieve a temporal compression ratio beyond 4x without increasing channel capacity poses significant challenges. In this work, we propose an alternative approach to enhance temporal compression. We find that the reconstruction quality of temporally subsampled videos from a low-compression encoder surpasses that of high-compression encoders applied to original videos. This indicates that high-compression models can leverage representations from lower-compression models. Building on this insight, we develop a bootstrapped high-temporal-compression model that progressively trains high-compression blocks atop well-trained lower-compression models. Our method includes a cross-level feature-mixing module to retain information from the pretrained low-compression model and guide higher-compression blocks to capture the remaining details from the full video sequence. Evaluation of video benchmarks shows that our method significantly improves reconstruction quality while increasing temporal compression compared to directly training the full model. Furthermore, the resulting compact latent space effectively trains a video diffusion model for high-quality video generation with a significantly reduced token budget.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2501.05442",
+      "url": "https://arxiv.org/abs/2501.05442",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

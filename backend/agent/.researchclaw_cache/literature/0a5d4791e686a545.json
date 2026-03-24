@@ -1,0 +1,1216 @@
+{
+  "query": "Comparing gradient-free optimization algorithms survey",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1773942079.920525,
+  "papers": [
+    {
+      "paper_id": "arxiv-2501.00258",
+      "title": "Optimal design of frame structures with mixed categorical and continuous design variables using the Gumbel-Softmax method",
+      "authors": [
+        {
+          "name": "Mehran Ebrahimi",
+          "affiliation": ""
+        },
+        {
+          "name": "Hyunmin Cheong",
+          "affiliation": ""
+        },
+        {
+          "name": "Pradeep Kumar Jayaraman",
+          "affiliation": ""
+        },
+        {
+          "name": "Farhad Javid",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "In optimizing real-world structures, due to fabrication or budgetary restraints, the design variables may be restricted to a set of standard engineering choices. Such variables, commonly called categorical variables, are discrete and unordered in essence, precluding the utilization of gradient-based optimizers for the problems containing them. In this paper, incorporating the Gumbel-Softmax (GSM) method, we propose a new gradient-based optimizer for handling such variables in the optimal design of large-scale frame structures. The GSM method provides a means to draw differentiable samples from categorical distributions, thereby enabling sensitivity analysis for the variables generated from such distributions. The sensitivity information can greatly reduce the computational cost of traversing high-dimensional and discrete design spaces in comparison to employing gradient-free optimization methods. In addition, since the developed optimizer is gradient-based, it can naturally handle the simultaneous optimization of categorical and continuous design variables. Through three numerical case studies, different aspects of the proposed optimizer are studied and its advantages over population-based optimizers, specifically a genetic algorithm, are demonstrated.",
+      "venue": "cs.CE",
+      "citation_count": 0,
+      "doi": "10.1007/s00158-024-03745-7",
+      "arxiv_id": "2501.00258",
+      "url": "https://arxiv.org/abs/2501.00258",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2105.13646",
+      "title": "Conic-Optimization Based Algorithms for Nonnegative Matrix Factorization",
+      "authors": [
+        {
+          "name": "Valentin Leplat",
+          "affiliation": ""
+        },
+        {
+          "name": "Yurii Nesterov",
+          "affiliation": ""
+        },
+        {
+          "name": "Nicolas Gillis",
+          "affiliation": ""
+        },
+        {
+          "name": "Fran\u00e7ois Glineur",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Nonnegative matrix factorization is the following problem: given a nonnegative input matrix $V$ and a factorization rank $K$, compute two nonnegative matrices, $W$ with $K$ columns and $H$ with $K$ rows, such that $WH$ approximates $V$ as well as possible. In this paper, we propose two new approaches for computing high-quality NMF solutions using conic optimization. These approaches rely on the same two steps. First, we reformulate NMF as minimizing a concave function over a product of convex cones--one approach is based on the exponential cone, and the other on the second-order cone. Then, we solve these reformulations iteratively: at each step, we minimize exactly, over the feasible set, a majorization of the objective functions obtained via linearization at the current iterate. Hence these subproblems are convex conic programs and can be solved efficiently using dedicated algorithms. We prove that our approaches reach a stationary point with an accuracy decreasing as $\\mathcal{O}(\\frac{1}{i})$, where $i$ denotes the iteration number. To the best of our knowledge, our analysis is the first to provide a convergence rate to stationary points for NMF. Furthermore, in the particular cases of rank-one factorizations (that is, $K=1$), we show that one of our formulations can be expressed as a convex optimization problem implying that optimal rank-one approximations can be computed efficiently. Finally, we show on several numerical examples that our approaches are able to frequently compute exact NMFs (that is, with $V = WH$), and compete favorably with the state of the art.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "10.1080/10556788.2023.2189714",
+      "arxiv_id": "2105.13646",
+      "url": "https://arxiv.org/abs/2105.13646",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2006.09361",
+      "title": "Gradient Free Minimax Optimization: Variance Reduction and Faster Convergence",
+      "authors": [
+        {
+          "name": "Tengyu Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhe Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yingbin Liang",
+          "affiliation": ""
+        },
+        {
+          "name": "H. Vincent Poor",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Many important machine learning applications amount to solving minimax optimization problems, and in many cases there is no access to the gradient information, but only the function values. In this paper, we focus on such a gradient-free setting, and consider the nonconvex-strongly-concave minimax stochastic optimization problem. In the literature, various zeroth-order (i.e., gradient-free) minimax methods have been proposed, but none of them achieve the potentially feasible computational complexity of $\\mathcal{O}(\u03b5^{-3})$ suggested by the stochastic nonconvex minimization theorem. In this paper, we adopt the variance reduction technique to design a novel zeroth-order variance reduced gradient descent ascent (ZO-VRGDA) algorithm. We show that the ZO-VRGDA algorithm achieves the best known query complexity of $\\mathcal{O}(\u03ba(d_1 + d_2)\u03b5^{-3})$, which outperforms all previous complexity bound by orders of magnitude, where $d_1$ and $d_2$ denote the dimensions of the optimization variables and $\u03ba$ denotes the condition number. In particular, with a new analysis technique that we develop, our result does not rely on a diminishing or accuracy-dependent stepsize usually required in the existing methods. To our best knowledge, this is the first study of zeroth-order minimax optimization with variance reduction. Experimental results on the black-box distributional robust optimization problem demonstrates the advantageous performance of our new algorithm.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2006.09361",
+      "url": "https://arxiv.org/abs/2006.09361",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2010.03194",
+      "title": "First-Order Algorithms Without Lipschitz Gradient: A Sequential Local Optimization Approach",
+      "authors": [
+        {
+          "name": "Junyu Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Mingyi Hong",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "First-order algorithms have been popular for solving convex and non-convex optimization problems. A key assumption for the majority of these algorithms is that the gradient of the objective function is globally Lipschitz continuous, but many contemporary problems such as tensor decomposition fail to satisfy such an assumption. This paper develops a sequential local optimization (SLO) framework of first-order algorithms that can effectively optimize problems without Lipschitz gradient. Operating on the assumption that the gradients are {\\it locally} Lipschitz continuous over any compact set, the proposed framework carefully restricts the distance between two successive iterates. We show that the proposed framework can easily adapt to existing first-order methods such as gradient descent (GD), normalized gradient descent (NGD), accelerated gradient descent (AGD), as well as GD with Armijo line search. Remarkably, the latter algorithm is totally parameter-free and do not even require the knowledge of local Lipschitz constants.\n  We show that for the proposed algorithms to achieve gradient error bound of $\\|\\nabla f(x)\\|^2\\le \u03b5$, it requires at most $\\mathcal{O}(\\frac{1}\u03b5\\times \\mathcal{L}(Y))$ total access to the gradient oracle, where $\\mathcal{L}(Y)$ characterizes how the local Lipschitz constants grow with the size of a given set $Y$. Moreover, we show that the variant of AGD improves the dependency on both $\u03b5$ and the growth function $\\mathcal{L}(Y)$. The proposed algorithms complement the existing Bregman Proximal Gradient (BPG) algorithm, because they do not require the global information about problem structure to construct and solve Bregman proximal mappings.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2010.03194",
+      "url": "https://arxiv.org/abs/2010.03194",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2111.15645",
+      "title": "Survey Descent: A Multipoint Generalization of Gradient Descent for Nonsmooth Optimization",
+      "authors": [
+        {
+          "name": "X. Y. Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Adrian S. Lewis",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "For strongly convex objectives that are smooth, the classical theory of gradient descent ensures linear convergence relative to the number of gradient evaluations. An analogous nonsmooth theory is challenging. Even when the objective is smooth at every iterate, the corresponding local models are unstable and the number of cutting planes invoked by traditional remedies is difficult to bound, leading to convergences guarantees that are sublinear relative to the cumulative number of gradient evaluations. We instead propose a multipoint generalization of the gradient descent iteration for local optimization. While designed with general objectives in mind, we are motivated by a ``max-of-smooth'' model that captures the subdifferential dimension at optimality. We prove linear convergence when the objective is itself max-of-smooth, and experiments suggest a more general phenomenon.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "10.1137/21M1468450",
+      "arxiv_id": "2111.15645",
+      "url": "https://arxiv.org/abs/2111.15645",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2010.16250",
+      "title": "Gradient-based Algorithms for Convex Discrete Optimization via Simulation",
+      "authors": [
+        {
+          "name": "Haixiang Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zeyu Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Javad Lavaei",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "We propose new sequential simulation-optimization algorithms for general convex optimization via simulation problems with high-dimensional discrete decision space. The performance of each choice of discrete decision variables is evaluated via stochastic simulation replications. If an upper bound on the overall level of uncertainties is known, our proposed simulation-optimization algorithms utilize the discrete convex structure and are guaranteed with high probability to find a solution that is close to the best within any given user-specified precision level. The proposed algorithms work for any general convex problem and the efficiency is demonstrated by proven upper bounds on simulation costs. The upper bounds demonstrate a polynomial dependence on the dimension and scale of the decision space. For some discrete optimization via simulation problems, a gradient estimator may be available at low costs along with a single simulation replication. By integrating gradient estimators, which are possibly biased, we propose simulation-optimization algorithms to achieve optimality guarantees with a reduced dependence on the dimension under moderate assumptions on the bias.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2010.16250",
+      "url": "https://arxiv.org/abs/2010.16250",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2303.08710",
+      "title": "Two-Scale Optimization of Graded Lattice Structures respecting Buckling on Micro- and Macroscale",
+      "authors": [
+        {
+          "name": "Daniel H\u00fcbner",
+          "affiliation": ""
+        },
+        {
+          "name": "Fabian Wein",
+          "affiliation": ""
+        },
+        {
+          "name": "Michael Stingl",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Interest in components with detailed structures increased with the progress in advanced manufacturing techniques in recent years. Parts with graded lattice elements can provide interesting mechanical, thermal, and acoustic properties compared to parts where only coarse features are included. One of these improvements is better global buckling resistance of the component. However, thin features are prone to local buckling. Normally, analyses with high computational effort are conducted on high-resolution finite element meshes to optimize parts with good global and local stability. Until recently, works focused only on either global or local buckling behavior. We use two-scale optimization based on asymptotic homogenization of elastic properties and local buckling behavior to reduce the effort of full-scale analyses. For this, we present an approach for concurrent local and global buckling optimization of parameterized graded lattice structures. It is based on a worst-case model for the homogenized buckling load factor, which acts as a safeguard against pure local buckling. Cross-modes residing on both scales are not detected. We support our theory with numerical examples and validations on dehomogenized designs, which show the capabilities of our method, and discuss the advantages and limitations of the worst-case model.",
+      "venue": "cs.CE",
+      "citation_count": 0,
+      "doi": "10.1007/s00158-023-03619-4",
+      "arxiv_id": "2303.08710",
+      "url": "https://arxiv.org/abs/2303.08710",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2201.02491",
+      "title": "An efficient and easy-to-extend Matlab code of the Moving Morphable Component (MMC) method for three-dimensional topology optimization",
+      "authors": [
+        {
+          "name": "Zongliang Du",
+          "affiliation": ""
+        },
+        {
+          "name": "Tianchen Cui",
+          "affiliation": ""
+        },
+        {
+          "name": "Chang Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Weisheng Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yilin Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Xu Guo",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Explicit topology optimization methods have received ever-increasing interest in recent years. In particular, a 188-line Matlab code of the two-dimensional (2D) Moving Morphable Component (MMC)-based topology optimization method was released by Zhang et al. (Struct Multidiscip Optim 53(6):1243-1260, 2016). The present work aims to propose an efficient and easy-to-extend 256-line Matlab code of the MMC method for three-dimensional (3D) topology optimization implementing some new numerical techniques. To be specific, by virtue of the function aggregation technique, accurate sensitivity analysis, which is also easy-to-extend to other problems, is achieved. Besides, based on an efficient identification algorithm for load transmission path, the degrees of freedoms (DOFs) not belonging to the load transmission path are removed in finite element analysis (FEA), which significantly accelerates the optimization process. As a result, compared to the corresponding 188-line 2D code, the performance of the optimization results, the computational efficiency of FEA, and the convergence rate and the robustness of optimization process are greatly improved. For the sake of completeness, a refined 218-line Matlab code implementing the 2D-MMC method is also provided.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "10.1007/s00158-022-03239-4",
+      "arxiv_id": "2201.02491",
+      "url": "https://arxiv.org/abs/2201.02491",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2307.11957",
+      "title": "High-performance real-world optical computing trained by in situ gradient-based model-free optimization",
+      "authors": [
+        {
+          "name": "Guangyuan Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Xin Shu",
+          "affiliation": ""
+        },
+        {
+          "name": "Renjie Zhou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Optical computing systems provide high-speed and low-energy data processing but face deficiencies in computationally demanding training and simulation-to-reality gaps. We propose a gradient-based model-free optimization (G-MFO) method based on a Monte Carlo gradient estimation algorithm for computationally efficient in situ training of optical computing systems. This approach treats an optical computing system as a black box and back-propagates the loss directly to the optical computing weights' probability distributions, circumventing the need for a computationally heavy and biased system simulation. Our experiments on diffractive optical computing systems show that G-MFO outperforms hybrid training on the MNIST and FMNIST datasets. Furthermore, we demonstrate image-free and high-speed classification of cells from their marker-free phase maps. Our method's model-free and high-performance nature, combined with its low demand for computational resources, paves the way for accelerating the transition of optical computing from laboratory demonstrations to practical, real-world applications.",
+      "venue": "physics.optics",
+      "citation_count": 0,
+      "doi": "10.1109/TPAMI.2024.3466853",
+      "arxiv_id": "2307.11957",
+      "url": "https://arxiv.org/abs/2307.11957",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2005.11788",
+      "title": "Convergence Results for Optimal Control Problems Governed by Elliptic Quasivariational Inequalities",
+      "authors": [
+        {
+          "name": "Mircea Sofonea",
+          "affiliation": ""
+        },
+        {
+          "name": "Domingo A. Tarzia",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "We consider an optimal control problem $\\cQ$ governed by an elliptic quasivariational inequality with unilateral constraints. The existence of optimal pairs of the problem is a well known result, see \\cite{SS}, for instance. We associate to $\\cQ$ a new optimal control problem $\\wQ$, obtained by perturbing the state inequality (including the set of constraints and the nonlinear operator) and the cost functional, as well. Then, we provide sufficient conditions which guarantee the convergence of solutions of Problem $\\wQ$ to a solution of Problem $\\cQ$. The proofs are based on convergence results for elliptic quasivariational inequalities, obtained by using arguments of compactness, lower semicontinuity, monotonicity, penalty and various estimates. Finally, we illustrate the use of the abstract convergence results in the study of optimal control associated with two boundary value problems. The first one describes the equilibrium of an elastic body in frictional contact with an obstacle, the so-called foundation. The process is static and the contact is modeled with normal compliance and unilateral constraint, associated to a version of Coulomb's law of dry friction. The second one describes a stationary heat transfer problem with unilateral constraints. For the two problems we prove existence, uniqueness and convergence results together with the corresponding physical interpretation.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "10.1080/01630563.2020.1772288",
+      "arxiv_id": "2005.11788",
+      "url": "https://arxiv.org/abs/2005.11788",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2211.04129",
+      "title": "An Efficient Global Optimization Algorithm with Adaptive Estimates of the Local Lipschitz Constants",
+      "authors": [
+        {
+          "name": "Danny D'Agostino",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "In this work, we present a new deterministic partition-based global optimization algorithm, HALO (Hybrid Adaptive Lipschitzian Optimization), which uses estimates of the local Lipschitz constants associated with different sub-regions of the objective function's domain to compute lower bounds and guide the search toward global minimizers. These estimates are obtained by adaptively balancing the global and local information collected from the algorithm, based on absolute slopes. HALO is hyperparameter-free, eliminating the need for manual tuning, and it highlights the most important variables to help interpret the optimization problem. We also introduce a coupling strategy with local optimization algorithms, both gradient-based and derivative-free, to accelerate convergence. We compare HALO with popular global optimization algorithms on hundreds of test functions. The numerical results are very promising and demonstrate that HALO can expand our arsenal of efficient procedures of efficient procedures for challenging real-world black-box optimization problems. The Python code of HALO is publicly available on GitHub. https://github.com/dannyzx/HALO",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "10.1007/s10898-025-01555-9",
+      "arxiv_id": "2211.04129",
+      "url": "https://arxiv.org/abs/2211.04129",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.07494",
+      "title": "Roman Galactic Plane Survey Definition Committee Report",
+      "authors": [
+        {
+          "name": "Roman Galactic Plane Survey Definition Committee",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The Roman Galactic Plane Survey (RGPS) is a 700-hour program approved for early definition as a community-designed General Astrophysics Survey. It was selected following a proposal call for science programs that would benefit from an early community-based definition (Sanderson et al 2024). The community was invited to submit white papers and science pitches with a deadline of May 20, 2024; the Roman Galactic Plane Survey Definition Committee (RGPS-DC) first met on Sep 11, 2024. Based on the input provided, the RGPS-DC recommends a survey consisting of three elements: (1) a wide-field science element (691 sq deg, 541 hrs) covering the Galactic plane, Galactic latitude |b|<2 deg and Galactic longitude l=+50.1 deg to -79 deg (281 deg), in four filters (F129, F159, F184, and F213) with higher latitude extensions for the bulge, the Serpens South/W40 star formation region, and Carina, (2) a time-domain science element (19 sq deg , 130 hrs) of six fields, including the full Nuclear Stellar Disk (NSD) and Central Molecular Zone (CMZ), with coverage in seven filters and repeat observations in one or more filters with cadences from 11 minutes to weeks, and (3) a deep-field/spectroscopic science element (4 sq deg , 30 hrs) consisting of fifteen Roman pointings (with a wide range of extinction, diffuse emission, stellar density and population) using longer exposure times in seven filters in addition to grism and prism observations. This document summarizes the science that can be done with this survey, the process of survey definition, and details on all of the program elements.",
+      "venue": "astro-ph.GA",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.07494",
+      "url": "https://arxiv.org/abs/2511.07494",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2207.11719",
+      "title": "Gradient-based Bi-level Optimization for Deep Learning: A Survey",
+      "authors": [
+        {
+          "name": "Can Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Xi Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Chen Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Zixuan Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xue Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Bi-level optimization, especially the gradient-based category, has been widely used in the deep learning community including hyperparameter optimization and meta-knowledge extraction. Bi-level optimization embeds one problem within another and the gradient-based category solves the outer-level task by computing the hypergradient, which is much more efficient than classical methods such as the evolutionary algorithm. In this survey, we first give a formal definition of the gradient-based bi-level optimization. Next, we delineate criteria to determine if a research problem is apt for bi-level optimization and provide a practical guide on structuring such problems into a bi-level optimization framework, a feature particularly beneficial for those new to this domain. More specifically, there are two formulations: the single-task formulation to optimize hyperparameters such as regularization parameters and the distilled data, and the multi-task formulation to extract meta-knowledge such as the model initialization. With a bi-level formulation, we then discuss four bi-level optimization solvers to update the outer variable including explicit gradient update, proxy update, implicit function update, and closed-form update. Finally, we wrap up the survey by highlighting two prospective future directions: (1) Effective Data Optimization for Science examined through the lens of task formulation. (2) Accurate Explicit Proxy Update analyzed from an optimization standpoint.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2207.11719",
+      "url": "https://arxiv.org/abs/2207.11719",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2211.13566",
+      "title": "Randomized gradient-free methods in convex optimization",
+      "authors": [
+        {
+          "name": "Alexander Gasnikov",
+          "affiliation": ""
+        },
+        {
+          "name": "Darina Dvinskikh",
+          "affiliation": ""
+        },
+        {
+          "name": "Pavel Dvurechensky",
+          "affiliation": ""
+        },
+        {
+          "name": "Eduard Gorbunov",
+          "affiliation": ""
+        },
+        {
+          "name": "Aleksander Beznosikov",
+          "affiliation": ""
+        },
+        {
+          "name": "Aleksandr Lobanov",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "This review presents modern gradient-free methods to solve convex optimization problems. By gradient-free methods, we mean those that use only (noisy) realizations of the objective value. We are motivated by various applications where gradient information is prohibitively expensive or even unavailable. We mainly focus on three criteria: oracle complexity, iteration complexity, and the maximum permissible noise level.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "10.1007/978-3-030-54621-2_859-1",
+      "arxiv_id": "2211.13566",
+      "url": "https://arxiv.org/abs/2211.13566",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2207.06362",
+      "title": "Iterative Linear Quadratic Optimization for Nonlinear Control: Differentiable Programming Algorithmic Templates",
+      "authors": [
+        {
+          "name": "Vincent Roulet",
+          "affiliation": ""
+        },
+        {
+          "name": "Siddhartha Srinivasa",
+          "affiliation": ""
+        },
+        {
+          "name": "Maryam Fazel",
+          "affiliation": ""
+        },
+        {
+          "name": "Zaid Harchaoui",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Iterative optimization algorithms depend on access to information about the objective function. In a differentiable programming framework, this information, such as gradients, can be automatically derived from the computational graph. We explore how nonlinear control algorithms, often employing linear and/or quadratic approximations, can be effectively cast within this framework. Our approach illuminates shared components and differences between gradient descent, Gauss-Newton, Newton, and differential dynamic programming methods in the context of discrete time nonlinear control. Furthermore, we present line-search strategies and regularized variants of these algorithms, along with a comprehensive analysis of their computational complexities. We study the performance of the aforementioned algorithms on various nonlinear control benchmarks, including autonomous car racing simulations using a simplified car model. All implementations are publicly available in a package coded in a differentiable programming language.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2207.06362",
+      "url": "https://arxiv.org/abs/2207.06362",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2205.04746",
+      "title": "Gradient-Free optimization algorithm for single-qubit quantum classifier",
+      "authors": [
+        {
+          "name": "Anqi Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaoyun He",
+          "affiliation": ""
+        },
+        {
+          "name": "Shengmei Zhao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "In the paper, a gradient-free optimization algorithm for single-qubit quantum classifier is proposed to overcome the effects of barren plateau caused by quantum devices. A rotation gate RX(\u03c6) is applied on a single-qubit binary quantum classifier, and the training data and parameters are loaded into \u03c6 with the form of vector-multiplication. The cost function is decreased by finding the value of each parameter that yield the minimum expectation value of measuring the quantum circuit. The algorithm is performed iteratively for all parameters one by one, until the cost function satisfies the stop condition. The proposed algorithm is demonstrated for a classification task and is compared with that using Adam optimizer. Furthermore, the performance of the single-qubit quantum classifier with the proposed gradient-free optimization algorithm is discussed when the rotation gate in quantum device is under different noise. The simulation results show that the single-qubit quantum classifier with proposed gradient-free optimization algorithm can reach a high accuracy faster than that using Adam optimizer. Moreover, the proposed gradient-free optimization algorithm can quickly completes the training process of the single-qubit classifier. Additionally, the single-qubit quantum classifier with proposed gradient-free optimization algorithm has a good performance in noisy environments.",
+      "venue": "quant-ph",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2205.04746",
+      "url": "https://arxiv.org/abs/2205.04746",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2103.01498",
+      "title": "A Survey On Universal Adversarial Attack",
+      "authors": [
+        {
+          "name": "Chaoning Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Philipp Benz",
+          "affiliation": ""
+        },
+        {
+          "name": "Chenguo Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Adil Karjauv",
+          "affiliation": ""
+        },
+        {
+          "name": "Jing Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "In So Kweon",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "The intriguing phenomenon of adversarial examples has attracted significant attention in machine learning and what might be more surprising to the community is the existence of universal adversarial perturbations (UAPs), i.e. a single perturbation to fool the target DNN for most images. With the focus on UAP against deep classifiers, this survey summarizes the recent progress on universal adversarial attacks, discussing the challenges from both the attack and defense sides, as well as the reason for the existence of UAP. We aim to extend this work as a dynamic survey that will regularly update its content to follow new works regarding UAP or universal attack in a wide range of domains, such as image, audio, video, text, etc. Relevant updates will be discussed at: https://bit.ly/2SbQlLG. We welcome authors of future works in this field to contact us for including your new finding.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "10.24963/ijcai.2021/635",
+      "arxiv_id": "2103.01498",
+      "url": "https://arxiv.org/abs/2103.01498",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2402.07064",
+      "title": "Piecewise SOS-Convex Moment Optimization and Applications via Exact Semi-Definite Programs",
+      "authors": [
+        {
+          "name": "Queenie Yingkun Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Vaithilingam Jeyakumar",
+          "affiliation": ""
+        },
+        {
+          "name": "Guoyin Li",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "This paper presents exact Semi-Definite Program (SDP) reformulations for infinite-dimensional moment optimization problems involving a new class of piecewise Sum-of-Squares (SOS)-convex functions and projected spectrahedral support sets. These reformulations show that solving a single SDP finds the optimal value and an optimal probability measure of the original moment problem. This is done by establishing an SOS representation for the non-negativity of a piecewise SOS-convex function over a projected spectrahedron. Finally, as an application and a proof-of-concept illustration, the paper presents numerical results for the Newsvendor and revenue maximization problems with higher-order moments by solving their equivalent SDP reformulations. These reformulations promise a flexible and efficient approach to solving these models. The main novelty of the present work in relation to the recent research lies in finding the solution to moment problems, for the first time, with piecewise SOS-convex functions from their numerically tractable exact SDP reformulations.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "10.1016/j.ejco.2024.100094",
+      "arxiv_id": "2402.07064",
+      "url": "https://arxiv.org/abs/2402.07064",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2507.22327",
+      "title": "Mean-Variance Optimization and Algorithm for Finite-Horizon Markov Decision Processes",
+      "authors": [
+        {
+          "name": "Li Xia",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhihui Yu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Multi-period mean-variance optimization is a long-standing problem, caused by the failure of dynamic programming principle. This paper studies the mean-variance optimization in a setting of finite-horizon discrete-time Markov decision processes (MDPs), where the objective is to maximize the combined metrics of mean and variance of the accumulated rewards at terminal stage. By introducing the concepts of pseudo mean and pseudo variance, we convert the original mean-variance MDP to a bilevel MDP, where the outer is a single parameter optimization of the pseudo mean and the inner is a standard finite-horizon MDP with an augmented state space by adding an auxiliary state of accumulated rewards. We further study the properties of this bilevel MDP, including the optimality of history-dependent deterministic policies and the piecewise quadratic concavity of the inner MDPs' optimal values with respect to the pseudo mean. To efficiently solve this bilevel MDP, we propose an iterative algorithm that alternatingly updates the inner optimal policy and the outer pseudo mean. We prove that this algorithm converges to a local optimum. We also derive a sufficient condition under which our algorithm converges to the global optimum. Furthermore, we apply this approach to study the mean-variance optimization of multi-period portfolio selection problem, which shows that our approach exactly coincides with the classical result by Li and Ng (2000) in financial engineering. Our approach builds a new avenue to solve mean-variance optimization problems and has wide applicability to any problem modeled by MDPs, which is further demonstrated by examples of mean-variance optimization for queueing control and inventory management.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2507.22327",
+      "url": "https://arxiv.org/abs/2507.22327",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2305.17173",
+      "title": "DES Y3 + KiDS-1000: Consistent cosmology combining cosmic shear surveys",
+      "authors": [
+        {
+          "name": "Dark Energy Survey",
+          "affiliation": ""
+        },
+        {
+          "name": "Kilo-Degree Survey Collaboration",
+          "affiliation": ""
+        },
+        {
+          "name": ":",
+          "affiliation": ""
+        },
+        {
+          "name": "T. M. C. Abbott",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Aguena",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Alarcon",
+          "affiliation": ""
+        },
+        {
+          "name": "O. Alves",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Amon",
+          "affiliation": ""
+        },
+        {
+          "name": "F. Andrade-Oliveira",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Asgari",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Avila",
+          "affiliation": ""
+        },
+        {
+          "name": "D. Bacon",
+          "affiliation": ""
+        },
+        {
+          "name": "K. Bechtol",
+          "affiliation": ""
+        },
+        {
+          "name": "M. R. Becker",
+          "affiliation": ""
+        },
+        {
+          "name": "G. M. Bernstein",
+          "affiliation": ""
+        },
+        {
+          "name": "E. Bertin",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Bilicki",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Blazek",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Bocquet",
+          "affiliation": ""
+        },
+        {
+          "name": "D. Brooks",
+          "affiliation": ""
+        },
+        {
+          "name": "P. Burger",
+          "affiliation": ""
+        },
+        {
+          "name": "D. L. Burke",
+          "affiliation": ""
+        },
+        {
+          "name": "H. Camacho",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Campos",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Carnero Rosell",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Carrasco Kind",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Carretero",
+          "affiliation": ""
+        },
+        {
+          "name": "F. J. Castander",
+          "affiliation": ""
+        },
+        {
+          "name": "R. Cawthon",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Chang",
+          "affiliation": ""
+        },
+        {
+          "name": "R. Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Choi",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Conselice",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Cordero",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Crocce",
+          "affiliation": ""
+        },
+        {
+          "name": "L. N. da Costa",
+          "affiliation": ""
+        },
+        {
+          "name": "M. E. da Silva Pereira",
+          "affiliation": ""
+        },
+        {
+          "name": "R. Dalal",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Davis",
+          "affiliation": ""
+        },
+        {
+          "name": "J. T. A. de Jong",
+          "affiliation": ""
+        },
+        {
+          "name": "J. DeRose",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Desai",
+          "affiliation": ""
+        },
+        {
+          "name": "H. T. Diehl",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Dodelson",
+          "affiliation": ""
+        },
+        {
+          "name": "P. Doel",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Doux",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Drlica-Wagner",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Dvornik",
+          "affiliation": ""
+        },
+        {
+          "name": "K. Eckert",
+          "affiliation": ""
+        },
+        {
+          "name": "T. F. Eifler",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Elvin-Poole",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Everett",
+          "affiliation": ""
+        },
+        {
+          "name": "X. Fang",
+          "affiliation": ""
+        },
+        {
+          "name": "I. Ferrero",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Fert\u00e9",
+          "affiliation": ""
+        },
+        {
+          "name": "B. Flaugher",
+          "affiliation": ""
+        },
+        {
+          "name": "O. Friedrich",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Frieman",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Garc\u00eda-Bellido",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Gatti",
+          "affiliation": ""
+        },
+        {
+          "name": "G. Giannini",
+          "affiliation": ""
+        },
+        {
+          "name": "B. Giblin",
+          "affiliation": ""
+        },
+        {
+          "name": "D. Gruen",
+          "affiliation": ""
+        },
+        {
+          "name": "R. A. Gruendl",
+          "affiliation": ""
+        },
+        {
+          "name": "G. Gutierrez",
+          "affiliation": ""
+        },
+        {
+          "name": "I. Harrison",
+          "affiliation": ""
+        },
+        {
+          "name": "W. G. Hartley",
+          "affiliation": ""
+        },
+        {
+          "name": "K. Herner",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Heymans",
+          "affiliation": ""
+        },
+        {
+          "name": "H. Hildebrandt",
+          "affiliation": ""
+        },
+        {
+          "name": "S. R. Hinton",
+          "affiliation": ""
+        },
+        {
+          "name": "H. Hoekstra",
+          "affiliation": ""
+        },
+        {
+          "name": "D. L. Hollowood",
+          "affiliation": ""
+        },
+        {
+          "name": "K. Honscheid",
+          "affiliation": ""
+        },
+        {
+          "name": "H. Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "E. M. Huff",
+          "affiliation": ""
+        },
+        {
+          "name": "D. Huterer",
+          "affiliation": ""
+        },
+        {
+          "name": "D. J. James",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Jarvis",
+          "affiliation": ""
+        },
+        {
+          "name": "N. Jeffrey",
+          "affiliation": ""
+        },
+        {
+          "name": "T. Jeltema",
+          "affiliation": ""
+        },
+        {
+          "name": "B. Joachimi",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Joudaki",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Kannawadi",
+          "affiliation": ""
+        },
+        {
+          "name": "E. Krause",
+          "affiliation": ""
+        },
+        {
+          "name": "K. Kuehn",
+          "affiliation": ""
+        },
+        {
+          "name": "K. Kuijken",
+          "affiliation": ""
+        },
+        {
+          "name": "N. Kuropatkin",
+          "affiliation": ""
+        },
+        {
+          "name": "O. Lahav",
+          "affiliation": ""
+        },
+        {
+          "name": "P. -F. Leget",
+          "affiliation": ""
+        },
+        {
+          "name": "P. Lemos",
+          "affiliation": ""
+        },
+        {
+          "name": "S. -S. Li",
+          "affiliation": ""
+        },
+        {
+          "name": "X. Li",
+          "affiliation": ""
+        },
+        {
+          "name": "A. R. Liddle",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Lima",
+          "affiliation": ""
+        },
+        {
+          "name": "C. -A Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "H. Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "N. MacCrann",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Mahony",
+          "affiliation": ""
+        },
+        {
+          "name": "J. L. Marshall",
+          "affiliation": ""
+        },
+        {
+          "name": "J. McCullough",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Mena-Fern\u00e1ndez",
+          "affiliation": ""
+        },
+        {
+          "name": "F. Menanteau",
+          "affiliation": ""
+        },
+        {
+          "name": "R. Miquel",
+          "affiliation": ""
+        },
+        {
+          "name": "J. J. Mohr",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Muir",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Myles",
+          "affiliation": ""
+        },
+        {
+          "name": "N. Napolitano",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Navarro-Alsina",
+          "affiliation": ""
+        },
+        {
+          "name": "R. L. C. Ogando",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Palmese",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Pandey",
+          "affiliation": ""
+        },
+        {
+          "name": "Y. Park",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Paterno",
+          "affiliation": ""
+        },
+        {
+          "name": "J. A. Peacock",
+          "affiliation": ""
+        },
+        {
+          "name": "D. Petravick",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Pieres",
+          "affiliation": ""
+        },
+        {
+          "name": "A. A. Plazas Malag\u00f3n",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Porredon",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Prat",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Radovich",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Raveri",
+          "affiliation": ""
+        },
+        {
+          "name": "R. Reischke",
+          "affiliation": ""
+        },
+        {
+          "name": "N. C. Robertson",
+          "affiliation": ""
+        },
+        {
+          "name": "R. P. Rollins",
+          "affiliation": ""
+        },
+        {
+          "name": "A. K. Romer",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Roodman",
+          "affiliation": ""
+        },
+        {
+          "name": "E. S. Rykoff",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Samuroff",
+          "affiliation": ""
+        },
+        {
+          "name": "C. S\u00e1nchez",
+          "affiliation": ""
+        },
+        {
+          "name": "E. Sanchez",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Sanchez",
+          "affiliation": ""
+        },
+        {
+          "name": "P. Schneider",
+          "affiliation": ""
+        },
+        {
+          "name": "L. F. Secco",
+          "affiliation": ""
+        },
+        {
+          "name": "I. Sevilla-Noarbe",
+          "affiliation": ""
+        },
+        {
+          "name": "H. -Y. Shan",
+          "affiliation": ""
+        },
+        {
+          "name": "E. Sheldon",
+          "affiliation": ""
+        },
+        {
+          "name": "T. Shin",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Sif\u00f3n",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Smith",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Soares-Santos",
+          "affiliation": ""
+        },
+        {
+          "name": "B. St\u00f6lzner",
+          "affiliation": ""
+        },
+        {
+          "name": "E. Suchyta",
+          "affiliation": ""
+        },
+        {
+          "name": "M. E. C. Swanson",
+          "affiliation": ""
+        },
+        {
+          "name": "G. Tarle",
+          "affiliation": ""
+        },
+        {
+          "name": "D. Thomas",
+          "affiliation": ""
+        },
+        {
+          "name": "C. To",
+          "affiliation": ""
+        },
+        {
+          "name": "M. A. Troxel",
+          "affiliation": ""
+        },
+        {
+          "name": "T. Tr\u00f6ster",
+          "affiliation": ""
+        },
+        {
+          "name": "I. Tutusaus",
+          "affiliation": ""
+        },
+        {
+          "name": "J. L. van den Busch",
+          "affiliation": ""
+        },
+        {
+          "name": "T. N. Varga",
+          "affiliation": ""
+        },
+        {
+          "name": "A. R. Walker",
+          "affiliation": ""
+        },
+        {
+          "name": "N. Weaverdyck",
+          "affiliation": ""
+        },
+        {
+          "name": "R. H. Wechsler",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Weller",
+          "affiliation": ""
+        },
+        {
+          "name": "P. Wiseman",
+          "affiliation": ""
+        },
+        {
+          "name": "A. H. Wright",
+          "affiliation": ""
+        },
+        {
+          "name": "B. Yanny",
+          "affiliation": ""
+        },
+        {
+          "name": "B. Yin",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Yoon",
+          "affiliation": ""
+        },
+        {
+          "name": "Y. Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Zuntz",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We present a joint cosmic shear analysis of the Dark Energy Survey (DES Y3) and the Kilo-Degree Survey (KiDS-1000) in a collaborative effort between the two survey teams. We find consistent cosmological parameter constraints between DES Y3 and KiDS-1000 which, when combined in a joint-survey analysis, constrain the parameter $S_8 = \u03c3_8 \\sqrt{\u03a9_{\\rm m}/0.3}$ with a mean value of $0.790^{+0.018}_{-0.014}$. The mean marginal is lower than the maximum a posteriori estimate, $S_8=0.801$, owing to skewness in the marginal distribution and projection effects in the multi-dimensional parameter space. Our results are consistent with $S_8$ constraints from observations of the cosmic microwave background by Planck, with agreement at the $1.7\u03c3$ level. We use a Hybrid analysis pipeline, defined from a mock survey study quantifying the impact of the different analysis choices originally adopted by each survey team. We review intrinsic alignment models, baryon feedback mitigation strategies, priors, samplers and models of the non-linear matter power spectrum.",
+      "venue": "astro-ph.CO",
+      "citation_count": 0,
+      "doi": "10.21105/astro.2305.17173",
+      "arxiv_id": "2305.17173",
+      "url": "https://arxiv.org/abs/2305.17173",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

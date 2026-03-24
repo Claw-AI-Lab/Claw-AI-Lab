@@ -1,0 +1,526 @@
+{
+  "query": "Effect dropout MNIST classification comparing dropout",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1773985509.454319,
+  "papers": [
+    {
+      "paper_id": "arxiv-2002.12915",
+      "title": "The Implicit and Explicit Regularization Effects of Dropout",
+      "authors": [
+        {
+          "name": "Colin Wei",
+          "affiliation": ""
+        },
+        {
+          "name": "Sham Kakade",
+          "affiliation": ""
+        },
+        {
+          "name": "Tengyu Ma",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Dropout is a widely-used regularization technique, often required to obtain state-of-the-art for a number of architectures. This work demonstrates that dropout introduces two distinct but entangled regularization effects: an explicit effect (also studied in prior work) which occurs since dropout modifies the expected training objective, and, perhaps surprisingly, an additional implicit effect from the stochasticity in the dropout training update. This implicit regularization effect is analogous to the effect of stochasticity in small mini-batch stochastic gradient descent. We disentangle these two effects through controlled experiments. We then derive analytic simplifications which characterize each effect in terms of the derivatives of the model and the loss, for deep neural networks. We demonstrate these simplified, analytic regularizers accurately capture the important aspects of dropout, showing they faithfully replace dropout in practice.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2002.12915",
+      "url": "https://arxiv.org/abs/2002.12915",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2002.02247",
+      "title": "Almost Sure Convergence of Dropout Algorithms for Neural Networks",
+      "authors": [
+        {
+          "name": "Albert Senen-Cerda",
+          "affiliation": ""
+        },
+        {
+          "name": "Jaron Sanders",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "We investigate the convergence and convergence rate of stochastic training algorithms for Neural Networks (NNs) that have been inspired by Dropout (Hinton et al., 2012). With the goal of avoiding overfitting during training of NNs, dropout algorithms consist in practice of multiplying the weight matrices of a NN componentwise by independently drawn random matrices with $\\{0, 1 \\}$-valued entries during each iteration of Stochastic Gradient Descent (SGD). This paper presents a probability theoretical proof that for fully-connected NNs with differentiable, polynomially bounded activation functions, if we project the weights onto a compact set when using a dropout algorithm, then the weights of the NN converge to a unique stationary point of a projected system of Ordinary Differential Equations (ODEs). After this general convergence guarantee, we go on to investigate the convergence rate of dropout. Firstly, we obtain generic sample complexity bounds for finding $\u03b5$-stationary points of smooth nonconvex functions using SGD with dropout that explicitly depend on the dropout probability. Secondly, we obtain an upper bound on the rate of convergence of Gradient Descent (GD) on the limiting ODEs of dropout algorithms for NNs with the shape of arborescences of arbitrary depth and with linear activation functions. The latter bound shows that for an algorithm such as Dropout or Dropconnect (Wan et al., 2013), the convergence rate can be impaired exponentially by the depth of the arborescence. In contrast, we experimentally observe no such dependence for wide NNs with just a few dropout layers. We also provide a heuristic argument for this observation. Our results suggest that there is a change of scale of the effect of the dropout probability in the convergence rate that depends on the relative size of the width of the NN compared to its depth.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2002.02247",
+      "url": "https://arxiv.org/abs/2002.02247",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2403.00946",
+      "title": "Fine-tuning with Very Large Dropout",
+      "authors": [
+        {
+          "name": "Jianyu Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "L\u00e9on Bottou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "It is impossible today to pretend that the practice of machine learning is always compatible with the idea that training and testing data follow the same distribution. Several authors have recently used ensemble techniques to show how scenarios involving multiple data distributions are best served by representations that are both richer than those obtained by regularizing for the best in-distribution performance, and richer than those obtained under the influence of the implicit sparsity bias of common stochastic gradient procedures.\n  This contribution investigates the use of very high dropout rates instead of ensembles to obtain such rich representations. Although training a deep network from scratch using such dropout rates is virtually impossible, fine-tuning a large pre-trained model under such conditions is not only possible but also achieves out-of-distribution performances that exceed those of both ensembles and weight averaging methods such as model soups.\n  This result has practical significance because the importance of the fine-tuning scenario has considerably grown in recent years. This result also provides interesting insights on the nature of rich representations and on the intrinsically linear nature of fine-tuning a large network using a comparatively small dataset.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2403.00946",
+      "url": "https://arxiv.org/abs/2403.00946",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2501.11258",
+      "title": "Enhancing Uncertainty Estimation in Semantic Segmentation via Monte-Carlo Frequency Dropout",
+      "authors": [
+        {
+          "name": "Tal Zeevi",
+          "affiliation": ""
+        },
+        {
+          "name": "Lawrence H. Staib",
+          "affiliation": ""
+        },
+        {
+          "name": "John A. Onofrey",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Monte-Carlo (MC) Dropout provides a practical solution for estimating predictive distributions in deterministic neural networks. Traditional dropout, applied within the signal space, may fail to account for frequency-related noise common in medical imaging, leading to biased predictive estimates. A novel approach extends Dropout to the frequency domain, allowing stochastic attenuation of signal frequencies during inference. This creates diverse global textural variations in feature maps while preserving structural integrity -- a factor we hypothesize and empirically show is contributing to accurately estimating uncertainties in semantic segmentation. We evaluated traditional MC-Dropout and the MC-frequency Dropout in three segmentation tasks involving different imaging modalities: (i) prostate zones in biparametric MRI, (ii) liver tumors in contrast-enhanced CT, and (iii) lungs in chest X-ray scans. Our results show that MC-Frequency Dropout improves calibration, convergence, and semantic uncertainty, thereby improving prediction scrutiny, boundary delineation, and has the potential to enhance medical decision-making.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2501.11258",
+      "url": "https://arxiv.org/abs/2501.11258",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2510.15541",
+      "title": "An Empirical Study on MC Dropout--Based Uncertainty--Error Correlation in 2D Brain Tumor Segmentation",
+      "authors": [
+        {
+          "name": "Saumya B",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Accurate brain tumor segmentation from MRI is vital for diagnosis and treatment planning. Although Monte Carlo (MC) Dropout is widely used to estimate model uncertainty, its effectiveness in identifying segmentation errors -- especially near tumor boundaries -- remains unclear. This study empirically examines the relationship between MC Dropout--based uncertainty and segmentation error in 2D brain tumor MRI segmentation using a U-Net trained under four augmentation settings: none, horizontal flip, rotation, and scaling. Uncertainty was computed from 50 stochastic forward passes and correlated with pixel-wise errors using Pearson and Spearman coefficients. Results show weak global correlations ($r \\approx 0.30$--$0.38$) and negligible boundary correlations ($|r| < 0.05$). Although differences across augmentations were statistically significant ($p < 0.001$), they lacked practical relevance. These findings suggest that MC Dropout uncertainty provides limited cues for boundary error localization, underscoring the need for alternative or hybrid uncertainty estimation methods in medical image segmentation.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2510.15541",
+      "url": "https://arxiv.org/abs/2510.15541",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2110.02034",
+      "title": "Dropout Q-Functions for Doubly Efficient Reinforcement Learning",
+      "authors": [
+        {
+          "name": "Takuya Hiraoka",
+          "affiliation": ""
+        },
+        {
+          "name": "Takahisa Imagawa",
+          "affiliation": ""
+        },
+        {
+          "name": "Taisei Hashimoto",
+          "affiliation": ""
+        },
+        {
+          "name": "Takashi Onishi",
+          "affiliation": ""
+        },
+        {
+          "name": "Yoshimasa Tsuruoka",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Randomized ensembled double Q-learning (REDQ) (Chen et al., 2021b) has recently achieved state-of-the-art sample efficiency on continuous-action reinforcement learning benchmarks. This superior sample efficiency is made possible by using a large Q-function ensemble. However, REDQ is much less computationally efficient than non-ensemble counterparts such as Soft Actor-Critic (SAC) (Haarnoja et al., 2018a). To make REDQ more computationally efficient, we propose a method of improving computational efficiency called DroQ, which is a variant of REDQ that uses a small ensemble of dropout Q-functions. Our dropout Q-functions are simple Q-functions equipped with dropout connection and layer normalization. Despite its simplicity of implementation, our experimental results indicate that DroQ is doubly (sample and computationally) efficient. It achieved comparable sample efficiency with REDQ, much better computational efficiency than REDQ, and comparable computational efficiency with that of SAC.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2110.02034",
+      "url": "https://arxiv.org/abs/2110.02034",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2303.01610",
+      "title": "Sparse MoE as the New Dropout: Scaling Dense and Self-Slimmable Transformers",
+      "authors": [
+        {
+          "name": "Tianlong Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhenyu Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ajay Jaiswal",
+          "affiliation": ""
+        },
+        {
+          "name": "Shiwei Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhangyang Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Despite their remarkable achievement, gigantic transformers encounter significant drawbacks, including exorbitant computational and memory footprints during training, as well as severe collapse evidenced by a high degree of parameter redundancy. Sparsely-activated Mixture-of-Experts (SMoEs) have shown promise to mitigate the issue of training efficiency, yet they are prone to (1) redundant experts due to representational collapse; and (2) poor expert scalability for inference and downstream fine-tuning, primarily due to overfitting of the learned routing policy to the number of activated experts during training. As recent research efforts are predominantly focused on improving routing policies to encourage expert specializations, this work focuses on exploring the overlooked scalability bottleneck of SMoEs and leveraging it to effectively scale dense transformers. To this end, we propose a new plug-and-play training framework, SMoE-Dropout, to enable scaling transformers to better accuracy in their full capacity without collapse. Specifically, SMoE-Dropout consists of a randomly initialized and fixed router network to activate experts and gradually increases the activated expert number as training progresses over time. Transformers trained by SMoE-Dropout naturally exhibit a self-slimmable property subject to resource availability, offering smooth and consistent performance boosts with an increase in activated experts during inference or fine-tuning. Our extensive experiments demonstrate the superior performance and substantial computation savings of SMoE-Dropout, compared to dense training baselines with equivalent parameter counts. In particular, our trained BERT outperforms its densely trained counterpart with consistent improvements of {1.03%, 0.78%, 1.09%} on challenging reasoning tasks {ASDiv-A, MAWPS, SVAMP}, respectively.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2303.01610",
+      "url": "https://arxiv.org/abs/2303.01610",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2510.20225",
+      "title": "Federated Learning via Meta-Variational Dropout",
+      "authors": [
+        {
+          "name": "Insu Jeon",
+          "affiliation": ""
+        },
+        {
+          "name": "Minui Hong",
+          "affiliation": ""
+        },
+        {
+          "name": "Junhyeog Yun",
+          "affiliation": ""
+        },
+        {
+          "name": "Gunhee Kim",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Federated Learning (FL) aims to train a global inference model from remotely distributed clients, gaining popularity due to its benefit of improving data privacy. However, traditional FL often faces challenges in practical applications, including model overfitting and divergent local models due to limited and non-IID data among clients. To address these issues, we introduce a novel Bayesian meta-learning approach called meta-variational dropout (MetaVD). MetaVD learns to predict client-dependent dropout rates via a shared hypernetwork, enabling effective model personalization of FL algorithms in limited non-IID data settings. We also emphasize the posterior adaptation view of meta-learning and the posterior aggregation view of Bayesian FL via the conditional dropout posterior. We conducted extensive experiments on various sparse and non-IID FL datasets. MetaVD demonstrated excellent classification accuracy and uncertainty calibration performance, especially for out-of-distribution (OOD) clients. MetaVD compresses the local model parameters needed for each client, mitigating model overfitting and reducing communication costs. Code is available at https://github.com/insujeon/MetaVD.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "10.5555/3666122.3666615",
+      "arxiv_id": "2510.20225",
+      "url": "https://arxiv.org/abs/2510.20225",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2007.00823",
+      "title": "Dropout as a Regularizer of Interaction Effects",
+      "authors": [
+        {
+          "name": "Benjamin Lengerich",
+          "affiliation": ""
+        },
+        {
+          "name": "Eric P. Xing",
+          "affiliation": ""
+        },
+        {
+          "name": "Rich Caruana",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "We examine Dropout through the perspective of interactions. This view provides a symmetry to explain Dropout: given $N$ variables, there are ${N \\choose k}$ possible sets of $k$ variables to form an interaction (i.e. $\\mathcal{O}(N^k)$); conversely, the probability an interaction of $k$ variables survives Dropout at rate $p$ is $(1-p)^k$ (decaying with $k$). These rates effectively cancel, and so Dropout regularizes against higher-order interactions. We prove this perspective analytically and empirically. This perspective of Dropout as a regularizer against interaction effects has several practical implications: (1) higher Dropout rates should be used when we need stronger regularization against spurious high-order interactions, (2) caution should be exercised when interpreting Dropout-based explanations and uncertainty measures, and (3) networks trained with Input Dropout are biased estimators. We also compare Dropout to other regularizers and find that it is difficult to obtain the same selective pressure against high-order interactions.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2007.00823",
+      "url": "https://arxiv.org/abs/2007.00823",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2010.05244",
+      "title": "Advanced Dropout: A Model-free Methodology for Bayesian Dropout Optimization",
+      "authors": [
+        {
+          "name": "Jiyang Xie",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhanyu Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "and Jianjun Lei",
+          "affiliation": ""
+        },
+        {
+          "name": "Guoqiang Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jing-Hao Xue",
+          "affiliation": ""
+        },
+        {
+          "name": "Zheng-Hua Tan",
+          "affiliation": ""
+        },
+        {
+          "name": "Jun Guo",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Due to lack of data, overfitting ubiquitously exists in real-world applications of deep neural networks (DNNs). We propose advanced dropout, a model-free methodology, to mitigate overfitting and improve the performance of DNNs. The advanced dropout technique applies a model-free and easily implemented distribution with parametric prior, and adaptively adjusts dropout rate. Specifically, the distribution parameters are optimized by stochastic gradient variational Bayes in order to carry out an end-to-end training. We evaluate the effectiveness of the advanced dropout against nine dropout techniques on seven computer vision datasets (five small-scale datasets and two large-scale datasets) with various base models. The advanced dropout outperforms all the referred techniques on all the datasets.We further compare the effectiveness ratios and find that advanced dropout achieves the highest one on most cases. Next, we conduct a set of analysis of dropout rate characteristics, including convergence of the adaptive dropout rate, the learned distributions of dropout masks, and a comparison with dropout rate generation without an explicit distribution. In addition, the ability of overfitting prevention is evaluated and confirmed. Finally, we extend the application of the advanced dropout to uncertainty inference, network pruning, text classification, and regression. The proposed advanced dropout is also superior to the corresponding referred methods. Codes are available at https://github.com/PRIS-CV/AdvancedDropout.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "10.1109/TPAMI.2021.3083089",
+      "arxiv_id": "2010.05244",
+      "url": "https://arxiv.org/abs/2010.05244",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2103.04181",
+      "title": "Contextual Dropout: An Efficient Sample-Dependent Dropout Module",
+      "authors": [
+        {
+          "name": "Xinjie Fan",
+          "affiliation": ""
+        },
+        {
+          "name": "Shujian Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Korawat Tanwisuth",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaoning Qian",
+          "affiliation": ""
+        },
+        {
+          "name": "Mingyuan Zhou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Dropout has been demonstrated as a simple and effective module to not only regularize the training process of deep neural networks, but also provide the uncertainty estimation for prediction. However, the quality of uncertainty estimation is highly dependent on the dropout probabilities. Most current models use the same dropout distributions across all data samples due to its simplicity. Despite the potential gains in the flexibility of modeling uncertainty, sample-dependent dropout, on the other hand, is less explored as it often encounters scalability issues or involves non-trivial model changes. In this paper, we propose contextual dropout with an efficient structural design as a simple and scalable sample-dependent dropout module, which can be applied to a wide range of models at the expense of only slightly increased memory and computational cost. We learn the dropout probabilities with a variational objective, compatible with both Bernoulli dropout and Gaussian dropout. We apply the contextual dropout module to various models with applications to image classification and visual question answering and demonstrate the scalability of the method with large-scale datasets, such as ImageNet and VQA 2.0. Our experimental results show that the proposed method outperforms baseline methods in terms of both accuracy and quality of uncertainty estimation.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2103.04181",
+      "url": "https://arxiv.org/abs/2103.04181",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2210.02570",
+      "title": "Revisiting Structured Dropout",
+      "authors": [
+        {
+          "name": "Yiren Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Oluwatomisin Dada",
+          "affiliation": ""
+        },
+        {
+          "name": "Xitong Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Robert D Mullins",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Large neural networks are often overparameterised and prone to overfitting, Dropout is a widely used regularization technique to combat overfitting and improve model generalization. However, unstructured Dropout is not always effective for specific network architectures and this has led to the formation of multiple structured Dropout approaches to improve model performance and, sometimes, reduce the computational resources required for inference. In this work, we revisit structured Dropout comparing different Dropout approaches to natural language processing and computer vision tasks for multiple state-of-the-art networks. Additionally, we devise an approach to structured Dropout we call \\textbf{\\emph{ProbDropBlock}} which drops contiguous blocks from feature maps with a probability given by the normalized feature salience values. We find that with a simple scheduling strategy the proposed approach to structured Dropout consistently improved model performance compared to baselines and other Dropout approaches on a diverse range of tasks and models. In particular, we show \\textbf{\\emph{ProbDropBlock}} improves RoBERTa finetuning on MNLI by $0.22\\%$, and training of ResNet50 on ImageNet by $0.28\\%$.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2210.02570",
+      "url": "https://arxiv.org/abs/2210.02570",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2207.05952",
+      "title": "Implicit regularization of dropout",
+      "authors": [
+        {
+          "name": "Zhongwang Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhi-Qin John Xu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "It is important to understand how dropout, a popular regularization method, aids in achieving a good generalization solution during neural network training. In this work, we present a theoretical derivation of an implicit regularization of dropout, which is validated by a series of experiments. Additionally, we numerically study two implications of the implicit regularization, which intuitively rationalizes why dropout helps generalization. Firstly, we find that input weights of hidden neurons tend to condense on isolated orientations trained with dropout. Condensation is a feature in the non-linear learning process, which makes the network less complex. Secondly, we experimentally find that the training with dropout leads to the neural network with a flatter minimum compared with standard gradient descent training, and the implicit regularization is the key to finding flat solutions. Although our theory mainly focuses on dropout used in the last hidden layer, our experiments apply to general dropout in training neural networks. This work points out a distinct characteristic of dropout compared with stochastic gradient descent and serves as an important basis for fully understanding dropout.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2207.05952",
+      "url": "https://arxiv.org/abs/2207.05952",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2305.16179",
+      "title": "Dropout Drops Double Descent",
+      "authors": [
+        {
+          "name": "Tian-Le Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Joe Suzuki",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "This study demonstrates that double descent can be mitigated by adding a dropout layer adjacent to the fully connected linear layer. The unexpected double-descent phenomenon garnered substantial attention in recent years, resulting in fluctuating prediction error rates as either sample size or model size increases. Our paper posits that the optimal test error, in terms of the dropout rate, shows a monotonic decrease in linear regression with increasing sample size. Although we do not provide a precise mathematical proof of this statement, we empirically validate through experiments that the test error decreases for each dropout rate. The statement we prove is that the expected test error for each dropout rate within a certain range decreases when the dropout rate is fixed. Our experimental results substantiate our claim, showing that dropout with an optimal dropout rate can yield a monotonic test error curve in nonlinear neural networks. These experiments were conducted using the Fashion-MNIST and CIFAR-10 datasets. These findings imply the potential benefit of incorporating dropout into risk curve scaling to address the peak phenomenon. To our knowledge, this study represents the first investigation into the relationship between dropout and double descent.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "10.1007/s42081-024-00242-5",
+      "arxiv_id": "2305.16179",
+      "url": "https://arxiv.org/abs/2305.16179",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2303.01500",
+      "title": "Dropout Reduces Underfitting",
+      "authors": [
+        {
+          "name": "Zhuang Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiqiu Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Joseph Jin",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiqiang Shen",
+          "affiliation": ""
+        },
+        {
+          "name": "Trevor Darrell",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Introduced by Hinton et al. in 2012, dropout has stood the test of time as a regularizer for preventing overfitting in neural networks. In this study, we demonstrate that dropout can also mitigate underfitting when used at the start of training. During the early phase, we find dropout reduces the directional variance of gradients across mini-batches and helps align the mini-batch gradients with the entire dataset's gradient. This helps counteract the stochasticity of SGD and limit the influence of individual batches on model training. Our findings lead us to a solution for improving performance in underfitting models - early dropout: dropout is applied only during the initial phases of training, and turned off afterwards. Models equipped with early dropout achieve lower final training loss compared to their counterparts without dropout. Additionally, we explore a symmetric technique for regularizing overfitting models - late dropout, where dropout is not used in the early iterations and is only activated later in training. Experiments on ImageNet and various vision tasks demonstrate that our methods consistently improve generalization accuracy. Our results encourage more research on understanding regularization in deep learning and our methods can be useful tools for future neural network training, especially in the era of large data. Code is available at https://github.com/facebookresearch/dropout.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2303.01500",
+      "url": "https://arxiv.org/abs/2303.01500",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2001.11963",
+      "title": "Fast Monte Carlo Dropout and Error Correction for Radio Transmitter Classification",
+      "authors": [
+        {
+          "name": "Liangping Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "John Kaewell",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Monte Carlo dropout may effectively capture model uncertainty in deep learning, where a measure of uncertainty is obtained by using multiple instances of dropout at test time. However, Monte Carlo dropout is applied across the whole network and thus significantly increases the computational complexity, proportional to the number of instances. To reduce the computational complexity, at test time we enable dropout layers only near the output of the neural network and reuse the computation from prior layers while keeping, if any, other dropout layers disabled. Additionally, we leverage the side information about the ideal distributions for various input samples to do `error correction' on the predictions. We apply these techniques to the radio frequency (RF) transmitter classification problem and show that the proposed algorithm is able to provide better prediction uncertainty than the simple ensemble average algorithm and can be used to effectively identify transmitters that are not in the training data set while correctly classifying transmitters it has been trained on.",
+      "venue": "eess.SP",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2001.11963",
+      "url": "https://arxiv.org/abs/2001.11963",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2003.03397",
+      "title": "Dropout: Explicit Forms and Capacity Control",
+      "authors": [
+        {
+          "name": "Raman Arora",
+          "affiliation": ""
+        },
+        {
+          "name": "Peter Bartlett",
+          "affiliation": ""
+        },
+        {
+          "name": "Poorya Mianjy",
+          "affiliation": ""
+        },
+        {
+          "name": "Nathan Srebro",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "We investigate the capacity control provided by dropout in various machine learning problems. First, we study dropout for matrix completion, where it induces a data-dependent regularizer that, in expectation, equals the weighted trace-norm of the product of the factors. In deep learning, we show that the data-dependent regularizer due to dropout directly controls the Rademacher complexity of the underlying class of deep neural networks. These developments enable us to give concrete generalization error bounds for the dropout algorithm in both matrix completion as well as training deep neural networks. We evaluate our theoretical findings on real-world datasets, including MovieLens, MNIST, and Fashion-MNIST.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2003.03397",
+      "url": "https://arxiv.org/abs/2003.03397",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2303.15973",
+      "title": "Do Neural Topic Models Really Need Dropout? Analysis of the Effect of Dropout in Topic Modeling",
+      "authors": [
+        {
+          "name": "Suman Adhya",
+          "affiliation": ""
+        },
+        {
+          "name": "Avishek Lahiri",
+          "affiliation": ""
+        },
+        {
+          "name": "Debarshi Kumar Sanyal",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Dropout is a widely used regularization trick to resolve the overfitting issue in large feedforward neural networks trained on a small dataset, which performs poorly on the held-out test subset. Although the effectiveness of this regularization trick has been extensively studied for convolutional neural networks, there is a lack of analysis of it for unsupervised models and in particular, VAE-based neural topic models. In this paper, we have analyzed the consequences of dropout in the encoder as well as in the decoder of the VAE architecture in three widely used neural topic models, namely, contextualized topic model (CTM), ProdLDA, and embedded topic model (ETM) using four publicly available datasets. We characterize the dropout effect on these models in terms of the quality and predictive performance of the generated topics.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2303.15973",
+      "url": "https://arxiv.org/abs/2303.15973",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

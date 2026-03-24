@@ -1,0 +1,1224 @@
+{
+  "query": "Data augmentation MNIST comparing no augmentation",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1773985834.352396,
+  "papers": [
+    {
+      "paper_id": "arxiv-2210.08363",
+      "title": "Data-Efficient Augmentation for Training Neural Networks",
+      "authors": [
+        {
+          "name": "Tian Yu Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Baharan Mirzasoleiman",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Data augmentation is essential to achieve state-of-the-art performance in many deep learning applications. However, the most effective augmentation techniques become computationally prohibitive for even medium-sized datasets. To address this, we propose a rigorous technique to select subsets of data points that when augmented, closely capture the training dynamics of full data augmentation. We first show that data augmentation, modeled as additive perturbations, improves learning and generalization by relatively enlarging and perturbing the smaller singular values of the network Jacobian, while preserving its prominent directions. This prevents overfitting and enhances learning the harder to learn information. Then, we propose a framework to iteratively extract small subsets of training data that when augmented, closely capture the alignment of the fully augmented Jacobian with labels/residuals. We prove that stochastic gradient descent applied to the augmented subsets found by our approach has similar training dynamics to that of fully augmented data. Our experiments demonstrate that our method achieves 6.3x speedup on CIFAR10 and 2.2x speedup on SVHN, and outperforms the baselines by up to 10% across various subset sizes. Similarly, on TinyImageNet and ImageNet, our method beats the baselines by up to 8%, while achieving up to 3.3x speedup across various subset sizes. Finally, training on and augmenting 50% subsets using our method on a version of CIFAR10 corrupted with label noise even outperforms using the full dataset. Our code is available at: https://github.com/tianyu139/data-efficient-augmentation",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2210.08363",
+      "url": "https://arxiv.org/abs/2210.08363",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2410.01088",
+      "title": "Exploring Empty Spaces: Human-in-the-Loop Data Augmentation",
+      "authors": [
+        {
+          "name": "Catherine Yeh",
+          "affiliation": ""
+        },
+        {
+          "name": "Donghao Ren",
+          "affiliation": ""
+        },
+        {
+          "name": "Yannick Assogba",
+          "affiliation": ""
+        },
+        {
+          "name": "Dominik Moritz",
+          "affiliation": ""
+        },
+        {
+          "name": "Fred Hohman",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Data augmentation is crucial to make machine learning models more robust and safe. However, augmenting data can be challenging as it requires generating diverse data points to rigorously evaluate model behavior on edge cases and mitigate potential harms. Creating high-quality augmentations that cover these \"unknown unknowns\" is a time- and creativity-intensive task. In this work, we introduce Amplio, an interactive tool to help practitioners navigate \"unknown unknowns\" in unstructured text datasets and improve data diversity by systematically identifying empty data spaces to explore. Amplio includes three human-in-the-loop data augmentation techniques: Augment With Concepts, Augment by Interpolation, and Augment with Large Language Model. In a user study with 18 professional red teamers, we demonstrate the utility of our augmentation methods in helping generate high-quality, diverse, and relevant model safety prompts. We find that Amplio enabled red teamers to augment data quickly and creatively, highlighting the transformative potential of interactive augmentation workflows.",
+      "venue": "cs.HC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2410.01088",
+      "url": "https://arxiv.org/abs/2410.01088",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2108.06949",
+      "title": "Data Augmentation for Scene Text Recognition",
+      "authors": [
+        {
+          "name": "Rowel Atienza",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Scene text recognition (STR) is a challenging task in computer vision due to the large number of possible text appearances in natural scenes. Most STR models rely on synthetic datasets for training since there are no sufficiently big and publicly available labelled real datasets. Since STR models are evaluated using real data, the mismatch between training and testing data distributions results into poor performance of models especially on challenging text that are affected by noise, artifacts, geometry, structure, etc. In this paper, we introduce STRAug which is made of 36 image augmentation functions designed for STR. Each function mimics certain text image properties that can be found in natural scenes, caused by camera sensors, or induced by signal processing operations but poorly represented in the training dataset. When applied to strong baseline models using RandAugment, STRAug significantly increases the overall absolute accuracy of STR models across regular and irregular test datasets by as much as 2.10% on Rosetta, 1.48% on R2AM, 1.30% on CRNN, 1.35% on RARE, 1.06% on TRBA and 0.89% on GCRNN. The diversity and simplicity of API provided by STRAug functions enable easy replication and validation of existing data augmentation methods for STR. STRAug is available at https://github.com/roatienza/straug.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2108.06949",
+      "url": "https://arxiv.org/abs/2108.06949",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2407.21523",
+      "title": "Tabular Data Augmentation for Machine Learning: Progress and Prospects of Embracing Generative AI",
+      "authors": [
+        {
+          "name": "Lingxi Cui",
+          "affiliation": ""
+        },
+        {
+          "name": "Huan Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Ke Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Lidan Shou",
+          "affiliation": ""
+        },
+        {
+          "name": "Gang Chen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Machine learning (ML) on tabular data is ubiquitous, yet obtaining abundant high-quality tabular data for model training remains a significant obstacle. Numerous works have focused on tabular data augmentation (TDA) to enhance the original table with additional data, thereby improving downstream ML tasks. Recently, there has been a growing interest in leveraging the capabilities of generative AI for TDA. Therefore, we believe it is time to provide a comprehensive review of the progress and future prospects of TDA, with a particular emphasis on the trending generative AI. Specifically, we present an architectural view of the TDA pipeline, comprising three main procedures: pre-augmentation, augmentation, and post-augmentation. Pre-augmentation encompasses preparation tasks that facilitate subsequent TDA, including error handling, table annotation, table simplification, table representation, table indexing, table navigation, schema matching, and entity matching. Augmentation systematically analyzes current TDA methods, categorized into retrieval-based methods, which retrieve external data, and generation-based methods, which generate synthetic data. We further subdivide these methods based on the granularity of the augmentation process at the row, column, cell, and table levels. Post-augmentation focuses on the datasets, evaluation and optimization aspects of TDA. We also summarize current trends and future directions for TDA, highlighting promising opportunities in the era of generative AI. In addition, the accompanying papers and related resources are continuously updated and maintained in the GitHub repository at https://github.com/SuDIS-ZJU/awesome-tabular-data-augmentation to reflect ongoing advancements in the field.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2407.21523",
+      "url": "https://arxiv.org/abs/2407.21523",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2510.21391",
+      "title": "TerraGen: A Unified Multi-Task Layout Generation Framework for Remote Sensing Data Augmentation",
+      "authors": [
+        {
+          "name": "Datao Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yudeng Xin",
+          "affiliation": ""
+        },
+        {
+          "name": "Hui Qiao",
+          "affiliation": ""
+        },
+        {
+          "name": "Dongsheng Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yin Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiheng Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiangyong Cao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Remote sensing vision tasks require extensive labeled data across multiple, interconnected domains. However, current generative data augmentation frameworks are task-isolated, i.e., each vision task requires training an independent generative model, and ignores the modeling of geographical information and spatial constraints. To address these issues, we propose \\textbf{TerraGen}, a unified layout-to-image generation framework that enables flexible, spatially controllable synthesis of remote sensing imagery for various high-level vision tasks, e.g., detection, segmentation, and extraction. Specifically, TerraGen introduces a geographic-spatial layout encoder that unifies bounding box and segmentation mask inputs, combined with a multi-scale injection scheme and mask-weighted loss to explicitly encode spatial constraints, from global structures to fine details. Also, we construct the first large-scale multi-task remote sensing layout generation dataset containing 45k images and establish a standardized evaluation protocol for this task. Experimental results show that our TerraGen can achieve the best generation image quality across diverse tasks. Additionally, TerraGen can be used as a universal data-augmentation generator, enhancing downstream task performance significantly and demonstrating robust cross-task generalisation in both full-data and few-shot scenarios.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2510.21391",
+      "url": "https://arxiv.org/abs/2510.21391",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2501.13372",
+      "title": "Generative Data Augmentation Challenge: Zero-Shot Speech Synthesis for Personalized Speech Enhancement",
+      "authors": [
+        {
+          "name": "Jae-Sung Bae",
+          "affiliation": ""
+        },
+        {
+          "name": "Anastasia Kuznetsova",
+          "affiliation": ""
+        },
+        {
+          "name": "Dinesh Manocha",
+          "affiliation": ""
+        },
+        {
+          "name": "John Hershey",
+          "affiliation": ""
+        },
+        {
+          "name": "Trausti Kristjansson",
+          "affiliation": ""
+        },
+        {
+          "name": "Minje Kim",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "This paper presents a new challenge that calls for zero-shot text-to-speech (TTS) systems to augment speech data for the downstream task, personalized speech enhancement (PSE), as part of the Generative Data Augmentation workshop at ICASSP 2025. Collecting high-quality personalized data is challenging due to privacy concerns and technical difficulties in recording audio from the test scene. To address these issues, synthetic data generation using generative models has gained significant attention. In this challenge, participants are tasked first with building zero-shot TTS systems to augment personalized data. Subsequently, PSE systems are asked to be trained with this augmented personalized dataset. Through this challenge, we aim to investigate how the quality of augmented data generated by zero-shot TTS models affects PSE model performance. We also provide baseline experiments using open-source zero-shot TTS models to encourage participation and benchmark advancements. Our baseline code implementation and checkpoints are available online.",
+      "venue": "eess.AS",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2501.13372",
+      "url": "https://arxiv.org/abs/2501.13372",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2506.23863",
+      "title": "Puzzles: Unbounded Video-Depth Augmentation for Scalable End-to-End 3D Reconstruction",
+      "authors": [
+        {
+          "name": "Jiahao Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Lei Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Miaomiao liu",
+          "affiliation": ""
+        },
+        {
+          "name": "David Ahmedt-Aristizabal",
+          "affiliation": ""
+        },
+        {
+          "name": "Chuong Nguyen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Multi-view 3D reconstruction remains a core challenge in computer vision. Recent methods, such as DUST3R and its successors, directly regress pointmaps from image pairs without relying on known scene geometry or camera parameters. However, the performance of these models is constrained by the diversity and scale of available training data. In this work, we introduce Puzzles, a data augmentation strategy that synthesizes an unbounded volume of high-quality posed video-depth data from a single image or video clip. By simulating diverse camera trajectories and realistic scene geometry through targeted image transformations, Puzzles significantly enhances data variety. Extensive experiments show that integrating Puzzles into existing video-based 3D reconstruction pipelines consistently boosts performance without modifying the underlying network architecture. Notably, models trained on only ten percent of the original data augmented with Puzzles still achieve accuracy comparable to those trained on the full dataset. Code is available at https://jiahao-ma.github.io/puzzles/.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2506.23863",
+      "url": "https://arxiv.org/abs/2506.23863",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2403.09828",
+      "title": "Analyzing Data Augmentation for Medical Images: A Case Study in Ultrasound Images",
+      "authors": [
+        {
+          "name": "Adam Tupper",
+          "affiliation": ""
+        },
+        {
+          "name": "Christian Gagn\u00e9",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Data augmentation is one of the most effective techniques to improve the generalization performance of deep neural networks. Yet, despite often facing limited data availability in medical image analysis, it is frequently underutilized. This appears to be due to a gap in our collective understanding of the efficacy of different augmentation techniques across medical imaging tasks and modalities. One domain where this is especially true is breast ultrasound images. This work addresses this issue by analyzing the effectiveness of different augmentation techniques for the classification of breast lesions in ultrasound images. We assess the generalizability of our findings across several datasets, demonstrate that certain augmentations are far more effective than others, and show that their usage leads to significant performance gains.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2403.09828",
+      "url": "https://arxiv.org/abs/2403.09828",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2501.13250",
+      "title": "Generative Data Augmentation Challenge: Synthesis of Room Acoustics for Speaker Distance Estimation",
+      "authors": [
+        {
+          "name": "Jackie Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Georg G\u00f6tz",
+          "affiliation": ""
+        },
+        {
+          "name": "Hermes Sampedro Llopis",
+          "affiliation": ""
+        },
+        {
+          "name": "Haukur Hafsteinsson",
+          "affiliation": ""
+        },
+        {
+          "name": "Steinar Gu\u00f0j\u00f3nsson",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniel Gert Nielsen",
+          "affiliation": ""
+        },
+        {
+          "name": "Finnur Pind",
+          "affiliation": ""
+        },
+        {
+          "name": "Paris Smaragdis",
+          "affiliation": ""
+        },
+        {
+          "name": "Dinesh Manocha",
+          "affiliation": ""
+        },
+        {
+          "name": "John Hershey",
+          "affiliation": ""
+        },
+        {
+          "name": "Trausti Kristjansson",
+          "affiliation": ""
+        },
+        {
+          "name": "Minje Kim",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "This paper describes the synthesis of the room acoustics challenge as a part of the generative data augmentation workshop at ICASSP 2025. The challenge defines a unique generative task that is designed to improve the quantity and diversity of the room impulse responses dataset so that it can be used for spatially sensitive downstream tasks: speaker distance estimation. The challenge identifies the technical difficulty in measuring or simulating many rooms' acoustic characteristics precisely. As a solution, it proposes generative data augmentation as an alternative that can potentially be used to improve various downstream tasks. The challenge website, dataset, and evaluation code are available at https://sites.google.com/view/genda2025.",
+      "venue": "eess.AS",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2501.13250",
+      "url": "https://arxiv.org/abs/2501.13250",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2509.07471",
+      "title": "From Scarcity to Efficiency: Investigating the Effects of Data Augmentation on African Machine Translation",
+      "authors": [
+        {
+          "name": "Mardiyyah Oduwole",
+          "affiliation": ""
+        },
+        {
+          "name": "Oluwatosin Olajide",
+          "affiliation": ""
+        },
+        {
+          "name": "Jamiu Suleiman",
+          "affiliation": ""
+        },
+        {
+          "name": "Faith Hunja",
+          "affiliation": ""
+        },
+        {
+          "name": "Busayo Awobade",
+          "affiliation": ""
+        },
+        {
+          "name": "Fatimo Adebanjo",
+          "affiliation": ""
+        },
+        {
+          "name": "Comfort Akanni",
+          "affiliation": ""
+        },
+        {
+          "name": "Chinonyelum Igwe",
+          "affiliation": ""
+        },
+        {
+          "name": "Peace Ododo",
+          "affiliation": ""
+        },
+        {
+          "name": "Promise Omoigui",
+          "affiliation": ""
+        },
+        {
+          "name": "Abraham Owodunni",
+          "affiliation": ""
+        },
+        {
+          "name": "Steven Kolawole",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The linguistic diversity across the African continent presents different challenges and opportunities for machine translation. This study explores the effects of data augmentation techniques in improving translation systems in low-resource African languages. We focus on two data augmentation techniques: sentence concatenation with back translation and switch-out, applying them across six African languages. Our experiments show significant improvements in machine translation performance, with a minimum increase of 25\\% in BLEU score across all six languages. We provide a comprehensive analysis and highlight the potential of these techniques to improve machine translation systems for low-resource languages, contributing to the development of more robust translation systems for under-resourced languages.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2509.07471",
+      "url": "https://arxiv.org/abs/2509.07471",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2403.10075",
+      "title": "A survey of synthetic data augmentation methods in computer vision",
+      "authors": [
+        {
+          "name": "Alhassan Mumuni",
+          "affiliation": ""
+        },
+        {
+          "name": "Fuseini Mumuni",
+          "affiliation": ""
+        },
+        {
+          "name": "Nana Kobina Gerrar",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "The standard approach to tackling computer vision problems is to train deep convolutional neural network (CNN) models using large-scale image datasets which are representative of the target task. However, in many scenarios, it is often challenging to obtain sufficient image data for the target task. Data augmentation is a way to mitigate this challenge. A common practice is to explicitly transform existing images in desired ways so as to create the required volume and variability of training data necessary to achieve good generalization performance. In situations where data for the target domain is not accessible, a viable workaround is to synthesize training data from scratch--i.e., synthetic data augmentation. This paper presents an extensive review of synthetic data augmentation techniques. It covers data synthesis approaches based on realistic 3D graphics modeling, neural style transfer (NST), differential neural rendering, and generative artificial intelligence (AI) techniques such as generative adversarial networks (GANs) and variational autoencoders (VAEs). For each of these classes of methods, we focus on the important data generation and augmentation techniques, general scope of application and specific use-cases, as well as existing limitations and possible workarounds. Additionally, we provide a summary of common synthetic datasets for training computer vision models, highlighting the main features, application domains and supported tasks. Finally, we discuss the effectiveness of synthetic data augmentation methods. Since this is the first paper to explore synthetic data augmentation methods in great detail, we are hoping to equip readers with the necessary background information and in-depth knowledge of existing methods and their attendant issues.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1007/s11633-022-1411-7",
+      "arxiv_id": "2403.10075",
+      "url": "https://arxiv.org/abs/2403.10075",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2105.03075",
+      "title": "A Survey of Data Augmentation Approaches for NLP",
+      "authors": [
+        {
+          "name": "Steven Y. Feng",
+          "affiliation": ""
+        },
+        {
+          "name": "Varun Gangal",
+          "affiliation": ""
+        },
+        {
+          "name": "Jason Wei",
+          "affiliation": ""
+        },
+        {
+          "name": "Sarath Chandar",
+          "affiliation": ""
+        },
+        {
+          "name": "Soroush Vosoughi",
+          "affiliation": ""
+        },
+        {
+          "name": "Teruko Mitamura",
+          "affiliation": ""
+        },
+        {
+          "name": "Eduard Hovy",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Data augmentation has recently seen increased interest in NLP due to more work in low-resource domains, new tasks, and the popularity of large-scale neural networks that require large amounts of training data. Despite this recent upsurge, this area is still relatively underexplored, perhaps due to the challenges posed by the discrete nature of language data. In this paper, we present a comprehensive and unifying survey of data augmentation for NLP by summarizing the literature in a structured manner. We first introduce and motivate data augmentation for NLP, and then discuss major methodologically representative approaches. Next, we highlight techniques that are used for popular NLP applications and tasks. We conclude by outlining current challenges and directions for future research. Overall, our paper aims to clarify the landscape of existing literature in data augmentation for NLP and motivate additional work in this area. We also present a GitHub repository with a paper list that will be continuously updated at https://github.com/styfeng/DataAug4NLP",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2105.03075",
+      "url": "https://arxiv.org/abs/2105.03075",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2501.13193",
+      "title": "Revisiting Data Augmentation for Ultrasound Images",
+      "authors": [
+        {
+          "name": "Adam Tupper",
+          "affiliation": ""
+        },
+        {
+          "name": "Christian Gagn\u00e9",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Data augmentation is a widely used and effective technique to improve the generalization performance of deep neural networks. Yet, despite often facing limited data availability when working with medical images, it is frequently underutilized. This appears to come from a gap in our collective understanding of the efficacy of different augmentation techniques across different tasks and modalities. One modality where this is especially true is ultrasound imaging. This work addresses this gap by analyzing the effectiveness of different augmentation techniques at improving model performance across a wide range of ultrasound image analysis tasks. To achieve this, we introduce a new standardized benchmark of 14 ultrasound image classification and semantic segmentation tasks from 10 different sources and covering 11 body regions. Our results demonstrate that many of the augmentations commonly used for tasks on natural images are also effective on ultrasound images, even more so than augmentations developed specifically for ultrasound images in some cases. We also show that diverse augmentation using TrivialAugment, which is widely used for natural images, is also effective for ultrasound images. Moreover, our proposed methodology represents a structured approach for assessing various data augmentations that can be applied to other contexts and modalities.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2501.13193",
+      "url": "https://arxiv.org/abs/2501.13193",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2303.18038",
+      "title": "Designing for Affective Augmentation: Assistive, Harmful, or Unfamiliar?",
+      "authors": [
+        {
+          "name": "Abdallah El Ali",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "In what capacity are affective augmentations helpful to humans, and what risks (if any) do they pose? In this position paper, we outline three works on affective augmentation systems, where our studies suggest these systems have the ability to influence our cognitive, affective, and (social) bodily perceptions in perhaps unusual ways. We provide considerations on whether these systems, outside clinical settings, are assistive, harmful, or as of now largely unfamiliar to users.",
+      "venue": "cs.HC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2303.18038",
+      "url": "https://arxiv.org/abs/2303.18038",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2508.17324",
+      "title": "CultranAI at PalmX 2025: Data Augmentation for Cultural Knowledge Representation",
+      "authors": [
+        {
+          "name": "Hunzalah Hassan Bhatti",
+          "affiliation": ""
+        },
+        {
+          "name": "Youssef Ahmed",
+          "affiliation": ""
+        },
+        {
+          "name": "Md Arid Hasan",
+          "affiliation": ""
+        },
+        {
+          "name": "Firoj Alam",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "In this paper, we report our participation to the PalmX cultural evaluation shared task. Our system, CultranAI, focused on data augmentation and LoRA fine-tuning of large language models (LLMs) for Arabic cultural knowledge representation. We benchmarked several LLMs to identify the best-performing model for the task. In addition to utilizing the PalmX dataset, we augmented it by incorporating the Palm dataset and curated a new dataset of over 22K culturally grounded multiple-choice questions (MCQs). Our experiments showed that the Fanar-1-9B-Instruct model achieved the highest performance. We fine-tuned this model on the combined augmented dataset of 22K+ MCQs. On the blind test set, our submitted system ranked 5th with an accuracy of 70.50%, while on the PalmX development set, it achieved an accuracy of 84.1%.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2508.17324",
+      "url": "https://arxiv.org/abs/2508.17324",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2102.11273",
+      "title": "On Interaction Between Augmentations and Corruptions in Natural Corruption Robustness",
+      "authors": [
+        {
+          "name": "Eric Mintun",
+          "affiliation": ""
+        },
+        {
+          "name": "Alexander Kirillov",
+          "affiliation": ""
+        },
+        {
+          "name": "Saining Xie",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Invariance to a broad array of image corruptions, such as warping, noise, or color shifts, is an important aspect of building robust models in computer vision. Recently, several new data augmentations have been proposed that significantly improve performance on ImageNet-C, a benchmark of such corruptions. However, there is still a lack of basic understanding on the relationship between data augmentations and test-time corruptions. To this end, we develop a feature space for image transforms, and then use a new measure in this space between augmentations and corruptions called the Minimal Sample Distance to demonstrate a strong correlation between similarity and performance. We then investigate recent data augmentations and observe a significant degradation in corruption robustness when the test-time corruptions are sampled to be perceptually dissimilar from ImageNet-C in this feature space. Our results suggest that test error can be improved by training on perceptually similar augmentations, and data augmentations may not generalize well beyond the existing benchmark. We hope our results and tools will allow for more robust progress towards improving robustness to image corruptions. We provide code at https://github.com/facebookresearch/augmentation-corruption.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2102.11273",
+      "url": "https://arxiv.org/abs/2102.11273",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2411.15497",
+      "title": "AeroGen: Enhancing Remote Sensing Object Detection with Diffusion-Driven Data Generation",
+      "authors": [
+        {
+          "name": "Datao Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiangyong Cao",
+          "affiliation": ""
+        },
+        {
+          "name": "Xuan Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jialin Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Jing Yao",
+          "affiliation": ""
+        },
+        {
+          "name": "Xueru Bai",
+          "affiliation": ""
+        },
+        {
+          "name": "Dongsheng Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yin Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Deyu Meng",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Remote sensing image object detection (RSIOD) aims to identify and locate specific objects within satellite or aerial imagery. However, there is a scarcity of labeled data in current RSIOD datasets, which significantly limits the performance of current detection algorithms. Although existing techniques, e.g., data augmentation and semi-supervised learning, can mitigate this scarcity issue to some extent, they are heavily dependent on high-quality labeled data and perform worse in rare object classes. To address this issue, this paper proposes a layout-controllable diffusion generative model (i.e. AeroGen) tailored for RSIOD. To our knowledge, AeroGen is the first model to simultaneously support horizontal and rotated bounding box condition generation, thus enabling the generation of high-quality synthetic images that meet specific layout and object category requirements. Additionally, we propose an end-to-end data augmentation framework that integrates a diversity-conditioned generator and a filtering mechanism to enhance both the diversity and quality of generated data. Experimental results demonstrate that the synthetic data produced by our method are of high quality and diversity. Furthermore, the synthetic RSIOD data can significantly improve the detection performance of existing RSIOD models, i.e., the mAP metrics on DIOR, DIOR-R, and HRSC datasets are improved by 3.7%, 4.3%, and 2.43%, respectively. The code is available at https://github.com/Sonettoo/AeroGen.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2411.15497",
+      "url": "https://arxiv.org/abs/2411.15497",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2005.07866",
+      "title": "Byzantine-Resilient SGD in High Dimensions on Heterogeneous Data",
+      "authors": [
+        {
+          "name": "Deepesh Data",
+          "affiliation": ""
+        },
+        {
+          "name": "Suhas Diggavi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "We study distributed stochastic gradient descent (SGD) in the master-worker architecture under Byzantine attacks. We consider the heterogeneous data model, where different workers may have different local datasets, and we do not make any probabilistic assumptions on data generation. At the core of our algorithm, we use the polynomial-time outlier-filtering procedure for robust mean estimation proposed by Steinhardt et al. (ITCS 2018) to filter-out corrupt gradients. In order to be able to apply their filtering procedure in our {\\em heterogeneous} data setting where workers compute {\\em stochastic} gradients, we derive a new matrix concentration result, which may be of independent interest.\n  We provide convergence analyses for smooth strongly-convex and non-convex objectives. We derive our results under the bounded variance assumption on local stochastic gradients and a {\\em deterministic} condition on datasets, namely, gradient dissimilarity; and for both these quantities, we provide concrete bounds in the statistical heterogeneous data model. We give a trade-off between the mini-batch size for stochastic gradients and the approximation error. Our algorithm can tolerate up to $\\frac{1}{4}$ fraction Byzantine workers. It can find approximate optimal parameters in the strongly-convex setting exponentially fast and reach to an approximate stationary point in the non-convex setting with a linear speed, thus, matching the convergence rates of vanilla SGD in the Byzantine-free setting.\n  We also propose and analyze a Byzantine-resilient SGD algorithm with gradient compression, where workers send $k$ random coordinates of their gradients. Under mild conditions, we show a $\\frac{d}{k}$-factor saving in communication bits as well as decoding complexity over our compression-free algorithm without affecting its convergence rate (order-wise) and the approximation error.",
+      "venue": "stat.ML",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2005.07866",
+      "url": "https://arxiv.org/abs/2005.07866",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2107.05684",
+      "title": "Accenture at CheckThat! 2021: Interesting claim identification and ranking with contextually sensitive lexical training data augmentation",
+      "authors": [
+        {
+          "name": "Evan Williams",
+          "affiliation": ""
+        },
+        {
+          "name": "Paul Rodrigues",
+          "affiliation": ""
+        },
+        {
+          "name": "Sieu Tran",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "This paper discusses the approach used by the Accenture Team for CLEF2021 CheckThat! Lab, Task 1, to identify whether a claim made in social media would be interesting to a wide audience and should be fact-checked. Twitter training and test data were provided in English, Arabic, Spanish, Turkish, and Bulgarian. Claims were to be classified (check-worthy/not check-worthy) and ranked in priority order for the fact-checker. Our method used deep neural network transformer models with contextually sensitive lexical augmentation applied on the supplied training datasets to create additional training samples. This augmentation approach improved the performance for all languages. Overall, our architecture and data augmentation pipeline produced the best submitted system for Arabic, and performance scales according to the quantity of provided training data for English, Spanish, Turkish, and Bulgarian. This paper investigates the deep neural network architectures for each language as well as the provided data to examine why the approach worked so effectively for Arabic, and discusses additional data augmentation measures that should could be useful to this problem.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2107.05684",
+      "url": "https://arxiv.org/abs/2107.05684",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2312.04779",
+      "title": "Image Synthesis-based Late Stage Cancer Augmentation and Semi-Supervised Segmentation for MRI Rectal Cancer Staging",
+      "authors": [
+        {
+          "name": "Saeko Sasuga",
+          "affiliation": ""
+        },
+        {
+          "name": "Akira Kudo",
+          "affiliation": ""
+        },
+        {
+          "name": "Yoshiro Kitamura",
+          "affiliation": ""
+        },
+        {
+          "name": "Satoshi Iizuka",
+          "affiliation": ""
+        },
+        {
+          "name": "Edgar Simo-Serra",
+          "affiliation": ""
+        },
+        {
+          "name": "Atsushi Hamabe",
+          "affiliation": ""
+        },
+        {
+          "name": "Masayuki Ishii",
+          "affiliation": ""
+        },
+        {
+          "name": "Ichiro Takemasa",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Rectal cancer is one of the most common diseases and a major cause of mortality. For deciding rectal cancer treatment plans, T-staging is important. However, evaluating the index from preoperative MRI images requires high radiologists' skill and experience. Therefore, the aim of this study is to segment the mesorectum, rectum, and rectal cancer region so that the system can predict T-stage from segmentation results. Generally, shortage of large and diverse dataset and high quality annotation are known to be the bottlenecks in computer aided diagnostics development. Regarding rectal cancer, advanced cancer images are very rare, and per-pixel annotation requires high radiologists' skill and time. Therefore, it is not feasible to collect comprehensive disease patterns in a training dataset. To tackle this, we propose two kinds of approaches of image synthesis-based late stage cancer augmentation and semi-supervised learning which is designed for T-stage prediction. In the image synthesis data augmentation approach, we generated advanced cancer images from labels. The real cancer labels were deformed to resemble advanced cancer labels by artificial cancer progress simulation. Next, we introduce a T-staging loss which enables us to train segmentation models from per-image T-stage labels. The loss works to keep inclusion/invasion relationships between rectum and cancer region consistent to the ground truth T-stage. The verification tests show that the proposed method obtains the best sensitivity (0.76) and specificity (0.80) in distinguishing between over T3 stage and underT2. In the ablation studies, our semi-supervised learning approach with the T-staging loss improved specificity by 0.13. Adding the image synthesis-based data augmentation improved the DICE score of invasion cancer area by 0.08 from baseline.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2312.04779",
+      "url": "https://arxiv.org/abs/2312.04779",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2212.00479",
+      "title": "Noisy Label Classification using Label Noise Selection with Test-Time Augmentation Cross-Entropy and NoiseMix Learning",
+      "authors": [
+        {
+          "name": "Hansang Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Haeil Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Helen Hong",
+          "affiliation": ""
+        },
+        {
+          "name": "Junmo Kim",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "As the size of the dataset used in deep learning tasks increases, the noisy label problem, which is a task of making deep learning robust to the incorrectly labeled data, has become an important task. In this paper, we propose a method of learning noisy label data using the label noise selection with test-time augmentation (TTA) cross-entropy and classifier learning with the NoiseMix method. In the label noise selection, we propose TTA cross-entropy by measuring the cross-entropy to predict the test-time augmented training data. In the classifier learning, we propose the NoiseMix method based on MixUp and BalancedMix methods by mixing the samples from the noisy and the clean label data. In experiments on the ISIC-18 public skin lesion diagnosis dataset, the proposed TTA cross-entropy outperformed the conventional cross-entropy and the TTA uncertainty in detecting label noise data in the label noise selection process. Moreover, the proposed NoiseMix not only outperformed the state-of-the-art methods in the classification performance but also showed the most robustness to the label noise in the classifier learning.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1007/978-3-031-17027-0_8",
+      "arxiv_id": "2212.00479",
+      "url": "https://arxiv.org/abs/2212.00479",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2506.16243",
+      "title": "Synthetic ALS-EEG Data Augmentation for ALS Diagnosis Using Conditional WGAN with Weight Clipping",
+      "authors": [
+        {
+          "name": "Abdulvahap Mutlu",
+          "affiliation": ""
+        },
+        {
+          "name": "\u015eeng\u00fcl Do\u011fan",
+          "affiliation": ""
+        },
+        {
+          "name": "T\u00fcrker Tuncer",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Amyotrophic Lateral Sclerosis (ALS) is a rare neurodegenerative disease, and high-quality EEG data from ALS patients are scarce. This data scarcity, coupled with severe class imbalance between ALS and healthy control recordings, poses a challenge for training reliable machine learning classifiers. In this work, we address these issues by generating synthetic EEG signals for ALS patients using a Conditional Wasserstein Generative Adversarial Network (CWGAN). We train CWGAN on a private EEG dataset (ALS vs. non-ALS) to learn the distribution of ALS EEG signals and produce realistic synthetic samples. We preprocess and normalize EEG recordings, and train a CWGAN model to generate synthetic ALS signals. The CWGAN architecture and training routine are detailed, with key hyperparameters chosen for stable training. Qualitative evaluation of generated signals shows that they closely mimic real ALS EEG patterns. The CWGAN training converged with generator and discriminator loss curves stabilizing, indicating successful learning. The synthetic EEG signals appear realistic and have potential use as augmented data for training classifiers, helping to mitigate class imbalance and improve ALS detection accuracy. We discuss how this approach can facilitate data sharing and enhance diagnostic models.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2506.16243",
+      "url": "https://arxiv.org/abs/2506.16243",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2305.14669",
+      "title": "NegVSR: Augmenting Negatives for Generalized Noise Modeling in Real-World Video Super-Resolution",
+      "authors": [
+        {
+          "name": "Yexing Song",
+          "affiliation": ""
+        },
+        {
+          "name": "Meilin Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhijing Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaoyu Xian",
+          "affiliation": ""
+        },
+        {
+          "name": "Yukai Shi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "The capability of video super-resolution (VSR) to synthesize high-resolution (HR) video from ideal datasets has been demonstrated in many works. However, applying the VSR model to real-world video with unknown and complex degradation remains a challenging task. First, existing degradation metrics in most VSR methods are not able to effectively simulate real-world noise and blur. On the contrary, simple combinations of classical degradation are used for real-world noise modeling, which led to the VSR model often being violated by out-of-distribution noise. Second, many SR models focus on noise simulation and transfer. Nevertheless, the sampled noise is monotonous and limited. To address the aforementioned problems, we propose a Negatives augmentation strategy for generalized noise modeling in Video Super-Resolution (NegVSR) task. Specifically, we first propose sequential noise generation toward real-world data to extract practical noise sequences. Then, the degeneration domain is widely expanded by negative augmentation to build up various yet challenging real-world noise sets. We further propose the augmented negative guidance loss to learn robust features among augmented negatives effectively. Extensive experiments on real-world datasets (e.g., VideoLQ and FLIR) show that our method outperforms state-of-the-art methods with clear margins, especially in visual quality. Project page is available at: https://negvsr.github.io/.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2305.14669",
+      "url": "https://arxiv.org/abs/2305.14669",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2508.16615",
+      "title": "Augmentation Technologies and AI - An Ethical Design Futures Framework",
+      "authors": [
+        {
+          "name": "Ann Hill Duin",
+          "affiliation": ""
+        },
+        {
+          "name": "Isabel Pedersen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Augmentation technologies, fueled by Artificial Intelligence (AI), are undergoing a process of adaptation and normalization geared to everyday users in various roles as practitioners, educators, and students. While new innovations, applications, and algorithms are developed as augmentation technology, Chapter 1 focuses on human subjects, contexts, and rhetorical strategies proposed for them by external actors. The chapter discusses core functions of technical and professional communication and provides rationale for positioning technical and professional communicators (TPCs) to understand augmentation technologies and AI as a means to design ethical futures across this work. An overview of Augmentation Technologies and AI- An Ethical Design Futures Framework serves as a guide for reframing professional practice and pedagogy to promote digital and AI literacy surrounding the ethical design, adoption, and adaptation of augmentation technologies. The chapter concludes with an overview of the remaining chapters in this book.",
+      "venue": "cs.CY",
+      "citation_count": 0,
+      "doi": "10.4324/9781003288008",
+      "arxiv_id": "2508.16615",
+      "url": "https://arxiv.org/abs/2508.16615",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2508.14932",
+      "title": "TOM: An Open-Source Tongue Segmentation Method with Multi-Teacher Distillation and Task-Specific Data Augmentation",
+      "authors": [
+        {
+          "name": "Jiacheng Xie",
+          "affiliation": ""
+        },
+        {
+          "name": "Ziyang Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Biplab Poudel",
+          "affiliation": ""
+        },
+        {
+          "name": "Congyu Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Guanghui An",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaoting Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Lening Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Chunhui Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Dong Xu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Tongue imaging serves as a valuable diagnostic tool, particularly in Traditional Chinese Medicine (TCM). The quality of tongue surface segmentation significantly affects the accuracy of tongue image classification and subsequent diagnosis in intelligent tongue diagnosis systems. However, existing research on tongue image segmentation faces notable limitations, and there is a lack of robust and user-friendly segmentation tools. This paper proposes a tongue image segmentation model (TOM) based on multi-teacher knowledge distillation. By incorporating a novel diffusion-based data augmentation method, we enhanced the generalization ability of the segmentation model while reducing its parameter size. Notably, after reducing the parameter count by 96.6% compared to the teacher models, the student model still achieves an impressive segmentation performance of 95.22% mIoU. Furthermore, we packaged and deployed the trained model as both an online and offline segmentation tool (available at https://itongue.cn/), allowing TCM practitioners and researchers to use it without any programming experience. We also present a case study on TCM constitution classification using segmented tongue patches. Experimental results demonstrate that training with tongue patches yields higher classification performance and better interpretability than original tongue images. To our knowledge, this is the first open-source and freely available tongue image segmentation tool.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2508.14932",
+      "url": "https://arxiv.org/abs/2508.14932",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2508.04725",
+      "title": "Agency, Affordances, and Enculturation of Augmentation Technologies",
+      "authors": [
+        {
+          "name": "Ann Hill Duin",
+          "affiliation": ""
+        },
+        {
+          "name": "Isabel Pedersen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Augmentation technologies are undergoing a process of enculturation due to many factors, one being the rise of artificial intelligence (AI), or what the World Intellectual Property Organization (WIPO) terms the AI wave or AI boom. Chapter 3 focuses critical attention on the hyped assumption that sophisticated, emergent, and embodied augmentation technologies will improve lives, literacy, cultures, arts, economies, and social contexts. The chapter begins by discussing the problem of ambiguity with AI terminology, which it aids with a description of the WIPO Categorization of AI Technologies Scheme. It then draws on media and communication studies to explore concepts such as agents, agency, power, and agentive relationships between humans and robots. The chapter focuses on the development of non-human agents in industry as a critical factor in the rise of augmentation technologies. It looks at how marketing communication enculturates future users to adopt and adapt to the technology. Scholars are charting the significant ways that people are drawn further into commercial digital landscapes, such as the Metaverse concept, in post-internet society. It concludes by examining recent claims concerning the Metaverse and augmented reality.",
+      "venue": "cs.CY",
+      "citation_count": 0,
+      "doi": "10.4324/9781003288008",
+      "arxiv_id": "2508.04725",
+      "url": "https://arxiv.org/abs/2508.04725",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2204.08853",
+      "title": "Core Box Image Recognition and its Improvement with a New Augmentation Technique",
+      "authors": [
+        {
+          "name": "E. E. Baraboshkin",
+          "affiliation": ""
+        },
+        {
+          "name": "A. E. Demidov",
+          "affiliation": ""
+        },
+        {
+          "name": "D. M. Orlov",
+          "affiliation": ""
+        },
+        {
+          "name": "D. A. Koroteev",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Most methods for automated full-bore rock core image analysis (description, colour, properties distribution, etc.) are based on separate core column analyses. The core is usually imaged in a box because of the significant amount of time taken to get an image for each core column. The work presents an innovative method and algorithm for core columns extraction from core boxes. The conditions for core boxes imaging may differ tremendously. Such differences are disastrous for machine learning algorithms which need a large dataset describing all possible data variations. Still, such images have some standard features - a box and core. Thus, we can emulate different environments with a unique augmentation described in this work. It is called template-like augmentation (TLA). The method is described and tested on various environments, and results are compared on an algorithm trained on both 'traditional' data and a mix of traditional and TLA data. The algorithm trained with TLA data provides better metrics and can detect core on most new images, unlike the algorithm trained on data without TLA. The algorithm for core column extraction implemented in an automated core description system speeds up the core box processing by a factor of 20.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1016/j.cageo.2022.105099",
+      "arxiv_id": "2204.08853",
+      "url": "https://arxiv.org/abs/2204.08853",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2103.12595",
+      "title": "An augmentation strategy to mimic multi-scanner variability in MRI",
+      "authors": [
+        {
+          "name": "Maria Ines Meyer",
+          "affiliation": ""
+        },
+        {
+          "name": "Ezequiel de la Rosa",
+          "affiliation": ""
+        },
+        {
+          "name": "Nuno Barros",
+          "affiliation": ""
+        },
+        {
+          "name": "Roberto Paolella",
+          "affiliation": ""
+        },
+        {
+          "name": "Koen Van Leemput",
+          "affiliation": ""
+        },
+        {
+          "name": "Diana M. Sima",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Most publicly available brain MRI datasets are very homogeneous in terms of scanner and protocols, and it is difficult for models that learn from such data to generalize to multi-center and multi-scanner data. We propose a novel data augmentation approach with the aim of approximating the variability in terms of intensities and contrasts present in real world clinical data. We use a Gaussian Mixture Model based approach to change tissue intensities individually, producing new contrasts while preserving anatomical information. We train a deep learning model on a single scanner dataset and evaluate it on a multi-center and multi-scanner dataset. The proposed approach improves the generalization capability of the model to other scanners not present in the training data.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2103.12595",
+      "url": "https://arxiv.org/abs/2103.12595",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2010.16064",
+      "title": "A 20 Gbps Data Transmitting ASIC with PAM4 for Particle Physics Experiments",
+      "authors": [
+        {
+          "name": "Li Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Datao Gong",
+          "affiliation": ""
+        },
+        {
+          "name": "Suen Hou",
+          "affiliation": ""
+        },
+        {
+          "name": "Guanming Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xing Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chonghan Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Tiankuan Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hanhan Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Quan Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiangming Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Wei Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jingbo Ye",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "We present the design principle and test results of a data transmitting ASIC, GBS20, for particle physics experiments. The goal of GBS20 will be an ASIC that employs two serializers each from the 10.24 Gbps lpGBT SerDes, sharing the PLL also from lpGBT. A PAM4 encoder plus a VCSEL driver will be implemented in the same die to use the same clock system, eliminating the need of CDRs in the PAM4 encoder. This way the transmitter module, GBT20, developed using the GBS20 ASIC, will have the exact lpGBT data interface and transmission protocol, with an output up to 20.48 Gbps over one fiber. With PAM4 embedded FPGAs at the receiving end, GBT20 will halve the fibers needed in a system and better use the input bandwidth of the FPGA. A prototype, GBS20v0 is fabricated using a commercial 65 nm CMOS technology. This prototype has two serializers and a PAM4 encoder sharing the lpGBT PLL, but no user data input. An internal PRBS generator provides data to the serializers. GBS20v0 is tested barely up to 20.48 Gbps. With lessons learned from this prototype, we are designing the second prototype, GBS20v1, that will have 16 user data input channels each at 1.28 Gbps. We present the design concept of the GBS20 ASIC and the GBT20 module, the preliminary test results, and lessons learned from GBS20v0 and the design of GBS20v1 which will be not only a test chip but also a user chip with 16 input data channels.",
+      "venue": "physics.ins-det",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2010.16064",
+      "url": "https://arxiv.org/abs/2010.16064",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2006.16925",
+      "title": "Ethical Analysis on the Application of Neurotechnology for Human Augmentation in Physicians and Surgeons",
+      "authors": [
+        {
+          "name": "Soaad Hossain",
+          "affiliation": ""
+        },
+        {
+          "name": "Syed Ishtiaque Ahmed",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "With the shortage of physicians and surgeons and increase in demand worldwide due to situations such as the COVID-19 pandemic, there is a growing interest in finding solutions to help address the problem. A solution to this problem would be to use neurotechnology to provide them augmented cognition, senses and action for optimal diagnosis and treatment. Consequently, doing so can negatively impact them and others. We argue that applying neurotechnology for human enhancement in physicians and surgeons can cause injustices, and harm to them and patients. In this paper, we will first describe the augmentations and neurotechnologies that can be used to achieve the relevant augmentations for physicians and surgeons. We will then review selected ethical concerns discussed within literature, discuss the neuroengineering behind using neurotechnology for augmentation purposes, then conclude with an analysis on outcomes and ethical issues of implementing human augmentation via neurotechnology in medical and surgical practice.",
+      "venue": "cs.CY",
+      "citation_count": 0,
+      "doi": "10.1007/978-3-030-63092-8_6",
+      "arxiv_id": "2006.16925",
+      "url": "https://arxiv.org/abs/2006.16925",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2404.10890",
+      "title": "Exploring Augmentation and Cognitive Strategies for AI based Synthetic Personae",
+      "authors": [
+        {
+          "name": "Rafael Arias Gonzalez",
+          "affiliation": ""
+        },
+        {
+          "name": "Steve DiPaola",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Large language models (LLMs) hold potential for innovative HCI research, including the creation of synthetic personae. However, their black-box nature and propensity for hallucinations pose challenges. To address these limitations, this position paper advocates for using LLMs as data augmentation systems rather than zero-shot generators. We further propose the development of robust cognitive and memory frameworks to guide LLM responses. Initial explorations suggest that data enrichment, episodic memory, and self-reflection techniques can improve the reliability of synthetic personae and open up new avenues for HCI research.",
+      "venue": "cs.AI",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2404.10890",
+      "url": "https://arxiv.org/abs/2404.10890",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2111.03450",
+      "title": "Flow-augmentation I: Directed graphs",
+      "authors": [
+        {
+          "name": "Eun Jung Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Stefan Kratsch",
+          "affiliation": ""
+        },
+        {
+          "name": "Marcin Pilipczuk",
+          "affiliation": ""
+        },
+        {
+          "name": "Magnus Wahlstr\u00f6m",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "We show a flow-augmentation algorithm in directed graphs: There exists a randomized polynomial-time algorithm that, given a directed graph $G$, two vertices $s,t \\in V(G)$, and an integer $k$, adds (randomly) to $G$ a number of arcs such that for every minimal $st$-cut $Z$ in $G$ of size at most $k$, with probability $2^{-\\mathrm{poly}(k)}$ the set $Z$ becomes a minimum $st$-cut in the resulting graph. We also provide a deterministic counterpart of this procedure.\n  The directed flow-augmentation tool allows us to prove fixed-parameter tractability of a number of problems parameterized by the cardinality of the deletion set, whose parameterized complexity status was repeatedly posed as open problems: (1) Chain SAT, defined by Chitnis, Egri, and Marx [ESA'13, Algorithmica'17], (2) a number of weighted variants of classic directed cut problems, such as Weighted $st$-Cut} or Weighted Directed Feedback Vertex Set. By proving that Chain SAT is FPT, we confirm a conjecture of Chitnis, Egri, and Marx that, for any graph $H$, if the List $H$-Coloring problem is polynomial-time solvable, then the corresponding vertex-deletion problem is fixed-parameter tractable.",
+      "venue": "cs.DS",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2111.03450",
+      "url": "https://arxiv.org/abs/2111.03450",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2205.02886",
+      "title": "Data Augmentation for Manipulation",
+      "authors": [
+        {
+          "name": "Peter Mitrano",
+          "affiliation": ""
+        },
+        {
+          "name": "Dmitry Berenson",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "The success of deep learning depends heavily on the availability of large datasets, but in robotic manipulation there are many learning problems for which such datasets do not exist. Collecting these datasets is time-consuming and expensive, and therefore learning from small datasets is an important open problem. Within computer vision, a common approach to a lack of data is data augmentation. Data augmentation is the process of creating additional training examples by modifying existing ones. However, because the types of tasks and data differ, the methods used in computer vision cannot be easily adapted to manipulation. Therefore, we propose a data augmentation method for robotic manipulation. We argue that augmentations should be valid, relevant, and diverse. We use these principles to formalize augmentation as an optimization problem, with the objective function derived from physics and knowledge of the manipulation domain. This method applies rigid body transformations to trajectories of geometric state and action data. We test our method in two scenarios: 1) learning the dynamics of planar pushing of rigid cylinders, and 2) learning a constraint checker for rope manipulation. These two scenarios have different data and label types, yet in both scenarios, training on our augmented data significantly improves performance on downstream tasks. We also show how our augmentation method can be used on real-robot data to enable more data-efficient online learning.",
+      "venue": "cs.RO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2205.02886",
+      "url": "https://arxiv.org/abs/2205.02886",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2209.05913",
+      "title": "Dual-Scale Single Image Dehazing Via Neural Augmentation",
+      "authors": [
+        {
+          "name": "Zhengguo Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Chaobing Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Haiyan Shu",
+          "affiliation": ""
+        },
+        {
+          "name": "Shiqian Wu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Model-based single image dehazing algorithms restore haze-free images with sharp edges and rich details for real-world hazy images at the expense of low PSNR and SSIM values for synthetic hazy images. Data-driven ones restore haze-free images with high PSNR and SSIM values for synthetic hazy images but with low contrast, and even some remaining haze for real world hazy images. In this paper, a novel single image dehazing algorithm is introduced by combining model-based and data-driven approaches. Both transmission map and atmospheric light are first estimated by the model-based methods, and then refined by dual-scale generative adversarial networks (GANs) based approaches. The resultant algorithm forms a neural augmentation which converges very fast while the corresponding data-driven approach might not converge. Haze-free images are restored by using the estimated transmission map and atmospheric light as well as the Koschmiederlaw. Experimental results indicate that the proposed algorithm can remove haze well from real-world and synthetic hazy images.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1109/TIP.2022.3207571",
+      "arxiv_id": "2209.05913",
+      "url": "https://arxiv.org/abs/2209.05913",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2206.05790",
+      "title": "Data Augmentation for Intent Classification",
+      "authors": [
+        {
+          "name": "Derek Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Claire Yin",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Training accurate intent classifiers requires labeled data, which can be costly to obtain. Data augmentation methods may ameliorate this issue, but the quality of the generated data varies significantly across techniques. We study the process of systematically producing pseudo-labeled data given a small seed set using a wide variety of data augmentation techniques, including mixing methods together. We find that while certain methods dramatically improve qualitative and quantitative performance, other methods have minimal or even negative impact. We also analyze key considerations when implementing data augmentation methods in production.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2206.05790",
+      "url": "https://arxiv.org/abs/2206.05790",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2401.15422",
+      "title": "A Survey on Data Augmentation in Large Model Era",
+      "authors": [
+        {
+          "name": "Yue Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Chenlu Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Xu Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi Chang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuan Wu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Large models, encompassing large language and diffusion models, have shown exceptional promise in approximating human-level intelligence, garnering significant interest from both academic and industrial spheres. However, the training of these large models necessitates vast quantities of high-quality data, and with continuous updates to these models, the existing reservoir of high-quality data may soon be depleted. This challenge has catalyzed a surge in research focused on data augmentation methods. Leveraging large models, these data augmentation techniques have outperformed traditional approaches. This paper offers an exhaustive review of large model-driven data augmentation methods, adopting a comprehensive perspective. We begin by establishing a classification of relevant studies into three main categories: image augmentation, text augmentation, and paired data augmentation. Following this, we delve into various data post-processing techniques pertinent to large model-based data augmentation. Our discussion then expands to encompass the array of applications for these data augmentation methods within natural language processing, computer vision, and audio signal processing. We proceed to evaluate the successes and limitations of large model-based data augmentation across different scenarios. Concluding our review, we highlight prospective challenges and avenues for future exploration in the field of data augmentation. Our objective is to furnish researchers with critical insights, ultimately contributing to the advancement of more sophisticated large models. We consistently maintain the related open-source materials at: https://github.com/MLGroup-JLU/LLM-data-aug-survey.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2401.15422",
+      "url": "https://arxiv.org/abs/2401.15422",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

@@ -1,0 +1,3392 @@
+{
+  "query": "[World Model] Adaptive multi-reference comparison",
+  "source": "openalex",
+  "limit": 40,
+  "timestamp": 1774290621.9505138,
+  "papers": [
+    {
+      "paper_id": "oalex-W4292543266",
+      "title": "Unsupervised domain adaptation for global urban extraction using Sentinel-1 SAR and Sentinel-2 MSI data",
+      "authors": [
+        {
+          "name": "Sebastian H\u00e4fner",
+          "affiliation": "KTH Royal Institute of Technology"
+        },
+        {
+          "name": "Yifang Ban",
+          "affiliation": "KTH Royal Institute of Technology"
+        },
+        {
+          "name": "Andrea Nascetti",
+          "affiliation": "KTH Royal Institute of Technology"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Accurate and up-to-date maps of built-up areas are crucial to support sustainable urban development. Earth Observation (EO) is a valuable data source to cover this demand. In particular, Sentinel-1 Synthetic Aperture Radar (SAR) and Sentinel-2 MultiSpectral Instrument (MSI) missions offer new opportunities to map built-up areas on a global scale. Using Sentinel-2 images, recent urban mapping efforts achieved promising results by training Convolutional Neural Networks (CNNs) on available built-up data. However, these results strongly depend on the availability of local reference data for fully supervised training or assume that the application of CNNs to unseen areas (i.e. across-region generalization) produces satisfactory results. To alleviate these shortcomings, it is desirable to leverage Semi-Supervised Learning (SSL) algorithms that can take advantage of unlabeled data, especially because satellite data is plentiful. In this paper, we propose a novel Domain Adaptation (DA) approach using SSL that jointly exploits Sentinel-1 SAR and Sentinel-2 MSI to improve across-region generalization for built-up area mapping. Specifically, two identical sub-networks are incorporated into the proposed model to perform built-up area segmentation from SAR and optical images separately. Assuming that consistent built-up area segmentation should be obtained across data modality, we design an unsupervised loss for unlabeled data that penalizes inconsistent segmentation from the two sub-networks. Therefore, we propose to use complementary data modalities as real-world perturbations for consistency regularization. For the final prediction, the model takes both data modalities into account. Experiments conducted on a test set comprised of sixty representative sites across the world showed that the proposed DA approach achieves strong improvements (F1 score 0.694) over fully supervised learning from Sentinel-1 SAR data (F1 score 0.574), Sentinel-2 MSI data (F1 score 0.580) and their input-level fusion (F1 score 0.651). To demonstrate the effectiveness of DA, we also performed a comparison with two state-of-the-art products, namely GHS-BUILT-S2 and WSF 2019, on the test set. The comparison showed that our model is capable of producing built-up area maps with comparable or even better quality than the state-of-the-art global human settlement maps. Therefore, the multi-modal DA offers great potential to be adapted to produce easily updateable human settlements maps at a global scale.",
+      "venue": "Remote Sensing of Environment",
+      "citation_count": 68,
+      "doi": "10.1016/j.rse.2022.113192",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.rse.2022.113192",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3123893780",
+      "title": "PRISMA 2020 explanation and elaboration: updated guidance and exemplars for reporting systematic reviews",
+      "authors": [
+        {
+          "name": "Matthew J. Page",
+          "affiliation": "Monash University"
+        },
+        {
+          "name": "David Moher",
+          "affiliation": "University of Ottawa"
+        },
+        {
+          "name": "Patrick M. Bossuyt",
+          "affiliation": "University of Amsterdam"
+        },
+        {
+          "name": "Isabelle Boutron",
+          "affiliation": "Universit\u00e9 Paris Cit\u00e9"
+        },
+        {
+          "name": "Tammy Hoffmann",
+          "affiliation": "Bond University"
+        },
+        {
+          "name": "Cynthia D. Mulrow",
+          "affiliation": "Academy of Medicine"
+        },
+        {
+          "name": "Larissa Shamseer",
+          "affiliation": "University of Ottawa"
+        },
+        {
+          "name": "Jennifer Tetzlaff",
+          "affiliation": ""
+        },
+        {
+          "name": "Elie A. Akl",
+          "affiliation": "American University of Beirut"
+        },
+        {
+          "name": "Sue Brennan",
+          "affiliation": "Monash University"
+        },
+        {
+          "name": "Roger Chou",
+          "affiliation": "Oregon Health & Science University"
+        },
+        {
+          "name": "Julie Glanville",
+          "affiliation": "University of York"
+        },
+        {
+          "name": "Jeremy Grimshaw",
+          "affiliation": "University of Ottawa"
+        },
+        {
+          "name": "Asbj\u00f8rn Hr\u00f3bjartsson",
+          "affiliation": "Odense University Hospital"
+        },
+        {
+          "name": "Manoj M. Lalu",
+          "affiliation": "Ottawa Hospital Research Institute"
+        },
+        {
+          "name": "Tianjing Li",
+          "affiliation": "University of Colorado Denver"
+        },
+        {
+          "name": "Elizabeth Loder",
+          "affiliation": "Brigham and Women's Hospital"
+        },
+        {
+          "name": "Evan Mayo\u2010Wilson",
+          "affiliation": "Indiana University Bloomington"
+        },
+        {
+          "name": "Steve McDonald",
+          "affiliation": "Monash University"
+        },
+        {
+          "name": "Luke A. McGuinness",
+          "affiliation": "University of Bristol"
+        },
+        {
+          "name": "Lesley Stewart",
+          "affiliation": "University of York"
+        },
+        {
+          "name": "James Thomas",
+          "affiliation": "University College London"
+        },
+        {
+          "name": "Andrea C. Tricco",
+          "affiliation": "Queen's University"
+        },
+        {
+          "name": "Vivian Welch",
+          "affiliation": "University of Ottawa"
+        },
+        {
+          "name": "Penny Whiting",
+          "affiliation": "University of Bristol"
+        },
+        {
+          "name": "Joanne E. McKenzie",
+          "affiliation": "Monash University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "The PRISMA 2020 statement includes a checklist of 27 items to guide reporting of systematic reviews In this article we explain why reporting of each item is recommended, present bullet points that detail the reporting recommendations, and present examples from published reviews We hope that uptake of the PRISMA 2020 statement will lead to more transparent, complete, and accurate reporting of systematic reviews, thus facilitating evidence based decision making on 1 September",
+      "venue": "BMJ",
+      "citation_count": 10250,
+      "doi": "10.1136/bmj.n160",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1136/bmj.n160",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3140854437",
+      "title": "Review of deep learning: concepts, CNN architectures, challenges, applications, future directions",
+      "authors": [
+        {
+          "name": "Laith Alzubaidi",
+          "affiliation": "Queensland University of Technology"
+        },
+        {
+          "name": "Jinglan Zhang",
+          "affiliation": "Queensland University of Technology"
+        },
+        {
+          "name": "Amjad J. Humaidi",
+          "affiliation": "University of Technology - Iraq"
+        },
+        {
+          "name": "Ayad Q. Al-Dujaili",
+          "affiliation": "Middle Technical University"
+        },
+        {
+          "name": "Ye Duan",
+          "affiliation": "University of Missouri"
+        },
+        {
+          "name": "Omran Al-Shamma",
+          "affiliation": "University of Information Technology and Communications"
+        },
+        {
+          "name": "Jos\u00e9 Santamar\u00eda",
+          "affiliation": "Universidad de Ja\u00e9n"
+        },
+        {
+          "name": "Mohammed A. Fadhel",
+          "affiliation": "Thi Qar University"
+        },
+        {
+          "name": "Muthana Al\u2010Amidie",
+          "affiliation": "University of Missouri"
+        },
+        {
+          "name": "Laith Farhan",
+          "affiliation": "Manchester Metropolitan University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "In the last few years, the deep learning (DL) computing paradigm has been deemed the Gold Standard in the machine learning (ML) community. Moreover, it has gradually become the most widely used computational approach in the field of ML, thus achieving outstanding results on several complex cognitive tasks, matching or even beating those provided by human performance. One of the benefits of DL is the ability to learn massive amounts of data. The DL field has grown fast in the last few years and it has been extensively used to successfully address a wide range of traditional applications. More importantly, DL has outperformed well-known ML techniques in many domains, e.g., cybersecurity, natural language processing, bioinformatics, robotics and control, and medical information processing, among many others. Despite it has been contributed several works reviewing the State-of-the-Art on DL, all of them only tackled one aspect of the DL, which leads to an overall lack of knowledge about it. Therefore, in this contribution, we propose using a more holistic approach in order to provide a more suitable starting point from which to develop a full understanding of DL. Specifically, this review attempts to provide a more comprehensive survey of the most important aspects of DL and including those enhancements recently added to the field. In particular, this paper outlines the importance of DL, presents the types of DL techniques and networks. It then presents convolutional neural networks (CNNs) which the most utilized DL network type and describes the development of CNNs architectures together with their main features, e.g., starting with the AlexNet network and closing with the High-Resolution network (HR.Net). Finally, we further present the challenges and suggested solutions to help researchers understand the existing research gaps. It is followed by a list of the major DL applications. Computational tools including FPGA, GPU, and CPU are summarized along with a description of their influence on DL. The paper ends with the evolution matrix, benchmark datasets, and summary and conclusion.",
+      "venue": "Journal Of Big Data",
+      "citation_count": 7159,
+      "doi": "10.1186/s40537-021-00444-8",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1186/s40537-021-00444-8",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3135028703",
+      "title": "Machine Learning: Algorithms, Real-World Applications and Research Directions",
+      "authors": [
+        {
+          "name": "Iqbal H. Sarker",
+          "affiliation": "Swinburne University of Technology"
+        }
+      ],
+      "year": 2021,
+      "abstract": "",
+      "venue": "SN Computer Science",
+      "citation_count": 4817,
+      "doi": "10.1007/s42979-021-00592-x",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s42979-021-00592-x",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2995022099",
+      "title": "Advances and Open Problems in Federated Learning",
+      "authors": [
+        {
+          "name": "Peter Kairouz",
+          "affiliation": ""
+        },
+        {
+          "name": "H. Brendan McMahan",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Brendan Avent",
+          "affiliation": ""
+        },
+        {
+          "name": "Aur\u00e9lien Bellet",
+          "affiliation": ""
+        },
+        {
+          "name": "Mehdi Bennis",
+          "affiliation": ""
+        },
+        {
+          "name": "Arjun Nitin Bhagoji",
+          "affiliation": ""
+        },
+        {
+          "name": "Kallista Bonawitz",
+          "affiliation": ""
+        },
+        {
+          "name": "Zachary Charles",
+          "affiliation": ""
+        },
+        {
+          "name": "Graham Cormode",
+          "affiliation": ""
+        },
+        {
+          "name": "Rachel Cummings",
+          "affiliation": ""
+        },
+        {
+          "name": "Rafael G. L. D\u2019Oliveira",
+          "affiliation": ""
+        },
+        {
+          "name": "Hubert Eichner",
+          "affiliation": ""
+        },
+        {
+          "name": "Salim El Rouayheb",
+          "affiliation": ""
+        },
+        {
+          "name": "David Evans",
+          "affiliation": ""
+        },
+        {
+          "name": "Joshua Gardner",
+          "affiliation": ""
+        },
+        {
+          "name": "Zachary Garrett",
+          "affiliation": ""
+        },
+        {
+          "name": "Adri\u00e0 Gasc\u00f3n",
+          "affiliation": ""
+        },
+        {
+          "name": "Badih Ghazi",
+          "affiliation": ""
+        },
+        {
+          "name": "Phillip B. Gibbons",
+          "affiliation": ""
+        },
+        {
+          "name": "Marco Gruteser",
+          "affiliation": ""
+        },
+        {
+          "name": "Za\u00efd Harchaoui",
+          "affiliation": ""
+        },
+        {
+          "name": "Chaoyang He",
+          "affiliation": ""
+        },
+        {
+          "name": "Lingxiao He",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhouyuan Huo",
+          "affiliation": ""
+        },
+        {
+          "name": "Ben Hutchinson",
+          "affiliation": ""
+        },
+        {
+          "name": "Justin Hsu",
+          "affiliation": ""
+        },
+        {
+          "name": "Martin Jaggi",
+          "affiliation": ""
+        },
+        {
+          "name": "Tara Javidi",
+          "affiliation": ""
+        },
+        {
+          "name": "Gauri Joshi",
+          "affiliation": ""
+        },
+        {
+          "name": "Mikhail Khodak",
+          "affiliation": ""
+        },
+        {
+          "name": "Jakub Kone\u010dn\u00fd",
+          "affiliation": ""
+        },
+        {
+          "name": "Aleksandra Korolova",
+          "affiliation": ""
+        },
+        {
+          "name": "Farinaz Koushanfar",
+          "affiliation": ""
+        },
+        {
+          "name": "Sanmi Koyejo",
+          "affiliation": ""
+        },
+        {
+          "name": "Tancr\u00e8de Lepoint",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Prateek Mittal",
+          "affiliation": ""
+        },
+        {
+          "name": "Mehryar Mohri",
+          "affiliation": ""
+        },
+        {
+          "name": "Richard Nock",
+          "affiliation": ""
+        },
+        {
+          "name": "Ayfer \u00d6zg\u00fcr",
+          "affiliation": ""
+        },
+        {
+          "name": "Rasmus Pagh",
+          "affiliation": ""
+        },
+        {
+          "name": "Mariana Raykova",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniel Ramage",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniel Ramage",
+          "affiliation": ""
+        },
+        {
+          "name": "Ramesh Raskar",
+          "affiliation": ""
+        },
+        {
+          "name": "Dawn Song",
+          "affiliation": ""
+        },
+        {
+          "name": "Weikang Song",
+          "affiliation": ""
+        },
+        {
+          "name": "Sebastian U. Stich",
+          "affiliation": ""
+        },
+        {
+          "name": "Ziteng Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Ajith Suresh",
+          "affiliation": ""
+        },
+        {
+          "name": "Florian Tram\u00e8r",
+          "affiliation": ""
+        },
+        {
+          "name": "Praneeth Vepakomma",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianyu Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Li Xiong",
+          "affiliation": ""
+        },
+        {
+          "name": "Zheng Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Qiang Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Felix X. Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Han Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Sen Zhao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Federated learning (FL) is a machine learning setting where many clients (e.g., mobile devices or whole organizations) collaboratively train a model under the orchestration of a central server (e.g., service provider), while keeping the training data decentralized. FL embodies the principles of focused data collection and minimization, and can mitigate many of the systemic privacy risks and costs resulting from traditional, centralized machine learning and data science approaches. Motivated by the explosive growth in FL research, this monograph discusses recent advances and presents an extensive collection of open problems and challenges.",
+      "venue": "Foundations and Trends\u00ae in Machine Learning",
+      "citation_count": 4332,
+      "doi": "10.1561/2200000083",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1561/2200000083",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3094704314",
+      "title": "A review on genetic algorithm: past, present, and future",
+      "authors": [
+        {
+          "name": "Sourabh Katoch",
+          "affiliation": "National Institute of Technology Hamirpur"
+        },
+        {
+          "name": "Sumit Singh Chauhan",
+          "affiliation": "National Institute of Technology Hamirpur"
+        },
+        {
+          "name": "Vijay Kumar",
+          "affiliation": "National Institute of Technology Hamirpur"
+        }
+      ],
+      "year": 2020,
+      "abstract": "",
+      "venue": "Multimedia Tools and Applications",
+      "citation_count": 4246,
+      "doi": "10.1007/s11042-020-10139-6",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s11042-020-10139-6",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3046275966",
+      "title": "Dementia prevention, intervention, and care: 2020 report of the Lancet Commission",
+      "authors": [
+        {
+          "name": "Gill Livingston",
+          "affiliation": "University College London"
+        },
+        {
+          "name": "Jonathan Huntley",
+          "affiliation": "University College London"
+        },
+        {
+          "name": "Andrew Sommerlad",
+          "affiliation": "Camden and Islington NHS Foundation Trust"
+        },
+        {
+          "name": "David Ames",
+          "affiliation": "University of Melbourne"
+        },
+        {
+          "name": "Clive Ballard",
+          "affiliation": "University of Exeter"
+        },
+        {
+          "name": "Sube Banerjee",
+          "affiliation": "University of Plymouth"
+        },
+        {
+          "name": "Carol Brayne",
+          "affiliation": "University of Cambridge"
+        },
+        {
+          "name": "Alistair Burns",
+          "affiliation": "University of Manchester"
+        },
+        {
+          "name": "Jiska Cohen\u2010Mansfield",
+          "affiliation": "Tel Aviv University"
+        },
+        {
+          "name": "Claudia Cooper",
+          "affiliation": "Camden and Islington NHS Foundation Trust"
+        },
+        {
+          "name": "Sergi G. Costafreda",
+          "affiliation": "University College London"
+        },
+        {
+          "name": "Amit Dias",
+          "affiliation": "Goa Medical College"
+        },
+        {
+          "name": "Nick C. Fox",
+          "affiliation": "University College London Hospitals NHS Foundation Trust"
+        },
+        {
+          "name": "Laura N. Gitlin",
+          "affiliation": "Johns Hopkins University"
+        },
+        {
+          "name": "Robert Howard",
+          "affiliation": "Camden and Islington NHS Foundation Trust"
+        },
+        {
+          "name": "Helen C. Kales",
+          "affiliation": "University of California, Davis"
+        },
+        {
+          "name": "Mika Kivim\u00e4ki",
+          "affiliation": "University College London"
+        },
+        {
+          "name": "Eric B. Larson",
+          "affiliation": "Kaiser Permanente Washington Health Research Institute"
+        },
+        {
+          "name": "Adesola Ogunniyi",
+          "affiliation": "University College Hospital, Ibadan"
+        },
+        {
+          "name": "Vasiliki Orgeta",
+          "affiliation": "University College London"
+        },
+        {
+          "name": "Karen Ritchie",
+          "affiliation": "Inserm"
+        },
+        {
+          "name": "Kenneth Rockwood",
+          "affiliation": "Dalhousie University"
+        },
+        {
+          "name": "Elizabeth L Sampson",
+          "affiliation": "University College London"
+        },
+        {
+          "name": "Quincy M. Samus",
+          "affiliation": "Johns Hopkins University"
+        },
+        {
+          "name": "Lon S. Schneider",
+          "affiliation": "University of Southern California"
+        },
+        {
+          "name": "Geir Selb\u00e6k",
+          "affiliation": "Oslo University Hospital"
+        },
+        {
+          "name": "Linda Teri",
+          "affiliation": "University of Washington"
+        },
+        {
+          "name": "Naaheed Mukadam",
+          "affiliation": "University College London"
+        }
+      ],
+      "year": 2020,
+      "abstract": "",
+      "venue": "The Lancet",
+      "citation_count": 9800,
+      "doi": "10.1016/s0140-6736(20)30367-6",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/s0140-6736(20)30367-6",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3015391807",
+      "title": "The IntCal20 Northern Hemisphere Radiocarbon Age Calibration Curve (0\u201355 cal kBP)",
+      "authors": [
+        {
+          "name": "Paula Reimer",
+          "affiliation": "Queen's University Belfast"
+        },
+        {
+          "name": "William E. N. Austin",
+          "affiliation": "University of St Andrews"
+        },
+        {
+          "name": "\u00c9douard Bard",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Alex Bayliss",
+          "affiliation": "Historic England"
+        },
+        {
+          "name": "Paul G. Blackwell",
+          "affiliation": "University of Sheffield"
+        },
+        {
+          "name": "Christopher Bronk Ramsey",
+          "affiliation": "University of Oxford"
+        },
+        {
+          "name": "Martin Butzin",
+          "affiliation": "Alfred-Wegener-Institut Helmholtz-Zentrum f\u00fcr Polar- und Meeresforschung"
+        },
+        {
+          "name": "Hai Cheng",
+          "affiliation": "University of Minnesota"
+        },
+        {
+          "name": "R. Lawrence Edwards",
+          "affiliation": "University of Minnesota"
+        },
+        {
+          "name": "Michael Friedrich",
+          "affiliation": "University of Hohenheim"
+        },
+        {
+          "name": "Pieter Meiert Grootes",
+          "affiliation": "Christian-Albrechts-Universit\u00e4t zu Kiel"
+        },
+        {
+          "name": "T. P. Guilderson",
+          "affiliation": "Lawrence Livermore National Laboratory"
+        },
+        {
+          "name": "Irka Hajdas",
+          "affiliation": ""
+        },
+        {
+          "name": "Timothy Heaton",
+          "affiliation": "University of Sheffield"
+        },
+        {
+          "name": "Alan Hogg",
+          "affiliation": "University of Waikato"
+        },
+        {
+          "name": "Konrad A Hughen",
+          "affiliation": "Woods Hole Oceanographic Institution"
+        },
+        {
+          "name": "Bernd Kromer",
+          "affiliation": "Heidelberg University"
+        },
+        {
+          "name": "Sturt W. Manning",
+          "affiliation": "Cornell University"
+        },
+        {
+          "name": "Raimund Muscheler",
+          "affiliation": "Lund University"
+        },
+        {
+          "name": "Jonathan Palmer",
+          "affiliation": "UNSW Sydney"
+        },
+        {
+          "name": "Charlotte Pearson",
+          "affiliation": "University of Arizona"
+        },
+        {
+          "name": "J. van der Plicht",
+          "affiliation": "University of Groningen"
+        },
+        {
+          "name": "Ron Reimer",
+          "affiliation": "Queen's University Belfast"
+        },
+        {
+          "name": "David A. Richards",
+          "affiliation": "University of Bristol"
+        },
+        {
+          "name": "E. M. Scott",
+          "affiliation": "University of Glasgow"
+        },
+        {
+          "name": "John Southon",
+          "affiliation": "University of California, Irvine"
+        },
+        {
+          "name": "Chris Turney",
+          "affiliation": "UNSW Sydney"
+        },
+        {
+          "name": "Lukas Wacker",
+          "affiliation": ""
+        },
+        {
+          "name": "Florian Adolphi",
+          "affiliation": "University of Bern"
+        },
+        {
+          "name": "Ulf B\u00fcntgen",
+          "affiliation": "Masaryk University"
+        },
+        {
+          "name": "Manuela Capano",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Simon Fahrni",
+          "affiliation": "University of California, Irvine"
+        },
+        {
+          "name": "Alexandra Fogtmann-Schulz",
+          "affiliation": "Aarhus University"
+        },
+        {
+          "name": "Ronny Friedrich",
+          "affiliation": "Curt Engelhorn Centre Archaeometry"
+        },
+        {
+          "name": "Peter K\u00f6hler",
+          "affiliation": "Alfred-Wegener-Institut Helmholtz-Zentrum f\u00fcr Polar- und Meeresforschung"
+        },
+        {
+          "name": "Sabrina G K Kudsk",
+          "affiliation": "Aarhus University"
+        },
+        {
+          "name": "Fusa Miyake",
+          "affiliation": "Nagoya University"
+        },
+        {
+          "name": "Jesper Olsen",
+          "affiliation": "Aarhus University"
+        },
+        {
+          "name": "Frederick Reinig",
+          "affiliation": "Swiss Federal Institute for Forest, Snow and Landscape Research"
+        },
+        {
+          "name": "Minoru Sakamoto",
+          "affiliation": "National Museum of Japanese History"
+        },
+        {
+          "name": "Adam Sookdeo",
+          "affiliation": "UNSW Sydney"
+        },
+        {
+          "name": "Sahra Talamo",
+          "affiliation": "University of Bologna"
+        }
+      ],
+      "year": 2020,
+      "abstract": "ABSTRACT Radiocarbon ( 14 C) ages cannot provide absolutely dated chronologies for archaeological or paleoenvironmental studies directly but must be converted to calendar age equivalents using a calibration curve compensating for fluctuations in atmospheric 14 C concentration. Although calibration curves are constructed from independently dated archives, they invariably require revision as new data become available and our understanding of the Earth system improves. In this volume the international 14 C calibration curves for both the Northern and Southern Hemispheres, as well as for the ocean surface layer, have been updated to include a wealth of new data and extended to 55,000 cal BP. Based on tree rings, IntCal20 now extends as a fully atmospheric record to ca. 13,900 cal BP. For the older part of the timescale, IntCal20 comprises statistically integrated evidence from floating tree-ring chronologies, lacustrine and marine sediments, speleothems, and corals. We utilized improved evaluation of the timescales and location variable 14 C offsets from the atmosphere (reservoir age, dead carbon fraction) for each dataset. New statistical methods have refined the structure of the calibration curves while maintaining a robust treatment of uncertainties in the 14 C ages, the calendar ages and other corrections. The inclusion of modeled marine reservoir ages derived from a three-dimensional ocean circulation model has allowed us to apply more appropriate reservoir corrections to the marine 14 C data rather than the previous use of constant regional offsets from the atmosphere. Here we provide an overview of the new and revised datasets and the associated methods used for the construction of the IntCal20 curve and explore potential regional offsets for tree-ring data. We discuss the main differences with respect to the previous calibration curve, IntCal13, and some of the implications for archaeology and geosciences ranging from the recent past to the time of the extinction of the Neanderthals.",
+      "venue": "Radiocarbon",
+      "citation_count": 7155,
+      "doi": "10.1017/rdc.2020.41",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1017/rdc.2020.41",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3168436232",
+      "title": "AutoDock Vina 1.2.0: New Docking Methods, Expanded Force Field, and Python Bindings",
+      "authors": [
+        {
+          "name": "J\u00e9r\u00f4me Eberhardt",
+          "affiliation": "Scripps Institution of Oceanography"
+        },
+        {
+          "name": "Diogo Santos\u2010Martins",
+          "affiliation": "Scripps Institution of Oceanography"
+        },
+        {
+          "name": "Andreas F. Tillack",
+          "affiliation": "Scripps Institution of Oceanography"
+        },
+        {
+          "name": "Stefano Forli",
+          "affiliation": "Scripps Institution of Oceanography"
+        }
+      ],
+      "year": 2021,
+      "abstract": "AutoDock Vina is arguably one of the fastest and most widely used open-source programs for molecular docking. However, compared to other programs in the AutoDock Suite, it lacks support for modeling specific features such as macrocycles or explicit water molecules. Here, we describe the implementation of these functionality in AutoDock Vina 1.2.0. Additionally, AutoDock Vina 1.2.0 supports the AutoDock4.2 scoring function, simultaneous docking of multiple ligands, and a batch mode for docking a large number of ligands. Furthermore, we implemented Python bindings to facilitate scripting and the development of docking workflows. This work is an effort toward the unification of the features of the AutoDock4 and AutoDock Vina programs. The source code is available at https://github.com/ccsb-scripps/AutoDock-Vina",
+      "venue": "Journal of Chemical Information and Modeling",
+      "citation_count": 5969,
+      "doi": "10.1021/acs.jcim.1c00203",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1021/acs.jcim.1c00203",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4220655782",
+      "title": "Discovery and quantification of plastic particle pollution in human blood",
+      "authors": [
+        {
+          "name": "H.A. Leslie",
+          "affiliation": "Vrije Universiteit Amsterdam"
+        },
+        {
+          "name": "Martin J. M. van Velzen",
+          "affiliation": "Vrije Universiteit Amsterdam"
+        },
+        {
+          "name": "Sicco H. Brandsma",
+          "affiliation": "Vrije Universiteit Amsterdam"
+        },
+        {
+          "name": "D. Vethaak",
+          "affiliation": "Deltares"
+        },
+        {
+          "name": "Juan J. Garc\u00eda\u2010Vallejo",
+          "affiliation": "Amsterdam University Medical Centers"
+        },
+        {
+          "name": "M.H. Lamoree",
+          "affiliation": "Vrije Universiteit Amsterdam"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Plastic particles are ubiquitous pollutants in the living environment and food chain but no study to date has reported on the internal exposure of plastic particles in human blood. This study's goal was to develop a robust and sensitive sampling and analytical method with double shot pyrolysis - gas chromatography/mass spectrometry and apply it to measure plastic particles \u2265700 nm in human whole blood from 22 healthy volunteers. Four high production volume polymers applied in plastic were identified and quantified for the first time in blood. Polyethylene terephthalate, polyethylene and polymers of styrene (a sum parameter of polystyrene, expanded polystyrene, acetonitrile butadiene styrene etc.) were the most widely encountered, followed by poly(methyl methacrylate). Polypropylene was analysed but values were under the limits of quantification. In this study of a small set of donors, the mean of the sum quantifiable concentration of plastic particles in blood was 1.6 \u00b5g/ml, showing a first measurement of the mass concentration of the polymeric component of plastic in human blood. This pioneering human biomonitoring study demonstrated that plastic particles are bioavailable for uptake into the human bloodstream. An understanding of the exposure of these substances in humans and the associated hazard of such exposure is needed to determine whether or not plastic particle exposure is a public health risk.",
+      "venue": "Environment International",
+      "citation_count": 3305,
+      "doi": "10.1016/j.envint.2022.107199",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.envint.2022.107199",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4322718191",
+      "title": "LLaMA: Open and Efficient Foundation Language Models",
+      "authors": [
+        {
+          "name": "Hugo Touvron",
+          "affiliation": ""
+        },
+        {
+          "name": "Thibaut Lavril",
+          "affiliation": ""
+        },
+        {
+          "name": "Gautier Izacard",
+          "affiliation": ""
+        },
+        {
+          "name": "Xavier Martinet",
+          "affiliation": ""
+        },
+        {
+          "name": "Marie-Anne Lachaux",
+          "affiliation": ""
+        },
+        {
+          "name": "Timoth\u00e9e Lacroix",
+          "affiliation": ""
+        },
+        {
+          "name": "Baptiste Rozi\u00e8re",
+          "affiliation": ""
+        },
+        {
+          "name": "Naman Goyal",
+          "affiliation": ""
+        },
+        {
+          "name": "Eric Hambro",
+          "affiliation": ""
+        },
+        {
+          "name": "Faisal Azhar",
+          "affiliation": ""
+        },
+        {
+          "name": "Aurelien Rodriguez",
+          "affiliation": ""
+        },
+        {
+          "name": "Armand Joulin",
+          "affiliation": ""
+        },
+        {
+          "name": "\u00c9douard Grave",
+          "affiliation": ""
+        },
+        {
+          "name": "Guillaume Lample",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We introduce LLaMA, a collection of foundation language models ranging from 7B to 65B parameters. We train our models on trillions of tokens, and show that it is possible to train state-of-the-art models using publicly available datasets exclusively, without resorting to proprietary and inaccessible datasets. In particular, LLaMA-13B outperforms GPT-3 (175B) on most benchmarks, and LLaMA-65B is competitive with the best models, Chinchilla-70B and PaLM-540B. We release all our models to the research community.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 3844,
+      "doi": "10.48550/arxiv.2302.13971",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2302.13971",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4384071683",
+      "title": "Large language models encode clinical knowledge",
+      "authors": [
+        {
+          "name": "Karan Singhal",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Shekoofeh Azizi",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Tao Tu",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "S. Sara Mahdavi",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Jason Lee",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Hyung Won Chung",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Nathan Scales",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Ajay Kumar Tanwani",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Heather Cole-Lewis",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Stephen Pfohl",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Perry W. Payne",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Martin Seneviratne",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Paul Gamble",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Christopher Kelly",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Abubakr Babiker",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Nathanael Sch\u00e4rli",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Aakanksha Chowdhery",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "P. Mansfield",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Dina Demner\u2010Fushman",
+          "affiliation": "United States National Library of Medicine"
+        },
+        {
+          "name": "Blaise Ag\u00fcera y Arcas",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Dale R. Webster",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Greg S. Corrado",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Yossi Matias",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Katherine Chou",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Juraj Gottweis",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Nenad Toma\u0161ev",
+          "affiliation": "DeepMind (United Kingdom)"
+        },
+        {
+          "name": "Yun Liu",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Alvin Rajkomar",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Jo\u00eblle Barral",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Christopher Semturs",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Alan Karthikesalingam",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Vivek Natarajan",
+          "affiliation": "Google (United States)"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Large language models (LLMs) have demonstrated impressive capabilities, but the bar for clinical applications is high. Attempts to assess the clinical knowledge of models typically rely on automated evaluations based on limited benchmarks. Here, to address these limitations, we present MultiMedQA, a benchmark combining six existing medical question answering datasets spanning professional medicine, research and consumer queries and a new dataset of medical questions searched online, HealthSearchQA. We propose a human evaluation framework for model answers along multiple axes including factuality, comprehension, reasoning, possible harm and bias. In addition, we evaluate Pathways Language Model<sup>1</sup> (PaLM, a 540-billion parameter LLM) and its instruction-tuned variant, Flan-PaLM<sup>2</sup> on MultiMedQA. Using a combination of prompting strategies, Flan-PaLM achieves state-of-the-art accuracy on every MultiMedQA multiple-choice dataset (MedQA<sup>3</sup>, MedMCQA<sup>4</sup>, PubMedQA<sup>5</sup> and Measuring Massive Multitask Language Understanding (MMLU) clinical topics<sup>6</sup>), including 67.6% accuracy on MedQA (US Medical Licensing Exam-style questions), surpassing the prior state of the art by more than 17%. However, human evaluation reveals key gaps. To resolve this, we introduce instruction prompt tuning, a parameter-efficient approach for aligning LLMs to new domains using a few exemplars. The resulting model, Med-PaLM, performs encouragingly, but remains inferior to clinicians. We show that comprehension, knowledge recall and reasoning improve with model scale and instruction prompt tuning, suggesting the potential utility of LLMs in medicine. Our human evaluations reveal limitations of today's models, reinforcing the importance of both evaluation frameworks and method development in creating safe, helpful LLMs for clinical applications.",
+      "venue": "Nature",
+      "citation_count": 2742,
+      "doi": "10.1038/s41586-023-06291-2",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41586-023-06291-2",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3023211159",
+      "title": "A comprehensive survey on support vector machine classification: Applications, challenges and trends",
+      "authors": [
+        {
+          "name": "Jair Cervantes",
+          "affiliation": "Universidad Aut\u00f3noma del Estado de M\u00e9xico"
+        },
+        {
+          "name": "Farid Garc\u00eda\u2010Lamont",
+          "affiliation": "Universidad Aut\u00f3noma del Estado de M\u00e9xico"
+        },
+        {
+          "name": "Lisbeth Rodr\u00edguez-Mazahua",
+          "affiliation": "Instituto Tecnologico de Orizaba"
+        },
+        {
+          "name": "Asdr\u00fabal L\u00f3pez\u2010Chau",
+          "affiliation": "Universidad Aut\u00f3noma del Estado de M\u00e9xico"
+        }
+      ],
+      "year": 2020,
+      "abstract": "",
+      "venue": "Neurocomputing",
+      "citation_count": 2175,
+      "doi": "10.1016/j.neucom.2019.10.118",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.neucom.2019.10.118",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3043971245",
+      "title": "ORB-SLAM3: An Accurate Open-Source Library for Visual, Visual\u2013Inertial, and Multimap SLAM",
+      "authors": [
+        {
+          "name": "Carlos Campos",
+          "affiliation": "Universidad de Zaragoza"
+        },
+        {
+          "name": "Richard Elvira",
+          "affiliation": "Universidad de Zaragoza"
+        },
+        {
+          "name": "Juan J. Gomez Rodriguez",
+          "affiliation": "Universidad de Zaragoza"
+        },
+        {
+          "name": "Jose M. M. Montiel",
+          "affiliation": "Universidad de Zaragoza"
+        },
+        {
+          "name": "Juan D. Tardos",
+          "affiliation": "Universidad de Zaragoza"
+        }
+      ],
+      "year": 2021,
+      "abstract": "This article presents ORB-SLAM3, the first system able to perform visual, visual-inertial and multimap SLAM with monocular, stereo and RGB-D cameras, using pin-hole and fisheye lens models. The first main novelty is a tightly integrated visual-inertial SLAM system that fully relies on maximum <italic xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">a posteriori</i> (MAP) estimation, even during IMU initialization, resulting in real-time robust operation in small and large, indoor and outdoor environments, being two to ten times more accurate than previous approaches. The second main novelty is a multiple map system relying on a new place recognition method with improved recall that lets ORB-SLAM3 survive to long periods of poor visual information: when it gets lost, it starts a new map that will be seamlessly merged with previous maps when revisiting them. Compared with visual odometry systems that only use information from the last few seconds, ORB-SLAM3 is the first system able to reuse in all the algorithm stages all previous information from high parallax co-visible keyframes, even if they are widely separated in time or come from previous mapping sessions, boosting accuracy. Our experiments show that, in all sensor configurations, ORB-SLAM3 is as robust as the best systems available in the literature and significantly more accurate. Notably, our stereo-inertial SLAM achieves an average accuracy of 3.5 cm in the EuRoC drone and 9 mm under quick hand-held motions in the room of TUM-VI dataset, representative of AR/VR scenarios. For the benefit of the community we make public the source code.",
+      "venue": "IEEE Transactions on Robotics",
+      "citation_count": 3595,
+      "doi": "10.1109/tro.2021.3075644",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tro.2021.3075644",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4221151978",
+      "title": "Instant neural graphics primitives with a multiresolution hash encoding",
+      "authors": [
+        {
+          "name": "Thomas M\u00fcller",
+          "affiliation": ""
+        },
+        {
+          "name": "Alex Evans",
+          "affiliation": "Nvidia (United Kingdom)"
+        },
+        {
+          "name": "Christoph Schied",
+          "affiliation": ""
+        },
+        {
+          "name": "Alexander Keller",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Neural graphics primitives, parameterized by fully connected neural networks, can be costly to train and evaluate. We reduce this cost with a versatile new input encoding that permits the use of a smaller network without sacrificing quality, thus significantly reducing the number of floating point and memory access operations: a small neural network is augmented by a multiresolution hash table of trainable feature vectors whose values are optimized through stochastic gradient descent. The multiresolution structure allows the network to disambiguate hash collisions, making for a simple architecture that is trivial to parallelize on modern GPUs. We leverage this parallelism by implementing the whole system using fully-fused CUDA kernels with a focus on minimizing wasted bandwidth and compute operations. We achieve a combined speedup of several orders of magnitude, enabling training of high-quality neural graphics primitives in a matter of seconds, and rendering in tens of milliseconds at a resolution of 1920\u00d71080.",
+      "venue": "ACM Transactions on Graphics",
+      "citation_count": 3432,
+      "doi": "10.1145/3528223.3530127",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3528223.3530127",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3083241614",
+      "title": "Gut microbiota in human metabolic health and disease",
+      "authors": [
+        {
+          "name": "Yong Fan",
+          "affiliation": "University of Copenhagen"
+        },
+        {
+          "name": "Oluf Pedersen",
+          "affiliation": "Novo Nordisk Foundation"
+        }
+      ],
+      "year": 2020,
+      "abstract": "",
+      "venue": "Nature Reviews Microbiology",
+      "citation_count": 4333,
+      "doi": "10.1038/s41579-020-0433-9",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41579-020-0433-9",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3027308092",
+      "title": "CP2K: An electronic structure and molecular dynamics software package - Quickstep: Efficient and accurate electronic structure calculations",
+      "authors": [
+        {
+          "name": "Thomas D. K\u00fchne",
+          "affiliation": "Paderborn University"
+        },
+        {
+          "name": "Marcella Iannuzzi",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Mauro Del Ben",
+          "affiliation": "Lawrence Berkeley National Laboratory"
+        },
+        {
+          "name": "Vladimir V. Rybkin",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Patrick Seewald",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Frederick Stein",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Teodoro Laino",
+          "affiliation": "IBM Research - Zurich"
+        },
+        {
+          "name": "Rustam Z. Khaliullin",
+          "affiliation": "McGill University"
+        },
+        {
+          "name": "Ole Sch\u00fctt",
+          "affiliation": "ETH Zurich"
+        },
+        {
+          "name": "Florian Schiffmann",
+          "affiliation": "Victoria University"
+        },
+        {
+          "name": "Dorothea Golze",
+          "affiliation": "Aalto University"
+        },
+        {
+          "name": "Jan Wilhelm",
+          "affiliation": "University of Regensburg"
+        },
+        {
+          "name": "Sergey K. Chulkov",
+          "affiliation": "University of Lincoln"
+        },
+        {
+          "name": "Mohammad Hossein Bani-Hashemian",
+          "affiliation": "ETH Zurich"
+        },
+        {
+          "name": "Val\u00e9ry Weber",
+          "affiliation": "IBM Research - Zurich"
+        },
+        {
+          "name": "Urban Bor\u0161tnik",
+          "affiliation": "ETH Zurich"
+        },
+        {
+          "name": "Mathieu Taillefumier",
+          "affiliation": "CSCS - Swiss National Supercomputing Centre"
+        },
+        {
+          "name": "Alice Shoshana Jakobovits",
+          "affiliation": "ETH Zurich"
+        },
+        {
+          "name": "Alfio Lazzaro",
+          "affiliation": ""
+        },
+        {
+          "name": "Hans Pabst",
+          "affiliation": ""
+        },
+        {
+          "name": "Tiziano M\u00fcller",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Robert R. Schade",
+          "affiliation": "Paderborn University"
+        },
+        {
+          "name": "Manuel Guidon",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Samuel Andermatt",
+          "affiliation": "ETH Zurich"
+        },
+        {
+          "name": "Nico Holmberg",
+          "affiliation": "Aalto University"
+        },
+        {
+          "name": "Gregory K. Schenter",
+          "affiliation": "Pacific Northwest National Laboratory"
+        },
+        {
+          "name": "Anna Hehn",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Augustin Bussy",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Fabian Belleflamme",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Gloria Tabacchi",
+          "affiliation": "National Interuniversity Consortium of Materials Science and Technology"
+        },
+        {
+          "name": "Andreas Gl\u00f6\u00df",
+          "affiliation": "BASF (Germany)"
+        },
+        {
+          "name": "Michael Lass",
+          "affiliation": "Paderborn University"
+        },
+        {
+          "name": "Iain Bethune",
+          "affiliation": "Science and Technology Facilities Council"
+        },
+        {
+          "name": "Christopher J. Mundy",
+          "affiliation": "Pacific Northwest National Laboratory"
+        },
+        {
+          "name": "Christian Plessl",
+          "affiliation": "Paderborn University"
+        },
+        {
+          "name": "Matthew B. Watkins",
+          "affiliation": "University of Lincoln"
+        },
+        {
+          "name": "Joost VandeVondele",
+          "affiliation": "CSCS - Swiss National Supercomputing Centre"
+        },
+        {
+          "name": "Matthias Krack",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "J\u00fcrg Hutter",
+          "affiliation": "University of Zurich"
+        }
+      ],
+      "year": 2020,
+      "abstract": "CP2K is an open source electronic structure and molecular dynamics software package to perform atomistic simulations of solid-state, liquid, molecular, and biological systems. It is especially aimed at massively parallel and linear-scaling electronic structure methods and state-of-the-art ab initio molecular dynamics simulations. Excellent performance for electronic structure calculations is achieved using novel algorithms implemented for modern high-performance computing systems. This review revisits the main capabilities of CP2K to perform efficient and accurate electronic structure simulations. The emphasis is put on density functional theory and multiple post-Hartree-Fock methods using the Gaussian and plane wave approach and its augmented all-electron extension.",
+      "venue": "The Journal of Chemical Physics",
+      "citation_count": 3786,
+      "doi": "10.1063/5.0007045",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1063/5.0007045",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3021613070",
+      "title": "Pymoo: Multi-Objective Optimization in Python",
+      "authors": [
+        {
+          "name": "Julian Blank",
+          "affiliation": "Michigan State University"
+        },
+        {
+          "name": "Kalyanmoy Deb",
+          "affiliation": "Michigan State University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Python has become the programming language of choice for research and industry projects related to data science, machine learning, and deep learning. Since optimization is an inherent part of these research fields, more optimization related frameworks have arisen in the past few years. Only a few of them support optimization of multiple conflicting objectives at a time, but do not provide comprehensive tools for a complete multi-objective optimization task. To address this issue, we have developed pymoo, a multi-objective optimization framework in Python. We provide a guide to getting started with our framework by demonstrating the implementation of an exemplary constrained multi-objective optimization scenario. Moreover, we give a high-level overview of the architecture of pymoo to show its capabilities followed by an explanation of each module and its corresponding sub-modules. The implementations in our framework are customizable and algorithms can be modified/extended by supplying custom operators. Moreover, a variety of single, multi- and many-objective test problems are provided and gradients can be retrieved by automatic differentiation out of the box. Also, pymoo addresses practical needs, such as the parallelization of function evaluations, methods to visualize low and high-dimensional spaces, and tools for multi-criteria decision making. For more information about pymoo, readers are encouraged to visit: https://pymoo.org.",
+      "venue": "IEEE Access",
+      "citation_count": 1997,
+      "doi": "10.1109/access.2020.2990567",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/access.2020.2990567",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3012041784",
+      "title": "Characterising the Digital Twin: A systematic literature review",
+      "authors": [
+        {
+          "name": "David Jones",
+          "affiliation": "University of Bristol"
+        },
+        {
+          "name": "Chris Snider",
+          "affiliation": "University of Bristol"
+        },
+        {
+          "name": "Aydin Nassehi",
+          "affiliation": "University of Bristol"
+        },
+        {
+          "name": "Jason Yon",
+          "affiliation": "University of Bristol"
+        },
+        {
+          "name": "Ben Hicks",
+          "affiliation": "University of Bristol"
+        }
+      ],
+      "year": 2020,
+      "abstract": "While there has been a recent growth of interest in the Digital Twin, a variety of definitions employed across industry and academia remain. There is a need to consolidate research such to maintain a common understanding of the topic and ensure future research efforts are to be based on solid foundations. Through a systematic literature review and a thematic analysis of 92 Digital Twin publications from the last ten years, this paper provides a characterisation of the Digital Twin, identification of gaps in knowledge, and required areas of future research. In characterising the Digital Twin, the state of the concept, key terminology, and associated processes are identified, discussed, and consolidated to produce 13 characteristics (Physical Entity/Twin; Virtual Entity/Twin; Physical Environment; Virtual Environment; State; Realisation; Metrology; Twinning; Twinning Rate; Physical-to-Virtual Connection/Twinning; Virtual-to-Physical Connection/Twinning; Physical Processes; and Virtual Processes) and a complete framework of the Digital Twin and its process of operation. Following this characterisation, seven knowledge gaps and topics for future research focus are identified: Perceived Benefits; Digital Twin across the Product Life-Cycle; Use-Cases; Technical Implementations; Levels of Fidelity; Data Ownership; and Integration between Virtual Entities; each of which are required to realise the Digital Twin.",
+      "venue": "CIRP journal of manufacturing science and technology",
+      "citation_count": 2040,
+      "doi": "10.1016/j.cirpj.2020.02.002",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.cirpj.2020.02.002",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3194730353",
+      "title": "Deep Learning: A Comprehensive Overview on Techniques, Taxonomy, Applications and Research Directions",
+      "authors": [
+        {
+          "name": "Iqbal H. Sarker",
+          "affiliation": "Swinburne University of Technology"
+        }
+      ],
+      "year": 2021,
+      "abstract": "",
+      "venue": "SN Computer Science",
+      "citation_count": 2321,
+      "doi": "10.1007/s42979-021-00815-1",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s42979-021-00815-1",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3194620979",
+      "title": "Integrated Sensing and Communications: Toward Dual-Functional Wireless Networks for 6G and Beyond",
+      "authors": [
+        {
+          "name": "Fan Liu",
+          "affiliation": "Southern University of Science and Technology"
+        },
+        {
+          "name": "Yuanhao Cui",
+          "affiliation": "Beijing University of Posts and Telecommunications"
+        },
+        {
+          "name": "Christos Masouros",
+          "affiliation": "University College London"
+        },
+        {
+          "name": "Jie Xu",
+          "affiliation": "Chinese University of Hong Kong, Shenzhen"
+        },
+        {
+          "name": "Tony Xiao Han",
+          "affiliation": "Huawei Technologies (China)"
+        },
+        {
+          "name": "Yonina C. Eldar",
+          "affiliation": "Weizmann Institute of Science"
+        },
+        {
+          "name": "Stefano Buzzi",
+          "affiliation": "Consorzio Nazionale Interuniversitario per le Telecomunicazioni"
+        }
+      ],
+      "year": 2022,
+      "abstract": "As the standardization of 5G solidifies, researchers are speculating what 6G will be. The integration of sensing functionality is emerging as a key feature of the 6G Radio Access Network (RAN), allowing for the exploitation of dense cell infrastructures to construct a perceptive network. In this IEEE Journal on Selected Areas in Communications (JSAC) Special Issue overview, we provide a comprehensive review on the background, range of key applications and state-of-the-art approaches of Integrated Sensing and Communications (ISAC). We commence by discussing the interplay between sensing and communications (S&C) from a historical point of view, and then consider the multiple facets of ISAC and the resulting performance gains. By introducing both ongoing and potential use cases, we shed light on the industrial progress and standardization activities related to ISAC. We analyze a number of performance tradeoffs between S&C, spanning from information theoretical limits to physical layer performance tradeoffs, and the cross-layer design tradeoffs. Next, we discuss the signal processing aspects of ISAC, namely ISAC waveform design and receive signal processing. As a step further, we provide our vision on the deeper integration between S&C within the framework of perceptive networks, where the two functionalities are expected to mutually assist each other, i.e., via communication-assisted sensing and sensing-assisted communications. Finally, we identify the potential integration of ISAC with other emerging communication technologies, and their positive impacts on the future of wireless networks.",
+      "venue": "IEEE Journal on Selected Areas in Communications",
+      "citation_count": 2895,
+      "doi": "10.1109/jsac.2022.3156632",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/jsac.2022.3156632",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4385118605",
+      "title": "IPCC, 2023: Climate Change 2023: Synthesis Report. Contribution of Working Groups I, II and III to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change [Core Writing Team, H. Lee and J. Romero (eds.)]. IPCC, Geneva, Switzerland.",
+      "authors": [
+        {
+          "name": "Katherine Calvin",
+          "affiliation": ""
+        },
+        {
+          "name": "Dipak Dasgupta",
+          "affiliation": ""
+        },
+        {
+          "name": "Gerhard Krinner",
+          "affiliation": ""
+        },
+        {
+          "name": "Aditi Mukherji",
+          "affiliation": ""
+        },
+        {
+          "name": "Peter Thorne",
+          "affiliation": ""
+        },
+        {
+          "name": "Christopher H. Trisos",
+          "affiliation": ""
+        },
+        {
+          "name": "Jos\u00e9 Romero",
+          "affiliation": ""
+        },
+        {
+          "name": "Paulina Aldunce",
+          "affiliation": ""
+        },
+        {
+          "name": "Ko Barrett",
+          "affiliation": ""
+        },
+        {
+          "name": "Gabriel Blanco",
+          "affiliation": ""
+        },
+        {
+          "name": "William W. L. Cheung",
+          "affiliation": ""
+        },
+        {
+          "name": "Sarah Connors",
+          "affiliation": ""
+        },
+        {
+          "name": "Fatima Denton",
+          "affiliation": ""
+        },
+        {
+          "name": "A\u00efda Diongue\u2010Niang",
+          "affiliation": ""
+        },
+        {
+          "name": "David Dodman",
+          "affiliation": ""
+        },
+        {
+          "name": "Matthias Garschagen",
+          "affiliation": ""
+        },
+        {
+          "name": "Oliver Geden",
+          "affiliation": ""
+        },
+        {
+          "name": "Bronwyn Hayward",
+          "affiliation": ""
+        },
+        {
+          "name": "Chris Jones",
+          "affiliation": ""
+        },
+        {
+          "name": "Frank Jotzo",
+          "affiliation": ""
+        },
+        {
+          "name": "Thelma Krug",
+          "affiliation": ""
+        },
+        {
+          "name": "Rodel D. Lasco",
+          "affiliation": ""
+        },
+        {
+          "name": "Yune-Yi Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Val\u00e9rie Masson\u2010Delmotte",
+          "affiliation": ""
+        },
+        {
+          "name": "Malte Meinshausen",
+          "affiliation": ""
+        },
+        {
+          "name": "Katja Mintenbeck",
+          "affiliation": ""
+        },
+        {
+          "name": "Abdalah Mokssit",
+          "affiliation": ""
+        },
+        {
+          "name": "Friederike E. L. Otto",
+          "affiliation": ""
+        },
+        {
+          "name": "Minal Pathak",
+          "affiliation": ""
+        },
+        {
+          "name": "Anna Pirani",
+          "affiliation": ""
+        },
+        {
+          "name": "Elvira S. Poloczanska",
+          "affiliation": ""
+        },
+        {
+          "name": "Hans\u2010Otto P\u00f6rtner",
+          "affiliation": ""
+        },
+        {
+          "name": "Aromar Revi",
+          "affiliation": ""
+        },
+        {
+          "name": "Debra Roberts",
+          "affiliation": ""
+        },
+        {
+          "name": "Joyashree Roy",
+          "affiliation": ""
+        },
+        {
+          "name": "Alex C. Ruane",
+          "affiliation": ""
+        },
+        {
+          "name": "Jim Skea",
+          "affiliation": ""
+        },
+        {
+          "name": "P.R. Shukla",
+          "affiliation": ""
+        },
+        {
+          "name": "Raphael Slade",
+          "affiliation": ""
+        },
+        {
+          "name": "Aim\u00e9e B. A. Slangen",
+          "affiliation": ""
+        },
+        {
+          "name": "Youba Sokona",
+          "affiliation": ""
+        },
+        {
+          "name": "Anna A. S\u00f6rensson",
+          "affiliation": ""
+        },
+        {
+          "name": "Melinda Tignor",
+          "affiliation": ""
+        },
+        {
+          "name": "Detlef P. van Vuuren",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi\u2010Ming Wei",
+          "affiliation": ""
+        },
+        {
+          "name": "Harald Winkler",
+          "affiliation": ""
+        },
+        {
+          "name": "Panmao Zhai",
+          "affiliation": ""
+        },
+        {
+          "name": "Zinta Zommers",
+          "affiliation": ""
+        },
+        {
+          "name": "Jean-Charles Hourcade",
+          "affiliation": ""
+        },
+        {
+          "name": "Francis X. Johnson",
+          "affiliation": ""
+        },
+        {
+          "name": "Shonali Pachauri",
+          "affiliation": ""
+        },
+        {
+          "name": "Nicholas P. Simpson",
+          "affiliation": ""
+        },
+        {
+          "name": "Chandni Singh",
+          "affiliation": ""
+        },
+        {
+          "name": "Adelle Thomas",
+          "affiliation": ""
+        },
+        {
+          "name": "Edmond Totin",
+          "affiliation": ""
+        },
+        {
+          "name": "Andr\u00e9s Alegr\u00eda",
+          "affiliation": ""
+        },
+        {
+          "name": "Kyle C. Armour",
+          "affiliation": ""
+        },
+        {
+          "name": "Birgit Bednar\u2010Friedl",
+          "affiliation": ""
+        },
+        {
+          "name": "Kornelis Blok",
+          "affiliation": ""
+        },
+        {
+          "name": "Gu\u00e9ladio Ciss\u00e9",
+          "affiliation": ""
+        },
+        {
+          "name": "Frank Dentener",
+          "affiliation": ""
+        },
+        {
+          "name": "Siri Eriksen",
+          "affiliation": ""
+        },
+        {
+          "name": "Erich Fischer",
+          "affiliation": ""
+        },
+        {
+          "name": "Gregory G. Garner",
+          "affiliation": ""
+        },
+        {
+          "name": "C\u00e9line Guivarch",
+          "affiliation": ""
+        },
+        {
+          "name": "Marjolijn Haasnoot",
+          "affiliation": ""
+        },
+        {
+          "name": "Gerrit Hansen",
+          "affiliation": ""
+        },
+        {
+          "name": "Mathias Hauser",
+          "affiliation": ""
+        },
+        {
+          "name": "Ed Hawkins",
+          "affiliation": ""
+        },
+        {
+          "name": "Tim H. J. Hermans",
+          "affiliation": ""
+        },
+        {
+          "name": "Robert E. Kopp",
+          "affiliation": ""
+        },
+        {
+          "name": "No\u00ebmie Leprince-Ringuet",
+          "affiliation": ""
+        },
+        {
+          "name": "Jared Lewis",
+          "affiliation": ""
+        },
+        {
+          "name": "D\u00e9bora Ley",
+          "affiliation": ""
+        },
+        {
+          "name": "Chlo\u00e9 Ludden",
+          "affiliation": ""
+        },
+        {
+          "name": "Leila Niamir",
+          "affiliation": ""
+        },
+        {
+          "name": "Zebedee Nicholls",
+          "affiliation": ""
+        },
+        {
+          "name": "Shreya Some",
+          "affiliation": ""
+        },
+        {
+          "name": "Sophie Szopa",
+          "affiliation": ""
+        },
+        {
+          "name": "Blair Trewin",
+          "affiliation": ""
+        },
+        {
+          "name": "Kaj-Ivar van der Wijst",
+          "affiliation": ""
+        },
+        {
+          "name": "Gundula Winter",
+          "affiliation": ""
+        },
+        {
+          "name": "Maximilian Witting",
+          "affiliation": ""
+        },
+        {
+          "name": "Arlene Birt",
+          "affiliation": ""
+        },
+        {
+          "name": "Meeyoung Ha",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "The Synthesis Report (SYR) is a stand-alone synthesis of the most policy-relevant evidence from the scientific, technical, and socio-economic literature assessed in the Sixth Assessment Report (AR6) of the Intergovernmental Panel on Climate Change (IPCC). The SYR distils and integrates the main findings of the three reports of the Working Groups of the IPCC during the AR6, and the three AR6 Special Reports into a concise document. It consists of a Summary for Policymakers and a longer report.",
+      "venue": "",
+      "citation_count": 2719,
+      "doi": "10.59327/ipcc/ar6-9789291691647",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.59327/ipcc/ar6-9789291691647",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4294189863",
+      "title": "Current and future burden of breast cancer: Global statistics for 2020 and 2040",
+      "authors": [
+        {
+          "name": "Melina Arnold",
+          "affiliation": "Centre International de Recherche sur le Cancer"
+        },
+        {
+          "name": "Eileen Morgan",
+          "affiliation": "Centre International de Recherche sur le Cancer"
+        },
+        {
+          "name": "Harriet Rumgay",
+          "affiliation": "Centre International de Recherche sur le Cancer"
+        },
+        {
+          "name": "Allini Mafra da Costa",
+          "affiliation": "Centre International de Recherche sur le Cancer"
+        },
+        {
+          "name": "Deependra Singh",
+          "affiliation": "Centre International de Recherche sur le Cancer"
+        },
+        {
+          "name": "Mathieu Laversanne",
+          "affiliation": "Centre International de Recherche sur le Cancer"
+        },
+        {
+          "name": "J\u00e9r\u00f4me Vignat",
+          "affiliation": "Centre International de Recherche sur le Cancer"
+        },
+        {
+          "name": "Julie R. Gralow",
+          "affiliation": "American Society of Clinical Oncology"
+        },
+        {
+          "name": "F\u00e1tima Cardoso",
+          "affiliation": "Champalimaud Foundation"
+        },
+        {
+          "name": "Sabine Siesling",
+          "affiliation": "University of Twente"
+        },
+        {
+          "name": "Isabelle Soerjomataram",
+          "affiliation": "Centre International de Recherche sur le Cancer"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Breast cancer is the most common cancer worldwide and continues to have a large impact on the global number of cancer deaths. Global efforts are needed to counteract its growing burden, especially in transitioning countries where incidence is rising rapidly, and mortality rates remain high.",
+      "venue": "The Breast",
+      "citation_count": 2986,
+      "doi": "10.1016/j.breast.2022.08.010",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.breast.2022.08.010",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2998506103",
+      "title": "Applications of machine learning to machine fault diagnosis: A review and roadmap",
+      "authors": [
+        {
+          "name": "Yaguo Lei",
+          "affiliation": "Xi'an Jiaotong University"
+        },
+        {
+          "name": "Bin Yang",
+          "affiliation": "Xi'an Jiaotong University"
+        },
+        {
+          "name": "Xinwei Jiang",
+          "affiliation": "Xi'an Jiaotong University"
+        },
+        {
+          "name": "Feng Jia",
+          "affiliation": "Xi'an Jiaotong University"
+        },
+        {
+          "name": "Naipeng Li",
+          "affiliation": "Xi'an Jiaotong University"
+        },
+        {
+          "name": "Asoke K. Nandi",
+          "affiliation": "Brunel University of London"
+        }
+      ],
+      "year": 2020,
+      "abstract": "",
+      "venue": "Mechanical Systems and Signal Processing",
+      "citation_count": 2547,
+      "doi": "10.1016/j.ymssp.2019.106587",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.ymssp.2019.106587",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4307846395",
+      "title": "The updated Consolidated Framework for Implementation Research based on user feedback",
+      "authors": [
+        {
+          "name": "Laura J. Damschroder",
+          "affiliation": "VA Ann Arbor Healthcare System"
+        },
+        {
+          "name": "Caitlin M. Reardon",
+          "affiliation": "VA Ann Arbor Healthcare System"
+        },
+        {
+          "name": "Marilla A. Opra Widerquist",
+          "affiliation": "VA Ann Arbor Healthcare System"
+        },
+        {
+          "name": "Julie C. Lowery",
+          "affiliation": "VA Ann Arbor Healthcare System"
+        }
+      ],
+      "year": 2022,
+      "abstract": "The updates in the CFIR reflect feedback from a growing community of CFIR users. Although there are many updates, constructs can be mapped back to the original CFIR to ensure longitudinal consistency. We encourage users to continue critiquing the CFIR, facilitating the evolution of the framework as implementation science advances.",
+      "venue": "Implementation Science",
+      "citation_count": 3420,
+      "doi": "10.1186/s13012-022-01245-0",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1186/s13012-022-01245-0",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4322576964",
+      "title": "On the Road to 6G: Visions, Requirements, Key Technologies, and Testbeds",
+      "authors": [
+        {
+          "name": "Cheng\u2010Xiang Wang",
+          "affiliation": "Southeast University"
+        },
+        {
+          "name": "Xiaohu You",
+          "affiliation": "Southeast University"
+        },
+        {
+          "name": "Xiqi Gao",
+          "affiliation": "Purple Mountain Laboratories"
+        },
+        {
+          "name": "Xiuming Zhu",
+          "affiliation": "Purple Mountain Laboratories"
+        },
+        {
+          "name": "Zixin Li",
+          "affiliation": "Southeast University"
+        },
+        {
+          "name": "Chuan Zhang",
+          "affiliation": "Southeast University"
+        },
+        {
+          "name": "Haiming Wang",
+          "affiliation": "Purple Mountain Laboratories"
+        },
+        {
+          "name": "Yongming Huang",
+          "affiliation": "Southeast University"
+        },
+        {
+          "name": "Yunfei Chen",
+          "affiliation": "Durham University"
+        },
+        {
+          "name": "Harald Haas",
+          "affiliation": "University of Strathclyde"
+        },
+        {
+          "name": "John Thompson",
+          "affiliation": "University of Edinburgh"
+        },
+        {
+          "name": "Erik G. Larsson",
+          "affiliation": "Link\u00f6ping University"
+        },
+        {
+          "name": "Marco Di Renzo",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Wen Tong",
+          "affiliation": "Huawei Technologies (Canada)"
+        },
+        {
+          "name": "Peiying Zhu",
+          "affiliation": "Huawei Technologies (Canada)"
+        },
+        {
+          "name": "Xuemin Shen",
+          "affiliation": "University of Waterloo"
+        },
+        {
+          "name": "H. Vincent Poor",
+          "affiliation": "Princeton University"
+        },
+        {
+          "name": "Lajos Hanzo",
+          "affiliation": "University of Southampton"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Fifth generation (5G) mobile communication systems have entered the stage of commercial deployment, providing users with new services, improved user experiences as well as a host of novel opportunities to various industries. However, 5G still faces many challenges. To address these challenges, international industrial, academic, and standards organizations have commenced research on sixth generation (6G) wireless communication systems. A series of white papers and survey papers have been published, which aim to define 6G in terms of requirements, application scenarios, key technologies, etc. Although ITU-R has been working on the 6G vision and it is expected to reach a consensus on what 6G will be by mid-2023, the related global discussions are still wide open and the existing literature has identified numerous open issues. This paper first provides a comprehensive portrayal of the 6G vision, technical requirements, and application scenarios, covering the current common understanding of 6G. Then, a critical appraisal of the 6G network architecture and key technologies is presented. Furthermore, existing testbeds and advanced 6G verification platforms are detailed for the first time. In addition, future research directions and open challenges are identified to stimulate the on-going global debate. Finally, lessons learned to date concerning 6G networks are discussed.",
+      "venue": "IEEE Communications Surveys & Tutorials",
+      "citation_count": 1820,
+      "doi": "10.1109/comst.2023.3249835",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/comst.2023.3249835",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2982936646",
+      "title": "Digital Twin: Enabling Technologies, Challenges and Open Research",
+      "authors": [
+        {
+          "name": "Aidan Fuller",
+          "affiliation": "Keele University"
+        },
+        {
+          "name": "Zhong Fan",
+          "affiliation": "Keele University"
+        },
+        {
+          "name": "Charles Day",
+          "affiliation": "Keele University"
+        },
+        {
+          "name": "Chris Barlow",
+          "affiliation": "Risk Management Solutions (United Kingdom)"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Digital Twin technology is an emerging concept that has become the centre of attention for industry and, in more recent years, academia. The advancements in industry 4.0 concepts have facilitated its growth, particularly in the manufacturing industry. The Digital Twin is defined extensively but is best described as the effortless integration of data between a physical and virtual machine in either direction. The challenges, applications, and enabling technologies for Artificial Intelligence, Internet of Things (IoT) and Digital Twins are presented. A review of publications relating to Digital Twins is performed, producing a categorical review of recent papers. The review has categorised them by research areas: manufacturing, healthcare and smart cities, discussing a range of papers that reflect these areas and the current state of research. The paper provides an assessment of the enabling technologies, challenges and open research for Digital Twins.",
+      "venue": "IEEE Access",
+      "citation_count": 2253,
+      "doi": "10.1109/access.2020.2998358",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/access.2020.2998358",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2747680751",
+      "title": "Natural language processing: state of the art, current trends and challenges",
+      "authors": [
+        {
+          "name": "Diksha Khurana",
+          "affiliation": "Manav Rachna International Institute of Research and Studies"
+        },
+        {
+          "name": "Aditya Koli",
+          "affiliation": "Manav Rachna International Institute of Research and Studies"
+        },
+        {
+          "name": "Kiran Khatter",
+          "affiliation": "BML Munjal University"
+        },
+        {
+          "name": "Sukhdev Singh",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "",
+      "venue": "Multimedia Tools and Applications",
+      "citation_count": 1648,
+      "doi": "10.1007/s11042-022-13428-4",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s11042-022-13428-4",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2953303875",
+      "title": "A Survey of Autonomous Driving: <i>Common Practices and Emerging Technologies</i>",
+      "authors": [
+        {
+          "name": "Ekim Yurtsever",
+          "affiliation": "Nagoya University"
+        },
+        {
+          "name": "Jacob Lambert",
+          "affiliation": "Nagoya University"
+        },
+        {
+          "name": "Alexander Carballo",
+          "affiliation": "Nagoya University"
+        },
+        {
+          "name": "Kazuya Takeda",
+          "affiliation": "Nagoya University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Automated driving systems (ADSs) promise a safe, comfortable and efficient driving experience. However, fatalities involving vehicles equipped with ADSs are on the rise. The full potential of ADSs cannot be realized unless the robustness of state-of-the-art is improved further. This paper discusses unsolved problems and surveys the technical aspect of automated driving. Studies regarding present challenges, high-level system architectures, emerging methodologies and core functions including localization, mapping, perception, planning, and human machine interfaces, were thoroughly reviewed. Furthermore, many state-of-the-art algorithms were implemented and compared on our own platform in a real-world driving setting. The paper concludes with an overview of available datasets and tools for ADS development.",
+      "venue": "IEEE Access",
+      "citation_count": 1659,
+      "doi": "10.1109/access.2020.2983149",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/access.2020.2983149",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4288039037",
+      "title": "Scientific Machine Learning Through Physics\u2013Informed Neural Networks: Where we are and What\u2019s Next",
+      "authors": [
+        {
+          "name": "Salvatore Cuomo",
+          "affiliation": "University of Naples Federico II"
+        },
+        {
+          "name": "Vincenzo Schiano Di Cola",
+          "affiliation": "University of Naples Federico II"
+        },
+        {
+          "name": "Fabio Giampaolo",
+          "affiliation": "University of Naples Federico II"
+        },
+        {
+          "name": "Gianluigi Rozza",
+          "affiliation": "Scuola Internazionale Superiore di Studi Avanzati"
+        },
+        {
+          "name": "Maziar Raissi",
+          "affiliation": "University of Colorado Boulder"
+        },
+        {
+          "name": "Francesco Piccialli",
+          "affiliation": "University of Naples Federico II"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Abstract Physics-Informed Neural Networks (PINN) are neural networks (NNs) that encode model equations, like Partial Differential Equations (PDE), as a component of the neural network itself. PINNs are nowadays used to solve PDEs, fractional equations, integral-differential equations, and stochastic PDEs. This novel methodology has arisen as a multi-task learning framework in which a NN must fit observed data while reducing a PDE residual. This article provides a comprehensive review of the literature on PINNs: while the primary goal of the study was to characterize these networks and their related advantages and disadvantages. The review also attempts to incorporate publications on a broader range of collocation-based physics informed neural networks, which stars form the vanilla PINN, as well as many other variants, such as physics-constrained neural networks (PCNN), variational hp-VPINN, and conservative PINN (CPINN). The study indicates that most research has focused on customizing the PINN through different activation functions, gradient optimization techniques, neural network structures, and loss function structures. Despite the wide range of applications for which PINNs have been used, by demonstrating their ability to be more feasible in some contexts than classical numerical techniques like Finite Element Method (FEM), advancements are still possible, most notably theoretical issues that remain unresolved.",
+      "venue": "Journal of Scientific Computing",
+      "citation_count": 1997,
+      "doi": "10.1007/s10915-022-01939-z",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s10915-022-01939-z",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3039360174",
+      "title": "Cholangiocarcinoma 2020: the next horizon in mechanisms and management",
+      "authors": [
+        {
+          "name": "Jes\u00fas M. Ba\u00f1ales",
+          "affiliation": "Instituto de Salud Carlos III"
+        },
+        {
+          "name": "Jos\u00e9 J.G. Mar\u0131\u0301n",
+          "affiliation": "Instituto de Investigaci\u00f3n Biom\u00e9dica de Salamanca"
+        },
+        {
+          "name": "\u00c1ngela Lamarca",
+          "affiliation": "The Christie NHS Foundation Trust"
+        },
+        {
+          "name": "Pedro M. Rodrigues",
+          "affiliation": "Biogipuzkoa Health Research Institute"
+        },
+        {
+          "name": "Shahid A. Khan",
+          "affiliation": "Hammersmith Hospital"
+        },
+        {
+          "name": "Lewis R. Roberts",
+          "affiliation": "Mayo Clinic in Arizona"
+        },
+        {
+          "name": "Vincenzo Cardinale",
+          "affiliation": "Sapienza University of Rome"
+        },
+        {
+          "name": "Guido Carpino",
+          "affiliation": "Foro Italico University of Rome"
+        },
+        {
+          "name": "Jesper B. Andersen",
+          "affiliation": "University of Copenhagen"
+        },
+        {
+          "name": "Chiara Braconi",
+          "affiliation": "University of Glasgow"
+        },
+        {
+          "name": "Diego F. Calvisi",
+          "affiliation": "University of Regensburg"
+        },
+        {
+          "name": "Mar\u00eda J. Perugorria",
+          "affiliation": "Instituto de Salud Carlos III"
+        },
+        {
+          "name": "Luca Fabris",
+          "affiliation": "Yale University"
+        },
+        {
+          "name": "Luke Boulter",
+          "affiliation": "University of Edinburgh"
+        },
+        {
+          "name": "Roc\u0131\u0301o I.R. Mac\u0131\u0301as",
+          "affiliation": "Centro de Investigaci\u00f3n Biom\u00e9dica en Red de Enfermedades Hep\u00e1ticas y Digestivas"
+        },
+        {
+          "name": "Eugenio Gaudio",
+          "affiliation": "Sapienza University of Rome"
+        },
+        {
+          "name": "Domenico Alvaro",
+          "affiliation": "Sapienza University of Rome"
+        },
+        {
+          "name": "Sergio A. Gradilone",
+          "affiliation": "University of Minnesota"
+        },
+        {
+          "name": "Mario Strazzabosco",
+          "affiliation": "University of Padua"
+        },
+        {
+          "name": "Marco Marzioni",
+          "affiliation": "Marche Polytechnic University"
+        },
+        {
+          "name": "C\u00e9dric Coulouarn",
+          "affiliation": "Inserm"
+        },
+        {
+          "name": "Laura Fouassier",
+          "affiliation": "Inserm"
+        },
+        {
+          "name": "Chiara Raggi",
+          "affiliation": "University of Florence"
+        },
+        {
+          "name": "Pietro Invernizzi",
+          "affiliation": "University of Milano-Bicocca"
+        },
+        {
+          "name": "Joachim C. Mertens",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Anja Moncsek",
+          "affiliation": "University Hospital of Zurich"
+        },
+        {
+          "name": "Sumera I. Ilyas",
+          "affiliation": "Mayo Clinic in Arizona"
+        },
+        {
+          "name": "Julie K. Heimbach",
+          "affiliation": "Mayo Clinic in Arizona"
+        },
+        {
+          "name": "Bas Groot Koerkamp",
+          "affiliation": "Erasmus MC"
+        },
+        {
+          "name": "Jordi Bruix",
+          "affiliation": "Centro de Investigaci\u00f3n Biom\u00e9dica en Red de Enfermedades Hep\u00e1ticas y Digestivas"
+        },
+        {
+          "name": "Alejandro Forner",
+          "affiliation": "Fundaci\u00f3 Cl\u00ednic per a la Recerca Biom\u00e8dica"
+        },
+        {
+          "name": "John Bridgewater",
+          "affiliation": "CRUK Lung Cancer Centre of Excellence"
+        },
+        {
+          "name": "Juan W. Valle",
+          "affiliation": "The Christie NHS Foundation Trust"
+        },
+        {
+          "name": "Gregory J. Gores",
+          "affiliation": "Mayo Clinic in Arizona"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Cholangiocarcinoma (CCA) includes a cluster of highly heterogeneous biliary malignant tumours that can arise at any point of the biliary tree. Their incidence is increasing globally, currently accounting for ~15% of all primary liver cancers and ~3% of gastrointestinal malignancies. The silent presentation of these tumours combined with their highly aggressive nature and refractoriness to chemotherapy contribute to their alarming mortality, representing ~2% of all cancer-related deaths worldwide yearly. The current diagnosis of CCA by non-invasive approaches is not accurate enough, and histological confirmation is necessary. Furthermore, the high heterogeneity of CCAs at the genomic, epigenetic and molecular levels severely compromises the efficacy of the available therapies. In the past decade, increasing efforts have been made to understand the complexity of these tumours and to develop new diagnostic tools and therapies that might help to improve patient outcomes. In this expert Consensus Statement, which is endorsed by the European Network for the Study of Cholangiocarcinoma, we aim to summarize and critically discuss the latest advances in CCA, mostly focusing on classification, cells of origin, genetic and epigenetic abnormalities, molecular alterations, biomarker discovery and treatments. Furthermore, the horizon of CCA for the next decade from 2020 onwards is highlighted.",
+      "venue": "Nature Reviews Gastroenterology & Hepatology",
+      "citation_count": 2364,
+      "doi": "10.1038/s41575-020-0310-z",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41575-020-0310-z",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3193823764",
+      "title": "Worldwide trends in hypertension prevalence and progress in treatment and control from 1990 to 2019: a pooled analysis of 1201 population-representative studies with 104 million participants",
+      "authors": [
+        {
+          "name": "Bin Zhou",
+          "affiliation": "Imperial College London"
+        },
+        {
+          "name": "Rodrigo M. Carrillo\u2010Larco",
+          "affiliation": "Imperial College London"
+        },
+        {
+          "name": "Goodarz Danaei",
+          "affiliation": "Harvard University"
+        },
+        {
+          "name": "Leanne M Riley",
+          "affiliation": ""
+        },
+        {
+          "name": "Christopher Paciorek",
+          "affiliation": "University of California, Berkeley"
+        },
+        {
+          "name": "Gretchen A Stevens",
+          "affiliation": "Imperial College London"
+        },
+        {
+          "name": "Edward W. Gregg",
+          "affiliation": "Imperial College London"
+        },
+        {
+          "name": "James E. Bennett",
+          "affiliation": "Imperial College London"
+        },
+        {
+          "name": "Bethlehem Solomon",
+          "affiliation": "Imperial College London"
+        },
+        {
+          "name": "Rosie Singleton",
+          "affiliation": "Imperial College London"
+        },
+        {
+          "name": "Marisa K. Sophiea",
+          "affiliation": "Imperial College London"
+        },
+        {
+          "name": "Maria LC Iurilli",
+          "affiliation": "Imperial College London"
+        },
+        {
+          "name": "Victor P. F. Lhoste",
+          "affiliation": "Imperial College London"
+        },
+        {
+          "name": "Melanie Cowan",
+          "affiliation": ""
+        },
+        {
+          "name": "Stefan Savin",
+          "affiliation": ""
+        },
+        {
+          "name": "Mark Woodward",
+          "affiliation": "UNSW Sydney"
+        },
+        {
+          "name": "Yulia Balanova",
+          "affiliation": "Federal Almazov North-West Medical Research Centre"
+        },
+        {
+          "name": "Renata C\u00edfkov\u00e1",
+          "affiliation": "Charles University"
+        },
+        {
+          "name": "Albertino Damasceno",
+          "affiliation": ""
+        },
+        {
+          "name": "Paul Elliott",
+          "affiliation": ""
+        },
+        {
+          "name": "Farshad Farzadfar",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiang He",
+          "affiliation": ""
+        },
+        {
+          "name": "Nayu Ikeda",
+          "affiliation": ""
+        },
+        {
+          "name": "Andr\u00e9 Pascal Kengne",
+          "affiliation": ""
+        },
+        {
+          "name": "Young\u2010Ho Khang",
+          "affiliation": ""
+        },
+        {
+          "name": "Hyeon Chang Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Avula Laxmaiah",
+          "affiliation": ""
+        },
+        {
+          "name": "Hsien-Ho Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Paula Margozzini Maira",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Jaime Miranda",
+          "affiliation": ""
+        },
+        {
+          "name": "Hannelore Neuhauser",
+          "affiliation": ""
+        },
+        {
+          "name": "Johan Sundstr\u00f6m",
+          "affiliation": ""
+        },
+        {
+          "name": "Cherian Varghese",
+          "affiliation": ""
+        },
+        {
+          "name": "Indah Suci Widyahening",
+          "affiliation": ""
+        },
+        {
+          "name": "Tomasz Zdrojewski",
+          "affiliation": ""
+        },
+        {
+          "name": "Leandra Abarca-G\u00f3mez",
+          "affiliation": ""
+        },
+        {
+          "name": "Ziad Abdeen",
+          "affiliation": ""
+        },
+        {
+          "name": "Hanan F Abdul Rahim",
+          "affiliation": ""
+        },
+        {
+          "name": "Niveen M. E. Abu-Rmeileh",
+          "affiliation": ""
+        },
+        {
+          "name": "Benjam\u00edn Acosta-C\u00e1zares",
+          "affiliation": ""
+        },
+        {
+          "name": "Robert J. Adams",
+          "affiliation": ""
+        },
+        {
+          "name": "Wichai Aekplakorn",
+          "affiliation": ""
+        },
+        {
+          "name": "Kaosar Afsana",
+          "affiliation": ""
+        },
+        {
+          "name": "Shoaib Afzal",
+          "affiliation": ""
+        },
+        {
+          "name": "Imelda Angeles\u2010Agdeppa",
+          "affiliation": ""
+        },
+        {
+          "name": "Javad Aghazadeh-Attari",
+          "affiliation": ""
+        },
+        {
+          "name": "Carlos A. Aguilar\u2010Salinas",
+          "affiliation": ""
+        },
+        {
+          "name": "Charles Agyemang",
+          "affiliation": ""
+        },
+        {
+          "name": "Noor Ani Ahmad",
+          "affiliation": ""
+        },
+        {
+          "name": "Ali Ahmadi",
+          "affiliation": ""
+        },
+        {
+          "name": "Naser Ahmadi",
+          "affiliation": ""
+        },
+        {
+          "name": "Nastaran Ahmadi",
+          "affiliation": ""
+        },
+        {
+          "name": "Fariba Ahmadizar",
+          "affiliation": ""
+        },
+        {
+          "name": "Soheir H. Ahmed",
+          "affiliation": ""
+        },
+        {
+          "name": "Wolfgang Ahrens",
+          "affiliation": ""
+        },
+        {
+          "name": "Kamel Ajlouni",
+          "affiliation": ""
+        },
+        {
+          "name": "Rajaa Al\u2010Raddadi",
+          "affiliation": ""
+        },
+        {
+          "name": "Monira Alarouj",
+          "affiliation": ""
+        },
+        {
+          "name": "Fadia AlBuhairan",
+          "affiliation": ""
+        },
+        {
+          "name": "Shahla AlDhukair",
+          "affiliation": ""
+        },
+        {
+          "name": "Mohamed M. Ali",
+          "affiliation": ""
+        },
+        {
+          "name": "Abdullah Alkandari",
+          "affiliation": ""
+        },
+        {
+          "name": "Ala\u2019a Alkerwi",
+          "affiliation": ""
+        },
+        {
+          "name": "Kristine H. Allin",
+          "affiliation": ""
+        },
+        {
+          "name": "Eman Aly",
+          "affiliation": ""
+        },
+        {
+          "name": "Deepak Amarapurkar",
+          "affiliation": ""
+        },
+        {
+          "name": "Norbert Amougou",
+          "affiliation": "\u00c9co-Anthropologie"
+        },
+        {
+          "name": "Philippe Amouyel",
+          "affiliation": "Institut Pasteur de Lille"
+        },
+        {
+          "name": "Lars Bo Andersen",
+          "affiliation": ""
+        },
+        {
+          "name": "Sigmund A. Anderssen",
+          "affiliation": ""
+        },
+        {
+          "name": "Ranjit Mohan Anjana",
+          "affiliation": ""
+        },
+        {
+          "name": "Alireza Ansari\u2010Moghaddam",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniel Ansong",
+          "affiliation": ""
+        },
+        {
+          "name": "Hajer Aounallah-Skhiri",
+          "affiliation": ""
+        },
+        {
+          "name": "Joana Ara\u00fajo",
+          "affiliation": ""
+        },
+        {
+          "name": "Inger Ariansen",
+          "affiliation": ""
+        },
+        {
+          "name": "Tahir Aris",
+          "affiliation": ""
+        },
+        {
+          "name": "Raphael E. Arku",
+          "affiliation": ""
+        },
+        {
+          "name": "Nimmathota Arlappa",
+          "affiliation": ""
+        },
+        {
+          "name": "Kavumpurathu Raman Thankappan",
+          "affiliation": ""
+        },
+        {
+          "name": "Thor Aspelund",
+          "affiliation": ""
+        },
+        {
+          "name": "F\u00e9lix Assah",
+          "affiliation": ""
+        },
+        {
+          "name": "Maria Cec\u00edlia F Assun\u00e7\u00e3o",
+          "affiliation": ""
+        },
+        {
+          "name": "Juha Auvinen",
+          "affiliation": ""
+        },
+        {
+          "name": "M\u00e1ria Avdi\u010dov\u00e1",
+          "affiliation": ""
+        },
+        {
+          "name": "Ana Azevedo",
+          "affiliation": ""
+        },
+        {
+          "name": "Mohsen Azimi\u2013Nezhad",
+          "affiliation": ""
+        },
+        {
+          "name": "Fereidoun Azizi",
+          "affiliation": ""
+        },
+        {
+          "name": "Mehrdad Azmin",
+          "affiliation": ""
+        },
+        {
+          "name": "Bontha V. Babu",
+          "affiliation": ""
+        },
+        {
+          "name": "Suhad Bahijri",
+          "affiliation": ""
+        },
+        {
+          "name": "Nagalla Balakrishna",
+          "affiliation": ""
+        },
+        {
+          "name": "Mohamed Bamoshmoosh",
+          "affiliation": ""
+        },
+        {
+          "name": "Maciej Banach",
+          "affiliation": ""
+        },
+        {
+          "name": "Maja Banadinovi\u0107",
+          "affiliation": ""
+        },
+        {
+          "name": "Piotr Bandosz",
+          "affiliation": ""
+        },
+        {
+          "name": "Jos\u00e9 R Banegas",
+          "affiliation": ""
+        },
+        {
+          "name": "Joanna Baran",
+          "affiliation": ""
+        },
+        {
+          "name": "Carlo M Barbagallo",
+          "affiliation": ""
+        },
+        {
+          "name": "Alberto Barcel\u00f3",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "WHO.",
+      "venue": "The Lancet",
+      "citation_count": 3481,
+      "doi": "10.1016/s0140-6736(21)01330-1",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/s0140-6736(21)01330-1",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3202918664",
+      "title": "Overview of the Versatile Video Coding (VVC) Standard and its Applications",
+      "authors": [
+        {
+          "name": "Benjamin Bross",
+          "affiliation": "Fraunhofer Institute for Telecommunications, Heinrich Hertz Institute"
+        },
+        {
+          "name": "Ye-Kui Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yan Ye",
+          "affiliation": "Alibaba Group (United States)"
+        },
+        {
+          "name": "Shan Liu",
+          "affiliation": "KLA (United States)"
+        },
+        {
+          "name": "Jianle Chen",
+          "affiliation": "Qualcomm (United States)"
+        },
+        {
+          "name": "Gary J. Sullivan",
+          "affiliation": "Microsoft (United States)"
+        },
+        {
+          "name": "Jens-Rainer Ohm",
+          "affiliation": "RWTH Aachen University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Versatile Video Coding (VVC) was finalized in July 2020 as the most recent international video coding standard. It was developed by the Joint Video Experts Team (JVET) of the ITU-T Video Coding Experts Group (VCEG) and the ISO/IEC Moving Picture Experts Group (MPEG) to serve an ever-growing need for improved video compression as well as to support a wider variety of today\u2019s media content and emerging applications. This paper provides an overview of the novel technical features for new applications and the core compression technologies for achieving significant bit rate reductions in the neighborhood of 50% over its predecessor for equal video quality, the High Efficiency Video Coding (HEVC) standard, and 75% over the currently most-used format, the Advanced Video Coding (AVC) standard. It is explained how these new features in VVC provide greater versatility for applications. Highlighted applications include video with resolutions beyond standard- and high-definition, video with high dynamic range and wide color gamut, adaptive streaming with resolution changes, computer-generated and screen-captured video, ultralow-delay streaming, 360\u00b0 immersive video, and multilayer coding e.g., for scalability. Furthermore, early implementations are presented to show that the new VVC standard is implementable and ready for real-world deployment.",
+      "venue": "IEEE Transactions on Circuits and Systems for Video Technology",
+      "citation_count": 1554,
+      "doi": "10.1109/tcsvt.2021.3101953",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tcsvt.2021.3101953",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3110989801",
+      "title": "Towards 6G wireless communication networks: vision, enabling technologies, and new paradigm shifts",
+      "authors": [
+        {
+          "name": "Xiaohu You",
+          "affiliation": "Southeast University"
+        },
+        {
+          "name": "Cheng\u2010Xiang Wang",
+          "affiliation": "Southeast University"
+        },
+        {
+          "name": "Jie Huang",
+          "affiliation": "Southeast University"
+        },
+        {
+          "name": "Xiqi Gao",
+          "affiliation": "Southeast University"
+        },
+        {
+          "name": "Zaichen Zhang",
+          "affiliation": "Southeast University"
+        },
+        {
+          "name": "Mao Wang",
+          "affiliation": "Southeast University"
+        },
+        {
+          "name": "Yongming Huang",
+          "affiliation": "Southeast University"
+        },
+        {
+          "name": "Chuan Zhang",
+          "affiliation": "Southeast University"
+        },
+        {
+          "name": "Yanxiang Jiang",
+          "affiliation": "Southeast University"
+        },
+        {
+          "name": "Jiaheng Wang",
+          "affiliation": "Huawei Technologies (China)"
+        },
+        {
+          "name": "Min Zhu",
+          "affiliation": "Southeast University"
+        },
+        {
+          "name": "Bin Sheng",
+          "affiliation": "Southeast University"
+        },
+        {
+          "name": "Dongming Wang",
+          "affiliation": "Southeast University"
+        },
+        {
+          "name": "Zhiwen Pan",
+          "affiliation": "Southeast University"
+        },
+        {
+          "name": "Pengcheng Zhu",
+          "affiliation": "Southeast University"
+        },
+        {
+          "name": "Yang Yang",
+          "affiliation": "ShanghaiTech University"
+        },
+        {
+          "name": "Zening Liu",
+          "affiliation": "Southeast University"
+        },
+        {
+          "name": "Ping Zhang",
+          "affiliation": "Beijing University of Posts and Telecommunications"
+        },
+        {
+          "name": "Xiaofeng Tao",
+          "affiliation": "Beijing University of Posts and Telecommunications"
+        },
+        {
+          "name": "Shaoqian Li",
+          "affiliation": "University of Electronic Science and Technology of China"
+        },
+        {
+          "name": "Zhi Chen",
+          "affiliation": "University of Electronic Science and Technology of China"
+        },
+        {
+          "name": "Xinying Ma",
+          "affiliation": "University of Electronic Science and Technology of China"
+        },
+        {
+          "name": "I Chih\u2010Lin",
+          "affiliation": "China Mobile (China)"
+        },
+        {
+          "name": "Shuangfeng Han",
+          "affiliation": "China Mobile (China)"
+        },
+        {
+          "name": "Ke Li",
+          "affiliation": "China Mobile (China)"
+        },
+        {
+          "name": "Chengkang Pan",
+          "affiliation": "China Mobile (China)"
+        },
+        {
+          "name": "Zhimin Zheng",
+          "affiliation": "China Mobile (China)"
+        },
+        {
+          "name": "Lajos Hanzo",
+          "affiliation": "China Mobile (China)"
+        },
+        {
+          "name": "Xuemin Shen",
+          "affiliation": "Purple Mountain Laboratories"
+        },
+        {
+          "name": "Y. Jay Guo",
+          "affiliation": "University of Technology Sydney"
+        },
+        {
+          "name": "Zhiguo Ding",
+          "affiliation": "University of Manchester"
+        },
+        {
+          "name": "Harald Haas",
+          "affiliation": "University of Edinburgh"
+        },
+        {
+          "name": "Wen Tong",
+          "affiliation": "Huawei Technologies (Canada)"
+        },
+        {
+          "name": "Peiying Zhu",
+          "affiliation": "Southeast University"
+        },
+        {
+          "name": "Ganghua Yang",
+          "affiliation": "Huawei Technologies (China)"
+        },
+        {
+          "name": "Jun Wang",
+          "affiliation": "Huawei Technologies (China)"
+        },
+        {
+          "name": "Erik G. Larsson",
+          "affiliation": "Link\u00f6ping University"
+        },
+        {
+          "name": "Hien Quoc Ngo",
+          "affiliation": "Queen's University Belfast"
+        },
+        {
+          "name": "Wei Hong",
+          "affiliation": "Purple Mountain Laboratories"
+        },
+        {
+          "name": "Haiming Wang",
+          "affiliation": "Purple Mountain Laboratories"
+        },
+        {
+          "name": "Debin Hou",
+          "affiliation": "Purple Mountain Laboratories"
+        },
+        {
+          "name": "Jixin Chen",
+          "affiliation": "Purple Mountain Laboratories"
+        },
+        {
+          "name": "Zhe Chen",
+          "affiliation": "University of Electronic Science and Technology of China"
+        },
+        {
+          "name": "Zhang\u2010Cheng Hao",
+          "affiliation": "Purple Mountain Laboratories"
+        },
+        {
+          "name": "Geoffrey Ye Li",
+          "affiliation": "Georgia Institute of Technology"
+        },
+        {
+          "name": "Rahim Tafazolli",
+          "affiliation": "University of Surrey"
+        },
+        {
+          "name": "Yue Gao",
+          "affiliation": "University of Surrey"
+        },
+        {
+          "name": "H. Vincent Poor",
+          "affiliation": "Princeton University"
+        },
+        {
+          "name": "Gerhard Fettweis",
+          "affiliation": "University of Electronic Science and Technology of China"
+        },
+        {
+          "name": "Ying\u2010Chang Liang",
+          "affiliation": "University of Electronic Science and Technology of China"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Abstract The fifth generation (5G) wireless communication networks are being deployed worldwide from 2020 and more capabilities are in the process of being standardized, such as mass connectivity, ultra-reliability, and guaranteed low latency. However, 5G will not meet all requirements of the future in 2030 and beyond, and sixth generation (6G) wireless communication networks are expected to provide global coverage, enhanced spectral/energy/cost efficiency, better intelligence level and security, etc. To meet these requirements, 6G networks will rely on new enabling technologies, i.e., air interface and transmission technologies and novel network architecture, such as waveform design, multiple access, channel coding schemes, multi-antenna technologies, network slicing, cell-free architecture, and cloud/fog/edge computing. Our vision on 6G is that it will have four new paradigm shifts. First, to satisfy the requirement of global coverage, 6G will not be limited to terrestrial communication networks, which will need to be complemented with non-terrestrial networks such as satellite and unmanned aerial vehicle (UAV) communication networks, thus achieving a space-air-ground-sea integrated communication network. Second, all spectra will be fully explored to further increase data rates and connection density, including the sub-6 GHz, millimeter wave (mmWave), terahertz (THz), and optical frequency bands. Third, facing the big datasets generated by the use of extremely heterogeneous networks, diverse communication scenarios, large numbers of antennas, wide bandwidths, and new service requirements, 6G networks will enable a new range of smart applications with the aid of artificial intelligence (AI) and big data technologies. Fourth, network security will have to be strengthened when developing 6G networks. This article provides a comprehensive survey of recent advances and future trends in these four aspects. Clearly, 6G with additional technical requirements beyond those of 5G will enable faster and further communications to the extent that the boundary between physical and cyber worlds disappears.",
+      "venue": "Science China Information Sciences",
+      "citation_count": 1886,
+      "doi": "10.1007/s11432-020-2955-6",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s11432-020-2955-6",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3019913914",
+      "title": "Unsupervised K-Means Clustering Algorithm",
+      "authors": [
+        {
+          "name": "Kristina P. Sinaga",
+          "affiliation": "Chung Yuan Christian University"
+        },
+        {
+          "name": "Miin\u2010Shen Yang",
+          "affiliation": "Chung Yuan Christian University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "The k-means algorithm is generally the most known and used clustering method. There are various extensions of k-means to be proposed in the literature. Although it is an unsupervised learning to clustering in pattern recognition and machine learning, the k-means algorithm and its extensions are always influenced by initializations with a necessary number of clusters a priori. That is, the k-means algorithm is not exactly an unsupervised clustering method. In this paper, we construct an unsupervised learning schema for the k-means algorithm so that it is free of initializations without parameter selection and can also simultaneously find an optimal number of clusters. That is, we propose a novel unsupervised k-means (U-k-means) clustering algorithm with automatically finding an optimal number of clusters without giving any initialization and parameter selection. The computational complexity of the proposed U-k-means clustering algorithm is also analyzed. Comparisons between the proposed U-k-means and other existing methods are made. Experimental results and comparisons actually demonstrate these good aspects of the proposed U-k-means clustering algorithm.",
+      "venue": "IEEE Access",
+      "citation_count": 2043,
+      "doi": "10.1109/access.2020.2988796",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/access.2020.2988796",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3088283486",
+      "title": "A Systematic Review of the Literature on Digital Transformation: Insights and Implications for Strategy and Organizational Change",
+      "authors": [
+        {
+          "name": "Andr\u00e9 Hanelt",
+          "affiliation": "University of Kassel"
+        },
+        {
+          "name": "Ren\u00e9 Bohnsack",
+          "affiliation": "Universidade Cat\u00f3lica Portuguesa"
+        },
+        {
+          "name": "David Marz",
+          "affiliation": "University of G\u00f6ttingen"
+        },
+        {
+          "name": "Claudia Marante",
+          "affiliation": "Universidade Cat\u00f3lica Portuguesa"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Abstract In this article we provide a systematic review of the extensive yet diverse and fragmented literature on digital transformation (DT), with the goal of clarifying boundary conditions to investigate the phenomenon from the perspective of organizational change. On the basis of 279 articles, we provide a multi\u2010dimensional framework synthesizing what is known about DT and discern two important thematical patterns: DT is moving firms to malleable organizational designs that enable continuous adaptation, and this move is embedded in and driven by digital business ecosystems. From these two patterns, we derive four perspectives on the phenomenon of DT: technology impact, compartmentalized adaptation, systemic shift and holistic co\u2010evolution. Linking our findings and interpretations to existing work, we find that the nature of DT is only partially covered by conventional frameworks on organizational change. On the basis of this analysis, we derive a research agenda and provide managerial implications for strategy and organizational change.",
+      "venue": "Journal of Management Studies",
+      "citation_count": 2025,
+      "doi": "10.1111/joms.12639",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1111/joms.12639",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3166420679",
+      "title": "SoilGrids 2.0: producing soil information for the globe with quantified spatial uncertainty",
+      "authors": [
+        {
+          "name": "Laura Poggio",
+          "affiliation": "ISRIC - World Soil Information"
+        },
+        {
+          "name": "Lu\u00eds Moreira de Sousa",
+          "affiliation": "ISRIC - World Soil Information"
+        },
+        {
+          "name": "N.H. Batjes",
+          "affiliation": "ISRIC - World Soil Information"
+        },
+        {
+          "name": "G.B.M. Heuvelink",
+          "affiliation": "ISRIC - World Soil Information"
+        },
+        {
+          "name": "Bas Kempen",
+          "affiliation": "ISRIC - World Soil Information"
+        },
+        {
+          "name": "Eloi Ribeiro",
+          "affiliation": "ISRIC - World Soil Information"
+        },
+        {
+          "name": "David G. Rossiter",
+          "affiliation": "ISRIC - World Soil Information"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Abstract. SoilGrids produces maps of soil properties for the entire globe at medium spatial resolution (250 m cell size) using state-of-the-art machine learning methods to generate the necessary models. It takes as inputs soil observations from about 240 000 locations worldwide and over 400 global environmental covariates describing vegetation, terrain morphology, climate, geology and hydrology. The aim of this work was the production of global maps of soil properties, with cross-validation, hyper-parameter selection and quantification of spatially explicit uncertainty, as implemented in the SoilGrids version 2.0 product incorporating state-of-the-art practices and adapting them for global digital soil mapping with legacy data. The paper presents the evaluation of the global predictions produced for soil organic carbon content, total nitrogen, coarse fragments, pH (water), cation exchange capacity, bulk density and texture fractions at six standard depths (up to 200 cm). The quantitative evaluation showed metrics in line with previous global, continental and large-region studies. The qualitative evaluation showed that coarse-scale patterns are well reproduced. The spatial uncertainty at global scale highlighted the need for more soil observations, especially in high-latitude regions.",
+      "venue": "SOIL",
+      "citation_count": 1885,
+      "doi": "10.5194/soil-7-217-2021",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.5194/soil-7-217-2021",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3035686316",
+      "title": "Setting the future of digital and social media marketing research: Perspectives and research propositions",
+      "authors": [
+        {
+          "name": "Yogesh K. Dwivedi",
+          "affiliation": "Swansea University"
+        },
+        {
+          "name": "Elvira Ismagilova",
+          "affiliation": "University of Bradford"
+        },
+        {
+          "name": "David L. Hughes",
+          "affiliation": "Swansea University"
+        },
+        {
+          "name": "Jamie Carlson",
+          "affiliation": "University of Newcastle Australia"
+        },
+        {
+          "name": "Raffaele Filieri",
+          "affiliation": "Audencia Business School"
+        },
+        {
+          "name": "Jenna Jacobson",
+          "affiliation": "Toronto Metropolitan University"
+        },
+        {
+          "name": "Varsha Jain",
+          "affiliation": "Mudra Institute of Communications Ahmedabad"
+        },
+        {
+          "name": "Heikki Karjaluoto",
+          "affiliation": "University of Jyv\u00e4skyl\u00e4"
+        },
+        {
+          "name": "Hajer K\u00e9fi",
+          "affiliation": "Paris School of Business"
+        },
+        {
+          "name": "Anjala S. Krishen",
+          "affiliation": "University of Nevada, Las Vegas"
+        },
+        {
+          "name": "Vikram Kumar",
+          "affiliation": "Symbiosis International University"
+        },
+        {
+          "name": "Mohammad M. Rahman",
+          "affiliation": "Shippensburg University"
+        },
+        {
+          "name": "Ramakrishnan Raman",
+          "affiliation": "Symbiosis International University"
+        },
+        {
+          "name": "Philipp A. Rauschnabel",
+          "affiliation": "Universit\u00e4t der Bundeswehr M\u00fcnchen"
+        },
+        {
+          "name": "Jennifer Rowley",
+          "affiliation": "Manchester Metropolitan University"
+        },
+        {
+          "name": "Jari Salo",
+          "affiliation": "University of Helsinki"
+        },
+        {
+          "name": "Gina A. Tran",
+          "affiliation": "Florida Gulf Coast University"
+        },
+        {
+          "name": "Yichuan Wang",
+          "affiliation": "University of Sheffield"
+        }
+      ],
+      "year": 2020,
+      "abstract": "The use of the internet and social media have changed consumer behavior and the ways in which companies conduct their business. Social and digital marketing offers significant opportunities to organizations through lower costs, improved brand awareness and increased sales. However, significant challenges exist from negative electronic word-of-mouth as well as intrusive and irritating online brand presence. This article brings together the collective insight from several leading experts on issues relating to digital and social media marketing. The experts\u2019 perspectives offer a detailed narrative on key aspects of this important topic as well as perspectives on more specific issues including artificial intelligence, augmented reality marketing, digital content management, mobile marketing and advertising, B2B marketing, electronic word of mouth and ethical issues therein. This research offers a significant and timely contribution to both researchers and practitioners in the form of challenges and opportunities where we highlight the limitations within the current research, outline the research gaps and develop the questions and propositions that can help advance knowledge within the domain of digital and social marketing.",
+      "venue": "International Journal of Information Management",
+      "citation_count": 2311,
+      "doi": "10.1016/j.ijinfomgt.2020.102168",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.ijinfomgt.2020.102168",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W1650569836",
+      "title": "Climate Change 2023 Synthesis Report",
+      "authors": [
+        {
+          "name": "Robert T. Watson",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "According to the introduction, this Synthesis Report is based on the assessment carried out by the three Working Groups (WGs) of the Intergovernmental Panel on Climate Change (IPCC). It provides an integrated view of climate change as the final part of the IPCC's Fourth Assessment Report (AR4). It discusses the observations of climate change, causes and effects, options for adaptation and mitigation, and remaining uncertainties.",
+      "venue": "Climate Change and Law Collection",
+      "citation_count": 2376,
+      "doi": "10.1163/9789004322714_cclc_2023-0258-1193",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1163/9789004322714_cclc_2023-0258-1193",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3040245690",
+      "title": "Microbiome definition re-visited: old concepts and new challenges",
+      "authors": [
+        {
+          "name": "Gabriele Berg",
+          "affiliation": "Graz University of Technology"
+        },
+        {
+          "name": "Daria Rybakova",
+          "affiliation": "Graz University of Technology"
+        },
+        {
+          "name": "Doreen Fischer",
+          "affiliation": "Helmholtz Zentrum M\u00fcnchen"
+        },
+        {
+          "name": "Tomislav Cernava",
+          "affiliation": "Graz University of Technology"
+        },
+        {
+          "name": "Marie-Christine Champomier Verg\u00e8s",
+          "affiliation": "AgroParisTech"
+        },
+        {
+          "name": "Trevor C. Charles",
+          "affiliation": "University of Waterloo"
+        },
+        {
+          "name": "Xiaoyulong Chen",
+          "affiliation": "Guizhou University"
+        },
+        {
+          "name": "Luca Cocolin",
+          "affiliation": "European Food Information Council"
+        },
+        {
+          "name": "Kellye Eversole",
+          "affiliation": ""
+        },
+        {
+          "name": "Gema Herrero Corral",
+          "affiliation": "Microbiologie de l\u2019alimentation au service de la sant\u00e9"
+        },
+        {
+          "name": "\u039c\u03b1\u03c1\u03af\u03b1 \u039a\u03ac\u03b6\u03bf\u03c5",
+          "affiliation": "Agricultural University of Athens"
+        },
+        {
+          "name": "Linda L. Kinkel",
+          "affiliation": "University of Minnesota"
+        },
+        {
+          "name": "Lene Lange",
+          "affiliation": ""
+        },
+        {
+          "name": "N\u00e9lson Lima",
+          "affiliation": "University of Minho"
+        },
+        {
+          "name": "Alexander Loy",
+          "affiliation": "University of Vienna"
+        },
+        {
+          "name": "James Macklin",
+          "affiliation": "Agriculture and Agri-Food Canada"
+        },
+        {
+          "name": "Emmanuelle Maguin",
+          "affiliation": "Microbiologie de l\u2019alimentation au service de la sant\u00e9"
+        },
+        {
+          "name": "Tim H. Mauchline",
+          "affiliation": "Rothamsted Research"
+        },
+        {
+          "name": "Ryan McClure",
+          "affiliation": "Pacific Northwest National Laboratory"
+        },
+        {
+          "name": "Birgit Mitter",
+          "affiliation": "Austrian Institute of Technology"
+        },
+        {
+          "name": "Matthew J. Ryan",
+          "affiliation": "CAB International"
+        },
+        {
+          "name": "Inga Sarand",
+          "affiliation": "Tallinn University of Technology"
+        },
+        {
+          "name": "Hauke Smidt",
+          "affiliation": "Wageningen University & Research"
+        },
+        {
+          "name": "Bettina Schelkle",
+          "affiliation": "European Food Information Council"
+        },
+        {
+          "name": "Hugo Roume",
+          "affiliation": ""
+        },
+        {
+          "name": "George Seghal Kiran",
+          "affiliation": "Pondicherry University"
+        },
+        {
+          "name": "Joseph Selvin",
+          "affiliation": "Pondicherry University"
+        },
+        {
+          "name": "Rafael Soares Correa de Souza",
+          "affiliation": "Universidade Estadual de Campinas (UNICAMP)"
+        },
+        {
+          "name": "L.S. van Overbeek",
+          "affiliation": "Wageningen University & Research"
+        },
+        {
+          "name": "Brajesh K. Singh",
+          "affiliation": "Western Sydney University"
+        },
+        {
+          "name": "Michael Wagner",
+          "affiliation": "University of Vienna"
+        },
+        {
+          "name": "Aaron M. Walsh",
+          "affiliation": "Teagasc - The Irish Agriculture and Food Development Authority"
+        },
+        {
+          "name": "Angela Sessitsch",
+          "affiliation": "Austrian Institute of Technology"
+        },
+        {
+          "name": "Michael Schloter",
+          "affiliation": "Institute of Bioinformatics and Systems Biology"
+        }
+      ],
+      "year": 2020,
+      "abstract": "The field of microbiome research has evolved rapidly over the past few decades and has become a topic of great scientific and public interest. As a result of this rapid growth in interest covering different fields, we are lacking a clear commonly agreed definition of the term \"microbiome.\" Moreover, a consensus on best practices in microbiome research is missing. Recently, a panel of international experts discussed the current gaps in the frame of the European-funded MicrobiomeSupport project. The meeting brought together about 40 leaders from diverse microbiome areas, while more than a hundred experts from all over the world took part in an online survey accompanying the workshop. This article excerpts the outcomes of the workshop and the corresponding online survey embedded in a short historical introduction and future outlook. We propose a definition of microbiome based on the compact, clear, and comprehensive description of the term provided by Whipps et al. in 1988, amended with a set of novel recommendations considering the latest technological developments and research findings. We clearly separate the terms microbiome and microbiota and provide a comprehensive discussion considering the composition of microbiota, the heterogeneity and dynamics of microbiomes in time and space, the stability and resilience of microbial networks, the definition of core microbiomes, and functionally relevant keystone species as well as co-evolutionary principles of microbe-host and inter-species interactions within the microbiome. These broad definitions together with the suggested unifying concepts will help to improve standardization of microbiome studies in the future, and could be the starting point for an integrated assessment of data resulting in a more rapid transfer of knowledge from basic science into practice. Furthermore, microbiome standards are important for solving new challenges associated with anthropogenic-driven changes in the field of planetary health, for which the understanding of microbiomes might play a key role. Video Abstract.",
+      "venue": "Microbiome",
+      "citation_count": 2058,
+      "doi": "10.1186/s40168-020-00875-0",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1186/s40168-020-00875-0",
+      "source": "openalex",
+      "_bibtex_override": ""
+    }
+  ]
+}

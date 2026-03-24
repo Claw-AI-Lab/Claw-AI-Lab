@@ -1,0 +1,509 @@
+{
+  "query": "synthesized final hypotheses synthesize strongest",
+  "source": "arxiv",
+  "limit": 15,
+  "timestamp": 1774069841.9403234,
+  "papers": [
+    {
+      "paper_id": "arxiv-2408.12539",
+      "title": "LOUD: Synthesizing Strongest and Weakest Specifications",
+      "authors": [
+        {
+          "name": "Kanghee Park",
+          "affiliation": ""
+        },
+        {
+          "name": "Xuanyu Peng",
+          "affiliation": ""
+        },
+        {
+          "name": "Loris D'Antoni",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "This paper tackles the problem of synthesizing specifications for nondeterministic programs. For such programs, useful specifications can capture demonic properties, which hold for every nondeterministic execution, but also angelic properties, which hold for some nondeterministic execution. We build on top of a recently proposed a framework by Park et al. in which given (i) a quantifier-free query posed about a set of function definitions (i.e., the behavior for which we want to generate a specification), and (ii) a language L in which each extracted property is to be expressed (we call properties in the language L-properties), the goal is to synthesize a conjunction of L-properties such that each of the conjunct is a strongest L-consequence for the query: each property is an over-approximation of the query and there is no other L-property that over-approximates the query and is strictly more precise than each property. This framework does not apply to nondeterministic programs for two reasons: it does not support existential quantifiers in queries (which are necessary to expressing nondeterminism) and it can only compute L-consequences, i.e., it is unsuitable for capturing both angelic and demonic properties.\n  This paper addresses these two limitations and presents a framework, LOUD, for synthesizing both strongest L-consequences and weakest L-implicants (i.e., under-approximations of the query) for queries that can involve existential quantifiers. We implement a solver, ASPIRE, for problems expressed in LOUD which can be used to describe and identify sources of bugs in both deterministic and nondeterministic programs, extract properties from concurrent programs, and synthesize winning strategies in two-player games.",
+      "venue": "cs.PL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2408.12539",
+      "url": "https://arxiv.org/abs/2408.12539",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-1807.10695",
+      "title": "FPGA-Based CNN Inference Accelerator Synthesized from Multi-Threaded C Software",
+      "authors": [
+        {
+          "name": "Jin Hee Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Brett Grady",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruolong Lian",
+          "affiliation": ""
+        },
+        {
+          "name": "John Brothers",
+          "affiliation": ""
+        },
+        {
+          "name": "Jason H. Anderson",
+          "affiliation": ""
+        }
+      ],
+      "year": 2018,
+      "abstract": "A deep-learning inference accelerator is synthesized from a C-language software program parallelized with Pthreads. The software implementation uses the well-known producer/consumer model with parallel threads interconnected by FIFO queues. The LegUp high-level synthesis (HLS) tool synthesizes threads into parallel FPGA hardware, translating software parallelism into spatial parallelism. A complete system is generated where convolution, pooling and padding are realized in the synthesized accelerator, with remaining tasks executing on an embedded ARM processor. The accelerator incorporates reduced precision, and a novel approach for zero-weight-skipping in convolution. On a mid-sized Intel Arria 10 SoC FPGA, peak performance on VGG-16 is 138 effective GOPS.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "10.1109/SOCC.2017.8226056",
+      "arxiv_id": "1807.10695",
+      "url": "https://arxiv.org/abs/1807.10695",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-1806.08002",
+      "title": "Synthesizing Diverse, High-Quality Audio Textures",
+      "authors": [
+        {
+          "name": "Joseph Antognini",
+          "affiliation": ""
+        },
+        {
+          "name": "Matt Hoffman",
+          "affiliation": ""
+        },
+        {
+          "name": "Ron J. Weiss",
+          "affiliation": ""
+        }
+      ],
+      "year": 2018,
+      "abstract": "Texture synthesis techniques based on matching the Gram matrix of feature activations in neural networks have achieved spectacular success in the image domain. In this paper we extend these techniques to the audio domain. We demonstrate that synthesizing diverse audio textures is challenging, and argue that this is because audio data is relatively low-dimensional. We therefore introduce two new terms to the original Grammian loss: an autocorrelation term that preserves rhythm, and a diversity term that encourages the optimization procedure to synthesize unique textures. We quantitatively study the impact of our design choices on the quality of the synthesized audio by introducing an audio analogue to the Inception loss which we term the VGGish loss. We show that there is a trade-off between the diversity and quality of the synthesized audio using this technique. We additionally perform a number of experiments to qualitatively study how these design choices impact the quality of the synthesized audio. Finally we describe the implications of these results for the problem of audio style transfer.",
+      "venue": "cs.SD",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "1806.08002",
+      "url": "https://arxiv.org/abs/1806.08002",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2301.11117",
+      "title": "Synthesizing Specifications",
+      "authors": [
+        {
+          "name": "Kanghee Park",
+          "affiliation": ""
+        },
+        {
+          "name": "Loris D'Antoni",
+          "affiliation": ""
+        },
+        {
+          "name": "Thomas Reps",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Every program should be accompanied by a specification that describes important aspects of the code's behavior, but writing good specifications is often harder than writing the code itself. This paper addresses the problem of synthesizing specifications automatically, guided by user-supplied inputs of two kinds: i) a query posed about a set of function definitions, and ii) a domain-specific language L in which the extracted property is to be expressed (we call properties in the language L-properties). Each of the property is a best L-property for the query: there is no other L-property that is strictly more precise. Furthermore, the set of synthesized L-properties is exhaustive: no more L-properties can be added to it to make the conjunction more precise.\n  We implemented our method in a tool, Spyro. The ability to modify both the query and L provides a Spyro user with ways to customize the kind of specification to be synthesized. We use this ability to show that Spyro can be used in a variety of applications, such as mining program specifications, performing abstract-domain operations, and synthesizing algebraic properties of program modules.",
+      "venue": "cs.PL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2301.11117",
+      "url": "https://arxiv.org/abs/2301.11117",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2303.06994",
+      "title": "Synthesizing Realistic Image Restoration Training Pairs: A Diffusion Approach",
+      "authors": [
+        {
+          "name": "Tao Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Peiran Ren",
+          "affiliation": ""
+        },
+        {
+          "name": "Xuansong xie",
+          "affiliation": ""
+        },
+        {
+          "name": "Lei Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "In supervised image restoration tasks, one key issue is how to obtain the aligned high-quality (HQ) and low-quality (LQ) training image pairs. Unfortunately, such HQ-LQ training pairs are hard to capture in practice, and hard to synthesize due to the complex unknown degradation in the wild. While several sophisticated degradation models have been manually designed to synthesize LQ images from their HQ counterparts, the distribution gap between the synthesized and real-world LQ images remains large. We propose a new approach to synthesizing realistic image restoration training pairs using the emerging denoising diffusion probabilistic model (DDPM).\n  First, we train a DDPM, which could convert a noisy input into the desired LQ image, with a large amount of collected LQ images, which define the target data distribution. Then, for a given HQ image, we synthesize an initial LQ image by using an off-the-shelf degradation model, and iteratively add proper Gaussian noises to it. Finally, we denoise the noisy LQ image using the pre-trained DDPM to obtain the final LQ image, which falls into the target distribution of real-world LQ images. Thanks to the strong capability of DDPM in distribution approximation, the synthesized HQ-LQ image pairs can be used to train robust models for real-world image restoration tasks, such as blind face image restoration and blind image super-resolution. Experiments demonstrated the superiority of our proposed approach to existing degradation models. Code and data will be released.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2303.06994",
+      "url": "https://arxiv.org/abs/2303.06994",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-1412.1152",
+      "title": "Synthesizing Modular Invariants for Synchronous Code",
+      "authors": [
+        {
+          "name": "Pierre-Loic Garoche",
+          "affiliation": ""
+        },
+        {
+          "name": "Arie Gurfinkel",
+          "affiliation": ""
+        },
+        {
+          "name": "Temesghen Kahsai",
+          "affiliation": ""
+        }
+      ],
+      "year": 2014,
+      "abstract": "In this paper, we explore different techniques to synthesize modular invariants for synchronous code encoded as Horn clauses. Modular invariants are a set of formulas that characterizes the validity of predicates. They are very useful for different aspects of analysis, synthesis, testing and program transformation.  We describe two techniques to generate modular invariants for code written in the synchronous dataflow language Lustre. The first technique directly encodes the synchronous code in a modular fashion. While in the second technique, we synthesize modular invariants starting from a monolithic invariant. Both techniques, take advantage of analysis techniques based on property-directed reachability. We also describe a technique to minimize the synthesized invariants.",
+      "venue": "cs.LO",
+      "citation_count": 0,
+      "doi": "10.4204/EPTCS.169.4",
+      "arxiv_id": "1412.1152",
+      "url": "https://arxiv.org/abs/1412.1152",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-1811.11745",
+      "title": "Learning to Synthesize Motion Blur",
+      "authors": [
+        {
+          "name": "Tim Brooks",
+          "affiliation": ""
+        },
+        {
+          "name": "Jonathan T. Barron",
+          "affiliation": ""
+        }
+      ],
+      "year": 2018,
+      "abstract": "We present a technique for synthesizing a motion blurred image from a pair of unblurred images captured in succession. To build this system we motivate and design a differentiable \"line prediction\" layer to be used as part of a neural network architecture, with which we can learn a system to regress from image pairs to motion blurred images that span the capture time of the input image pair. Training this model requires an abundance of data, and so we design and execute a strategy for using frame interpolation techniques to generate a large-scale synthetic dataset of motion blurred images and their respective inputs. We additionally capture a high quality test set of real motion blurred images, synthesized from slow motion videos, with which we evaluate our model against several baseline techniques that can be used to synthesize motion blur. Our model produces higher accuracy output than our baselines, and is significantly faster than baselines with competitive accuracy.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "1811.11745",
+      "url": "https://arxiv.org/abs/1811.11745",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2008.08708",
+      "title": "Synthesizing Optimal Collective Algorithms",
+      "authors": [
+        {
+          "name": "Zixian Cai",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhengyang Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Saeed Maleki",
+          "affiliation": ""
+        },
+        {
+          "name": "Madan Musuvathi",
+          "affiliation": ""
+        },
+        {
+          "name": "Todd Mytkowicz",
+          "affiliation": ""
+        },
+        {
+          "name": "Jacob Nelson",
+          "affiliation": ""
+        },
+        {
+          "name": "Olli Saarikivi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Collective communication algorithms are an important component of distributed computation. Indeed, in the case of deep-learning, collective communication is the Amdahl's bottleneck of data-parallel training.\n  This paper introduces SCCL (for Synthesized Collective Communication Library), a systematic approach to synthesize collective communication algorithms that are explicitly tailored to a particular hardware topology. SCCL synthesizes algorithms along the Pareto-frontier spanning from latency-optimal to bandwidth-optimal implementations of a collective. The paper demonstrates how to encode SCCL's synthesis as a quantifier-free SMT formula which can be discharged to a theorem prover. We further demonstrate how to scale our synthesis by exploiting symmetries in topologies and collectives.\n  We synthesize and introduce novel latency and bandwidth optimal algorithms not seen in the literature on two popular hardware topologies. We also show how SCCL efficiently lowers algorithms to implementations on two hardware architectures (NVIDIA and AMD) and demonstrate competitive performance with hand optimized collective communication libraries.",
+      "venue": "cs.DC",
+      "citation_count": 0,
+      "doi": "10.1145/3437801.3441620",
+      "arxiv_id": "2008.08708",
+      "url": "https://arxiv.org/abs/2008.08708",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-1904.05498",
+      "title": "Synthesizing Database Programs for Schema Refactoring",
+      "authors": [
+        {
+          "name": "Yuepeng Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "James Dong",
+          "affiliation": ""
+        },
+        {
+          "name": "Rushi Shah",
+          "affiliation": ""
+        },
+        {
+          "name": "Isil Dillig",
+          "affiliation": ""
+        }
+      ],
+      "year": 2019,
+      "abstract": "Many programs that interact with a database need to undergo schema refactoring several times during their life cycle. Since this process typically requires making significant changes to the program's implementation, schema refactoring is often non-trivial and error-prone. Motivated by this problem, we propose a new technique for automatically synthesizing a new version of a database program given its original version and the source and target schemas. Our method does not require manual user guidance and ensures that the synthesized program is equivalent to the original one. Furthermore, our method is quite efficient and can synthesize new versions of database programs (containing up to 263 functions) that are extracted from real-world web applications with an average synthesis time of 69.4 seconds.",
+      "venue": "cs.PL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "1904.05498",
+      "url": "https://arxiv.org/abs/1904.05498",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-http://arxiv.org/abs/quant-ph/0001065v1",
+      "title": "Optical Fock-state synthesizer",
+      "authors": [
+        {
+          "name": "G. M. D'Ariano",
+          "affiliation": ""
+        },
+        {
+          "name": "L. Maccone",
+          "affiliation": ""
+        },
+        {
+          "name": "M. G. A. Paris",
+          "affiliation": ""
+        },
+        {
+          "name": "M. F. Sacchi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2000,
+      "abstract": "We suggest a tunable optical device to synthesize Fock states and their superpositions starting from a coherent source. The scheme involves an avalanche triggering photodetector and a ring cavity coupled to a traveling wave through a cross-Kerr medium. Low quantum efficiency at the photodetector improves the synthesizing quality at the expense of reducing the synthesizing rate.",
+      "venue": "quant-ph",
+      "citation_count": 0,
+      "doi": "10.1103/PhysRevA.61.053817",
+      "arxiv_id": "",
+      "url": "http://arxiv.org/abs/quant-ph/0001065v1",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-1710.03357",
+      "title": "Proofs as Relational Invariants of Synthesized Execution Grammars",
+      "authors": [
+        {
+          "name": "Caleb Voss",
+          "affiliation": ""
+        },
+        {
+          "name": "David Heath",
+          "affiliation": ""
+        },
+        {
+          "name": "William Harris",
+          "affiliation": ""
+        }
+      ],
+      "year": 2017,
+      "abstract": "The automatic verification of programs that maintain unbounded low-level data structures is a critical and open problem. Analyzers and verifiers developed in previous work can synthesize invariants that only describe data structures of heavily restricted forms, or require an analyst to provide predicates over program data and structure that are used in a synthesized proof of correctness.\n  In this work, we introduce a novel automatic safety verifier of programs that maintain low-level data structures, named LTTP. LTTP synthesizes proofs of program safety represented as a grammar of a given program's control paths, annotated with invariants that relate program state at distinct points within its path of execution. LTTP synthesizes such proofs completely automatically, using a novel inductive-synthesis algorithm.\n  We have implemented LTTP as a verifier for JVM bytecode and applied it to verify the safety of a collection of verification benchmarks. Our results demonstrate that LTTP can be applied to automatically verify the safety of programs that are beyond the scope of previously-developed verifiers.",
+      "venue": "cs.PL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "1710.03357",
+      "url": "https://arxiv.org/abs/1710.03357",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2211.09691",
+      "title": "Synthesizing Quantum-Circuit Optimizers",
+      "authors": [
+        {
+          "name": "Amanda Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Abtin Molavi",
+          "affiliation": ""
+        },
+        {
+          "name": "Lauren Pick",
+          "affiliation": ""
+        },
+        {
+          "name": "Swamit Tannu",
+          "affiliation": ""
+        },
+        {
+          "name": "Aws Albarghouthi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Near-term quantum computers are expected to work in an environment where each operation is noisy, with no error correction. Therefore, quantum-circuit optimizers are applied to minimize the number of noisy operations. Today, physicists are constantly experimenting with novel devices and architectures. For every new physical substrate and for every modification of a quantum computer, we need to modify or rewrite major pieces of the optimizer to run successful experiments. In this paper, we present QUESO, an efficient approach for automatically synthesizing a quantum-circuit optimizer for a given quantum device. For instance, in 1.2 minutes, QUESO can synthesize an optimizer with high-probability correctness guarantees for IBM computers that significantly outperforms leading compilers, such as IBM's Qiskit and TKET, on the majority (85%) of the circuits in a diverse benchmark suite.\n  A number of theoretical and algorithmic insights underlie QUESO: (1) An algebraic approach for representing rewrite rules and their semantics. This facilitates reasoning about complex symbolic rewrite rules that are beyond the scope of existing techniques. (2) A fast approach for probabilistically verifying equivalence of quantum circuits by reducing the problem to a special form of polynomial identity testing. (3) A novel probabilistic data structure, called a polynomial identity filter (PIF), for efficiently synthesizing rewrite rules. (4) A beam-search-based algorithm that efficiently applies the synthesized symbolic rewrite rules to optimize quantum circuits.",
+      "venue": "cs.PL",
+      "citation_count": 0,
+      "doi": "10.1145/3591254",
+      "arxiv_id": "2211.09691",
+      "url": "https://arxiv.org/abs/2211.09691",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2205.12425",
+      "title": "Katara: Synthesizing CRDTs with Verified Lifting",
+      "authors": [
+        {
+          "name": "Shadaj Laddad",
+          "affiliation": ""
+        },
+        {
+          "name": "Conor Power",
+          "affiliation": ""
+        },
+        {
+          "name": "Mae Milano",
+          "affiliation": ""
+        },
+        {
+          "name": "Alvin Cheung",
+          "affiliation": ""
+        },
+        {
+          "name": "Joseph M. Hellerstein",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Conflict-free replicated data types (CRDTs) are a promising tool for designing scalable, coordination-free distributed systems. However, constructing correct CRDTs is difficult, posing a challenge for even seasoned developers. As a result, CRDT development is still largely the domain of academics, with new designs often awaiting peer review and a manual proof of correctness. In this paper, we present Katara, a program synthesis-based system that takes sequential data type implementations and automatically synthesizes verified CRDT designs from them. Key to this process is a new formal definition of CRDT correctness that combines a reference sequential type with a lightweight ordering constraint that resolves conflicts between non-commutative operations. Our process follows the tradition of work in verified lifting, including an encoding of correctness into SMT logic using synthesized inductive invariants and hand-crafted grammars for the CRDT state and runtime. Katara is able to automatically synthesize CRDTs for a wide variety of scenarios, from reproducing classic CRDTs to synthesizing novel designs based on specifications in existing literature. Crucially, our synthesized CRDTs are fully, automatically verified, eliminating entire classes of common errors and reducing the process of producing a new CRDT from a painstaking paper proof of correctness to a lightweight specification.",
+      "venue": "cs.PL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2205.12425",
+      "url": "https://arxiv.org/abs/2205.12425",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2010.12267",
+      "title": "Show and Speak: Directly Synthesize Spoken Description of Images",
+      "authors": [
+        {
+          "name": "Xinsheng Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Siyuan Feng",
+          "affiliation": ""
+        },
+        {
+          "name": "Jihua Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Mark Hasegawa-Johnson",
+          "affiliation": ""
+        },
+        {
+          "name": "Odette Scharenborg",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "This paper proposes a new model, referred to as the show and speak (SAS) model that, for the first time, is able to directly synthesize spoken descriptions of images, bypassing the need for any text or phonemes. The basic structure of SAS is an encoder-decoder architecture that takes an image as input and predicts the spectrogram of speech that describes this image. The final speech audio is obtained from the predicted spectrogram via WaveNet. Extensive experiments on the public benchmark database Flickr8k demonstrate that the proposed SAS is able to synthesize natural spoken descriptions for images, indicating that synthesizing spoken descriptions for images while bypassing text and phonemes is feasible.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2010.12267",
+      "url": "https://arxiv.org/abs/2010.12267",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2603.16483",
+      "title": "On the Emotion Understanding of Synthesized Speech",
+      "authors": [
+        {
+          "name": "Yuan Ge",
+          "affiliation": ""
+        },
+        {
+          "name": "Haishu Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Aokai Hao",
+          "affiliation": ""
+        },
+        {
+          "name": "Junxiang Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Bei Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaoqian Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Chenglong Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianjin Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Bingsen Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Bingyu Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jingbo Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhengtao Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Tong Xiao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Emotion is a core paralinguistic feature in voice interaction. It is widely believed that emotion understanding models learn fundamental representations that transfer to synthesized speech, making emotion understanding results a plausible reward or evaluation metric for assessing emotional expressiveness in speech synthesis. In this work, we critically examine this assumption by systematically evaluating Speech Emotion Recognition (SER) on synthesized speech across datasets, discriminative and generative SER models, and diverse synthesis models. We find that current SER models can not generalize to synthesized speech, largely because speech token prediction during synthesis induces a representation mismatch between synthesized and human speech. Moreover, generative Speech Language Models (SLMs) tend to infer emotion from textual semantics while ignoring paralinguistic cues. Overall, our findings suggest that existing SER models often exploit non-robust shortcuts rather than capturing fundamental features, and paralinguistic understanding in SLMs remains challenging.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2603.16483",
+      "url": "https://arxiv.org/abs/2603.16483",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

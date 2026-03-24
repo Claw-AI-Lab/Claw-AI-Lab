@@ -1,0 +1,630 @@
+{
+  "query": "Comparing gradient free comparison",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1773942038.0216415,
+  "papers": [
+    {
+      "paper_id": "arxiv-2405.11454",
+      "title": "Gradient Testing and Estimation by Comparisons",
+      "authors": [
+        {
+          "name": "Xiwen Tao",
+          "affiliation": ""
+        },
+        {
+          "name": "Chenyi Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Helin Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yexin Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Tongyang Li",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "We study gradient testing and gradient estimation of smooth functions using only a comparison oracle that, given two points, indicates which one has the larger function value. For any smooth $f\\colon\\mathbb R^n\\to\\mathbb R$, $\\mathbf{x}\\in\\mathbb R^n$, and $\\varepsilon>0$, we design a gradient testing algorithm that determines whether the normalized gradient $\\nabla f(\\mathbf{x})/\\|\\nabla f(\\mathbf{x})\\|$ is $\\varepsilon$-close or $2\\varepsilon$-far from a given unit vector $\\mathbf{v}$ using $O(1)$ queries, as well as a gradient estimation algorithm that outputs an $\\varepsilon$-estimate of $\\nabla f(\\mathbf{x})/\\|\\nabla f(\\mathbf{x})\\|$ using $O(n\\log(1/\\varepsilon))$ queries which we prove to be optimal. Furthermore, we study gradient estimation in the quantum comparison oracle model where queries can be made in superpositions, and develop a quantum algorithm using $O(\\log (n/\\varepsilon))$ queries.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2405.11454",
+      "url": "https://arxiv.org/abs/2405.11454",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2209.03282",
+      "title": "Quadratic Gradient: A Unified Framework Bridging Gradient Descent and Newton-Type Methods by Synthesizing Hessians and Gradients",
+      "authors": [
+        {
+          "name": "John Chiang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "It might be inadequate for the line search technique for Newton's method to use only one floating point number. A column vector of the same size as the gradient might be better than a mere float number to accelerate each of the gradient elements with different rates. Moreover, a square matrix of the same order as the Hessian matrix might be helpful to correct the Hessian matrix. Chiang applied something between a column vector and a square matrix, namely a diagonal matrix, to accelerate the gradient and further proposed a faster gradient variant called quadratic gradient. In this paper, we present a new way to build a new version of the quadratic gradient. This new quadratic gradient doesn't satisfy the convergence conditions of the fixed Hessian Newton's method. However, experimental results show that it sometimes has a better performance than the original one in convergence rate. Also, Chiang speculates that there might be a relation between the Hessian matrix and the learning rate for the first-order gradient descent method. We prove that the floating number $\\frac{1}{\u03b5+ \\max \\{| \u03bb_i | \\}}$ can be a good learning rate of the gradient methods, where $\u03b5$ is a number to avoid division by zero and $\u03bb_i$ the eigenvalues of the Hessian matrix.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2209.03282",
+      "url": "https://arxiv.org/abs/2209.03282",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2307.11957",
+      "title": "High-performance real-world optical computing trained by in situ gradient-based model-free optimization",
+      "authors": [
+        {
+          "name": "Guangyuan Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Xin Shu",
+          "affiliation": ""
+        },
+        {
+          "name": "Renjie Zhou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Optical computing systems provide high-speed and low-energy data processing but face deficiencies in computationally demanding training and simulation-to-reality gaps. We propose a gradient-based model-free optimization (G-MFO) method based on a Monte Carlo gradient estimation algorithm for computationally efficient in situ training of optical computing systems. This approach treats an optical computing system as a black box and back-propagates the loss directly to the optical computing weights' probability distributions, circumventing the need for a computationally heavy and biased system simulation. Our experiments on diffractive optical computing systems show that G-MFO outperforms hybrid training on the MNIST and FMNIST datasets. Furthermore, we demonstrate image-free and high-speed classification of cells from their marker-free phase maps. Our method's model-free and high-performance nature, combined with its low demand for computational resources, paves the way for accelerating the transition of optical computing from laboratory demonstrations to practical, real-world applications.",
+      "venue": "physics.optics",
+      "citation_count": 0,
+      "doi": "10.1109/TPAMI.2024.3466853",
+      "arxiv_id": "2307.11957",
+      "url": "https://arxiv.org/abs/2307.11957",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2501.08330",
+      "title": "Gradient Equilibrium in Online Learning: Theory and Applications",
+      "authors": [
+        {
+          "name": "Anastasios N. Angelopoulos",
+          "affiliation": ""
+        },
+        {
+          "name": "Michael I. Jordan",
+          "affiliation": ""
+        },
+        {
+          "name": "Ryan J. Tibshirani",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "We present a new perspective on online learning that we refer to as gradient equilibrium: a sequence of iterates achieves gradient equilibrium if the average of gradients of losses along the sequence converges to zero. In general, this condition is not implied by, nor implies, sublinear regret. It turns out that gradient equilibrium is achievable by standard online learning methods such as gradient descent and mirror descent with constant step sizes (rather than decaying step sizes, as is usually required for no regret). Further, as we show through examples, gradient equilibrium translates into an interpretable and meaningful property in online prediction problems spanning regression, classification, quantile estimation, and others. Notably, we show that the gradient equilibrium framework can be used to develop a debiasing scheme for black-box predictions under arbitrary distribution shift, based on simple post hoc online descent updates. We also show that post hoc gradient updates can be used to calibrate predicted quantiles under distribution shift, and that the framework leads to unbiased Elo scores for pairwise preference prediction.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2501.08330",
+      "url": "https://arxiv.org/abs/2501.08330",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2508.17169",
+      "title": "ONG: Orthogonal Natural Gradient Descent",
+      "authors": [
+        {
+          "name": "Yajat Yadav",
+          "affiliation": ""
+        },
+        {
+          "name": "Patrick Mendoza",
+          "affiliation": ""
+        },
+        {
+          "name": "Jathin Korrapati",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Orthogonal Gradient Descent (OGD) has emerged as a powerful method for continual learning. However, its Euclidean projections do not leverage the underlying information-geometric structure of the problem, which can lead to suboptimal convergence in learning tasks. To address this, we propose incorporating the natural gradient into OGD and present \\textbf{ONG (Orthogonal Natural Gradient Descent)}. ONG preconditions each new task-specific gradient with an efficient EKFAC approximation of the inverse Fisher information matrix, yielding updates that follow the steepest descent direction under a Riemannian metric. To preserve performance on previously learned tasks, ONG projects these natural gradients onto the orthogonal complement of prior tasks' natural gradients. We provide an initial theoretical justification for this procedure, introduce the Orthogonal Natural Gradient Descent (ONG) algorithm, and present preliminary results on the Permuted and Rotated MNIST benchmarks. Our preliminary results, however, indicate that a naive combination of natural gradients and orthogonal projections has potential issues. This finding has motivated continued future work focused on robustly reconciling these geometric perspectives to develop a continual learning method, establishing a more rigorous theoretical foundation with formal convergence guarantees, and extending empirical validation to large-scale continual learning benchmarks.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2508.17169",
+      "url": "https://arxiv.org/abs/2508.17169",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2311.15550",
+      "title": "A note on free divergence-free vector fields",
+      "authors": [
+        {
+          "name": "Hyuga Ito",
+          "affiliation": ""
+        },
+        {
+          "name": "Akihiro Miyagawa",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We exhibit an orthonormal basis of cyclic gradients and a (non-orthogonal) basis of the homogeneous free divergence-free vector field on the full Fock space and determine the dimension of Voiculescu's free divergence-free vector field of degree k or less. Moreover, we also give a concrete formula for the orthogonal projection onto the space of cyclic gradients as well as the free Leray projection.",
+      "venue": "math.OA",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2311.15550",
+      "url": "https://arxiv.org/abs/2311.15550",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.02758",
+      "title": "Finite free probability and $S$ transforms of Jacobi processes",
+      "authors": [
+        {
+          "name": "Nizar Demni",
+          "affiliation": ""
+        },
+        {
+          "name": "Nicolas Gilliers",
+          "affiliation": ""
+        },
+        {
+          "name": "Tarek Hamdi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "In this paper, we study the $S$ transforms of Jacobi processes in the frameworks of free and finite free probability theories. We begin by deriving a partial differential equation satisfied by the free $S$ transform of the free Jacobi process, and we provide a detailed analysis of its characteristic curves. We turn next our attention to the averaged characteristic polynomial of the Hermitian Jacobi process and to the dynamic of its roots, referred to as the \\emph{frozen Jacobi process}. In particular, we prove, for a specific set of parameters, that the former aligns up to a Szeg\u00f6 variable transformation with the Hermite unitary polynomial. We also provide an expansion of the averaged characteristic polynomial of the Hermitian process in the basis of Jacobi polynomials. Finally, we establish the convergence of the frozen Jacobi process to the free Jacobi process in high dimensions by using the finite free S transform. In doing so, we prove a general result, interesting in its own, on the convergence of the finite differences of the finite free $S$ transform, which paves the way to obtain asymptotics of differential-difference equations satisfied by time-dependent finite free S-transforms of polynomial sequences with positive roots.",
+      "venue": "math.PR",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.02758",
+      "url": "https://arxiv.org/abs/2511.02758",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2504.01704",
+      "title": "Performance and applications of optical pin beams in turbulent long-range free space optical communications",
+      "authors": [
+        {
+          "name": "Francesco Nardo",
+          "affiliation": ""
+        },
+        {
+          "name": "Jan Tepper",
+          "affiliation": ""
+        },
+        {
+          "name": "Ricardo Barrios",
+          "affiliation": ""
+        },
+        {
+          "name": "Jonas Krimmer",
+          "affiliation": ""
+        },
+        {
+          "name": "Sebastian Randel",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Optical pin beams (OPBs) are a promising candidate for realizing turbulence-resilient long-distance free-space optical communication links spanning hundreds of kilometers. In this work, we introduce a unified theoretical model to describe the propagation of OPBs and present comprehensive simulation results based on many realizations and link-budget analyses for constant turbulence strengths. For reference, we compare the performance of the OPBs to weakly diverging and focusing Gaussian beams. For a 100km long air-to-air link, 10km above sea level, our simulation results show that OPBs offer an improved link budget of up to 8.6dB and enhanced beam wander statistics of up to 3dB compared to the considered Gaussian beams. Additionally, we identified a quadratic relationship between the transmitter aperture diameter and the maximum achievable distances, which is crucial in deciding the suitability of OPBs for a given application scenario.",
+      "venue": "physics.optics",
+      "citation_count": 0,
+      "doi": "10.1117/12.3040720",
+      "arxiv_id": "2504.01704",
+      "url": "https://arxiv.org/abs/2504.01704",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2412.17631",
+      "title": "A $C^0$-continuous nonconforming virtual element method for linear strain gradient elasticity",
+      "authors": [
+        {
+          "name": "Jianguo Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yue Yu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "A robust $C^0$-continuous nonconforming virtual element method (VEM) is developed for a boundary value problem arising from strain gradient elasticity in two dimensions, with the family of polygonal meshes satisfying a very general geometric assumption given in Brezzi et al. (2009) and Chen and Huang (2018). The stability condition of the VEMs is derived by establishing Korn-type inequalities and inverse inequalities. Some crucial commutative relations for locking-free analysis as in elastic problems are derived. The sharp and uniform error estimates with respect to both the microscopic parameter and the Lam\u00e9 coefficient are achieved in the lowest-order case, which is also verified by numerical results.",
+      "venue": "math.NA",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2412.17631",
+      "url": "https://arxiv.org/abs/2412.17631",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2502.13280",
+      "title": "Value Gradient Sampler: Sampling as Sequential Decision Making",
+      "authors": [
+        {
+          "name": "Sangwoong Yoon",
+          "affiliation": ""
+        },
+        {
+          "name": "Himchan Hwang",
+          "affiliation": ""
+        },
+        {
+          "name": "Hyeokju Jeong",
+          "affiliation": ""
+        },
+        {
+          "name": "Dong Kyu Shin",
+          "affiliation": ""
+        },
+        {
+          "name": "Che-Sang Park",
+          "affiliation": ""
+        },
+        {
+          "name": "Sehee Kweon",
+          "affiliation": ""
+        },
+        {
+          "name": "Frank Chongwoo Park",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "We propose the Value Gradient Sampler (VGS), a trainable sampler based on the interpretation of sampling as discrete-time sequential decision-making. VGS generates samples from a given unnormalized density (i.e., energy) by drifting and diffusing randomly initialized particles. In VGS, finding the optimal drift is equivalent to solving an optimal control problem where the cost is the upper bound of the KL divergence between the target density and the samples. We employ value-based dynamic programming to solve this optimal control problem, which gives the gradient of the value function as the optimal drift vector. The connection to sequential decision making allows VGS to leverage extensively studied techniques in reinforcement learning, making VGS a fast, adaptive, and accurate sampler that achieves competitive results in various sampling benchmarks. Furthermore, VGS can replace MCMC in contrastive divergence training of energy-based models. We demonstrate the effectiveness of VGS in training accurate energy-based models in industrial anomaly detection applications.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2502.13280",
+      "url": "https://arxiv.org/abs/2502.13280",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2008.00645",
+      "title": "Active Classification with Uncertainty Comparison Queries",
+      "authors": [
+        {
+          "name": "Zhenghang Cui",
+          "affiliation": ""
+        },
+        {
+          "name": "Issei Sato",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Noisy pairwise comparison feedback has been incorporated to improve the overall query complexity of interactively learning binary classifiers. The \\textit{positivity comparison oracle} is used to provide feedback on which is more likely to be positive given a pair of data points. Because it is impossible to infer accurate labels using this oracle alone \\textit{without knowing the classification threshold}, existing methods still rely on the traditional \\textit{explicit labeling oracle}, which directly answers the label given a data point. Existing methods conduct sorting on all data points and use explicit labeling oracle to find the classification threshold. The current methods, however, have two drawbacks: (1) they needs unnecessary sorting for label inference; (2) quick sort is naively adapted to noisy feedback and negatively affects practical performance. In order to avoid this inefficiency and acquire information of the classification threshold, we propose a new pairwise comparison oracle concerning uncertainties. This oracle receives two data points as input and answers which one has higher uncertainty. We then propose an efficient adaptive labeling algorithm using the proposed oracle and the positivity comparison oracle. In addition, we also address the situation where the labeling budget is insufficient compared to the dataset size, which can be dealt with by plugging the proposed algorithm into an active learning algorithm. Furthermore, we confirm the feasibility of the proposed oracle and the performance of the proposed algorithm theoretically and empirically.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2008.00645",
+      "url": "https://arxiv.org/abs/2008.00645",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2505.13265",
+      "title": "Selfless reduced free product $C^*$-algebras",
+      "authors": [
+        {
+          "name": "Ben Hayes",
+          "affiliation": ""
+        },
+        {
+          "name": "Srivatsav Kunnawalkam Elayavalli",
+          "affiliation": ""
+        },
+        {
+          "name": "Leonel Robert",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "We study selflessness in the general setting of reduced free products of $C^*$-algebras. Towards this end, we develop a suitable theory of rapid decay for filtrations in arbitrary $C^*$-probability spaces. We provide several natural examples and permanence properties of this phenomenon. By using this framework in combination with von Neumann algebraic techniques involving approximate forms of orthogonality, we are able to prove selflessness for general families of reduced free product $C^*$-algebras. As an instance of our results, we prove selflessness and thus strict comparison for the canonical $C^*$-algebras generated by Voiculescu's free semicircular systems. Our results also provide new examples of purely infinite reduced free products.",
+      "venue": "math.OA",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2505.13265",
+      "url": "https://arxiv.org/abs/2505.13265",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2203.11758",
+      "title": "Linear convergence of a policy gradient method for some finite horizon continuous time control problems",
+      "authors": [
+        {
+          "name": "Christoph Reisinger",
+          "affiliation": ""
+        },
+        {
+          "name": "Wolfgang Stockinger",
+          "affiliation": ""
+        },
+        {
+          "name": "Yufei Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Despite its popularity in the reinforcement learning community, a provably convergent policy gradient method for continuous space-time control problems with nonlinear state dynamics has been elusive. This paper proposes proximal gradient algorithms for feedback controls of finite-time horizon stochastic control problems. The state dynamics are nonlinear diffusions with control-affine drift, and the cost functions are nonconvex in the state and nonsmooth in the control. The system noise can degenerate, which allows for deterministic control problems as special cases. We prove under suitable conditions that the algorithm converges linearly to a stationary point of the control problem, and is stable with respect to policy updates by approximate gradient steps. The convergence result justifies the recent reinforcement learning heuristics that adding entropy regularization or a fictitious discount factor to the optimization objective accelerates the convergence of policy gradient methods. The proof exploits careful regularity estimates of backward stochastic differential equations.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2203.11758",
+      "url": "https://arxiv.org/abs/2203.11758",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2004.05053",
+      "title": "On the construction of complete expanding gradient Rici solitons",
+      "authors": [
+        {
+          "name": "Marcio de Sousa",
+          "affiliation": ""
+        },
+        {
+          "name": "Paula Bonfim",
+          "affiliation": ""
+        },
+        {
+          "name": "Romildo Pina",
+          "affiliation": ""
+        },
+        {
+          "name": "Tiberio Martins",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "We study gradient Ricci solitons warped products whose base is the Euclidean space. We show that the warping functions of these manifolds are invariant under the (n-1)-dimensional translation group. We characterize the potential function when the torsion function depends only on one variable, which is a particular case of invariance by translation. From this study, we derive complete examples of expanding gradient Ricci solitons.",
+      "venue": "math.DG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2004.05053",
+      "url": "https://arxiv.org/abs/2004.05053",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2111.03095",
+      "title": "Space-time wave packets localized in all dimensions",
+      "authors": [
+        {
+          "name": "Murat Yessenov",
+          "affiliation": ""
+        },
+        {
+          "name": "Justin Free",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhaozhong Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Eric G. Johnson",
+          "affiliation": ""
+        },
+        {
+          "name": "Martin P. J. Lavery",
+          "affiliation": ""
+        },
+        {
+          "name": "Miguel A. Alonso",
+          "affiliation": ""
+        },
+        {
+          "name": "Ayman F. Abouraddy",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Optical wave packets that are localized in space and time, but nevertheless overcome diffraction and travel rigidly in free space, are a long sought-after field structure with applications ranging from microscopy and remote sensing, to nonlinear and quantum optics. However, synthesizing such wave packets requires introducing non-differentiable angular dispersion with high spectral precision in two transverse dimensions, a capability that has eluded optics to date. Here, we describe an experimental strategy capable of sculpting the spatio-temporal spectrum of a generic pulsed beam by introducing arbitrary radial chirp via two-dimensional conformal coordinate transformations of the spectrally resolved field. This procedure yields propagation-invariant `space-time' wave packets localized in all dimensions, with tunable group velocity in the range from $0.7c$ to $1.8c$ in free space, and endowed with prescribed orbital angular momentum. By providing unprecedented flexibility in sculpting the three-dimensional structure of pulsed optical fields, our experimental strategy promises to be a versatile platform for the emerging enterprise of space-time optics.",
+      "venue": "physics.optics",
+      "citation_count": 0,
+      "doi": "10.1038/s41467-022-32240-0",
+      "arxiv_id": "2111.03095",
+      "url": "https://arxiv.org/abs/2111.03095",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2305.05304",
+      "title": "The structure and density of $k$-product-free sets in the free semigroup",
+      "authors": [
+        {
+          "name": "Freddie Illingworth",
+          "affiliation": ""
+        },
+        {
+          "name": "Lukas Michel",
+          "affiliation": ""
+        },
+        {
+          "name": "Alex Scott",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "The free semigroup $\\mathcal{F}$ over a finite alphabet $\\mathcal{A}$ is the set of all finite words with letters from $\\mathcal{A}$ equipped with the operation of concatenation. A subset $S$ of $\\mathcal{F}$ is $k$-product-free if no element of $S$ can be obtained by concatenating $k$ words from $S$, and strongly $k$-product-free if no element of $S$ is a (non-trivial) concatenation of at most $k$ words from $S$.\n  We prove that a $k$-product-free subset of $\\mathcal{F}$ has upper Banach density at most $1/\u03c1(k)$, where $\u03c1(k) = \\min\\{\\ell \\colon \\ell \\nmid k - 1\\}$. We also determine the structure of the extremal $k$-product-free subsets for all $k \\notin \\{3, 5, 7, 13\\}$; a special case of this proves a conjecture of Leader, Letzter, Narayanan, and Walters. We further determine the structure of all strongly $k$-product-free sets with maximum density. Finally, we prove that $k$-product-free subsets of the free group have upper Banach density at most $1/\u03c1(k)$, which confirms a conjecture of Ortega, Ru\u00e9, and Serra.",
+      "venue": "math.CO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2305.05304",
+      "url": "https://arxiv.org/abs/2305.05304",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2212.02083",
+      "title": "On the Overlooked Structure of Stochastic Gradients",
+      "authors": [
+        {
+          "name": "Zeke Xie",
+          "affiliation": ""
+        },
+        {
+          "name": "Qian-Yuan Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Mingming Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Ping Li",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Stochastic gradients closely relate to both optimization and generalization of deep neural networks (DNNs). Some works attempted to explain the success of stochastic optimization for deep learning by the arguably heavy-tail properties of gradient noise, while other works presented theoretical and empirical evidence against the heavy-tail hypothesis on gradient noise. Unfortunately, formal statistical tests for analyzing the structure and heavy tails of stochastic gradients in deep learning are still under-explored. In this paper, we mainly make two contributions. First, we conduct formal statistical tests on the distribution of stochastic gradients and gradient noise across both parameters and iterations. Our statistical tests reveal that dimension-wise gradients usually exhibit power-law heavy tails, while iteration-wise gradients and stochastic gradient noise caused by minibatch training usually do not exhibit power-law heavy tails. Second, we further discover that the covariance spectra of stochastic gradients have the power-law structures overlooked by previous studies and present its theoretical implications for training of DNNs. While previous studies believed that the anisotropic structure of stochastic gradients matters to deep learning, they did not expect the gradient covariance can have such an elegant mathematical structure. Our work challenges the existing belief and provides novel insights on the structure of stochastic gradients in deep learning.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2212.02083",
+      "url": "https://arxiv.org/abs/2212.02083",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2306.16361",
+      "title": "Beyond NTK with Vanilla Gradient Descent: A Mean-Field Analysis of Neural Networks with Polynomial Width, Samples, and Time",
+      "authors": [
+        {
+          "name": "Arvind Mahankali",
+          "affiliation": ""
+        },
+        {
+          "name": "Jeff Z. Haochen",
+          "affiliation": ""
+        },
+        {
+          "name": "Kefan Dong",
+          "affiliation": ""
+        },
+        {
+          "name": "Margalit Glasgow",
+          "affiliation": ""
+        },
+        {
+          "name": "Tengyu Ma",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Despite recent theoretical progress on the non-convex optimization of two-layer neural networks, it is still an open question whether gradient descent on neural networks without unnatural modifications can achieve better sample complexity than kernel methods. This paper provides a clean mean-field analysis of projected gradient flow on polynomial-width two-layer neural networks. Different from prior works, our analysis does not require unnatural modifications of the optimization algorithm. We prove that with sample size $n = O(d^{3.1})$ where $d$ is the dimension of the inputs, the network trained with projected gradient flow converges in $\\text{poly}(d)$ time to a non-trivial error that is not achievable by kernel methods using $n \\ll d^4$ samples, hence demonstrating a clear separation between unmodified gradient descent and NTK. As a corollary, we show that projected gradient descent with a positive learning rate and a polynomial number of iterations converges to low error with the same sample complexity.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2306.16361",
+      "url": "https://arxiv.org/abs/2306.16361",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2501.11616",
+      "title": "Fully Adaptive Zeroth-Order Method for Minimizing Functions with Compressible Gradients",
+      "authors": [
+        {
+          "name": "Geovani Nunes Grapiglia",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniel McKenzie",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "We propose an adaptive zeroth-order method for minimizing differentiable functions with $L$-Lipschitz continuous gradients. The method is designed to take advantage of the eventual compressibility of the gradient of the objective function, but it does not require knowledge of the approximate sparsity level $s$ or the Lipschitz constant $L$ of the gradient. We show that the new method performs no more than $O\\left(n^{2}\u03b5^{-2}\\right)$ function evaluations to find an $\u03b5$-approximate stationary point of an objective function with $n$ variables. Assuming additionally that the gradients of the objective function are compressible, we obtain an improved complexity bound of $O\\left(s\\log\\left(n\\right)\u03b5^{-2}\\right)$ function evaluations, which holds with high probability. Preliminary numerical results illustrate the efficiency of the proposed method and demonstrate that it can significantly outperform its non-adaptive counterpart.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2501.11616",
+      "url": "https://arxiv.org/abs/2501.11616",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2108.09899",
+      "title": "Rate distortion comparison of a few gradient quantizers",
+      "authors": [
+        {
+          "name": "Tharindu Adikari",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "This article is in the context of gradient compression. Gradient compression is a popular technique for mitigating the communication bottleneck observed when training large machine learning models in a distributed manner using gradient-based methods such as stochastic gradient descent. In this article, assuming a Gaussian distribution for the components in gradient, we find the rate distortion trade-off of gradient quantization schemes such as Scaled-sign and Top-K, and compare with the Shannon rate distortion limit. A similar comparison with vector quantizers also is presented.",
+      "venue": "cs.DC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2108.09899",
+      "url": "https://arxiv.org/abs/2108.09899",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2102.12677",
+      "title": "Do Not Let Privacy Overbill Utility: Gradient Embedding Perturbation for Private Learning",
+      "authors": [
+        {
+          "name": "Da Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Huishuai Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wei Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Tie-Yan Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "The privacy leakage of the model about the training data can be bounded in the differential privacy mechanism. However, for meaningful privacy parameters, a differentially private model degrades the utility drastically when the model comprises a large number of trainable parameters. In this paper, we propose an algorithm \\emph{Gradient Embedding Perturbation (GEP)} towards training differentially private deep models with decent accuracy. Specifically, in each gradient descent step, GEP first projects individual private gradient into a non-sensitive anchor subspace, producing a low-dimensional gradient embedding and a small-norm residual gradient. Then, GEP perturbs the low-dimensional embedding and the residual gradient separately according to the privacy budget. Such a decomposition permits a small perturbation variance, which greatly helps to break the dimensional barrier of private learning. With GEP, we achieve decent accuracy with reasonable computational cost and modest privacy guarantee for deep models. Especially, with privacy bound $\u03b5=8$, we achieve $74.9\\%$ test accuracy on CIFAR10 and $95.1\\%$ test accuracy on SVHN, significantly improving over existing results.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2102.12677",
+      "url": "https://arxiv.org/abs/2102.12677",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2006.06934",
+      "title": "Gradient Projection for Solving Quadratic Programs with Standard Simplex Constraints",
+      "authors": [
+        {
+          "name": "Youwei Liang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "An important method to optimize a function on standard simplex is the active set algorithm, which requires the gradient of the function to be projected onto a hyperplane, with sign constraints on the variables that lie in the boundary of the simplex. We propose a new algorithm to efficiently project the gradient for this purpose. Furthermore, we apply the proposed gradient projection method to quadratic programs (QP) with standard simplex constraints, where gradient projection is used to explore the feasible region and, when we believe the optimal active set is identified, we switch to constrained conjugate gradient to accelerate convergence. Specifically, two different directions of gradient projection are used to explore the simplex, namely, the projected gradient and the reduced gradient. We choose one of the two directions according to the angle between the directions. Moreover, we propose two conditions for guessing the optimal active set heuristically. The first condition is that the working set remains unchanged for many iterations, and the second condition is that the angle between the projected gradient and the reduced gradient is small enough. Based on these strategies, a new active set algorithm for solving quadratic programs on standard simplex is proposed.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2006.06934",
+      "url": "https://arxiv.org/abs/2006.06934",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

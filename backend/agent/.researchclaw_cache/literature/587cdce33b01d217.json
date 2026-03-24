@@ -1,0 +1,497 @@
+{
+  "query": "Simple 2-layer CNN for MNIST digit classification comparing SGD vs Adam optimizer, short paper",
+  "source": "openalex",
+  "limit": 15,
+  "timestamp": 1774029759.337576,
+  "papers": [
+    {
+      "paper_id": "oalex-W2942231644",
+      "title": "Review of Deep Learning Algorithms and Architectures",
+      "authors": [
+        {
+          "name": "Ajay Shrestha",
+          "affiliation": "University of Bridgeport"
+        },
+        {
+          "name": "Ausif Mahmood",
+          "affiliation": "University of Bridgeport"
+        }
+      ],
+      "year": 2019,
+      "abstract": "Deep learning (DL) is playing an increasingly important role in our lives. It has already made a huge impact in areas, such as cancer diagnosis, precision medicine, self-driving cars, predictive forecasting, and speech recognition. The painstakingly handcrafted feature extractors used in traditional learning, classification, and pattern recognition systems are not scalable for large-sized data sets. In many cases, depending on the problem complexity, DL can also overcome the limitations of earlier shallow networks that prevented efficient training and abstractions of hierarchical representations of multi-dimensional training data. Deep neural network (DNN) uses multiple (deep) layers of units with highly optimized algorithms and architectures. This paper reviews several optimization methods to improve the accuracy of the training and to reduce training time. We delve into the math behind training algorithms used in recent deep networks. We describe current shortcomings, enhancements, and implementations. The review also covers different types of deep architectures, such as deep convolution networks, deep residual networks, recurrent neural networks, reinforcement learning, variational autoencoders, and others.",
+      "venue": "IEEE Access",
+      "citation_count": 1791,
+      "doi": "10.1109/access.2019.2912200",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/access.2019.2912200",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2513853720",
+      "title": "Training Deep Spiking Neural Networks Using Backpropagation",
+      "authors": [
+        {
+          "name": "Jun Haeng Lee",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Tobi Delbr\u00fcck",
+          "affiliation": "SIB Swiss Institute of Bioinformatics"
+        },
+        {
+          "name": "Michael Pfeiffer",
+          "affiliation": "ETH Zurich"
+        }
+      ],
+      "year": 2016,
+      "abstract": "Deep spiking neural networks (SNNs) hold the potential for improving the latency and energy efficiency of deep neural networks through data-driven event-based computation. However, training such networks is difficult due to the non-differentiable nature of spike events. In this paper, we introduce a novel technique, which treats the membrane potentials of spiking neurons as differentiable signals, where discontinuities at spike times are considered as noise. This enables an error backpropagation mechanism for deep SNNs that follows the same principles as in conventional deep networks, but works directly on spike signals and membrane potentials. Compared with previous methods relying on indirect training and conversion, our technique has the potential to capture the statistics of spikes more precisely. We evaluate the proposed framework on artificially generated events from the original MNIST handwritten digit benchmark, and also on the N-MNIST benchmark recorded with an event-based dynamic vision sensor, in which the proposed method reduces the error rate by a factor of more than three compared to the best previous SNN, and also achieves a higher accuracy than a conventional convolutional neural network (CNN) trained and tested on the same data. We demonstrate in the context of the MNIST task that thanks to their event-driven operation, deep SNNs (both fully connected and convolutional) trained with our method achieve accuracy equivalent with conventional neural networks. In the N-MNIST example, equivalent accuracy is achieved with about five times fewer computational operations.",
+      "venue": "Frontiers in Neuroscience",
+      "citation_count": 969,
+      "doi": "10.3389/fnins.2016.00508",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3389/fnins.2016.00508",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4385342469",
+      "title": "Convolutional Neural Networks: A Survey",
+      "authors": [
+        {
+          "name": "Moez Krichen",
+          "affiliation": "University of Sfax"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Artificial intelligence (AI) has become a cornerstone of modern technology, revolutionizing industries from healthcare to finance. Convolutional neural networks (CNNs) are a subset of AI that have emerged as a powerful tool for various tasks including image recognition, speech recognition, natural language processing (NLP), and even in the field of genomics, where they have been utilized to classify DNA sequences. This paper provides a comprehensive overview of CNNs and their applications in image recognition tasks. It first introduces the fundamentals of CNNs, including the layers of CNNs, convolution operation (Conv_Op), Feat_Maps, activation functions (Activ_Func), and training methods. It then discusses several popular CNN architectures such as LeNet, AlexNet, VGG, ResNet, and InceptionNet, and compares their performance. It also examines when to use CNNs, their advantages and limitations, and provides recommendations for developers and data scientists, including preprocessing the data, choosing appropriate hyperparameters (Hyper_Param), and evaluating model performance. It further explores the existing platforms and libraries for CNNs such as TensorFlow, Keras, PyTorch, Caffe, and MXNet, and compares their features and functionalities. Moreover, it estimates the cost of using CNNs and discusses potential cost-saving strategies. Finally, it reviews recent developments in CNNs, including attention mechanisms, capsule networks, transfer learning, adversarial training, quantization and compression, and enhancing the reliability and efficiency of CNNs through formal methods. The paper is concluded by summarizing the key takeaways and discussing the future directions of CNN research and development.",
+      "venue": "Computers",
+      "citation_count": 502,
+      "doi": "10.3390/computers12080151",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/computers12080151",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2606711863",
+      "title": "Virtual Adversarial Training: A Regularization Method for Supervised and Semi-Supervised Learning",
+      "authors": [
+        {
+          "name": "Takeru Miyato",
+          "affiliation": ""
+        },
+        {
+          "name": "Shin\u2010ichi Maeda",
+          "affiliation": ""
+        },
+        {
+          "name": "Masanori Koyama",
+          "affiliation": ""
+        },
+        {
+          "name": "Shin Ishii",
+          "affiliation": ""
+        }
+      ],
+      "year": 2017,
+      "abstract": "We propose a new regularization method based on virtual adversarial loss: a new measure of local smoothness of the conditional label distribution given input. Virtual adversarial loss is defined as the robustness of the conditional label distribution around each input data point against local perturbation. Unlike adversarial training, our method defines the adversarial direction without label information and is hence applicable to semi-supervised learning. Because the directions in which we smooth the model are only \"virtually\" adversarial, we call our method virtual adversarial training (VAT). The computational cost of VAT is relatively low. For neural networks, the approximated gradient of virtual adversarial loss can be computed with no more than two pairs of forward- and back-propagations. In our experiments, we applied VAT to supervised and semi-supervised learning tasks on multiple benchmark datasets. With a simple enhancement of the algorithm based on the entropy minimization principle, our VAT achieves state-of-the-art performance for semi-supervised learning tasks on SVHN and CIFAR-10.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 217,
+      "doi": "10.48550/arxiv.1704.03976",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.1704.03976",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3112787034",
+      "title": "Privacy and Security Issues in Deep Learning: A Survey",
+      "authors": [
+        {
+          "name": "Ximeng Liu",
+          "affiliation": "Fuzhou University"
+        },
+        {
+          "name": "Lehui Xie",
+          "affiliation": "Fuzhou University"
+        },
+        {
+          "name": "Yaopeng Wang",
+          "affiliation": "Fuzhou University"
+        },
+        {
+          "name": "Jian Zou",
+          "affiliation": "Fuzhou University"
+        },
+        {
+          "name": "Jinbo Xiong",
+          "affiliation": "Fujian Normal University"
+        },
+        {
+          "name": "Zuobin Ying",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Athanasios V. Vasilakos",
+          "affiliation": "Lule\u00e5 University of Technology"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Deep Learning (DL) algorithms based on artificial neural networks have achieved remarkable success and are being extensively applied in a variety of application domains, ranging from image classification, automatic driving, natural language processing to medical diagnosis, credit risk assessment, intrusion detection. However, the privacy and security issues of DL have been revealed that the DL model can be stolen or reverse engineered, sensitive training data can be inferred, even a recognizable face image of the victim can be recovered. Besides, the recent works have found that the DL model is vulnerable to adversarial examples perturbed by imperceptible noised, which can lead the DL model to predict wrongly with high confidence. In this paper, we first briefly introduces the four types of attacks and privacy-preserving techniques in DL. We then review and summarize the attack and defense methods associated with DL privacy and security in recent years. To demonstrate that security threats really exist in the real world, we also reviewed the adversarial attacks under the physical condition. Finally, we discuss current challenges and open problems regarding privacy and security issues in DL.",
+      "venue": "IEEE Access",
+      "citation_count": 267,
+      "doi": "10.1109/access.2020.3045078",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/access.2020.3045078",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3208693455",
+      "title": "FedAT",
+      "authors": [
+        {
+          "name": "Zheng Chai",
+          "affiliation": "George Mason University"
+        },
+        {
+          "name": "Yujing Chen",
+          "affiliation": "George Mason University"
+        },
+        {
+          "name": "Ali Anwar",
+          "affiliation": ""
+        },
+        {
+          "name": "Liang Zhao",
+          "affiliation": "Emory University"
+        },
+        {
+          "name": "Yue Cheng",
+          "affiliation": "George Mason University"
+        },
+        {
+          "name": "Huzefa Rangwala",
+          "affiliation": "George Mason University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Federated learning (FL) involves training a model over massive distributed devices, while keeping the training data localized and private. This form of collaborative learning exposes new tradeoffs among model convergence speed, model accuracy, balance across clients, and communication cost, with new challenges including: (1) straggler problem---where clients lag due to data or (computing and network) resource heterogeneity, and (2) communication bottleneck---where a large number of clients communicate their local updates to a central server and bottleneck the server. Many existing FL methods focus on optimizing along only one single dimension of the tradeoff space. Existing solutions use asynchronous model updating or tiering-based, synchronous mechanisms to tackle the straggler problem. However, asynchronous methods can easily create a communication bottleneck, while tiering may introduce biases that favor faster tiers with shorter response latencies.",
+      "venue": "",
+      "citation_count": 124,
+      "doi": "10.1145/3458817.3476211",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3458817.3476211",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4388767362",
+      "title": "On generating trustworthy counterfactual explanations",
+      "authors": [
+        {
+          "name": "Javier Del Ser",
+          "affiliation": "University of the Basque Country"
+        },
+        {
+          "name": "Alejandro Barredo-Arrieta",
+          "affiliation": "Software (Spain)"
+        },
+        {
+          "name": "Natalia D\u00edaz-Rodr\u00edguez",
+          "affiliation": "Instituto Andaluz de Ciencias de la Tierra"
+        },
+        {
+          "name": "Francisco Herrera",
+          "affiliation": "Universidad de Granada"
+        },
+        {
+          "name": "Anna Saranti",
+          "affiliation": "BOKU University"
+        },
+        {
+          "name": "Andreas Holzinger",
+          "affiliation": "BOKU University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Deep learning models like chatGPT exemplify AI success but necessitate a deeper understanding of trust in critical sectors. Trust can be achieved using counterfactual explanations, which is how humans become familiar with unknown processes; by understanding the hypothetical input circumstances under which the output changes. We argue that the generation of counterfactual explanations requires several aspects of the generated counterfactual instances, not just their counterfactual ability. We present a framework for generating counterfactual explanations that formulate its goal as a multiobjective optimization problem balancing three objectives: plausibility; the intensity of changes; and adversarial power. We use a generative adversarial network to model the distribution of the input, along with a multiobjective counterfactual discovery solver balancing these objectives. We demonstrate the usefulness of six classification tasks with image and 3D data confirming with evidence the existence of a trade-off between the objectives, the consistency of the produced counterfactual explanations with human knowledge, and the capability of the framework to unveil the existence of concept-based biases and misrepresented attributes in the input domain of the audited model. Our pioneering effort shall inspire further work on the generation of plausible counterfactual explanations in real-world scenarios where attribute-/concept-based annotations are available for the domain under analysis.",
+      "venue": "Information Sciences",
+      "citation_count": 107,
+      "doi": "10.1016/j.ins.2023.119898",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.ins.2023.119898",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2898291644",
+      "title": "Exploiting Unintended Feature Leakage in Collaborative Learning",
+      "authors": [
+        {
+          "name": "Luca Melis",
+          "affiliation": "University College London"
+        },
+        {
+          "name": "Congzheng Song",
+          "affiliation": "Cornell University"
+        },
+        {
+          "name": "Emiliano De Cristofaro",
+          "affiliation": "University College London"
+        },
+        {
+          "name": "Vitaly Shmatikov",
+          "affiliation": "Cornell University"
+        }
+      ],
+      "year": 2019,
+      "abstract": "Collaborative machine learning and related techniques such as federated learning allow multiple participants, each with his own training dataset, to build a joint model by training locally and periodically exchanging model updates. We demonstrate that these updates leak unintended information about participants' training data and develop passive and active inference attacks to exploit this leakage. First, we show that an adversarial participant can infer the presence of exact data points -- for example, specific locations -- in others' training data (i.e., membership inference). Then, we show how this adversary can infer properties that hold only for a subset of the training data and are independent of the properties that the joint model aims to capture. For example, he can infer when a specific person first appears in the photos used to train a binary gender classifier. We evaluate our attacks on a variety of tasks, datasets, and learning configurations, analyze their limitations, and discuss possible defenses.",
+      "venue": "",
+      "citation_count": 87,
+      "doi": "10.1109/sp.2019.00029",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/sp.2019.00029",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3033135512",
+      "title": "Monarch Butterfly Optimization Based Convolutional Neural Network Design",
+      "authors": [
+        {
+          "name": "Neboj\u0161a Ba\u010danin",
+          "affiliation": "Singidunum University"
+        },
+        {
+          "name": "Timea Bezdan",
+          "affiliation": "Singidunum University"
+        },
+        {
+          "name": "Eva Tuba",
+          "affiliation": "Singidunum University"
+        },
+        {
+          "name": "Ivana Strumberger",
+          "affiliation": "Singidunum University"
+        },
+        {
+          "name": "Milan Tuba",
+          "affiliation": "Singidunum University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Convolutional neural networks have a broad spectrum of practical applications in computer vision. Currently, much of the data come from images, and it is crucial to have an efficient technique for processing these large amounts of data. Convolutional neural networks have proven to be very successful in tackling image processing tasks. However, the design of a network structure for a given problem entails a fine-tuning of the hyperparameters in order to achieve better accuracy. This process takes much time and requires effort and expertise from the domain. Designing convolutional neural networks\u2019 architecture represents a typical NP-hard optimization problem, and some frameworks for generating network structures for a specific image classification tasks have been proposed. To address this issue, in this paper, we propose the hybridized monarch butterfly optimization algorithm. Based on the observed deficiencies of the original monarch butterfly optimization approach, we performed hybridization with two other state-of-the-art swarm intelligence algorithms. The proposed hybrid algorithm was firstly tested on a set of standard unconstrained benchmark instances, and later on, it was adapted for a convolutional neural network design problem. Comparative analysis with other state-of-the-art methods and algorithms, as well as with the original monarch butterfly optimization implementation was performed for both groups of simulations. Experimental results proved that our proposed method managed to obtain higher classification accuracy than other approaches, the results of which were published in the modern computer science literature.",
+      "venue": "Mathematics",
+      "citation_count": 70,
+      "doi": "10.3390/math8060936",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/math8060936",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2618170429",
+      "title": "CayleyNets: Graph Convolutional Neural Networks With Complex Rational Spectral Filters",
+      "authors": [
+        {
+          "name": "Ron Levie",
+          "affiliation": "Technische Universit\u00e4t Berlin"
+        },
+        {
+          "name": "Federico Monti",
+          "affiliation": "Universit\u00e0 della Svizzera italiana"
+        },
+        {
+          "name": "Xavier Bresson",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Michael M. Bronstein",
+          "affiliation": "Universit\u00e0 della Svizzera italiana"
+        }
+      ],
+      "year": 2018,
+      "abstract": "The rise of graph-structured data such as social networks, regulatory networks, citation graphs, and functional brain networks, in combination with resounding success of deep learning in various applications, has brought the interest in generalizing deep learning models to non-Euclidean domains. In this paper, we introduce a new spectral domain convolutional architecture for deep learning on graphs. The core ingredient of our model is a new class of parametric rational complex functions (Cayley polynomials) allowing to efficiently compute spectral filters on graphs that specialize on frequency bands of interest. Our model generates rich spectral filters that are localized in space, scales linearly with the size of the input data for sparsely connected graphs, and can handle different constructions of Laplacian operators. Extensive experimental results show the superior performance of our approach, in comparison to other spectral domain convolutional architectures, on spectral image classification, community detection, vertex classification, and matrix completion tasks.",
+      "venue": "IEEE Transactions on Signal Processing",
+      "citation_count": 74,
+      "doi": "10.1109/tsp.2018.2879624",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tsp.2018.2879624",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3206752413",
+      "title": "Chaotic Harris Hawks Optimization with Quasi-Reflection-Based Learning: An Application to Enhance CNN Design",
+      "authors": [
+        {
+          "name": "Jameer Basha",
+          "affiliation": "Hindustan Institute of Technology and Science"
+        },
+        {
+          "name": "Neboj\u0161a Ba\u010danin",
+          "affiliation": "Singidunum University"
+        },
+        {
+          "name": "Nikola Vukobrat",
+          "affiliation": "Singidunum University"
+        },
+        {
+          "name": "Miodrag \u017divkovi\u0107",
+          "affiliation": "Singidunum University"
+        },
+        {
+          "name": "K. Venkatachalam",
+          "affiliation": "University of Hradec Kr\u00e1lov\u00e9"
+        },
+        {
+          "name": "\u0160t\u011bp\u00e1n Hub\u00e1lovsk\u00fd",
+          "affiliation": "University of Hradec Kr\u00e1lov\u00e9"
+        },
+        {
+          "name": "Pavel Trojovsk\u00fd",
+          "affiliation": "University of Hradec Kr\u00e1lov\u00e9"
+        }
+      ],
+      "year": 2021,
+      "abstract": "The research presented in this manuscript proposes a novel Harris Hawks optimization algorithm with practical application for evolving convolutional neural network architecture to classify various grades of brain tumor using magnetic resonance imaging. The proposed improved Harris Hawks optimization method, which belongs to the group of swarm intelligence metaheuristics, further improves the exploration and exploitation abilities of the basic algorithm by incorporating a chaotic population initialization and local search, along with a replacement strategy based on the quasi-reflection-based learning procedure. The proposed method was first evaluated on 10 recent CEC2019 benchmarks and the achieved results are compared with the ones generated by the basic algorithm, as well as with results of other state-of-the-art approaches that were tested under the same experimental conditions. In subsequent empirical research, the proposed method was adapted and applied for a practical challenge of convolutional neural network design. The evolved network structures were validated against two datasets that contain images of a healthy brain and brain with tumors. The first dataset comprises well-known IXI and cancer imagining archive images, while the second dataset consists of axial T1-weighted brain tumor images, as proposed in one recently published study in the Q1 journal. After performing data augmentation, the first dataset encompasses 8.000 healthy and 8.000 brain tumor images with grades I, II, III, and IV and the second dataset includes 4.908 images with Glioma, Meningioma, and Pituitary, with 1.636 images belonging to each tumor class. The swarm intelligence-driven convolutional neural network approach was evaluated and compared to other, similar methods and achieved a superior performance. The obtained accuracy was over 95% in all conducted experiments. Based on the established results, it is reasonable to conclude that the proposed approach could be used to develop networks that can assist doctors in diagnostics and help in the early detection of brain tumors.",
+      "venue": "Sensors",
+      "citation_count": 100,
+      "doi": "10.3390/s21196654",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/s21196654",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3100837220",
+      "title": "Where to Prune: Using LSTM to Guide Data-Dependent Soft Pruning",
+      "authors": [
+        {
+          "name": "Guiguang Ding",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Shuo Zhang",
+          "affiliation": "Lancaster University"
+        },
+        {
+          "name": "Zizhou Jia",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Jing Zhong",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Jungong Han",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "While convolutional neural network (CNN) has achieved overwhelming success in various vision tasks, its heavy computational cost and storage overhead limit the practical use on mobile or embedded devices. Recently, compressing CNN models has attracted considerable attention, where pruning CNN filters, also known as the channel pruning, has generated great research popularity due to its high compression rate. In this paper, a new channel pruning framework is proposed, which can significantly reduce the computational complexity while maintaining sufficient model accuracy. Unlike most existing approaches that seek to-be-pruned filters layer by layer, we argue that choosing appropriate layers for pruning is more crucial, which can result in more complexity reduction but less performance drop. To this end, we utilize a long short-term memory (LSTM) to learn the hierarchical characteristics of a network and generate a global network pruning scheme. On top of it, we propose a data-dependent soft pruning method, dubbed Squeeze-Excitation-Pruning (SEP), which does not physically prune any filters but selectively excludes some kernels involved in calculating forward and backward propagations depending on the pruning scheme. Compared with the hard pruning, our soft pruning can better retain the capacity and knowledge of the baseline model. Experimental results demonstrate that our approach still achieves comparable accuracy even when reducing 70.1% Floating-point operation per second (FLOPs) for VGG and 47.5% for Resnet-56.",
+      "venue": "IEEE Transactions on Image Processing",
+      "citation_count": 60,
+      "doi": "10.1109/tip.2020.3035028",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tip.2020.3035028",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3206880386",
+      "title": "DAWN",
+      "authors": [
+        {
+          "name": "Sebastian Szyller",
+          "affiliation": "Aalto University"
+        },
+        {
+          "name": "Buse Gul Atli",
+          "affiliation": "Aalto University"
+        },
+        {
+          "name": "Samuel Marchal",
+          "affiliation": "Aalto University"
+        },
+        {
+          "name": "N. Asokan",
+          "affiliation": "University of Waterloo"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Training machine learning (ML) models is expensive in terms of computational power, amounts of labeled data and human expertise. Thus, ML models constitute business value for their owners. Embedding digital watermarks during model training allows a model owner to later identify their models in case of theft or misuse. However, model functionality can also be stolen via model extraction, where an adversary trains a surrogate model using results returned from a prediction API of the original model. Recent work has shown that model extraction is a realistic threat. Existing watermarking schemes are ineffective against model extraction since it is the adversary who trains the surrogate model. In this paper, we introduce DAWN (Dynamic Adversarial Watermarking of Neural Networks), the first approach to use watermarking to deter model extraction theft. Unlike prior watermarking schemes, DAWN does not impose changes to the training process but operates at the prediction API of the protected model, by dynamically changing the responses for a small subset of queries (e.g., 0.5%) from API clients. This set is a watermark that will be embedded in case a client uses its queries to train a surrogate model. We show that DAWN is resilient against two state-of-the-art model extraction attacks, effectively watermarking all extracted surrogate models, allowing model owners to reliably demonstrate ownership (with confidence greater than 1-2-64), incurring negligible loss of prediction accuracy (0.03-0.5%).",
+      "venue": "",
+      "citation_count": 111,
+      "doi": "10.1145/3474085.3475591",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3474085.3475591",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4221060026",
+      "title": "Multiclass Skin Lesion Classification Using a Novel Lightweight Deep Learning Framework for Smart Healthcare",
+      "authors": [
+        {
+          "name": "Long Hoang",
+          "affiliation": "Pukyong National University"
+        },
+        {
+          "name": "Suk\u2010Hwan Lee",
+          "affiliation": "Dong-A University"
+        },
+        {
+          "name": "Eung-Joo Lee",
+          "affiliation": "Tongmyong University"
+        },
+        {
+          "name": "Ki\u2010Ryong Kwon",
+          "affiliation": "Pukyong National University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Skin lesion classification has recently attracted significant attention. Regularly, physicians take much time to analyze the skin lesions because of the high similarity between these skin lesions. An automated classification system using deep learning can assist physicians in detecting the skin lesion type and enhance the patient\u2019s health. The skin lesion classification has become a hot research area with the evolution of deep learning architecture. In this study, we propose a novel method using a new segmentation approach and wide-ShuffleNet for skin lesion classification. First, we calculate the entropy-based weighting and first-order cumulative moment (EW-FCM) of the skin image. These values are used to separate the lesion from the background. Then, we input the segmentation result into a new deep learning structure wide-ShuffleNet and determine the skin lesion type. We evaluated the proposed method on two large datasets: HAM10000 and ISIC2019. Based on our numerical results, EW-FCM and wide-ShuffleNet achieve more accuracy than state-of-the-art approaches. Additionally, the proposed method is superior lightweight and suitable with a small system like a mobile healthcare system.",
+      "venue": "Applied Sciences",
+      "citation_count": 121,
+      "doi": "10.3390/app12052677",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/app12052677",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2772457693",
+      "title": "Deep Learning for IoT Big Data and Streaming Analytics: A Survey",
+      "authors": [
+        {
+          "name": "Mehdi Mohammadi",
+          "affiliation": "Western Michigan University"
+        },
+        {
+          "name": "Ala Al\u2010Fuqaha",
+          "affiliation": "Western Michigan University"
+        },
+        {
+          "name": "Sameh Sorour",
+          "affiliation": "University of Idaho"
+        },
+        {
+          "name": "Mohsen Guizani",
+          "affiliation": "University of Idaho"
+        }
+      ],
+      "year": 2018,
+      "abstract": "In the era of the Internet of Things (IoT), an enormous amount of sensing devices collect and/or generate various sensory data over time for a wide range of fields and applications. Based on the nature of the application, these devices will result in big or fast/real-time data streams. Applying analytics over such data streams to discover new information, predict future insights, and make control decisions is a crucial process that makes IoT a worthy paradigm for businesses and a quality-of-life improving technology. In this paper, we provide a thorough overview on using a class of advanced machine learning techniques, namely deep learning (DL), to facilitate the analytics and learning in the IoT domain. We start by articulating IoT data characteristics and identifying two major treatments for IoT data from a machine learning perspective, namely IoT big data analytics and IoT streaming data analytics. We also discuss why DL is a promising approach to achieve the desired analytics in these types of data and applications. The potential of using emerging DL techniques for IoT data analytics are then discussed, and its promises and challenges are introduced. We present a comprehensive background on different DL architectures and algorithms. We also analyze and summarize major reported research attempts that leveraged DL in the IoT domain. The smart IoT devices that have incorporated DL in their intelligence background are also discussed. DL implementation approaches on the fog and cloud centers in support of IoT applications are also surveyed. Finally, we shed light on some challenges and potential directions for future research. At the end of each section, we highlight the lessons learned based on our experiments and review of the recent literature.",
+      "venue": "IEEE Communications Surveys & Tutorials",
+      "citation_count": 88,
+      "doi": "10.1109/comst.2018.2844341",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/comst.2018.2844341",
+      "source": "openalex",
+      "_bibtex_override": ""
+    }
+  ]
+}

@@ -1,0 +1,1344 @@
+{
+  "query": "Conflict aware mask refinement benchmark",
+  "source": "semantic_scholar",
+  "limit": 40,
+  "timestamp": 1774244736.4836073,
+  "papers": [
+    {
+      "paper_id": "s2-880189c006aae6cd93408c22b2dc8c7edc16ac93",
+      "title": "Class-Aware Mask-Guided Feature Refinement for Scene Text Recognition",
+      "authors": [
+        {
+          "name": "Mingkun Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Biao Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Minghui Liao",
+          "affiliation": ""
+        },
+        {
+          "name": "Yingying Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "X. Bai",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Scene text recognition is a rapidly developing field that faces numerous challenges due to the complexity and diversity of scene text, including complex backgrounds, diverse fonts, flexible arrangements, and accidental occlusions. In this paper, we propose a novel approach called Class-Aware Mask-guided feature refinement (CAM) to address these challenges. Our approach introduces canonical class-aware glyph masks generated from a standard font to effectively suppress background and text style noise, thereby enhancing feature discrimination. Additionally, we design a feature alignment and fusion module to incorporate the canonical mask guidance for further feature refinement for text recognition. By enhancing the alignment between the canonical mask feature and the text feature, the module ensures more effective fusion, ultimately leading to improved recognition performance. We first evaluate CAM on six standard text recognition benchmarks to demonstrate its effectiveness. Furthermore, CAM exhibits superiority over the state-of-the-art method by an average performance gain of 4.1% across six more challenging datasets, despite utilizing a smaller model size. Our study highlights the importance of incorporating canonical mask guidance and aligned feature refinement techniques for robust scene text recognition. The code is available at https://github.com/MelosY/CAM.",
+      "venue": "Pattern Recognition",
+      "citation_count": 25,
+      "doi": "10.1016/j.patcog.2023.110244",
+      "arxiv_id": "2402.13643",
+      "url": "https://www.semanticscholar.org/paper/880189c006aae6cd93408c22b2dc8c7edc16ac93",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-04ecc94e50a9127eded7d9c49736f19b0ea7b8ee",
+      "title": "SAMRefiner: Taming Segment Anything Model for Universal Mask Refinement",
+      "authors": [
+        {
+          "name": "Yuqi Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Hengjia Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenqi Shao",
+          "affiliation": ""
+        },
+        {
+          "name": "Zheng Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jun Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaofei He",
+          "affiliation": ""
+        },
+        {
+          "name": "Ping Luo",
+          "affiliation": ""
+        },
+        {
+          "name": "Kaipeng Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "In this paper, we explore a principal way to enhance the quality of widely pre-existing coarse masks, enabling them to serve as reliable training data for segmentation models to reduce the annotation cost. In contrast to prior refinement techniques that are tailored to specific models or tasks in a close-world manner, we propose SAMRefiner, a universal and efficient approach by adapting SAM to the mask refinement task. The core technique of our model is the noise-tolerant prompting scheme. Specifically, we introduce a multi-prompt excavation strategy to mine diverse input prompts for SAM (i.e., distance-guided points, context-aware elastic bounding boxes, and Gaussian-style masks) from initial coarse masks. These prompts can collaborate with each other to mitigate the effect of defects in coarse masks. In particular, considering the difficulty of SAM to handle the multi-object case in semantic segmentation, we introduce a split-then-merge (STM) pipeline. Additionally, we extend our method to SAMRefiner++ by introducing an additional IoU adaption step to further boost the performance of the generic SAMRefiner on the target dataset. This step is self-boosted and requires no additional annotation. The proposed framework is versatile and can flexibly cooperate with existing segmentation methods. We evaluate our mask framework on a wide range of benchmarks under different settings, demonstrating better accuracy and efficiency. SAMRefiner holds significant potential to expedite the evolution of refinement tools. Our code is available at https://github.com/linyq2117/SAMRefiner.",
+      "venue": "International Conference on Learning Representations",
+      "citation_count": 11,
+      "doi": "10.48550/arXiv.2502.06756",
+      "arxiv_id": "2502.06756",
+      "url": "https://www.semanticscholar.org/paper/04ecc94e50a9127eded7d9c49736f19b0ea7b8ee",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-dd8b3892144cacb4a2f234343478babe6963420a",
+      "title": "Context-Aware Masking and Learnable Diffusion-Guided Patch Refinement in Transformers via Sparse Supervision for Hyperspectral Image Classification",
+      "authors": [
+        {
+          "name": "Abhiroop Chatterjee",
+          "affiliation": ""
+        },
+        {
+          "name": "Susmita K. Ghosh",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Ghosh",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Vision transformers often struggle with sensitivity to spectral-spatial perturbations and inefficiencies in label-scarce regimes for hyperspectral image analysis. To address these, we introduce contextually perturbed diffusion-guided active learning (CPDGAL), integrating diffusion-guided feature refinement (DGFR) and contextualized masking (CM). The DGFR initially injects structured per-turbations into patch embeddings and then reconstructs clean patches via a diffusion-based denoising mechanism. Through this, DGFR refines the learned features while im-plicitly calibrating the aleatoric uncertainty. The CM mechanism applies attention-guided probabilistic masking and enforces context-aware reconstruction to improve generalization. We also introduce a sparse supervision scheme for label-scarce scenarios that selects uncertain samples using confidence-aware ranking, prioritizing challenging data for efficient retraining through active learning (AL). Experiments on benchmark datasets validate the effectiveness of CPDGAL, achieving 97.34% overall accuracy (OA) on Indian Pines, 99.87% on Salinas, and 98.94% on Botswana with a lightweight architecture (0.09M parameters, 5.17 MFLOPs) and outperforms sixteen CNN/transformer-based SOTA methods. Our framework also generalizes better than the vision transformer in extreme low-label settings.",
+      "venue": "2025 IEEE/CVF International Conference on Computer Vision Workshops (ICCVW)",
+      "citation_count": 3,
+      "doi": "10.1109/ICCVW69036.2025.00306",
+      "arxiv_id": "",
+      "url": "https://www.semanticscholar.org/paper/dd8b3892144cacb4a2f234343478babe6963420a",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-adae29702257ecfd8090b0f519f7730dcbb4d3b7",
+      "title": "Arg-LLaDA: Argument Summarization via Large Language Diffusion Models and Sufficiency-Aware Refinement",
+      "authors": [
+        {
+          "name": "Hao Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yizheng Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Viktor Schlegel",
+          "affiliation": ""
+        },
+        {
+          "name": "Kailai Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "R. Batista-Navarro",
+          "affiliation": ""
+        },
+        {
+          "name": "Goran Nenadic",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Argument summarization aims to generate concise, structured representations of complex, multi-perspective debates. While recent work has advanced the identification and clustering of argumentative components, the generation stage remains underexplored. Existing approaches typically rely on single-pass generation, offering limited support for factual correction or structural refinement. To address this gap, we introduce Arg-LLaDA, a novel large language diffusion framework that iteratively improves summaries via sufficiency-guided remasking and regeneration. Our method combines a flexible masking controller with a sufficiency-checking module to identify and revise unsupported, redundant, or incomplete spans, yielding more faithful, concise, and coherent outputs. Empirical results on two benchmark datasets demonstrate that Arg-LLaDA surpasses state-of-the-art baselines in 7 out of 10 automatic evaluation metrics. In addition, human evaluations reveal substantial improvements across core dimensions, coverage, faithfulness, and conciseness, validating the effectiveness of our iterative, sufficiency-aware generation strategy.",
+      "venue": "arXiv.org",
+      "citation_count": 1,
+      "doi": "10.48550/arXiv.2507.19081",
+      "arxiv_id": "2507.19081",
+      "url": "https://www.semanticscholar.org/paper/adae29702257ecfd8090b0f519f7730dcbb4d3b7",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-499970ec9a9f00eb71da06161708eaced7a0e29e",
+      "title": "Objectomaly: Objectness-Aware Refinement for OoD Segmentation with Structural Consistency and Boundary Precision",
+      "authors": [
+        {
+          "name": "Jeonghoon Song",
+          "affiliation": ""
+        },
+        {
+          "name": "Sunghun Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Jaegyun Im",
+          "affiliation": ""
+        },
+        {
+          "name": "Byeongjoon Noh",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Out-of-Distribution (OoD) segmentation is critical for safety-sensitive applications like autonomous driving. However, existing mask-based methods often suffer from boundary imprecision, inconsistent anomaly scores within objects, and false positives from background noise. We propose \\textbf{\\textit{Objectomaly}}, an objectness-aware refinement framework that incorporates object-level priors. Objectomaly consists of three stages: (1) Coarse Anomaly Scoring (CAS) using an existing OoD backbone, (2) Objectness-Aware Score Calibration (OASC) leveraging SAM-generated instance masks for object-level score normalization, and (3) Meticulous Boundary Precision (MBP) applying Laplacian filtering and Gaussian smoothing for contour refinement. Objectomaly achieves state-of-the-art performance on key OoD segmentation benchmarks, including SMIYC AnomalyTrack/ObstacleTrack and RoadAnomaly, improving both pixel-level (AuPRC up to 96.99, FPR$_{95}$ down to 0.07) and component-level (F1$-$score up to 83.44) metrics. Ablation studies and qualitative results on real-world driving videos further validate the robustness and generalizability of our method. Code will be released upon publication.",
+      "venue": "arXiv.org",
+      "citation_count": 0,
+      "doi": "10.48550/arXiv.2507.07460",
+      "arxiv_id": "2507.07460",
+      "url": "https://www.semanticscholar.org/paper/499970ec9a9f00eb71da06161708eaced7a0e29e",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-98f76812e11662456dd5103c38305bb42fcd738f",
+      "title": "DaGRPO: Rectifying Gradient Conflict in Reasoning via Distinctiveness-Aware Group Relative Policy Optimization",
+      "authors": [
+        {
+          "name": "Xuan Xie",
+          "affiliation": ""
+        },
+        {
+          "name": "Xuan Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenjie Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuai Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Wei Lin",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The evolution of Large Language Models (LLMs) has catalyzed a paradigm shift from superficial instruction following to rigorous long-horizon reasoning. While Group Relative Policy Optimization (GRPO) has emerged as a pivotal mechanism for eliciting such post-training reasoning capabilities due to its exceptional performance, it remains plagued by significant training instability and poor sample efficiency. We theoretically identify the root cause of these issues as the lack of distinctiveness within on-policy rollouts: for routine queries, highly homogeneous samples induce destructive gradient conflicts; whereas for hard queries, the scarcity of valid positive samples results in ineffective optimization. To bridge this gap, we propose Distinctiveness-aware Group Relative Policy Optimization (DaGRPO). DaGRPO incorporates two core mechanisms: (1) Sequence-level Gradient Rectification, which utilizes fine-grained scoring to dynamically mask sample pairs with low distinctiveness, thereby eradicating gradient conflicts at the source; and (2) Off-policy Data Augmentation, which introduces high-quality anchors to recover training signals for challenging tasks. Extensive experiments across 9 mathematical reasoning and out-of-distribution (OOD) generalization benchmarks demonstrate that DaGRPO significantly surpasses existing SFT, GRPO, and hybrid baselines, achieving new state-of-the-art performance (e.g., a +4.7% average accuracy gain on math benchmarks). Furthermore, in-depth analysis confirms that DaGRPO effectively mitigates gradient explosion and accelerates the emergence of long-chain reasoning capabilities.",
+      "venue": "arXiv.org",
+      "citation_count": 3,
+      "doi": "10.48550/arXiv.2512.06337",
+      "arxiv_id": "2512.06337",
+      "url": "https://www.semanticscholar.org/paper/98f76812e11662456dd5103c38305bb42fcd738f",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-71ae08b221ebd218078bf230543cd3f5be034293",
+      "title": "AF2Rank Revisited: Reproducing AlphaFold-Based Structure Evaluation and a Hypothesis for Context-Aware Refinement (CAR-AF)",
+      "authors": [
+        {
+          "name": "Priyanshu Kumar",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Protein structure prediction has undergone transformative advancements with AlphaFold2 achieving near-experimental accuracy across extensive protein datasets. This study reproduces and validates the AF2Rank pipeline, which utilizes AlphaFold\u2019s intrinsic confidence metrics\u2014predicted Local Distance Difference Test (pLDDT) and predicted Template Modeling score (pTM)\u2014to evaluate and rank decoy protein structures without dependence on multiple sequence alignments (MSAs). The pipeline was implemented locally using the Rosetta decoy dataset, overcoming reproducibility challenges such as software dependency conflicts, residue indexing inconsistencies, and system-level execution issues. This framework successfully enabled high-confidence evaluation of over 1000 decoys for a benchmark target (1a32), with ongoing expansion to 133 protein targets. Notably, we discovered that AlphaFold confidence metrics encode protein-specific \u201cfingerprints,\u201d enabling reverse classification of structures to their source proteins. Our XGBoost-based classifier achieved 61.5% accuracy across 133 distinct protein targets, substantially exceeding random chance (0.75%). Feature importance analysis revealed that traditional energy functions (Rosetta normalized score, 26%) and derived interaction features (pLDDT-pTM ratio, 16%) provide the strongest discriminative power, suggesting AlphaFold metrics capture meaningful biological and structural information beyond generic quality assessment. Building upon this foundation, a novel hypothesis is introduced: Context-Aware Refinement of AlphaFold Predictions (CAR-AF). This approach postulates that AlphaFold-predicted structures may be further improved through refinement in the presence of their native binding partners\u2014such as receptors or ligands\u2014thereby producing conformations that are both structurally and functionally enhanced. The proposed methodology comprises four stages: generation of initial predictions via AlphaFold, structural modeling of relevant binding partners, docking of predicted proteins into these biological contexts, and refinement of the resulting complexes using molecular modeling tools such as Rosetta or HADDOCK. Structural and energetic metrics including TM-score, RMSD, and binding energy will be used to assess potential improvements in predictive quality.",
+      "venue": "bioRxiv",
+      "citation_count": 0,
+      "doi": "10.1101/2025.04.30.651434",
+      "arxiv_id": "",
+      "url": "https://www.semanticscholar.org/paper/71ae08b221ebd218078bf230543cd3f5be034293",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-13ece30027f980de3c03028e3bc672f3eb49386a",
+      "title": "Enhancing Low-Light Image Reconstruction via Non-Autoregressive Transformers: A Mask-Aware Latent Integration Framework",
+      "authors": [
+        {
+          "name": "Qianyue Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Reconstructing high-quality images under low-light conditions remains a persistent challenge in computer vision due to degradation in contrast, color, and structural information. Existing enhancement techniques, such as Retinex-based decomposition and adversarial learning, often struggle with preserving global semantics and fine-grained perceptual fidelity. This paper introduces a novel dual-path enhancement framework that integrates Non-Autoregressive Transformers (NAT) into two critical stages of the GLARE model: the latent representation alignment and the decoder-level feature transformation. A maskaware mechanism is applied at both stages to identify uncertain or degraded regions, which are iteratively refined using NAT's parallel decoding and re-masking strategy. This dual integration enables the model to capture global context, improve detail recovery, and enhance structural consistency without altering the original architecture. Experiments conducted on benchmark datasets, including GLARE and LOL, demonstrate that the proposed method achieves superior performance, with PSNR improving from 25.52 to 27.08, SSIM increasing from 0.8462 to 0.8678, and LPIPS decreasing from 0.1299 to 0.1162. These improvements validate the effectiveness of NAT-based refinement at multiple levels and highlight the potential of integrating codebook-guided generation with transformer-based reasoning in real-world low-light environments, such as industrial inspection, automated surveillance, and smart manufacturing systems.",
+      "venue": "International Symposium on Industrial Electronics",
+      "citation_count": 0,
+      "doi": "10.1109/ISIE62713.2025.11124638",
+      "arxiv_id": "",
+      "url": "https://www.semanticscholar.org/paper/13ece30027f980de3c03028e3bc672f3eb49386a",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-9910bc4edec67e02334315e75472470afe793b6d",
+      "title": "Enhancing Image Matting in Real-World Scenes with Mask-Guided Iterative Refinement",
+      "authors": [
+        {
+          "name": "Rui Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Real-world image matting is essential for applications in content creation and augmented reality. However, it remains challenging due to the complex nature of scenes and the scarcity of high-quality datasets. To address these limitations, we introduce Mask2Alpha, an iterative refinement framework designed to enhance semantic comprehension, instance awareness, and fine-detail recovery in image matting. Our framework leverages self-supervised Vision Transformer features as semantic priors, strengthening contextual understanding in complex scenarios. To further improve instance differentiation, we implement a mask-guided feature selection module, enabling precise targeting of objects in multi-instance settings. Additionally, a sparse convolution-based optimization scheme allows Mask2Alpha to recover high-resolution details through progressive refinement,from low-resolution semantic passes to high-resolution sparse reconstructions. Benchmarking across various real-world datasets, Mask2Alpha consistently achieves state-of-the-art results, showcasing its effectiveness in accurate and efficient image matting.",
+      "venue": "arXiv.org",
+      "citation_count": 0,
+      "doi": "10.48550/arXiv.2502.17093",
+      "arxiv_id": "2502.17093",
+      "url": "https://www.semanticscholar.org/paper/9910bc4edec67e02334315e75472470afe793b6d",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-bb4e060a6639ed4906efe6f6043724bebc1833e9",
+      "title": "CAR-Stereo: Confidence-Aware Adaptive Disparity Refinement for Real-Time Stereo Matching",
+      "authors": [
+        {
+          "name": "Chanill Park",
+          "affiliation": ""
+        },
+        {
+          "name": "Janghyun Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Minseong Kweon",
+          "affiliation": ""
+        },
+        {
+          "name": "Jinsun Park",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "In this paper, we propose a novel real-time disparity refinement method that enables precise structure perception. We construct a compact full-resolution cost volume from residuals around the initial disparity and adaptively eliminate redundant information on a per-pixel basis by leveraging the confidence. The core idea of our method comprises residual cost volume construction and an adaptive range masking strategy. The residual cost volume is constructed from refinement candidates around the initial disparity, based on the assumption that the ground-truth disparity is near the initial disparity. Compared to the conventional cost volume constructed over the entire set of disparity candidates, our approach achieves computational efficiency and maintains precise structural information by operating at full-resolution. Moreover, we propose an adaptive range masking strategy that filters refinement candidates for each pixel by leveraging confidence values. This approach effectively eliminates redundant information present in cost volumes that are composed of uniformly sampled refinement candidates. Experimental results on the Scene Flow and KITTI 2012 benchmarks demonstrate that our method achieves real-time performance and sets a new state-of-the-art among real-time stereo matching algorithms.",
+      "venue": "IEEE Robotics and Automation Letters",
+      "citation_count": 0,
+      "doi": "10.1109/LRA.2025.3634908",
+      "arxiv_id": "",
+      "url": "https://www.semanticscholar.org/paper/bb4e060a6639ed4906efe6f6043724bebc1833e9",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-88d2aed310c7f146aa7642c488bb97c2cb8bd34e",
+      "title": "DMAED: Dynamic Matte Aware Encoder-Decoder for Shadow Removal",
+      "authors": [
+        {
+          "name": "Yadong Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhenfeng Zhu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "The removal of shadows in images has significant implications for research in semantic segmentation and object recognition. Although methods based on deep learning models have made important progress in shadow removal, there is still room for improvement in the simultaneous treatment of soft and hard shadows. To address these challenges and improve the robustness of the algorithms, this study introduces a dynamic matte-attention mechanism into the encoder-decoder network and proposes the DMAED (Dynamic Matte Aware Encoder-Decoder) model. The DMAED model first preprocesses the input data using a matte mask. Then, through iterative processes and updates of tokens and dynamic masks, it facilitates the migration of features from non-shadow to shadow regions, gradually eliminating shadow artifacts. Finally, a cascaded refinement decoder further rectifies shadowed images. Experimental results on benchmark datasets such as ISTD, ISTD+, and SRD demonstrate the significant effectiveness of the DMAED model in handling both hard and soft shadow scenarios.",
+      "venue": "CSAIDE",
+      "citation_count": 0,
+      "doi": "10.1145/3672919.3672966",
+      "arxiv_id": "",
+      "url": "https://www.semanticscholar.org/paper/88d2aed310c7f146aa7642c488bb97c2cb8bd34e",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-7756a7a1988c071910d60f047b4259b54b55591f",
+      "title": "CORE-3D: Context-aware Open-vocabulary Retrieval by Embeddings in 3D",
+      "authors": [
+        {
+          "name": "Mohamad Amin Mirzaei",
+          "affiliation": ""
+        },
+        {
+          "name": "Pantea Amoie",
+          "affiliation": ""
+        },
+        {
+          "name": "Ali Ekhterachian",
+          "affiliation": ""
+        },
+        {
+          "name": "Matin Mirzababaei",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "3D scene understanding is fundamental for embodied AI and robotics, supporting reliable perception for interaction and navigation. Recent approaches achieve zero-shot, open-vocabulary 3D semantic mapping by assigning embedding vectors to 2D class-agnostic masks generated via vision-language models (VLMs) and projecting these into 3D. However, these methods often produce fragmented masks and inaccurate semantic assignments due to the direct use of raw masks, limiting their effectiveness in complex environments. To address this, we leverage SemanticSAM with progressive granularity refinement to generate more accurate and numerous object-level masks, mitigating the over-segmentation commonly observed in mask generation models such as vanilla SAM, and improving downstream 3D semantic segmentation. To further enhance semantic context, we employ a context-aware CLIP encoding strategy that integrates multiple contextual views of each mask using empirically determined weighting, providing much richer visual context. We evaluate our approach on multiple 3D scene understanding tasks, including 3D semantic segmentation and object retrieval from language queries, across several benchmark datasets. Experimental results demonstrate significant improvements over existing methods, highlighting the effectiveness of our approach.",
+      "venue": "arXiv.org",
+      "citation_count": 1,
+      "doi": "10.48550/arXiv.2509.24528",
+      "arxiv_id": "2509.24528",
+      "url": "https://www.semanticscholar.org/paper/7756a7a1988c071910d60f047b4259b54b55591f",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-260f3275d5668fd1e0220d4d73782241860d91b9",
+      "title": "Vehicle Counting Network with Attention-based Mask Refinement and Spatial-awareness Block Loss",
+      "authors": [
+        {
+          "name": "Ji Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianwang Qiao",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiao Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Wei Li",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Vehicle counting aims to calculate the number of vehicles in congested traffic scenes. Although object detection and crowd counting have made tremendous progress with the development of deep learning, vehicle counting remains a challenging task, due to scale variations, viewpoint changes, inconsistent location distributions, diverse visual appearances and severe occlusions. In this paper, a well-designed Vehicle Counting Network (VCNet) is novelly proposed to alleviate the problem of scale variation and inconsistent spatial distribution in congested traffic scenes. Specifically, VCNet is composed of two major components: (i) To capture multi-scale vehicles across different types and camera viewpoints, an effective multi-scale density map estimation structure is designed by building an attention-based mask refinement module. The multi-branch structure with hybrid dilated convolution blocks is proposed to assign receptive fields to generate multi-scale density maps. To efficiently aggregate multi-scale density maps, the attention-based mask refinement is well-designed to highlight the vehicle regions, which enables each branch to suppress the scale interference from other branches. (ii) In order to capture the inconsistent spatial distributions, a spatial-awareness block loss (SBL) based on the region-weighted reward strategy is proposed to calculate the loss of different spatial regions including sparse, congested and occluded regions independently by dividing the density map into different regions. Extensive experiments conducted on three benchmark datasets, TRANCOS, VisDrone2019 Vehicle and CVCSet demonstrate that the proposed VCNet outperforms the state-of-the-art approaches in vehicle counting. Moreover, the proposed idea can be applicable for crowd counting, which produces competitive results on ShanghaiTech crowd counting dataset.",
+      "venue": "ACM Multimedia",
+      "citation_count": 3,
+      "doi": "10.1145/3474085.3475246",
+      "arxiv_id": "",
+      "url": "https://www.semanticscholar.org/paper/260f3275d5668fd1e0220d4d73782241860d91b9",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-249a9583fa022190664f7519b2b354488c0e59bc",
+      "title": "CAMUL: Context-Aware Multiconditional Instance Synthesis for Image Segmentation",
+      "authors": [
+        {
+          "name": "Thanh-Danh Nguyen",
+          "affiliation": ""
+        },
+        {
+          "name": "Trong-Tai Dam Vu",
+          "affiliation": ""
+        },
+        {
+          "name": "Bich-Nga Pham",
+          "affiliation": ""
+        },
+        {
+          "name": "Thanh Duc Ngo",
+          "affiliation": ""
+        },
+        {
+          "name": "Tam V. Nguyen",
+          "affiliation": ""
+        },
+        {
+          "name": "Vinh-Tiep Nguyen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Instance image segmentation task requires training with abundant annotated data to achieve high accuracy. Recently, conditional image synthesis has demonstrated its effectiveness in generating synthetic data for this task. However, existing image synthesis models face challenges in generating target instances to match the masks with complex shapes. Moreover, others fail to create diverse instances due to utilizing low-context simple text prompts. To address these issues, we propose CAMUL, a framework for context-aware multiconditional instance synthesis. CAMUL introduces two key innovations: CARP (cross-attention refinement prompting) to enhance the alignment of generated instances with conditional masks, and iCAFF (incremental context-aware feature fusion) to determine the general embeddings of the instances for a more precise context understanding. Our method significantly improves segmentation performance, increasing up to 15.34% average precision (AP) on Cityscapes and 3.34% AP on the large-scale ADE20K benchmark compared to the baselines.",
+      "venue": "IEEE Multimedia",
+      "citation_count": 0,
+      "doi": "10.1109/MMUL.2025.3578972",
+      "arxiv_id": "",
+      "url": "https://www.semanticscholar.org/paper/249a9583fa022190664f7519b2b354488c0e59bc",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-240eaa1f087cce64cde9327cf65d861e5afd4b29",
+      "title": "Depth-Aware YOLO Segmentation: Enhancing Small Object Detection via MiDaS-Based Spatial Reasoning",
+      "authors": [
+        {
+          "name": "N. Islam",
+          "affiliation": ""
+        },
+        {
+          "name": "Syed H. Shah",
+          "affiliation": ""
+        },
+        {
+          "name": "K. K. Al Biruni",
+          "affiliation": ""
+        },
+        {
+          "name": "A. N. The",
+          "affiliation": ""
+        },
+        {
+          "name": "J. C. Halim",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "We present a depth-aware extension of YOLO instance segmentation that incorporates monocular depth cues during post-processing. The system combines Ultralytics YOLO segmentation with MiDaS_small depth maps and applies maskaware filtering and confidence reweighting on top of the detector output. Experiments on a nine-class produce dataset (831/83/76 images in the train/validation/test splits; 4,218 annotated instances) benchmark three configurations using jackknife estimates of mean Average Precision (mAP): the vanilla YOLOv11 baseline, a simple bounding-box area heuristic, and the proposed depth fusion. The baseline attains $0.8776 \\pm 0.0298$ box mAP@0.5 $(0.8730 \\pm 0.0298$ mask), the area heuristic reaches $0.8553 \\pm 0.0316(0.8479 \\pm 0.0332$ mask), whereas depth reweighting lags at $0.8291 \\pm 0.0352(0.8224 \\pm 0.0366$ mask). Although depth cues do not yet outperform the RGB-only baselines, the study quantifies their behaviour, highlights the need for stronger calibration, and lays the groundwork for future depth-aware refinements. On a CPU-only setup, MiDaS inference averages 62 ms and YOLO segmentation 92 ms per image, yielding a 154 ms end-to-end latency suitable for near-real-time inspection workflows.",
+      "venue": "Image and Vision Computing New Zealand",
+      "citation_count": 0,
+      "doi": "10.1109/IVCNZ67716.2025.11281862",
+      "arxiv_id": "",
+      "url": "https://www.semanticscholar.org/paper/240eaa1f087cce64cde9327cf65d861e5afd4b29",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-148ba2574ac98a06c7e56047e3e94d4ae4d928a6",
+      "title": "3D-TransAtrial: Hierarchical Vision Transformer with Spatial Refinement for Left Atrium Segmentation",
+      "authors": [
+        {
+          "name": "Shiwei Shao",
+          "affiliation": ""
+        },
+        {
+          "name": "Lu Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Accurate segmentation of the left atrium from three-dimensional (3D) cardiac magnetic resonance imaging (MRI) remains a critical yet challenging task in clinical cardiology, particularly for atrial fibrillation diagnosis and treatment planning. Traditional convolutional neural networks struggle to capture long-range spatial dependencies across volumetric data, while pure transformer-based architectures suffer from insufficient local feature representation. To address these limitations, we propose a novel hybrid deep learning framework that integrates 3D Vision Transformer with hierarchical multi-scale feature extraction and spatial refinement modules. Our encoder employs an efficient spatially-reduced self-attention mechanism to capture global contextual information across the entire cardiac volume, while the decoder progressively reconstructs high-resolution segmentation masks through adaptive feature fusion and boundary-aware refinement operations. Comprehensive experiments on the LASC'13 benchmark dataset demonstrate that our method achieves superior performance compared to state-of-the-art approaches, with a Dice coefficient of 92.8%, Hausdorff Distance of 1.68mm, and Average Surface Distance of 0.82mm. The proposed architecture effectively balances computational efficiency with segmentation accuracy, making it suitable for clinical deployment in automated cardiac structure analysis.",
+      "venue": "Proceedings of the 2025 4th International Conference on Health Big Data and Intelligent Healthcare",
+      "citation_count": 0,
+      "doi": "10.1145/3792746.3792773",
+      "arxiv_id": "",
+      "url": "https://www.semanticscholar.org/paper/148ba2574ac98a06c7e56047e3e94d4ae4d928a6",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-33d0f474a0aab8c6169ae6f3c2b869125c3f4abc",
+      "title": "Severe Light, Textureless Sight: A Benchmark for Extreme Exposure Correction",
+      "authors": [
+        {
+          "name": "Bo Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jin Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Huiyuan Fu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xin Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Heng Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Huadong Ma",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Exposure correction aims to restore underexposed and overexposed images to normal exposed images in a single network. However, conventional methods primarily focus on correcting non-extreme exposure cases and struggle to accurately restore lightness and structure information in extreme exposure scenarios. Through a thorough investigation, we observe that the extreme exposure correction task is limited by the lack of high-quality benchmark datasets. To address the above challenges, in this paper, we construct the first Extreme Exposure Dataset named EED by manually collecting a large number of diverse scenes. By introducing probabilistic blur kernel, EED not only ensures the rich diversity and brightness distribution of scenes but also approaches the degradation of the real world. To achieve exposure correction in extreme conditions, we propose a novel Extreme Exposure Correction Network by leveraging the mask-aware Fourier transform prior, which decouples lightness and structure components precisely. To restore severe abnormal lightness and lost structure information in extreme exposure scenes, we introduce a well-exposed referenced image to guide the coarse restoration and employ a Timestep-guided Frequency Diffusion Module for further refinement. Extensive experiments demonstrate the superiority of our dataset and method. The dataset will be available at https://github.com/juvenoia/EED.",
+      "venue": "ACM Multimedia",
+      "citation_count": 0,
+      "doi": "10.1145/3746027.3755353",
+      "arxiv_id": "",
+      "url": "https://www.semanticscholar.org/paper/33d0f474a0aab8c6169ae6f3c2b869125c3f4abc",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-e257daca011383a04727932dd7827cc5732afa5e",
+      "title": "Symbol-Aware Reasoning with Masked Discrete Diffusion for Handwritten Mathematical Expression Recognition",
+      "authors": [
+        {
+          "name": "T. Kawakatsu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ryo Ishiyama",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Handwritten Mathematical Expression Recognition (HMER) requires reasoning over diverse symbols and 2D structural layouts, yet autoregressive models struggle with exposure bias and syntactic inconsistency. We present a discrete diffusion framework that reformulates HMER as iterative symbolic refinement instead of sequential generation. Through multi-step remasking, the proposal progressively refines both symbols and structural relations, removing causal dependencies and improving structural consistency. A symbol-aware tokenization and Random-Masking Mutual Learning further enhance syntactic alignment and robustness to handwriting diversity. On the MathWriting benchmark, the proposal achieves 5.56\\% CER and 60.42\\% EM, outperforming strong Transformer and commercial baselines. Consistent gains on CROHME 2014--2023 demonstrate that discrete diffusion provides a new paradigm for structure-aware visual recognition beyond generative modeling.",
+      "venue": "arXiv.org",
+      "citation_count": 0,
+      "doi": "10.48550/arXiv.2602.03370",
+      "arxiv_id": "2602.03370",
+      "url": "https://www.semanticscholar.org/paper/e257daca011383a04727932dd7827cc5732afa5e",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-8e7ac571c7f8444eba2b269372a7c97caefd046c",
+      "title": "Beyond Parameter Finetuning: Test-Time Representation Refinement for Node Classification",
+      "authors": [
+        {
+          "name": "Jiaxin Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yiqi Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Siwei Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xihong Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Shi",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinwang Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "En Zhu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Graph Neural Networks frequently exhibit significant performance degradation in the out-of-distribution test scenario. While test-time training (TTT) offers a promising solution, existing Parameter Finetuning (PaFT) paradigm suffer from catastrophic forgetting, hindering their real-world applicability. We propose TTReFT, a novel Test-Time Representation FineTuning framework that transitions the adaptation target from model parameters to latent representations. Specifically, TTReFT achieves this through three key innovations: (1) uncertainty-guided node selection for specific interventions, (2) low-rank representation interventions that preserve pre-trained knowledge, and (3) an intervention-aware masked autoencoder that dynamically adjust masking strategy to accommodate the node selection scheme. Theoretically, we establish guarantees for TTReFT in OOD settings. Empirically, extensive experiments across five benchmark datasets demonstrate that TTReFT achieves consistent and superior performance. Our work establishes representation finetuning as a new paradigm for graph TTT, offering both theoretical grounding and immediate practical utility for real-world deployment.",
+      "venue": "arXiv.org",
+      "citation_count": 0,
+      "doi": "10.48550/arXiv.2601.21615",
+      "arxiv_id": "2601.21615",
+      "url": "https://www.semanticscholar.org/paper/8e7ac571c7f8444eba2b269372a7c97caefd046c",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-bb73d4f80fb8af92a94b75ce7e96fa5371a54afc",
+      "title": "InstLane Dataset and Geometry-Aware Network for Instance Segmentation of Lane Line Detection",
+      "authors": [
+        {
+          "name": "Qimin Cheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiajun Ling",
+          "affiliation": ""
+        },
+        {
+          "name": "Yunfei Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Kai Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Huanying Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiao Huang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Despite impressive progress, obtaining appropriate data for instance-level lane segmentation remains a significant challenge. This limitation hinders the refinement of granular lane-related applications such as lane line crossing surveillance, pavement maintenance, and management. To address this gap, we introduce a benchmark for lane instance segmentation called InstLane. To the best of our knowledge, InstLane constitutes the first publicly accessible instance-level segmentation standard for lane line detection. The complexity of InstLane emanates from the fact that the original data are procured using cameras mounted laterally, as opposed to traditional front-mounted sensors. InstLane encapsulates a range of challenging scenarios, enhancing the generalization and robustness of the lane line instance segmentation algorithms. In addition, we propose GeoLaneNet, a real-time, geometry-aware lane instance segmentation network. Within GeoLaneNet, we design a finer localization of lane proto-instances based on geometric features to counteract the prevalent omission or multiple detections in dense lane scenarios resulting from non-maximum suppression (NMS). Furthermore, we present a scheme that employs a larger receptive field to achieve profound perceptual lane structural learning, thereby improving detection accuracy. We introduce an architecture based on partial feature transformation to expedite the detection process. Comprehensive experiments on InstLane demonstrate that GeoLaneNet can achieve up to twice the speed of current State-Of-The-Artmethods, reaching 139 FPS on an RTX3090 and a mask AP of 73.55%, with a permissible trade-off in AP, while maintaining comparable accuracy. These results underscore the effectiveness, robustness, and efficiency of GeoLaneNet in autonomous driving.",
+      "venue": "Remote Sensing",
+      "citation_count": 1,
+      "doi": "10.3390/rs16152751",
+      "arxiv_id": "",
+      "url": "https://www.semanticscholar.org/paper/bb73d4f80fb8af92a94b75ce7e96fa5371a54afc",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-d7f041c8a0f0e8cc34c6a52f5996e906a7c7795b",
+      "title": "Look Closer to Segment Better: Boundary Patch Refinement for Instance Segmentation",
+      "authors": [
+        {
+          "name": "Chufeng Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Hang Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiao Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianmin Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhaoxiang Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaolin Hu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Tremendous efforts have been made on instance segmentation but the mask quality is still not satisfactory. The boundaries of predicted instance masks are usually imprecise due to the low spatial resolution of feature maps and the imbalance problem caused by the extremely low proportion of boundary pixels. To address these issues, we propose a conceptually simple yet effective post-processing refinement framework to improve the boundary quality based on the results of any instance segmentation model, termed BPR. Following the idea of looking closer to segment boundaries better, we extract and refine a series of small boundary patches along the predicted instance boundaries. The refinement is accomplished by a boundary patch refinement network at higher resolution. The proposed BPR framework yields significant improvements over the Mask R-CNN baseline on Cityscapes benchmark, especially on the boundary-aware metrics. Moreover, by applying the BPR framework to the \"PolyTransform + SegFix\" baseline, we reached 1st place on the Cityscapes leaderboard. Code is available at https://github.com/tinyalpha/BPR.",
+      "venue": "Computer Vision and Pattern Recognition",
+      "citation_count": 97,
+      "doi": "10.1109/CVPR46437.2021.01371",
+      "arxiv_id": "2104.05239",
+      "url": "https://www.semanticscholar.org/paper/d7f041c8a0f0e8cc34c6a52f5996e906a7c7795b",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-1ae4de4f601b32636f52154e258187c98daaa82b",
+      "title": "Mask-Attention-Free Transformer for 3D Instance Segmentation",
+      "authors": [
+        {
+          "name": "Xin Lai",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuhui Yuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruihang Chu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yukang Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Han Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiaya Jia",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Recently, transformer-based methods have dominated 3D instance segmentation, where mask attention is commonly involved. Specifically, object queries are guided by the initial instance masks in the first cross-attention, and then iteratively refine themselves in a similar manner. However, we observe that the mask-attention pipeline usually leads to slow convergence due to low-recall initial instance masks. Therefore, we abandon the mask attention design and resort to an auxiliary center regression task instead. Through center regression, we effectively overcome the low-recall issue and perform cross-attention by imposing positional prior. To reach this goal, we develop a series of position-aware designs. First, we learn a spatial distribution of 3D locations as the initial position queries. They spread over the 3D space densely, and thus can easily capture the objects in a scene with a high recall. Moreover, we present relative position encoding for the cross-attention and iterative refinement for more accurate position queries. Experiments show that our approach converges 4\u00d7 faster than existing work, sets a new state of the art on ScanNetv2 3D instance segmentation benchmark, and also demonstrates superior performance across various datasets. Code and models are available at https://github.com/dvlab-research/Mask-Attention-Free-Transformer.",
+      "venue": "IEEE International Conference on Computer Vision",
+      "citation_count": 50,
+      "doi": "10.1109/ICCV51070.2023.00342",
+      "arxiv_id": "2309.01692",
+      "url": "https://www.semanticscholar.org/paper/1ae4de4f601b32636f52154e258187c98daaa82b",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-4e14653e74f04bbc092455dd3ec07134c974b6a5",
+      "title": "Global Collinearity-Aware Polygonizer for Polygonal Building Mapping in Remote Sensing",
+      "authors": [
+        {
+          "name": "Fahong Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yilei Shi",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiao Xiang Zhu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "This article addresses the challenge of mapping polygonal buildings from remote sensing images and introduces a novel algorithm, the global collinearity-aware polygonizer (GCP). GCP, built upon an instance segmentation framework, processes binary masks produced by any instance segmentation model. The algorithm begins by collecting polylines sampled along the contours of the binary masks. These polylines undergo a refinement process using a Transformer-based regression module to ensure they accurately fit the contours of the targeted building instances. Subsequently, a collinearity-aware polygon simplification module simplifies these refined polylines and generates the final polygon representation. This module employs a dynamic programming technique to optimize an objective function that balances the simplicity and fidelity of the polygons, achieving globally optimal solutions. Furthermore, the optimized collinearity-aware objective is seamlessly integrated into network training, enhancing the cohesiveness of the entire pipeline. The effectiveness of GCP has been validated on three public benchmarks for polygonal building mapping. Further experiments reveal that applying the collinearity-aware polygon simplification module to arbitrary polylines, without prior knowledge, enhances accuracy over traditional methods such as the Douglas\u2013Peucker (DP) algorithm. This finding underscores the broad applicability of GCP. The code for the proposed method will be made available at: https://github.com/zhu-xlab/GCP",
+      "venue": "IEEE Transactions on Geoscience and Remote Sensing",
+      "citation_count": 4,
+      "doi": "10.1109/TGRS.2025.3611869",
+      "arxiv_id": "2505.01385",
+      "url": "https://www.semanticscholar.org/paper/4e14653e74f04bbc092455dd3ec07134c974b6a5",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-a5392685459830664af6f51bc9143efda1b9eead",
+      "title": "Object-Aware Video Matting with Cross-Frame Guidance",
+      "authors": [
+        {
+          "name": "Huayu Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Dongyue Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuanjie Shao",
+          "affiliation": ""
+        },
+        {
+          "name": "Nong Sang",
+          "affiliation": ""
+        },
+        {
+          "name": "Changxin Gao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Recently, trimap-free methods have drawn increasing attention in human video matting due to their promising performance. Nevertheless, these methods still suffer from the lack of deterministic foreground-background cues, which impairs their ability to consistently identify and locate foreground targets over time and mine fine-grained details. In this paper, we present a trimap-free Object-Aware Video Matting (OAVM) framework, which can perceive different objects, enabling joint recognition of foreground objects and refinement of edge details. Specifically, we propose an Object-Guided Correction and Refinement (OGCR) module, which employs cross-frame guidance to aggregate object-level instance information into pixel-level detail features, thereby promoting their synergy. Furthermore, we design a Sequential Foreground Merging augmentation strategy to diversify sequential scenarios and enhance capacity of the network for object discrimination. Extensive experiments on recent widely used synthetic and real-world benchmarks demonstrate the state-of-the-art performance of our OAVM with only an initial coarse mask. The code and model will be available.",
+      "venue": "arXiv.org",
+      "citation_count": 1,
+      "doi": "10.48550/arXiv.2503.01262",
+      "arxiv_id": "2503.01262",
+      "url": "https://www.semanticscholar.org/paper/a5392685459830664af6f51bc9143efda1b9eead",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-d57cc955a85baa8abc6942fbd3325902e5420735",
+      "title": "Edge-Aware Adaptive Masking for Enhanced Panoramic Gaussian Splatting",
+      "authors": [
+        {
+          "name": "Yunbiao Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Chunyi Chen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Panoramic Gaussian Splatting (PGS) extends 3D Gaussian Splatting (3DGS) to model 360\u00b0 scenes, yet it faces challenges in achieving high-fidelity rendering, particularly in regions with complex textures and fine geometric structures. The standard densification process in 3DGS, which clones or splits Gaussians based on positional gradient, can be inefficient and noisy in panoramic settings due to spherical projection distortions and the immense scale of the scene. To address this problem, we propose a novel framework, Edge-Aware Adaptive Masked Panoramic Gaussian Splatting (EM-PGS). Our method introduces an Edge-Aware Probabilistic Mask that guides a pruning process. First, a panoramic Gaussian rasterization pipeline is used for Gaussian splatting to avoid stitching artifacts in reprojection. The second key component is the view-consistent edge score, which is derived from 2D edge priors across multiple training views. This score facilitates the retention of essential edge Gaussians, effectively mitigating image blurring artifacts. The targeted methodology effectively suppresses noise and artifacts, which, in turn, facilitates the optimal refinement of the Gaussian population within high-frequency detail regions. Experimental validation on benchmark datasets confirms the remarkable visual quality achieved by EM-PGS through its compact representation. Our method yields a PSNR improvement approaching 4dB and achieves a reduction of around 90% in Gaussian count compared with the existing method.",
+      "venue": "2025 International Conference on Signal Processing and Communication Technology (SPCT)",
+      "citation_count": 0,
+      "doi": "10.1109/SPCT68223.2025.11406777",
+      "arxiv_id": "",
+      "url": "https://www.semanticscholar.org/paper/d57cc955a85baa8abc6942fbd3325902e5420735",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-963b22a0d3c7461eb7731f2353ec9027a36bb154",
+      "title": "TriadMapper: A Necessity\u2013Diversity\u2013Sensitivity Aware Network for Building Vector Mapping",
+      "authors": [
+        {
+          "name": "Yue Qiu",
+          "affiliation": ""
+        },
+        {
+          "name": "Fang Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jichong Yin",
+          "affiliation": ""
+        },
+        {
+          "name": "Chengyi Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xianyong Gong",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Building vectorization from remote sensing imagery is a critical task challenged by three persistent issues: distinguishing buildings from complex surroundings, adapting to vast scale variations, and delineating intricate boundaries. While existing methods have addressed these issues with specific techniques, they often lack a unified framework that systematically integrates these capabilities. Inspired by the hierarchical process of human cartography, which progresses from a coarse overview to fine-grained refinement, we propose a guiding cognitive model for network design. This model decomposes the task into three sequential principles: necessity, establishing foundational scene understanding with a sufficient receptive field; diversity, adapting feature representation to targets of varying sizes; and sensitivity, focusing on critical boundary details. Based on this model, we introduce TriadMapper, a network for high-precision building vectorization. TriadMapper implements this cognitive hierarchy through three integrated components: 1) it strategically adopts a large-kernel mechanism, which we term the context-aware selective kernel (CA-SK), to establish the necessary broad contextual awareness; 2) it introduces a novel global\u2013local perception (GLP) module that adaptively fuses multiscale features to address the diversity of building scales and shapes; and 3) it proposes a novel scene adaptive optimization (SAO) module that uses deformable attention for sensitive boundary localization. Furthermore, our mask-guided vertex selection and optimization (MVSO) strategy employs adaptive geometric thresholds for high-quality polygon generation. Comprehensive experiments on the AICrowd benchmark demonstrate state-of-the-art performance, achieving 81.6% AP and 0.680 PoLiS. TriadMapper validates that a framework guided by cognitive principles can be a robust and precise solution for building vectorization. The code is available at: https://github.com/ParkourX/TriadMapper",
+      "venue": "IEEE Transactions on Geoscience and Remote Sensing",
+      "citation_count": 1,
+      "doi": "10.1109/TGRS.2025.3633659",
+      "arxiv_id": "",
+      "url": "https://www.semanticscholar.org/paper/963b22a0d3c7461eb7731f2353ec9027a36bb154",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-b92a1abbef363771cafd4f57f9a051a9efa60267",
+      "title": "Hierarchical Deep Reinforcement Learning for Multi-Objective Integrated Circuit Physical Layout Optimization With Congestion-Aware Reward Shaping",
+      "authors": [
+        {
+          "name": "Haijian Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yao Ge",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiuyuan Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiyuan Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Physical layout optimization in integrated circuit (IC) design remains a critical challenge as semiconductor technology scales toward advanced nodes, where traditional electronic design automation (EDA) tools struggle to simultaneously optimize multiple conflicting objectives including routing congestion, power consumption, and timing performance. This paper presents a novel hierarchical deep reinforcement learning (HDRL) framework for multi-objective IC layout optimization that addresses the exponential complexity of modern chip design spaces. Our approach introduces a congestion-aware reward shaping mechanism that dynamically balances exploration and exploitation while incorporating domain-specific knowledge through a hierarchical policy decomposition. The framework employs a dual-level architecture where a high-level policy manages global placement strategies and a low-level policy handles detailed placement refinements, enabling efficient optimization across different granularities. We integrate adaptive action space pruning based on physical design rules and propose a novel state representation that captures both local congestion patterns and global routing accessibility. Extensive experiments on OpenROAD benchmarks demonstrate that our method achieves an average 23.7% reduction in routing congestion, 18.4% improvement in power efficiency, and 15.2% enhancement in timing closure compared to state-of-the-art commercial tools and recent learning-based approaches. The framework maintains computational efficiency with 40% faster convergence than baseline deep reinforcement learning methods while providing interpretable placement decisions through attention mechanism visualization. Our contributions include the hierarchical policy architecture, congestion-aware reward formulation, and comprehensive evaluation framework that advances the integration of artificial intelligence in physical design automation.",
+      "venue": "IEEE Access",
+      "citation_count": 19,
+      "doi": "10.1109/ACCESS.2025.3610615",
+      "arxiv_id": "",
+      "url": "https://www.semanticscholar.org/paper/b92a1abbef363771cafd4f57f9a051a9efa60267",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-f641419860d4f9bd17733279f6df32ec1e5363d8",
+      "title": "SDPT: Semantic-Aware Dimension-Pooling Transformer for Image Segmentation",
+      "authors": [
+        {
+          "name": "Hu Cao",
+          "affiliation": ""
+        },
+        {
+          "name": "Guang Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Hengshuang Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Dongsheng Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaopeng Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Q. Tian",
+          "affiliation": ""
+        },
+        {
+          "name": "Alois C. Knoll",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Image segmentation plays a critical role in autonomous driving by providing vehicles with a detailed and accurate understanding of their surroundings. Transformers have recently shown encouraging results in image segmentation. However, transformer-based models are challenging to strike a better balance between performance and efficiency. The computational complexity of the transformer-based models is quadratic with the number of inputs, which severely hinders their application in dense prediction tasks. In this paper, we present the semantic-aware dimension-pooling transformer (SDPT) to mitigate the conflict between accuracy and efficiency. The proposed model comprises an efficient transformer encoder for generating hierarchical features and a semantic-balanced decoder for predicting semantic masks. In the encoder, a dimension-pooling mechanism is used in the multi-head self-attention (MHSA) to reduce the computational cost, and a parallel depth-wise convolution is used to capture local semantics. Simultaneously, we further apply this dimension-pooling attention (DPA) to the decoder as a refinement module to integrate multi-level features. With such a simple yet powerful encoder-decoder framework, we empirically demonstrate that the proposed SDPT achieves excellent performance and efficiency on various popular benchmarks, including ADE20K, Cityscapes, and COCO-Stuff. For example, our SDPT achieves 48.6% mIOU on the ADE20K dataset, which outperforms the current methods with fewer computational costs. The codes can be found at https://github.com/HuCaoFighting/SDPT.",
+      "venue": "IEEE transactions on intelligent transportation systems (Print)",
+      "citation_count": 15,
+      "doi": "10.1109/TITS.2024.3417813",
+      "arxiv_id": "",
+      "url": "https://www.semanticscholar.org/paper/f641419860d4f9bd17733279f6df32ec1e5363d8",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-971c424a2b480f7f519bdf5493c72350c4e6c189",
+      "title": "Skin Lesion Segmentation Based on a Boundary-Aware Multi-Scale Attention Network",
+      "authors": [
+        {
+          "name": "Chia-Yu Chu",
+          "affiliation": ""
+        },
+        {
+          "name": "Cheng-Hung Lin",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Accurate segmentation of skin lesions from dermoscopic images is fundamentally challenged by high intra-class variance, ill-defined boundaries, and imaging artifacts. Existing convolutional and hybrid CNN\u2013Transformer models often yield coarse masks that miss fine boundary details. To address this issue, we propose GLR-Net, a hierarchical encoder\u2013decoder architecture that leverages multi-level attention to jointly model global, local, and region-level cues. At its core, GLR-Net integrates four synergistic components\u2014Global\u2013Local Refinement (GLoR), Boundary\u2013Semantic Integration and Selection Filter (BISF), Attention-Guided Context Refinement (AGCR), and multi-scale Reverse Attention (RA)\u2014so that deep encoder stages are first refined to be boundary-aware and decoder stages are subsequently sharpened in a top\u2013down manner. Evaluated on four public dermoscopic benchmarks (ISIC 2016, ISIC 2017, ISIC 2018, and PH2), GLR-Net attains competitive or superior performance under the official ISIC protocols. In particular, on the challenging ISIC 2017 dataset, it achieves 92.32% Dice and 90.71% Intersection over Union (IoU), surpassing strong open-source baselines such as BiFBA-Net while remaining competitive with more recent models such as MRP-UNet. These results, together with consistently high accuracy across datasets, confirm that an explicit multi-scale, boundary-centric design is effective for improving boundary fidelity in dermoscopic lesion segmentation.",
+      "venue": "IEEE Access",
+      "citation_count": 0,
+      "doi": "10.1109/ACCESS.2026.3654809",
+      "arxiv_id": "",
+      "url": "https://www.semanticscholar.org/paper/971c424a2b480f7f519bdf5493c72350c4e6c189",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-420846d70064ceb3200e90f768eb57221114d1cb",
+      "title": "Local\u2013Global Aware Concept Bottleneck Models for Interpretable Image Classification",
+      "authors": [
+        {
+          "name": "Cikun Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zijie Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Chen Tang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Concept Bottleneck Models facilitate interpretable image classification by predicting human-understandable concepts prior to class labels. However, when constructed upon CLIP, they exhibit unreliable concept scores stemming from CLIP\u2019s global representation bias and insufficient region-level sensitivity, which severely constrain their effectiveness in sensor-driven applications like remote sensing and medical imaging where localized visual evidence is critical. To mitigate this, we propose the Local\u2013Global Aware Concept Bottleneck Model (LGA-CBM), which improves concept prediction through a training-free refinement pipeline. Building on initial CLIP-derived concept scores, LGA-CBM incorporates three key components: a Dual Masking Guided Concept Score Refinement (DMCSR) module that exploits attention weights to strengthen region\u2013concept alignment; a Local-to-Global Concept Reidentification (L2GCR) strategy to harmonize local and global activations; and a Similar Concepts Correction Mechanism (SCCM) integrating Grounding DINO for fine-grained disambiguation. A sparse linear layer then maps the refined concepts to class labels, enabling highly interpretable classification with minimal concept usage. Experiments across six benchmark datasets demonstrate that LGA-CBM consistently achieves state-of-the-art performance in both accuracy and interpretability, producing explanations that align closely with human cognition.",
+      "venue": "Italian National Conference on Sensors",
+      "citation_count": 0,
+      "doi": "10.3390/s26061833",
+      "arxiv_id": "",
+      "url": "https://www.semanticscholar.org/paper/420846d70064ceb3200e90f768eb57221114d1cb",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-cda9a46194ca54397934e4094a1a64a9173913c4",
+      "title": "Stop Treating Collisions Equally: Qualification-Aware Semantic ID Learning for Recommendation at Industrial Scale",
+      "authors": [
+        {
+          "name": "Zheng Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuxin Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Yongsen Pan",
+          "affiliation": ""
+        },
+        {
+          "name": "Xu Yuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Yin",
+          "affiliation": ""
+        },
+        {
+          "name": "Daoyuan Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Boyang Xia",
+          "affiliation": ""
+        },
+        {
+          "name": "Zefei Luo",
+          "affiliation": ""
+        },
+        {
+          "name": "Hongyang Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Songhao Ni",
+          "affiliation": ""
+        },
+        {
+          "name": "Dongxu Liang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jun Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Shimin Cai",
+          "affiliation": ""
+        },
+        {
+          "name": "Tao Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Fuji Ren",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenwu Ou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Semantic IDs (SIDs) are compact discrete representations derived from multimodal item features, serving as a unified abstraction for ID-based and generative recommendation. However, learning high-quality SIDs remains challenging due to two issues. (1) Collision problem: the quantized token space is prone to collisions, in which semantically distinct items are assigned identical or overly similar SID compositions, resulting in semantic entanglement. (2) Collision-signal heterogeneity: collisions are not uniformly harmful. Some reflect genuine conflicts between semantically unrelated items, while others stem from benign redundancy or systematic data effects. To address these challenges, we propose Qualification-Aware Semantic ID Learning (QuaSID), an end-to-end framework that learns collision-qualified SIDs by selectively repelling qualified conflict pairs and scaling the repulsion strength by collision severity. QuaSID consists of two mechanisms: Hamming-guided Margin Repulsion, which translates low-Hamming SID overlaps into explicit, severity-scaled geometric constraints on the encoder space; and Conflict-Aware Valid Pair Masking, which masks protocol-induced benign overlaps to denoise repulsion supervision. In addition, QuaSID incorporates a dual-tower contrastive objective to inject collaborative signals into tokenization. Experiments on public benchmarks and industrial data validate QuaSID. On public datasets, QuaSID consistently outperforms strong baselines, improving top-K ranking quality by 5.9% over the best baseline while increasing SID composition diversity. In an online A/B test on Kuaishou e-commerce with a 5% traffic split, QuaSID increases ranking GMV-S2 by 2.38% and improves completed orders on cold-start retrieval by up to 6.42%. Finally, we show that the proposed repulsion loss is plug-and-play and enhances a range of SID learning frameworks across datasets.",
+      "venue": "",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2603.00632",
+      "url": "https://www.semanticscholar.org/paper/cda9a46194ca54397934e4094a1a64a9173913c4",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-6f03d76becb72f36cdfd8a4a1b9b135c9271e40f",
+      "title": "Temporal Action Localization with Cross Layer Task Decoupling and Refinement",
+      "authors": [
+        {
+          "name": "Qiang Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Di Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jun Kong",
+          "affiliation": ""
+        },
+        {
+          "name": "Sen Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Hui Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianzhong Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Temporal action localization (TAL) involves dual tasks to classify and localize actions within untrimmed videos. However, the two tasks often have conflicting requirements for features. Existing methods typically employ separate heads for classification and localization tasks but share the same input feature, leading to suboptimal performance. To address this issue, we propose a novel TAL method with Cross Layer Task Decoupling and Refinement (CLTDR). Based on the feature pyramid of video, CLTDR strategy integrates semantically strong features from higher pyramid layers and detailed boundary-aware boundary features from lower pyramid layers to effectively disentangle the action classification and localization tasks. Moreover, the multiple features from cross layers are also employed to refine and align the disentangled classification and regression results. At last, a lightweight Gated Multi-Granularity (GMG) module is proposed to comprehensively extract and aggregate video features at instant, local, and global temporal granularities. Benefiting from the CLTDR and GMG modules, our method achieves state-of-the-art performance on five challenging benchmarks: THUMOS14, MultiTHUMOS, EPIC-KITCHENS-100, ActivityNet-1.3, and HACS. Code\uff1ahttps://github.com/LiQiang0307/CLTDR-GMG",
+      "venue": "AAAI Conference on Artificial Intelligence",
+      "citation_count": 1,
+      "doi": "10.48550/arXiv.2412.09202",
+      "arxiv_id": "2412.09202",
+      "url": "https://www.semanticscholar.org/paper/6f03d76becb72f36cdfd8a4a1b9b135c9271e40f",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-636d0b83eb09d36ba08a75b43d12ebe92a7b9938",
+      "title": "From Contexts to Locality: Ultra-high Resolution Image Segmentation via Locality-aware Contextual Correlation",
+      "authors": [
+        {
+          "name": "Qi Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Weixian Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenxi Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuanlong Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Shengfeng He",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Ultra-high resolution image segmentation has raised increasing interests in recent years due to its realistic applications. In this paper, we innovate the widely used high-resolution image segmentation pipeline, in which an ultrahigh resolution image is partitioned into regular patches for local segmentation and then the local results are merged into a high-resolution semantic mask. In particular, we introduce a novel locality-aware contextual correlation based segmentation model to process local patches, where the relevance between local patch and its various contexts are jointly and complementarily utilized to handle the semantic regions with large variations. Additionally, we present a contextual semantics refinement network that associates the local segmentation result with its contextual semantics, and thus is endowed with the ability of reducing boundary artifacts and refining mask contours during the generation of final high-resolution mask. Furthermore, in comprehensive experiments, we demonstrate that our model outperforms other state-of-the-art methods in public benchmarks. Our released codes are available at https://github.com/liqiokkk/FCtL.",
+      "venue": "IEEE International Conference on Computer Vision",
+      "citation_count": 53,
+      "doi": "10.1109/ICCV48922.2021.00716",
+      "arxiv_id": "",
+      "url": "https://www.semanticscholar.org/paper/636d0b83eb09d36ba08a75b43d12ebe92a7b9938",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-2445a7532aafd3ede902d78ad1a67292d0d6fda6",
+      "title": "Uncertainty-Aware Superpoint Graph Transformer for Weakly Supervised 3-D Semantic Segmentation",
+      "authors": [
+        {
+          "name": "Yan Fan",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Pengfei Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Le Hui",
+          "affiliation": ""
+        },
+        {
+          "name": "Jin Xie",
+          "affiliation": ""
+        },
+        {
+          "name": "Qinghua Hu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Weakly supervised 3-D semantic segmentation has successfully mitigated the labor-intensive and time-consuming task of annotating 3-D point clouds. However, reliably utilizing the minimal point-wise annotations for unlabeled data in complex and large-scale scenes is still challenging, such as only 20 points labeled in 2 million points. To tackle this challenge, we propose a new Uncertainty-aware Superpoint Graph Transformer (UaSGT) framework that utilizes minimal annotations for unlabeled data learning through reliable long-range supervision propagation from labeled superpoints to unlabeled superpoints. First, we propose a superpoint graph transformer to achieve long-range supervision propagation along the attention-based fuzzy subsets defined on superpoints. The attention-based fuzzy subset measures the membership of unlabeled superpoints to clusters centered on labeled superpoints. Second, we employ an uncertainty-aware membership rectification technique on the fuzzy subset to ensure reliable propagation among superpoints within the same category. This technique integrates an uncertainty prediction module to mask the influence of unreliable membership and a spatial prior refinement module to reduce uncertainty in intraclass membership degrees. Finally, experimental results on two large-scale benchmarks S3DIS and ScanNet-V2 demonstrate the superiority of our approach compared to the state-of-the-art with at least 90% annotation reduction, and our method also achieves comparable performance to fully supervised methods with less than 0.1% labeled points.",
+      "venue": "IEEE transactions on fuzzy systems",
+      "citation_count": 2,
+      "doi": "10.1109/TFUZZ.2025.3543036",
+      "arxiv_id": "",
+      "url": "https://www.semanticscholar.org/paper/2445a7532aafd3ede902d78ad1a67292d0d6fda6",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-8a625787d9dfb79515fbbbb39c36249bb7e84718",
+      "title": "Density-aware NeRF Ensembles: Quantifying Predictive Uncertainty in Neural Radiance Fields",
+      "authors": [
+        {
+          "name": "Niko S\u00fcnderhauf",
+          "affiliation": ""
+        },
+        {
+          "name": "Jad Abou-Chakra",
+          "affiliation": ""
+        },
+        {
+          "name": "Dimity Miller",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "We show that ensembling effectively quantifies model uncertainty in Neural Radiance Fields (NeRFs) if a density-aware epistemic uncertainty term is considered. The naive ensembles investigated in prior work simply average rendered RGB images to quantify the model uncertainty caused by conflicting explanations of the observed scene. In contrast, we additionally consider the termination probabilities along individual rays to identify epistemic model uncertainty due to a lack of knowledge about the parts of a scene unobserved during training. We achieve new state-of-the-art performance across established uncertainty quantification benchmarks for NeRFs, outperforming methods that require complex changes to the NeRF architecture and training regime. We furthermore demonstrate that NeRF uncertainty can be utilised for next-best view selection and model refinement.",
+      "venue": "IEEE International Conference on Robotics and Automation",
+      "citation_count": 70,
+      "doi": "10.1109/ICRA48891.2023.10161012",
+      "arxiv_id": "2209.08718",
+      "url": "https://www.semanticscholar.org/paper/8a625787d9dfb79515fbbbb39c36249bb7e84718",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-200ece11074f26c455d04b66edd6d465bd55ebcf",
+      "title": "Learning Instance-Aware Correspondences for Robust Multi-Instance Point Cloud Registration in Cluttered Scenes",
+      "authors": [
+        {
+          "name": "Zhiyuan Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zheng Qin",
+          "affiliation": ""
+        },
+        {
+          "name": "Lintao Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Kaiping Xu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Multi-instance point cloud registration estimates the poses of multiple instances of a model point cloud in a scene point cloud. Extracting accurate point correspondences is to the center of the problem. Existing approaches usually treat the scene point cloud as a whole, overlooking the separation of instances. Therefore, point features could be easily polluted by other points from the back-ground or different instances, leading to inaccurate correspondences oblivious to separate instances, especially in cluttered scenes. In this work, we propose MIRETR, Multi-Instance REgistration TRansformer, a coarse-to-fine approach to the extraction of instance-aware correspondences. At the coarse level, it jointly learns instance-aware superpoint features and predicts per-instance masks. With instance masks, the influence from outside of the instance being concerned is minimized, such that highly reliable superpoint correspondences can be extracted. The superpoint correspondences are then extended to instance candidates at the fine level according to the instance masks. At last, an efficient candidate selection and refinement algorithm is devised to obtain the final registrations. Extensive experiments on three public benchmarks demonstrate the efficacy of our approach. In particular, MIRETR outperforms the state of the arts by 16.6 points on F1 score on the challenging ROBI benchmark. Code and models are available at https://github.com/zhiyuanYU134/MIRETR.",
+      "venue": "Computer Vision and Pattern Recognition",
+      "citation_count": 16,
+      "doi": "10.1109/CVPR52733.2024.01854",
+      "arxiv_id": "2404.04557",
+      "url": "https://www.semanticscholar.org/paper/200ece11074f26c455d04b66edd6d465bd55ebcf",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-6dc0064aa27b55f1ac9c10bdc2dcef1c72fbe02e",
+      "title": "Visual-Semantic Refinement Network: Towards Exploring the Capabilities of Decoder in Scene Text Recognition",
+      "authors": [
+        {
+          "name": "Yingtao Tan",
+          "affiliation": ""
+        },
+        {
+          "name": "Yingying Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Jinqiao Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Traditional scene text recognition (STR) is usually regarded as a visual unimodal recognition task, which has made some progress using the encoder-decoder framework. Introducing the language model (LM) that taps into semantic contextual relationships has significantly promoted the task from the language modality. However, in existing works, LM seriously relies on the output of the decoder in the vision model (VM), and the vision decoder itself lacks semantic and global context awareness. In this paper, we explore the capability of the vision decoder, which is generally ignored in previous works. We propose a Visual-Semantic Refinement Network (VSRN) to provide context and semantic guidance to the decoder, fully supporting the recognition capability. With the semantic refine module, the recognition results in the LM, in return, can be introduced to the VM. It provides semantic information while further facilitating the union of these two modalities. In the visual refinement module, we propose an adaptive mask strategy and explore visual features\u2019 global contextual relationships to assist the VM further. The two complementary clues jointly promote the VM and iteratively improve the recognition performance. Experimental results on several scene text recognition benchmarks show that our proposed method is effective and achieves state-of-the-art performance.",
+      "venue": "2023 International Conference on Intelligent Education and Intelligent Research (IEIR)",
+      "citation_count": 0,
+      "doi": "10.1109/IEIR59294.2023.10391251",
+      "arxiv_id": "",
+      "url": "https://www.semanticscholar.org/paper/6dc0064aa27b55f1ac9c10bdc2dcef1c72fbe02e",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-fe5c260fea271c0051f6043252d60a49d867e93a",
+      "title": "MaskFlow: Object-Aware Motion Estimation",
+      "authors": [
+        {
+          "name": "A. Ahmadi",
+          "affiliation": ""
+        },
+        {
+          "name": "D. R. M. Walton",
+          "affiliation": ""
+        },
+        {
+          "name": "Tim Atherton",
+          "affiliation": ""
+        },
+        {
+          "name": "\u00c7a\u011fatay Dikici",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We introduce a novel motion estimation method, MaskFlow, that is capable of estimating accurate motion fields, even in very challenging cases with small objects, large displacements and drastic appearance changes. In addition to lower-level features, that are used in other Deep Neural Network (DNN)-based motion estimation methods, MaskFlow draws from object-level features and segmentations. These features and segmentations are used to approximate the objects' translation motion field. We propose a novel and effective way of incorporating the incomplete translation motion field into a subsequent motion estimation network for refinement and completion. We also produced a new challenging synthetic dataset with motion field ground truth, and also provide extra ground truth for the object-instance matchings and corresponding segmentation masks. We demonstrate that MaskFlow outperforms state of the art methods when evaluated on our new challenging dataset, whilst still producing comparable results on the popular FlyingThings3D benchmark dataset.",
+      "venue": "arXiv.org",
+      "citation_count": 0,
+      "doi": "10.48550/arXiv.2311.12476",
+      "arxiv_id": "2311.12476",
+      "url": "https://www.semanticscholar.org/paper/fe5c260fea271c0051f6043252d60a49d867e93a",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-58d361e6858d8734dea8f08a99bfa58b8e46ad5b",
+      "title": "PAIR: A Hybrid A* with PPO Path Planner for Multi-UAV Navigation in 2-D Dynamic Urban MEC Environments",
+      "authors": [
+        {
+          "name": "B. Taher",
+          "affiliation": ""
+        },
+        {
+          "name": "Juan Luo",
+          "affiliation": ""
+        },
+        {
+          "name": "Ying Qiao",
+          "affiliation": ""
+        },
+        {
+          "name": "Hussein Ridha Sayegh",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Emerging multi-unmanned aerial vehicle (multi-UAV) applications in smart cities must navigate cluttered airspace while meeting tight mobile edge computing (MEC) deadlines. Classical grid planners, including A-star (A*), D-star Lite (D* Lite), and conflict-based search with D-star Lite (CBS-D*) and metaheuristics such asparticle swarm optimization (PSO), either replan too slowly in dynamic scenes or waste energy on long detours. This paper presents PPO-adjusted incremental refinement (PAIR), a decentralized hybrid planner that couples an A* global backbone with a continuous PPO refinement module for multi-UAV navigation on two-dimensional (2-D) urban grids. A* produces feasible waypoint routes, while a shared risk-aware PPO policy applies local offsets from a compact state encoding. MEC tasks are allocated by a separate heterogeneous scheduler; PPO optimizes geometric objectives (path length, risk, and a normalized propulsion-energy surrogate). Across nine benchmark scenarios with static and Markovian dynamic obstacles, PAIR achieves 100% mission success (matching the strongest baselines) while delivering the best energy surrogate (104.9 normalized units) and shortest mean travel time (207.8 s) on a reproducible 100\u00d7100 grid at fixed UAV speed. Relative to the strongest non-learning baseline (PSO), PAIR reduces energy by about 4% and travel time by about 3%, and yields roughly 10\u201320% gains over the remaining planners. An obstacle-density sweep with 5\u201330 moving obstacles further shows that PAIR maintains shorter paths and the lowest cumulative replanning time, supporting real-time multi-UAV navigation in dynamic urban MEC environments.",
+      "venue": "Drones",
+      "citation_count": 0,
+      "doi": "10.3390/drones10010058",
+      "arxiv_id": "",
+      "url": "https://www.semanticscholar.org/paper/58d361e6858d8734dea8f08a99bfa58b8e46ad5b",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-6e8a53818ed6729721fb8837306a7b4da25ff6cd",
+      "title": "Deformation-Resilient Multigranularity Learning for Unaligned RGB\u2013T Semantic Segmentation",
+      "authors": [
+        {
+          "name": "Heng Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhenxi Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chengyang Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Chunna Tian",
+          "affiliation": ""
+        },
+        {
+          "name": "Yongqiang Xie",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhongbo Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiao-jun Wu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "RGB\u2013Thermal semantic segmentation (SS) aims to combine visual light and thermal images to determine the semantic category for each pixel and create an object mask. While existing methods typically rely on well-aligned RGB\u2013T image pairs, real-world RGB\u2013T pairs are often unaligned, and pixel-by-pixel alignment is both challenging and time-consuming. To address this critical issue, we introduce a new unaligned RGB\u2013T SS benchmark and propose the deformation-resilient multigranularity learning (DML) method. DML explores the spatial consistency and modal complementarity of RGB\u2013T and mitigates the interference of warped modalities by aligning multimodal features in a coarse-to-fine multigranularity strategy. Specifically, DML constructs a deformation-aware complementary feature enhancer (DCFE), which consists of deformation-aware feature alignment (DFA) and complementary feature aggregation (CFA) modules. DFA enhances the spatial alignment of RGB\u2013T by estimating the deformation field of warped features. Then, CFA aggregates complementary contexts of modal differences across multiple scales to produce deformation-resilient and robust RGB\u2013T feature representations. Finally, we design the multigranularity mask refinement engine (MMFE), which combines class-agnostic saliency prediction (CSP) and class-aware edge generation (CEG) auxiliary tasks to provide useful boundary and positional cues for SS decoders. The MMFE enhances semantic alignment and interclass separability, yielding object masks with sharp boundaries. Quantitative and qualitative experiments on aligned and unaligned datasets validate the effectiveness of our proposed DML, consistently outperforming existing methods designed for aligned RGB\u2013T data. The new unaligned RGB\u2013T SS benchmark and code are available at https://github.com/VisionVerse/Unaligned-RGBT-Semantic-Segmentation",
+      "venue": "IEEE Transactions on Neural Networks and Learning Systems",
+      "citation_count": 12,
+      "doi": "10.1109/TNNLS.2025.3585105",
+      "arxiv_id": "",
+      "url": "https://www.semanticscholar.org/paper/6e8a53818ed6729721fb8837306a7b4da25ff6cd",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    }
+  ]
+}

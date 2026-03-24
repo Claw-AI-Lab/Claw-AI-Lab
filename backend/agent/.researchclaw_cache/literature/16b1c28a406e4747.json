@@ -1,0 +1,1486 @@
+{
+  "query": "Data augmentation MNIST comparing survey",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1773985850.1040435,
+  "papers": [
+    {
+      "paper_id": "arxiv-2510.21391",
+      "title": "TerraGen: A Unified Multi-Task Layout Generation Framework for Remote Sensing Data Augmentation",
+      "authors": [
+        {
+          "name": "Datao Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yudeng Xin",
+          "affiliation": ""
+        },
+        {
+          "name": "Hui Qiao",
+          "affiliation": ""
+        },
+        {
+          "name": "Dongsheng Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yin Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiheng Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiangyong Cao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Remote sensing vision tasks require extensive labeled data across multiple, interconnected domains. However, current generative data augmentation frameworks are task-isolated, i.e., each vision task requires training an independent generative model, and ignores the modeling of geographical information and spatial constraints. To address these issues, we propose \\textbf{TerraGen}, a unified layout-to-image generation framework that enables flexible, spatially controllable synthesis of remote sensing imagery for various high-level vision tasks, e.g., detection, segmentation, and extraction. Specifically, TerraGen introduces a geographic-spatial layout encoder that unifies bounding box and segmentation mask inputs, combined with a multi-scale injection scheme and mask-weighted loss to explicitly encode spatial constraints, from global structures to fine details. Also, we construct the first large-scale multi-task remote sensing layout generation dataset containing 45k images and establish a standardized evaluation protocol for this task. Experimental results show that our TerraGen can achieve the best generation image quality across diverse tasks. Additionally, TerraGen can be used as a universal data-augmentation generator, enhancing downstream task performance significantly and demonstrating robust cross-task generalisation in both full-data and few-shot scenarios.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2510.21391",
+      "url": "https://arxiv.org/abs/2510.21391",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2005.07866",
+      "title": "Byzantine-Resilient SGD in High Dimensions on Heterogeneous Data",
+      "authors": [
+        {
+          "name": "Deepesh Data",
+          "affiliation": ""
+        },
+        {
+          "name": "Suhas Diggavi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "We study distributed stochastic gradient descent (SGD) in the master-worker architecture under Byzantine attacks. We consider the heterogeneous data model, where different workers may have different local datasets, and we do not make any probabilistic assumptions on data generation. At the core of our algorithm, we use the polynomial-time outlier-filtering procedure for robust mean estimation proposed by Steinhardt et al. (ITCS 2018) to filter-out corrupt gradients. In order to be able to apply their filtering procedure in our {\\em heterogeneous} data setting where workers compute {\\em stochastic} gradients, we derive a new matrix concentration result, which may be of independent interest.\n  We provide convergence analyses for smooth strongly-convex and non-convex objectives. We derive our results under the bounded variance assumption on local stochastic gradients and a {\\em deterministic} condition on datasets, namely, gradient dissimilarity; and for both these quantities, we provide concrete bounds in the statistical heterogeneous data model. We give a trade-off between the mini-batch size for stochastic gradients and the approximation error. Our algorithm can tolerate up to $\\frac{1}{4}$ fraction Byzantine workers. It can find approximate optimal parameters in the strongly-convex setting exponentially fast and reach to an approximate stationary point in the non-convex setting with a linear speed, thus, matching the convergence rates of vanilla SGD in the Byzantine-free setting.\n  We also propose and analyze a Byzantine-resilient SGD algorithm with gradient compression, where workers send $k$ random coordinates of their gradients. Under mild conditions, we show a $\\frac{d}{k}$-factor saving in communication bits as well as decoding complexity over our compression-free algorithm without affecting its convergence rate (order-wise) and the approximation error.",
+      "venue": "stat.ML",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2005.07866",
+      "url": "https://arxiv.org/abs/2005.07866",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2411.15497",
+      "title": "AeroGen: Enhancing Remote Sensing Object Detection with Diffusion-Driven Data Generation",
+      "authors": [
+        {
+          "name": "Datao Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiangyong Cao",
+          "affiliation": ""
+        },
+        {
+          "name": "Xuan Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jialin Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Jing Yao",
+          "affiliation": ""
+        },
+        {
+          "name": "Xueru Bai",
+          "affiliation": ""
+        },
+        {
+          "name": "Dongsheng Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yin Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Deyu Meng",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Remote sensing image object detection (RSIOD) aims to identify and locate specific objects within satellite or aerial imagery. However, there is a scarcity of labeled data in current RSIOD datasets, which significantly limits the performance of current detection algorithms. Although existing techniques, e.g., data augmentation and semi-supervised learning, can mitigate this scarcity issue to some extent, they are heavily dependent on high-quality labeled data and perform worse in rare object classes. To address this issue, this paper proposes a layout-controllable diffusion generative model (i.e. AeroGen) tailored for RSIOD. To our knowledge, AeroGen is the first model to simultaneously support horizontal and rotated bounding box condition generation, thus enabling the generation of high-quality synthetic images that meet specific layout and object category requirements. Additionally, we propose an end-to-end data augmentation framework that integrates a diversity-conditioned generator and a filtering mechanism to enhance both the diversity and quality of generated data. Experimental results demonstrate that the synthetic data produced by our method are of high quality and diversity. Furthermore, the synthetic RSIOD data can significantly improve the detection performance of existing RSIOD models, i.e., the mAP metrics on DIOR, DIOR-R, and HRSC datasets are improved by 3.7%, 4.3%, and 2.43%, respectively. The code is available at https://github.com/Sonettoo/AeroGen.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2411.15497",
+      "url": "https://arxiv.org/abs/2411.15497",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2010.16064",
+      "title": "A 20 Gbps Data Transmitting ASIC with PAM4 for Particle Physics Experiments",
+      "authors": [
+        {
+          "name": "Li Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Datao Gong",
+          "affiliation": ""
+        },
+        {
+          "name": "Suen Hou",
+          "affiliation": ""
+        },
+        {
+          "name": "Guanming Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xing Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chonghan Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Tiankuan Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hanhan Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Quan Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiangming Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Wei Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jingbo Ye",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "We present the design principle and test results of a data transmitting ASIC, GBS20, for particle physics experiments. The goal of GBS20 will be an ASIC that employs two serializers each from the 10.24 Gbps lpGBT SerDes, sharing the PLL also from lpGBT. A PAM4 encoder plus a VCSEL driver will be implemented in the same die to use the same clock system, eliminating the need of CDRs in the PAM4 encoder. This way the transmitter module, GBT20, developed using the GBS20 ASIC, will have the exact lpGBT data interface and transmission protocol, with an output up to 20.48 Gbps over one fiber. With PAM4 embedded FPGAs at the receiving end, GBT20 will halve the fibers needed in a system and better use the input bandwidth of the FPGA. A prototype, GBS20v0 is fabricated using a commercial 65 nm CMOS technology. This prototype has two serializers and a PAM4 encoder sharing the lpGBT PLL, but no user data input. An internal PRBS generator provides data to the serializers. GBS20v0 is tested barely up to 20.48 Gbps. With lessons learned from this prototype, we are designing the second prototype, GBS20v1, that will have 16 user data input channels each at 1.28 Gbps. We present the design concept of the GBS20 ASIC and the GBT20 module, the preliminary test results, and lessons learned from GBS20v0 and the design of GBS20v1 which will be not only a test chip but also a user chip with 16 input data channels.",
+      "venue": "physics.ins-det",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2010.16064",
+      "url": "https://arxiv.org/abs/2010.16064",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2210.08363",
+      "title": "Data-Efficient Augmentation for Training Neural Networks",
+      "authors": [
+        {
+          "name": "Tian Yu Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Baharan Mirzasoleiman",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Data augmentation is essential to achieve state-of-the-art performance in many deep learning applications. However, the most effective augmentation techniques become computationally prohibitive for even medium-sized datasets. To address this, we propose a rigorous technique to select subsets of data points that when augmented, closely capture the training dynamics of full data augmentation. We first show that data augmentation, modeled as additive perturbations, improves learning and generalization by relatively enlarging and perturbing the smaller singular values of the network Jacobian, while preserving its prominent directions. This prevents overfitting and enhances learning the harder to learn information. Then, we propose a framework to iteratively extract small subsets of training data that when augmented, closely capture the alignment of the fully augmented Jacobian with labels/residuals. We prove that stochastic gradient descent applied to the augmented subsets found by our approach has similar training dynamics to that of fully augmented data. Our experiments demonstrate that our method achieves 6.3x speedup on CIFAR10 and 2.2x speedup on SVHN, and outperforms the baselines by up to 10% across various subset sizes. Similarly, on TinyImageNet and ImageNet, our method beats the baselines by up to 8%, while achieving up to 3.3x speedup across various subset sizes. Finally, training on and augmenting 50% subsets using our method on a version of CIFAR10 corrupted with label noise even outperforms using the full dataset. Our code is available at: https://github.com/tianyu139/data-efficient-augmentation",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2210.08363",
+      "url": "https://arxiv.org/abs/2210.08363",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2401.15422",
+      "title": "A Survey on Data Augmentation in Large Model Era",
+      "authors": [
+        {
+          "name": "Yue Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Chenlu Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Xu Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi Chang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuan Wu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Large models, encompassing large language and diffusion models, have shown exceptional promise in approximating human-level intelligence, garnering significant interest from both academic and industrial spheres. However, the training of these large models necessitates vast quantities of high-quality data, and with continuous updates to these models, the existing reservoir of high-quality data may soon be depleted. This challenge has catalyzed a surge in research focused on data augmentation methods. Leveraging large models, these data augmentation techniques have outperformed traditional approaches. This paper offers an exhaustive review of large model-driven data augmentation methods, adopting a comprehensive perspective. We begin by establishing a classification of relevant studies into three main categories: image augmentation, text augmentation, and paired data augmentation. Following this, we delve into various data post-processing techniques pertinent to large model-based data augmentation. Our discussion then expands to encompass the array of applications for these data augmentation methods within natural language processing, computer vision, and audio signal processing. We proceed to evaluate the successes and limitations of large model-based data augmentation across different scenarios. Concluding our review, we highlight prospective challenges and avenues for future exploration in the field of data augmentation. Our objective is to furnish researchers with critical insights, ultimately contributing to the advancement of more sophisticated large models. We consistently maintain the related open-source materials at: https://github.com/MLGroup-JLU/LLM-data-aug-survey.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2401.15422",
+      "url": "https://arxiv.org/abs/2401.15422",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2410.01088",
+      "title": "Exploring Empty Spaces: Human-in-the-Loop Data Augmentation",
+      "authors": [
+        {
+          "name": "Catherine Yeh",
+          "affiliation": ""
+        },
+        {
+          "name": "Donghao Ren",
+          "affiliation": ""
+        },
+        {
+          "name": "Yannick Assogba",
+          "affiliation": ""
+        },
+        {
+          "name": "Dominik Moritz",
+          "affiliation": ""
+        },
+        {
+          "name": "Fred Hohman",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Data augmentation is crucial to make machine learning models more robust and safe. However, augmenting data can be challenging as it requires generating diverse data points to rigorously evaluate model behavior on edge cases and mitigate potential harms. Creating high-quality augmentations that cover these \"unknown unknowns\" is a time- and creativity-intensive task. In this work, we introduce Amplio, an interactive tool to help practitioners navigate \"unknown unknowns\" in unstructured text datasets and improve data diversity by systematically identifying empty data spaces to explore. Amplio includes three human-in-the-loop data augmentation techniques: Augment With Concepts, Augment by Interpolation, and Augment with Large Language Model. In a user study with 18 professional red teamers, we demonstrate the utility of our augmentation methods in helping generate high-quality, diverse, and relevant model safety prompts. We find that Amplio enabled red teamers to augment data quickly and creatively, highlighting the transformative potential of interactive augmentation workflows.",
+      "venue": "cs.HC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2410.01088",
+      "url": "https://arxiv.org/abs/2410.01088",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2105.03075",
+      "title": "A Survey of Data Augmentation Approaches for NLP",
+      "authors": [
+        {
+          "name": "Steven Y. Feng",
+          "affiliation": ""
+        },
+        {
+          "name": "Varun Gangal",
+          "affiliation": ""
+        },
+        {
+          "name": "Jason Wei",
+          "affiliation": ""
+        },
+        {
+          "name": "Sarath Chandar",
+          "affiliation": ""
+        },
+        {
+          "name": "Soroush Vosoughi",
+          "affiliation": ""
+        },
+        {
+          "name": "Teruko Mitamura",
+          "affiliation": ""
+        },
+        {
+          "name": "Eduard Hovy",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Data augmentation has recently seen increased interest in NLP due to more work in low-resource domains, new tasks, and the popularity of large-scale neural networks that require large amounts of training data. Despite this recent upsurge, this area is still relatively underexplored, perhaps due to the challenges posed by the discrete nature of language data. In this paper, we present a comprehensive and unifying survey of data augmentation for NLP by summarizing the literature in a structured manner. We first introduce and motivate data augmentation for NLP, and then discuss major methodologically representative approaches. Next, we highlight techniques that are used for popular NLP applications and tasks. We conclude by outlining current challenges and directions for future research. Overall, our paper aims to clarify the landscape of existing literature in data augmentation for NLP and motivate additional work in this area. We also present a GitHub repository with a paper list that will be continuously updated at https://github.com/styfeng/DataAug4NLP",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2105.03075",
+      "url": "https://arxiv.org/abs/2105.03075",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2403.10075",
+      "title": "A survey of synthetic data augmentation methods in computer vision",
+      "authors": [
+        {
+          "name": "Alhassan Mumuni",
+          "affiliation": ""
+        },
+        {
+          "name": "Fuseini Mumuni",
+          "affiliation": ""
+        },
+        {
+          "name": "Nana Kobina Gerrar",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "The standard approach to tackling computer vision problems is to train deep convolutional neural network (CNN) models using large-scale image datasets which are representative of the target task. However, in many scenarios, it is often challenging to obtain sufficient image data for the target task. Data augmentation is a way to mitigate this challenge. A common practice is to explicitly transform existing images in desired ways so as to create the required volume and variability of training data necessary to achieve good generalization performance. In situations where data for the target domain is not accessible, a viable workaround is to synthesize training data from scratch--i.e., synthetic data augmentation. This paper presents an extensive review of synthetic data augmentation techniques. It covers data synthesis approaches based on realistic 3D graphics modeling, neural style transfer (NST), differential neural rendering, and generative artificial intelligence (AI) techniques such as generative adversarial networks (GANs) and variational autoencoders (VAEs). For each of these classes of methods, we focus on the important data generation and augmentation techniques, general scope of application and specific use-cases, as well as existing limitations and possible workarounds. Additionally, we provide a summary of common synthetic datasets for training computer vision models, highlighting the main features, application domains and supported tasks. Finally, we discuss the effectiveness of synthetic data augmentation methods. Since this is the first paper to explore synthetic data augmentation methods in great detail, we are hoping to equip readers with the necessary background information and in-depth knowledge of existing methods and their attendant issues.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1007/s11633-022-1411-7",
+      "arxiv_id": "2403.10075",
+      "url": "https://arxiv.org/abs/2403.10075",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2108.06949",
+      "title": "Data Augmentation for Scene Text Recognition",
+      "authors": [
+        {
+          "name": "Rowel Atienza",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Scene text recognition (STR) is a challenging task in computer vision due to the large number of possible text appearances in natural scenes. Most STR models rely on synthetic datasets for training since there are no sufficiently big and publicly available labelled real datasets. Since STR models are evaluated using real data, the mismatch between training and testing data distributions results into poor performance of models especially on challenging text that are affected by noise, artifacts, geometry, structure, etc. In this paper, we introduce STRAug which is made of 36 image augmentation functions designed for STR. Each function mimics certain text image properties that can be found in natural scenes, caused by camera sensors, or induced by signal processing operations but poorly represented in the training dataset. When applied to strong baseline models using RandAugment, STRAug significantly increases the overall absolute accuracy of STR models across regular and irregular test datasets by as much as 2.10% on Rosetta, 1.48% on R2AM, 1.30% on CRNN, 1.35% on RARE, 1.06% on TRBA and 0.89% on GCRNN. The diversity and simplicity of API provided by STRAug functions enable easy replication and validation of existing data augmentation methods for STR. STRAug is available at https://github.com/roatienza/straug.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2108.06949",
+      "url": "https://arxiv.org/abs/2108.06949",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2407.21523",
+      "title": "Tabular Data Augmentation for Machine Learning: Progress and Prospects of Embracing Generative AI",
+      "authors": [
+        {
+          "name": "Lingxi Cui",
+          "affiliation": ""
+        },
+        {
+          "name": "Huan Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Ke Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Lidan Shou",
+          "affiliation": ""
+        },
+        {
+          "name": "Gang Chen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Machine learning (ML) on tabular data is ubiquitous, yet obtaining abundant high-quality tabular data for model training remains a significant obstacle. Numerous works have focused on tabular data augmentation (TDA) to enhance the original table with additional data, thereby improving downstream ML tasks. Recently, there has been a growing interest in leveraging the capabilities of generative AI for TDA. Therefore, we believe it is time to provide a comprehensive review of the progress and future prospects of TDA, with a particular emphasis on the trending generative AI. Specifically, we present an architectural view of the TDA pipeline, comprising three main procedures: pre-augmentation, augmentation, and post-augmentation. Pre-augmentation encompasses preparation tasks that facilitate subsequent TDA, including error handling, table annotation, table simplification, table representation, table indexing, table navigation, schema matching, and entity matching. Augmentation systematically analyzes current TDA methods, categorized into retrieval-based methods, which retrieve external data, and generation-based methods, which generate synthetic data. We further subdivide these methods based on the granularity of the augmentation process at the row, column, cell, and table levels. Post-augmentation focuses on the datasets, evaluation and optimization aspects of TDA. We also summarize current trends and future directions for TDA, highlighting promising opportunities in the era of generative AI. In addition, the accompanying papers and related resources are continuously updated and maintained in the GitHub repository at https://github.com/SuDIS-ZJU/awesome-tabular-data-augmentation to reflect ongoing advancements in the field.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2407.21523",
+      "url": "https://arxiv.org/abs/2407.21523",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2507.11773",
+      "title": "Small Data Explainer -- The impact of small data methods in everyday life",
+      "authors": [
+        {
+          "name": "Maren Hackenberg",
+          "affiliation": ""
+        },
+        {
+          "name": "Sophia G. Connor",
+          "affiliation": ""
+        },
+        {
+          "name": "Fabian Kabus",
+          "affiliation": ""
+        },
+        {
+          "name": "June Brawner",
+          "affiliation": ""
+        },
+        {
+          "name": "Ella Markham",
+          "affiliation": ""
+        },
+        {
+          "name": "Mahi Hardalupas",
+          "affiliation": ""
+        },
+        {
+          "name": "Areeq Chowdhury",
+          "affiliation": ""
+        },
+        {
+          "name": "Rolf Backofen",
+          "affiliation": ""
+        },
+        {
+          "name": "Anna K\u00f6ttgen",
+          "affiliation": ""
+        },
+        {
+          "name": "Angelika Rohde",
+          "affiliation": ""
+        },
+        {
+          "name": "Nadine Binder",
+          "affiliation": ""
+        },
+        {
+          "name": "Harald Binder",
+          "affiliation": ""
+        },
+        {
+          "name": "the Collaborative Research Center 1597 Small Data",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The emergence of breakthrough artificial intelligence (AI) techniques has led to a renewed focus on how small data settings, i.e., settings with limited information, can benefit from such developments. This includes societal issues such as how best to include under-represented groups in data-driven policy and decision making, or the health benefits of assistive technologies such as wearables. We provide a conceptual overview, in particular contrasting small data with big data, and identify common themes from exemplary case studies and application areas. Potential solutions are described in a more detailed technical overview of current data analysis and modelling techniques, highlighting contributions from different disciplines, such as knowledge-driven modelling from statistics and data-driven modelling from computer science. By linking application settings, conceptual contributions and specific techniques, we highlight what is already feasible and suggest what an agenda for fully leveraging small data might look like.",
+      "venue": "cs.CY",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2507.11773",
+      "url": "https://arxiv.org/abs/2507.11773",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2501.13372",
+      "title": "Generative Data Augmentation Challenge: Zero-Shot Speech Synthesis for Personalized Speech Enhancement",
+      "authors": [
+        {
+          "name": "Jae-Sung Bae",
+          "affiliation": ""
+        },
+        {
+          "name": "Anastasia Kuznetsova",
+          "affiliation": ""
+        },
+        {
+          "name": "Dinesh Manocha",
+          "affiliation": ""
+        },
+        {
+          "name": "John Hershey",
+          "affiliation": ""
+        },
+        {
+          "name": "Trausti Kristjansson",
+          "affiliation": ""
+        },
+        {
+          "name": "Minje Kim",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "This paper presents a new challenge that calls for zero-shot text-to-speech (TTS) systems to augment speech data for the downstream task, personalized speech enhancement (PSE), as part of the Generative Data Augmentation workshop at ICASSP 2025. Collecting high-quality personalized data is challenging due to privacy concerns and technical difficulties in recording audio from the test scene. To address these issues, synthetic data generation using generative models has gained significant attention. In this challenge, participants are tasked first with building zero-shot TTS systems to augment personalized data. Subsequently, PSE systems are asked to be trained with this augmented personalized dataset. Through this challenge, we aim to investigate how the quality of augmented data generated by zero-shot TTS models affects PSE model performance. We also provide baseline experiments using open-source zero-shot TTS models to encourage participation and benchmark advancements. Our baseline code implementation and checkpoints are available online.",
+      "venue": "eess.AS",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2501.13372",
+      "url": "https://arxiv.org/abs/2501.13372",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2501.13250",
+      "title": "Generative Data Augmentation Challenge: Synthesis of Room Acoustics for Speaker Distance Estimation",
+      "authors": [
+        {
+          "name": "Jackie Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Georg G\u00f6tz",
+          "affiliation": ""
+        },
+        {
+          "name": "Hermes Sampedro Llopis",
+          "affiliation": ""
+        },
+        {
+          "name": "Haukur Hafsteinsson",
+          "affiliation": ""
+        },
+        {
+          "name": "Steinar Gu\u00f0j\u00f3nsson",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniel Gert Nielsen",
+          "affiliation": ""
+        },
+        {
+          "name": "Finnur Pind",
+          "affiliation": ""
+        },
+        {
+          "name": "Paris Smaragdis",
+          "affiliation": ""
+        },
+        {
+          "name": "Dinesh Manocha",
+          "affiliation": ""
+        },
+        {
+          "name": "John Hershey",
+          "affiliation": ""
+        },
+        {
+          "name": "Trausti Kristjansson",
+          "affiliation": ""
+        },
+        {
+          "name": "Minje Kim",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "This paper describes the synthesis of the room acoustics challenge as a part of the generative data augmentation workshop at ICASSP 2025. The challenge defines a unique generative task that is designed to improve the quantity and diversity of the room impulse responses dataset so that it can be used for spatially sensitive downstream tasks: speaker distance estimation. The challenge identifies the technical difficulty in measuring or simulating many rooms' acoustic characteristics precisely. As a solution, it proposes generative data augmentation as an alternative that can potentially be used to improve various downstream tasks. The challenge website, dataset, and evaluation code are available at https://sites.google.com/view/genda2025.",
+      "venue": "eess.AS",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2501.13250",
+      "url": "https://arxiv.org/abs/2501.13250",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2509.07471",
+      "title": "From Scarcity to Efficiency: Investigating the Effects of Data Augmentation on African Machine Translation",
+      "authors": [
+        {
+          "name": "Mardiyyah Oduwole",
+          "affiliation": ""
+        },
+        {
+          "name": "Oluwatosin Olajide",
+          "affiliation": ""
+        },
+        {
+          "name": "Jamiu Suleiman",
+          "affiliation": ""
+        },
+        {
+          "name": "Faith Hunja",
+          "affiliation": ""
+        },
+        {
+          "name": "Busayo Awobade",
+          "affiliation": ""
+        },
+        {
+          "name": "Fatimo Adebanjo",
+          "affiliation": ""
+        },
+        {
+          "name": "Comfort Akanni",
+          "affiliation": ""
+        },
+        {
+          "name": "Chinonyelum Igwe",
+          "affiliation": ""
+        },
+        {
+          "name": "Peace Ododo",
+          "affiliation": ""
+        },
+        {
+          "name": "Promise Omoigui",
+          "affiliation": ""
+        },
+        {
+          "name": "Abraham Owodunni",
+          "affiliation": ""
+        },
+        {
+          "name": "Steven Kolawole",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The linguistic diversity across the African continent presents different challenges and opportunities for machine translation. This study explores the effects of data augmentation techniques in improving translation systems in low-resource African languages. We focus on two data augmentation techniques: sentence concatenation with back translation and switch-out, applying them across six African languages. Our experiments show significant improvements in machine translation performance, with a minimum increase of 25\\% in BLEU score across all six languages. We provide a comprehensive analysis and highlight the potential of these techniques to improve machine translation systems for low-resource languages, contributing to the development of more robust translation systems for under-resourced languages.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2509.07471",
+      "url": "https://arxiv.org/abs/2509.07471",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.07494",
+      "title": "Roman Galactic Plane Survey Definition Committee Report",
+      "authors": [
+        {
+          "name": "Roman Galactic Plane Survey Definition Committee",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The Roman Galactic Plane Survey (RGPS) is a 700-hour program approved for early definition as a community-designed General Astrophysics Survey. It was selected following a proposal call for science programs that would benefit from an early community-based definition (Sanderson et al 2024). The community was invited to submit white papers and science pitches with a deadline of May 20, 2024; the Roman Galactic Plane Survey Definition Committee (RGPS-DC) first met on Sep 11, 2024. Based on the input provided, the RGPS-DC recommends a survey consisting of three elements: (1) a wide-field science element (691 sq deg, 541 hrs) covering the Galactic plane, Galactic latitude |b|<2 deg and Galactic longitude l=+50.1 deg to -79 deg (281 deg), in four filters (F129, F159, F184, and F213) with higher latitude extensions for the bulge, the Serpens South/W40 star formation region, and Carina, (2) a time-domain science element (19 sq deg , 130 hrs) of six fields, including the full Nuclear Stellar Disk (NSD) and Central Molecular Zone (CMZ), with coverage in seven filters and repeat observations in one or more filters with cadences from 11 minutes to weeks, and (3) a deep-field/spectroscopic science element (4 sq deg , 30 hrs) consisting of fifteen Roman pointings (with a wide range of extinction, diffuse emission, stellar density and population) using longer exposure times in seven filters in addition to grism and prism observations. This document summarizes the science that can be done with this survey, the process of survey definition, and details on all of the program elements.",
+      "venue": "astro-ph.GA",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.07494",
+      "url": "https://arxiv.org/abs/2511.07494",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2103.01498",
+      "title": "A Survey On Universal Adversarial Attack",
+      "authors": [
+        {
+          "name": "Chaoning Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Philipp Benz",
+          "affiliation": ""
+        },
+        {
+          "name": "Chenguo Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Adil Karjauv",
+          "affiliation": ""
+        },
+        {
+          "name": "Jing Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "In So Kweon",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "The intriguing phenomenon of adversarial examples has attracted significant attention in machine learning and what might be more surprising to the community is the existence of universal adversarial perturbations (UAPs), i.e. a single perturbation to fool the target DNN for most images. With the focus on UAP against deep classifiers, this survey summarizes the recent progress on universal adversarial attacks, discussing the challenges from both the attack and defense sides, as well as the reason for the existence of UAP. We aim to extend this work as a dynamic survey that will regularly update its content to follow new works regarding UAP or universal attack in a wide range of domains, such as image, audio, video, text, etc. Relevant updates will be discussed at: https://bit.ly/2SbQlLG. We welcome authors of future works in this field to contact us for including your new finding.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "10.24963/ijcai.2021/635",
+      "arxiv_id": "2103.01498",
+      "url": "https://arxiv.org/abs/2103.01498",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2202.08235",
+      "title": "Data Augmentation for Deep Graph Learning: A Survey",
+      "authors": [
+        {
+          "name": "Kaize Ding",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhe Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hanghang Tong",
+          "affiliation": ""
+        },
+        {
+          "name": "Huan Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Graph neural networks, a powerful deep learning tool to model graph-structured data, have demonstrated remarkable performance on numerous graph learning tasks. To address the data noise and data scarcity issues in deep graph learning, the research on graph data augmentation has intensified lately. However, conventional data augmentation methods can hardly handle graph-structured data which is defined in non-Euclidean space with multi-modality. In this survey, we formally formulate the problem of graph data augmentation and further review the representative techniques and their applications in different deep graph learning problems. Specifically, we first propose a taxonomy for graph data augmentation techniques and then provide a structured review by categorizing the related work based on the augmented information modalities. Moreover, we summarize the applications of graph data augmentation in two representative problems in data-centric deep graph learning: (1) reliable graph learning which focuses on enhancing the utility of input graph as well as the model capacity via graph data augmentation; and (2) low-resource graph learning which targets on enlarging the labeled training data scale through graph data augmentation. For each problem, we also provide a hierarchical problem taxonomy and review the existing literature related to graph data augmentation. Finally, we point out promising research directions and the challenges in future research.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2202.08235",
+      "url": "https://arxiv.org/abs/2202.08235",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2409.08759",
+      "title": "Dark Energy Survey: 2.1% measurement of the Baryon Acoustic Oscillation scale from the final dataset",
+      "authors": [
+        {
+          "name": "Juan Mena-Fern\u00e1ndez",
+          "affiliation": ""
+        },
+        {
+          "name": "Dark Energy Survey Collaboration",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Here, we present the angular diameter distance measurement obtained from the measurement of the Baryonic Acoustic Oscillation (BAO) feature using the completed Dark Energy Survey (DES) data, summarizing the main results of [Phys. Rev. D 110, 063514] and [Phys. Rev. D 110, 063515]. We use a galaxy sample optimized for BAO science in the redshift range 0.6 < z < 1.2, with an effective redshift of $z_{\\rm eff}$ = 0.85. Our consensus measurement constrains the ratio of the angular distance to the sound horizon scale to $D_M(z_{\\rm eff})/r_d$ = 19.51 $\\pm$ 0.41. This measurement is found to be 2.13$\u03c3$ below the angular BAO scale predicted by Planck. To date, it represents the most precise measurement from purely photometric data, and the most precise from any Stage-III experiment at such high redshift. The analysis was performed blinded to the BAO position and is shown to be robust against analysis choices, data removal, redshift calibrations and observational systematics.",
+      "venue": "astro-ph.CO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2409.08759",
+      "url": "https://arxiv.org/abs/2409.08759",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2305.17173",
+      "title": "DES Y3 + KiDS-1000: Consistent cosmology combining cosmic shear surveys",
+      "authors": [
+        {
+          "name": "Dark Energy Survey",
+          "affiliation": ""
+        },
+        {
+          "name": "Kilo-Degree Survey Collaboration",
+          "affiliation": ""
+        },
+        {
+          "name": ":",
+          "affiliation": ""
+        },
+        {
+          "name": "T. M. C. Abbott",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Aguena",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Alarcon",
+          "affiliation": ""
+        },
+        {
+          "name": "O. Alves",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Amon",
+          "affiliation": ""
+        },
+        {
+          "name": "F. Andrade-Oliveira",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Asgari",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Avila",
+          "affiliation": ""
+        },
+        {
+          "name": "D. Bacon",
+          "affiliation": ""
+        },
+        {
+          "name": "K. Bechtol",
+          "affiliation": ""
+        },
+        {
+          "name": "M. R. Becker",
+          "affiliation": ""
+        },
+        {
+          "name": "G. M. Bernstein",
+          "affiliation": ""
+        },
+        {
+          "name": "E. Bertin",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Bilicki",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Blazek",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Bocquet",
+          "affiliation": ""
+        },
+        {
+          "name": "D. Brooks",
+          "affiliation": ""
+        },
+        {
+          "name": "P. Burger",
+          "affiliation": ""
+        },
+        {
+          "name": "D. L. Burke",
+          "affiliation": ""
+        },
+        {
+          "name": "H. Camacho",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Campos",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Carnero Rosell",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Carrasco Kind",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Carretero",
+          "affiliation": ""
+        },
+        {
+          "name": "F. J. Castander",
+          "affiliation": ""
+        },
+        {
+          "name": "R. Cawthon",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Chang",
+          "affiliation": ""
+        },
+        {
+          "name": "R. Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Choi",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Conselice",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Cordero",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Crocce",
+          "affiliation": ""
+        },
+        {
+          "name": "L. N. da Costa",
+          "affiliation": ""
+        },
+        {
+          "name": "M. E. da Silva Pereira",
+          "affiliation": ""
+        },
+        {
+          "name": "R. Dalal",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Davis",
+          "affiliation": ""
+        },
+        {
+          "name": "J. T. A. de Jong",
+          "affiliation": ""
+        },
+        {
+          "name": "J. DeRose",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Desai",
+          "affiliation": ""
+        },
+        {
+          "name": "H. T. Diehl",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Dodelson",
+          "affiliation": ""
+        },
+        {
+          "name": "P. Doel",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Doux",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Drlica-Wagner",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Dvornik",
+          "affiliation": ""
+        },
+        {
+          "name": "K. Eckert",
+          "affiliation": ""
+        },
+        {
+          "name": "T. F. Eifler",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Elvin-Poole",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Everett",
+          "affiliation": ""
+        },
+        {
+          "name": "X. Fang",
+          "affiliation": ""
+        },
+        {
+          "name": "I. Ferrero",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Fert\u00e9",
+          "affiliation": ""
+        },
+        {
+          "name": "B. Flaugher",
+          "affiliation": ""
+        },
+        {
+          "name": "O. Friedrich",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Frieman",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Garc\u00eda-Bellido",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Gatti",
+          "affiliation": ""
+        },
+        {
+          "name": "G. Giannini",
+          "affiliation": ""
+        },
+        {
+          "name": "B. Giblin",
+          "affiliation": ""
+        },
+        {
+          "name": "D. Gruen",
+          "affiliation": ""
+        },
+        {
+          "name": "R. A. Gruendl",
+          "affiliation": ""
+        },
+        {
+          "name": "G. Gutierrez",
+          "affiliation": ""
+        },
+        {
+          "name": "I. Harrison",
+          "affiliation": ""
+        },
+        {
+          "name": "W. G. Hartley",
+          "affiliation": ""
+        },
+        {
+          "name": "K. Herner",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Heymans",
+          "affiliation": ""
+        },
+        {
+          "name": "H. Hildebrandt",
+          "affiliation": ""
+        },
+        {
+          "name": "S. R. Hinton",
+          "affiliation": ""
+        },
+        {
+          "name": "H. Hoekstra",
+          "affiliation": ""
+        },
+        {
+          "name": "D. L. Hollowood",
+          "affiliation": ""
+        },
+        {
+          "name": "K. Honscheid",
+          "affiliation": ""
+        },
+        {
+          "name": "H. Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "E. M. Huff",
+          "affiliation": ""
+        },
+        {
+          "name": "D. Huterer",
+          "affiliation": ""
+        },
+        {
+          "name": "D. J. James",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Jarvis",
+          "affiliation": ""
+        },
+        {
+          "name": "N. Jeffrey",
+          "affiliation": ""
+        },
+        {
+          "name": "T. Jeltema",
+          "affiliation": ""
+        },
+        {
+          "name": "B. Joachimi",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Joudaki",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Kannawadi",
+          "affiliation": ""
+        },
+        {
+          "name": "E. Krause",
+          "affiliation": ""
+        },
+        {
+          "name": "K. Kuehn",
+          "affiliation": ""
+        },
+        {
+          "name": "K. Kuijken",
+          "affiliation": ""
+        },
+        {
+          "name": "N. Kuropatkin",
+          "affiliation": ""
+        },
+        {
+          "name": "O. Lahav",
+          "affiliation": ""
+        },
+        {
+          "name": "P. -F. Leget",
+          "affiliation": ""
+        },
+        {
+          "name": "P. Lemos",
+          "affiliation": ""
+        },
+        {
+          "name": "S. -S. Li",
+          "affiliation": ""
+        },
+        {
+          "name": "X. Li",
+          "affiliation": ""
+        },
+        {
+          "name": "A. R. Liddle",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Lima",
+          "affiliation": ""
+        },
+        {
+          "name": "C. -A Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "H. Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "N. MacCrann",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Mahony",
+          "affiliation": ""
+        },
+        {
+          "name": "J. L. Marshall",
+          "affiliation": ""
+        },
+        {
+          "name": "J. McCullough",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Mena-Fern\u00e1ndez",
+          "affiliation": ""
+        },
+        {
+          "name": "F. Menanteau",
+          "affiliation": ""
+        },
+        {
+          "name": "R. Miquel",
+          "affiliation": ""
+        },
+        {
+          "name": "J. J. Mohr",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Muir",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Myles",
+          "affiliation": ""
+        },
+        {
+          "name": "N. Napolitano",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Navarro-Alsina",
+          "affiliation": ""
+        },
+        {
+          "name": "R. L. C. Ogando",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Palmese",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Pandey",
+          "affiliation": ""
+        },
+        {
+          "name": "Y. Park",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Paterno",
+          "affiliation": ""
+        },
+        {
+          "name": "J. A. Peacock",
+          "affiliation": ""
+        },
+        {
+          "name": "D. Petravick",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Pieres",
+          "affiliation": ""
+        },
+        {
+          "name": "A. A. Plazas Malag\u00f3n",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Porredon",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Prat",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Radovich",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Raveri",
+          "affiliation": ""
+        },
+        {
+          "name": "R. Reischke",
+          "affiliation": ""
+        },
+        {
+          "name": "N. C. Robertson",
+          "affiliation": ""
+        },
+        {
+          "name": "R. P. Rollins",
+          "affiliation": ""
+        },
+        {
+          "name": "A. K. Romer",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Roodman",
+          "affiliation": ""
+        },
+        {
+          "name": "E. S. Rykoff",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Samuroff",
+          "affiliation": ""
+        },
+        {
+          "name": "C. S\u00e1nchez",
+          "affiliation": ""
+        },
+        {
+          "name": "E. Sanchez",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Sanchez",
+          "affiliation": ""
+        },
+        {
+          "name": "P. Schneider",
+          "affiliation": ""
+        },
+        {
+          "name": "L. F. Secco",
+          "affiliation": ""
+        },
+        {
+          "name": "I. Sevilla-Noarbe",
+          "affiliation": ""
+        },
+        {
+          "name": "H. -Y. Shan",
+          "affiliation": ""
+        },
+        {
+          "name": "E. Sheldon",
+          "affiliation": ""
+        },
+        {
+          "name": "T. Shin",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Sif\u00f3n",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Smith",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Soares-Santos",
+          "affiliation": ""
+        },
+        {
+          "name": "B. St\u00f6lzner",
+          "affiliation": ""
+        },
+        {
+          "name": "E. Suchyta",
+          "affiliation": ""
+        },
+        {
+          "name": "M. E. C. Swanson",
+          "affiliation": ""
+        },
+        {
+          "name": "G. Tarle",
+          "affiliation": ""
+        },
+        {
+          "name": "D. Thomas",
+          "affiliation": ""
+        },
+        {
+          "name": "C. To",
+          "affiliation": ""
+        },
+        {
+          "name": "M. A. Troxel",
+          "affiliation": ""
+        },
+        {
+          "name": "T. Tr\u00f6ster",
+          "affiliation": ""
+        },
+        {
+          "name": "I. Tutusaus",
+          "affiliation": ""
+        },
+        {
+          "name": "J. L. van den Busch",
+          "affiliation": ""
+        },
+        {
+          "name": "T. N. Varga",
+          "affiliation": ""
+        },
+        {
+          "name": "A. R. Walker",
+          "affiliation": ""
+        },
+        {
+          "name": "N. Weaverdyck",
+          "affiliation": ""
+        },
+        {
+          "name": "R. H. Wechsler",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Weller",
+          "affiliation": ""
+        },
+        {
+          "name": "P. Wiseman",
+          "affiliation": ""
+        },
+        {
+          "name": "A. H. Wright",
+          "affiliation": ""
+        },
+        {
+          "name": "B. Yanny",
+          "affiliation": ""
+        },
+        {
+          "name": "B. Yin",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Yoon",
+          "affiliation": ""
+        },
+        {
+          "name": "Y. Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Zuntz",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We present a joint cosmic shear analysis of the Dark Energy Survey (DES Y3) and the Kilo-Degree Survey (KiDS-1000) in a collaborative effort between the two survey teams. We find consistent cosmological parameter constraints between DES Y3 and KiDS-1000 which, when combined in a joint-survey analysis, constrain the parameter $S_8 = \u03c3_8 \\sqrt{\u03a9_{\\rm m}/0.3}$ with a mean value of $0.790^{+0.018}_{-0.014}$. The mean marginal is lower than the maximum a posteriori estimate, $S_8=0.801$, owing to skewness in the marginal distribution and projection effects in the multi-dimensional parameter space. Our results are consistent with $S_8$ constraints from observations of the cosmic microwave background by Planck, with agreement at the $1.7\u03c3$ level. We use a Hybrid analysis pipeline, defined from a mock survey study quantifying the impact of the different analysis choices originally adopted by each survey team. We review intrinsic alignment models, baryon feedback mitigation strategies, priors, samplers and models of the non-linear matter power spectrum.",
+      "venue": "astro-ph.CO",
+      "citation_count": 0,
+      "doi": "10.21105/astro.2305.17173",
+      "arxiv_id": "2305.17173",
+      "url": "https://arxiv.org/abs/2305.17173",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2011.02034",
+      "title": "The Role of Time, Weather and Google Trends in Understanding and Predicting Web Survey Response",
+      "authors": [
+        {
+          "name": "Qixiang Fang",
+          "affiliation": ""
+        },
+        {
+          "name": "Joep Burger",
+          "affiliation": ""
+        },
+        {
+          "name": "Ralph Meijers",
+          "affiliation": ""
+        },
+        {
+          "name": "Kees van Berkel",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "In the literature about web survey methodology, significant efforts have been made to understand the role of time-invariant factors (e.g. gender, education and marital status) in (non-)response mechanisms. Time-invariant factors alone, however, cannot account for most variations in (non-)responses, especially fluctuations of response rates over time. This observation inspires us to investigate the counterpart of time-invariant factors, namely time-varying factors and the potential role they play in web survey (non-)response. Specifically, we study the effects of time, weather and societal trends (derived from Google Trends data) on the daily (non-)response patterns of the 2016 and 2017 Dutch Health Surveys. Using discrete-time survival analysis, we find, among others, that weekends, holidays, pleasant weather, disease outbreaks and terrorism salience are associated with fewer responses. Furthermore, we show that using these variables alone achieves satisfactory prediction accuracy of both daily and cumulative response rates when the trained model is applied to future unseen data. This approach has the further benefit of requiring only non-personal contextual information and thus involving no privacy issues. We discuss the implications of the study for survey research and data collection.",
+      "venue": "cs.SI",
+      "citation_count": 0,
+      "doi": "10.18148/srm/2021.v15i1.7633",
+      "arxiv_id": "2011.02034",
+      "url": "https://arxiv.org/abs/2011.02034",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2506.23863",
+      "title": "Puzzles: Unbounded Video-Depth Augmentation for Scalable End-to-End 3D Reconstruction",
+      "authors": [
+        {
+          "name": "Jiahao Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Lei Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Miaomiao liu",
+          "affiliation": ""
+        },
+        {
+          "name": "David Ahmedt-Aristizabal",
+          "affiliation": ""
+        },
+        {
+          "name": "Chuong Nguyen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Multi-view 3D reconstruction remains a core challenge in computer vision. Recent methods, such as DUST3R and its successors, directly regress pointmaps from image pairs without relying on known scene geometry or camera parameters. However, the performance of these models is constrained by the diversity and scale of available training data. In this work, we introduce Puzzles, a data augmentation strategy that synthesizes an unbounded volume of high-quality posed video-depth data from a single image or video clip. By simulating diverse camera trajectories and realistic scene geometry through targeted image transformations, Puzzles significantly enhances data variety. Extensive experiments show that integrating Puzzles into existing video-based 3D reconstruction pipelines consistently boosts performance without modifying the underlying network architecture. Notably, models trained on only ten percent of the original data augmented with Puzzles still achieve accuracy comparable to those trained on the full dataset. Code is available at https://jiahao-ma.github.io/puzzles/.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2506.23863",
+      "url": "https://arxiv.org/abs/2506.23863",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

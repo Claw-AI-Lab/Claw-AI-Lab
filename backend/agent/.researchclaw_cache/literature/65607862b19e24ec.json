@@ -1,0 +1,1224 @@
+{
+  "query": "GPU for long-context transformer inference",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1773944625.6001363,
+  "papers": [
+    {
+      "paper_id": "arxiv-2505.09561",
+      "title": "Learning Long-Context Diffusion Policies via Past-Token Prediction",
+      "authors": [
+        {
+          "name": "Marcel Torne",
+          "affiliation": ""
+        },
+        {
+          "name": "Andy Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuejiang Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Chelsea Finn",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Reasoning over long sequences of observations and actions is essential for many robotic tasks. Yet, learning effective long-context policies from demonstrations remains challenging. As context length increases, training becomes increasingly expensive due to rising memory demands, and policy performance often degrades as a result of spurious correlations. Recent methods typically sidestep these issues by truncating context length, discarding historical information that may be critical for subsequent decisions. In this paper, we propose an alternative approach that explicitly regularizes the retention of past information. We first revisit the copycat problem in imitation learning and identify an opposite challenge in recent diffusion policies: rather than over-relying on prior actions, they often fail to capture essential dependencies between past and future actions. To address this, we introduce Past-Token Prediction (PTP), an auxiliary task in which the policy learns to predict past action tokens alongside future ones. This regularization significantly improves temporal modeling in the policy head, with minimal reliance on visual representations. Building on this observation, we further introduce a multistage training strategy: pre-train the visual encoder with short contexts, and fine-tune the policy head using cached long-context embeddings. This strategy preserves the benefits of PTP while greatly reducing memory and computational overhead. Finally, we extend PTP into a self-verification mechanism at test time, enabling the policy to score and select candidates consistent with past actions during inference. Experiments across four real-world and six simulated tasks demonstrate that our proposed method improves the performance of long-context diffusion policies by 3x and accelerates policy training by more than 10x.",
+      "venue": "cs.RO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2505.09561",
+      "url": "https://arxiv.org/abs/2505.09561",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2502.17129",
+      "title": "Thus Spake Long-Context Large Language Model",
+      "authors": [
+        {
+          "name": "Xiaoran Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruixiao Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Mianqiu Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhigeng Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuerong Song",
+          "affiliation": ""
+        },
+        {
+          "name": "Qipeng Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Siyang He",
+          "affiliation": ""
+        },
+        {
+          "name": "Qiqi Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Linlin Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Qun Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ziwei He",
+          "affiliation": ""
+        },
+        {
+          "name": "Yaqian Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Xuanjing Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xipeng Qiu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Long context is an important topic in Natural Language Processing (NLP), running through the development of NLP architectures, and offers immense opportunities for Large Language Models (LLMs), giving LLMs the lifelong learning potential akin to humans. Unfortunately, the pursuit of a long context is accompanied by numerous obstacles. Nevertheless, long context remains a core competitive advantage for LLMs. In the past two years, the context length of LLMs has achieved a breakthrough extension to millions of tokens. Moreover, research on long-context LLMs has expanded beyond length extrapolation to a comprehensive focus on architecture, infrastructure, training, and evaluation technologies.\n  Inspired by the symphonic poem, Thus Spake Zarathustra, we draw an analogy between the journey of extending the context of LLM and the attempts of humans to transcend their mortality. In this survey, we will illustrate how LLM struggles between the tremendous need for a longer context and its equal need to accept the fact that it is ultimately finite. To achieve this, we give a global picture of the lifecycle of long-context LLMs from four perspectives: architecture, infrastructure, training, and evaluation, showcasing the full spectrum of long-context technologies. At the end of this survey, we will present 10 unanswered questions currently faced by long-context LLMs. We hope this survey can serve as a systematic introduction to research on long-context LLMs.\n  Video: https://www.bilibili.com/video/BV11h9AYoEYj.\n  Github: https://github.com/OpenMOSS/Thus-Spake-Long-Context-LLM.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2502.17129",
+      "url": "https://arxiv.org/abs/2502.17129",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2506.20187",
+      "title": "Breaking the Boundaries of Long-Context LLM Inference: Adaptive KV Management on a Single Commodity GPU",
+      "authors": [
+        {
+          "name": "He Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Li Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Mingjun Xiao",
+          "affiliation": ""
+        },
+        {
+          "name": "Chengzhong Xu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Advanced Large Language Models (LLMs) have achieved impressive performance across a wide range of complex and long-context natural language tasks. However, performing long-context LLM inference locally on a commodity GPU (a PC) with privacy concerns remains challenging due to the increasing memory demands of the key-value (KV) cache. Existing systems typically identify important tokens and selectively offload their KV data to GPU and CPU memory. The KV data needs to be offloaded to disk due to the limited memory on a commodity GPU, but the process is bottlenecked by token importance evaluation overhead and the disk's low bandwidth. In this paper, we present LeoAM, the first efficient importance-aware long-context LLM inference system for a single commodity GPU with adaptive hierarchical GPU-CPU-Disk KV management. Our system employs an adaptive KV management strategy that partitions KV data into variable-sized chunks based on the skewed distribution of attention weights across different layers to reduce computational and additional transmission overheads. Moreover, we propose a lightweight KV abstract method, which minimizes transmission latency by storing and extracting the KV abstract of each chunk on disk instead of the full KV data. LeoAM also leverages the dynamic compression and pipeline techniques to further accelerate inference. Experimental results demonstrate that LongInfer achieves an average inference latency speedup of 3.46x, while maintaining comparable LLM response quality. In scenarios with larger batch sizes, it achieves up to a 5.47x speedup.",
+      "venue": "cs.OS",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2506.20187",
+      "url": "https://arxiv.org/abs/2506.20187",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2503.10589",
+      "title": "Long Context Tuning for Video Generation",
+      "authors": [
+        {
+          "name": "Yuwei Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Ceyuan Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ziyan Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhibei Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhijie Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhenheng Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Dahua Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Lu Jiang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Recent advances in video generation can produce realistic, minute-long single-shot videos with scalable diffusion transformers. However, real-world narrative videos require multi-shot scenes with visual and dynamic consistency across shots. In this work, we introduce Long Context Tuning (LCT), a training paradigm that expands the context window of pre-trained single-shot video diffusion models to learn scene-level consistency directly from data. Our method expands full attention mechanisms from individual shots to encompass all shots within a scene, incorporating interleaved 3D position embedding and an asynchronous noise strategy, enabling both joint and auto-regressive shot generation without additional parameters. Models with bidirectional attention after LCT can further be fine-tuned with context-causal attention, facilitating auto-regressive generation with efficient KV-cache. Experiments demonstrate single-shot models after LCT can produce coherent multi-shot scenes and exhibit emerging capabilities, including compositional generation and interactive shot extension, paving the way for more practical visual content creation. See https://guoyww.github.io/projects/long-context-video/ for more details.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2503.10589",
+      "url": "https://arxiv.org/abs/2503.10589",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2302.05406",
+      "title": "Adversarial Transformer Language Models for Contextual Commonsense Inference",
+      "authors": [
+        {
+          "name": "Pedro Colon-Hernandez",
+          "affiliation": ""
+        },
+        {
+          "name": "Henry Lieberman",
+          "affiliation": ""
+        },
+        {
+          "name": "Yida Xin",
+          "affiliation": ""
+        },
+        {
+          "name": "Claire Yin",
+          "affiliation": ""
+        },
+        {
+          "name": "Cynthia Breazeal",
+          "affiliation": ""
+        },
+        {
+          "name": "Peter Chin",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Contextualized or discourse aware commonsense inference is the task of generating coherent commonsense assertions (i.e., facts) from a given story, and a particular sentence from that story. Some problems with the task are: lack of controllability for topics of the inferred facts; lack of commonsense knowledge during training; and, possibly, hallucinated or false facts. In this work, we utilize a transformer model for this task and develop techniques to address the aforementioned problems in the task. We control the inference by introducing a new technique we call \"hinting\". Hinting is a kind of language model prompting, that utilizes both hard prompts (specific words) and soft prompts (virtual learnable templates). This serves as a control signal to advise the language model \"what to talk about\". Next, we establish a methodology for performing joint inference with multiple commonsense knowledge bases. Joint inference of commonsense requires care, because it is imprecise and the level of generality is more flexible. You want to be sure that the results \"still make sense\" for the context. To this end, we align the textual version of assertions from three knowledge graphs (ConceptNet, ATOMIC2020, and GLUCOSE) with a story and a target sentence. This combination allows us to train a single model to perform joint inference with multiple knowledge graphs. We show experimental results for the three knowledge graphs on joint inference. Our final contribution is exploring a GAN architecture that generates the contextualized commonsense assertions and scores them as to their plausibility through a discriminator. The result is an integrated system for contextual commonsense inference in stories, that can controllably generate plausible commonsense assertions, and takes advantage of joint inference between multiple commonsense knowledge bases.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2302.05406",
+      "url": "https://arxiv.org/abs/2302.05406",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2502.06766",
+      "title": "Exploiting Sparsity for Long Context Inference: Million Token Contexts on Commodity GPUs",
+      "authors": [
+        {
+          "name": "Ryan Synk",
+          "affiliation": ""
+        },
+        {
+          "name": "Monte Hoover",
+          "affiliation": ""
+        },
+        {
+          "name": "John Kirchenbauer",
+          "affiliation": ""
+        },
+        {
+          "name": "Neel Jain",
+          "affiliation": ""
+        },
+        {
+          "name": "Alex Stein",
+          "affiliation": ""
+        },
+        {
+          "name": "Manli Shu",
+          "affiliation": ""
+        },
+        {
+          "name": "Josue Melendez Sanchez",
+          "affiliation": ""
+        },
+        {
+          "name": "Ramani Duraiswami",
+          "affiliation": ""
+        },
+        {
+          "name": "Tom Goldstein",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "There is growing demand for performing inference with hundreds of thousands of input tokens on trained transformer models. Inference at this extreme scale demands significant computational resources, hindering the application of transformers at long contexts on commodity (i.e not data center scale) hardware. To address the inference time costs associated with running self-attention based transformer language models on long contexts and enable their adoption on widely available hardware, we propose a tunable mechanism that reduces the cost of the forward pass by attending to only the most relevant tokens at every generation step using a top-k selection mechanism. We showcase the efficiency gains afforded by our method by performing inference on context windows up to 1M tokens using approximately 16GB of GPU RAM. Our experiments reveal that models are capable of handling the sparsity induced by the reduced number of keys and values. By attending to less than 2% of input tokens, we achieve over 95% of model performance on common benchmarks (RULER, AlpacaEval, and Open LLM Leaderboard).",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2502.06766",
+      "url": "https://arxiv.org/abs/2502.06766",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2507.03153",
+      "title": "HGCA: Hybrid GPU-CPU Attention for Long Context LLM Inference",
+      "authors": [
+        {
+          "name": "Weishu Deng",
+          "affiliation": ""
+        },
+        {
+          "name": "Yujie Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Peiran Du",
+          "affiliation": ""
+        },
+        {
+          "name": "Lingfeng Xiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhen Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Chen Zhong",
+          "affiliation": ""
+        },
+        {
+          "name": "Song Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Hui Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jia Rao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Scaling inference for large language models (LLMs) is increasingly constrained by limited GPU memory, especially due to growing key-value (KV) caches required for long-context generation. While existing approaches offload KV caches to CPU memory or apply sparse attention to reduce GPU load, they often underutilize CPU compute resources and compromise accuracy. We present HGCA, a hybrid CPU-GPU attention mechanism that enables scalable, high-throughput LLM inference with near-full attention quality. HGCA performs dense attention on recently generated KV entries retained in GPU memory and parallel sparse attention on selected, salient KV entries in CPU memory. The attention outputs are efficiently merged using log-sum-exp fusion, minimizing PCIe transfer overhead. HGCA also introduces a finegrained, per-head sparsification strategy optimized for CPU execution, preserving contextual relevance while reducing computation. Our implementation seamlessly integrates into existing LLM frameworks without requiring model retraining. Experiments across diverse models and workloads show that HGCA achieves superior scalability, supports longer sequences and larger batch sizes, and outperforms existing sparse attention baselines in both performance and accuracy -- all on commodity GPU hardware.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2507.03153",
+      "url": "https://arxiv.org/abs/2507.03153",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2507.09506",
+      "title": "Ref-Long: Benchmarking the Long-context Referencing Capability of Long-context Language Models",
+      "authors": [
+        {
+          "name": "Junjie Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Gefei Gu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yanan Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Dit-Yan Yeung",
+          "affiliation": ""
+        },
+        {
+          "name": "Arman Cohan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Long-context language models (LCLMs) have exhibited impressive capabilities in long-context understanding tasks. Among these, long-context referencing -- a crucial task that requires LCLMs to attribute items of interest to specific parts of long-context data -- remains underexplored. To bridge this gap, this paper proposes Referencing Evaluation for Long-context Language Models (Ref-Long), a novel benchmark designed to assess the long-context referencing capability of LCLMs. Specifically, Ref-Long requires LCLMs to identify the indexes of documents that reference a specific key, emphasizing contextual relationships between the key and the documents over simple retrieval. Based on the task design, we construct three subsets ranging from synthetic to realistic scenarios to form the Ref-Long benchmark. Experimental results of 13 LCLMs reveal significant shortcomings in long-context referencing, even among advanced models like GPT-4o. To further investigate these challenges, we conduct comprehensive analyses, including human evaluations, task format adjustments, fine-tuning experiments, and error analyses, leading to several key insights. Our data and code can be found in https://github. com/wujunjie1998/Ref-Long.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2507.09506",
+      "url": "https://arxiv.org/abs/2507.09506",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2410.05690",
+      "title": "Long-Context Linear System Identification",
+      "authors": [
+        {
+          "name": "O\u011fuz Kaan Y\u00fcksel",
+          "affiliation": ""
+        },
+        {
+          "name": "Mathieu Even",
+          "affiliation": ""
+        },
+        {
+          "name": "Nicolas Flammarion",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "This paper addresses the problem of long-context linear system identification, where the state $x_t$ of a dynamical system at time $t$ depends linearly on previous states $x_s$ over a fixed context window of length $p$. We establish a sample complexity bound that matches the i.i.d. parametric rate up to logarithmic factors for a broad class of systems, extending previous works that considered only first-order dependencies. Our findings reveal a learning-without-mixing phenomenon, indicating that learning long-context linear autoregressive models is not hindered by slow mixing properties potentially associated with extended context windows. Additionally, we extend these results to (i) shared low-rank representations, where rank-regularized estimators improve the dependence of the rates on the dimensionality, and (ii) misspecified context lengths in strictly stable systems, where shorter contexts offer statistical advantages.",
+      "venue": "stat.ML",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2410.05690",
+      "url": "https://arxiv.org/abs/2410.05690",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2601.15305",
+      "title": "Gated Sparse Attention: Combining Computational Efficiency with Training Stability for Long-Context Language Models",
+      "authors": [
+        {
+          "name": "Alfred Shen",
+          "affiliation": ""
+        },
+        {
+          "name": "Aaron Shen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "The computational burden of attention in long-context language models has motivated two largely independent lines of work: sparse attention mechanisms that reduce complexity by attending to selected tokens, and gated attention variants that improve training sta-bility while mitigating the attention sink phenomenon. We observe that these approaches address complementary weaknesses and propose Gated Sparse Attention (GSA), an architecture that realizes the benefits of both. GSA incorporates a gated lightning indexer with sigmoid activations that produce bounded, interpretable selection scores, an adaptive sparsity controller that modulates the number of attended tokens based on local uncertainty, and dual gating at the value and output stages. We establish theoretical foundations for the approach, including complexity analysis, expressiveness results, and convergence guarantees. In experiments with 1.7B parameter models trained on 400B tokens, GSA matches the efficiency of sparse-only baselines (12-16x speedup at 128K context) while achieving the quality gains associated with gated attention: perplexity improves from 6.03 to 5.70, RULER scores at 128K context nearly double, and attention to the first token, a proxy for attention sinks, drops from 47% to under 4%. Training stability improves markedly, with loss spikes reduced by 98%.",
+      "venue": "cs.AI",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2601.15305",
+      "url": "https://arxiv.org/abs/2601.15305",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2601.19911",
+      "title": "GPU-Augmented OLAP Execution Engine: GPU Offloading",
+      "authors": [
+        {
+          "name": "Ilsun Chang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Modern OLAP systems have mitigated I/O bottlenecks via storage-compute separation and columnar layouts, but CPU costs in the execution layer (especially Top-K selection and join probe) are emerging as new bottlenecks at scale. This paper proposes a hybrid architecture that augments existing vectorized execution by selectively offloading only high-impact primitives to the GPU. To reduce data movement, we use key-only transfer (keys and pointers) with late materialization. We further introduce a Risky Gate (risk-aware gating) that triggers offloading only in gain/risk intervals based on input size, transfer, kernel and post-processing costs, and candidate-set complexity (K, M). Using PostgreSQL microbenchmarks and GPU proxy measurements, we observe improved tail latency (P95/P99) under gated offloading compared to always-on GPU offloading. This work extends the risk-aware gating principle used for optimizer-stage GPU-assisted measurement (arXiv:2512.19750) to execution-layer OLAP primitives.",
+      "venue": "cs.AR",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2601.19911",
+      "url": "https://arxiv.org/abs/2601.19911",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2501.12959",
+      "title": "Efficient Prompt Compression with Evaluator Heads for Long-Context Transformer Inference",
+      "authors": [
+        {
+          "name": "Weizhi Fei",
+          "affiliation": ""
+        },
+        {
+          "name": "Xueyan Niu",
+          "affiliation": ""
+        },
+        {
+          "name": "Guoqing Xie",
+          "affiliation": ""
+        },
+        {
+          "name": "Yingqing Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Bo Bai",
+          "affiliation": ""
+        },
+        {
+          "name": "Wei Han",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Although applications involving long-context inputs are crucial for the effective utilization of large language models (LLMs), they also result in increased computational costs and reduced performance. To address this challenge, we propose an efficient, training-free prompt compression method that retains key information within compressed prompts. We identify specific attention heads in transformer-based LLMs, which we designate as evaluator heads, that are capable of selecting tokens in long inputs that are most significant for inference. Building on this discovery, we develop EHPC, an Evaluator Head-based Prompt Compression method, which enables LLMs to rapidly \"skim through\" input prompts by leveraging only the first few layers with evaluator heads during the pre-filling stage, subsequently passing only the important tokens to the model for inference. EHPC achieves state-of-the-art results across two mainstream benchmarks: prompt compression and long-context inference acceleration. Consequently, it effectively reduces the complexity and costs associated with commercial API calls. We further demonstrate that EHPC attains competitive results compared to key-value cache-based acceleration methods, thereby highlighting its potential to enhance the efficiency of LLMs for long-context tasks.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2501.12959",
+      "url": "https://arxiv.org/abs/2501.12959",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2207.12116",
+      "title": "A Variant of Concurrent Constraint Programming on GPU",
+      "authors": [
+        {
+          "name": "Pierre Talbot",
+          "affiliation": ""
+        },
+        {
+          "name": "Fr\u00e9d\u00e9ric Pinel",
+          "affiliation": ""
+        },
+        {
+          "name": "Pascal Bouvry",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "The number of cores on graphical computing units (GPUs) is reaching thousands nowadays, whereas the clock speed of processors stagnates. Unfortunately, constraint programming solvers do not take advantage yet of GPU parallelism. One reason is that constraint solvers were primarily designed within the mental frame of sequential computation. To solve this issue, we take a step back and contribute to a simple, intrinsically parallel, lock-free and formally correct programming language based on concurrent constraint programming. We then re-examine parallel constraint solving on GPUs within this formalism, and develop Turbo, a simple constraint solver entirely programmed on GPUs. Turbo validates the correctness of our approach and compares positively to a parallel CPU-based solver.",
+      "venue": "cs.DC",
+      "citation_count": 0,
+      "doi": "10.1609/aaai.v36i4.20298",
+      "arxiv_id": "2207.12116",
+      "url": "https://arxiv.org/abs/2207.12116",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2412.06198",
+      "title": "SparseAccelerate: Efficient Long-Context Inference for Mid-Range GPUs",
+      "authors": [
+        {
+          "name": "James Vo",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "As Large Language Models (LLMs) scale to longer context windows, the computational cost of attention mechanisms, which traditionally grows quadratically with input length, presents a critical challenge for real-time and memory-constrained deployments. Existing sparse attention techniques have sought to reduce this complexity, but they often incur significant overhead or compromise accuracy, making them less practical for large contexts on mid-range hardware. In this paper, we introduce SparseAccelerate, a dynamic sparse attention method that adapts its sparsity patterns based on input characteristics, effectively flattening the attention complexity curve. Our approach is effective for input lengths starting at 16K tokens and scales efficiently up to 128K tokens on dual NVIDIA A5000 GPUs (24GB each). Experimental results show that SparseAccelerate achieves up to a 1.04x reduction in Time-To-First-Token (TTFT) latency at 32K tokens, while also providing substantial memory savings. These improvements yield practical gains for memory-intensive applications and long-context tasks that were previously infeasible with standard attention. Beyond latency reductions, SparseAccelerate fundamentally shifts the scaling trend, demonstrating the smallest TTFT growth gradient relative to context length among competing methods. Ongoing evaluations on diverse benchmarks confirm its scalability, positioning SparseAccelerate as a critical advancement toward efficient, real-time, and large-context LLM inference on accessible hardware.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2412.06198",
+      "url": "https://arxiv.org/abs/2412.06198",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2502.05177",
+      "title": "Long-VITA: Scaling Large Multi-modal Models to 1 Million Tokens with Leading Short-Context Accuracy",
+      "authors": [
+        {
+          "name": "Yunhang Shen",
+          "affiliation": ""
+        },
+        {
+          "name": "Chaoyou Fu",
+          "affiliation": ""
+        },
+        {
+          "name": "Shaoqi Dong",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiong Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi-Fan Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Peixian Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Mengdan Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Haoyu Cao",
+          "affiliation": ""
+        },
+        {
+          "name": "Ke Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Shaohui Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiawu Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Yan Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yiyi Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Ran He",
+          "affiliation": ""
+        },
+        {
+          "name": "Caifeng Shan",
+          "affiliation": ""
+        },
+        {
+          "name": "Rongrong Ji",
+          "affiliation": ""
+        },
+        {
+          "name": "Xing Sun",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "We introduce Long-VITA, a simple yet effective large multi-modal model for long-context visual-language understanding tasks. It is adept at concurrently processing and analyzing modalities of image, video, and text over 4K frames or 1M tokens while delivering advanced performances on short-context multi-modal tasks. We propose an effective multi-modal training schema that starts with large language models and proceeds through vision-language alignment, general knowledge learning, and two sequential stages of long-sequence fine-tuning. We further implement context-parallelism distributed inference and logits-masked language modeling head to scale Long-VITA to infinitely long inputs of images and texts during model inference. Regarding training data, Long-VITA is built on a mix of 17M samples from public datasets only and demonstrates state-of-the-art performance on various multi-modal benchmarks, compared against recent cutting-edge models with internal data. Long-VITA is fully open-source and reproducible.. By leveraging our inference designs, Long-VITA models achieve a remarkable 2x prefill speedup and 4x context length extension in a single node with 8 GPUs. We hope Long-VITA can serve as a competitive baseline and offer valuable insights for the open-source community in advancing long-context multi-modal understanding.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2502.05177",
+      "url": "https://arxiv.org/abs/2502.05177",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2502.13127",
+      "title": "Facilitating Long Context Understanding via Supervised Chain-of-Thought Reasoning",
+      "authors": [
+        {
+          "name": "Jingyang Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Andy Wong",
+          "affiliation": ""
+        },
+        {
+          "name": "Tian Xia",
+          "affiliation": ""
+        },
+        {
+          "name": "Shenghua He",
+          "affiliation": ""
+        },
+        {
+          "name": "Hui Wei",
+          "affiliation": ""
+        },
+        {
+          "name": "Mei Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiebo Luo",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Recent advances in Large Language Models (LLMs) have enabled them to process increasingly longer sequences, ranging from 2K to 2M tokens and even beyond. However, simply extending the input sequence length does not necessarily lead to effective long-context understanding. In this study, we integrate Chain-of-Thought (CoT) reasoning into LLMs in a supervised manner to facilitate effective long-context understanding. To achieve this, we introduce LongFinanceQA, a synthetic dataset in the financial domain designed to improve long-context reasoning. Unlike existing long-context synthetic data, LongFinanceQA includes intermediate CoT reasoning before the final conclusion, which encourages LLMs to perform explicit reasoning, improving accuracy and interpretability in long-context understanding. To generate synthetic CoT reasoning, we propose Property-based Agentic Inference (PAI), an agentic framework that simulates human-like reasoning steps, including property extraction, retrieval, and summarization. We evaluate PAI's reasoning capabilities by assessing GPT-4o-mini w/ PAI on the Loong benchmark, outperforming standard GPT-4o-mini by 20.0%. Furthermore, we fine-tune LLaMA-3.1-8B-Instruct on LongFinanceQA, achieving a 28.0% gain on Loong's financial subset.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2502.13127",
+      "url": "https://arxiv.org/abs/2502.13127",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2104.06667",
+      "title": "Double Robust Semi-Supervised Inference for the Mean: Selection Bias under MAR Labeling with Decaying Overlap",
+      "authors": [
+        {
+          "name": "Yuqian Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Abhishek Chakrabortty",
+          "affiliation": ""
+        },
+        {
+          "name": "Jelena Bradic",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Semi-supervised (SS) inference has received much attention in recent years. Apart from a moderate-sized labeled data, L, the SS setting is characterized by an additional, much larger sized, unlabeled data, U. The setting of |U| >> |L|, makes SS inference unique and different from the standard missing data problems, owing to natural violation of the so-called \"positivity\" or \"overlap\" assumption. However, most of the SS literature implicitly assumes L and U to be equally distributed, i.e., no selection bias in the labeling. Inferential challenges in missing at random (MAR) type labeling allowing for selection bias, are inevitably exacerbated by the decaying nature of the propensity score (PS). We address this gap for a prototype problem, the estimation of the response's mean. We propose a double robust SS (DRSS) mean estimator and give a complete characterization of its asymptotic properties. The proposed estimator is consistent as long as either the outcome or the PS model is correctly specified. When both models are correctly specified, we provide inference results with a non-standard consistency rate that depends on the smaller size |L|. The results are also extended to causal inference with imbalanced treatment groups. Further, we provide several novel choices of models and estimators of the decaying PS, including a novel offset logistic model and a stratified labeling model. We present their properties under both high and low dimensional settings. These may be of independent interest. Lastly, we present extensive simulations and also a real data application.",
+      "venue": "stat.ME",
+      "citation_count": 0,
+      "doi": "10.1093/imaiai/iaad021",
+      "arxiv_id": "2104.06667",
+      "url": "https://arxiv.org/abs/2104.06667",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2201.00978",
+      "title": "PyramidTNT: Improved Transformer-in-Transformer Baselines with Pyramid Architecture",
+      "authors": [
+        {
+          "name": "Kai Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianyuan Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Yehui Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yunhe Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Transformer networks have achieved great progress for computer vision tasks. Transformer-in-Transformer (TNT) architecture utilizes inner transformer and outer transformer to extract both local and global representations. In this work, we present new TNT baselines by introducing two advanced designs: 1) pyramid architecture, and 2) convolutional stem. The new \"PyramidTNT\" significantly improves the original TNT by establishing hierarchical representations. PyramidTNT achieves better performances than the previous state-of-the-art vision transformers such as Swin Transformer. We hope this new baseline will be helpful to the further research and application of vision transformer. Code will be available at https://github.com/huawei-noah/CV-Backbones/tree/master/tnt_pytorch.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2201.00978",
+      "url": "https://arxiv.org/abs/2201.00978",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2406.16091",
+      "title": "Efficient GPU Implementation of Particle Interactions with Cutoff Radius and Few Particles per Cell",
+      "authors": [
+        {
+          "name": "David Algis",
+          "affiliation": ""
+        },
+        {
+          "name": "Berenger Bramas",
+          "affiliation": ""
+        },
+        {
+          "name": "Emmanuelle Darles",
+          "affiliation": ""
+        },
+        {
+          "name": "Lilian Aveneau",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "This paper presents novel approaches to parallelizing particle interactions on a GPU when there are few particles per cell and the interactions are limited by a cutoff distance. The paper surveys classical algorithms and then introduces two alternatives that aim to utilize shared memory. The first approach copies the particles of a sub-box, while the second approach loads particles in a pencil along the X-axis. The different implementations are compared on three GPU models using Cuda and Hip. The results show that the X-pencil approach can provide a significant speedup but only in very specific cases.",
+      "venue": "cs.DC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2406.16091",
+      "url": "https://arxiv.org/abs/2406.16091",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2506.06095",
+      "title": "Accelerating Sparse Transformer Inference on GPU",
+      "authors": [
+        {
+          "name": "Wenhao Dai",
+          "affiliation": ""
+        },
+        {
+          "name": "Haodong Deng",
+          "affiliation": ""
+        },
+        {
+          "name": "Mengfei Rong",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinyu Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Hongyu Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Fangxin Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hailong Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Qianwen Cao",
+          "affiliation": ""
+        },
+        {
+          "name": "Qingxiao Sun",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Large language models (LLMs) are popular around the world due to their powerful understanding capabilities. As the core component of LLMs, accelerating Transformer through parallelization has gradually become a hot research topic. Mask layers introduce sparsity into Transformer to reduce calculations. However, previous works rarely focus on the performance optimization of sparse Transformer. In addition, current static operator fusion schemes fail to adapt to diverse application scenarios. To address the above problems, we propose STOF, a framework that incorporates optimizations for Sparse Transformer that enables flexible masking and Operator Fusion on GPU. For multi-head attention (MHA) structure, STOF maps the computation to row-wise or blockwise kernels with unique storage formats according to analytical modeling. For downstream operators, STOF maps the fusion scheme to compilation templates and determines the optimal running configuration through two-stage searching. The experimental results show that compared to the stateof-the-art work, STOF achieves maximum speedups of 1.6x in MHA computation and 1.4x in end-to-end inference.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2506.06095",
+      "url": "https://arxiv.org/abs/2506.06095",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2405.08944",
+      "title": "Challenges in Deploying Long-Context Transformers: A Theoretical Peak Performance Analysis",
+      "authors": [
+        {
+          "name": "Yao Fu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Transformer-based long context generative models power emerging AI applications like hour-long video understanding and project-level coding agent. Deploying long context transformers (e.g., 100K to 10M tokens) is prohibitively expensive compared to short context (e.g., 4K tokens) model variants. Reducing the cost of long-context transformers is becoming a pressing research and engineering challenge starting from the year of 2024. This work describes a concurrent programming framework for quantitatively analyzing the efficiency challenges in serving multiple long-context requests under limited size of GPU high-bandwidth memory (HBM) regime. We give a detailed analysis of how all additional computational costs, compared to 4K context, trace back to \\textit{one single source: the large size of the KV cache}. We use a 34B GPT-3.5 level model of 50K context on A100 NVLink as a running example, and describe how its large KV cache causes four types of deployment challenges: (1) prefilling long inputs takes much longer compute time and GPU memory than short inputs; (2) after prefilling, the large KV cache residing on the GPU HBM substantially restricts the number of concurrent users being served; (3) during decoding, repeatedly reading the KV cache from HBM to SM largely increases latency; (4) when KV cache memory overflows, swapping it from HBM to DDR causes significant context switching latency. We use this framework to analyze existing works and identify possibilities of combining them to build end-to-end systems. Overall, this work offers a foundational framework for analyzing long context transformer deployment and identifies directions towards reducing the inference cost of 1M context to be as cheap as 4K.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2405.08944",
+      "url": "https://arxiv.org/abs/2405.08944",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2506.05229",
+      "title": "Diagonal Batching Unlocks Parallelism in Recurrent Memory Transformers for Long Contexts",
+      "authors": [
+        {
+          "name": "Danil Sivtsov",
+          "affiliation": ""
+        },
+        {
+          "name": "Ivan Rodkin",
+          "affiliation": ""
+        },
+        {
+          "name": "Gleb Kuzmin",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuri Kuratov",
+          "affiliation": ""
+        },
+        {
+          "name": "Ivan Oseledets",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Transformer models struggle with long-context inference due to their quadratic time and linear memory complexity. Recurrent Memory Transformers (RMTs) offer a solution by reducing the asymptotic cost to linear time and constant memory usage. However, their memory update mechanism leads to sequential execution, causing a performance bottleneck.\n  We introduce Diagonal Batching, a scheduling scheme that unlocks parallelism across segments in RMTs while preserving exact recurrence. This approach eliminates the sequential constraint, enabling efficient GPU inference even for single long-context inputs without complex batching and pipelining techniques. Because the technique is purely a run-time computation reordering, existing RMT models adopt it with no retraining.\n  Applied to a LLaMA-1B ARMT model, Diagonal Batching yields a 3.3x speedup over standard full-attention LLaMA-1B and a 1.8x speedup over the sequential RMT implementation on 131,072-token sequences. By removing sequential bottleneck, Diagonal Batching reduces inference cost and latency, thereby strengthening RMTs as a practical solution for real-world, long-context applications.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2506.05229",
+      "url": "https://arxiv.org/abs/2506.05229",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2503.10571",
+      "title": "Radar: Fast Long-Context Decoding for Any Transformer",
+      "authors": [
+        {
+          "name": "Yongchang Hao",
+          "affiliation": ""
+        },
+        {
+          "name": "Mengyao Zhai",
+          "affiliation": ""
+        },
+        {
+          "name": "Hossein Hajimirsadeghi",
+          "affiliation": ""
+        },
+        {
+          "name": "Sepidehsadat Hosseini",
+          "affiliation": ""
+        },
+        {
+          "name": "Frederick Tung",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Transformer models have demonstrated exceptional performance across a wide range of applications. Though forming the foundation of Transformer models, the dot-product attention does not scale well to long-context data since its time requirement grows quadratically with context length. In this work, we propose Radar, a training-free approach that accelerates inference by dynamically searching for the most important context tokens. For any pre-trained Transformer, Radar can reduce the decoding time complexity without training or heuristically evicting tokens. Moreover, we provide theoretical justification for our approach, demonstrating that Radar can reliably identify the most important tokens with high probability. We conduct extensive comparisons with the previous methods on a wide range of tasks. The results demonstrate that Radar achieves the state-of-the-art performance across different architectures with reduced time complexity, offering a practical solution for efficient long-context processing of Transformers.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2503.10571",
+      "url": "https://arxiv.org/abs/2503.10571",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2302.14017",
+      "title": "Full Stack Optimization of Transformer Inference: a Survey",
+      "authors": [
+        {
+          "name": "Sehoon Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Coleman Hooper",
+          "affiliation": ""
+        },
+        {
+          "name": "Thanakul Wattanawong",
+          "affiliation": ""
+        },
+        {
+          "name": "Minwoo Kang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruohan Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Hasan Genc",
+          "affiliation": ""
+        },
+        {
+          "name": "Grace Dinh",
+          "affiliation": ""
+        },
+        {
+          "name": "Qijing Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Kurt Keutzer",
+          "affiliation": ""
+        },
+        {
+          "name": "Michael W. Mahoney",
+          "affiliation": ""
+        },
+        {
+          "name": "Yakun Sophia Shao",
+          "affiliation": ""
+        },
+        {
+          "name": "Amir Gholami",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Recent advances in state-of-the-art DNN architecture design have been moving toward Transformer models. These models achieve superior accuracy across a wide range of applications. This trend has been consistent over the past several years since Transformer models were originally introduced. However, the amount of compute and bandwidth required for inference of recent Transformer models is growing at a significant rate, and this has made their deployment in latency-sensitive applications challenging. As such, there has been an increased focus on making Transformer models more efficient, with methods that range from changing the architecture design, all the way to developing dedicated domain-specific accelerators. In this work, we survey different approaches for efficient Transformer inference, including: (i) analysis and profiling of the bottlenecks in existing Transformer architectures and their similarities and differences with previous convolutional models; (ii) implications of Transformer architecture on hardware, including the impact of non-linear operations such as Layer Normalization, Softmax, and GELU, as well as linear operations, on hardware design; (iii) approaches for optimizing a fixed Transformer architecture; (iv) challenges in finding the right mapping and scheduling of operations for Transformer models; and (v) approaches for optimizing Transformer models by adapting the architecture using neural architecture search. Finally, we perform a case study by applying the surveyed optimizations on Gemmini, the open-source, full-stack DNN accelerator generator, and we show how each of these approaches can yield improvements, compared to previous benchmark results on Gemmini. Among other things, we find that a full-stack co-design approach with the aforementioned methods can result in up to 88.7x speedup with a minimal performance degradation for Transformer inference.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2302.14017",
+      "url": "https://arxiv.org/abs/2302.14017",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2407.11536",
+      "title": "Fine-Tuning Medical Language Models for Enhanced Long-Contextual Understanding and Domain Expertise",
+      "authors": [
+        {
+          "name": "Qimin Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Rongsheng Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiexin Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Runqi Su",
+          "affiliation": ""
+        },
+        {
+          "name": "Tao Tan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Large Language Models (LLMs) have been widely applied in various professional fields. By fine-tuning the models using domain specific question and answer datasets, the professional domain knowledge and Q\\&A abilities of these models have significantly improved, for example, medical professional LLMs that use fine-tuning of doctor-patient Q\\&A data exhibit extraordinary disease diagnostic abilities. However, we observed that despite improvements in specific domain knowledge, the performance of medical LLM in long-context understanding has significantly declined, especially compared to general language models with similar parameters. The purpose of this study is to investigate the phenomenon of reduced performance in understanding long-context in medical LLM. We designed a series of experiments to conduct open-book professional knowledge exams on all models to evaluate their ability to read long-context. By adjusting the proportion and quantity of general data and medical data in the process of fine-tuning, we can determine the best data composition to optimize the professional model and achieve a balance between long-context performance and specific domain knowledge.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2407.11536",
+      "url": "https://arxiv.org/abs/2407.11536",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2410.01805",
+      "title": "Locret: Enhancing Eviction in Long-Context LLM Inference with Trained Retaining Heads on Consumer-Grade Devices",
+      "authors": [
+        {
+          "name": "Yuxiang Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Binhang Yuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Xu Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Chaojun Xiao",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiyuan Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Scaling the input context length of a large language model (LLM) incurs a significant increase in computation cost and memory footprint to maintain the attention key-value (KV) cache. Existing KV cache compression methods suffer from inefficient compression strategies and limited memory reduction effects, making it difficult for LLMs to conduct long-context inference on consumer-grade devices, especially when inferring long-context stream input. Such obstacles prevent consumer-grade devices from supporting more complex applications, creating challenges for the democratization of LLMs. To overcome this, we propose Locret, the first framework to create an eviction policy compatible with chunked prefill. By evaluating the causal importance of KV cache units by learnable retaining heads, Locret enables precise eviction of cache units, facilitating efficient long-context inference. In our extensive empirical studies, Locret outperforms the recent popular and competitive approaches in terms of memory efficiency and generation quality -- Locret achieves up to 20x of KV cache compression ratio within less than 10% performance loss. Furthermore, Locret achieves 128K+ long-context inference on a single NVIDIA 4090 GPU without compromising generation quality and only costs <1 GPU hour of additional training.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2410.01805",
+      "url": "https://arxiv.org/abs/2410.01805",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2402.10171",
+      "title": "Data Engineering for Scaling Language Models to 128K Context",
+      "authors": [
+        {
+          "name": "Yao Fu",
+          "affiliation": ""
+        },
+        {
+          "name": "Rameswar Panda",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinyao Niu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiang Yue",
+          "affiliation": ""
+        },
+        {
+          "name": "Hannaneh Hajishirzi",
+          "affiliation": ""
+        },
+        {
+          "name": "Yoon Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Peng",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "We study the continual pretraining recipe for scaling language models' context lengths to 128K, with a focus on data engineering. We hypothesize that long context modeling, in particular \\textit{the ability to utilize information at arbitrary input locations}, is a capability that is mostly already acquired through large-scale pretraining, and that this capability can be readily extended to contexts substantially longer than seen during training~(e.g., 4K to 128K) through lightweight continual pretraining on appropriate data mixture. We investigate the \\textit{quantity} and \\textit{quality} of the data for continual pretraining: (1) for quantity, we show that 500 million to 5 billion tokens are enough to enable the model to retrieve information anywhere within the 128K context; (2) for quality, our results equally emphasize \\textit{domain balance} and \\textit{length upsampling}. Concretely, we find that naively upsampling longer data on certain domains like books, a common practice of existing work, gives suboptimal performance, and that a balanced domain mixture is important. We demonstrate that continual pretraining of the full model on 1B-5B tokens of such data is an effective and affordable strategy for scaling the context length of language models to 128K. Our recipe outperforms strong open-source long-context models and closes the gap to frontier models like GPT-4 128K.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2402.10171",
+      "url": "https://arxiv.org/abs/2402.10171",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2501.02336",
+      "title": "AdaSkip: Adaptive Sublayer Skipping for Accelerating Long-Context LLM Inference",
+      "authors": [
+        {
+          "name": "Zhuomin He",
+          "affiliation": ""
+        },
+        {
+          "name": "Yizhen Yao",
+          "affiliation": ""
+        },
+        {
+          "name": "Pengfei Zuo",
+          "affiliation": ""
+        },
+        {
+          "name": "Bin Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Qinya Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhenzhe Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Fan Wu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Long-context large language models (LLMs) inference is increasingly critical, motivating a number of studies devoted to alleviating the substantial storage and computational costs in such scenarios. Layer-wise skipping methods are promising optimizations but rarely explored in long-context inference. We observe that existing layer-wise skipping strategies have several limitations when applied in long-context inference, including the inability to adapt to model and context variability, disregard for sublayer significance, and inapplicability for the prefilling phase. This paper proposes \\sysname, an adaptive sublayer skipping method specifically designed for long-context inference. \\sysname adaptively identifies less important layers by leveraging on-the-fly similarity information, enables sublayer-wise skipping, and accelerates both the prefilling and decoding phases. The effectiveness of \\sysname is demonstrated through extensive experiments on various long-context benchmarks and models, showcasing its superior inference performance over existing baselines.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2501.02336",
+      "url": "https://arxiv.org/abs/2501.02336",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2105.08026",
+      "title": "GPU-Accelerated Hierarchical Bayesian Inference with Application to Modeling Cosmic Populations: CUDAHM",
+      "authors": [
+        {
+          "name": "J\u00e1nos M. Szalai-Gindl",
+          "affiliation": ""
+        },
+        {
+          "name": "Thomas J. Loredo",
+          "affiliation": ""
+        },
+        {
+          "name": "Brandon C. Kelly",
+          "affiliation": ""
+        },
+        {
+          "name": "Istv\u00e1n Csabai",
+          "affiliation": ""
+        },
+        {
+          "name": "Tam\u00e1s Budav\u00e1ri",
+          "affiliation": ""
+        },
+        {
+          "name": "L\u00e1szl\u00f3 Dobos",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "We describe a computational framework for hierarchical Bayesian inference with simple (typically single-plate) parametric graphical models that uses graphics processing units (GPUs) to accelerate computations, enabling deployment on very large datasets. Its C++ implementation, CUDAHM (CUDA for Hierarchical Models) exploits conditional independence between instances of a plate, facilitating massively parallel exploration of the replication parameter space using the single instruction, multiple data architecture of GPUs. It provides support for constructing Metropolis-within-Gibbs samplers that iterate between GPU-accelerated robust adaptive Metropolis sampling of plate-level parameters conditional on upper-level parameters, and Metropolis-Hastings sampling of upper-level parameters on the host processor conditional on the GPU results. CUDAHM is motivated by demographic problems in astronomy, where density estimation and linear and nonlinear regression problems must be addressed for populations of thousands to millions of objects whose features are measured with possibly complex uncertainties. We describe a thinned latent point process framework for modeling such demographic data. We demonstrate accurate GPU-accelerated parametric conditional density deconvolution for simulated populations of up to 300,000 objects in ~1 hour using a single NVIDIA Tesla K40c GPU. Supplementary material provides details about the CUDAHM API and the demonstration problem.",
+      "venue": "astro-ph.IM",
+      "citation_count": 0,
+      "doi": "10.1016/j.ascom.2018.10.004",
+      "arxiv_id": "2105.08026",
+      "url": "https://arxiv.org/abs/2105.08026",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2410.01485",
+      "title": "A Little Goes a Long Way: Efficient Long Context Training and Inference with Partial Contexts",
+      "authors": [
+        {
+          "name": "Suyu Ge",
+          "affiliation": ""
+        },
+        {
+          "name": "Xihui Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Yunan Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiawei Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Peng",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Training and serving long-context large language models (LLMs) incurs substantial overhead. To address this, two critical steps are often required: a pretrained LLM typically undergoes a separate stage for context length extension by training on long-context data, followed by architectural modifications to reduce the overhead of KV cache during serving. This paper argues that integrating length extension with a GPU-friendly KV cache reduction architecture not only reduces training overhead during length extension, but also achieves better long-context performance. This leads to our proposed LongGen, which finetunes a pretrained LLM into an efficient architecture during length extension. LongGen builds on three key insights: (1) Sparse attention patterns, such as window attention (attending to recent tokens), attention sink (initial ones), and blockwise sparse attention (strided token blocks) are well-suited for building efficient long-context models, primarily due to their GPU-friendly memory access patterns, enabling efficiency gains not just theoretically but in practice as well. (2) It is essential for the model to have direct access to all tokens. A hybrid architecture with 1/3 full attention layers and 2/3 efficient ones achieves a balanced trade-off between efficiency and long-context performance. (3) Lightweight training on 5B long-context data is sufficient to extend the hybrid model's context length from 4K to 128K.\n  We evaluate LongGen on both Llama-2 7B and Llama-2 70B, demonstrating its effectiveness across different scales. During training with 128K-long contexts, LongGen achieves 1.55x training speedup and reduces wall-clock time by 36%, compared to a full-attention baseline. During inference, LongGen reduces KV cache memory by 62%, achieving 1.67x prefilling speedup and 1.41x decoding speedup.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2410.01485",
+      "url": "https://arxiv.org/abs/2410.01485",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2502.20330",
+      "title": "RAPID: Long-Context Inference with Retrieval-Augmented Speculative Decoding",
+      "authors": [
+        {
+          "name": "Guanzheng Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Qilong Feng",
+          "affiliation": ""
+        },
+        {
+          "name": "Jinjie Ni",
+          "affiliation": ""
+        },
+        {
+          "name": "Xin Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Michael Qizhe Shieh",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The emergence of long-context large language models (LLMs) offers a promising alternative to traditional retrieval-augmented generation (RAG) for processing extensive documents. However, the computational overhead of long-context inference presents significant efficiency challenges. While Speculative Decoding (SD) traditionally accelerates inference using smaller draft models, its effectiveness diminishes substantially in long-context scenarios due to memory-bound KV cache operations. We introduce Retrieval-Augmented Speculative Decoding (RAPID), which leverages RAG for both accelerating and enhancing generation quality in long-context inference. RAPID introduces the RAG drafter-a draft LLM operating on shortened retrieval contexts-to speculate on the generation of long-context target LLMs. Our approach enables a new paradigm where same-scale or even larger LLMs can serve as RAG drafters while maintaining computational efficiency. To fully leverage the potentially superior capabilities from stronger RAG drafters, we develop an inference-time knowledge transfer that enriches the target distribution by RAG. Extensive experiments on the LLaMA-3.1 and Qwen2.5 backbones demonstrate that RAPID effectively integrates the strengths of both RAG and long-context LLMs, achieving significant performance improvements (e.g., from 39.33 to 42.83 on InfiniteBench for LLaMA-3.1-8B) with more than 2x speedups for long-context inference. Our analyses also reveal the robustness of RAPID across various context lengths and retrieval quality.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2502.20330",
+      "url": "https://arxiv.org/abs/2502.20330",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2411.14392",
+      "title": "Convolutional Vision Transformer for Cosmology Parameter Inference",
+      "authors": [
+        {
+          "name": "Yash Gondhalekar",
+          "affiliation": ""
+        },
+        {
+          "name": "Kana Moriwaki",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Parameter inference is a crucial task in modern cosmology that requires accurate and fast computational methods to handle the high precision and volume of observational datasets. In this study, we explore a hybrid vision transformer, the Convolution vision Transformer (CvT), which combines the benefits of vision transformers (ViTs) and convolutional neural networks (CNNs). We use this approach to infer the $\u03a9_m$ and $\u03c3_8$ cosmological parameters from simulated dark matter and halo fields. Our experiments indicate that the constraints on $\u03a9_m$ and $\u03c3_8$ obtained using CvT are better than ViT and CNN, using either dark matter or halo fields. For CvT, pretraining on dark matter fields proves advantageous for improving constraints using halo fields compared to training a model from the beginning. However, ViT and CNN do not show these benefits. The CvT is more efficient than ViT since, despite having more parameters, it requires a training time similar to that of ViT and has similar inference times. The code is available at \\url{https://github.com/Yash-10/cvt-cosmo-inference/}.",
+      "venue": "astro-ph.IM",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2411.14392",
+      "url": "https://arxiv.org/abs/2411.14392",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

@@ -1,0 +1,1183 @@
+{
+  "query": "Training free layout comparison",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1773983613.893061,
+  "papers": [
+    {
+      "paper_id": "arxiv-2304.03373",
+      "title": "Training-Free Layout Control with Cross-Attention Guidance",
+      "authors": [
+        {
+          "name": "Minghao Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Iro Laina",
+          "affiliation": ""
+        },
+        {
+          "name": "Andrea Vedaldi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Recent diffusion-based generators can produce high-quality images from textual prompts. However, they often disregard textual instructions that specify the spatial layout of the composition. We propose a simple approach that achieves robust layout control without the need for training or fine-tuning of the image generator. Our technique manipulates the cross-attention layers that the model uses to interface textual and visual information and steers the generation in the desired direction given, e.g., a user-specified layout. To determine how to best guide attention, we study the role of attention maps and explore two alternative strategies, forward and backward guidance. We thoroughly evaluate our approach on three benchmarks and provide several qualitative examples and a comparative analysis of the two strategies that demonstrate the superiority of backward guidance compared to forward guidance, as well as prior work. We further demonstrate the versatility of layout guidance by extending it to applications such as editing the layout and context of real images.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2304.03373",
+      "url": "https://arxiv.org/abs/2304.03373",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2409.16689",
+      "title": "Layout-Corrector: Alleviating Layout Sticking Phenomenon in Discrete Diffusion Model",
+      "authors": [
+        {
+          "name": "Shoma Iwai",
+          "affiliation": ""
+        },
+        {
+          "name": "Atsuki Osanai",
+          "affiliation": ""
+        },
+        {
+          "name": "Shunsuke Kitada",
+          "affiliation": ""
+        },
+        {
+          "name": "Shinichiro Omachi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Layout generation is a task to synthesize a harmonious layout with elements characterized by attributes such as category, position, and size. Human designers experiment with the placement and modification of elements to create aesthetic layouts, however, we observed that current discrete diffusion models (DDMs) struggle to correct inharmonious layouts after they have been generated. In this paper, we first provide novel insights into layout sticking phenomenon in DDMs and then propose a simple yet effective layout-assessment module Layout-Corrector, which works in conjunction with existing DDMs to address the layout sticking problem. We present a learning-based module capable of identifying inharmonious elements within layouts, considering overall layout harmony characterized by complex composition. During the generation process, Layout-Corrector evaluates the correctness of each token in the generated layout, reinitializing those with low scores to the ungenerated state. The DDM then uses the high-scored tokens as clues to regenerate the harmonized tokens. Layout-Corrector, tested on common benchmarks, consistently boosts layout-generation performance when in conjunction with various state-of-the-art DDMs. Furthermore, our extensive analysis demonstrates that the Layout-Corrector (1) successfully identifies erroneous tokens, (2) facilitates control over the fidelity-diversity trade-off, and (3) significantly mitigates the performance drop associated with fast sampling.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2409.16689",
+      "url": "https://arxiv.org/abs/2409.16689",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2306.00288",
+      "title": "Training-free Neural Architecture Search for RNNs and Transformers",
+      "authors": [
+        {
+          "name": "Aaron Serianni",
+          "affiliation": ""
+        },
+        {
+          "name": "Jugal Kalita",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Neural architecture search (NAS) has allowed for the automatic creation of new and effective neural network architectures, offering an alternative to the laborious process of manually designing complex architectures. However, traditional NAS algorithms are slow and require immense amounts of computing power. Recent research has investigated training-free NAS metrics for image classification architectures, drastically speeding up search algorithms. In this paper, we investigate training-free NAS metrics for recurrent neural network (RNN) and BERT-based transformer architectures, targeted towards language modeling tasks. First, we develop a new training-free metric, named hidden covariance, that predicts the trained performance of an RNN architecture and significantly outperforms existing training-free metrics. We experimentally evaluate the effectiveness of the hidden covariance metric on the NAS-Bench-NLP benchmark. Second, we find that the current search space paradigm for transformer architectures is not optimized for training-free neural architecture search. Instead, a simple qualitative analysis can effectively shrink the search space to the best performing architectures. This conclusion is based on our investigation of existing training-free metrics and new metrics developed from recent transformer pruning literature, evaluated on our own benchmark of trained BERT architectures. Ultimately, our analysis shows that the architecture search space and the training-free metric must be developed together in order to achieve effective results.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2306.00288",
+      "url": "https://arxiv.org/abs/2306.00288",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2303.08137",
+      "title": "LayoutDM: Discrete Diffusion Model for Controllable Layout Generation",
+      "authors": [
+        {
+          "name": "Naoto Inoue",
+          "affiliation": ""
+        },
+        {
+          "name": "Kotaro Kikuchi",
+          "affiliation": ""
+        },
+        {
+          "name": "Edgar Simo-Serra",
+          "affiliation": ""
+        },
+        {
+          "name": "Mayu Otani",
+          "affiliation": ""
+        },
+        {
+          "name": "Kota Yamaguchi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Controllable layout generation aims at synthesizing plausible arrangement of element bounding boxes with optional constraints, such as type or position of a specific element. In this work, we try to solve a broad range of layout generation tasks in a single model that is based on discrete state-space diffusion models. Our model, named LayoutDM, naturally handles the structured layout data in the discrete representation and learns to progressively infer a noiseless layout from the initial input, where we model the layout corruption process by modality-wise discrete diffusion. For conditional generation, we propose to inject layout constraints in the form of masking or logit adjustment during inference. We show in the experiments that our LayoutDM successfully generates high-quality layouts and outperforms both task-specific and task-agnostic baselines on several layout tasks.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2303.08137",
+      "url": "https://arxiv.org/abs/2303.08137",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2509.11720",
+      "title": "Advanced Layout Analysis Models for Docling",
+      "authors": [
+        {
+          "name": "Nikolaos Livathinos",
+          "affiliation": ""
+        },
+        {
+          "name": "Christoph Auer",
+          "affiliation": ""
+        },
+        {
+          "name": "Ahmed Nassar",
+          "affiliation": ""
+        },
+        {
+          "name": "Rafael Teixeira de Lima",
+          "affiliation": ""
+        },
+        {
+          "name": "Maksym Lysak",
+          "affiliation": ""
+        },
+        {
+          "name": "Brown Ebouky",
+          "affiliation": ""
+        },
+        {
+          "name": "Cesar Berrospi",
+          "affiliation": ""
+        },
+        {
+          "name": "Michele Dolfi",
+          "affiliation": ""
+        },
+        {
+          "name": "Panagiotis Vagenas",
+          "affiliation": ""
+        },
+        {
+          "name": "Matteo Omenetti",
+          "affiliation": ""
+        },
+        {
+          "name": "Kasper Dinkla",
+          "affiliation": ""
+        },
+        {
+          "name": "Yusik Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Valery Weber",
+          "affiliation": ""
+        },
+        {
+          "name": "Lucas Morin",
+          "affiliation": ""
+        },
+        {
+          "name": "Ingmar Meijer",
+          "affiliation": ""
+        },
+        {
+          "name": "Viktor Kuropiatnyk",
+          "affiliation": ""
+        },
+        {
+          "name": "Tim Strohmeyer",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Said Gurbuz",
+          "affiliation": ""
+        },
+        {
+          "name": "Peter W. J. Staar",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "This technical report documents the development of novel Layout Analysis models integrated into the Docling document-conversion pipeline. We trained several state-of-the-art object detectors based on the RT-DETR, RT-DETRv2 and DFINE architectures on a heterogeneous corpus of 150,000 documents (both openly available and proprietary). Post-processing steps were applied to the raw detections to make them more applicable to the document conversion task. We evaluated the effectiveness of the layout analysis on various document benchmarks using different methodologies while also measuring the runtime performance across different environments (CPU, Nvidia and Apple GPUs). We introduce five new document layout models achieving 20.6% - 23.9% mAP improvement over Docling's previous baseline, with comparable or better runtime. Our best model, \"heron-101\", attains 78% mAP with 28 ms/image inference time on a single NVIDIA A100 GPU. Extensive quantitative and qualitative experiments establish best practices for training, evaluating, and deploying document-layout detectors, providing actionable guidance for the document conversion community. All trained checkpoints, code, and documentation are released under a permissive license on HuggingFace.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2509.11720",
+      "url": "https://arxiv.org/abs/2509.11720",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.09180",
+      "title": "FSampler: Training Free Acceleration of Diffusion Sampling via Epsilon Extrapolation",
+      "authors": [
+        {
+          "name": "Michael A. Vladimir",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "FSampler is a training free, sampler agnostic execution layer that accelerates diffusion sampling by reducing the number of function evaluations (NFE). FSampler maintains a short history of denoising signals (epsilon) from recent real model calls and extrapolates the next epsilon using finite difference predictors at second order, third order, or fourth order, falling back to lower order when history is insufficient. On selected steps the predicted epsilon substitutes the model call while keeping each sampler's update rule unchanged. Predicted epsilons are validated for finiteness and magnitude; a learning stabilizer rescales predictions on skipped steps to correct drift, and an optional gradient estimation stabilizer compensates local curvature. Protected windows, periodic anchors, and a cap on consecutive skips bound deviation over the trajectory. Operating at the sampler level, FSampler integrates with Euler/DDIM, DPM++ 2M/2S, LMS/AB2, and RES family exponential multistep methods and drops into standard workflows. FLUX.1 dev, Qwen Image, and Wan 2.2, FSampler reduces time by 8 to 22% and model calls by 15 to 25% at high fidelity (Structural Similarity Index (SSIM) 0.95 to 0.99), without altering sampler formulas. With an aggressive adaptive gate, reductions can reach 45 to 50% fewer model calls at lower fidelity (SSIM 0.73 to 0.74).",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.09180",
+      "url": "https://arxiv.org/abs/2511.09180",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2406.00552",
+      "title": "Graph Neural Network Training Systems: A Performance Comparison of Full-Graph and Mini-Batch",
+      "authors": [
+        {
+          "name": "Saurabh Bajaj",
+          "affiliation": ""
+        },
+        {
+          "name": "Hojae Son",
+          "affiliation": ""
+        },
+        {
+          "name": "Juelin Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hui Guan",
+          "affiliation": ""
+        },
+        {
+          "name": "Marco Serafini",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Graph Neural Networks (GNNs) have gained significant attention in recent years due to their ability to learn representations of graph-structured data. Two common methods for training GNNs are mini-batch training and full-graph training. Since these two methods require different training pipelines and systems optimizations, two separate classes of GNN training systems emerged, each tailored for one method. Works that introduce systems belonging to a particular category predominantly compare them with other systems within the same category, offering limited or no comparison with systems from the other category. Some prior work also justifies its focus on one specific training method by arguing that it achieves higher accuracy than the alternative. The literature, however, has incomplete and contradictory evidence in this regard.\n  In this paper, we provide a comprehensive empirical comparison of representative full-graph and mini-batch GNN training systems. We find that the mini-batch training systems consistently converge faster than the full-graph training ones across multiple datasets, GNN models, and system configurations. We also find that mini-batch training techniques converge to similar to or often higher accuracy values than full-graph training ones, showing that mini-batch sampling is not necessarily detrimental to accuracy. Our work highlights the importance of comparing systems across different classes, using time-to-accuracy rather than epoch time for performance comparison, and selecting appropriate hyperparameters for each training method separately.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2406.00552",
+      "url": "https://arxiv.org/abs/2406.00552",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2512.02450",
+      "title": "HouseLayout3D: A Benchmark and Training-Free Baseline for 3D Layout Estimation in the Wild",
+      "authors": [
+        {
+          "name": "Valentin Bieri",
+          "affiliation": ""
+        },
+        {
+          "name": "Marie-Julie Rakotosaona",
+          "affiliation": ""
+        },
+        {
+          "name": "Keisuke Tateno",
+          "affiliation": ""
+        },
+        {
+          "name": "Francis Engelmann",
+          "affiliation": ""
+        },
+        {
+          "name": "Leonidas Guibas",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Current 3D layout estimation models are primarily trained on synthetic datasets containing simple single room or single floor environments. As a consequence, they cannot natively handle large multi floor buildings and require scenes to be split into individual floors before processing, which removes global spatial context that is essential for reasoning about structures such as staircases that connect multiple levels. In this work, we introduce HouseLayout3D, a real world benchmark designed to support progress toward full building scale layout estimation, including multiple floors and architecturally intricate spaces. We also present MultiFloor3D, a simple training free baseline that leverages recent scene understanding methods and already outperforms existing 3D layout estimation models on both our benchmark and prior datasets, highlighting the need for further research in this direction. Data and code are available at: https://houselayout3d.github.io.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2512.02450",
+      "url": "https://arxiv.org/abs/2512.02450",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2510.26213",
+      "title": "OmniDocLayout: Towards Diverse Document Layout Generation via Coarse-to-Fine LLM Learning",
+      "authors": [
+        {
+          "name": "Hengrui Kang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhuangcheng Gu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiyuan Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Zichen Wen",
+          "affiliation": ""
+        },
+        {
+          "name": "Bin Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Weijia Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Conghui He",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Document AI has advanced rapidly and is attracting increasing attention. Yet, while most efforts have focused on document layout analysis (DLA), its generative counterpart, layout generation, remains underexplored. Distinct from traditional graphic layout design and room layout planning, document layout generation typically involves a larger number of elements per page and exhibits greater structural diversity and complexity. Currently, a major obstacle lies in the scarcity of diverse document layouts: academic papers with Manhattan-style structures dominate existing studies, while open-world genres such as newspapers and magazines remain severely underrepresented. To address this gap, we curate OmniDocLayout-1M, the first million-scale dataset of diverse document layouts, covering six common document types and comprising contemporary layouts collected from multiple sources. Moreover, since existing methods struggle in complex domains and often fail to arrange long sequences coherently, we introduce OmniDocLayout-LLM, a 0.5B model with designed two-stage Coarse-to-Fine learning paradigm:1) learning universal layout principles from our dataset with coarse category definitions, and 2) transferring the knowledge to a specific domain with few fine-grained annotated samples. Extensive experiments demonstrate that our approach achieves strong performance on multiple domains in M$^6$Doc dataset, substantially surpassing both existing layout generation experts and several latest general-purpose LLMs. Our code, dataset, and models will be publicly released.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2510.26213",
+      "url": "https://arxiv.org/abs/2510.26213",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2411.10495",
+      "title": "Training-Free Layout-to-Image Generation with Marginal Attention Constraints",
+      "authors": [
+        {
+          "name": "Huancheng Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Jingtao Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Weiming Zhuang",
+          "affiliation": ""
+        },
+        {
+          "name": "Haris Vikalo",
+          "affiliation": ""
+        },
+        {
+          "name": "Lingjuan Lyu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Recently, many text-to-image diffusion models excel at generating high-resolution images from text but struggle with precise control over spatial composition and object counting. To address these challenges, prior works developed layout-to-image (L2I) approaches that incorporate layout instructions into text-to-image models. However, existing L2I methods typically require fine-tuning of pre-trained parameters or training additional control modules for the diffusion models. In this work, we propose a training-free L2I approach, MAC (Marginal Attention Constrained Generation), which eliminates the need for additional modules or fine-tuning. Specifically, we use text-visual cross-attention feature maps to quantify inconsistencies between the layout of the generated images and the provided instructions, and then compute loss functions to optimize latent features during the diffusion reverse process. To enhance spatial controllability and mitigate semantic failures in complex layout instructions, we leverage pixel-to-pixel correlations in the self-attention feature maps to align cross-attention maps and combine three loss functions constrained by boundary attention to update latent features. Comprehensive experimental results on both L2I and non-L2I pretrained diffusion models demonstrate that our method outperforms existing training-free L2I techniques both quantitatively and qualitatively in terms of image composition on the DrawBench and HRS benchmarks.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2411.10495",
+      "url": "https://arxiv.org/abs/2411.10495",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2311.12342",
+      "title": "LoCo: Locally Constrained Training-Free Layout-to-Image Synthesis",
+      "authors": [
+        {
+          "name": "Peiang Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Han Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruiyang Jin",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Kevin Zhou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Recent text-to-image diffusion models have reached an unprecedented level in generating high-quality images. However, their exclusive reliance on textual prompts often falls short in precise control of image compositions. In this paper, we propose LoCo, a training-free approach for layout-to-image Synthesis that excels in producing high-quality images aligned with both textual prompts and layout instructions. Specifically, we introduce a Localized Attention Constraint (LAC), leveraging semantic affinity between pixels in self-attention maps to create precise representations of desired objects and effectively ensure the accurate placement of objects in designated regions. We further propose a Padding Token Constraint (PTC) to leverage the semantic information embedded in previously neglected padding tokens, improving the consistency between object appearance and layout instructions. LoCo seamlessly integrates into existing text-to-image and layout-to-image models, enhancing their performance in spatial control and addressing semantic failures observed in prior methods. Extensive experiments showcase the superiority of our approach, surpassing existing state-of-the-art training-free layout-to-image methods both qualitatively and quantitatively across multiple benchmarks.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2311.12342",
+      "url": "https://arxiv.org/abs/2311.12342",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2311.15773",
+      "title": "Check, Locate, Rectify: A Training-Free Layout Calibration System for Text-to-Image Generation",
+      "authors": [
+        {
+          "name": "Biao Gong",
+          "affiliation": ""
+        },
+        {
+          "name": "Siteng Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yutong Feng",
+          "affiliation": ""
+        },
+        {
+          "name": "Shiwei Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuyuan Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Diffusion models have recently achieved remarkable progress in generating realistic images. However, challenges remain in accurately understanding and synthesizing the layout requirements in the textual prompts. To align the generated image with layout instructions, we present a training-free layout calibration system SimM that intervenes in the generative process on the fly during inference time. Specifically, following a \"check-locate-rectify\" pipeline, the system first analyses the prompt to generate the target layout and compares it with the intermediate outputs to automatically detect errors. Then, by moving the located activations and making intra- and inter-map adjustments, the rectification process can be performed with negligible computational overhead. To evaluate SimM over a range of layout requirements, we present a benchmark SimMBench that compensates for the lack of superlative spatial relations in existing datasets. And both quantitative and qualitative results demonstrate the effectiveness of the proposed SimM in calibrating the layout inconsistencies. Our project page is at https://simm-t2i.github.io/SimM.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2311.15773",
+      "url": "https://arxiv.org/abs/2311.15773",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2512.23537",
+      "title": "AnyMS: Bottom-up Attention Decoupling for Layout-guided and Training-free Multi-subject Customization",
+      "authors": [
+        {
+          "name": "Binhe Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhen Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Kexin Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuqian Yuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenqiao Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Long Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Juncheng Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Jun Xiao",
+          "affiliation": ""
+        },
+        {
+          "name": "Yueting Zhuang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Multi-subject customization aims to synthesize multiple user-specified subjects into a coherent image. To address issues such as subjects missing or conflicts, recent works incorporate layout guidance to provide explicit spatial constraints. However, existing methods still struggle to balance three critical objectives: text alignment, subject identity preservation, and layout control, while the reliance on additional training further limits their scalability and efficiency. In this paper, we present AnyMS, a novel training-free framework for layout-guided multi-subject customization. AnyMS leverages three input conditions: text prompt, subject images, and layout constraints, and introduces a bottom-up dual-level attention decoupling mechanism to harmonize their integration during generation. Specifically, global decoupling separates cross-attention between textual and visual conditions to ensure text alignment. Local decoupling confines each subject's attention to its designated area, which prevents subject conflicts and thus guarantees identity preservation and layout control. Moreover, AnyMS employs pre-trained image adapters to extract subject-specific features aligned with the diffusion model, removing the need for subject learning or adapter tuning. Extensive experiments demonstrate that AnyMS achieves state-of-the-art performance, supporting complex compositions and scaling to a larger number of subjects.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2512.23537",
+      "url": "https://arxiv.org/abs/2512.23537",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2412.01284",
+      "title": "MFTF: Mask-free Training-free Object Level Layout Control Diffusion Model",
+      "authors": [
+        {
+          "name": "Shan Yang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Text-to-image generation models have revolutionized content creation, but diffusion-based vision-language models still face challenges in precisely controlling the shape, appearance, and positional placement of objects in generated images using text guidance alone. Existing global image editing models rely on additional masks or images as guidance to achieve layout control, often requiring retraining of the model. While local object-editing models allow modifications to object shapes, they lack the capability to control object positions. To address these limitations, we propose the Mask-free Training-free Object-Level Layout Control Diffusion Model (MFTF), which provides precise control over object positions without requiring additional masks or images. The MFTF model supports both single-object and multi-object positional adjustments, such as translation and rotation, while enabling simultaneous layout control and object semantic editing. The MFTF model employs a parallel denoising process for both the source and target diffusion models. During this process, attention masks are dynamically generated from the cross-attention layers of the source diffusion model and applied to queries from the self-attention layers to isolate objects. These queries, generated in the source diffusion model, are then adjusted according to the layout control parameters and re-injected into the self-attention layers of the target diffusion model. This approach ensures accurate and precise positional control of objects. Project source code available at https://github.com/syang-genai/MFTF.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2412.01284",
+      "url": "https://arxiv.org/abs/2412.01284",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2406.05560",
+      "title": "A Shape Change Enhancing Hierarchical Layout for the Pairwise Comparison of Directed Acyclic Graphs",
+      "authors": [
+        {
+          "name": "Kathrin Guckes",
+          "affiliation": ""
+        },
+        {
+          "name": "Marc Sch\u00e4pers",
+          "affiliation": ""
+        },
+        {
+          "name": "Margit Pohl",
+          "affiliation": ""
+        },
+        {
+          "name": "Andreas Kerren",
+          "affiliation": ""
+        },
+        {
+          "name": "Tatiana von Landesberger",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Comparing directed acyclic graphs is essential in various fields such as healthcare, social media, finance, biology, and marketing. DAGs often result from contagion processes over networks, including information spreading, retweet activity, disease transmission, financial crisis propagation, malware spread, and gene mutations. For instance, in disease spreading, an infected patient can transmit the disease to contacts, making it crucial to analyze and predict scenarios. Similarly, in finance, understanding the effects of saving or not saving specific banks during a crisis is vital. Experts often need to identify small differences between DAGs, such as changes in a few nodes or edges. Even the presence or absence of a single edge can be significant. Visualization plays a crucial role in facilitating these comparisons. However, standard hierarchical layout algorithms struggle to visualize subtle changes effectively. The typical hierarchical layout, with the root on top, is preferred due to its performance in comparison to other layouts. Nevertheless, these standard algorithms prioritize single-graph aesthetics over comparison suitability, making it challenging for users to spot changes. To address this issue, we propose a layout that enhances shape changes in DAGs while minimizing the impact on aesthetics. Our approach involves outwardly swapping changes, altering the DAG's shape. We introduce new drawing criteria. Our layout builds upon a Sugiyama-like hierarchical layout and implements these criteria through two extensions. We designed it this way to maintain interchangeability and accommodate future optimizations, such as pseudo-nodes for edge crossing minimization. In our evaluations, our layout achieves excellent results, with edge crossing aesthetics averaging around 0.8 (on a scale of 0 to 1). Additionally, our layout outperforms the base implementation by an average of 60-75\\%.",
+      "venue": "cs.HC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2406.05560",
+      "url": "https://arxiv.org/abs/2406.05560",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2409.04801",
+      "title": "SpotActor: Training-Free Layout-Controlled Consistent Image Generation",
+      "authors": [
+        {
+          "name": "Jiahao Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Caixia Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Weizhan Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Haonan Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Mengmeng Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Guang Dai",
+          "affiliation": ""
+        },
+        {
+          "name": "Tieliang Gong",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Jingdong Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Text-to-image diffusion models significantly enhance the efficiency of artistic creation with high-fidelity image generation. However, in typical application scenarios like comic book production, they can neither place each subject into its expected spot nor maintain the consistent appearance of each subject across images. For these issues, we pioneer a novel task, Layout-to-Consistent-Image (L2CI) generation, which produces consistent and compositional images in accordance with the given layout conditions and text prompts. To accomplish this challenging task, we present a new formalization of dual energy guidance with optimization in a dual semantic-latent space and thus propose a training-free pipeline, SpotActor, which features a layout-conditioned backward update stage and a consistent forward sampling stage. In the backward stage, we innovate a nuanced layout energy function to mimic the attention activations with a sigmoid-like objective. While in the forward stage, we design Regional Interconnection Self-Attention (RISA) and Semantic Fusion Cross-Attention (SFCA) mechanisms that allow mutual interactions across images. To evaluate the performance, we present ActorBench, a specified benchmark with hundreds of reasonable prompt-box pairs stemming from object detection datasets. Comprehensive experiments are conducted to demonstrate the effectiveness of our method. The results prove that SpotActor fulfills the expectations of this task and showcases the potential for practical applications with superior layout alignment, subject consistency, prompt conformity and background diversity.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2409.04801",
+      "url": "https://arxiv.org/abs/2409.04801",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2401.01673",
+      "title": "Coded Beam Training",
+      "authors": [
+        {
+          "name": "Tianyue Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Jieao Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Qiumo Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yongli Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Linglong Dai",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "In extremely large-scale multiple input multiple output (XL-MIMO) systems for future sixth-generation (6G) communications, codebook-based beam training stands out as a promising technology to acquire channel state information (CSI). Despite their effectiveness, when the pilot overhead is limited, existing beam training methods suffer from significant achievable rate degradation for remote users with low signal-to-noise ratio (SNR). To tackle this challenge, leveraging the error-correcting capability of channel codes, we introduce channel coding theory into hierarchical beam training to extend the coverage area. Specifically, we establish the duality between hierarchical beam training and channel coding, and the proposed coded beam training scheme serves as a general framework. Then, we present two specific implementations exemplified by coded beam training methods based on Hamming codes and convolutional codes, during which the beam encoding and decoding processes are refined respectively to better accommodate the beam training problem. Simulation results have demonstrated that the proposed coded beam training method can enable reliable beam training performance for remote users with low SNR while keeping training overhead low.",
+      "venue": "cs.IT",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2401.01673",
+      "url": "https://arxiv.org/abs/2401.01673",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2503.01667",
+      "title": "ToLo: A Two-Stage, Training-Free Layout-To-Image Generation Framework For High-Overlap Layouts",
+      "authors": [
+        {
+          "name": "Linhao Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jing Yu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Recent training-free layout-to-image diffusion models have demonstrated remarkable performance in generating high-quality images with controllable layouts. These models follow a one-stage framework: Encouraging the model to focus the attention map of each concept on its corresponding region by defining attention map-based losses. However, these models still struggle to accurately follow layouts with significant overlap, often leading to issues like attribute leakage and missing entities. In this paper, we propose ToLo, a two-stage, training-free layout-to-image generation framework for high-overlap layouts. Our framework consists of two stages: the aggregation stage and the separation stage, each with its own loss function based on the attention map. To provide a more effective evaluation, we partition the HRS dataset based on the Intersection over Union (IoU) of the input layouts, creating a new dataset for layout-to-image generation with varying levels of overlap. Through extensive experiments on this dataset, we demonstrate that ToLo significantly enhances the performance of existing methods when dealing with high-overlap layouts. Our code and dataset are available here: https://github.com/misaka12435/ToLo.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2503.01667",
+      "url": "https://arxiv.org/abs/2503.01667",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2407.13609",
+      "title": "Training-free Composite Scene Generation for Layout-to-Image Synthesis",
+      "authors": [
+        {
+          "name": "Jiaqi Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Tao Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chang Xu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Recent breakthroughs in text-to-image diffusion models have significantly advanced the generation of high-fidelity, photo-realistic images from textual descriptions. Yet, these models often struggle with interpreting spatial arrangements from text, hindering their ability to produce images with precise spatial configurations. To bridge this gap, layout-to-image generation has emerged as a promising direction. However, training-based approaches are limited by the need for extensively annotated datasets, leading to high data acquisition costs and a constrained conceptual scope. Conversely, training-free methods face challenges in accurately locating and generating semantically similar objects within complex compositions. This paper introduces a novel training-free approach designed to overcome adversarial semantic intersections during the diffusion conditioning phase. By refining intra-token loss with selective sampling and enhancing the diffusion process with attention redistribution, we propose two innovative constraints: 1) an inter-token constraint that resolves token conflicts to ensure accurate concept synthesis; and 2) a self-attention constraint that improves pixel-to-pixel relationships. Our evaluations confirm the effectiveness of leveraging layout information for guiding the diffusion process, generating content-rich images with enhanced fidelity and complexity. Code is available at https://github.com/Papple-F/csg.git.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2407.13609",
+      "url": "https://arxiv.org/abs/2407.13609",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2512.04830",
+      "title": "FreeGen: Feed-Forward Reconstruction-Generation Co-Training for Free-Viewpoint Driving Scene Synthesis",
+      "authors": [
+        {
+          "name": "Shijie Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Peixi Peng",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Closed-loop simulation and scalable pre-training for autonomous driving require synthesizing free-viewpoint driving scenes. However, existing datasets and generative pipelines rarely provide consistent off-trajectory observations, limiting large-scale evaluation and training. While recent generative models demonstrate strong visual realism, they struggle to jointly achieve interpolation consistency and extrapolation realism without per-scene optimization. To address this, we propose FreeGen, a feed-forward reconstruction-generation co-training framework for free-viewpoint driving scene synthesis. The reconstruction model provides stable geometric representations to ensure interpolation consistency, while the generation model performs geometry-aware enhancement to improve realism at unseen viewpoints. Through co-training, generative priors are distilled into the reconstruction model to improve off-trajectory rendering, and the refined geometry in turn offers stronger structural guidance for generation. Experiments demonstrate that FreeGen achieves state-of-the-art performance for free-viewpoint driving scene synthesis.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2512.04830",
+      "url": "https://arxiv.org/abs/2512.04830",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.02758",
+      "title": "Finite free probability and $S$ transforms of Jacobi processes",
+      "authors": [
+        {
+          "name": "Nizar Demni",
+          "affiliation": ""
+        },
+        {
+          "name": "Nicolas Gilliers",
+          "affiliation": ""
+        },
+        {
+          "name": "Tarek Hamdi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "In this paper, we study the $S$ transforms of Jacobi processes in the frameworks of free and finite free probability theories. We begin by deriving a partial differential equation satisfied by the free $S$ transform of the free Jacobi process, and we provide a detailed analysis of its characteristic curves. We turn next our attention to the averaged characteristic polynomial of the Hermitian Jacobi process and to the dynamic of its roots, referred to as the \\emph{frozen Jacobi process}. In particular, we prove, for a specific set of parameters, that the former aligns up to a Szeg\u00f6 variable transformation with the Hermite unitary polynomial. We also provide an expansion of the averaged characteristic polynomial of the Hermitian process in the basis of Jacobi polynomials. Finally, we establish the convergence of the frozen Jacobi process to the free Jacobi process in high dimensions by using the finite free S transform. In doing so, we prove a general result, interesting in its own, on the convergence of the finite differences of the finite free $S$ transform, which paves the way to obtain asymptotics of differential-difference equations satisfied by time-dependent finite free S-transforms of polynomial sequences with positive roots.",
+      "venue": "math.PR",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.02758",
+      "url": "https://arxiv.org/abs/2511.02758",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2602.09971",
+      "title": "SCOPE: A Training-Free Online 3D Deployment for UAV-BSs with Theoretical Analysis and Comparative Study",
+      "authors": [
+        {
+          "name": "Chuan-Chi Lai",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Unmanned Aerial Vehicle (UAV)-mounted Base Stations (UAV-BSs) offer a flexible solution for serving ground users in temporary hotspot scenarios. However, efficiently deploying UAV-BSs to satisfy heterogeneous user distributions remains a challenging optimization problem. While recent data-driven approaches, particularly Deep Reinforcement Learning (DRL), have shown promise in dynamic environments, they often suffer from prohibitive training overhead, poor generalization to topology changes, and high computational complexity. To address these limitations, this paper proposes Satisfaction-driven Coverage Optimization via Perimeter Extraction (SCOPE), a training-free and online 3D deployment framework. Unlike heuristic baselines that rely on fixed-altitude assumptions, SCOPE integrates a perimeter extraction mechanism with the Smallest Enclosing Circle (SEC) algorithm to dynamically optimize 3D UAV positions. Theoretically, we provide a rigorous convergence proof of the proposed algorithm and derive its polynomial time complexity of $O(N^2 \\log N)$. Experimentally, we conduct a comprehensive comparative study against state-of-the-art DRL baselines (e.g., PPO). Simulation results demonstrate that SCOPE achieves comparable user satisfaction to DRL methods but significantly lower computational latency (milliseconds vs. hours of training) and superior energy efficiency, making it an ideal solution for real-time, on-demand emergency deployment.",
+      "venue": "cs.NI",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2602.09971",
+      "url": "https://arxiv.org/abs/2602.09971",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2506.09984",
+      "title": "InterActHuman: Multi-Concept Human Animation with Layout-Aligned Audio Conditions",
+      "authors": [
+        {
+          "name": "Zhenzhi Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiaqi Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianwen Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chao Liang",
+          "affiliation": ""
+        },
+        {
+          "name": "Gaojie Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Zerong Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Ceyuan Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuan Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Mingyuan Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Dahua Lin",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "End-to-end human animation with rich multi-modal conditions, e.g., text, image and audio has achieved remarkable advancements in recent years. However, most existing methods could only animate a single subject and inject conditions in a global manner, ignoring scenarios where multiple concepts could appear in the same video with rich human-human interactions and human-object interactions. Such a global assumption prevents precise and per-identity control of multiple concepts including humans and objects, therefore hinders applications. In this work, we discard the single-entity assumption and introduce a novel framework that enforces strong, region-specific binding of conditions from modalities to each identity's spatiotemporal footprint. Given reference images of multiple concepts, our method could automatically infer layout information by leveraging a mask predictor to match appearance cues between the denoised video and each reference appearance. Furthermore, we inject local audio condition into its corresponding region to ensure layout-aligned modality matching in an iterative manner. This design enables the high-quality generation of human dialogue videos between two to three people or video customization from multiple reference images. Empirical results and ablation studies validate the effectiveness of our explicit layout control for multi-modal conditions compared to implicit counterparts and other existing methods. Video demos are available at https://zhenzhiwang.github.io/interacthuman/",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2506.09984",
+      "url": "https://arxiv.org/abs/2506.09984",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2210.06155",
+      "title": "ERNIE-Layout: Layout Knowledge Enhanced Pre-training for Visually-rich Document Understanding",
+      "authors": [
+        {
+          "name": "Qiming Peng",
+          "affiliation": ""
+        },
+        {
+          "name": "Yinxu Pan",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenjin Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Bin Luo",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhenyu Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhengjie Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Teng Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Weichong Yin",
+          "affiliation": ""
+        },
+        {
+          "name": "Yongfeng Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Yin Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Shikun Feng",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Tian",
+          "affiliation": ""
+        },
+        {
+          "name": "Hua Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Haifeng Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Recent years have witnessed the rise and success of pre-training techniques in visually-rich document understanding. However, most existing methods lack the systematic mining and utilization of layout-centered knowledge, leading to sub-optimal performances. In this paper, we propose ERNIE-Layout, a novel document pre-training solution with layout knowledge enhancement in the whole workflow, to learn better representations that combine the features from text, layout, and image. Specifically, we first rearrange input sequences in the serialization stage, and then present a correlative pre-training task, reading order prediction, to learn the proper reading order of documents. To improve the layout awareness of the model, we integrate a spatial-aware disentangled attention into the multi-modal transformer and a replaced regions prediction task into the pre-training phase. Experimental results show that ERNIE-Layout achieves superior performance on various downstream tasks, setting new state-of-the-art on key information extraction, document image classification, and document question answering datasets. The code and models are publicly available at http://github.com/PaddlePaddle/PaddleNLP/tree/develop/model_zoo/ernie-layout.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2210.06155",
+      "url": "https://arxiv.org/abs/2210.06155",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2210.12935",
+      "title": "360-MLC: Multi-view Layout Consistency for Self-training and Hyper-parameter Tuning",
+      "authors": [
+        {
+          "name": "Bolivar Solarte",
+          "affiliation": ""
+        },
+        {
+          "name": "Chin-Hsuan Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yueh-Cheng Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi-Hsuan Tsai",
+          "affiliation": ""
+        },
+        {
+          "name": "Min Sun",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "We present 360-MLC, a self-training method based on multi-view layout consistency for finetuning monocular room-layout models using unlabeled 360-images only. This can be valuable in practical scenarios where a pre-trained model needs to be adapted to a new data domain without using any ground truth annotations. Our simple yet effective assumption is that multiple layout estimations in the same scene must define a consistent geometry regardless of their camera positions. Based on this idea, we leverage a pre-trained model to project estimated layout boundaries from several camera views into the 3D world coordinate. Then, we re-project them back to the spherical coordinate and build a probability function, from which we sample the pseudo-labels for self-training. To handle unconfident pseudo-labels, we evaluate the variance in the re-projected boundaries as an uncertainty value to weight each pseudo-label in our loss function during training. In addition, since ground truth annotations are not available during training nor in testing, we leverage the entropy information in multiple layout estimations as a quantitative metric to measure the geometry consistency of the scene, allowing us to evaluate any layout estimator for hyper-parameter tuning, including model selection without ground truth annotations. Experimental results show that our solution achieves favorable performance against state-of-the-art methods when self-training from three publicly available source datasets to a unique, newly labeled dataset consisting of multi-view of the same scenes.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2210.12935",
+      "url": "https://arxiv.org/abs/2210.12935",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2503.18742",
+      "title": "SFDLA: Source-Free Document Layout Analysis",
+      "authors": [
+        {
+          "name": "Sebastian Tewes",
+          "affiliation": ""
+        },
+        {
+          "name": "Yufan Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Omar Moured",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiaming Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Rainer Stiefelhagen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Document Layout Analysis (DLA) is a fundamental task in document understanding. However, existing DLA and adaptation methods often require access to large-scale source data and target labels. This requirements severely limiting their real-world applicability, particularly in privacy-sensitive and resource-constrained domains, such as financial statements, medical records, and proprietary business documents. According to our observation, directly transferring source-domain fine-tuned models on target domains often results in a significant performance drop (Avg. -32.64%). In this work, we introduce Source-Free Document Layout Analysis (SFDLA), aiming for adapting a pre-trained source DLA models to an unlabeled target domain, without access to any source data. To address this challenge, we establish the first SFDLA benchmark, covering three major DLA datasets for geometric- and content-aware adaptation. Furthermore, we propose Document Layout Analysis Adapter (DLAdapter), a novel framework that is designed to improve source-free adaptation across document domains. Our method achieves a +4.21% improvement over the source-only baseline and a +2.26% gain over existing source-free methods from PubLayNet to DocLayNet. We believe this work will inspire the DLA community to further investigate source-free document understanding. To support future research of the community, the benchmark, models, and code will be publicly available at https://github.com/s3setewe/sfdla-DLAdapter.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2503.18742",
+      "url": "https://arxiv.org/abs/2503.18742",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2005.11652",
+      "title": "Fast Beam Training for IRS-Assisted Multiuser Communications",
+      "authors": [
+        {
+          "name": "Changsheng You",
+          "affiliation": ""
+        },
+        {
+          "name": "Beixiong Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Rui Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "In this letter, we consider an intelligent reflecting surface (IRS)-assisted multiuser communication system, where an IRS is deployed to provide virtual line-of-sight (LoS) links between an access point (AP) and multiple users. We consider the practical codebook-based IRS passive beamforming and study efficient design for IRS reflect beam training, which is challenging due to the large number of IRS reflecting elements. In contrast to the conventional single-beam training, we propose a new multi-beam training method by dividing the IRS reflecting elements into multiple sub-arrays and designing their simultaneous multi-beam steering over time. By simply comparing the received signal power over time, each user can detect its optimal IRS beam direction with a high probability, even without searching over all possible beam directions as the single-beam training. Simulation results show that our proposed multi-beam training significantly reduces the training time of conventional single-beam training and yet achieves comparable IRS passive beamforming performance for data transmission.",
+      "venue": "cs.IT",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2005.11652",
+      "url": "https://arxiv.org/abs/2005.11652",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2303.10856",
+      "title": "Revisiting Realistic Test-Time Training: Sequential Inference and Adaptation by Anchored Clustering Regularized Self-Training",
+      "authors": [
+        {
+          "name": "Yongyi Su",
+          "affiliation": ""
+        },
+        {
+          "name": "Xun Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Tianrui Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Kui Jia",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Deploying models on target domain data subject to distribution shift requires adaptation. Test-time training (TTT) emerges as a solution to this adaptation under a realistic scenario where access to full source domain data is not available, and instant inference on the target domain is required. Despite many efforts into TTT, there is a confusion over the experimental settings, thus leading to unfair comparisons. In this work, we first revisit TTT assumptions and categorize TTT protocols by two key factors. Among the multiple protocols, we adopt a realistic sequential test-time training (sTTT) protocol, under which we develop a test-time anchored clustering (TTAC) approach to enable stronger test-time feature learning. TTAC discovers clusters in both source and target domains and matches the target clusters to the source ones to improve adaptation. When source domain information is strictly absent (i.e. source-free) we further develop an efficient method to infer source domain distributions for anchored clustering. Finally, self-training~(ST) has demonstrated great success in learning from unlabeled data and we empirically figure out that applying ST alone to TTT is prone to confirmation bias. Therefore, a more effective TTT approach is introduced by regularizing self-training with anchored clustering, and the improved model is referred to as TTAC++. We demonstrate that, under all TTT protocols, TTAC++ consistently outperforms the state-of-the-art methods on five TTT datasets, including corrupted target domain, selected hard samples, synthetic-to-real adaptation and adversarially attacked target domain. We hope this work will provide a fair benchmarking of TTT methods, and future research should be compared within respective protocols.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2303.10856",
+      "url": "https://arxiv.org/abs/2303.10856",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2212.13924",
+      "title": "Page Layout Analysis of Text-heavy Historical Documents: a Comparison of Textual and Visual Approaches",
+      "authors": [
+        {
+          "name": "Najem-Meyer Sven",
+          "affiliation": ""
+        },
+        {
+          "name": "Romanello Matteo",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Page layout analysis is a fundamental step in document processing which enables to segment a page into regions of interest. With highly complex layouts and mixed scripts, scholarly commentaries are text-heavy documents which remain challenging for state-of-the-art models. Their layout considerably varies across editions and their most important regions are mainly defined by semantic rather than graphical characteristics such as position or appearance. This setting calls for a comparison between textual, visual and hybrid approaches. We therefore assess the performances of two transformers (LayoutLMv3 and RoBERTa) and an objection-detection network (YOLOv5). If results show a clear advantage in favor of the latter, we also list several caveats to this finding. In addition to our experiments, we release a dataset of ca. 300 annotated pages sampled from 19th century commentaries.",
+      "venue": "cs.IR",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2212.13924",
+      "url": "https://arxiv.org/abs/2212.13924",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2505.13265",
+      "title": "Selfless reduced free product $C^*$-algebras",
+      "authors": [
+        {
+          "name": "Ben Hayes",
+          "affiliation": ""
+        },
+        {
+          "name": "Srivatsav Kunnawalkam Elayavalli",
+          "affiliation": ""
+        },
+        {
+          "name": "Leonel Robert",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "We study selflessness in the general setting of reduced free products of $C^*$-algebras. Towards this end, we develop a suitable theory of rapid decay for filtrations in arbitrary $C^*$-probability spaces. We provide several natural examples and permanence properties of this phenomenon. By using this framework in combination with von Neumann algebraic techniques involving approximate forms of orthogonality, we are able to prove selflessness for general families of reduced free product $C^*$-algebras. As an instance of our results, we prove selflessness and thus strict comparison for the canonical $C^*$-algebras generated by Voiculescu's free semicircular systems. Our results also provide new examples of purely infinite reduced free products.",
+      "venue": "math.OA",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2505.13265",
+      "url": "https://arxiv.org/abs/2505.13265",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2504.01704",
+      "title": "Performance and applications of optical pin beams in turbulent long-range free space optical communications",
+      "authors": [
+        {
+          "name": "Francesco Nardo",
+          "affiliation": ""
+        },
+        {
+          "name": "Jan Tepper",
+          "affiliation": ""
+        },
+        {
+          "name": "Ricardo Barrios",
+          "affiliation": ""
+        },
+        {
+          "name": "Jonas Krimmer",
+          "affiliation": ""
+        },
+        {
+          "name": "Sebastian Randel",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Optical pin beams (OPBs) are a promising candidate for realizing turbulence-resilient long-distance free-space optical communication links spanning hundreds of kilometers. In this work, we introduce a unified theoretical model to describe the propagation of OPBs and present comprehensive simulation results based on many realizations and link-budget analyses for constant turbulence strengths. For reference, we compare the performance of the OPBs to weakly diverging and focusing Gaussian beams. For a 100km long air-to-air link, 10km above sea level, our simulation results show that OPBs offer an improved link budget of up to 8.6dB and enhanced beam wander statistics of up to 3dB compared to the considered Gaussian beams. Additionally, we identified a quadratic relationship between the transmitter aperture diameter and the maximum achievable distances, which is crucial in deciding the suitability of OPBs for a given application scenario.",
+      "venue": "physics.optics",
+      "citation_count": 0,
+      "doi": "10.1117/12.3040720",
+      "arxiv_id": "2504.01704",
+      "url": "https://arxiv.org/abs/2504.01704",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2406.04032",
+      "title": "Zero-Painter: Training-Free Layout Control for Text-to-Image Synthesis",
+      "authors": [
+        {
+          "name": "Marianna Ohanyan",
+          "affiliation": ""
+        },
+        {
+          "name": "Hayk Manukyan",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhangyang Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Shant Navasardyan",
+          "affiliation": ""
+        },
+        {
+          "name": "Humphrey Shi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "We present Zero-Painter, a novel training-free framework for layout-conditional text-to-image synthesis that facilitates the creation of detailed and controlled imagery from textual prompts. Our method utilizes object masks and individual descriptions, coupled with a global text prompt, to generate images with high fidelity. Zero-Painter employs a two-stage process involving our novel Prompt-Adjusted Cross-Attention (PACA) and Region-Grouped Cross-Attention (ReGCA) blocks, ensuring precise alignment of generated objects with textual prompts and mask shapes. Our extensive experiments demonstrate that Zero-Painter surpasses current state-of-the-art methods in preserving textual details and adhering to mask shapes.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2406.04032",
+      "url": "https://arxiv.org/abs/2406.04032",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2112.05112",
+      "title": "BLT: Bidirectional Layout Transformer for Controllable Layout Generation",
+      "authors": [
+        {
+          "name": "Xiang Kong",
+          "affiliation": ""
+        },
+        {
+          "name": "Lu Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Huiwen Chang",
+          "affiliation": ""
+        },
+        {
+          "name": "Han Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuan Hao",
+          "affiliation": ""
+        },
+        {
+          "name": "Haifeng Gong",
+          "affiliation": ""
+        },
+        {
+          "name": "Irfan Essa",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Creating visual layouts is a critical step in graphic design. Automatic generation of such layouts is essential for scalable and diverse visual designs. To advance conditional layout generation, we introduce BLT, a bidirectional layout transformer. BLT differs from previous work on transformers in adopting non-autoregressive transformers. In training, BLT learns to predict the masked attributes by attending to surrounding attributes in two directions. During inference, BLT first generates a draft layout from the input and then iteratively refines it into a high-quality layout by masking out low-confident attributes. The masks generated in both training and inference are controlled by a new hierarchical sampling policy. We verify the proposed model on six benchmarks of diverse design tasks. Experimental results demonstrate two benefits compared to the state-of-the-art layout transformer models. First, our model empowers layout transformers to fulfill controllable layout generation. Second, it achieves up to 10x speedup in generating a layout at inference time than the layout transformer baseline. Code is released at https://shawnkx.github.io/blt.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2112.05112",
+      "url": "https://arxiv.org/abs/2112.05112",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

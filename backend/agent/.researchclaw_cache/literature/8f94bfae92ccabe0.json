@@ -1,0 +1,1253 @@
+{
+  "query": "Training free layout controlled generation extending",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1773983593.6443286,
+  "papers": [
+    {
+      "paper_id": "arxiv-2304.03373",
+      "title": "Training-Free Layout Control with Cross-Attention Guidance",
+      "authors": [
+        {
+          "name": "Minghao Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Iro Laina",
+          "affiliation": ""
+        },
+        {
+          "name": "Andrea Vedaldi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Recent diffusion-based generators can produce high-quality images from textual prompts. However, they often disregard textual instructions that specify the spatial layout of the composition. We propose a simple approach that achieves robust layout control without the need for training or fine-tuning of the image generator. Our technique manipulates the cross-attention layers that the model uses to interface textual and visual information and steers the generation in the desired direction given, e.g., a user-specified layout. To determine how to best guide attention, we study the role of attention maps and explore two alternative strategies, forward and backward guidance. We thoroughly evaluate our approach on three benchmarks and provide several qualitative examples and a comparative analysis of the two strategies that demonstrate the superiority of backward guidance compared to forward guidance, as well as prior work. We further demonstrate the versatility of layout guidance by extending it to applications such as editing the layout and context of real images.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2304.03373",
+      "url": "https://arxiv.org/abs/2304.03373",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2303.08137",
+      "title": "LayoutDM: Discrete Diffusion Model for Controllable Layout Generation",
+      "authors": [
+        {
+          "name": "Naoto Inoue",
+          "affiliation": ""
+        },
+        {
+          "name": "Kotaro Kikuchi",
+          "affiliation": ""
+        },
+        {
+          "name": "Edgar Simo-Serra",
+          "affiliation": ""
+        },
+        {
+          "name": "Mayu Otani",
+          "affiliation": ""
+        },
+        {
+          "name": "Kota Yamaguchi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Controllable layout generation aims at synthesizing plausible arrangement of element bounding boxes with optional constraints, such as type or position of a specific element. In this work, we try to solve a broad range of layout generation tasks in a single model that is based on discrete state-space diffusion models. Our model, named LayoutDM, naturally handles the structured layout data in the discrete representation and learns to progressively infer a noiseless layout from the initial input, where we model the layout corruption process by modality-wise discrete diffusion. For conditional generation, we propose to inject layout constraints in the form of masking or logit adjustment during inference. We show in the experiments that our LayoutDM successfully generates high-quality layouts and outperforms both task-specific and task-agnostic baselines on several layout tasks.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2303.08137",
+      "url": "https://arxiv.org/abs/2303.08137",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2510.26213",
+      "title": "OmniDocLayout: Towards Diverse Document Layout Generation via Coarse-to-Fine LLM Learning",
+      "authors": [
+        {
+          "name": "Hengrui Kang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhuangcheng Gu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiyuan Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Zichen Wen",
+          "affiliation": ""
+        },
+        {
+          "name": "Bin Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Weijia Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Conghui He",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Document AI has advanced rapidly and is attracting increasing attention. Yet, while most efforts have focused on document layout analysis (DLA), its generative counterpart, layout generation, remains underexplored. Distinct from traditional graphic layout design and room layout planning, document layout generation typically involves a larger number of elements per page and exhibits greater structural diversity and complexity. Currently, a major obstacle lies in the scarcity of diverse document layouts: academic papers with Manhattan-style structures dominate existing studies, while open-world genres such as newspapers and magazines remain severely underrepresented. To address this gap, we curate OmniDocLayout-1M, the first million-scale dataset of diverse document layouts, covering six common document types and comprising contemporary layouts collected from multiple sources. Moreover, since existing methods struggle in complex domains and often fail to arrange long sequences coherently, we introduce OmniDocLayout-LLM, a 0.5B model with designed two-stage Coarse-to-Fine learning paradigm:1) learning universal layout principles from our dataset with coarse category definitions, and 2) transferring the knowledge to a specific domain with few fine-grained annotated samples. Extensive experiments demonstrate that our approach achieves strong performance on multiple domains in M$^6$Doc dataset, substantially surpassing both existing layout generation experts and several latest general-purpose LLMs. Our code, dataset, and models will be publicly released.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2510.26213",
+      "url": "https://arxiv.org/abs/2510.26213",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2512.04830",
+      "title": "FreeGen: Feed-Forward Reconstruction-Generation Co-Training for Free-Viewpoint Driving Scene Synthesis",
+      "authors": [
+        {
+          "name": "Shijie Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Peixi Peng",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Closed-loop simulation and scalable pre-training for autonomous driving require synthesizing free-viewpoint driving scenes. However, existing datasets and generative pipelines rarely provide consistent off-trajectory observations, limiting large-scale evaluation and training. While recent generative models demonstrate strong visual realism, they struggle to jointly achieve interpolation consistency and extrapolation realism without per-scene optimization. To address this, we propose FreeGen, a feed-forward reconstruction-generation co-training framework for free-viewpoint driving scene synthesis. The reconstruction model provides stable geometric representations to ensure interpolation consistency, while the generation model performs geometry-aware enhancement to improve realism at unseen viewpoints. Through co-training, generative priors are distilled into the reconstruction model to improve off-trajectory rendering, and the refined geometry in turn offers stronger structural guidance for generation. Experiments demonstrate that FreeGen achieves state-of-the-art performance for free-viewpoint driving scene synthesis.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2512.04830",
+      "url": "https://arxiv.org/abs/2512.04830",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2409.16689",
+      "title": "Layout-Corrector: Alleviating Layout Sticking Phenomenon in Discrete Diffusion Model",
+      "authors": [
+        {
+          "name": "Shoma Iwai",
+          "affiliation": ""
+        },
+        {
+          "name": "Atsuki Osanai",
+          "affiliation": ""
+        },
+        {
+          "name": "Shunsuke Kitada",
+          "affiliation": ""
+        },
+        {
+          "name": "Shinichiro Omachi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Layout generation is a task to synthesize a harmonious layout with elements characterized by attributes such as category, position, and size. Human designers experiment with the placement and modification of elements to create aesthetic layouts, however, we observed that current discrete diffusion models (DDMs) struggle to correct inharmonious layouts after they have been generated. In this paper, we first provide novel insights into layout sticking phenomenon in DDMs and then propose a simple yet effective layout-assessment module Layout-Corrector, which works in conjunction with existing DDMs to address the layout sticking problem. We present a learning-based module capable of identifying inharmonious elements within layouts, considering overall layout harmony characterized by complex composition. During the generation process, Layout-Corrector evaluates the correctness of each token in the generated layout, reinitializing those with low scores to the ungenerated state. The DDM then uses the high-scored tokens as clues to regenerate the harmonized tokens. Layout-Corrector, tested on common benchmarks, consistently boosts layout-generation performance when in conjunction with various state-of-the-art DDMs. Furthermore, our extensive analysis demonstrates that the Layout-Corrector (1) successfully identifies erroneous tokens, (2) facilitates control over the fidelity-diversity trade-off, and (3) significantly mitigates the performance drop associated with fast sampling.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2409.16689",
+      "url": "https://arxiv.org/abs/2409.16689",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2112.05112",
+      "title": "BLT: Bidirectional Layout Transformer for Controllable Layout Generation",
+      "authors": [
+        {
+          "name": "Xiang Kong",
+          "affiliation": ""
+        },
+        {
+          "name": "Lu Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Huiwen Chang",
+          "affiliation": ""
+        },
+        {
+          "name": "Han Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuan Hao",
+          "affiliation": ""
+        },
+        {
+          "name": "Haifeng Gong",
+          "affiliation": ""
+        },
+        {
+          "name": "Irfan Essa",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Creating visual layouts is a critical step in graphic design. Automatic generation of such layouts is essential for scalable and diverse visual designs. To advance conditional layout generation, we introduce BLT, a bidirectional layout transformer. BLT differs from previous work on transformers in adopting non-autoregressive transformers. In training, BLT learns to predict the masked attributes by attending to surrounding attributes in two directions. During inference, BLT first generates a draft layout from the input and then iteratively refines it into a high-quality layout by masking out low-confident attributes. The masks generated in both training and inference are controlled by a new hierarchical sampling policy. We verify the proposed model on six benchmarks of diverse design tasks. Experimental results demonstrate two benefits compared to the state-of-the-art layout transformer models. First, our model empowers layout transformers to fulfill controllable layout generation. Second, it achieves up to 10x speedup in generating a layout at inference time than the layout transformer baseline. Code is released at https://shawnkx.github.io/blt.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2112.05112",
+      "url": "https://arxiv.org/abs/2112.05112",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2306.00288",
+      "title": "Training-free Neural Architecture Search for RNNs and Transformers",
+      "authors": [
+        {
+          "name": "Aaron Serianni",
+          "affiliation": ""
+        },
+        {
+          "name": "Jugal Kalita",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Neural architecture search (NAS) has allowed for the automatic creation of new and effective neural network architectures, offering an alternative to the laborious process of manually designing complex architectures. However, traditional NAS algorithms are slow and require immense amounts of computing power. Recent research has investigated training-free NAS metrics for image classification architectures, drastically speeding up search algorithms. In this paper, we investigate training-free NAS metrics for recurrent neural network (RNN) and BERT-based transformer architectures, targeted towards language modeling tasks. First, we develop a new training-free metric, named hidden covariance, that predicts the trained performance of an RNN architecture and significantly outperforms existing training-free metrics. We experimentally evaluate the effectiveness of the hidden covariance metric on the NAS-Bench-NLP benchmark. Second, we find that the current search space paradigm for transformer architectures is not optimized for training-free neural architecture search. Instead, a simple qualitative analysis can effectively shrink the search space to the best performing architectures. This conclusion is based on our investigation of existing training-free metrics and new metrics developed from recent transformer pruning literature, evaluated on our own benchmark of trained BERT architectures. Ultimately, our analysis shows that the architecture search space and the training-free metric must be developed together in order to achieve effective results.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2306.00288",
+      "url": "https://arxiv.org/abs/2306.00288",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2509.11720",
+      "title": "Advanced Layout Analysis Models for Docling",
+      "authors": [
+        {
+          "name": "Nikolaos Livathinos",
+          "affiliation": ""
+        },
+        {
+          "name": "Christoph Auer",
+          "affiliation": ""
+        },
+        {
+          "name": "Ahmed Nassar",
+          "affiliation": ""
+        },
+        {
+          "name": "Rafael Teixeira de Lima",
+          "affiliation": ""
+        },
+        {
+          "name": "Maksym Lysak",
+          "affiliation": ""
+        },
+        {
+          "name": "Brown Ebouky",
+          "affiliation": ""
+        },
+        {
+          "name": "Cesar Berrospi",
+          "affiliation": ""
+        },
+        {
+          "name": "Michele Dolfi",
+          "affiliation": ""
+        },
+        {
+          "name": "Panagiotis Vagenas",
+          "affiliation": ""
+        },
+        {
+          "name": "Matteo Omenetti",
+          "affiliation": ""
+        },
+        {
+          "name": "Kasper Dinkla",
+          "affiliation": ""
+        },
+        {
+          "name": "Yusik Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Valery Weber",
+          "affiliation": ""
+        },
+        {
+          "name": "Lucas Morin",
+          "affiliation": ""
+        },
+        {
+          "name": "Ingmar Meijer",
+          "affiliation": ""
+        },
+        {
+          "name": "Viktor Kuropiatnyk",
+          "affiliation": ""
+        },
+        {
+          "name": "Tim Strohmeyer",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Said Gurbuz",
+          "affiliation": ""
+        },
+        {
+          "name": "Peter W. J. Staar",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "This technical report documents the development of novel Layout Analysis models integrated into the Docling document-conversion pipeline. We trained several state-of-the-art object detectors based on the RT-DETR, RT-DETRv2 and DFINE architectures on a heterogeneous corpus of 150,000 documents (both openly available and proprietary). Post-processing steps were applied to the raw detections to make them more applicable to the document conversion task. We evaluated the effectiveness of the layout analysis on various document benchmarks using different methodologies while also measuring the runtime performance across different environments (CPU, Nvidia and Apple GPUs). We introduce five new document layout models achieving 20.6% - 23.9% mAP improvement over Docling's previous baseline, with comparable or better runtime. Our best model, \"heron-101\", attains 78% mAP with 28 ms/image inference time on a single NVIDIA A100 GPU. Extensive quantitative and qualitative experiments establish best practices for training, evaluating, and deploying document-layout detectors, providing actionable guidance for the document conversion community. All trained checkpoints, code, and documentation are released under a permissive license on HuggingFace.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2509.11720",
+      "url": "https://arxiv.org/abs/2509.11720",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2411.10495",
+      "title": "Training-Free Layout-to-Image Generation with Marginal Attention Constraints",
+      "authors": [
+        {
+          "name": "Huancheng Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Jingtao Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Weiming Zhuang",
+          "affiliation": ""
+        },
+        {
+          "name": "Haris Vikalo",
+          "affiliation": ""
+        },
+        {
+          "name": "Lingjuan Lyu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Recently, many text-to-image diffusion models excel at generating high-resolution images from text but struggle with precise control over spatial composition and object counting. To address these challenges, prior works developed layout-to-image (L2I) approaches that incorporate layout instructions into text-to-image models. However, existing L2I methods typically require fine-tuning of pre-trained parameters or training additional control modules for the diffusion models. In this work, we propose a training-free L2I approach, MAC (Marginal Attention Constrained Generation), which eliminates the need for additional modules or fine-tuning. Specifically, we use text-visual cross-attention feature maps to quantify inconsistencies between the layout of the generated images and the provided instructions, and then compute loss functions to optimize latent features during the diffusion reverse process. To enhance spatial controllability and mitigate semantic failures in complex layout instructions, we leverage pixel-to-pixel correlations in the self-attention feature maps to align cross-attention maps and combine three loss functions constrained by boundary attention to update latent features. Comprehensive experimental results on both L2I and non-L2I pretrained diffusion models demonstrate that our method outperforms existing training-free L2I techniques both quantitatively and qualitatively in terms of image composition on the DrawBench and HRS benchmarks.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2411.10495",
+      "url": "https://arxiv.org/abs/2411.10495",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2412.01284",
+      "title": "MFTF: Mask-free Training-free Object Level Layout Control Diffusion Model",
+      "authors": [
+        {
+          "name": "Shan Yang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Text-to-image generation models have revolutionized content creation, but diffusion-based vision-language models still face challenges in precisely controlling the shape, appearance, and positional placement of objects in generated images using text guidance alone. Existing global image editing models rely on additional masks or images as guidance to achieve layout control, often requiring retraining of the model. While local object-editing models allow modifications to object shapes, they lack the capability to control object positions. To address these limitations, we propose the Mask-free Training-free Object-Level Layout Control Diffusion Model (MFTF), which provides precise control over object positions without requiring additional masks or images. The MFTF model supports both single-object and multi-object positional adjustments, such as translation and rotation, while enabling simultaneous layout control and object semantic editing. The MFTF model employs a parallel denoising process for both the source and target diffusion models. During this process, attention masks are dynamically generated from the cross-attention layers of the source diffusion model and applied to queries from the self-attention layers to isolate objects. These queries, generated in the source diffusion model, are then adjusted according to the layout control parameters and re-injected into the self-attention layers of the target diffusion model. This approach ensures accurate and precise positional control of objects. Project source code available at https://github.com/syang-genai/MFTF.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2412.01284",
+      "url": "https://arxiv.org/abs/2412.01284",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2409.04801",
+      "title": "SpotActor: Training-Free Layout-Controlled Consistent Image Generation",
+      "authors": [
+        {
+          "name": "Jiahao Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Caixia Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Weizhan Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Haonan Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Mengmeng Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Guang Dai",
+          "affiliation": ""
+        },
+        {
+          "name": "Tieliang Gong",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Jingdong Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Text-to-image diffusion models significantly enhance the efficiency of artistic creation with high-fidelity image generation. However, in typical application scenarios like comic book production, they can neither place each subject into its expected spot nor maintain the consistent appearance of each subject across images. For these issues, we pioneer a novel task, Layout-to-Consistent-Image (L2CI) generation, which produces consistent and compositional images in accordance with the given layout conditions and text prompts. To accomplish this challenging task, we present a new formalization of dual energy guidance with optimization in a dual semantic-latent space and thus propose a training-free pipeline, SpotActor, which features a layout-conditioned backward update stage and a consistent forward sampling stage. In the backward stage, we innovate a nuanced layout energy function to mimic the attention activations with a sigmoid-like objective. While in the forward stage, we design Regional Interconnection Self-Attention (RISA) and Semantic Fusion Cross-Attention (SFCA) mechanisms that allow mutual interactions across images. To evaluate the performance, we present ActorBench, a specified benchmark with hundreds of reasonable prompt-box pairs stemming from object detection datasets. Comprehensive experiments are conducted to demonstrate the effectiveness of our method. The results prove that SpotActor fulfills the expectations of this task and showcases the potential for practical applications with superior layout alignment, subject consistency, prompt conformity and background diversity.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2409.04801",
+      "url": "https://arxiv.org/abs/2409.04801",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.09180",
+      "title": "FSampler: Training Free Acceleration of Diffusion Sampling via Epsilon Extrapolation",
+      "authors": [
+        {
+          "name": "Michael A. Vladimir",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "FSampler is a training free, sampler agnostic execution layer that accelerates diffusion sampling by reducing the number of function evaluations (NFE). FSampler maintains a short history of denoising signals (epsilon) from recent real model calls and extrapolates the next epsilon using finite difference predictors at second order, third order, or fourth order, falling back to lower order when history is insufficient. On selected steps the predicted epsilon substitutes the model call while keeping each sampler's update rule unchanged. Predicted epsilons are validated for finiteness and magnitude; a learning stabilizer rescales predictions on skipped steps to correct drift, and an optional gradient estimation stabilizer compensates local curvature. Protected windows, periodic anchors, and a cap on consecutive skips bound deviation over the trajectory. Operating at the sampler level, FSampler integrates with Euler/DDIM, DPM++ 2M/2S, LMS/AB2, and RES family exponential multistep methods and drops into standard workflows. FLUX.1 dev, Qwen Image, and Wan 2.2, FSampler reduces time by 8 to 22% and model calls by 15 to 25% at high fidelity (Structural Similarity Index (SSIM) 0.95 to 0.99), without altering sampler formulas. With an aggressive adaptive gate, reductions can reach 45 to 50% fewer model calls at lower fidelity (SSIM 0.73 to 0.74).",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.09180",
+      "url": "https://arxiv.org/abs/2511.09180",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2311.15773",
+      "title": "Check, Locate, Rectify: A Training-Free Layout Calibration System for Text-to-Image Generation",
+      "authors": [
+        {
+          "name": "Biao Gong",
+          "affiliation": ""
+        },
+        {
+          "name": "Siteng Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yutong Feng",
+          "affiliation": ""
+        },
+        {
+          "name": "Shiwei Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuyuan Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Diffusion models have recently achieved remarkable progress in generating realistic images. However, challenges remain in accurately understanding and synthesizing the layout requirements in the textual prompts. To align the generated image with layout instructions, we present a training-free layout calibration system SimM that intervenes in the generative process on the fly during inference time. Specifically, following a \"check-locate-rectify\" pipeline, the system first analyses the prompt to generate the target layout and compares it with the intermediate outputs to automatically detect errors. Then, by moving the located activations and making intra- and inter-map adjustments, the rectification process can be performed with negligible computational overhead. To evaluate SimM over a range of layout requirements, we present a benchmark SimMBench that compensates for the lack of superlative spatial relations in existing datasets. And both quantitative and qualitative results demonstrate the effectiveness of the proposed SimM in calibrating the layout inconsistencies. Our project page is at https://simm-t2i.github.io/SimM.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2311.15773",
+      "url": "https://arxiv.org/abs/2311.15773",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2503.01667",
+      "title": "ToLo: A Two-Stage, Training-Free Layout-To-Image Generation Framework For High-Overlap Layouts",
+      "authors": [
+        {
+          "name": "Linhao Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jing Yu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Recent training-free layout-to-image diffusion models have demonstrated remarkable performance in generating high-quality images with controllable layouts. These models follow a one-stage framework: Encouraging the model to focus the attention map of each concept on its corresponding region by defining attention map-based losses. However, these models still struggle to accurately follow layouts with significant overlap, often leading to issues like attribute leakage and missing entities. In this paper, we propose ToLo, a two-stage, training-free layout-to-image generation framework for high-overlap layouts. Our framework consists of two stages: the aggregation stage and the separation stage, each with its own loss function based on the attention map. To provide a more effective evaluation, we partition the HRS dataset based on the Intersection over Union (IoU) of the input layouts, creating a new dataset for layout-to-image generation with varying levels of overlap. Through extensive experiments on this dataset, we demonstrate that ToLo significantly enhances the performance of existing methods when dealing with high-overlap layouts. Our code and dataset are available here: https://github.com/misaka12435/ToLo.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2503.01667",
+      "url": "https://arxiv.org/abs/2503.01667",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2312.01508",
+      "title": "CityGen: Infinite and Controllable City Layout Generation",
+      "authors": [
+        {
+          "name": "Jie Deng",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenhao Chai",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianshu Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Qixuan Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Junsheng Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenhao Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Shengyu Hao",
+          "affiliation": ""
+        },
+        {
+          "name": "Jenq-Neng Hwang",
+          "affiliation": ""
+        },
+        {
+          "name": "Gaoang Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "The recent surge in interest in city layout generation underscores its significance in urban planning and smart city development. The task involves procedurally or automatically generating spatial arrangements for urban elements such as roads, buildings, water, and vegetation. Previous methods, whether procedural modeling or deep learning-based approaches like VAEs and GANs, rely on complex priors, expert guidance, or initial layouts, and often lack diversity and interactivity. In this paper, we present CityGen, an end-to-end framework for infinite, diverse, and controllable city layout generation. Our framework introduces an infinite expansion module to extend local layouts to city-scale layouts and a multi-scale refinement module to upsample and refine them. We also designed a user-friendly control scheme, allowing users to guide generation through simple sketching. Additionally, we convert the 2D layout to 3D by synthesizing a height field, facilitating downstream applications. Extensive experiments demonstrate CityGen's state-of-the-art performance across various metrics, making it suitable for a wide range of downstream applications.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2312.01508",
+      "url": "https://arxiv.org/abs/2312.01508",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2406.04032",
+      "title": "Zero-Painter: Training-Free Layout Control for Text-to-Image Synthesis",
+      "authors": [
+        {
+          "name": "Marianna Ohanyan",
+          "affiliation": ""
+        },
+        {
+          "name": "Hayk Manukyan",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhangyang Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Shant Navasardyan",
+          "affiliation": ""
+        },
+        {
+          "name": "Humphrey Shi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "We present Zero-Painter, a novel training-free framework for layout-conditional text-to-image synthesis that facilitates the creation of detailed and controlled imagery from textual prompts. Our method utilizes object masks and individual descriptions, coupled with a global text prompt, to generate images with high fidelity. Zero-Painter employs a two-stage process involving our novel Prompt-Adjusted Cross-Attention (PACA) and Region-Grouped Cross-Attention (ReGCA) blocks, ensuring precise alignment of generated objects with textual prompts and mask shapes. Our extensive experiments demonstrate that Zero-Painter surpasses current state-of-the-art methods in preserving textual details and adhering to mask shapes.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2406.04032",
+      "url": "https://arxiv.org/abs/2406.04032",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2407.13609",
+      "title": "Training-free Composite Scene Generation for Layout-to-Image Synthesis",
+      "authors": [
+        {
+          "name": "Jiaqi Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Tao Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chang Xu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Recent breakthroughs in text-to-image diffusion models have significantly advanced the generation of high-fidelity, photo-realistic images from textual descriptions. Yet, these models often struggle with interpreting spatial arrangements from text, hindering their ability to produce images with precise spatial configurations. To bridge this gap, layout-to-image generation has emerged as a promising direction. However, training-based approaches are limited by the need for extensively annotated datasets, leading to high data acquisition costs and a constrained conceptual scope. Conversely, training-free methods face challenges in accurately locating and generating semantically similar objects within complex compositions. This paper introduces a novel training-free approach designed to overcome adversarial semantic intersections during the diffusion conditioning phase. By refining intra-token loss with selective sampling and enhancing the diffusion process with attention redistribution, we propose two innovative constraints: 1) an inter-token constraint that resolves token conflicts to ensure accurate concept synthesis; and 2) a self-attention constraint that improves pixel-to-pixel relationships. Our evaluations confirm the effectiveness of leveraging layout information for guiding the diffusion process, generating content-rich images with enhanced fidelity and complexity. Code is available at https://github.com/Papple-F/csg.git.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2407.13609",
+      "url": "https://arxiv.org/abs/2407.13609",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2107.12532",
+      "title": "Generating Lode Runner Levels by Learning Player Paths with LSTMs",
+      "authors": [
+        {
+          "name": "Kynan Sorochan",
+          "affiliation": ""
+        },
+        {
+          "name": "Jerry Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Yakun Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Matthew Guzdial",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Machine learning has been a popular tool in many different fields, including procedural content generation. However, procedural content generation via machine learning (PCGML) approaches can struggle with controllability and coherence. In this paper, we attempt to address these problems by learning to generate human-like paths, and then generating levels based on these paths. We extract player path data from gameplay video, train an LSTM to generate new paths based on this data, and then generate game levels based on this path data. We demonstrate that our approach leads to more coherent levels for the game Lode Runner in comparison to an existing PCGML approach.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "10.1145/3472538.3472602",
+      "arxiv_id": "2107.12532",
+      "url": "https://arxiv.org/abs/2107.12532",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2107.12533",
+      "title": "Toward Co-creative Dungeon Generation via Transfer Learning",
+      "authors": [
+        {
+          "name": "Zisen Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Matthew Guzdial",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Co-creative Procedural Content Generation via Machine Learning (PCGML) refers to systems where a PCGML agent and a human work together to produce output content. One of the limitations of co-creative PCGML is that it requires co-creative training data for a PCGML agent to learn to interact with humans. However, acquiring this data is a difficult and time-consuming process. In this work, we propose approximating human-AI interaction data and employing transfer learning to adapt learned co-creative knowledge from one game to a different game. We explore this approach for co-creative Zelda dungeon room generation.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "10.1145/3472538.3472601",
+      "arxiv_id": "2107.12533",
+      "url": "https://arxiv.org/abs/2107.12533",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2311.12342",
+      "title": "LoCo: Locally Constrained Training-Free Layout-to-Image Synthesis",
+      "authors": [
+        {
+          "name": "Peiang Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Han Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruiyang Jin",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Kevin Zhou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Recent text-to-image diffusion models have reached an unprecedented level in generating high-quality images. However, their exclusive reliance on textual prompts often falls short in precise control of image compositions. In this paper, we propose LoCo, a training-free approach for layout-to-image Synthesis that excels in producing high-quality images aligned with both textual prompts and layout instructions. Specifically, we introduce a Localized Attention Constraint (LAC), leveraging semantic affinity between pixels in self-attention maps to create precise representations of desired objects and effectively ensure the accurate placement of objects in designated regions. We further propose a Padding Token Constraint (PTC) to leverage the semantic information embedded in previously neglected padding tokens, improving the consistency between object appearance and layout instructions. LoCo seamlessly integrates into existing text-to-image and layout-to-image models, enhancing their performance in spatial control and addressing semantic failures observed in prior methods. Extensive experiments showcase the superiority of our approach, surpassing existing state-of-the-art training-free layout-to-image methods both qualitatively and quantitatively across multiple benchmarks.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2311.12342",
+      "url": "https://arxiv.org/abs/2311.12342",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2307.00161",
+      "title": "FFPDG: Fast, Fair and Private Data Generation",
+      "authors": [
+        {
+          "name": "Weijie Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jinjin Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Francis Iannacci",
+          "affiliation": ""
+        },
+        {
+          "name": "Bo Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Generative modeling has been used frequently in synthetic data generation. Fairness and privacy are two big concerns for synthetic data. Although Recent GAN [\\cite{goodfellow2014generative}] based methods show good results in preserving privacy, the generated data may be more biased. At the same time, these methods require high computation resources. In this work, we design a fast, fair, flexible and private data generation method. We show the effectiveness of our method theoretically and empirically. We show that models trained on data generated by the proposed method can perform well (in inference stage) on real application scenarios.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2307.00161",
+      "url": "https://arxiv.org/abs/2307.00161",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2512.02450",
+      "title": "HouseLayout3D: A Benchmark and Training-Free Baseline for 3D Layout Estimation in the Wild",
+      "authors": [
+        {
+          "name": "Valentin Bieri",
+          "affiliation": ""
+        },
+        {
+          "name": "Marie-Julie Rakotosaona",
+          "affiliation": ""
+        },
+        {
+          "name": "Keisuke Tateno",
+          "affiliation": ""
+        },
+        {
+          "name": "Francis Engelmann",
+          "affiliation": ""
+        },
+        {
+          "name": "Leonidas Guibas",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Current 3D layout estimation models are primarily trained on synthetic datasets containing simple single room or single floor environments. As a consequence, they cannot natively handle large multi floor buildings and require scenes to be split into individual floors before processing, which removes global spatial context that is essential for reasoning about structures such as staircases that connect multiple levels. In this work, we introduce HouseLayout3D, a real world benchmark designed to support progress toward full building scale layout estimation, including multiple floors and architecturally intricate spaces. We also present MultiFloor3D, a simple training free baseline that leverages recent scene understanding methods and already outperforms existing 3D layout estimation models on both our benchmark and prior datasets, highlighting the need for further research in this direction. Data and code are available at: https://houselayout3d.github.io.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2512.02450",
+      "url": "https://arxiv.org/abs/2512.02450",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2506.09984",
+      "title": "InterActHuman: Multi-Concept Human Animation with Layout-Aligned Audio Conditions",
+      "authors": [
+        {
+          "name": "Zhenzhi Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiaqi Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianwen Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chao Liang",
+          "affiliation": ""
+        },
+        {
+          "name": "Gaojie Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Zerong Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Ceyuan Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuan Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Mingyuan Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Dahua Lin",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "End-to-end human animation with rich multi-modal conditions, e.g., text, image and audio has achieved remarkable advancements in recent years. However, most existing methods could only animate a single subject and inject conditions in a global manner, ignoring scenarios where multiple concepts could appear in the same video with rich human-human interactions and human-object interactions. Such a global assumption prevents precise and per-identity control of multiple concepts including humans and objects, therefore hinders applications. In this work, we discard the single-entity assumption and introduce a novel framework that enforces strong, region-specific binding of conditions from modalities to each identity's spatiotemporal footprint. Given reference images of multiple concepts, our method could automatically infer layout information by leveraging a mask predictor to match appearance cues between the denoised video and each reference appearance. Furthermore, we inject local audio condition into its corresponding region to ensure layout-aligned modality matching in an iterative manner. This design enables the high-quality generation of human dialogue videos between two to three people or video customization from multiple reference images. Empirical results and ablation studies validate the effectiveness of our explicit layout control for multi-modal conditions compared to implicit counterparts and other existing methods. Video demos are available at https://zhenzhiwang.github.io/interacthuman/",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2506.09984",
+      "url": "https://arxiv.org/abs/2506.09984",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2408.14819",
+      "title": "Build-A-Scene: Interactive 3D Layout Control for Diffusion-Based Image Generation",
+      "authors": [
+        {
+          "name": "Abdelrahman Eldesokey",
+          "affiliation": ""
+        },
+        {
+          "name": "Peter Wonka",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "We propose a diffusion-based approach for Text-to-Image (T2I) generation with interactive 3D layout control. Layout control has been widely studied to alleviate the shortcomings of T2I diffusion models in understanding objects' placement and relationships from text descriptions. Nevertheless, existing approaches for layout control are limited to 2D layouts, require the user to provide a static layout beforehand, and fail to preserve generated images under layout changes. This makes these approaches unsuitable for applications that require 3D object-wise control and iterative refinements, e.g., interior design and complex scene generation. To this end, we leverage the recent advancements in depth-conditioned T2I models and propose a novel approach for interactive 3D layout control. We replace the traditional 2D boxes used in layout control with 3D boxes. Furthermore, we revamp the T2I task as a multi-stage generation process, where at each stage, the user can insert, change, and move an object in 3D while preserving objects from earlier stages. We achieve this through our proposed Dynamic Self-Attention (DSA) module and the consistent 3D object translation strategy. Experiments show that our approach can generate complicated scenes based on 3D layouts, boosting the object generation success rate over the standard depth-conditioned T2I methods by 2x. Moreover, it outperforms other methods in comparison in preserving objects under layout changes. Project Page: \\url{https://abdo-eldesokey.github.io/build-a-scene/}",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2408.14819",
+      "url": "https://arxiv.org/abs/2408.14819",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2107.12524",
+      "title": "Ensemble Learning For Mega Man Level Generation",
+      "authors": [
+        {
+          "name": "Bowei Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruohan Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuqing Xue",
+          "affiliation": ""
+        },
+        {
+          "name": "Ricky Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenwen Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Matthew Guzdial",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Procedural content generation via machine learning (PCGML) is the process of procedurally generating game content using models trained on existing game content. PCGML methods can struggle to capture the true variance present in underlying data with a single model. In this paper, we investigated the use of ensembles of Markov chains for procedurally generating \\emph{Mega Man} levels. We conduct an initial investigation of our approach and evaluate it on measures of playability and stylistic similarity in comparison to a non-ensemble, existing Markov chain approach.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "10.1145/3472538.3472600",
+      "arxiv_id": "2107.12524",
+      "url": "https://arxiv.org/abs/2107.12524",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2303.17189",
+      "title": "LayoutDiffusion: Controllable Diffusion Model for Layout-to-image Generation",
+      "authors": [
+        {
+          "name": "Guangcong Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Xianpan Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Xuewei Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhongang Qi",
+          "affiliation": ""
+        },
+        {
+          "name": "Ying Shan",
+          "affiliation": ""
+        },
+        {
+          "name": "Xi Li",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Recently, diffusion models have achieved great success in image synthesis. However, when it comes to the layout-to-image generation where an image often has a complex scene of multiple objects, how to make strong control over both the global layout map and each detailed object remains a challenging task. In this paper, we propose a diffusion model named LayoutDiffusion that can obtain higher generation quality and greater controllability than the previous works. To overcome the difficult multimodal fusion of image and layout, we propose to construct a structural image patch with region information and transform the patched image into a special layout to fuse with the normal layout in a unified form. Moreover, Layout Fusion Module (LFM) and Object-aware Cross Attention (OaCA) are proposed to model the relationship among multiple objects and designed to be object-aware and position-sensitive, allowing for precisely controlling the spatial related information. Extensive experiments show that our LayoutDiffusion outperforms the previous SOTA methods on FID, CAS by relatively 46.35%, 26.70% on COCO-stuff and 44.29%, 41.82% on VG. Code is available at https://github.com/ZGCTroy/LayoutDiffusion.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2303.17189",
+      "url": "https://arxiv.org/abs/2303.17189",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2506.15563",
+      "title": "Control and Realism: Best of Both Worlds in Layout-to-Image without Training",
+      "authors": [
+        {
+          "name": "Bonan Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yinhan Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Songhua Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinchao Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Layout-to-Image generation aims to create complex scenes with precise control over the placement and arrangement of subjects. Existing works have demonstrated that pre-trained Text-to-Image diffusion models can achieve this goal without training on any specific data; however, they often face challenges with imprecise localization and unrealistic artifacts. Focusing on these drawbacks, we propose a novel training-free method, WinWinLay. At its core, WinWinLay presents two key strategies, Non-local Attention Energy Function and Adaptive Update, that collaboratively enhance control precision and realism. On one hand, we theoretically demonstrate that the commonly used attention energy function introduces inherent spatial distribution biases, hindering objects from being uniformly aligned with layout instructions. To overcome this issue, non-local attention prior is explored to redistribute attention scores, facilitating objects to better conform to the specified spatial conditions. On the other hand, we identify that the vanilla backpropagation update rule can cause deviations from the pre-trained domain, leading to out-of-distribution artifacts. We accordingly introduce a Langevin dynamics-based adaptive update scheme as a remedy that promotes in-domain updating while respecting layout constraints. Extensive experiments demonstrate that WinWinLay excels in controlling element placement and achieving photorealistic visual fidelity, outperforming the current state-of-the-art methods.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2506.15563",
+      "url": "https://arxiv.org/abs/2506.15563",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2408.06070",
+      "title": "ControlNeXt: Powerful and Efficient Control for Image and Video Generation",
+      "authors": [
+        {
+          "name": "Bohao Peng",
+          "affiliation": ""
+        },
+        {
+          "name": "Jian Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuechen Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenbo Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Ming-Chang Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiaya Jia",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Diffusion models have demonstrated remarkable and robust abilities in both image and video generation. To achieve greater control over generated results, researchers introduce additional architectures, such as ControlNet, Adapters and ReferenceNet, to integrate conditioning controls. However, current controllable generation methods often require substantial additional computational resources, especially for video generation, and face challenges in training or exhibit weak control. In this paper, we propose ControlNeXt: a powerful and efficient method for controllable image and video generation. We first design a more straightforward and efficient architecture, replacing heavy additional branches with minimal additional cost compared to the base model. Such a concise structure also allows our method to seamlessly integrate with other LoRA weights, enabling style alteration without the need for additional training. As for training, we reduce up to 90% of learnable parameters compared to the alternatives. Furthermore, we propose another method called Cross Normalization (CN) as a replacement for Zero-Convolution' to achieve fast and stable training convergence. We have conducted various experiments with different base models across images and videos, demonstrating the robustness of our method.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2408.06070",
+      "url": "https://arxiv.org/abs/2408.06070",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2504.15032",
+      "title": "DyST-XL: Dynamic Layout Planning and Content Control for Compositional Text-to-Video Generation",
+      "authors": [
+        {
+          "name": "Weijie He",
+          "affiliation": ""
+        },
+        {
+          "name": "Mushui Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yunlong Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhao Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chao Wu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Compositional text-to-video generation, which requires synthesizing dynamic scenes with multiple interacting entities and precise spatial-temporal relationships, remains a critical challenge for diffusion-based models. Existing methods struggle with layout discontinuity, entity identity drift, and implausible interaction dynamics due to unconstrained cross-attention mechanisms and inadequate physics-aware reasoning. To address these limitations, we propose DyST-XL, a \\textbf{training-free} framework that enhances off-the-shelf text-to-video models (e.g., CogVideoX-5B) through frame-aware control. DyST-XL integrates three key innovations: (1) A Dynamic Layout Planner that leverages large language models (LLMs) to parse input prompts into entity-attribute graphs and generates physics-aware keyframe layouts, with intermediate frames interpolated via trajectory optimization; (2) A Dual-Prompt Controlled Attention Mechanism that enforces localized text-video alignment through frame-aware attention masking, achieving precise control over individual entities; and (3) An Entity-Consistency Constraint strategy that propagates first-frame feature embeddings to subsequent frames during denoising, preserving object identity without manual annotation. Experiments demonstrate that DyST-XL excels in compositional text-to-video generation, significantly improving performance on complex prompts and bridging a crucial gap in training-free video synthesis. The code is released in https://github.com/XiaoBuL/DyST-XL.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2504.15032",
+      "url": "https://arxiv.org/abs/2504.15032",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2411.15252",
+      "title": "LocRef-Diffusion:Tuning-Free Layout and Appearance-Guided Generation",
+      "authors": [
+        {
+          "name": "Fan Deng",
+          "affiliation": ""
+        },
+        {
+          "name": "Yaguang Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinyang Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiangjun Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jian Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Guangyu Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Qiang Xu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Recently, text-to-image models based on diffusion have achieved remarkable success in generating high-quality images. However, the challenge of personalized, controllable generation of instances within these images remains an area in need of further development. In this paper, we present LocRef-Diffusion, a novel, tuning-free model capable of personalized customization of multiple instances' appearance and position within an image. To enhance the precision of instance placement, we introduce a Layout-net, which controls instance generation locations by leveraging both explicit instance layout information and an instance region cross-attention module. To improve the appearance fidelity to reference images, we employ an appearance-net that extracts instance appearance features and integrates them into the diffusion model through cross-attention mechanisms. We conducted extensive experiments on the COCO and OpenImages datasets, and the results demonstrate that our proposed method achieves state-of-the-art performance in layout and appearance guided generation.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2411.15252",
+      "url": "https://arxiv.org/abs/2411.15252",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2512.23537",
+      "title": "AnyMS: Bottom-up Attention Decoupling for Layout-guided and Training-free Multi-subject Customization",
+      "authors": [
+        {
+          "name": "Binhe Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhen Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Kexin Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuqian Yuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenqiao Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Long Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Juncheng Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Jun Xiao",
+          "affiliation": ""
+        },
+        {
+          "name": "Yueting Zhuang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Multi-subject customization aims to synthesize multiple user-specified subjects into a coherent image. To address issues such as subjects missing or conflicts, recent works incorporate layout guidance to provide explicit spatial constraints. However, existing methods still struggle to balance three critical objectives: text alignment, subject identity preservation, and layout control, while the reliance on additional training further limits their scalability and efficiency. In this paper, we present AnyMS, a novel training-free framework for layout-guided multi-subject customization. AnyMS leverages three input conditions: text prompt, subject images, and layout constraints, and introduces a bottom-up dual-level attention decoupling mechanism to harmonize their integration during generation. Specifically, global decoupling separates cross-attention between textual and visual conditions to ensure text alignment. Local decoupling confines each subject's attention to its designated area, which prevents subject conflicts and thus guarantees identity preservation and layout control. Moreover, AnyMS employs pre-trained image adapters to extract subject-specific features aligned with the diffusion model, removing the need for subject learning or adapter tuning. Extensive experiments demonstrate that AnyMS achieves state-of-the-art performance, supporting complex compositions and scaling to a larger number of subjects.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2512.23537",
+      "url": "https://arxiv.org/abs/2512.23537",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2406.10126",
+      "title": "Training-free Camera Control for Video Generation",
+      "authors": [
+        {
+          "name": "Chen Hou",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhibo Chen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "We propose a training-free and robust solution to offer camera movement control for off-the-shelf video diffusion models. Unlike previous work, our method does not require any supervised finetuning on camera-annotated datasets or self-supervised training via data augmentation. Instead, it can be plug-and-play with most pretrained video diffusion models and generate camera-controllable videos with a single image or text prompt as input. The inspiration for our work comes from the layout prior that intermediate latents encode for the generated results, thus rearranging noisy pixels in them will cause the output content to relocate as well. As camera moving could also be seen as a type of pixel rearrangement caused by perspective change, videos can be reorganized following specific camera motion if their noisy latents change accordingly. Building on this, we propose CamTrol, which enables robust camera control for video diffusion models. It is achieved by a two-stage process. First, we model image layout rearrangement through explicit camera movement in 3D point cloud space. Second, we generate videos with camera motion by leveraging the layout prior of noisy latents formed by a series of rearranged images. Extensive experiments have demonstrated its superior performance in both video generation and camera motion alignment compared with other finetuned methods. Furthermore, we show the capability of CamTrol to generalize to various base models, as well as its impressive applications in scalable motion control, dealing with complicated trajectories and unsupervised 3D video generation. Videos available at https://lifedecoder.github.io/CamTrol/.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2406.10126",
+      "url": "https://arxiv.org/abs/2406.10126",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2107.12506",
+      "title": "TaikoNation: Patterning-focused Chart Generation for Rhythm Action Games",
+      "authors": [
+        {
+          "name": "Emily Halina",
+          "affiliation": ""
+        },
+        {
+          "name": "Matthew Guzdial",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Generating rhythm game charts from songs via machine learning has been a problem of increasing interest in recent years. However, all existing systems struggle to replicate human-like patterning: the placement of game objects in relation to each other to form congruent patterns based on events in the song. Patterning is a key identifier of high quality rhythm game content, seen as a necessary component in human rankings. We establish a new approach for chart generation that produces charts with more congruent, human-like patterning than seen in prior work.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "10.1145/3472538.3472589",
+      "arxiv_id": "2107.12506",
+      "url": "https://arxiv.org/abs/2107.12506",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2311.13602",
+      "title": "Retrieval-Augmented Layout Transformer for Content-Aware Layout Generation",
+      "authors": [
+        {
+          "name": "Daichi Horita",
+          "affiliation": ""
+        },
+        {
+          "name": "Naoto Inoue",
+          "affiliation": ""
+        },
+        {
+          "name": "Kotaro Kikuchi",
+          "affiliation": ""
+        },
+        {
+          "name": "Kota Yamaguchi",
+          "affiliation": ""
+        },
+        {
+          "name": "Kiyoharu Aizawa",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Content-aware graphic layout generation aims to automatically arrange visual elements along with a given content, such as an e-commerce product image. In this paper, we argue that the current layout generation approaches suffer from the limited training data for the high-dimensional layout structure. We show that a simple retrieval augmentation can significantly improve the generation quality. Our model, which is named Retrieval-Augmented Layout Transformer (RALF), retrieves nearest neighbor layout examples based on an input image and feeds these results into an autoregressive generator. Our model can apply retrieval augmentation to various controllable generation tasks and yield high-quality layouts within a unified architecture. Our extensive experiments show that RALF successfully generates content-aware layouts in both constrained and unconstrained settings and significantly outperforms the baselines.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2311.13602",
+      "url": "https://arxiv.org/abs/2311.13602",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2007.06108",
+      "title": "Tabletop Roleplaying Games as Procedural Content Generators",
+      "authors": [
+        {
+          "name": "Matthew Guzdial",
+          "affiliation": ""
+        },
+        {
+          "name": "Devi Acharya",
+          "affiliation": ""
+        },
+        {
+          "name": "Max Kreminski",
+          "affiliation": ""
+        },
+        {
+          "name": "Michael Cook",
+          "affiliation": ""
+        },
+        {
+          "name": "Mirjam Eladhari",
+          "affiliation": ""
+        },
+        {
+          "name": "Antonios Liapis",
+          "affiliation": ""
+        },
+        {
+          "name": "Anne Sullivan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Tabletop roleplaying games (TTRPGs) and procedural content generators can both be understood as systems of rules for producing content. In this paper, we argue that TTRPG design can usefully be viewed as procedural content generator design. We present several case studies linking key concepts from PCG research -- including possibility spaces, expressive range analysis, and generative pipelines -- to key concepts in TTRPG design. We then discuss the implications of these relationships and suggest directions for future work uniting research in TTRPGs and PCG.",
+      "venue": "cs.AI",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2007.06108",
+      "url": "https://arxiv.org/abs/2007.06108",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

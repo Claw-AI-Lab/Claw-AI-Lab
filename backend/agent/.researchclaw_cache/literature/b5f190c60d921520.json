@@ -1,0 +1,1952 @@
+{
+  "query": "video generation",
+  "source": "openalex",
+  "limit": 40,
+  "timestamp": 1773979810.6465302,
+  "papers": [
+    {
+      "paper_id": "oalex-W4303440777",
+      "title": "Imagen Video: High Definition Video Generation with Diffusion Models",
+      "authors": [
+        {
+          "name": "Jonathan Ho",
+          "affiliation": ""
+        },
+        {
+          "name": "William Chan",
+          "affiliation": ""
+        },
+        {
+          "name": "Chitwan Saharia",
+          "affiliation": ""
+        },
+        {
+          "name": "Jay Whang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruiqi Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Alexey A. Gritsenko",
+          "affiliation": ""
+        },
+        {
+          "name": "Diederik P. Kingma",
+          "affiliation": ""
+        },
+        {
+          "name": "Ben Poole",
+          "affiliation": ""
+        },
+        {
+          "name": "Mohammad Norouzi",
+          "affiliation": ""
+        },
+        {
+          "name": "David J. Fleet",
+          "affiliation": ""
+        },
+        {
+          "name": "Tim Salimans",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "We present Imagen Video, a text-conditional video generation system based on a cascade of video diffusion models. Given a text prompt, Imagen Video generates high definition videos using a base video generation model and a sequence of interleaved spatial and temporal video super-resolution models. We describe how we scale up the system as a high definition text-to-video model including design decisions such as the choice of fully-convolutional temporal and spatial super-resolution models at certain resolutions, and the choice of the v-parameterization of diffusion models. In addition, we confirm and transfer findings from previous work on diffusion-based image generation to the video generation setting. Finally, we apply progressive distillation to our video models with classifier-free guidance for fast, high quality sampling. We find Imagen Video not only capable of generating videos of high fidelity, but also having a high degree of controllability and world knowledge, including the ability to generate diverse videos and text animations in various artistic styles and with 3D object understanding. See https://imagen.research.google/video/ for samples.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 346,
+      "doi": "10.48550/arxiv.2210.02303",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2210.02303",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4298185919",
+      "title": "Make-A-Video: Text-to-Video Generation without Text-Video Data",
+      "authors": [
+        {
+          "name": "Uriel Singer",
+          "affiliation": ""
+        },
+        {
+          "name": "Adam Polyak",
+          "affiliation": ""
+        },
+        {
+          "name": "Thomas Hayes",
+          "affiliation": ""
+        },
+        {
+          "name": "Xi Yin",
+          "affiliation": ""
+        },
+        {
+          "name": "Jie An",
+          "affiliation": ""
+        },
+        {
+          "name": "Songyang Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Qiyuan Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Harry Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Oron Ashual",
+          "affiliation": ""
+        },
+        {
+          "name": "Oran Gafni",
+          "affiliation": ""
+        },
+        {
+          "name": "Devi Parikh",
+          "affiliation": ""
+        },
+        {
+          "name": "Sonal Gupta",
+          "affiliation": ""
+        },
+        {
+          "name": "Yaniv Taigman",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "We propose Make-A-Video -- an approach for directly translating the tremendous recent progress in Text-to-Image (T2I) generation to Text-to-Video (T2V). Our intuition is simple: learn what the world looks like and how it is described from paired text-image data, and learn how the world moves from unsupervised video footage. Make-A-Video has three advantages: (1) it accelerates training of the T2V model (it does not need to learn visual and multimodal representations from scratch), (2) it does not require paired text-video data, and (3) the generated videos inherit the vastness (diversity in aesthetic, fantastical depictions, etc.) of today's image generation models. We design a simple yet effective way to build on T2I models with novel and effective spatial-temporal modules. First, we decompose the full temporal U-Net and attention tensors and approximate them in space and time. Second, we design a spatial temporal pipeline to generate high resolution and frame rate videos with a video decoder, interpolation model and two super resolution models that can enable various applications besides T2V. In all aspects, spatial and temporal resolution, faithfulness to text, and quality, Make-A-Video sets the new state-of-the-art in text-to-video generation, as determined by both qualitative and quantitative measures.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 311,
+      "doi": "10.48550/arxiv.2209.14792",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2209.14792",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4390873135",
+      "title": "Tune-A-Video: One-Shot Tuning of Image Diffusion Models for Text-to-Video Generation",
+      "authors": [
+        {
+          "name": "Jay Zhangjie Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yixiao Ge",
+          "affiliation": ""
+        },
+        {
+          "name": "Xintao Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Stan Weixian Lei",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuchao Gu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yufei Shi",
+          "affiliation": ""
+        },
+        {
+          "name": "Wynne Hsu",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Ying Shan",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaohu Qie",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Mike Zheng Shou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "To replicate the success of text-to-image (T2I) generation, recent works employ large-scale video datasets to train a text-to-video (T2V) generator. Despite their promising results, such paradigm is computationally expensive. In this work, we propose a new T2V generation setting\u2014One-Shot Video Tuning, where only one text-video pair is presented. Our model is built on state-of-the-art T2I diffusion models pre-trained on massive image data. We make two key observations: 1) T2I models can generate still images that represent verb terms; 2) extending T2I models to generate multiple images concurrently exhibits surprisingly good content consistency. To further learn continuous motion, we introduce Tune-A-Video, which involves a tailored spatio-temporal attention mechanism and an efficient one-shot tuning strategy. At inference, we employ DDIM inversion to provide structure guidance for sampling. Extensive qualitative and numerical experiments demonstrate the remarkable ability of our method across various applications.",
+      "venue": "",
+      "citation_count": 431,
+      "doi": "10.1109/iccv51070.2023.00701",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/iccv51070.2023.00701",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3152733922",
+      "title": "VideoGPT: Video Generation using VQ-VAE and Transformers",
+      "authors": [
+        {
+          "name": "Wilson Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Yunzhi Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Pieter Abbeel",
+          "affiliation": ""
+        },
+        {
+          "name": "Aravind Srinivas",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "We present VideoGPT: a conceptually simple architecture for scaling likelihood based generative modeling to natural videos. VideoGPT uses VQ-VAE that learns downsampled discrete latent representations of a raw video by employing 3D convolutions and axial self-attention. A simple GPT-like architecture is then used to autoregressively model the discrete latents using spatio-temporal position encodings. Despite the simplicity in formulation and ease of training, our architecture is able to generate samples competitive with state-of-the-art GAN models for video generation on the BAIR Robot dataset, and generate high fidelity natural videos from UCF-101 and Tumbler GIF Dataset (TGIF). We hope our proposed architecture serves as a reproducible reference for a minimalistic implementation of transformer based video generation models. Samples and code are available at https://wilson1yan.github.io/videogpt/index.html",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 144,
+      "doi": "10.48550/arxiv.2104.10157",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2104.10157",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4221145616",
+      "title": "Depth-Aware Generative Adversarial Network for Talking Head Video Generation",
+      "authors": [
+        {
+          "name": "Fa-Ting Hong",
+          "affiliation": "Hong Kong University of Science and Technology"
+        },
+        {
+          "name": "Longhao Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Li Shen",
+          "affiliation": ""
+        },
+        {
+          "name": "Dan Xu",
+          "affiliation": "Hong Kong University of Science and Technology"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Talking head video generation aims to produce a synthetic human face video that contains the identity and pose information respectively from a given source image and a driving video. Existing works for this task heavily rely on 2D representations (e.g. appearance and motion) learned from the input images. However, dense 3D facial geometry (e.g. pixel-wise depth) is extremely important for this task as it is particularly beneficial for us to essentially generate accurate 3D face structures and distinguish noisy information from the possibly cluttered background. Nevertheless, dense 3D geometry annotations are prohibitively costly for videos and are typically not available for this video generation task. In this paper, we introduce a self-supervised face-depth learning method to automatically recover dense 3D facial geometry (i.e. depth) from the face videos without the requirement of any expensive 3D annotation data. Based on the learned dense depth maps, we further propose to leverage them to estimate sparse facial keypoints that capture the critical movement of the human head. In a more dense way, the depth is also utilized to learn 3D-aware cross-modal (i.e. appearance and depth) attention to guide the generation of motion fields for warping source image representations. All these contributions compose a novel depth-aware generative adversarial network (DaGAN) for talking head generation. Extensive experiments conducted demonstrate that our proposed method can generate highly realistic faces, and achieve significant results on the unseen human faces. <sup xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">1</sup> <sup xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">1</sup> https://github.com/harlanhong/CVPR2022-DaGAN",
+      "venue": "2022 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+      "citation_count": 161,
+      "doi": "10.1109/cvpr52688.2022.00339",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr52688.2022.00339",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2996880115",
+      "title": "Learning temporal coherence via self-supervision for GAN-based video generation",
+      "authors": [
+        {
+          "name": "Mengyu Chu",
+          "affiliation": "Technical University of Munich"
+        },
+        {
+          "name": "You Xie",
+          "affiliation": "Technical University of Munich"
+        },
+        {
+          "name": "Jonas Mayer",
+          "affiliation": "Technical University of Munich"
+        },
+        {
+          "name": "Laura Leal-Taix\u00e9",
+          "affiliation": "Technical University of Munich"
+        },
+        {
+          "name": "Nils Thuerey",
+          "affiliation": "Technical University of Munich"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Our work explores temporal self-supervision for GAN-based video generation tasks. While adversarial training successfully yields generative models for a variety of areas, temporal relationships in the generated data are much less explored. Natural temporal changes are crucial for sequential generation tasks, e.g. video super-resolution and unpaired video translation. For the former, state-of-the-art methods often favor simpler norm losses such as L 2 over adversarial training. However, their averaging nature easily leads to temporally smooth results with an undesirable lack of spatial detail. For unpaired video translation, existing approaches modify the generator networks to form spatio-temporal cycle consistencies. In contrast, we focus on improving learning objectives and propose a temporally self-supervised algorithm. For both tasks, we show that temporal adversarial learning is key to achieving temporally coherent solutions without sacrificing spatial detail. We also propose a novel Ping-Pong loss to improve the long-term temporal consistency. It effectively prevents recurrent networks from accumulating artifacts temporally without depressing detailed features. Additionally, we propose a first set of metrics to quantitatively evaluate the accuracy as well as the perceptual quality of the temporal evolution. A series of user studies confirm the rankings computed with these metrics. Code, data, models, and results are provided at https://github.com/thunil/TecoGAN.",
+      "venue": "ACM Transactions on Graphics",
+      "citation_count": 168,
+      "doi": "10.1145/3386569.3392457",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3386569.3392457",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4281632497",
+      "title": "CogVideo: Large-scale Pretraining for Text-to-Video Generation via Transformers",
+      "authors": [
+        {
+          "name": "Wenyi Hong",
+          "affiliation": ""
+        },
+        {
+          "name": "Ming Ding",
+          "affiliation": ""
+        },
+        {
+          "name": "Wendi Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinghan Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jie Tang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Large-scale pretrained transformers have created milestones in text (GPT-3) and text-to-image (DALL-E and CogView) generation. Its application to video generation is still facing many challenges: The potential huge computation cost makes the training from scratch unaffordable; The scarcity and weak relevance of text-video datasets hinder the model understanding complex movement semantics. In this work, we present 9B-parameter transformer CogVideo, trained by inheriting a pretrained text-to-image model, CogView2. We also propose multi-frame-rate hierarchical training strategy to better align text and video clips. As (probably) the first open-source large-scale pretrained text-to-video model, CogVideo outperforms all publicly available models at a large margin in machine and human evaluations.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 116,
+      "doi": "10.48550/arxiv.2205.15868",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2205.15868",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4386065764",
+      "title": "Notice of Removal: VideoFusion: Decomposed Diffusion Models for High-Quality Video Generation",
+      "authors": [
+        {
+          "name": "Zhengxiong Luo",
+          "affiliation": "PATH To Reading"
+        },
+        {
+          "name": "Dayou Chen",
+          "affiliation": "Alibaba Group (United States)"
+        },
+        {
+          "name": "Yingya Zhang",
+          "affiliation": "Alibaba Group (United States)"
+        },
+        {
+          "name": "Yan Huang",
+          "affiliation": "PATH To Reading"
+        },
+        {
+          "name": "Liang Wang",
+          "affiliation": "PATH To Reading"
+        },
+        {
+          "name": "Yujun Shen",
+          "affiliation": ""
+        },
+        {
+          "name": "Deli Zhao",
+          "affiliation": "Alibaba Group (United States)"
+        },
+        {
+          "name": "Jingren Zhou",
+          "affiliation": "Alibaba Group (United States)"
+        },
+        {
+          "name": "Tieniu Tan",
+          "affiliation": "Chinese Academy of Sciences"
+        }
+      ],
+      "year": 2023,
+      "abstract": "A diffusion probabilistic model (DPM), which constructs a forward diffusion process by gradually adding noise to data points and learns the reverse denoising process to generate new samples, has been shown to handle complex data distribution. Despite its recent success in image synthesis, applying DPMs to video generation is still challenging due to high-dimensional data spaces. Previous methods usually adopt a standard diffusion process, where frames in the same video clip are destroyed with independent noises, ignoring the content redundancy and temporal correlation. This work presents a decomposed diffusion process via resolving the per-frame noise into a base noise that is shared among all frames and a residual noise that varies along the time axis. The denoising pipeline employs two jointly-learned networks to match the noise decomposition accordingly. Experiments on various datasets confirm that our approach, termed as VideoFusion, surpasses both GAN-based and diffusion-based alternatives in high-quality video generation. We further show that our decomposed formulation can benefit from pre-trained image diffusion models and well-support text-conditioned video creation.",
+      "venue": "",
+      "citation_count": 119,
+      "doi": "10.1109/cvpr52729.2023.00984",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr52729.2023.00984",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2990375436",
+      "title": "ImaGINator: Conditional Spatio-Temporal GAN for Video Generation",
+      "authors": [
+        {
+          "name": "Yaohui Wang",
+          "affiliation": "Institut national de recherche en sciences et technologies du num\u00e9rique"
+        },
+        {
+          "name": "Piotr Bili\u0144ski",
+          "affiliation": "University of Warsaw"
+        },
+        {
+          "name": "Fran\u00e7ois Br\u00e9mond",
+          "affiliation": "Institut national de recherche en sciences et technologies du num\u00e9rique"
+        },
+        {
+          "name": "Antitza Dantcheva",
+          "affiliation": "Institut national de recherche en sciences et technologies du num\u00e9rique"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Generating human videos based on single images entails the challenging simultaneous generation of realistic and visual appealing appearance and motion. In this context, we propose a novel conditional GAN architecture, namely ImaGINator, which given a single image, a condition (label of a facial expression or action) and noise, decomposes appearance and motion in both latent and high level feature spaces, generating realistic videos. This is achieved by (i) a novel spatio-temporal fusion scheme, which generates dynamic motion, while retaining appearance throughout the full video sequence by transmitting appearance (originating from the single image) through all layers of the network. In addition, we propose (ii) a novel transposed (1+2)D convolution, factorizing the transposed 3D convolutional filters into separate transposed temporal and spatial components, which yields significantly gains in video quality and speed. We extensively evaluate our approach on the facial expression datasets MUG and UvA-NEMO, as well as on the action datasets NATOPS and Weizmann. We show that our approach achieves significantly better quantitative and qualitative results than the state-of-the-art. The source code and models are available under https://github.com/wyhsirius/ImaGINator.",
+      "venue": "",
+      "citation_count": 108,
+      "doi": "10.1109/wacv45572.2020.9093492",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/wacv45572.2020.9093492",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4312973876",
+      "title": "Development of an End-to-End Deep Learning Framework for Sign Language Recognition, Translation, and Video Generation",
+      "authors": [
+        {
+          "name": "B Natarajan",
+          "affiliation": "SASTRA University"
+        },
+        {
+          "name": "E. Rajalakshmi",
+          "affiliation": "SASTRA University"
+        },
+        {
+          "name": "R Elakkiya",
+          "affiliation": "SASTRA University"
+        },
+        {
+          "name": "Ketan Kotecha",
+          "affiliation": "Symbiosis International University"
+        },
+        {
+          "name": "Ajith Abraham",
+          "affiliation": "Machine Intelligence Research Labs"
+        },
+        {
+          "name": "Lubna A. Gabralla",
+          "affiliation": "Princess Nourah bint Abdulrahman University"
+        },
+        {
+          "name": "V. Subramaniyaswamy",
+          "affiliation": "SASTRA University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "The recent developments in deep learning techniques evolved to new heights in various domains and applications. The recognition, translation, and video generation of Sign Language (SL) still face huge challenges from the development perspective. Although numerous advancements have been made in earlier approaches, the model performance still lacks recognition accuracy and visual quality. In this paper, we introduce novel approaches for developing the complete framework for handling SL recognition, translation, and production tasks in real-time cases. To achieve higher recognition accuracy, we use the MediaPipe library and a hybrid Convolutional Neural Network + Bi-directional Long Short Term Memory (CNN + Bi-LSTM) model for pose details extraction and text generation. On the other hand, the production of sign gesture videos for given spoken sentences is implemented using a hybrid Neural Machine Translation (NMT) + MediaPipe + Dynamic Generative Adversarial Network (GAN) model. The proposed model addresses the various complexities present in the existing approaches and achieves above 95% classification accuracy. In addition to that, the model performance is tested in various phases of development, and the evaluation metrics show noticeable improvements in our model. The model has been experimented with using different multilingual benchmark sign corpus and produces greater results in terms of recognition accuracy and visual quality. The proposed model has secured a 38.06 average Bilingual Evaluation Understudy (BLEU) score, remarkable human evaluation scores, 3.46 average Fr\u00e9chet Inception Distance to videos (FID2vid) score, 0.921 average Structural Similarity Index Measure (SSIM) values, 8.4 average Inception Score, 29.73 average Peak Signal-to-Noise Ratio (PSNR) score, 14.06 average Fr\u00e9chet Inception Distance (FID) score, and an average 0.715 Temporal Consistency Metric (TCM) Score which is evidence of the proposed work.",
+      "venue": "IEEE Access",
+      "citation_count": 141,
+      "doi": "10.1109/access.2022.3210543",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/access.2022.3210543",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4386075767",
+      "title": "MM-Diffusion: Learning Multi-Modal Diffusion Models for Joint Audio and Video Generation",
+      "authors": [
+        {
+          "name": "Ludan Ruan",
+          "affiliation": "Renmin University of China"
+        },
+        {
+          "name": "Yiyang Ma",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Huan Yang",
+          "affiliation": "Microsoft Research (United Kingdom)"
+        },
+        {
+          "name": "Huiguo He",
+          "affiliation": "Microsoft Research (United Kingdom)"
+        },
+        {
+          "name": "Bei Liu",
+          "affiliation": "Microsoft Research (United Kingdom)"
+        },
+        {
+          "name": "Jianlong Fu",
+          "affiliation": "Microsoft Research (United Kingdom)"
+        },
+        {
+          "name": "Nicholas Jing Yuan",
+          "affiliation": "Microsoft Research (United Kingdom)"
+        },
+        {
+          "name": "Qin Jin",
+          "affiliation": "Renmin University of China"
+        },
+        {
+          "name": "Baining Guo",
+          "affiliation": "Microsoft Research (United Kingdom)"
+        }
+      ],
+      "year": 2023,
+      "abstract": "We propose the first joint audio-video generation framework that brings engaging watching and listening experiences simultaneously, towards high-quality realistic videos. To generate joint audio-video pairs, we propose a novel Multi-Modal Diffusion model (i.e., MM-Diffusion), with two-coupled denoising autoencoders. In contrast to existing single-modal diffusion models, MM-Diffusion consists of a sequential multi-modal U-Net for a joint denoising process by design. Two subnets for audio and video learn to gradually generate aligned audio-video pairs from Gaussian noises. To ensure semantic consistency across modalities, we propose a novel random-shift based attention block bridging over the two subnets, which enables efficient cross-modal alignment, and thus reinforces the audio-video fidelity for each other. Extensive experiments show superior results in unconditional audio-video generation, and zeroshot conditional tasks (e.g., video-to-audio). In particular, we achieve the best FVD and FAD on Landscape and AIST++ dancing datasets. Turing tests of 10k votes further demonstrate dominant preferences for our model. The code and pre-trained models can be downloaded at https://github.com/researchmm/MM-Diffusion.",
+      "venue": "",
+      "citation_count": 118,
+      "doi": "10.1109/cvpr52729.2023.00985",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr52729.2023.00985",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4386076323",
+      "title": "Conditional Image-to-Video Generation with Latent Flow Diffusion Models",
+      "authors": [
+        {
+          "name": "Haomiao Ni",
+          "affiliation": "Pennsylvania State University"
+        },
+        {
+          "name": "Changhao Shi",
+          "affiliation": "University of California, San Diego"
+        },
+        {
+          "name": "Kai Li",
+          "affiliation": "Princeton University"
+        },
+        {
+          "name": "Xiaolei Huang",
+          "affiliation": "Pennsylvania State University"
+        },
+        {
+          "name": "Martin Renqiang Min",
+          "affiliation": "Princeton University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Conditional image-to-video (cI2V) generation aims to synthesize a new plausible video starting from an image (e.g., a person's face) and a condition (e.g., an action class label like smile). The key challenge of the cI2V task lies in the simultaneous generation of realistic spatial appearance and temporal dynamics corresponding to the given image and condition. In this paper, we propose an approach for cI2V using novel latent flow diffusion models (LFDM) that synthesize an optical flow sequence in the latent space based on the given condition to warp the given image. Compared to previous direct-synthesis-based works, our proposed LFDM can better synthesize spatial details and temporal motion by fully utilizing the spatial content of the given image and warping it in the latent space according to the generated temporally-coherent flow. The training of LFDM consists of two separate stages: (1) an unsupervised learning stage to train a latent flow auto-encoder for spatial content generation, including a flow predictor to estimate latent flow between pairs of video frames, and (2) a conditional learning stage to train a 3D-UNet-based diffusion model (DM) for temporal latent flow generation. Unlike previous DMs operating in pixel space or latent feature space that couples spatial and temporal information, the DM in our LFDM only needs to learn a low-dimensional latent flow space for motion generation, thus being more computationally efficient. We conduct comprehensive experiments on multiple datasets, where LFDM consistently outperforms prior arts. Furthermore, we show that LFDM can be easily adapted to new domains by simply finetuning the image decoder. Our code is available at https://github.com/nihaomiao/CVPR23_LFDM.",
+      "venue": "",
+      "citation_count": 101,
+      "doi": "10.1109/cvpr52729.2023.01769",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr52729.2023.01769",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4404965692",
+      "title": "Lumiere: A Space-Time Diffusion Model for Video Generation",
+      "authors": [
+        {
+          "name": "Omer Bar-Tal",
+          "affiliation": "Weizmann Institute of Science"
+        },
+        {
+          "name": "Hila Chefer",
+          "affiliation": "Google (Israel)"
+        },
+        {
+          "name": "Omer Tov",
+          "affiliation": "Google (Israel)"
+        },
+        {
+          "name": "Charles Herrmann",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Roni Paiss",
+          "affiliation": "Google (Israel)"
+        },
+        {
+          "name": "Shiran Zada",
+          "affiliation": "Google (Israel)"
+        },
+        {
+          "name": "Ariel Ephrat",
+          "affiliation": "Google (Israel)"
+        },
+        {
+          "name": "Junhwa Hur",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Guanghui Liu",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "A. Stephan Antony Raj",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Yuanzhen Li",
+          "affiliation": "Boston University"
+        },
+        {
+          "name": "Michael Rubinstein",
+          "affiliation": "Boston University"
+        },
+        {
+          "name": "Tomer Michaeli",
+          "affiliation": "Technion \u2013 Israel Institute of Technology"
+        },
+        {
+          "name": "Oliver Wang",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Deqing Sun",
+          "affiliation": "Boston University"
+        },
+        {
+          "name": "Tali Dekel",
+          "affiliation": "Google (Israel)"
+        },
+        {
+          "name": "Inbar Mosseri",
+          "affiliation": "Google (Israel)"
+        }
+      ],
+      "year": 2024,
+      "abstract": "",
+      "venue": "",
+      "citation_count": 89,
+      "doi": "10.1145/3680528.3687614",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3680528.3687614",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3013175169",
+      "title": "G3AN: Disentangling Appearance and Motion for Video Generation",
+      "authors": [
+        {
+          "name": "Yaohui Wang",
+          "affiliation": "Institut national de recherche en informatique et en automatique"
+        },
+        {
+          "name": "Piotr Bili\u0144ski",
+          "affiliation": "University of Warsaw"
+        },
+        {
+          "name": "Fran\u00e7ois Br\u00e9mond",
+          "affiliation": "Institut national de recherche en informatique et en automatique"
+        },
+        {
+          "name": "Antitza Dantcheva",
+          "affiliation": "Observatoire de la C\u00f4te d\u2019Azur"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Creating realistic human videos entails the challenge of being able to simultaneously generate both appearance, as well as motion. To tackle this challenge, we introduce G3AN, a novel spatio-temporal generative model, which seeks to capture the distribution of high dimensional video data and to model appearance and motion in disentangled manner. The latter is achieved by decomposing appearance and motion in a three-stream Generator, where the main stream aims to model spatio-temporal consistency, whereas the two auxiliary streams augment the main stream with multi-scale appearance and motion features, respectively. An extensive quantitative and qualitative analysis shows that our model systematically and significantly outperforms state-of-the-art methods on the facial expression datasets MUG and UvA-NEMO, as well as the Weizmann and UCF101 datasets on human action. Additional analysis on the learned latent representations confirms the successful decomposition of appearance and motion.",
+      "venue": "",
+      "citation_count": 80,
+      "doi": "10.1109/cvpr42600.2020.00531",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr42600.2020.00531",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4312633146",
+      "title": "Long Video Generation with Time-Agnostic VQGAN and Time-Sensitive Transformer",
+      "authors": [
+        {
+          "name": "Songwei Ge",
+          "affiliation": "University of Maryland, College Park"
+        },
+        {
+          "name": "Thomas Hayes",
+          "affiliation": "Menlo School"
+        },
+        {
+          "name": "Harry Yang",
+          "affiliation": "Alpha Omega Alpha Medical Honor Society"
+        },
+        {
+          "name": "Xi Yin",
+          "affiliation": "Alpha Omega Alpha Medical Honor Society"
+        },
+        {
+          "name": "Guan Pang",
+          "affiliation": "Menlo School"
+        },
+        {
+          "name": "David E. Jacobs",
+          "affiliation": "University of Maryland, College Park"
+        },
+        {
+          "name": "Jia\u2010Bin Huang",
+          "affiliation": "Menlo School"
+        },
+        {
+          "name": "Devi Parikh",
+          "affiliation": "Atlanta Technical College"
+        }
+      ],
+      "year": 2022,
+      "abstract": "",
+      "venue": "Lecture notes in computer science",
+      "citation_count": 107,
+      "doi": "10.1007/978-3-031-19790-1_7",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/978-3-031-19790-1_7",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3080642835",
+      "title": "TiVGAN: Text to Image to Video Generation With Step-by-Step Evolutionary Generator",
+      "authors": [
+        {
+          "name": "Doyeon Kim",
+          "affiliation": "Korea Advanced Institute of Science and Technology"
+        },
+        {
+          "name": "Donggyu Joo",
+          "affiliation": "Korea Advanced Institute of Science and Technology"
+        },
+        {
+          "name": "Junmo Kim",
+          "affiliation": "Korea Advanced Institute of Science and Technology"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Advances in technology have led to the development of methods that can create desired visual multimedia. In particular, image generation using deep learning has been extensively studied across diverse fields. In comparison, video generation, especially on conditional inputs, remains a challenging and less explored area. To narrow this gap, we aim to train our model to produce a video corresponding to a given text description. We propose a novel training framework, Text-to-Image-to-Video Generative Adversarial Network (TiVGAN), which evolves frame-by-frame and finally produces a full-length video. In the first phase, we focus on creating a high-quality single video frame while learning the relationship between the text and an image. As the steps proceed, our model is trained gradually on more number of consecutive frames. This step-by-step learning process helps stabilize the training and enables the creation of high-resolution video based on conditional text descriptions. Qualitative and quantitative experimental results on various datasets demonstrate the effectiveness of the proposed method.",
+      "venue": "IEEE Access",
+      "citation_count": 70,
+      "doi": "10.1109/access.2020.3017881",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/access.2020.3017881",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4403990754",
+      "title": "Photorealistic Video Generation with Diffusion Models",
+      "authors": [
+        {
+          "name": "Agrim Gupta",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Lijun Yu",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Kihyuk Sohn",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Xiuye Gu",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Meera Hahn",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Li Fei-Fei",
+          "affiliation": "Stanford University"
+        },
+        {
+          "name": "Irfan Essa",
+          "affiliation": "Georgia Institute of Technology"
+        },
+        {
+          "name": "Lu Jiang",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Jos\u00e9 Lezama",
+          "affiliation": "Google (United States)"
+        }
+      ],
+      "year": 2024,
+      "abstract": "",
+      "venue": "Lecture notes in computer science",
+      "citation_count": 46,
+      "doi": "10.1007/978-3-031-72986-7_23",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/978-3-031-72986-7_23",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4309800375",
+      "title": "MagicVideo: Efficient Video Generation With Latent Diffusion Models",
+      "authors": [
+        {
+          "name": "Daquan Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Weimin Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Hanshu Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Weiwei Lv",
+          "affiliation": ""
+        },
+        {
+          "name": "Yizhe Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiashi Feng",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "We present an efficient text-to-video generation framework based on latent diffusion models, termed MagicVideo. MagicVideo can generate smooth video clips that are concordant with the given text descriptions. Due to a novel and efficient 3D U-Net design and modeling video distributions in a low-dimensional space, MagicVideo can synthesize video clips with 256x256 spatial resolution on a single GPU card, which takes around 64x fewer computations than the Video Diffusion Models (VDM) in terms of FLOPs. In specific, unlike existing works that directly train video models in the RGB space, we use a pre-trained VAE to map video clips into a low-dimensional latent space and learn the distribution of videos' latent codes via a diffusion model. Besides, we introduce two new designs to adapt the U-Net denoiser trained on image tasks to video data: a frame-wise lightweight adaptor for the image-to-video distribution adjustment and a directed temporal attention module to capture temporal dependencies across frames. Thus, we can exploit the informative weights of convolution operators from a text-to-image model for accelerating video training. To ameliorate the pixel dithering in the generated videos, we also propose a novel VideoVAE auto-encoder for better RGB reconstruction. We conduct extensive experiments and demonstrate that MagicVideo can generate high-quality video clips with either realistic or imaginary content. Refer to \\url{https://magicvideo.github.io/#} for more examples.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 63,
+      "doi": "10.48550/arxiv.2211.11018",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2211.11018",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3165405144",
+      "title": "Image-to-Video Generation via 3D Facial Dynamics",
+      "authors": [
+        {
+          "name": "Xiaoguang Tu",
+          "affiliation": "Civil Aviation Flight University of China"
+        },
+        {
+          "name": "Yingtian Zou",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Jian Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenjie Ai",
+          "affiliation": "University of Electronic Science and Technology of China"
+        },
+        {
+          "name": "Jian Dong",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuan Yao",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhikang Wang",
+          "affiliation": "Xidian University"
+        },
+        {
+          "name": "Guodong Guo",
+          "affiliation": "Baidu (China)"
+        },
+        {
+          "name": "Zhifeng Li",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Wei Liu",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Jiashi Feng",
+          "affiliation": "National University of Singapore"
+        }
+      ],
+      "year": 2021,
+      "abstract": "We present a versatile model, FaceAnime, for various video generation tasks from still images. Video generation from a single face image is an interesting problem and usually tackled by utilizing Generative Adversarial Networks (GANs) to integrate information from the input face image and a sequence of sparse facial landmarks. However, the generated face images usually suffer from quality loss, image distortion, identity change, and expression mismatching due to the weak representation capacity of the facial landmarks. In this paper, we propose to \u201cimagine\u201d a face video from a single face image according to the reconstructed 3D face dynamics, aiming to generate a realistic and identity-preserving face video, with precisely predicted pose and facial expression. The 3D dynamics reveal changes of the facial expression and motion, and can serve as a strong prior knowledge for guiding highly realistic face video generation. In particular, we explore face video prediction and exploit a well-designed 3D dynamic prediction network to predict a 3D dynamic sequence for a single face image. The 3D dynamics are then further rendered by the sparse texture mapping algorithm to recover structural details and sparse textures for generating face frames. Our model is versatile for various AR/VR and entertainment applications, such as face video retargeting and face video prediction. Superior experimental results have well demonstrated its effectiveness in generating high-fidelity, identity-preserving, and visually pleasant face video clips from a single source face image.",
+      "venue": "IEEE Transactions on Circuits and Systems for Video Technology",
+      "citation_count": 56,
+      "doi": "10.1109/tcsvt.2021.3083257",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tcsvt.2021.3083257",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4303441850",
+      "title": "Phenaki: Variable Length Video Generation From Open Domain Textual Description",
+      "authors": [
+        {
+          "name": "Ruben Villegas",
+          "affiliation": ""
+        },
+        {
+          "name": "Mohammad Babaeizadeh",
+          "affiliation": ""
+        },
+        {
+          "name": "Pieter-Jan Kindermans",
+          "affiliation": ""
+        },
+        {
+          "name": "Hernan Moraldo",
+          "affiliation": ""
+        },
+        {
+          "name": "Han Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Mohammad Saffar",
+          "affiliation": ""
+        },
+        {
+          "name": "Santiago Castro",
+          "affiliation": ""
+        },
+        {
+          "name": "Julius Kunze",
+          "affiliation": ""
+        },
+        {
+          "name": "Dumitru Erhan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "We present Phenaki, a model capable of realistic video synthesis, given a sequence of textual prompts. Generating videos from text is particularly challenging due to the computational cost, limited quantities of high quality text-video data and variable length of videos. To address these issues, we introduce a new model for learning video representation which compresses the video to a small representation of discrete tokens. This tokenizer uses causal attention in time, which allows it to work with variable-length videos. To generate video tokens from text we are using a bidirectional masked transformer conditioned on pre-computed text tokens. The generated video tokens are subsequently de-tokenized to create the actual video. To address data issues, we demonstrate how joint training on a large corpus of image-text pairs as well as a smaller number of video-text examples can result in generalization beyond what is available in the video datasets. Compared to the previous video generation methods, Phenaki can generate arbitrary long videos conditioned on a sequence of prompts (i.e. time variable text or a story) in open domain. To the best of our knowledge, this is the first time a paper studies generating videos from time variable prompts. In addition, compared to the per-frame baselines, the proposed video encoder-decoder computes fewer tokens per video but results in better spatio-temporal consistency.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 79,
+      "doi": "10.48550/arxiv.2210.02399",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2210.02399",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4402727496",
+      "title": "EvalCrafter: Benchmarking and Evaluating Large Video Generation Models",
+      "authors": [
+        {
+          "name": "Yaofang Liu",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Xiaodong Cun",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Xuebo Liu",
+          "affiliation": "University of Macau"
+        },
+        {
+          "name": "Xintao Wang",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Yong Zhang",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Haoxin Chen",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Yang Liu",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Tieyong Zeng",
+          "affiliation": "Chinese University of Hong Kong"
+        },
+        {
+          "name": "Raymond K. H. Chan",
+          "affiliation": "City University of Hong Kong"
+        },
+        {
+          "name": "Ying Shan",
+          "affiliation": "Tencent (China)"
+        }
+      ],
+      "year": 2024,
+      "abstract": "The vision and language generative models have been overgrown in recent years. For video generation, various open-sourced models and public-available services have been developed to generate high-quality videos. However, these methods often use a few metrics, e.g., FVD [56] or IS [45], to evaluate the performance. We argue that it is hard to judge the large conditional generative models from the simple metrics since these models are often trained on very large datasets with multi-aspect abilities. Thus, we propose a novel framework and pipeline for exhaustively evaluating the performance of the generated videos. Our approach involves generating a diverse and comprehensive list of 700 prompts for text-to-video generation, which is based on an analysis of real-world user data and generated with the assistance of a large language model. Then, we evaluate the state-of-the-art video generative models on our carefully designed benchmark, in terms of visual qualities, content qualities, motion qualities, and text-video alignment with 17 well-selected objective metrics. To obtain the finalleaderboard of the models, we further fit a series of coefficients to align the objective metrics to the users' opinions. Based on the proposed human alignment method, our final score shows a higher correlation than simply averaging the metrics, showing the effectiveness of the proposed evaluation method.",
+      "venue": "",
+      "citation_count": 57,
+      "doi": "10.1109/cvpr52733.2024.02090",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr52733.2024.02090",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4400573519",
+      "title": "MotionCtrl: A Unified and Flexible Motion Controller for Video Generation",
+      "authors": [
+        {
+          "name": "Zhouxia Wang",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Ziyang Yuan",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Xintao Wang",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Yaowei Li",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Tianshui Chen",
+          "affiliation": "Guangdong University of Technology"
+        },
+        {
+          "name": "Menghan Xia",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Ping Luo",
+          "affiliation": "University of Hong Kong"
+        },
+        {
+          "name": "Ying Shan",
+          "affiliation": "Tencent (China)"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Motions in a video primarily consist of camera motion, induced by camera movement, and object motion, resulting from object movement. Accurate control of both camera and object motion is essential for video generation. However, existing works either mainly focus on one type of motion or do not clearly distinguish between the two, limiting their control capabilities and diversity. Therefore, this paper presents MotionCtrl, a unified and flexible motion controller for video generation designed to effectively and independently control camera and object motion. The architecture and training strategy of MotionCtrl are carefully devised, taking into account the inherent properties of camera motion, object motion, and imperfect training data. Compared to previous methods, MotionCtrl offers three main advantages: 1) It effectively and independently controls camera motion and object motion, enabling more fine-grained motion control and facilitating flexible and diverse combinations of both types of motion. 2) Its motion conditions are determined by camera poses and trajectories, which are appearance-free and minimally impact the appearance or shape of objects in generated videos. 3) It is a relatively generalizable model that can adapt to a wide array of camera poses and trajectories once trained. Extensive qualitative and quantitative experiments have been conducted to demonstrate the superiority of MotionCtrl over existing methods. Project page: https://wzhouxiff.github.io/projects/MotionCtrl/ .",
+      "venue": "",
+      "citation_count": 56,
+      "doi": "10.1145/3641519.3657518",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3641519.3657518",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4403062908",
+      "title": "Endora: Video Generation Models as Endoscopy Simulators",
+      "authors": [
+        {
+          "name": "Chenxin Li",
+          "affiliation": "Chinese University of Hong Kong"
+        },
+        {
+          "name": "Hengyu Liu",
+          "affiliation": "Chinese University of Hong Kong"
+        },
+        {
+          "name": "Yifan Liu",
+          "affiliation": "Chinese University of Hong Kong"
+        },
+        {
+          "name": "Brandon Y. Feng",
+          "affiliation": "Massachusetts Institute of Technology"
+        },
+        {
+          "name": "Wuyang Li",
+          "affiliation": "Chinese University of Hong Kong"
+        },
+        {
+          "name": "Xinyu Liu",
+          "affiliation": "Chinese University of Hong Kong"
+        },
+        {
+          "name": "Zhen Chen",
+          "affiliation": "Centre for Artificial Intelligence and Robotics"
+        },
+        {
+          "name": "Jing Shao",
+          "affiliation": "Shanghai Artificial Intelligence Laboratory"
+        },
+        {
+          "name": "Yixuan Yuan",
+          "affiliation": "Chinese University of Hong Kong"
+        }
+      ],
+      "year": 2024,
+      "abstract": "",
+      "venue": "Lecture notes in computer science",
+      "citation_count": 47,
+      "doi": "10.1007/978-3-031-72089-5_22",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/978-3-031-72089-5_22",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4393148505",
+      "title": "Follow Your Pose: Pose-Guided Text-to-Video Generation Using Pose-Free Videos",
+      "authors": [
+        {
+          "name": "Yue Ma",
+          "affiliation": "Tsinghua\u2013Berkeley Shenzhen Institute"
+        },
+        {
+          "name": "Yingqing He",
+          "affiliation": "Hong Kong University of Science and Technology"
+        },
+        {
+          "name": "Xiaodong Cun",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Xintao Wang",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Siran Chen",
+          "affiliation": "Shenzhen Institutes of Advanced Technology"
+        },
+        {
+          "name": "Xiu Li",
+          "affiliation": "Tsinghua\u2013Berkeley Shenzhen Institute"
+        },
+        {
+          "name": "Qifeng Chen",
+          "affiliation": "Hong Kong University of Science and Technology"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Generating text-editable and pose-controllable character videos have an imperious demand in creating various digital human. Nevertheless, this task has been restricted by the absence of a comprehensive dataset featuring paired video-pose captions and the generative prior models for videos. In this work, we design a novel two-stage training scheme that can utilize easily obtained datasets (i.e., image pose pair and pose-free video) and the pre-trained text-to-image (T2I) model to obtain the pose-controllable character videos. Specifically, in the first stage, only the keypoint image pairs are used only for a controllable text-to-image generation. We learn a zero-initialized convolutional encoder to encode the pose information. In the second stage, we finetune the motion of the above network via a pose-free video dataset by adding the learnable temporal self-attention and reformed cross-frame self-attention blocks. Powered by our new designs, our method successfully generates continuously pose-controllable character videos while keeps the editing and concept composition ability of the pre-trained T2I model. The code and models are available on https://follow-your-pose.github.io/.",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 83,
+      "doi": "10.1609/aaai.v38i5.28206",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v38i5.28206",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4405695475",
+      "title": "LaVie: High-Quality Video Generation with Cascaded Latent Diffusion Models",
+      "authors": [
+        {
+          "name": "Yaohui Wang",
+          "affiliation": "Beijing Academy of Artificial Intelligence"
+        },
+        {
+          "name": "Xinyuan Chen",
+          "affiliation": "Shanghai Artificial Intelligence Laboratory"
+        },
+        {
+          "name": "Xin Ma",
+          "affiliation": "Beijing Academy of Artificial Intelligence"
+        },
+        {
+          "name": "Shangchen Zhou",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Ziqi Huang",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Yi Wang",
+          "affiliation": "Shanghai Artificial Intelligence Laboratory"
+        },
+        {
+          "name": "Ceyuan Yang",
+          "affiliation": "Shanghai Artificial Intelligence Laboratory"
+        },
+        {
+          "name": "Yinan He",
+          "affiliation": "Beijing Academy of Artificial Intelligence"
+        },
+        {
+          "name": "Jiashuo Yu",
+          "affiliation": "Shanghai Artificial Intelligence Laboratory"
+        },
+        {
+          "name": "Peiqing Yang",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Yuwei Guo",
+          "affiliation": "Shanghai Artificial Intelligence Laboratory"
+        },
+        {
+          "name": "Tianxing Wu",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Chenyang Si",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Yuming Jiang",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Cunjian Chen",
+          "affiliation": "Monash University"
+        },
+        {
+          "name": "Chen Change Loy",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Bo Dai",
+          "affiliation": "Beijing Academy of Artificial Intelligence"
+        },
+        {
+          "name": "Dahua Lin",
+          "affiliation": "Chinese University of Hong Kong"
+        },
+        {
+          "name": "Yu Qiao",
+          "affiliation": "Beijing Academy of Artificial Intelligence"
+        },
+        {
+          "name": "Ziwei Liu",
+          "affiliation": "Nanyang Technological University"
+        }
+      ],
+      "year": 2024,
+      "abstract": "",
+      "venue": "International Journal of Computer Vision",
+      "citation_count": 60,
+      "doi": "10.1007/s11263-024-02295-1",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s11263-024-02295-1",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4312913021",
+      "title": "Make It Move: Controllable Image-to-Video Generation with Text Descriptions",
+      "authors": [
+        {
+          "name": "Yaosi Hu",
+          "affiliation": "Wuhan University"
+        },
+        {
+          "name": "Chong Luo",
+          "affiliation": "Microsoft Research Asia (China)"
+        },
+        {
+          "name": "Zhenzhong Chen",
+          "affiliation": "Wuhan University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Generating controllable videos conforming to user intentions is an appealing yet challenging topic in computer vision. To enable maneuverable control in line with user intentions, a novel video generation task, named Text-Image-to-Video generation (TI2V), is proposed. With both controllable appearance and motion, TI2V aims at generating videos from a static image and a text description. The key challenges of TI2V task lie both in aligning appearance and motion from different modalities, and in handling uncertainty in text descriptions. To address these challenges, we propose a Motion Anchor-based video GEnerator (MAGE) with an innovative motion anchor (MA) structure to store appearance-motion aligned representation. To model the uncertainty and increase the diversity, it further allows the injection of explicit condition and implicit randomness. Through three-dimensional axial transformers, MA is interacted with given image to generate next frames recursively with satisfying controllability and diversity. Accompanying the new task, we build two new video-text paired datasets based on MNIST and CATER for evaluation. Experiments conducted on these datasets verify the effectiveness of MAGE and show appealing potentials of TI2V task. Datasets are available at https://github.com/Youncy-Hu/MAGE.",
+      "venue": "2022 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+      "citation_count": 54,
+      "doi": "10.1109/cvpr52688.2022.01768",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr52688.2022.01768",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3010434693",
+      "title": "Audio-driven Talking Face Video Generation with Learning-based Personalized Head Pose",
+      "authors": [
+        {
+          "name": "Ran Yi",
+          "affiliation": ""
+        },
+        {
+          "name": "Zipeng Ye",
+          "affiliation": ""
+        },
+        {
+          "name": "Juyong Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Hujun Bao",
+          "affiliation": ""
+        },
+        {
+          "name": "Yong\u2010Jin Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Real-world talking faces often accompany with natural head movement. However, most existing talking face video generation methods only consider facial animation with fixed head pose. In this paper, we address this problem by proposing a deep neural network model that takes an audio signal A of a source person and a very short video V of a target person as input, and outputs a synthesized high-quality talking face video with personalized head pose (making use of the visual information in V), expression and lip synchronization (by considering both A and V). The most challenging issue in our work is that natural poses often cause in-plane and out-of-plane head rotations, which makes synthesized talking face video far from realistic. To address this challenge, we reconstruct 3D face animation and re-render it into synthesized frames. To fine tune these frames into realistic ones with smooth background transition, we propose a novel memory-augmented GAN module. By first training a general mapping based on a publicly available dataset and fine-tuning the mapping using the input short video of target person, we develop an effective strategy that only requires a small number of frames (about 300 frames) to learn personalized talking behavior including head pose. Extensive experiments and two user studies show that our method can generate high-quality (i.e., personalized head movements, expressions and good lip synchronization) talking face videos, which are naturally looking with more distinguishing head movement effects than the state-of-the-art methods.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 77,
+      "doi": "10.48550/arxiv.2002.10137",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2002.10137",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4403906510",
+      "title": "Factorizing Text-to-Video Generation by Explicit Image Conditioning",
+      "authors": [
+        {
+          "name": "Rohit Girdhar",
+          "affiliation": ""
+        },
+        {
+          "name": "Mannat Singh",
+          "affiliation": ""
+        },
+        {
+          "name": "Andrew J. Brown",
+          "affiliation": ""
+        },
+        {
+          "name": "Quentin Duval",
+          "affiliation": ""
+        },
+        {
+          "name": "Samaneh Azadi",
+          "affiliation": ""
+        },
+        {
+          "name": "Sai Saketh Rambhatla",
+          "affiliation": ""
+        },
+        {
+          "name": "Akbar Shah",
+          "affiliation": ""
+        },
+        {
+          "name": "Xi Yin",
+          "affiliation": ""
+        },
+        {
+          "name": "Devi Parikh",
+          "affiliation": ""
+        },
+        {
+          "name": "Ishan Misra",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "",
+      "venue": "Lecture notes in computer science",
+      "citation_count": 47,
+      "doi": "10.1007/978-3-031-73033-7_12",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/978-3-031-73033-7_12",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4403716358",
+      "title": "Show-1: Marrying Pixel and Latent Diffusion Models for Text-to-Video Generation",
+      "authors": [
+        {
+          "name": "David Junhao Zhang",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Jay Zhangjie Wu",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Jiawei Liu",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Rui Zhao",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Lingmin Ran",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Yuchao Gu",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Difei Gao",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Mike Zheng Shou",
+          "affiliation": "National University of Singapore"
+        }
+      ],
+      "year": 2024,
+      "abstract": "",
+      "venue": "International Journal of Computer Vision",
+      "citation_count": 59,
+      "doi": "10.1007/s11263-024-02271-9",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s11263-024-02271-9",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4206517532",
+      "title": "Audio-Driven Talking Face Video Generation With Dynamic Convolution Kernels",
+      "authors": [
+        {
+          "name": "Zipeng Ye",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Mengfei Xia",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Ran Yi",
+          "affiliation": "Shanghai Jiao Tong University"
+        },
+        {
+          "name": "Juyong Zhang",
+          "affiliation": "University of Science and Technology of China"
+        },
+        {
+          "name": "Yu\u2010Kun Lai",
+          "affiliation": "Cardiff University"
+        },
+        {
+          "name": "Xuwei Huang",
+          "affiliation": "Kwai Chung Hospital"
+        },
+        {
+          "name": "Guoxin Zhang",
+          "affiliation": "Kuaishou (China)"
+        },
+        {
+          "name": "Yong\u2010Jin Liu",
+          "affiliation": "Tsinghua University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "In this paper, we present a dynamic convolution kernel (DCK) strategy for convolutional neural networks. Using a fully convolutional network with the proposed DCKs, high-quality talking-face video can be generated from multi-modal sources (i.e., unmatched audio and video) in real time, and our trained model is robust to different identities, head postures, and input audios. Our proposed DCKs are specially designed for audio-driven talking face video generation, leading to a simple yet effective end-to-end system. We also provide a theoretical analysis to interpret why DCKs work. Experimental results show that our method can generate high-quality talking-face video with background at 60 fps. Comparison and evaluation between our method and the state-of-the-art methods demonstrate the superiority of our method.",
+      "venue": "IEEE Transactions on Multimedia",
+      "citation_count": 51,
+      "doi": "10.1109/tmm.2022.3142387",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tmm.2022.3142387",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4390872414",
+      "title": "Text2Performer: Text-Driven Human Video Generation",
+      "authors": [
+        {
+          "name": "Yuming Jiang",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Shuai Yang",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Tong Liang Koh",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Wayne Wu",
+          "affiliation": "Shanghai Artificial Intelligence Laboratory"
+        },
+        {
+          "name": "Chen Change Loy",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Ziwei Liu",
+          "affiliation": "Nanyang Technological University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Text-driven content creation has evolved to be a transformative technique that revolutionizes creativity. Here we study the task of text-driven human video generation, where a video sequence is synthesized from texts describing the appearance and motions of a target performer. Compared to general text-driven video generation, human-centric video generation requires maintaining the appearance of synthesized human while performing complex motions. In this work, we present Text2Performer to generate vivid human videos with articulated motions from texts. Text2Performer has two novel designs: 1) decomposed human representation and 2) diffusion-based motion sampler. First, we decompose the VQVAE latent space into human appearance and pose representation in an unsupervised manner by utilizing the nature of human videos. In this way, the appearance is well maintained along the generated frames. Then, we propose continuous VQ-diffuser to sample a sequence of pose embeddings. Unlike existing VQ-based methods that operate in the discrete space, continuous VQ-diffuser directly outputs the continuous pose embeddings for better motion modeling. Finally, motion-aware masking strategy is designed to mask the pose embeddings spatial-temporally to enhance the temporal coherence. Moreover, to facilitate the task of text-driven human video generation, we contribute a Fashion-Text2Video dataset with manually annotated action labels and text descriptions. Extensive experiments demonstrate that Text2Performer generates high-quality human videos (up to 512 \u00d7 256 resolution) with diverse appearances and flexible motions. Our project page is https://yumingj.github.io/projects/Text2Performer.html",
+      "venue": "",
+      "citation_count": 36,
+      "doi": "10.1109/iccv51070.2023.02079",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/iccv51070.2023.02079",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4391807605",
+      "title": "Make-Your-Video: Customized Video Generation Using Textual and Structural Guidance",
+      "authors": [
+        {
+          "name": "Jinbo Xing",
+          "affiliation": "Chinese University of Hong Kong"
+        },
+        {
+          "name": "Menghan Xia",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Yuxin Liu",
+          "affiliation": "Chinese University of Hong Kong"
+        },
+        {
+          "name": "Yuechen Zhang",
+          "affiliation": "Chinese University of Hong Kong"
+        },
+        {
+          "name": "Yong Zhang",
+          "affiliation": "Chinese University of Hong Kong"
+        },
+        {
+          "name": "Yingqing He",
+          "affiliation": "Hong Kong University of Science and Technology"
+        },
+        {
+          "name": "Hanyuan Liu",
+          "affiliation": "Chinese University of Hong Kong"
+        },
+        {
+          "name": "Haoxin Chen",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Xiaodong Cun",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Xintao Wang",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Ying Shan",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Tien\u2010Tsin Wong",
+          "affiliation": "Chinese University of Hong Kong"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Creating a vivid video from the event or scenario in our imagination is a truly fascinating experience. Recent advancements in text-to-video synthesis have unveiled the potential to achieve this with prompts only. While text is convenient in conveying the overall scene context, it may be insufficient to control precisely. In this paper, we explore customized video generation by utilizing text as context description and motion structure (e.g., frame-wise depth) as concrete guidance. Our method, dubbed Make-Your-Video, involves joint-conditional video generation using a Latent Diffusion Model that is pre-trained for still image synthesis and then promoted for video generation with the introduction of temporal modules. This two-stage learning scheme not only reduces the computing resources required, but also improves the performance by transferring the rich concepts available in image datasets solely into video generation. Moreover, we use a simple yet effective causal attention mask strategy to enable longer video synthesis, which mitigates the potential quality degradation effectively. Experimental results show the superiority of our method over existing baselines, particularly in terms of temporal coherence and fidelity to users' guidance. In addition, our model enables several intriguing applications that demonstrate potential for practical usage.",
+      "venue": "IEEE Transactions on Visualization and Computer Graphics",
+      "citation_count": 45,
+      "doi": "10.1109/tvcg.2024.3365804",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tvcg.2024.3365804",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4388093548",
+      "title": "VideoCrafter1: Open Diffusion Models for High-Quality Video Generation",
+      "authors": [
+        {
+          "name": "Haoxin Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Menghan Xia",
+          "affiliation": ""
+        },
+        {
+          "name": "Yingqing He",
+          "affiliation": ""
+        },
+        {
+          "name": "Yong Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaodong Cun",
+          "affiliation": ""
+        },
+        {
+          "name": "Shaoshu Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jinbo Xing",
+          "affiliation": ""
+        },
+        {
+          "name": "Yaofang Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Qifeng Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Xintao Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chao Weng",
+          "affiliation": ""
+        },
+        {
+          "name": "Ying Shan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Video generation has increasingly gained interest in both academia and industry. Although commercial tools can generate plausible videos, there is a limited number of open-source models available for researchers and engineers. In this work, we introduce two diffusion models for high-quality video generation, namely text-to-video (T2V) and image-to-video (I2V) models. T2V models synthesize a video based on a given text input, while I2V models incorporate an additional image input. Our proposed T2V model can generate realistic and cinematic-quality videos with a resolution of $1024 \\times 576$, outperforming other open-source T2V models in terms of quality. The I2V model is designed to produce videos that strictly adhere to the content of the provided reference image, preserving its content, structure, and style. This model is the first open-source I2V foundation model capable of transforming a given image into a video clip while maintaining content preservation constraints. We believe that these open-source video generation models will contribute significantly to the technological advancements within the community.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 37,
+      "doi": "10.48550/arxiv.2310.19512",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2310.19512",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4377865162",
+      "title": "ControlVideo: Training-free Controllable Text-to-Video Generation",
+      "authors": [
+        {
+          "name": "Yabo Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuxiang Wei",
+          "affiliation": ""
+        },
+        {
+          "name": "Dongsheng Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaopeng Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wangmeng Zuo",
+          "affiliation": ""
+        },
+        {
+          "name": "Qi Tian",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Text-driven diffusion models have unlocked unprecedented abilities in image generation, whereas their video counterpart still lags behind due to the excessive training cost of temporal modeling. Besides the training burden, the generated videos also suffer from appearance inconsistency and structural flickers, especially in long video synthesis. To address these challenges, we design a \\emph{training-free} framework called \\textbf{ControlVideo} to enable natural and efficient text-to-video generation. ControlVideo, adapted from ControlNet, leverages coarsely structural consistency from input motion sequences, and introduces three modules to improve video generation. Firstly, to ensure appearance coherence between frames, ControlVideo adds fully cross-frame interaction in self-attention modules. Secondly, to mitigate the flicker effect, it introduces an interleaved-frame smoother that employs frame interpolation on alternated frames. Finally, to produce long videos efficiently, it utilizes a hierarchical sampler that separately synthesizes each short clip with holistic coherency. Empowered with these modules, ControlVideo outperforms the state-of-the-arts on extensive motion-prompt pairs quantitatively and qualitatively. Notably, thanks to the efficient designs, it generates both short and long videos within several minutes using one NVIDIA 2080Ti. Code is available at https://github.com/YBYBZhang/ControlVideo.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 34,
+      "doi": "10.48550/arxiv.2305.13077",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2305.13077",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4400582084",
+      "title": "Motion-I2V: Consistent and Controllable Image-to-Video Generation with Explicit Motion Modeling",
+      "authors": [
+        {
+          "name": "Xiaoyu Shi",
+          "affiliation": "Chinese University of Hong Kong"
+        },
+        {
+          "name": "Zhaoyang Huang",
+          "affiliation": "Chinese University of Hong Kong"
+        },
+        {
+          "name": "Fu-Yun Wang",
+          "affiliation": "Chinese University of Hong Kong"
+        },
+        {
+          "name": "Weikang Bian",
+          "affiliation": "Chinese University of Hong Kong"
+        },
+        {
+          "name": "Dasong Li",
+          "affiliation": "Chinese University of Hong Kong"
+        },
+        {
+          "name": "Yi Zhang",
+          "affiliation": "Group Sense (China)"
+        },
+        {
+          "name": "Manyuan Zhang",
+          "affiliation": "Chinese University of Hong Kong"
+        },
+        {
+          "name": "Ka Chun Cheung",
+          "affiliation": "NanoBioImaging (China)"
+        },
+        {
+          "name": "Simon See",
+          "affiliation": "NanoBioImaging (China)"
+        },
+        {
+          "name": "Hongwei Qin",
+          "affiliation": "Group Sense (China)"
+        },
+        {
+          "name": "Yifeng Dai",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Hongsheng Li",
+          "affiliation": "Chinese University of Hong Kong"
+        }
+      ],
+      "year": 2024,
+      "abstract": "We introduce Motion-I2V, a novel framework for consistent and controllable text-guided image-to-video generation (I2V). In contrast to previous methods that directly learn the complicated image-to-video mapping, Motion-I2V factorizes I2V into two stages with explicit motion modeling. For the first stage, we propose a diffusion-based motion field predictor, which focuses on deducing the trajectories of the reference image\u2019s pixels. For the second stage, we propose motion-augmented temporal attention to enhance the limited 1-D temporal attention in video latent diffusion models. This module can effectively propagate reference image features to synthesized frames with the guidance of predicted trajectories from the first stage. Compared with existing methods, Motion-I2V can generate more consistent videos even in the presence of large motion and viewpoint variation. By training a sparse trajectory ControlNet for the first stage, Motion-I2V can support users to precisely control motion trajectories and motion regions with sparse trajectory and region. This offers more controllability of the I2V process than solely relying on textual instructions. Additionally, Motion-I2V\u2019s second stage naturally supports zero-shot video-to-video translation. Both qualitative and quantitative comparisons demonstrate the advantages of Motion-I2V over prior approaches in consistent and controllable image-to-video generation. Please see our project page at https://xiaoyushi97.github.io/Motion-I2V/.",
+      "venue": "",
+      "citation_count": 45,
+      "doi": "10.1145/3641519.3657497",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3641519.3657497",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4402727798",
+      "title": "Make Pixels Dance: High-Dynamic Video Generation",
+      "authors": [
+        {
+          "name": "Yan Zeng",
+          "affiliation": ""
+        },
+        {
+          "name": "Guoqiang Wei",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiani Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiaxin Zou",
+          "affiliation": ""
+        },
+        {
+          "name": "Wei Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuchen Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Hang Li",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Creating high-dynamic videos such as motion-rich actions and sophisticated visual effects poses a significant challenge in the field of artificial intelligence. Unfortu-nately, current state-of-the-art video generation methods, primarily focusing on text-to- video generation, tend to pro-duce video clips with minimal motions despite maintaining high fidelity. We argue that relying solely on text in-structions is insufficient and suboptimal for video generation. In this paper, we introduce PixelDance, a novel approach based on diffusion models that incorporates image instructions for both the first and last frames in conjunction with text instructions for video generation. Comprehensive experimental results demonstrate that PixelDance trained with public data exhibits significantly better proficiency in synthesizing videos with complex scenes and intricate motions, setting a new standard for video generation.",
+      "venue": "",
+      "citation_count": 30,
+      "doi": "10.1109/cvpr52733.2024.00845",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr52733.2024.00845",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3173728943",
+      "title": "AutoClips: An Automatic Approach to Video Generation from Data Facts",
+      "authors": [
+        {
+          "name": "Danqing Shi",
+          "affiliation": "Tongji University"
+        },
+        {
+          "name": "Fengchi Sun",
+          "affiliation": "Tongji University"
+        },
+        {
+          "name": "Xiang Xu",
+          "affiliation": "Tongji University"
+        },
+        {
+          "name": "Xingyu Lan",
+          "affiliation": "Tongji University"
+        },
+        {
+          "name": "David Gotz",
+          "affiliation": "University of North Carolina at Chapel Hill"
+        },
+        {
+          "name": "Nan Cao",
+          "affiliation": "Tongji University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Abstract Data videos, a storytelling genre that visualizes data facts with motion graphics, are gaining increasing popularity among data journalists, non\u2010profits, and marketers to communicate data to broad audiences. However, crafting a data video is often time\u2010consuming and asks for various domain knowledge such as data visualization, animation design, and screenwriting. Existing authoring tools usually enable users to edit and compose a set of templates manually, which still cost a lot of human effort. To further lower the barrier of creating data videos, this work introduces a new approach, AutoClips, which can automatically generate data videos given the input of a sequence of data facts. We built AutoClips through two stages. First, we constructed a fact\u2010driven clip library where we mapped ten data facts to potential animated visualizations respectively by analyzing 230 online data videos and conducting interviews. Next, we constructed an algorithm that generates data videos from data facts through three steps: selecting and identifying the optimal clip for each of the data facts, arranging the clips into a coherent video, and optimizing the duration of the video. The results from two user studies indicated that the data videos generated by AutoClips are comprehensible, engaging, and have comparable quality with human\u2010made videos.",
+      "venue": "Computer Graphics Forum",
+      "citation_count": 48,
+      "doi": "10.1111/cgf.14324",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1111/cgf.14324",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4387156659",
+      "title": "LAVIE: High-Quality Video Generation with Cascaded Latent Diffusion Models",
+      "authors": [
+        {
+          "name": "Yaohui Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinyuan Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Xin Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Shangchen Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Ziqi Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ceyuan Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yinan He",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiashuo Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Peiqing Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuwei Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Tianxing Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Chenyang Si",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuming Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Cunjian Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Chen Change Loy",
+          "affiliation": ""
+        },
+        {
+          "name": "Bo Dai",
+          "affiliation": ""
+        },
+        {
+          "name": "Dahua Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Qiao",
+          "affiliation": ""
+        },
+        {
+          "name": "Ziwei Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "This work aims to learn a high-quality text-to-video (T2V) generative model by leveraging a pre-trained text-to-image (T2I) model as a basis. It is a highly desirable yet challenging task to simultaneously a) accomplish the synthesis of visually realistic and temporally coherent videos while b) preserving the strong creative generation nature of the pre-trained T2I model. To this end, we propose LaVie, an integrated video generation framework that operates on cascaded video latent diffusion models, comprising a base T2V model, a temporal interpolation model, and a video super-resolution model. Our key insights are two-fold: 1) We reveal that the incorporation of simple temporal self-attentions, coupled with rotary positional encoding, adequately captures the temporal correlations inherent in video data. 2) Additionally, we validate that the process of joint image-video fine-tuning plays a pivotal role in producing high-quality and creative outcomes. To enhance the performance of LaVie, we contribute a comprehensive and diverse video dataset named Vimeo25M, consisting of 25 million text-video pairs that prioritize quality, diversity, and aesthetic appeal. Extensive experiments demonstrate that LaVie achieves state-of-the-art performance both quantitatively and qualitatively. Furthermore, we showcase the versatility of pre-trained LaVie models in various long video generation and personalized video synthesis applications.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 34,
+      "doi": "10.48550/arxiv.2309.15103",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2309.15103",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4388428086",
+      "title": "Notice of Removal: VideoFusion: Decomposed Diffusion Models for High-Quality Video Generation",
+      "authors": [
+        {
+          "name": "Zhengxiong Luo",
+          "affiliation": "Chinese Academy of Sciences"
+        },
+        {
+          "name": "Dayou Chen",
+          "affiliation": "Alibaba Group (United States)"
+        },
+        {
+          "name": "Yingya Zhang",
+          "affiliation": "Alibaba Group (United States)"
+        },
+        {
+          "name": "Yan Huang",
+          "affiliation": "Chinese Academy of Sciences"
+        },
+        {
+          "name": "Liang Wang",
+          "affiliation": "Chinese Academy of Sciences"
+        },
+        {
+          "name": "Yujun Shen",
+          "affiliation": ""
+        },
+        {
+          "name": "Deli Zhao",
+          "affiliation": "Alibaba Group (United States)"
+        },
+        {
+          "name": "Jingren Zhou",
+          "affiliation": "Alibaba Group (United States)"
+        },
+        {
+          "name": "Tieniu Tan",
+          "affiliation": "PATH To Reading"
+        }
+      ],
+      "year": 2023,
+      "abstract": "A diffusion probabilistic model (DPM), which constructs a forward diffusion process by gradually adding noise to data points and learns the reverse denoising process to generate new samples, has been shown to handle complex data distribution. Despite its recent success in image synthesis, applying DPMs to video generation is still challenging due to high-dimensional data spaces. Previous methods usually adopt a standard diffusion process, where frames in the same video clip are destroyed with independent noises, ignoring the content redundancy and temporal correlation. This work presents a decomposed diffusion process via resolving the per-frame noise into a base noise that is shared among all frames and a residual noise that varies along the time axis. The denoising pipeline employs two jointly-learned networks to match the noise decomposition accordingly. Experiments on various datasets confirm that our approach, termed as VideoFusion, surpasses both GAN-based and diffusion-based alternatives in high-quality video generation. We further show that our decomposed formulation can benefit from pre-trained image diffusion models and well-support text-conditioned video creation.",
+      "venue": "",
+      "citation_count": 38,
+      "doi": "10.1109/cvpr52729.2023.10308948",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr52729.2023.10308948",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3110984360",
+      "title": "CrowdGAN: Identity-Free Interactive Crowd Video Generation and Beyond",
+      "authors": [
+        {
+          "name": "Liangyu Chai",
+          "affiliation": "South China University of Technology"
+        },
+        {
+          "name": "Yongtuo Liu",
+          "affiliation": "South China University of Technology"
+        },
+        {
+          "name": "Wenxi Liu",
+          "affiliation": "Fuzhou University"
+        },
+        {
+          "name": "Guoqiang Han",
+          "affiliation": "South China University of Technology"
+        },
+        {
+          "name": "Shengfeng He",
+          "affiliation": "South China University of Technology"
+        }
+      ],
+      "year": 2020,
+      "abstract": "In this paper, we introduce a novel yet challenging research problem, interactive crowd video generation, committed to producing diverse and continuous crowd video, and relieving the difficulty of insufficient annotated real-world datasets in crowd analysis. Our goal is to recursively generate realistic future crowd video frames given few context frames, under the user-specified guidance, namely individual positions of the crowd. To this end, we propose a deep network architecture specifically designed for crowd video generation that is composed of two complementary modules, each of which combats the problems of crowd dynamic synthesis and appearance preservation respectively. Particularly, a spatio-temporal transfer module is proposed to infer the crowd position and structure from guidance and temporal information, and a point-aware flow prediction module is presented to preserve appearance consistency by flow-based warping. Then, the outputs of the two modules are integrated by a self-selective fusion unit to produce an identity-preserved and continuous video. Unlike previous works, we generate continuous crowd behaviors beyond identity annotations or matching. Extensive experiments show that our method is effective for crowd video generation. More importantly, we demonstrate the generated video can produce diverse crowd behaviors and be used for augmenting different crowd analysis tasks, i.e., crowd counting, anomaly detection, crowd video prediction. Code is available at https://github.com/Icep2020/CrowdGAN.",
+      "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+      "citation_count": 30,
+      "doi": "10.1109/tpami.2020.3043372",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tpami.2020.3043372",
+      "source": "openalex",
+      "_bibtex_override": ""
+    }
+  ]
+}

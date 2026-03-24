@@ -1,0 +1,2232 @@
+{
+  "query": "World Model",
+  "source": "semantic_scholar",
+  "limit": 40,
+  "timestamp": 1774290473.2431285,
+  "papers": [
+    {
+      "paper_id": "s2-5dbffedcabe3fa43060ebbe2b1789500edfd871f",
+      "title": "Reasoning with Language Model is Planning with World Model",
+      "authors": [
+        {
+          "name": "Shibo Hao",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi Gu",
+          "affiliation": ""
+        },
+        {
+          "name": "Haodi Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Joshua Jiahua Hong",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhen Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "D. Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiting Hu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Large language models (LLMs) have shown remarkable reasoning capabilities, especially when prompted to generate intermediate reasoning steps (e.g., Chain-of-Thought, CoT). However, LLMs can still struggle with problems that are easy for humans, such as generating action plans for executing tasks in a given environment, or performing complex math, logical, and commonsense reasoning. The deficiency stems from the key fact that LLMs lack an internal $\\textit{world model}$ to predict the world $\\textit{state}$ (e.g., environment status, intermediate variable values) and simulate long-term outcomes of actions. This prevents LLMs from performing deliberate planning akin to human brains, which involves exploring alternative reasoning paths, anticipating future states and rewards, and iteratively refining existing reasoning steps. To overcome the limitations, we propose a new LLM reasoning framework, $\\underline{R}$easoning vi$\\underline{a}$ $\\underline{P}$lanning $\\textbf{(RAP)}$. RAP repurposes the LLM as both a world model and a reasoning agent, and incorporates a principled planning algorithm (based on Monto Carlo Tree Search) for strategic exploration in the vast reasoning space. During reasoning, the LLM (as agent) incrementally builds a reasoning tree under the guidance of the LLM (as world model) and task-specific rewards, and obtains a high-reward reasoning path efficiently with a proper balance between exploration $\\textit{vs.}$ exploitation. We apply RAP to a variety of challenging reasoning problems including plan generation, math reasoning, and logical inference. Empirical results on these tasks demonstrate the superiority of RAP over various strong baselines, including CoT and least-to-most prompting with self-consistency. RAP on LLAMA-33B surpasses CoT on GPT-4 with 33% relative improvement in a plan generation setting.",
+      "venue": "Conference on Empirical Methods in Natural Language Processing",
+      "citation_count": 923,
+      "doi": "10.48550/arXiv.2305.14992",
+      "arxiv_id": "2305.14992",
+      "url": "https://www.semanticscholar.org/paper/5dbffedcabe3fa43060ebbe2b1789500edfd871f",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-725f8803dfe4551988fd4b51fdfa940340b4222e",
+      "title": "WorldVLA: Towards Autoregressive Action World Model",
+      "authors": [
+        {
+          "name": "Jun Cen",
+          "affiliation": ""
+        },
+        {
+          "name": "Chaohui Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hangjie Yuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuming Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Siteng Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiayan Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Xin Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yibing Song",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Luo",
+          "affiliation": ""
+        },
+        {
+          "name": "Fan Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Deli Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Chen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "We present WorldVLA, an autoregressive action world model that unifies action and image understanding and generation. Our WorldVLA intergrates Vision-Language-Action (VLA) model and world model in one single framework. The world model predicts future images by leveraging both action and image understanding, with the purpose of learning the underlying physics of the environment to improve action generation. Meanwhile, the action model generates the subsequent actions based on image observations, aiding in visual understanding and in turn helps visual generation of the world model. We demonstrate that WorldVLA outperforms standalone action and world models, highlighting the mutual enhancement between the world model and the action model. In addition, we find that the performance of the action model deteriorates when generating sequences of actions in an autoregressive manner. This phenomenon can be attributed to the model's limited generalization capability for action prediction, leading to the propagation of errors from earlier actions to subsequent ones. To address this issue, we propose an attention mask strategy that selectively masks prior actions during the generation of the current action, which shows significant performance improvement in the action chunk generation task.",
+      "venue": "arXiv.org",
+      "citation_count": 117,
+      "doi": "10.48550/arXiv.2506.21539",
+      "arxiv_id": "2506.21539",
+      "url": "https://www.semanticscholar.org/paper/725f8803dfe4551988fd4b51fdfa940340b4222e",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-ece57d6dcb7ee3e88d2ee94328badb5b41098744",
+      "title": "Vista: A Generalizable Driving World Model with High Fidelity and Versatile Controllability",
+      "authors": [
+        {
+          "name": "Shenyuan Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiazhi Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Li Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Kashyap Chitta",
+          "affiliation": ""
+        },
+        {
+          "name": "Yihang Qiu",
+          "affiliation": ""
+        },
+        {
+          "name": "Andreas Geiger",
+          "affiliation": ""
+        },
+        {
+          "name": "Jun Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Hongyang Li",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "World models can foresee the outcomes of different actions, which is of paramount importance for autonomous driving. Nevertheless, existing driving world models still have limitations in generalization to unseen environments, prediction fidelity of critical details, and action controllability for flexible application. In this paper, we present Vista, a generalizable driving world model with high fidelity and versatile controllability. Based on a systematic diagnosis of existing methods, we introduce several key ingredients to address these limitations. To accurately predict real-world dynamics at high resolution, we propose two novel losses to promote the learning of moving instances and structural information. We also devise an effective latent replacement approach to inject historical frames as priors for coherent long-horizon rollouts. For action controllability, we incorporate a versatile set of controls from high-level intentions (command, goal point) to low-level maneuvers (trajectory, angle, and speed) through an efficient learning strategy. After large-scale training, the capabilities of Vista can seamlessly generalize to different scenarios. Extensive experiments on multiple datasets show that Vista outperforms the most advanced general-purpose video generator in over 70% of comparisons and surpasses the best-performing driving world model by 55% in FID and 27% in FVD. Moreover, for the first time, we utilize the capacity of Vista itself to establish a generalizable reward for real-world action evaluation without accessing the ground truth actions.",
+      "venue": "Neural Information Processing Systems",
+      "citation_count": 244,
+      "doi": "10.48550/arXiv.2405.17398",
+      "arxiv_id": "2405.17398",
+      "url": "https://www.semanticscholar.org/paper/ece57d6dcb7ee3e88d2ee94328badb5b41098744",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-234159e46e429d0ccd3718110861ec81d9c5dfe1",
+      "title": "GAIA-2: A Controllable Multi-View Generative World Model for Autonomous Driving",
+      "authors": [
+        {
+          "name": "Lloyd Russell",
+          "affiliation": ""
+        },
+        {
+          "name": "Anthony Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Lorenzo Bertoni",
+          "affiliation": ""
+        },
+        {
+          "name": "George Fedoseev",
+          "affiliation": ""
+        },
+        {
+          "name": "Jamie Shotton",
+          "affiliation": ""
+        },
+        {
+          "name": "Elahe Arani",
+          "affiliation": ""
+        },
+        {
+          "name": "Gianluca Corrado",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Generative models offer a scalable and flexible paradigm for simulating complex environments, yet current approaches fall short in addressing the domain-specific requirements of autonomous driving - such as multi-agent interactions, fine-grained control, and multi-camera consistency. We introduce GAIA-2, Generative AI for Autonomy, a latent diffusion world model that unifies these capabilities within a single generative framework. GAIA-2 supports controllable video generation conditioned on a rich set of structured inputs: ego-vehicle dynamics, agent configurations, environmental factors, and road semantics. It generates high-resolution, spatiotemporally consistent multi-camera videos across geographically diverse driving environments (UK, US, Germany). The model integrates both structured conditioning and external latent embeddings (e.g., from a proprietary driving model) to facilitate flexible and semantically grounded scene synthesis. Through this integration, GAIA-2 enables scalable simulation of both common and rare driving scenarios, advancing the use of generative world models as a core tool in the development of autonomous systems. Videos are available at https://wayve.ai/thinking/gaia-2.",
+      "venue": "arXiv.org",
+      "citation_count": 93,
+      "doi": "10.48550/arXiv.2503.20523",
+      "arxiv_id": "2503.20523",
+      "url": "https://www.semanticscholar.org/paper/234159e46e429d0ccd3718110861ec81d9c5dfe1",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-ef44309e88648ac91984baf7ffad8f78c5d25be5",
+      "title": "End-to-End Driving with Online Trajectory Evaluation via BEV World Model",
+      "authors": [
+        {
+          "name": "Yingyan Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu-Quan Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiawei He",
+          "affiliation": ""
+        },
+        {
+          "name": "Lue Fan",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhaoxiang Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "End-to-end autonomous driving has achieved remarkable progress by integrating perception, prediction, and planning into a fully differentiable framework. Yet, to fully realize its potential, an effective online trajectory evaluation is indispensable to ensure safety. By forecasting the future outcomes of a given trajectory, trajectory evaluation becomes much more effective. This goal can be achieved by employing a world model to capture environmental dynamics and predict future states. Therefore, we propose an end-to-end driving framework WoTE, which leverages a BEV World model to predict future BEV states for Trajectory Evaluation. The proposed BEV world model is latency-efficient compared to image-level world models and can be seamlessly supervised using off-the-shelf BEV-space traffic simulators. We validate our framework on both the NAVSIM benchmark and the closed-loop Bench2Drive benchmark based on the CARLA simulator, achieving state-of-the-art performance. Code is released at https://github.com/liyingyanUCAS/WoTE.",
+      "venue": "arXiv.org",
+      "citation_count": 74,
+      "doi": "10.48550/arXiv.2504.01941",
+      "arxiv_id": "2504.01941",
+      "url": "https://www.semanticscholar.org/paper/ef44309e88648ac91984baf7ffad8f78c5d25be5",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-32015b0f0fc091207b04b11f8b96ea8f487a3d30",
+      "title": "Matrix-Game 2.0: An Open-Source, Real-Time, and Streaming Interactive World Model",
+      "authors": [
+        {
+          "name": "Xianglong He",
+          "affiliation": ""
+        },
+        {
+          "name": "Chunli Peng",
+          "affiliation": ""
+        },
+        {
+          "name": "Zexiang Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Boyang Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yifan Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Qiushi Cui",
+          "affiliation": ""
+        },
+        {
+          "name": "Fei Kang",
+          "affiliation": ""
+        },
+        {
+          "name": "Biao Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Mengyin An",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang Ren",
+          "affiliation": ""
+        },
+        {
+          "name": "Baixin Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Kaixiong Gong",
+          "affiliation": ""
+        },
+        {
+          "name": "Cyrus Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Wei Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Xuchen Song",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Eric Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yahui Zhou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Recent advances in interactive video generations have demonstrated diffusion model's potential as world models by capturing complex physical dynamics and interactive behaviors. However, existing interactive world models depend on bidirectional attention and lengthy inference steps, severely limiting real-time performance. Consequently, they are hard to simulate real-world dynamics, where outcomes must update instantaneously based on historical context and current actions. To address this, we present Matrix-Game 2.0, an interactive world model generates long videos on-the-fly via few-step auto-regressive diffusion. Our framework consists of three key components: (1) A scalable data production pipeline for Unreal Engine and GTA5 environments to effectively produce massive amounts (about 1200 hours) of video data with diverse interaction annotations; (2) An action injection module that enables frame-level mouse and keyboard inputs as interactive conditions; (3) A few-step distillation based on the casual architecture for real-time and streaming video generation. Matrix Game 2.0 can generate high-quality minute-level videos across diverse scenes at an ultra-fast speed of 25 FPS. We open-source our model weights and codebase to advance research in interactive world modeling.",
+      "venue": "arXiv.org",
+      "citation_count": 56,
+      "doi": "10.48550/arXiv.2508.13009",
+      "arxiv_id": "2508.13009",
+      "url": "https://www.semanticscholar.org/paper/32015b0f0fc091207b04b11f8b96ea8f487a3d30",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-8257f34c0cb0c69ccf7df4d2a9423c42a8f4b052",
+      "title": "MineWorld: a Real-Time and Open-Source Interactive World Model on Minecraft",
+      "authors": [
+        {
+          "name": "Junliang Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang Ye",
+          "affiliation": ""
+        },
+        {
+          "name": "Tianyu He",
+          "affiliation": ""
+        },
+        {
+          "name": "Haoyu Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yushu Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Tim Pearce",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiang Bian",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "World modeling is a crucial task for enabling intelligent agents to effectively interact with humans and operate in dynamic environments. In this work, we propose MineWorld, a real-time interactive world model on Minecraft, an open-ended sandbox game which has been utilized as a common testbed for world modeling. MineWorld is driven by a visual-action autoregressive Transformer, which takes paired game scenes and corresponding actions as input, and generates consequent new scenes following the actions. Specifically, by transforming visual game scenes and actions into discrete token ids with an image tokenizer and an action tokenizer correspondingly, we consist the model input with the concatenation of the two kinds of ids interleaved. The model is then trained with next token prediction to learn rich representations of game states as well as the conditions between states and actions simultaneously. In inference, we develop a novel parallel decoding algorithm that predicts the spatial redundant tokens in each frame at the same time, letting models in different scales generate $4$ to $7$ frames per second and enabling real-time interactions with game players. In evaluation, we propose new metrics to assess not only visual quality but also the action following capacity when generating new scenes, which is crucial for a world model. Our comprehensive evaluation shows the efficacy of MineWorld, outperforming SoTA open-sourced diffusion based world models significantly. The code and model have been released.",
+      "venue": "arXiv.org",
+      "citation_count": 47,
+      "doi": "10.48550/arXiv.2504.08388",
+      "arxiv_id": "2504.08388",
+      "url": "https://www.semanticscholar.org/paper/8257f34c0cb0c69ccf7df4d2a9423c42a8f4b052",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-d6a5109286787ee5e53f4f137253040dcc273094",
+      "title": "World4Drive: End-to-End Autonomous Driving via Intention-aware Physical Latent World Model",
+      "authors": [
+        {
+          "name": "Yupeng Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Pengxuan Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zebin Xing",
+          "affiliation": ""
+        },
+        {
+          "name": "Qichao Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuhang Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Yinfeng Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Pengfei Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Teng Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhongpu Xia",
+          "affiliation": ""
+        },
+        {
+          "name": "Peng Jia",
+          "affiliation": ""
+        },
+        {
+          "name": "Dongbin Zhao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "End-to-end autonomous driving directly generates planning trajectories from raw sensor data, yet it typically relies on costly perception supervision to extract scene information. A critical research challenge arises: constructing an informative driving world model to enable perception annotation-free, end-to-end planning via self-supervised learning. In this paper, we present World4Drive, an end-to-end autonomous driving framework that employs vision foundation models to build latent world models for generating and evaluating multi-modal planning trajectories. Specifically, World4Drive first extracts scene features, including driving intention and world latent representations enriched with spatial-semantic priors provided by vision foundation models. It then generates multi-modal planning trajectories based on current scene features and driving intentions and predicts multiple intention-driven future states within the latent space. Finally, it introduces a world model selector module to evaluate and select the best trajectory. We achieve perception annotation-free, end-to-end planning through self-supervised alignment between actual future observations and predicted observations reconstructed from the latent space. World4Drive achieves state-of-the-art performance without manual perception annotations on both the open-loop nuScenes and closed-loop NavSim benchmarks, demonstrating an 18.1\\% relative reduction in L2 error, 46.7% lower collision rate, and 3.75 faster training convergence. Codes will be accessed at https://github.com/ucaszyp/World4Drive.",
+      "venue": "arXiv.org",
+      "citation_count": 44,
+      "doi": "10.48550/arXiv.2507.00603",
+      "arxiv_id": "2507.00603",
+      "url": "https://www.semanticscholar.org/paper/d6a5109286787ee5e53f4f137253040dcc273094",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-4c4935a6d2c55f4a878868c5a23f63117d4523a8",
+      "title": "Epona: Autoregressive Diffusion World Model for Autonomous Driving",
+      "authors": [
+        {
+          "name": "Kaiwen Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhenyu Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaotao Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xingang Pan",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaoyang Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuan Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jing Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Li Yuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Qian Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaoxiao Long",
+          "affiliation": ""
+        },
+        {
+          "name": "Xun Cao",
+          "affiliation": ""
+        },
+        {
+          "name": "Wei Yin",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Diffusion models have demonstrated exceptional visual quality in video generation, making them promising for autonomous driving world modeling. However, existing video diffusion-based world models struggle with flexible-length, long-horizon predictions and integrating trajectory planning. This is because conventional video diffusion models rely on global joint distribution modeling of fixed-length frame sequences rather than sequentially constructing localized distributions at each timestep. In this work, we propose Epona, an autoregressive diffusion world model that enables localized spatiotemporal distribution modeling through two key innovations: 1) Decoupled spatiotemporal factorization that separates temporal dynamics modeling from fine-grained future world generation, and 2) Modular trajectory and video prediction that seamlessly integrate motion planning with visual modeling in an end-to-end framework. Our architecture enables high-resolution, long-duration generation while introducing a novel chain-of-forward training strategy to address error accumulation in autoregressive loops. Experimental results demonstrate state-of-the-art performance with 7.4\\% FVD improvement and minutes longer prediction duration compared to prior works. The learned world model further serves as a real-time motion planner, outperforming strong end-to-end planners on NAVSIM benchmarks. Code will be publicly available at \\href{https://github.com/Kevin-thu/Epona/}{https://github.com/Kevin-thu/Epona/}.",
+      "venue": "arXiv.org",
+      "citation_count": 42,
+      "doi": "10.48550/arXiv.2506.24113",
+      "arxiv_id": "2506.24113",
+      "url": "https://www.semanticscholar.org/paper/4c4935a6d2c55f4a878868c5a23f63117d4523a8",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-584a53d8fc090642667b7454fd8dc85adf204bf2",
+      "title": "HERMES: A Unified Self-Driving World Model for Simultaneous 3D Scene Understanding and Generation",
+      "authors": [
+        {
+          "name": "Xin Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Dingkang Liang",
+          "affiliation": ""
+        },
+        {
+          "name": "Sifan Tu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiwu Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Yikang Ding",
+          "affiliation": ""
+        },
+        {
+          "name": "Dingyuan Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Feiyang Tan",
+          "affiliation": ""
+        },
+        {
+          "name": "Hengshuang Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiang Bai",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Driving World Models (DWMs) have become essential for autonomous driving by enabling future scene prediction. However, existing DWMs are limited to scene generation and fail to incorporate scene understanding, which involves interpreting and reasoning about the driving environment. In this paper, we present a unified Driving World Model named HERMES. We seamlessly integrate 3D scene understanding and future scene evolution (generation) through a unified framework in driving scenarios. Specifically, HERMES leverages a Bird's-Eye View (BEV) representation to consolidate multi-view spatial information while preserving geometric relationships and interactions. We also introduce world queries, which incorporate world knowledge into BEV features via causal attention in the Large Language Model, enabling contextual enrichment for understanding and generation tasks. We conduct comprehensive studies on nuScenes and OmniDrive-nuScenes datasets to validate the effectiveness of our method. HERMES achieves state-of-the-art performance, reducing generation error by 32.4% and improving understanding metrics such as CIDEr by 8.0%. The model and code will be publicly released at https://github.com/LMD0311/HERMES.",
+      "venue": "arXiv.org",
+      "citation_count": 36,
+      "doi": "10.48550/arXiv.2501.14729",
+      "arxiv_id": "2501.14729",
+      "url": "https://www.semanticscholar.org/paper/584a53d8fc090642667b7454fd8dc85adf204bf2",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-1c35e2d08c749bea8029a4802270c10c1acbddc0",
+      "title": "Ctrl-World: A Controllable Generative World Model for Robot Manipulation",
+      "authors": [
+        {
+          "name": "Yanjiang Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "L. Shi",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianyu Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Chelsea Finn",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Generalist robot policies can now perform a wide range of manipulation skills, but evaluating and improving their ability with unfamiliar objects and instructions remains a significant challenge. Rigorous evaluation requires a large number of real-world rollouts, while systematic improvement demands additional corrective data with expert labels. Both of these processes are slow, costly, and difficult to scale. World models offer a promising, scalable alternative by enabling policies to rollout within imagination space. However, a key challenge is building a controllable world model that can handle multi-step interactions with generalist robot policies. This requires a world model compatible with modern generalist policies by supporting multi-view prediction, fine-grained action control, and consistent long-horizon interactions, which is not achieved by previous works. In this paper, we make a step forward by introducing a controllable multi-view world model that can be used to evaluate and improve the instruction-following ability of generalist robot policies. Our model maintains long-horizon consistency with a pose-conditioned memory retrieval mechanism and achieves precise action control through frame-level action conditioning. Trained on the DROID dataset (95k trajectories, 564 scenes), our model generates spatially and temporally consistent trajectories under novel scenarios and new camera placements for over 20 seconds. We show that our method can accurately rank policy performance without real-world robot rollouts. Moreover, by synthesizing successful trajectories in imagination and using them for supervised fine-tuning, our approach can improve policy success by 44.7\\%.",
+      "venue": "arXiv.org",
+      "citation_count": 40,
+      "doi": "10.48550/arXiv.2510.10125",
+      "arxiv_id": "2510.10125",
+      "url": "https://www.semanticscholar.org/paper/1c35e2d08c749bea8029a4802270c10c1acbddc0",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-820c0952bdf09861673b06393bf824a40e5a618e",
+      "title": "MaskGWM: A Generalizable Driving World Model with Video Mask Reconstruction",
+      "authors": [
+        {
+          "name": "J. Ni",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuxin Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Yichen Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Rui Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Lewei Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zehuan Wu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "World models that forecast environmental changes from actions are vital for autonomous driving models with strong generalization. The prevailing driving world model mainly build on video prediction model. Although these models can produce high-fidelity video sequences with advanced diffusion-based generator, they are constrained by their predictive duration and overall generalization capabilities. In this paper, we explore to solve this problem by combining generation loss with MAE-style feature-level context learning. In particular, we instantiate this target with three key design: (1) A more scalable Diffusion Transformer (DiT) structure trained with extra mask construction task. (2) we devise diffusion-related mask tokens to deal with the fuzzy relations between mask reconstruction and generative diffusion process. (3) we extend mask construction task to spatial-temporal domain by utilizing row-wise mask for shifted self-attention rather than masked self-attention in MAE. Then, we adopt a row-wise cross-view module to align with this mask design. Based on above improvement, we propose MaskGWM: a Generalizable driving World Model embodied with Video Mask reconstruction. Our model contains two variants: MaskGWM-long, focusing on long-horizon prediction, and MaskGWM-mview, dedicated to multi-view generation. Comprehensive experiments on standard benchmarks validate the effectiveness of the proposed method, which contain normal validation of Nuscene dataset, long-horizon rollout of OpenDV-2K dataset and zero-shot validation of Waymo dataset. Quantitative metrics on these datasets show our method notably improving state-of-the-art driving world model. Our project page is https://github.com/SenseTime-FVG/OpenDWM.",
+      "venue": "Computer Vision and Pattern Recognition",
+      "citation_count": 24,
+      "doi": "10.1109/CVPR52734.2025.02085",
+      "arxiv_id": "2502.11663",
+      "url": "https://www.semanticscholar.org/paper/820c0952bdf09861673b06393bf824a40e5a618e",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-cd649ff8557468432fedcaf7906d3dfec32e39fc",
+      "title": "RELIC: Interactive Video World Model with Long-Horizon Memory",
+      "authors": [
+        {
+          "name": "Yicong Hong",
+          "affiliation": ""
+        },
+        {
+          "name": "Yiqun Mei",
+          "affiliation": ""
+        },
+        {
+          "name": "Chongjian Ge",
+          "affiliation": ""
+        },
+        {
+          "name": "Yiran Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Sai Bi",
+          "affiliation": ""
+        },
+        {
+          "name": "Yannick Hold-Geoffroy",
+          "affiliation": ""
+        },
+        {
+          "name": "Mike Roberts",
+          "affiliation": ""
+        },
+        {
+          "name": "Matthew Fisher",
+          "affiliation": ""
+        },
+        {
+          "name": "Eli Shechtman",
+          "affiliation": ""
+        },
+        {
+          "name": "Kalyan Sunkavalli",
+          "affiliation": ""
+        },
+        {
+          "name": "Feng Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhengqi Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Tan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "A truly interactive world model requires three key ingredients: real-time long-horizon streaming, consistent spatial memory, and precise user control. However, most existing approaches address only one of these aspects in isolation, as achieving all three simultaneously is highly challenging-for example, long-term memory mechanisms often degrade real-time performance. In this work, we present RELIC, a unified framework that tackles these three challenges altogether. Given a single image and a text description, RELIC enables memory-aware, long-duration exploration of arbitrary scenes in real time. Built upon recent autoregressive video-diffusion distillation techniques, our model represents long-horizon memory using highly compressed historical latent tokens encoded with both relative actions and absolute camera poses within the KV cache. This compact, camera-aware memory structure supports implicit 3D-consistent content retrieval and enforces long-term coherence with minimal computational overhead. In parallel, we fine-tune a bidirectional teacher video model to generate sequences beyond its original 5-second training horizon, and transform it into a causal student generator using a new memory-efficient self-forcing paradigm that enables full-context distillation over long-duration teacher as well as long student self-rollouts. Implemented as a 14B-parameter model and trained on a curated Unreal Engine-rendered dataset, RELIC achieves real-time generation at 16 FPS while demonstrating more accurate action following, more stable long-horizon streaming, and more robust spatial-memory retrieval compared with prior work. These capabilities establish RELIC as a strong foundation for the next generation of interactive world modeling.",
+      "venue": "arXiv.org",
+      "citation_count": 19,
+      "doi": "10.48550/arXiv.2512.04040",
+      "arxiv_id": "2512.04040",
+      "url": "https://www.semanticscholar.org/paper/cd649ff8557468432fedcaf7906d3dfec32e39fc",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-376f4c3176eb8ca594733fbead8387d05b8dcb9b",
+      "title": "3DFlowAction: Learning Cross-Embodiment Manipulation from 3D Flow World Model",
+      "authors": [
+        {
+          "name": "Hongyan Zhi",
+          "affiliation": ""
+        },
+        {
+          "name": "Peihao Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Siyuan Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Dongjie Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Quanxi Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Lei Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Mingkui Tan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Manipulation has long been a challenging task for robots, while humans can effortlessly perform complex interactions with objects, such as hanging a cup on the mug rack. A key reason is the lack of a large and uniform dataset for teaching robots manipulation skills. Current robot datasets often record robot action in different action spaces within a simple scene. This hinders the robot to learn a unified and robust action representation for different robots within diverse scenes. Observing how humans understand a manipulation task, we find that understanding how the objects should move in the 3D space is a critical clue for guiding actions. This clue is embodiment-agnostic and suitable for both humans and different robots. Motivated by this, we aim to learn a 3D flow world model from both human and robot manipulation data. This model predicts the future movement of the interacting objects in 3D space, guiding action planning for manipulation. Specifically, we synthesize a large-scale 3D optical flow dataset, named ManiFlow-110k, through a moving object auto-detect pipeline. A video diffusion-based world model then learns manipulation physics from these data, generating 3D optical flow trajectories conditioned on language instructions. With the generated 3D object optical flow, we propose a flow-guided rendering mechanism, which renders the predicted final state and leverages GPT-4o to assess whether the predicted flow aligns with the task description. This equips the robot with a closed-loop planning ability. Finally, we consider the predicted 3D optical flow as constraints for an optimization policy to determine a chunk of robot actions for manipulation. Extensive experiments demonstrate strong generalization across diverse robotic manipulation tasks and reliable cross-embodiment adaptation without hardware-specific training.",
+      "venue": "arXiv.org",
+      "citation_count": 19,
+      "doi": "10.48550/arXiv.2506.06199",
+      "arxiv_id": "2506.06199",
+      "url": "https://www.semanticscholar.org/paper/376f4c3176eb8ca594733fbead8387d05b8dcb9b",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-e9809d8eb473d5dc20479c815faa6f149f9497b0",
+      "title": "WoW: Towards a World omniscient World model Through Embodied Interaction",
+      "authors": [
+        {
+          "name": "Xiaowei Chi",
+          "affiliation": ""
+        },
+        {
+          "name": "Peidong Jia",
+          "affiliation": ""
+        },
+        {
+          "name": "Chunkai Fan",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaozhu Ju",
+          "affiliation": ""
+        },
+        {
+          "name": "Weishi Mi",
+          "affiliation": ""
+        },
+        {
+          "name": "Kevin Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiyuan Qin",
+          "affiliation": ""
+        },
+        {
+          "name": "Wanxin Tian",
+          "affiliation": ""
+        },
+        {
+          "name": "Kuangzhi Ge",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Zezhong Qian",
+          "affiliation": ""
+        },
+        {
+          "name": "Anthony Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Qiang Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Yueru Jia",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiaming Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yong Dai",
+          "affiliation": ""
+        },
+        {
+          "name": "Qingpo Wuwu",
+          "affiliation": ""
+        },
+        {
+          "name": "Chengyu Bai",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu-Kai Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ying Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Lizhang Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Yong Bao",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiyuan Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiacheng Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Kai-fa Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruichuan An",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Luo",
+          "affiliation": ""
+        },
+        {
+          "name": "Qi Feng",
+          "affiliation": ""
+        },
+        {
+          "name": "Si-yuan Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Chi-Min Chan",
+          "affiliation": ""
+        },
+        {
+          "name": "Chengkai Hou",
+          "affiliation": ""
+        },
+        {
+          "name": "Weihong Xue",
+          "affiliation": ""
+        },
+        {
+          "name": "Sirui Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi-Ting Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Shanghang Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jian Tang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Humans develop an understanding of intuitive physics through active interaction with the world. This approach is in stark contrast to current video models, such as Sora, which rely on passive observation and therefore struggle with grasping physical causality. This observation leads to our central hypothesis: authentic physical intuition of the world model must be grounded in extensive, causally rich interactions with the real world. To test this hypothesis, we present WoW, a 14-billion-parameter generative world model trained on 2 million robot interaction trajectories. Our findings reveal that the model's understanding of physics is a probabilistic distribution of plausible outcomes, leading to stochastic instabilities and physical hallucinations. Furthermore, we demonstrate that this emergent capability can be actively constrained toward physical realism by SOPHIA, where vision-language model agents evaluate the DiT-generated output and guide its refinement by iteratively evolving the language instructions. In addition, a co-trained Inverse Dynamics Model translates these refined plans into executable robotic actions, thus closing the imagination-to-action loop. We establish WoWBench, a new benchmark focused on physical consistency and causal reasoning in video, where WoW achieves state-of-the-art performance in both human and autonomous evaluation, demonstrating strong ability in physical causality, collision dynamics, and object permanence. Our work provides systematic evidence that large-scale, real-world interaction is a cornerstone for developing physical intuition in AI. Models, data, and benchmarks will be open-sourced.",
+      "venue": "arXiv.org",
+      "citation_count": 22,
+      "doi": "10.48550/arXiv.2509.22642",
+      "arxiv_id": "2509.22642",
+      "url": "https://www.semanticscholar.org/paper/e9809d8eb473d5dc20479c815faa6f149f9497b0",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-076f059aa724619ad346503623c5ee57d4625c9d",
+      "title": "WebEvolver: Enhancing Web Agent Self-Improvement with Coevolving World Model",
+      "authors": [
+        {
+          "name": "Tianqing Fang",
+          "affiliation": ""
+        },
+        {
+          "name": "Hongming Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhisong Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Kaixin Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenhao Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Haitao Mi",
+          "affiliation": ""
+        },
+        {
+          "name": "Dong Yu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Agent self-improvement, where the backbone Large Language Model (LLM) of the agent are trained on trajectories sampled autonomously based on their own policies, has emerged as a promising approach for enhancing performance. Recent advancements, particularly in web environments, face a critical limitation: their performance will reach a stagnation point during autonomous learning cycles, hindering further improvement. We argue that this stems from limited exploration of the web environment and insufficient exploitation of pre-trained web knowledge in LLMs. To improve the performance of self-improvement, we propose a novel framework that introduces a co-evolving World Model LLM. This world model predicts the next observation based on the current observation and action within the web environment. Leveraging LLMs'pretrained knowledge of abundant web content, the World Model serves dual roles: (1) as a virtual web server generating self-instructed training data to continuously refine the agent's policy, and (2) as an imagination engine during inference, enabling look-ahead simulation to guide action selection for the agent LLM. Experiments in real-world web environments (Mind2Web-Live, WebVoyager, and GAIA-web) show a 10% performance gain over existing self-evolving agents, demonstrating the efficacy and generalizability of our approach, without using any distillation from more powerful close-sourced models. Our work establishes the necessity of integrating world models into autonomous agent frameworks to unlock sustained adaptability. Code is available at https://github.com/Tencent/SelfEvolvingAgent",
+      "venue": "Conference on Empirical Methods in Natural Language Processing",
+      "citation_count": 28,
+      "doi": "10.48550/arXiv.2504.21024",
+      "arxiv_id": "2504.21024",
+      "url": "https://www.semanticscholar.org/paper/076f059aa724619ad346503623c5ee57d4625c9d",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-ff3c06f028fea3f7ee0739a598c21b6cb3847d8e",
+      "title": "DeepVerse: 4D Autoregressive Video Generation as a World Model",
+      "authors": [
+        {
+          "name": "Junyi Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Haoyi Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xianglong He",
+          "affiliation": ""
+        },
+        {
+          "name": "Yifan Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianjun Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenzheng Chang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Zizun Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhoujie Fu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiangmiao Pang",
+          "affiliation": ""
+        },
+        {
+          "name": "Tong He",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "World models serve as essential building blocks toward Artificial General Intelligence (AGI), enabling intelligent agents to predict future states and plan actions by simulating complex physical interactions. However, existing interactive models primarily predict visual observations, thereby neglecting crucial hidden states like geometric structures and spatial coherence. This leads to rapid error accumulation and temporal inconsistency. To address these limitations, we introduce DeepVerse, a novel 4D interactive world model explicitly incorporating geometric predictions from previous timesteps into current predictions conditioned on actions. Experiments demonstrate that by incorporating explicit geometric constraints, DeepVerse captures richer spatio-temporal relationships and underlying physical dynamics. This capability significantly reduces drift and enhances temporal consistency, enabling the model to reliably generate extended future sequences and achieve substantial improvements in prediction accuracy, visual realism, and scene rationality. Furthermore, our method provides an effective solution for geometry-aware memory retrieval, effectively preserving long-term spatial consistency. We validate the effectiveness of DeepVerse across diverse scenarios, establishing its capacity for high-fidelity, long-horizon predictions grounded in geometry-aware dynamics.",
+      "venue": "arXiv.org",
+      "citation_count": 20,
+      "doi": "10.48550/arXiv.2506.01103",
+      "arxiv_id": "2506.01103",
+      "url": "https://www.semanticscholar.org/paper/ff3c06f028fea3f7ee0739a598c21b6cb3847d8e",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-6935b713ca7e42dfa2ec93b0adacc16b291edc1d",
+      "title": "MCP-Universe: Benchmarking Large Language Models with Real-World Model Context Protocol Servers",
+      "authors": [
+        {
+          "name": "Ziyang Luo",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiqi Shen",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenzhuo Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zirui Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Prathyusha Jwalapuram",
+          "affiliation": ""
+        },
+        {
+          "name": "Amrita Saha",
+          "affiliation": ""
+        },
+        {
+          "name": "Doyen Sahoo",
+          "affiliation": ""
+        },
+        {
+          "name": "Silvio Savarese",
+          "affiliation": ""
+        },
+        {
+          "name": "Caiming Xiong",
+          "affiliation": ""
+        },
+        {
+          "name": "Junnan Li",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The Model Context Protocol has emerged as a transformative standard for connecting large language models to external data sources and tools, rapidly gaining adoption across major AI providers and development platforms. However, existing benchmarks are overly simplistic and fail to capture real application challenges such as long-horizon reasoning and large, unfamiliar tool spaces. To address this critical gap, we introduce MCP-Universe, the first comprehensive benchmark specifically designed to evaluate LLMs in realistic and hard tasks through interaction with real-world MCP servers. Our benchmark encompasses 6 core domains spanning 11 different MCP servers: Location Navigation, Repository Management, Financial Analysis, 3D Design, Browser Automation, and Web Searching. To ensure rigorous evaluation, we implement execution-based evaluators, including format evaluators for agent format compliance, static evaluators for time-invariant content matching, and dynamic evaluators that automatically retrieve real-time ground truth for temporally sensitive tasks. Through extensive evaluation of leading LLMs, we find that even SOTA models such as GPT-5 (43.72%), Grok-4 (33.33%) and Claude-4.0-Sonnet (29.44%) exhibit significant performance limitations. In addition, our benchmark poses a significant long-context challenge for LLM agents, as the number of input tokens increases rapidly with the number of interaction steps. Moreover, it introduces an unknown-tools challenge, as LLM agents often lack familiarity with the precise usage of the MCP servers. Notably, enterprise-level agents like Cursor cannot achieve better performance than standard ReAct frameworks. Beyond evaluation, we open-source our extensible evaluation framework with UI support, enabling researchers and practitioners to seamlessly integrate new agents and MCP servers while fostering innovation in the rapidly evolving MCP ecosystem.",
+      "venue": "arXiv.org",
+      "citation_count": 52,
+      "doi": "10.48550/arXiv.2508.14704",
+      "arxiv_id": "2508.14704",
+      "url": "https://www.semanticscholar.org/paper/6935b713ca7e42dfa2ec93b0adacc16b291edc1d",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-8445acec53b5668d6fe0701513e99590be4233bb",
+      "title": "SocioVerse: A World Model for Social Simulation Powered by LLM Agents and A Pool of 10 Million Real-World Users",
+      "authors": [
+        {
+          "name": "Xinnong Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiayu Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinyi Mou",
+          "affiliation": ""
+        },
+        {
+          "name": "Shiyue Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiawei Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Libo Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Hanjia Lyu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yihang Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Weihong Qi",
+          "affiliation": ""
+        },
+        {
+          "name": "Yue Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Guanying Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Ling Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Yao Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Siming Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jingxuan Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiebo Luo",
+          "affiliation": ""
+        },
+        {
+          "name": "Shiping Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Libo Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Baohua Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhongyu Wei",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Social simulation is transforming traditional social science research by modeling human behavior through interactions between virtual individuals and their environments. With recent advances in large language models (LLMs), this approach has shown growing potential in capturing individual differences and predicting group behaviors. However, existing methods face alignment challenges related to the environment, target users, interaction mechanisms, and behavioral patterns. To this end, we introduce SocioVerse, an LLM-agent-driven world model for social simulation. Our framework features four powerful alignment components and a user pool of 10 million real individuals. To validate its effectiveness, we conducted large-scale simulation experiments across three distinct domains: politics, news, and economics. Results demonstrate that SocioVerse can reflect large-scale population dynamics while ensuring diversity, credibility, and representativeness through standardized procedures and minimal manual adjustments.",
+      "venue": "arXiv.org",
+      "citation_count": 33,
+      "doi": "10.48550/arXiv.2504.10157",
+      "arxiv_id": "2504.10157",
+      "url": "https://www.semanticscholar.org/paper/8445acec53b5668d6fe0701513e99590be4233bb",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-d4c33afeb29d05c0c0e4e9e4c5daed53e9e1241a",
+      "title": "WMPO: World Model-based Policy Optimization for Vision-Language-Action Models",
+      "authors": [
+        {
+          "name": "Fangqi Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhengyang Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Zicong Hong",
+          "affiliation": ""
+        },
+        {
+          "name": "Quanxin Shou",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiao Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Song Guo",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Vision-Language-Action (VLA) models have shown strong potential for general-purpose robotic manipulation, but their reliance on expert demonstrations limits their ability to learn from failures and perform self-corrections. Reinforcement learning (RL) addresses these through self-improving interactions with the physical environment, but suffers from high sample complexity on real robots. We introduce World-Model-based Policy Optimization (WMPO), a principled framework for on-policy VLA RL without interacting with the real environment. In contrast to widely used latent world models, WMPO focuses on pixel-based predictions that align the\"imagined\"trajectories with the VLA features pretrained with web-scale images. Crucially, WMPO enables the policy to perform on-policy GRPO that provides stronger performance than the often-used off-policy methods. Extensive experiments in both simulation and real-robot settings demonstrate that WMPO (i) substantially improves sample efficiency, (ii) achieves stronger overall performance, (iii) exhibits emergent behaviors such as self-correction, and (iv) demonstrates robust generalization and lifelong learning capabilities.",
+      "venue": "arXiv.org",
+      "citation_count": 20,
+      "doi": "10.48550/arXiv.2511.09515",
+      "arxiv_id": "2511.09515",
+      "url": "https://www.semanticscholar.org/paper/d4c33afeb29d05c0c0e4e9e4c5daed53e9e1241a",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-d2e28c42829e199261c05e615c0dba33fbc121b3",
+      "title": "IRL-VLA: Training an Vision-Language-Action Policy via Reward World Model",
+      "authors": [
+        {
+          "name": "Anqing Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Yiru Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhigang Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuo Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuwen Heng",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Shichen Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Lijuan Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jinhao Chai",
+          "affiliation": ""
+        },
+        {
+          "name": "Jijun Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zichong Gu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Li Sun",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Vision-Language-Action (VLA) models have demonstrated potential in autonomous driving. However, two critical challenges hinder their development: (1) Existing VLA architectures are typically based on imitation learning in open-loop setup which tends to capture the recorded behaviors in the dataset, leading to suboptimal and constrained performance, (2) Close-loop training relies heavily on high-fidelity sensor simulation, where domain gaps and computational inefficiencies pose significant barriers. In this paper, we introduce IRL-VLA, a novel close-loop Reinforcement Learning via \\textbf{I}nverse \\textbf{R}einforcement \\textbf{L}earning reward world model with a self-built VLA approach. Our framework proceeds in a three-stage paradigm: In the first stage, we propose a VLA architecture and pretrain the VLA policy via imitation learning. In the second stage, we construct a lightweight reward world model via inverse reinforcement learning to enable efficient close-loop reward computation. To further enhance planning performance, finally, we design specialized reward world model guidence reinforcement learning via PPO(Proximal Policy Optimization) to effectively balance the safety incidents, comfortable driving, and traffic efficiency. Our approach achieves state-of-the-art performance in NAVSIM v2 end-to-end driving benchmark, 1st runner up in CVPR2025 Autonomous Grand Challenge. We hope that our framework will accelerate VLA research in close-loop autonomous driving.",
+      "venue": "arXiv.org",
+      "citation_count": 18,
+      "doi": "10.48550/arXiv.2508.06571",
+      "arxiv_id": "2508.06571",
+      "url": "https://www.semanticscholar.org/paper/d2e28c42829e199261c05e615c0dba33fbc121b3",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-c9f926f18886a1e4107f91125aac209a4565bfa0",
+      "title": "Motus: A Unified Latent Action World Model",
+      "authors": [
+        {
+          "name": "Hongzhe Bi",
+          "affiliation": ""
+        },
+        {
+          "name": "Hengkai Tan",
+          "affiliation": ""
+        },
+        {
+          "name": "Shenghao Xie",
+          "affiliation": ""
+        },
+        {
+          "name": "Zeyu Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuhe Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Haitian Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruowen Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Yao Feng",
+          "affiliation": ""
+        },
+        {
+          "name": "Chendong Xiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yinze Rong",
+          "affiliation": ""
+        },
+        {
+          "name": "Hongyang Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Hanyu Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhizhong Su",
+          "affiliation": ""
+        },
+        {
+          "name": "Lei Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Hang Su",
+          "affiliation": ""
+        },
+        {
+          "name": "Jun Zhu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "While a general embodied agent must function as a unified system, current methods are built on isolated models for understanding, world modeling, and control. This fragmentation prevents unifying multimodal generative capabilities and hinders learning from large-scale, heterogeneous data. In this paper, we propose Motus, a unified latent action world model that leverages existing general pretrained models and rich, sharable motion information. Motus introduces a Mixture-of-Transformer (MoT) architecture to integrate three experts (i.e., understanding, video generation, and action) and adopts a UniDiffuser-style scheduler to enable flexible switching between different modeling modes (i.e., world models, vision-language-action models, inverse dynamics models, video generation models, and video-action joint prediction models). Motus further leverages the optical flow to learn latent actions and adopts a recipe with three-phase training pipeline and six-layer data pyramid, thereby extracting pixel-level\"delta action\"and enabling large-scale action pretraining. Experiments show that Motus achieves superior performance against state-of-the-art methods in both simulation (a +15% improvement over X-VLA and a +45% improvement over Pi0.5) and real-world scenarios(improved by +11~48%), demonstrating unified modeling of all functionalities and priors significantly benefits downstream robotic tasks.",
+      "venue": "arXiv.org",
+      "citation_count": 22,
+      "doi": "10.48550/arXiv.2512.13030",
+      "arxiv_id": "2512.13030",
+      "url": "https://www.semanticscholar.org/paper/c9f926f18886a1e4107f91125aac209a4565bfa0",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-c20ea082e9869122992721db3165b925ec14422a",
+      "title": "Semi-Supervised Vision-Centric 3D Occupancy World Model for Autonomous Driving",
+      "authors": [
+        {
+          "name": "Xiang Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Pengfei Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yupeng Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Wei Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Yan Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yilun Chen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Understanding world dynamics is crucial for planning in autonomous driving. Recent methods attempt to achieve this by learning a 3D occupancy world model that forecasts future surrounding scenes based on current observation. However, 3D occupancy labels are still required to produce promising results. Considering the high annotation cost for 3D outdoor scenes, we propose a semi-supervised vision-centric 3D occupancy world model, PreWorld, to leverage the potential of 2D labels through a novel two-stage training paradigm: the self-supervised pre-training stage and the fully-supervised fine-tuning stage. Specifically, during the pre-training stage, we utilize an attribute projection head to generate different attribute fields of a scene (e.g., RGB, density, semantic), thus enabling temporal supervision from 2D labels via volume rendering techniques. Furthermore, we introduce a simple yet effective state-conditioned forecasting module to recursively forecast future occupancy and ego trajectory in a direct manner. Extensive experiments on the nuScenes dataset validate the effectiveness and scalability of our method, and demonstrate that PreWorld achieves competitive performance across 3D occupancy prediction, 4D occupancy forecasting and motion planning tasks.",
+      "venue": "International Conference on Learning Representations",
+      "citation_count": 23,
+      "doi": "10.48550/arXiv.2502.07309",
+      "arxiv_id": "2502.07309",
+      "url": "https://www.semanticscholar.org/paper/c20ea082e9869122992721db3165b925ec14422a",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-e049e65408084f3cdbaf1bd6afaeeffbad7c4cf2",
+      "title": "World-Env: Leveraging World Model as a Virtual Environment for VLA Post-Training",
+      "authors": [
+        {
+          "name": "Junjin Xiao",
+          "affiliation": ""
+        },
+        {
+          "name": "Yandan Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinyuan Chang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ronghan Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Feng Xiong",
+          "affiliation": ""
+        },
+        {
+          "name": "Mu Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Weihua Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Qing Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Vision-Language-Action (VLA) models trained via imitation learning suffer from significant performance degradation in data-scarce scenarios due to their reliance on large-scale demonstration datasets. Although reinforcement learning (RL)-based post-training has proven effective in addressing data scarcity, its application to VLA models is hindered by the non-resettable nature of real-world environments. This limitation is particularly critical in high-risk domains such as industrial automation, where interactions often induce state changes that are costly or infeasible to revert. Furthermore, existing VLA approaches lack a reliable mechanism for detecting task completion, leading to redundant actions that reduce overall task success rates. To address these challenges, we propose RehearseVLA:, an RL-based post-training framework that replaces physical interaction with a low-cost world model-based virtual simulator. RehearseVLA: consists of two key components: (1) a physically-consistent world simulator that generates temporally consistent future visual observations, and (2) a vision-language model (VLM)-guided instant reflector that provides continuous reward signals and predicts action termination. This simulated environment enables VLA models to safely explore and generalize beyond their initial imitation learning distribution. Our method achieves notable performance gains with as few as five expert demonstrations per task. Experiments on complex robotic manipulation tasks demonstrate that RehearseVLA: effectively overcomes the data inefficiency, safety constraints, and inefficient execution of conventional VLA models that rely on real-world interaction, offering a practical and scalable solution for post-training in resource-constrained settings. Our code is available at https://github.com/amap-cvlab/world-env.",
+      "venue": "arXiv.org",
+      "citation_count": 16,
+      "doi": "10.48550/arXiv.2509.24948",
+      "arxiv_id": "2509.24948",
+      "url": "https://www.semanticscholar.org/paper/e049e65408084f3cdbaf1bd6afaeeffbad7c4cf2",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-625f758f2f5bd2a1142a232b3b5dc41bc73f84ba",
+      "title": "RoboHorizon: An LLM-Assisted Multi-View World Model for Long-Horizon Robotic Manipulation",
+      "authors": [
+        {
+          "name": "Zixuan Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Jing Huo",
+          "affiliation": ""
+        },
+        {
+          "name": "Yangtao Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang Gao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Efficient control in long-horizon robotic manipulation is challenging due to complex representation and policy learning requirements. Model-based visual reinforcement learning (RL) has shown great potential in addressing these challenges but still faces notable limitations, particularly in handling sparse rewards and complex visual features in long-horizon environments. To address these limitations, we propose the Recognize-Sense-Plan-Act (RSPA) pipeline for long-horizon tasks and further introduce RoboHorizon, an LLM-assisted multi-view world model tailored for long-horizon robotic manipulation. In RoboHorizon, pre-trained LLMs generate dense reward structures for multi-stage sub-tasks based on task language instructions, enabling robots to better recognize long-horizon tasks. Keyframe discovery is then integrated into the multi-view masked autoencoder (MAE) architecture to enhance the robot's ability to sense critical task sequences, strengthening its multi-stage perception of long-horizon processes. Leveraging these dense rewards and multi-view representations, a robotic world model is constructed to efficiently plan long-horizon tasks, enabling the robot to reliably act through RL algorithms. Experiments on two representative benchmarks, RLBench and FurnitureBench, show that RoboHorizon outperforms state-of-the-art visual model-based RL methods, achieving a 23.35% improvement in task success rates on RLBench's 4 short-horizon tasks and a 29.23% improvement on 6 long-horizon tasks from RLBench and 3 furniture assembly tasks from FurnitureBench.",
+      "venue": "arXiv.org",
+      "citation_count": 20,
+      "doi": "10.48550/arXiv.2501.06605",
+      "arxiv_id": "2501.06605",
+      "url": "https://www.semanticscholar.org/paper/625f758f2f5bd2a1142a232b3b5dc41bc73f84ba",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-a77606bdf0d27e18331eea613b671dc7ef78d0cb",
+      "title": "GigaBrain-0: A World Model-Powered Vision-Language-Action Model",
+      "authors": [
+        {
+          "name": "G. Ye",
+          "affiliation": ""
+        },
+        {
+          "name": "Boyuan Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chaojun Ni",
+          "affiliation": ""
+        },
+        {
+          "name": "Guan Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Guosheng Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Haoyun Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Jie Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiagang Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Lv Feng",
+          "affiliation": ""
+        },
+        {
+          "name": "Peng Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Qiuping Deng",
+          "affiliation": ""
+        },
+        {
+          "name": "Runqi Ouyang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenkang Qin",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinze Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaofeng Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yifan Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yilong Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yiran Ding",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuan Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yun Ye",
+          "affiliation": ""
+        },
+        {
+          "name": "Yukun Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhehao Dong",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhenan Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhichao Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zheng Zhu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Training Vision-Language-Action (VLA) models for generalist robots typically requires large-scale real-world robot data, which is expensive and time-consuming to collect. The inefficiency of physical data collection severely limits the scalability, and generalization capacity of current VLA systems. To address this challenge, we introduce GigaBrain-0, a novel VLA foundation model empowered by world model-generated data (e.g., video generation, real2real transfer, human transfer, view transfer, sim2real transfer data). By leveraging world models to generate diverse data at scale, GigaBrain-0 significantly reduces reliance on real robot data while improving cross-task generalization. Our approach further improves policy robustness through RGBD input modeling and embodied Chain-of-Thought (CoT) supervision, enabling the model to reason about spatial geometry, object states, and long-horizon dependencies during task execution. This leads to substantial gains in real-world performance on dexterous, long-horizon, and mobile manipulation tasks. Extensive experiments demonstrate that GigaBrain-0 achieves superior generalization across variations in appearances (e.g., textures, colors), object placements, and camera viewpoints. Additionally, we present GigaBrain-0-Small, an optimized lightweight variant designed to run efficiently on devices such as the NVIDIA Jetson AGX Orin.",
+      "venue": "arXiv.org",
+      "citation_count": 16,
+      "doi": "10.48550/arXiv.2510.19430",
+      "arxiv_id": "2510.19430",
+      "url": "https://www.semanticscholar.org/paper/a77606bdf0d27e18331eea613b671dc7ef78d0cb",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-25d4708f2daad2b41ea902325186b115f8247bf5",
+      "title": "RoboScape: Physics-informed Embodied World Model",
+      "authors": [
+        {
+          "name": "Yu Shang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xin Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yinzhou Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Lei Jin",
+          "affiliation": ""
+        },
+        {
+          "name": "Chen Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Wei Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yong Li",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "World models have become indispensable tools for embodied intelligence, serving as powerful simulators capable of generating realistic robotic videos while addressing critical data scarcity challenges. However, current embodied world models exhibit limited physical awareness, particularly in modeling 3D geometry and motion dynamics, resulting in unrealistic video generation for contact-rich robotic scenarios. In this paper, we present RoboScape, a unified physics-informed world model that jointly learns RGB video generation and physics knowledge within an integrated framework. We introduce two key physics-informed joint training tasks: temporal depth prediction that enhances 3D geometric consistency in video rendering, and keypoint dynamics learning that implicitly encodes physical properties (e.g., object shape and material characteristics) while improving complex motion modeling. Extensive experiments demonstrate that RoboScape generates videos with superior visual fidelity and physical plausibility across diverse robotic scenarios. We further validate its practical utility through downstream applications including robotic policy training with generated data and policy evaluation. Our work provides new insights for building efficient physics-informed world models to advance embodied intelligence research. The code is available at: https://github.com/tsinghua-fib-lab/RoboScape.",
+      "venue": "arXiv.org",
+      "citation_count": 20,
+      "doi": "10.48550/arXiv.2506.23135",
+      "arxiv_id": "2506.23135",
+      "url": "https://www.semanticscholar.org/paper/25d4708f2daad2b41ea902325186b115f8247bf5",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-25df1e0d17fdc4665b4105eeb06e6aecf8ff9df0",
+      "title": "Medical World Model: Generative Simulation of Tumor Evolution for Treatment Planning",
+      "authors": [
+        {
+          "name": "Yijun Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhao-Yang Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Qiuping Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuwen Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Kang Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Rama Chellappa",
+          "affiliation": ""
+        },
+        {
+          "name": "Zongwei Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Alan L. Yuille",
+          "affiliation": ""
+        },
+        {
+          "name": "Lei Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu-Dong Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jieneng Chen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Providing effective treatment and making informed clinical decisions are essential goals of modern medicine and clinical care. We are interested in simulating disease dynamics for clinical decision-making, leveraging recent advances in large generative models. To this end, we introduce the Medical World Model (MeWM), the first world model in medicine that visually predicts future disease states based on clinical decisions. MeWM comprises (i) vision-language models to serve as policy models, and (ii) tumor generative models as dynamics models. The policy model generates action plans, such as clinical treatments, while the dynamics model simulates tumor progression or regression under given treatment conditions. Building on this, we propose the inverse dynamics model that applies survival analysis to the simulated post-treatment tumor, enabling the evaluation of treatment efficacy and the selection of the optimal clinical action plan. As a result, the proposed MeWM simulates disease dynamics by synthesizing post-treatment tumors, with state-of-the-art specificity in Turing tests evaluated by radiologists. Simultaneously, its inverse dynamics model outperforms medical-specialized GPTs in optimizing individualized treatment protocols across all metrics. Notably, MeWM improves clinical decision-making for interventional physicians, boosting F1-score in selecting the optimal TACE protocol by 13%, paving the way for future integration of medical world models as the second readers.",
+      "venue": "arXiv.org",
+      "citation_count": 15,
+      "doi": "10.48550/arXiv.2506.02327",
+      "arxiv_id": "2506.02327",
+      "url": "https://www.semanticscholar.org/paper/25df1e0d17fdc4665b4105eeb06e6aecf8ff9df0",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-32cc2e2ad5e0ff51b25798ba5ba23c20c103487f",
+      "title": "NavMorph: A Self-Evolving World Model for Vision-and-Language Navigation in Continuous Environments",
+      "authors": [
+        {
+          "name": "Xuan Yao",
+          "affiliation": ""
+        },
+        {
+          "name": "Junyu Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Changsheng Xu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Vision-and-Language Navigation in Continuous Environments (VLN-CE) requires agents to execute sequential navigation actions in complex environments guided by natural language instructions. Current approaches often struggle with generalizing to novel environments and adapting to ongoing changes during navigation. Inspired by human cognition, we present NavMorph, a self-evolving world model framework that enhances environmental understanding and decision-making in VLN-CE tasks. NavMorph employs compact latent representations to model environmental dynamics, equipping agents with foresight for adaptive planning and policy refinement. By integrating a novel Contextual Evolution Memory, NavMorph leverages scene-contextual information to support effective navigation while maintaining online adaptability. Extensive experiments demonstrate that our method achieves notable performance improvements on popular VLN-CE benchmarks. Code is available at https://github.com/Feliciaxyao/NavMorph.",
+      "venue": "arXiv.org",
+      "citation_count": 22,
+      "doi": "10.48550/arXiv.2506.23468",
+      "arxiv_id": "2506.23468",
+      "url": "https://www.semanticscholar.org/paper/32cc2e2ad5e0ff51b25798ba5ba23c20c103487f",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-4eb0b4ee1586a81581f6155c5e9149ec28131a1c",
+      "title": "Planning with Reasoning using Vision Language World Model",
+      "authors": [
+        {
+          "name": "Delong Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Th\u00e9o Moutakanni",
+          "affiliation": ""
+        },
+        {
+          "name": "Willy Chung",
+          "affiliation": ""
+        },
+        {
+          "name": "Yejin Bang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ziwei Ji",
+          "affiliation": ""
+        },
+        {
+          "name": "Allen Bolourchi",
+          "affiliation": ""
+        },
+        {
+          "name": "Pascale Fung",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Effective planning requires strong world models, but high-level world models that can understand and reason about actions with semantic and temporal abstraction remain largely underdeveloped. We introduce the Vision Language World Model (VLWM), a foundation model trained for language-based world modeling on natural videos. Given visual observations, the VLWM first infers the overall goal achievements then predicts a trajectory composed of interleaved actions and world state changes. Those targets are extracted by iterative LLM Self-Refine conditioned on compressed future observations represented by Tree of Captions. The VLWM learns both an action policy and a dynamics model, which respectively facilitates reactive system-1 plan decoding and reflective system-2 planning via cost minimization. The cost evaluates the semantic distance between the hypothetical future states given by VLWM roll-outs and the expected goal state, and is measured by a critic model that we trained in a self-supervised manner. The VLWM achieves state-of-the-art Visual Planning for Assistance (VPA) performance on both benchmark evaluations and our proposed PlannerArena human evaluations, where system-2 improves the Elo score by +27% upon system-1. The VLWM models also outperforms strong VLM baselines on RoboVQA and WorldPrediction benchmark.",
+      "venue": "arXiv.org",
+      "citation_count": 20,
+      "doi": "10.48550/arXiv.2509.02722",
+      "arxiv_id": "2509.02722",
+      "url": "https://www.semanticscholar.org/paper/4eb0b4ee1586a81581f6155c5e9149ec28131a1c",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-6f3784db24d9e6f207fcec5b0abea18e01fdf510",
+      "title": "VAGEN: Reinforcing World Model Reasoning for Multi-Turn VLM Agents",
+      "authors": [
+        {
+          "name": "Kangrui Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Pingyue Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zihan Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yaning Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Linjie Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Qineng Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Hanyang Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Chi Wan",
+          "affiliation": ""
+        },
+        {
+          "name": "Yiping Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhengyuan Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Lijuan Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ranjay Krishna",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiajun Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Fei-Fei Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yejin Choi",
+          "affiliation": ""
+        },
+        {
+          "name": "Manling Li",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "A key challenge in training Vision-Language Model (VLM) agents, compared to Language Model (LLM) agents, lies in the shift from textual states to complex visual observations. This transition introduces partial observability and demands robust world modeling. We ask: Can VLM agents construct internal world models through explicit visual state reasoning? To address this question, we architecturally enforce and reward the agent's reasoning process via reinforcement learning (RL), formulating it as a Partially Observable Markov Decision Process (POMDP). We find that decomposing the agent's reasoning into State Estimation (\"what is the current state?\") and Transition Modeling (\"what comes next?\") is critical for success, as demonstrated through five reasoning strategies. Our investigation into how agents represent internal beliefs reveals that the optimal representation is task-dependent: Natural Language excels at capturing semantic relationships in general tasks, while Structured formats are indispensable for precise manipulation and control. Building on these insights, we design a World Modeling Reward that provides dense, turn-level supervision for accurate state prediction, and introduce Bi-Level General Advantage Estimation (Bi-Level GAE) for turn-aware credit assignment. Through this form of visual state reasoning, a 3B-parameter model achieves a score of 0.82 across five diverse agent benchmarks, representing a 3$\\times$ improvement over its untrained counterpart (0.21) and outperforming proprietary reasoning models such as GPT-5 (0.75), Gemini 2.5 Pro (0.67) and Claude 4.5 (0.62). All experiments are conducted within our VAGEN framework, a scalable system for training and analyzing multi-turn VLM agents in diverse visual environments. Code and data are publicly available at https://vagen-ai.github.io.",
+      "venue": "arXiv.org",
+      "citation_count": 20,
+      "doi": "10.48550/arXiv.2510.16907",
+      "arxiv_id": "2510.16907",
+      "url": "https://www.semanticscholar.org/paper/6f3784db24d9e6f207fcec5b0abea18e01fdf510",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-0ac6e9af7417a3a33f2c6cee90fcf26284eff654",
+      "title": "WorldEval: World Model as Real-World Robot Policies Evaluator",
+      "authors": [
+        {
+          "name": "Yaxuan Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yichen Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Junjie Wen",
+          "affiliation": ""
+        },
+        {
+          "name": "Chaomin Shen",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi Xu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The field of robotics has made significant strides toward developing generalist robot manipulation policies. However, evaluating these policies in real-world scenarios remains time-consuming and challenging, particularly as the number of tasks scales and environmental conditions change. In this work, we demonstrate that world models can serve as a scalable, reproducible, and reliable proxy for real-world robot policy evaluation. A key challenge is generating accurate policy videos from world models that faithfully reflect the robot actions. We observe that directly inputting robot actions or using high-dimensional encoding methods often fails to generate action-following videos. To address this, we propose Policy2Vec, a simple yet effective approach to turn a video generation model into a world simulator that follows latent action to generate the robot video. We then introduce WorldEval, an automated pipeline designed to evaluate real-world robot policies entirely online. WorldEval effectively ranks various robot policies and individual checkpoints within a single policy, and functions as a safety detector to prevent dangerous actions by newly developed robot models. Through comprehensive paired evaluations of manipulation policies in real-world environments, we demonstrate a strong correlation between policy performance in WorldEval and real-world scenarios. Furthermore, our method significantly outperforms popular methods such as real-to-sim approach.",
+      "venue": "arXiv.org",
+      "citation_count": 26,
+      "doi": "10.48550/arXiv.2505.19017",
+      "arxiv_id": "2505.19017",
+      "url": "https://www.semanticscholar.org/paper/0ac6e9af7417a3a33f2c6cee90fcf26284eff654",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-5c0c62a4a5b7ab7ba4b86e848f9cdab4e699eb38",
+      "title": "Robotic World Model: A Neural Network Simulator for Robust Policy Optimization in Robotics",
+      "authors": [
+        {
+          "name": "Chenhao Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Andreas Krause",
+          "affiliation": ""
+        },
+        {
+          "name": "Marco Hutter",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Learning robust and generalizable world models is crucial for enabling efficient and scalable robotic control in real-world environments. In this work, we introduce a novel framework for learning world models that accurately capture complex, partially observable, and stochastic dynamics. The proposed method employs a dual-autoregressive mechanism and self-supervised training to achieve reliable long-horizon predictions without relying on domain-specific inductive biases, ensuring adaptability across diverse robotic tasks. We further propose a policy optimization framework that leverages world models for efficient training in imagined environments and seamless deployment in real-world systems. This work advances model-based reinforcement learning by addressing the challenges of long-horizon prediction, error accumulation, and sim-to-real transfer. By providing a scalable and robust framework, the introduced methods pave the way for adaptive and efficient robotic systems in real-world applications.",
+      "venue": "arXiv.org",
+      "citation_count": 22,
+      "doi": "10.48550/arXiv.2501.10100",
+      "arxiv_id": "2501.10100",
+      "url": "https://www.semanticscholar.org/paper/5c0c62a4a5b7ab7ba4b86e848f9cdab4e699eb38",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-2d84fe2fd81ba7db3239cf9bbd7a35d5a248df73",
+      "title": "AdaWM: Adaptive World Model based Planning for Autonomous Driving",
+      "authors": [
+        {
+          "name": "Hang Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xin Ye",
+          "affiliation": ""
+        },
+        {
+          "name": "Feng Tao",
+          "affiliation": ""
+        },
+        {
+          "name": "Chenbin Pan",
+          "affiliation": ""
+        },
+        {
+          "name": "Abhirup Mallik",
+          "affiliation": ""
+        },
+        {
+          "name": "Burhaneddin Yaman",
+          "affiliation": ""
+        },
+        {
+          "name": "Liu Ren",
+          "affiliation": ""
+        },
+        {
+          "name": "Junshan Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "World model based reinforcement learning (RL) has emerged as a promising approach for autonomous driving, which learns a latent dynamics model and uses it to train a planning policy. To speed up the learning process, the pretrain-finetune paradigm is often used, where online RL is initialized by a pretrained model and a policy learned offline. However, naively performing such initialization in RL may result in dramatic performance degradation during the online interactions in the new task. To tackle this challenge, we first analyze the performance degradation and identify two primary root causes therein: the mismatch of the planning policy and the mismatch of the dynamics model, due to distribution shift. We further analyze the effects of these factors on performance degradation during finetuning, and our findings reveal that the choice of finetuning strategies plays a pivotal role in mitigating these effects. We then introduce AdaWM, an Adaptive World Model based planning method, featuring two key steps: (a) mismatch identification, which quantifies the mismatches and informs the finetuning strategy, and (b) alignment-driven finetuning, which selectively updates either the policy or the model as needed using efficient low-rank updates. Extensive experiments on the challenging CARLA driving tasks demonstrate that AdaWM significantly improves the finetuning process, resulting in more robust and efficient performance in autonomous driving systems.",
+      "venue": "International Conference on Learning Representations",
+      "citation_count": 14,
+      "doi": "10.48550/arXiv.2501.13072",
+      "arxiv_id": "2501.13072",
+      "url": "https://www.semanticscholar.org/paper/2d84fe2fd81ba7db3239cf9bbd7a35d5a248df73",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-2c0b8042723d5b7454be1bcfe12053801c9b1bf8",
+      "title": "Text2World: Benchmarking Large Language Models for Symbolic World Model Generation",
+      "authors": [
+        {
+          "name": "Mengkang Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Tianxing Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Yude Zou",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuheng Lei",
+          "affiliation": ""
+        },
+        {
+          "name": "Qiguang Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Ming Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yao Mu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hongyuan Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenqi Shao",
+          "affiliation": ""
+        },
+        {
+          "name": "Ping Luo",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Recently, there has been growing interest in leveraging large language models (LLMs) to generate symbolic world models from textual descriptions. Although LLMs have been extensively explored in the context of world modeling, prior studies encountered several challenges, including evaluation randomness, dependence on indirect metrics, and a limited domain scope. To address these limitations, we introduce a novel benchmark, Text2World, based on planning domain definition language (PDDL), featuring hundreds of diverse domains and employing multi-criteria, execution-based metrics for a more robust evaluation. We benchmark current LLMs using Text2World and find that reasoning models trained with large-scale reinforcement learning outperform others. However, even the best-performing model still demonstrates limited capabilities in world modeling. Building on these insights, we examine several promising strategies to enhance the world modeling capabilities of LLMs, including test-time scaling, agent training, and more. We hope that Text2World can serve as a crucial resource, laying the groundwork for future research in leveraging LLMs as world models. The project page is available at https://text-to-world.github.io/.",
+      "venue": "Annual Meeting of the Association for Computational Linguistics",
+      "citation_count": 15,
+      "doi": "10.48550/arXiv.2502.13092",
+      "arxiv_id": "2502.13092",
+      "url": "https://www.semanticscholar.org/paper/2c0b8042723d5b7454be1bcfe12053801c9b1bf8",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-10375c4e897d8b102113a47f616e5c9724cd50ce",
+      "title": "RynnVLA-002: A Unified Vision-Language-Action and World Model",
+      "authors": [
+        {
+          "name": "Jun Cen",
+          "affiliation": ""
+        },
+        {
+          "name": "Siteng Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuqian Yuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Kehan Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Hangjie Yuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Chaohui Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuming Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiayan Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Xin Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Luo",
+          "affiliation": ""
+        },
+        {
+          "name": "Fan Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Deli Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Chen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "We introduce RynnVLA-002, a unified Vision-Language-Action (VLA) and world model. The world model leverages action and visual inputs to predict future image states, learning the underlying physics of the environment to refine action generation. Conversely, the VLA model produces subsequent actions from image observations, enhancing visual understanding and supporting the world model's image generation. The unified framework of RynnVLA-002 enables joint learning of environmental dynamics and action planning. Our experiments show that RynnVLA-002 surpasses individual VLA and world models, demonstrating their mutual enhancement. We evaluate RynnVLA-002 in both simulation and real-world robot tasks. RynnVLA-002 achieves 97.4% success rate on the LIBERO simulation benchmark without pretraining, while in real-world LeRobot experiments, its integrated world model boosts the overall success rate by 50%.",
+      "venue": "arXiv.org",
+      "citation_count": 13,
+      "doi": "10.48550/arXiv.2511.17502",
+      "arxiv_id": "2511.17502",
+      "url": "https://www.semanticscholar.org/paper/10375c4e897d8b102113a47f616e5c9724cd50ce",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-e788d5c6dc79f106296f8ad296bcbe512028d5f0",
+      "title": "3D-VLA: A 3D Vision-Language-Action Generative World Model",
+      "authors": [
+        {
+          "name": "Haoyu Zhen",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaowen Qiu",
+          "affiliation": ""
+        },
+        {
+          "name": "Peihao Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Jincheng Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xin Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Yilun Du",
+          "affiliation": ""
+        },
+        {
+          "name": "Yining Hong",
+          "affiliation": ""
+        },
+        {
+          "name": "Chuang Gan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Recent vision-language-action (VLA) models rely on 2D inputs, lacking integration with the broader realm of the 3D physical world. Furthermore, they perform action prediction by learning a direct mapping from perception to action, neglecting the vast dynamics of the world and the relations between actions and dynamics. In contrast, human beings are endowed with world models that depict imagination about future scenarios to plan actions accordingly. To this end, we propose 3D-VLA by introducing a new family of embodied foundation models that seamlessly link 3D perception, reasoning, and action through a generative world model. Specifically, 3D-VLA is built on top of a 3D-based large language model (LLM), and a set of interaction tokens is introduced to engage with the embodied environment. Furthermore, to inject generation abilities into the model, we train a series of embodied diffusion models and align them into the LLM for predicting the goal images and point clouds. To train our 3D-VLA, we curate a large-scale 3D embodied instruction dataset by extracting vast 3D-related information from existing robotics datasets. Our experiments on held-in datasets demonstrate that 3D-VLA significantly improves the reasoning, multimodal generation, and planning capabilities in embodied environments, showcasing its potential in real-world applications.",
+      "venue": "International Conference on Machine Learning",
+      "citation_count": 267,
+      "doi": "10.48550/arXiv.2403.09631",
+      "arxiv_id": "2403.09631",
+      "url": "https://www.semanticscholar.org/paper/e788d5c6dc79f106296f8ad296bcbe512028d5f0",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-6c5fb2cc4f3d61850d40469b609f469ff1982b6b",
+      "title": "LaDi-WM: A Latent Diffusion-based World Model for Predictive Manipulation",
+      "authors": [
+        {
+          "name": "Yuhang Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiazhao Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Shilong Zou",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinwang Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruizhen Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Kai Xu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Predictive manipulation has recently gained considerable attention in the Embodied AI community due to its potential to improve robot policy performance by leveraging predicted states. However, generating accurate future visual states of robot-object interactions from world models remains a well-known challenge, particularly in achieving high-quality pixel-level representations. To this end, we propose LaDi-WM, a world model that predicts the latent space of future states using diffusion modeling. Specifically, LaDi-WM leverages the well-established latent space aligned with pre-trained Visual Foundation Models (VFMs), which comprises both geometric features (DINO-based) and semantic features (CLIP-based). We find that predicting the evolution of the latent space is easier to learn and more generalizable than directly predicting pixel-level images. Building on LaDi-WM, we design a diffusion policy that iteratively refines output actions by incorporating forecasted states, thereby generating more consistent and accurate results. Extensive experiments on both synthetic and real-world benchmarks demonstrate that LaDi-WM significantly enhances policy performance by 27.9\\% on the LIBERO-LONG benchmark and 20\\% on the real-world scenario. Furthermore, our world model and policies achieve impressive generalizability in real-world experiments.",
+      "venue": "arXiv.org",
+      "citation_count": 12,
+      "doi": "10.48550/arXiv.2505.11528",
+      "arxiv_id": "2505.11528",
+      "url": "https://www.semanticscholar.org/paper/6c5fb2cc4f3d61850d40469b609f469ff1982b6b",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-7a0f9a591fbb8b224e385351256b61c7a54be8f9",
+      "title": "How Far is Video Generation from World Model: A Physical Law Perspective",
+      "authors": [
+        {
+          "name": "Bingyi Kang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang Yue",
+          "affiliation": ""
+        },
+        {
+          "name": "Rui Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhijie Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Kaixin Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Gao Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiashi Feng",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "OpenAI's Sora highlights the potential of video generation for developing world models that adhere to fundamental physical laws. However, the ability of video generation models to discover such laws purely from visual data without human priors can be questioned. A world model learning the true law should give predictions robust to nuances and correctly extrapolate on unseen scenarios. In this work, we evaluate across three key scenarios: in-distribution, out-of-distribution, and combinatorial generalization. We developed a 2D simulation testbed for object movement and collisions to generate videos deterministically governed by one or more classical mechanics laws. This provides an unlimited supply of data for large-scale experimentation and enables quantitative evaluation of whether the generated videos adhere to physical laws. We trained diffusion-based video generation models to predict object movements based on initial frames. Our scaling experiments show perfect generalization within the distribution, measurable scaling behavior for combinatorial generalization, but failure in out-of-distribution scenarios. Further experiments reveal two key insights about the generalization mechanisms of these models: (1) the models fail to abstract general physical rules and instead exhibit\"case-based\"generalization behavior, i.e., mimicking the closest training example; (2) when generalizing to new cases, models are observed to prioritize different factors when referencing training data: color>size>velocity>shape. Our study suggests that scaling alone is insufficient for video generation models to uncover fundamental physical laws, despite its role in Sora's broader success. See our project page at https://phyworld.github.io",
+      "venue": "International Conference on Machine Learning",
+      "citation_count": 138,
+      "doi": "10.48550/arXiv.2411.02385",
+      "arxiv_id": "2411.02385",
+      "url": "https://www.semanticscholar.org/paper/7a0f9a591fbb8b224e385351256b61c7a54be8f9",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-5a1659a064484ae2434d9c4e1acd6a5a55931f1e",
+      "title": "Advancing Humanoid Locomotion: Mastering Challenging Terrains with Denoising World Model Learning",
+      "authors": [
+        {
+          "name": "Xinyang Gu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yen-Jen Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiangpei Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Chengming Shi",
+          "affiliation": ""
+        },
+        {
+          "name": "Yanjiang Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Yichen Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianyu Chen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Humanoid robots, with their human-like skeletal structure, are especially suited for tasks in human-centric environments. However, this structure is accompanied by additional challenges in locomotion controller design, especially in complex real-world environments. As a result, existing humanoid robots are limited to relatively simple terrains, either with model-based control or model-free reinforcement learning. In this work, we introduce Denoising World Model Learning (DWL), an end-to-end reinforcement learning framework for humanoid locomotion control, which demonstrates the world's first humanoid robot to master real-world challenging terrains such as snowy and inclined land in the wild, up and down stairs, and extremely uneven terrains. All scenarios run the same learned neural network with zero-shot sim-to-real transfer, indicating the superior robustness and generalization capability of the proposed method.",
+      "venue": "Robotics: Science and Systems",
+      "citation_count": 110,
+      "doi": "10.15607/rss.2024.xx.058",
+      "arxiv_id": "2408.14472",
+      "url": "https://www.semanticscholar.org/paper/5a1659a064484ae2434d9c4e1acd6a5a55931f1e",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    }
+  ]
+}

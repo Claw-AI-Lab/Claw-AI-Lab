@@ -1,0 +1,3288 @@
+{
+  "query": "free layout controlled generation",
+  "source": "openalex",
+  "limit": 40,
+  "timestamp": 1773983607.1246066,
+  "papers": [
+    {
+      "paper_id": "oalex-W4409367222",
+      "title": "SpotActor: Training-Free Layout-Controlled Consistent Image Generation",
+      "authors": [
+        {
+          "name": "Jiahao Wang",
+          "affiliation": "Xi'an Jiaotong University"
+        },
+        {
+          "name": "Caixia Yan",
+          "affiliation": "Xi'an Jiaotong University"
+        },
+        {
+          "name": "Weizhan Zhang",
+          "affiliation": "Xi'an Jiaotong University"
+        },
+        {
+          "name": "Haonan Lin",
+          "affiliation": "Xi'an Jiaotong University"
+        },
+        {
+          "name": "Mengmeng Wang",
+          "affiliation": "State Grid Corporation of China (China)"
+        },
+        {
+          "name": "Guang Dai",
+          "affiliation": "State Grid Corporation of China (China)"
+        },
+        {
+          "name": "Tieliang Gong",
+          "affiliation": "Xi'an Jiaotong University"
+        },
+        {
+          "name": "Hao Sun",
+          "affiliation": "China Telecom"
+        },
+        {
+          "name": "Jingdong Wang",
+          "affiliation": "Xi'an Jiaotong University"
+        }
+      ],
+      "year": 2025,
+      "abstract": "Text-to-image diffusion models significantly enhance the efficiency of artistic creation with high-fidelity image generation. However, in typical application scenarios like comic book production, they can neither place each subject into its expected spot nor maintain the consistent appearance of each subject across images. For these issues, we pioneer a novel task, Layout-to-Consistent-Image (L2CI) generation, which produces consistent and compositional images in accordance with the given layout conditions and text prompts. To accomplish this challenging task, we present a new formalization of dual energy guidance with optimization in a dual semantic-latent space and thus propose a training-free pipeline, SpotActor, which features a layout-conditioned optimizing stage and a consistent sampling stage. In the optimizing stage, we innovate a nuanced layout energy function to mimic the attention activations with a sigmoid-like objective. While in the sampling stage, we design Regional Interconnection Self-Attention (RISA) and Semantic Fusion Cross-Attention (SFCA) mechanisms that allow mutual interactions across images. To evaluate the performance, we present ActorBench, a specified benchmark with hundreds of reasonable prompt-box pairs stemming from object detection datasets. Comprehensive experiments are conducted to demonstrate the effectiveness of our method. The results prove that SpotActor fulfills the expectations of this task and showcases the potential for practical applications with superior layout alignment, subject consistency, prompt conformity and background diversity.",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 2,
+      "doi": "10.1609/aaai.v39i7.32831",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v39i7.32831",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4386075631",
+      "title": "SpaText: Spatio-Textual Representation for Controllable Image Generation",
+      "authors": [
+        {
+          "name": "Omri Avrahami",
+          "affiliation": "Hebrew University of Jerusalem"
+        },
+        {
+          "name": "Thomas Hayes",
+          "affiliation": ""
+        },
+        {
+          "name": "Oran Gafni",
+          "affiliation": ""
+        },
+        {
+          "name": "Sonal Gupta",
+          "affiliation": ""
+        },
+        {
+          "name": "Yaniv Taigman",
+          "affiliation": ""
+        },
+        {
+          "name": "Devi Parikh",
+          "affiliation": ""
+        },
+        {
+          "name": "Dani Lischinski",
+          "affiliation": "Hebrew University of Jerusalem"
+        },
+        {
+          "name": "Ohad Fried",
+          "affiliation": "Brandman University"
+        },
+        {
+          "name": "Xi Yin",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Recent text-to-image diffusion models are able to generate convincing results of unprecedented quality. However, it is nearly impossible to control the shapes of different regions/objects or their layout in a fine-grained fashion. Previous attempts to provide such controls were hindered by their reliance on a fixed set of labels. To this end, we present SpaText \u2014 a new method for text-to-image generation using open-vocabulary scene control. In addition to a global text prompt that describes the entire scene, the user provides a segmentation map where each region of interest is annotated by a free-form natural language description. Due to lack of large-scale datasets that have a detailed textual description for each region in the image, we choose to leverage the current large-scale text-to-image datasets and base our approach on a novel CLIP-based spatio-textual representation, and show its effectiveness on two state-of-the-art diffusion models: pixel-based and latent-based. In addition, we show how to extend the classifier-free guidance method in diffusion models to the multi-conditional case and present an alternative accelerated inference algorithm. Finally, we offer several automatic evaluation metrics and use them, in addition to FID scores and a user study, to evaluate our method and show that it achieves state-of-the-art results on image generation with free-form textual scene control.",
+      "venue": "",
+      "citation_count": 135,
+      "doi": "10.1109/cvpr52729.2023.01762",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr52729.2023.01762",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4390872671",
+      "title": "Dense Text-to-Image Generation with Attention Modulation",
+      "authors": [
+        {
+          "name": "Yunji Kim",
+          "affiliation": "Naver (South Korea)"
+        },
+        {
+          "name": "Jiyoung Lee",
+          "affiliation": "Naver (South Korea)"
+        },
+        {
+          "name": "Jin-Hwa Kim",
+          "affiliation": "Naver (South Korea)"
+        },
+        {
+          "name": "Jung-Woo Ha",
+          "affiliation": "Naver (South Korea)"
+        },
+        {
+          "name": "Jun-Yan Zhu",
+          "affiliation": "Carnegie Mellon University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Existing text-to-image diffusion models struggle to synthesize realistic images given dense captions, where each text prompt provides a detailed description for a specific image region. To address this, we propose DenseDiffusion, a training-free method that adapts a pre-trained text-to-image model to handle such dense captions while offering control over the scene layout. We first analyze the relationship between generated images\u2019 layouts and the pre-trained model\u2019s intermediate attention maps. Next, we develop an attention modulation method that guides objects to appear in specific regions according to layout guidance. Without requiring additional fine-tuning or datasets, we improve image generation performance given dense captions regarding both automatic and human evaluation scores. In addition, we achieve similar-quality visual results with models specifically trained with layout conditions. Code and data are available at https://github.com/naver-ai/DenseDiffusion.",
+      "venue": "",
+      "citation_count": 86,
+      "doi": "10.1109/iccv51070.2023.00708",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/iccv51070.2023.00708",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3180762274",
+      "title": "Wind Farm Power Generation Control Via Double-Network-Based Deep Reinforcement Learning",
+      "authors": [
+        {
+          "name": "Jingjie Xie",
+          "affiliation": "University of Warwick"
+        },
+        {
+          "name": "Hongyang Dong",
+          "affiliation": "University of Warwick"
+        },
+        {
+          "name": "Xiaowei Zhao",
+          "affiliation": "University of Warwick"
+        },
+        {
+          "name": "Aris Karcanias",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "A model-free deep reinforcement learning (DRL) method is proposed in this article to maximize the total power generation of wind farms through the combination of induction control and yaw control. Specifically, a novel double-network (DN)-based DRL approach is designed to generate control policies for thrust coefficients and yaw angles simultaneously and separately. Two sets of critic-actor networks are constructed to this end. They are linked by a central power-related reward, providing a coordinated control structure while inheriting the critic-actor mechanism's advantages. Compared with conventional DRL methods, the proposed DN-based DRL strategy can adapt to the distinctive and incompatible features of different control inputs, guaranteeing a reliable training process and ensuring superior performance. Also, the prioritized experience replay strategy is utilized to improve the training efficiency of deep neural networks. Simulation tests based on a dynamic wind farm simulator show that the proposed method can significantly increase the power generation for wind farms with different layouts.",
+      "venue": "IEEE Transactions on Industrial Informatics",
+      "citation_count": 44,
+      "doi": "10.1109/tii.2021.3095563",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tii.2021.3095563",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4229006590",
+      "title": "Wind farm control technologies: from classical control to reinforcement learning",
+      "authors": [
+        {
+          "name": "Hongyang Dong",
+          "affiliation": "University of Warwick"
+        },
+        {
+          "name": "Jingjie Xie",
+          "affiliation": "University of Warwick"
+        },
+        {
+          "name": "Xiaowei Zhao",
+          "affiliation": "University of Warwick"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Abstract Wind power plays a vital role in the global effort towards net zero. A recent figure shows that 93GW new wind capacity was installed worldwide in 2020, leading to a 53% year-on-year increase. The control system is the core of wind farm operations and has an essential influence on the farm\u2019s power capture efficiency, economic profitability, and operation and maintenance cost. However, the inherent system complexities of wind farms and the aerodynamic interactions among wind turbines cause significant barriers to control system design. The wind industry has recognized that new technologies are needed to handle wind farm control tasks, especially for large-scale offshore wind farms. This paper provides a comprehensive review of the development and most recent advances in wind farm control technologies. It covers the introduction of fundamental aspects of wind farm control in terms of system modeling, main challenges and control objectives. Existing wind farm control methods for different purposes, including layout optimization, power generation maximization, fatigue load minimization and power reference tracking, are investigated. Moreover, a detailed discussion regarding the differences and similarities between model-based, model-free and data-driven wind farm approaches is presented. In addition, we highlight state-of-the-art wind farm control technologies based on reinforcement learning\u2014a booming machine learning technique that has drawn worldwide attention. Future challenges and research avenues in wind farm control are also analyzed.",
+      "venue": "Progress in Energy",
+      "citation_count": 66,
+      "doi": "10.1088/2516-1083/ac6cc1",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1088/2516-1083/ac6cc1",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3126201107",
+      "title": "Product Generation Module: Automated Production Planning for optimized workload and increased efficiency in Matrix Production Systems",
+      "authors": [
+        {
+          "name": "Marvin Carl May",
+          "affiliation": "Karlsruhe Institute of Technology"
+        },
+        {
+          "name": "Simon Schmidt",
+          "affiliation": "Karlsruhe Institute of Technology"
+        },
+        {
+          "name": "Andreas Kuhnle",
+          "affiliation": "Karlsruhe Institute of Technology"
+        },
+        {
+          "name": "Nicole Stricker",
+          "affiliation": "Karlsruhe Institute of Technology"
+        },
+        {
+          "name": "Gisela Lanza",
+          "affiliation": "Karlsruhe Institute of Technology"
+        }
+      ],
+      "year": 2021,
+      "abstract": "",
+      "venue": "Procedia CIRP",
+      "citation_count": 31,
+      "doi": "10.1016/j.procir.2021.01.050",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.procir.2021.01.050",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3094704314",
+      "title": "A review on genetic algorithm: past, present, and future",
+      "authors": [
+        {
+          "name": "Sourabh Katoch",
+          "affiliation": "National Institute of Technology Hamirpur"
+        },
+        {
+          "name": "Sumit Singh Chauhan",
+          "affiliation": "National Institute of Technology Hamirpur"
+        },
+        {
+          "name": "Vijay Kumar",
+          "affiliation": "National Institute of Technology Hamirpur"
+        }
+      ],
+      "year": 2020,
+      "abstract": "",
+      "venue": "Multimedia Tools and Applications",
+      "citation_count": 4232,
+      "doi": "10.1007/s11042-020-10139-6",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s11042-020-10139-6",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4280586943",
+      "title": "Robust (Controlled) Table-to-Text Generation with Structure-Aware Equivariance Learning",
+      "authors": [
+        {
+          "name": "Fei Wang",
+          "affiliation": "Southern California University for Professional Studies"
+        },
+        {
+          "name": "Zhewei Xu",
+          "affiliation": "University of Southern California"
+        },
+        {
+          "name": "Pedro Szekely",
+          "affiliation": "University of Southern California"
+        },
+        {
+          "name": "Muhao Chen",
+          "affiliation": "University of Southern California"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Controlled table-to-text generation seeks to generate natural language descriptions for highlighted subparts of a table. Previous SOTA systems still employ a sequence-to-sequence generation method, which merely captures the table as a linear structure and is brittle when table layouts change. We seek to go beyond this paradigm by (1) effectively expressing the relations of content pieces in the table, and (2) making our model robust to content-invariant structural transformations. Accordingly, we propose an equivariance learning framework, LATTICE ( ), which encodes tables with a structure-aware self-attention mechanism. This prunes the full self-attention structure into an order-invariant graph attention that captures the connected graph structure of cells belonging to the same row or column, and it differentiates between relevant cells and irrelevant cells from the structural perspective. Our framework also modifies the positional encoding mechanism to preserve the relative position of tokens in the same cell but enforce position invariance among different cells. Our technology is free to be plugged into existing table-to-text generation models, and has improved T5-based models to offer better performance on ToTTo and HiTab. Moreover, on a harder version of ToTTo, we preserve promising performance, while previous SOTA systems, even with transformationbased data augmentation, have seen significant performance drops. 1",
+      "venue": "Proceedings of the 2022 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies",
+      "citation_count": 33,
+      "doi": "10.18653/v1/2022.naacl-main.371",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.18653/v1/2022.naacl-main.371",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4225269145",
+      "title": "Enhanced stimulated Brillouin scattering utilizing Raman conversion in diamond",
+      "authors": [
+        {
+          "name": "Hui Chen",
+          "affiliation": "Hebei University of Technology"
+        },
+        {
+          "name": "Zhenxu Bai",
+          "affiliation": "Macquarie University"
+        },
+        {
+          "name": "Xuezong Yang",
+          "affiliation": "Macquarie University"
+        },
+        {
+          "name": "Jie Ding",
+          "affiliation": "Hebei University of Technology"
+        },
+        {
+          "name": "Yaoyao Qi",
+          "affiliation": "Hebei University of Technology"
+        },
+        {
+          "name": "Yanru Yin",
+          "affiliation": "Hebei University of Technology"
+        },
+        {
+          "name": "Yulei Wang",
+          "affiliation": "Hebei University of Technology"
+        },
+        {
+          "name": "Zhiwei L\u00fc",
+          "affiliation": "Hebei University of Technology"
+        },
+        {
+          "name": "Richard P. Mildren",
+          "affiliation": "Macquarie University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Cascaded Brillouin lasers based on guided-wave structures are applied across a range of important fields such as optical communications, microwave photonics, and sensing. However, restricted by the volume and available transmission range of the gain medium, the power output and wavelength diversity of guided-wave Brillouin devices are somewhat limited. In this work, we report the design and development of a cascaded Brillouin laser based utilizing a free-space optical layout with a diamond crystal as the Brillouin gain medium. A quasi-continuous-wave, 1 \u03bcm laser was used as the pump laser, and Raman wavelength conversion is used as an intermediate process to facilitate stimulated Brillouin scattering with a low threshold. When the output transmission of the diamond cavity is 0.37% and the incident pump power is 220 W, cascading of the Brillouin\u2013Stokes field to the eighth Stokes and the seventh anti-Stokes orders was observed. By adjusting the cavity length, the order of the cascaded Brillouin laser output is controlled. A comprehensive analysis of the Brillouin generation process and the cascade of Stokes orders is undertaken for different incident pump powers and cavity lengths. This work is expected to enable practical applications of high-power Brillouin lasers and Brillouin frequency combs.",
+      "venue": "Applied Physics Letters",
+      "citation_count": 48,
+      "doi": "10.1063/5.0087092",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1063/5.0087092",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4386032616",
+      "title": "An X-ray free-electron laser with a highly configurable undulator and integrated chicanes for tailored pulse properties",
+      "authors": [
+        {
+          "name": "Eduard Prat",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "Andr\u00e9 Al Haddad",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "Christopher Arrell",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "Sven Augustin",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "Marco Boll",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "Christoph Bostedt",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "Marco Calvi",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "A. L. Cavalieri",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "P. Craievich",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "A. Dax",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "Philipp Dijkstal",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "Eugenio Ferrari",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "R. Follath",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "R. Ganter",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "Zheqiao Geng",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "Nicole Hiller",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "Martin Huppert",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "R. Ischebeck",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "Pavle Jurani\u0107",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "Christoph Kittel",
+          "affiliation": "University of Malta"
+        },
+        {
+          "name": "Gregor Knopp",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "Alexander Malyzhenkov",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "F. Marcellini",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "Stefan Neppl",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "S. Reiche",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "Nicholas Sammut",
+          "affiliation": "University of Malta"
+        },
+        {
+          "name": "Thomas Schietinger",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "Thomas M. Schmidt",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "Kirsten Schnorr",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "A. Trisorio",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "C. Vicario",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "D. Voulot",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "Guanglei Wang",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "Tobias Weilbach",
+          "affiliation": "Paul Scherrer Institute"
+        }
+      ],
+      "year": 2023,
+      "abstract": "",
+      "venue": "Nature Communications",
+      "citation_count": 25,
+      "doi": "10.1038/s41467-023-40759-z",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41467-023-40759-z",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4328008193",
+      "title": "Straight and Curved Canted Cosine Theta Superconducting Dipoles for Ion Therapy: Comparison Between Various Design Options and Technologies for Ramping Operation",
+      "authors": [
+        {
+          "name": "E. De Matteis",
+          "affiliation": "Istituto Nazionale di Fisica Nucleare"
+        },
+        {
+          "name": "D. Barna",
+          "affiliation": "Wigner Research Centre for Physics"
+        },
+        {
+          "name": "G. Ceruti",
+          "affiliation": "Istituto Nazionale di Fisica Nucleare"
+        },
+        {
+          "name": "G. Kirby",
+          "affiliation": "Istituto Nazionale di Fisica Nucleare, Laboratori Acceleratori e Superconduttivit\u00e0 Applicata"
+        },
+        {
+          "name": "Thibault L\u00e9crevisse",
+          "affiliation": "Commissariat \u00e0 l'\u00c9nergie Atomique et aux \u00c9nergies Alternatives"
+        },
+        {
+          "name": "S. Mariotto",
+          "affiliation": "Istituto Nazionale di Fisica Nucleare"
+        },
+        {
+          "name": "D. Perini",
+          "affiliation": "European Organization for Nuclear Research"
+        },
+        {
+          "name": "Marco Prioli",
+          "affiliation": "Istituto Nazionale di Fisica Nucleare, Laboratori Acceleratori e Superconduttivit\u00e0 Applicata"
+        },
+        {
+          "name": "L. Rossi",
+          "affiliation": "Istituto Nazionale di Fisica Nucleare"
+        },
+        {
+          "name": "K. Scibor",
+          "affiliation": "European Organization for Nuclear Research"
+        },
+        {
+          "name": "M. Statera",
+          "affiliation": "Istituto Nazionale di Fisica Nucleare, Laboratori Acceleratori e Superconduttivit\u00e0 Applicata"
+        },
+        {
+          "name": "M. Sorbi",
+          "affiliation": "Istituto Nazionale di Fisica Nucleare, Laboratori Acceleratori e Superconduttivit\u00e0 Applicata"
+        },
+        {
+          "name": "S. Di Stefano",
+          "affiliation": "Istituto Nazionale di Fisica Nucleare"
+        },
+        {
+          "name": "F. Toral",
+          "affiliation": "Centro de Investigaciones Energ\u00e9ticas, Medioambientales y Tecnol\u00f3gicas"
+        },
+        {
+          "name": "R. U. Valente",
+          "affiliation": "Istituto Nazionale di Fisica Nucleare, Laboratori Acceleratori e Superconduttivit\u00e0 Applicata"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Canted Cosine Theta layout for accelerator magnets is a very attractive since such magnets can be manufactured and assembled without big tooling, and with a relatively modest number of parts and tools. In the frame of European Horizon2020 funds, two collaborations, HITRI <italic xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">plus</i> and I.FAST, are developing a CCT design, of 80 mm free bore, 4 T central dipole field, and 0.4 T/s ramp-rate. This magnet is expected to be the bending element of a gantry, to control the beam delivery in therapy with ions (hadrontherapy). The paper illustrates first a comparison between CCT and more classical cosine theta layout, followed by the comparison between Nb-Ti, Nb <sub xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">3</sub> Sn, MgB <sub xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">2</sub> , and HTS tapes coils. Relevant requirement for the magnets of this study is to be operated at low current, to limit the heat generation, in sight of a liquid-free cooling system. The results of the comparison is then applied to the design of two magnet demonstrators. Both adopt a low-losses Nb-Ti rope, consistently with the need for keeping the heat generation as low as possible. The first is a straight combined function dipole-quadrupole, while the second is a curved CCT dipole. The paper concludes with the first manufacturing tests for the CCT formers, for which aluminium -bronze, stainless steel and charged PEEK polymer are being explored as basic material.",
+      "venue": "IEEE Transactions on Applied Superconductivity",
+      "citation_count": 22,
+      "doi": "10.1109/tasc.2023.3259330",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tasc.2023.3259330",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3180931595",
+      "title": "Offset-Free Model Predictive Control for a cone-shaped active magnetic bearing system",
+      "authors": [
+        {
+          "name": "Luis M. Castellanos Molina",
+          "affiliation": "Polytechnic University of Turin"
+        },
+        {
+          "name": "Angelo Bonfitto",
+          "affiliation": "Polytechnic University of Turin"
+        },
+        {
+          "name": "Renato Galluzzi",
+          "affiliation": "Polytechnic University of Turin"
+        }
+      ],
+      "year": 2021,
+      "abstract": "",
+      "venue": "Mechatronics",
+      "citation_count": 29,
+      "doi": "10.1016/j.mechatronics.2021.102612",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.mechatronics.2021.102612",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3216073817",
+      "title": "Impact of the wake deficit model on wind farm yield: A study of yaw-based control optimization",
+      "authors": [
+        {
+          "name": "Bart\u0142omiej P. Rak",
+          "affiliation": "University of Lisbon"
+        },
+        {
+          "name": "Ricardo Pereira",
+          "affiliation": "University of Lisbon"
+        }
+      ],
+      "year": 2021,
+      "abstract": "",
+      "venue": "Journal of Wind Engineering and Industrial Aerodynamics",
+      "citation_count": 32,
+      "doi": "10.1016/j.jweia.2021.104827",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.jweia.2021.104827",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3209890832",
+      "title": "\u00b1 0.45 V CMOS Second-Generation Voltage Conveyor Based on Super Source Follower",
+      "authors": [
+        {
+          "name": "Abdullah Ye\u015fil",
+          "affiliation": "Band\u0131rma Onyedi Eyl\u00fcl University"
+        },
+        {
+          "name": "Shahram M\u0131nae\u0131",
+          "affiliation": "Do\u011fu\u015f University"
+        },
+        {
+          "name": "Costas Psychalinos",
+          "affiliation": "University of Patras"
+        }
+      ],
+      "year": 2021,
+      "abstract": "",
+      "venue": "Circuits Systems and Signal Processing",
+      "citation_count": 21,
+      "doi": "10.1007/s00034-021-01867-7",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s00034-021-01867-7",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4221151978",
+      "title": "Instant neural graphics primitives with a multiresolution hash encoding",
+      "authors": [
+        {
+          "name": "Thomas M\u00fcller",
+          "affiliation": ""
+        },
+        {
+          "name": "Alex Evans",
+          "affiliation": "Nvidia (United Kingdom)"
+        },
+        {
+          "name": "Christoph Schied",
+          "affiliation": ""
+        },
+        {
+          "name": "Alexander Keller",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Neural graphics primitives, parameterized by fully connected neural networks, can be costly to train and evaluate. We reduce this cost with a versatile new input encoding that permits the use of a smaller network without sacrificing quality, thus significantly reducing the number of floating point and memory access operations: a small neural network is augmented by a multiresolution hash table of trainable feature vectors whose values are optimized through stochastic gradient descent. The multiresolution structure allows the network to disambiguate hash collisions, making for a simple architecture that is trivial to parallelize on modern GPUs. We leverage this parallelism by implementing the whole system using fully-fused CUDA kernels with a focus on minimizing wasted bandwidth and compute operations. We achieve a combined speedup of several orders of magnitude, enabling training of high-quality neural graphics primitives in a matter of seconds, and rendering in tens of milliseconds at a resolution of 1920\u00d71080.",
+      "venue": "ACM Transactions on Graphics",
+      "citation_count": 3424,
+      "doi": "10.1145/3528223.3530127",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3528223.3530127",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4386990964",
+      "title": "Reactivity control optimization of boron-free small modular pressurized water reactor with helical-cruciform metallic fuel",
+      "authors": [
+        {
+          "name": "Zhang Chang",
+          "affiliation": "Shanghai Jiao Tong University"
+        },
+        {
+          "name": "Qufei Song",
+          "affiliation": "Shanghai Jiao Tong University"
+        },
+        {
+          "name": "Hui Guo",
+          "affiliation": "Shanghai Jiao Tong University"
+        },
+        {
+          "name": "Tenglong Cong",
+          "affiliation": "Shanghai Jiao Tong University"
+        },
+        {
+          "name": "Yao Xiao",
+          "affiliation": "Shanghai Jiao Tong University"
+        },
+        {
+          "name": "Hanyang Gu",
+          "affiliation": "Shanghai Jiao Tong University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "",
+      "venue": "Nuclear Engineering and Design",
+      "citation_count": 17,
+      "doi": "10.1016/j.nucengdes.2023.112593",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.nucengdes.2023.112593",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4404133891",
+      "title": "ChatPattern: Layout Pattern Customization via Natural Language",
+      "authors": [
+        {
+          "name": "Zixiao Wang",
+          "affiliation": "Chinese University of Hong Kong"
+        },
+        {
+          "name": "Yunheng Shen",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Xufeng Yao",
+          "affiliation": "Chinese University of Hong Kong"
+        },
+        {
+          "name": "Wenqian Zhao",
+          "affiliation": "Chinese University of Hong Kong"
+        },
+        {
+          "name": "Yang Bai",
+          "affiliation": "Chinese University of Hong Kong"
+        },
+        {
+          "name": "Farzan Farnia",
+          "affiliation": "Chinese University of Hong Kong"
+        },
+        {
+          "name": "Bei Yu",
+          "affiliation": "Chinese University of Hong Kong"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Existing works focus on fixed-size layout pattern generation, while the more practical free-size pattern generation receives limited attention. In this paper, we propose ChatPattern, a novel Large-Language-Model (LLM) powered framework for flexible pattern customization. ChatPattern utilizes a two-part system featuring an expert LLM agent and a highly controllable layout pattern generator. The LLM agent can interpret natural language requirements and operate design tools to meet specified needs, while the generator excels in conditional layout generation, pattern modification, and memory-friendly patterns extension. Experiments on challenging pattern generation setting shows the ability of ChatPattern to synthesize high-quality large-scale patterns.",
+      "venue": "",
+      "citation_count": 7,
+      "doi": "10.1145/3649329.3657361",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3649329.3657361",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4405003032",
+      "title": "Be Yourself: Bounded Attention for Multi-subject Text-to-Image Generation",
+      "authors": [
+        {
+          "name": "Omer Dahary",
+          "affiliation": "Tel Aviv University"
+        },
+        {
+          "name": "Or Patashnik",
+          "affiliation": "Snap (United States)"
+        },
+        {
+          "name": "Kfir Aberman",
+          "affiliation": "Snap (United States)"
+        },
+        {
+          "name": "Daniel Cohen\u2010Or",
+          "affiliation": "Tel Aviv University"
+        }
+      ],
+      "year": 2024,
+      "abstract": "",
+      "venue": "Lecture notes in computer science",
+      "citation_count": 13,
+      "doi": "10.1007/978-3-031-72630-9_25",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/978-3-031-72630-9_25",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3210383951",
+      "title": "Partial Least Squares Structural Equation Modeling (PLS-SEM) Using R",
+      "authors": [
+        {
+          "name": "Joseph F. Hair",
+          "affiliation": ""
+        },
+        {
+          "name": "G. Tomas M. Hult",
+          "affiliation": ""
+        },
+        {
+          "name": "Christian M. Ringle",
+          "affiliation": ""
+        },
+        {
+          "name": "Marko Sarstedt",
+          "affiliation": ""
+        },
+        {
+          "name": "Nicholas P. Danks",
+          "affiliation": ""
+        },
+        {
+          "name": "Soumya Ray",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "A Primer on Partial Least Squares Structural Equation Modeling (PLS-SEM) was published (Hair, Hult, Ringle, & Sarstedt",
+      "venue": "Classroom companion: business",
+      "citation_count": 7039,
+      "doi": "10.1007/978-3-030-80519-7",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/978-3-030-80519-7",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4411220056",
+      "title": "TopoDiff: Training-free image generation with topological layout control",
+      "authors": [
+        {
+          "name": "Shitong Cao",
+          "affiliation": "Yunnan University"
+        },
+        {
+          "name": "Xuejie Zhang",
+          "affiliation": "Yunnan University"
+        },
+        {
+          "name": "Jin Wang",
+          "affiliation": "Yunnan University"
+        },
+        {
+          "name": "Xiaobing Zhou",
+          "affiliation": "Yunnan University"
+        }
+      ],
+      "year": 2025,
+      "abstract": "",
+      "venue": "Expert Systems with Applications",
+      "citation_count": 0,
+      "doi": "10.1016/j.eswa.2025.128556",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.eswa.2025.128556",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4288079944",
+      "title": "<i>Planck</i> 2018 results",
+      "authors": [
+        {
+          "name": "N. Aghanim",
+          "affiliation": "Universit\u00e9 Paris-Sud"
+        },
+        {
+          "name": "Y. Akrami",
+          "affiliation": "Leiden University"
+        },
+        {
+          "name": "M. Ashdown",
+          "affiliation": "University of Cambridge"
+        },
+        {
+          "name": "J. Aumont",
+          "affiliation": "Universit\u00e9 Toulouse III - Paul Sabatier"
+        },
+        {
+          "name": "C. Baccigalupi",
+          "affiliation": "Scuola Internazionale Superiore di Studi Avanzati"
+        },
+        {
+          "name": "M. Ballardini",
+          "affiliation": "Istituto di Astrofisica Spaziale e Fisica Cosmica di Bologna"
+        },
+        {
+          "name": "A. J. Banday",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "R. B. Barreiro",
+          "affiliation": "Universidad de Cantabria"
+        },
+        {
+          "name": "N. Bartolo",
+          "affiliation": "University of Padua"
+        },
+        {
+          "name": "S. Basak",
+          "affiliation": "Indian Institute of Science Education and Research Thiruvananthapuram"
+        },
+        {
+          "name": "Richard A. Battye",
+          "affiliation": "University of Manchester"
+        },
+        {
+          "name": "K. Benabed",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "J.-P. Bernard",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "M. Bersanelli",
+          "affiliation": "University of Milan"
+        },
+        {
+          "name": "P. Bielewicz",
+          "affiliation": "Scuola Internazionale Superiore di Studi Avanzati"
+        },
+        {
+          "name": "J. J. Bock",
+          "affiliation": "California Institute of Technology"
+        },
+        {
+          "name": "J. R. Bond",
+          "affiliation": "University of Toronto"
+        },
+        {
+          "name": "J. Borrill",
+          "affiliation": "Lawrence Berkeley National Laboratory"
+        },
+        {
+          "name": "F. R. Bouchet",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "F. Boulanger",
+          "affiliation": "Universit\u00e9 Paris-Sud"
+        },
+        {
+          "name": "M. Bucher",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "C. Burigana",
+          "affiliation": "University of Ferrara"
+        },
+        {
+          "name": "R. C. Butler",
+          "affiliation": "Istituto di Astrofisica Spaziale e Fisica Cosmica di Bologna"
+        },
+        {
+          "name": "Victoria Calafut",
+          "affiliation": "Cardiff University"
+        },
+        {
+          "name": "J.-F. Cardoso",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Julien Carron",
+          "affiliation": "University of Sussex"
+        },
+        {
+          "name": "A. Challinor",
+          "affiliation": "University of Cambridge"
+        },
+        {
+          "name": "H. C. Chiang",
+          "affiliation": "Princeton University"
+        },
+        {
+          "name": "Jens Chluba",
+          "affiliation": "University of Manchester"
+        },
+        {
+          "name": "L. P. L. Colombo",
+          "affiliation": "University of Milan"
+        },
+        {
+          "name": "C\u00e9line Combet",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "D. Contreras",
+          "affiliation": "University of British Columbia"
+        },
+        {
+          "name": "B. P. Crill",
+          "affiliation": "California Institute of Technology"
+        },
+        {
+          "name": "F. Cuttaia",
+          "affiliation": "Istituto di Astrofisica Spaziale e Fisica Cosmica di Bologna"
+        },
+        {
+          "name": "P. de Bernardis",
+          "affiliation": "Sapienza University of Rome"
+        },
+        {
+          "name": "G. de Zotti",
+          "affiliation": "Osservatorio Astronomico di Padova"
+        },
+        {
+          "name": "G. de Zotti",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "J.\u2010M. Delouis",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Eleonora Di Valentino",
+          "affiliation": "University of Manchester"
+        },
+        {
+          "name": "J. M. Diego",
+          "affiliation": "Universidad de Cantabria"
+        },
+        {
+          "name": "J. M. Diego",
+          "affiliation": "California Institute of Technology"
+        },
+        {
+          "name": "M. Douspis",
+          "affiliation": "Universit\u00e9 Paris-Sud"
+        },
+        {
+          "name": "A. Ducout",
+          "affiliation": "Kavli Institute for the Physics and Mathematics of the Universe"
+        },
+        {
+          "name": "X. Dupac",
+          "affiliation": "European Space Agency"
+        },
+        {
+          "name": "S. Dusini",
+          "affiliation": "Istituto Nazionale di Fisica Nucleare, Sezione di Padova"
+        },
+        {
+          "name": "G. Efstathiou",
+          "affiliation": "University of Cambridge"
+        },
+        {
+          "name": "F. Elsner",
+          "affiliation": "Max Planck Institute for Astrophysics"
+        },
+        {
+          "name": "T. A. En\u00dflin",
+          "affiliation": "Max Planck Institute for Astrophysics"
+        },
+        {
+          "name": "H. K. Eriksen",
+          "affiliation": "University of Oslo"
+        },
+        {
+          "name": "Y. Fantaye",
+          "affiliation": "African Institute for Mathematical Sciences"
+        },
+        {
+          "name": "M. Farhang",
+          "affiliation": "Shahid Beheshti University"
+        },
+        {
+          "name": "J. Fergusson",
+          "affiliation": "University of Cambridge"
+        },
+        {
+          "name": "R. Fern\u00e1ndez-Cobos",
+          "affiliation": "Universidad de Cantabria"
+        },
+        {
+          "name": "F. Finelli\u22c6",
+          "affiliation": "Istituto di Astrofisica Spaziale e Fisica Cosmica di Bologna"
+        },
+        {
+          "name": "F. Forastieri",
+          "affiliation": "University of Ferrara"
+        },
+        {
+          "name": "M. Frailis",
+          "affiliation": "Universit\u00e9 Paris-Sud"
+        },
+        {
+          "name": "A. A. Fraisse",
+          "affiliation": "Princeton University"
+        },
+        {
+          "name": "E. Franceschi",
+          "affiliation": "Istituto di Astrofisica Spaziale e Fisica Cosmica di Bologna"
+        },
+        {
+          "name": "Katherine Freese",
+          "affiliation": "Simon Fraser University"
+        },
+        {
+          "name": "S. Galeotta",
+          "affiliation": "Universit\u00e9 Paris-Sud"
+        },
+        {
+          "name": "S. Galli",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "K. Ganga",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "R. T. G\u00e9nova-Santos",
+          "affiliation": "Universidad de La Laguna"
+        },
+        {
+          "name": "M. Gerbino",
+          "affiliation": "Argonne National Laboratory"
+        },
+        {
+          "name": "T. Ghosh",
+          "affiliation": "California Institute of Technology"
+        },
+        {
+          "name": "J. Gonz\u00e1lez-Nuevo",
+          "affiliation": "Universidad de Oviedo"
+        },
+        {
+          "name": "K. M. G\u00f3rski",
+          "affiliation": "Jet Propulsion Laboratory"
+        },
+        {
+          "name": "S. Gratton",
+          "affiliation": "University of Cambridge"
+        },
+        {
+          "name": "A. Gruppuso",
+          "affiliation": "Istituto di Astrofisica Spaziale e Fisica Cosmica di Bologna"
+        },
+        {
+          "name": "J. E. Gudmundsson",
+          "affiliation": "Stockholm University"
+        },
+        {
+          "name": "J. Hamann",
+          "affiliation": "UNSW Sydney"
+        },
+        {
+          "name": "Will Handley",
+          "affiliation": "University of Cambridge"
+        },
+        {
+          "name": "F. K. Hansen",
+          "affiliation": "University of Oslo"
+        },
+        {
+          "name": "D. Herranz",
+          "affiliation": "Universidad de Cantabria"
+        },
+        {
+          "name": "S. R. Hildebrandt",
+          "affiliation": "California Institute of Technology"
+        },
+        {
+          "name": "E. Hivon",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Zhiqi Huang",
+          "affiliation": "Sun Yat-sen University"
+        },
+        {
+          "name": "Andrew H. Jaffe",
+          "affiliation": "Imperial College London"
+        },
+        {
+          "name": "W. C. Jones",
+          "affiliation": "Princeton University"
+        },
+        {
+          "name": "A. Karakci",
+          "affiliation": "University of Oslo"
+        },
+        {
+          "name": "E. Keih\u00e4nen",
+          "affiliation": "University of Helsinki"
+        },
+        {
+          "name": "R. Keskitalo",
+          "affiliation": "Lawrence Berkeley National Laboratory"
+        },
+        {
+          "name": "K. Kiiveri",
+          "affiliation": "University of Helsinki"
+        },
+        {
+          "name": "J. Kim",
+          "affiliation": "Max Planck Institute for Astrophysics"
+        },
+        {
+          "name": "T. S. Kisner",
+          "affiliation": "Lawrence Berkeley National Laboratory"
+        },
+        {
+          "name": "L. Knox",
+          "affiliation": "University of California, Davis"
+        },
+        {
+          "name": "N. Krachmalnicoff",
+          "affiliation": "Scuola Internazionale Superiore di Studi Avanzati"
+        },
+        {
+          "name": "M. Kunz",
+          "affiliation": "Universit\u00e9 Paris-Sud"
+        },
+        {
+          "name": "H. Kurki\u2010Suonio",
+          "affiliation": "University of Helsinki"
+        },
+        {
+          "name": "G. Lagache",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "J.-M. Lamarre",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "A. Lasenby",
+          "affiliation": "University of Cambridge"
+        },
+        {
+          "name": "M. Lattanzi",
+          "affiliation": "University of Ferrara"
+        },
+        {
+          "name": "C. R. Lawrence",
+          "affiliation": "Jet Propulsion Laboratory"
+        },
+        {
+          "name": "M. Le Jeune",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Pablo Lemos",
+          "affiliation": "University of Cambridge"
+        },
+        {
+          "name": "T.I Liaudat",
+          "affiliation": "RWTH Aachen University"
+        },
+        {
+          "name": "F. Levrier",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Antony Lewis",
+          "affiliation": "University of Sussex"
+        },
+        {
+          "name": "M. Liguori",
+          "affiliation": "University of Padua"
+        }
+      ],
+      "year": 2020,
+      "abstract": "We present cosmological parameter results from the final full-mission Planck measurements of the cosmic microwave background (CMB) anisotropies, combining information from the temperature and polarization maps and the lensing reconstruction. Compared to the 2015 results, improved measurements of large-scale polarization allow the reionization optical depth to be measured with higher precision, leading to significant gains in the precision of other correlated parameters. Improved modelling of the small-scale polarization leads to more robust constraints on many parameters, with residual modelling uncertainties estimated to affect them only at the 0.5 \u03c3 level. We find good consistency with the standard spatially-flat 6-parameter \u039bCDM cosmology having a power-law spectrum of adiabatic scalar perturbations (denoted \u201cbase \u039bCDM\u201d in this paper), from polarization, temperature, and lensing, separately and in combination. A combined analysis gives dark matter density \u03a9 c h 2 = 0.120 \u00b1 0.001, baryon density \u03a9 b h 2 = 0.0224 \u00b1 0.0001, scalar spectral index n s = 0.965 \u00b1 0.004, and optical depth \u03c4 = 0.054 \u00b1 0.007 (in this abstract we quote 68% confidence regions on measured parameters and 95% on upper limits). The angular acoustic scale is measured to 0.03% precision, with 100 \u03b8 * = 1.0411 \u00b1 0.0003. These results are only weakly dependent on the cosmological model and remain stable, with somewhat increased errors, in many commonly considered extensions. Assuming the base-\u039bCDM cosmology, the inferred (model-dependent) late-Universe parameters are: Hubble constant H 0 = (67.4 \u00b1 0.5) km s \u22121 Mpc \u22121 ; matter density parameter \u03a9 m = 0.315 \u00b1 0.007; and matter fluctuation amplitude \u03c3 8 = 0.811 \u00b1 0.006. We find no compelling evidence for extensions to the base-\u039bCDM model. Combining with baryon acoustic oscillation (BAO) measurements (and considering single-parameter extensions) we constrain the effective extra relativistic degrees of freedom to be N eff = 2.99 \u00b1 0.17, in agreement with the Standard Model prediction N eff = 3.046, and find that the neutrino mass is tightly constrained to \u2211 m \u03bd &lt; 0.12 eV. The CMB spectra continue to prefer higher lensing amplitudes than predicted in base \u039bCDM at over 2 \u03c3 , which pulls some parameters that affect the lensing amplitude away from the \u039bCDM model; however, this is not supported by the lensing reconstruction or (in models that also change the background geometry) BAO data. The joint constraint with BAO measurements on spatial curvature is consistent with a flat universe, \u03a9 K = 0.001 \u00b1 0.002. Also combining with Type Ia supernovae (SNe), the dark-energy equation of state parameter is measured to be w 0 = \u22121.03 \u00b1 0.03, consistent with a cosmological constant. We find no evidence for deviations from a purely power-law primordial spectrum, and combining with data from BAO, BICEP2, and Keck Array data, we place a limit on the tensor-to-scalar ratio r 0.002 &lt; 0.06. Standard big-bang nucleosynthesis predictions for the helium and deuterium abundances for the base-\u039bCDM cosmology are in excellent agreement with observations. The Planck base-\u039bCDM results are in good agreement with BAO, SNe, and some galaxy lensing observations, but in slight tension with the Dark Energy Survey\u2019s combined-probe results including galaxy clustering (which prefers lower fluctuation amplitudes or matter density parameters), and in significant, 3.6 \u03c3 , tension with local measurements of the Hubble constant (which prefer a higher value). Simple model extensions that can partially resolve these tensions are not favoured by the Planck data.",
+      "venue": "Astronomy and Astrophysics",
+      "citation_count": 13293,
+      "doi": "10.1051/0004-6361/201833910",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1051/0004-6361/201833910",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4310286407",
+      "title": "SpaText: Spatio-Textual Representation for Controllable Image Generation",
+      "authors": [
+        {
+          "name": "Omri Avrahami",
+          "affiliation": ""
+        },
+        {
+          "name": "Thomas Hayes",
+          "affiliation": ""
+        },
+        {
+          "name": "Oran Gafni",
+          "affiliation": ""
+        },
+        {
+          "name": "Sonal Gupta",
+          "affiliation": ""
+        },
+        {
+          "name": "Yaniv Taigman",
+          "affiliation": ""
+        },
+        {
+          "name": "Devi Parikh",
+          "affiliation": ""
+        },
+        {
+          "name": "Dani Lischinski",
+          "affiliation": ""
+        },
+        {
+          "name": "Ohad Fried",
+          "affiliation": ""
+        },
+        {
+          "name": "Xi Yin",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Recent text-to-image diffusion models are able to generate convincing results of unprecedented quality. However, it is nearly impossible to control the shapes of different regions/objects or their layout in a fine-grained fashion. Previous attempts to provide such controls were hindered by their reliance on a fixed set of labels. To this end, we present SpaText - a new method for text-to-image generation using open-vocabulary scene control. In addition to a global text prompt that describes the entire scene, the user provides a segmentation map where each region of interest is annotated by a free-form natural language description. Due to lack of large-scale datasets that have a detailed textual description for each region in the image, we choose to leverage the current large-scale text-to-image datasets and base our approach on a novel CLIP-based spatio-textual representation, and show its effectiveness on two state-of-the-art diffusion models: pixel-based and latent-based. In addition, we show how to extend the classifier-free guidance method in diffusion models to the multi-conditional case and present an alternative accelerated inference algorithm. Finally, we offer several automatic evaluation metrics and use them, in addition to FID scores and a user study, to evaluate our method and show that it achieves state-of-the-art results on image generation with free-form textual scene control.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 7,
+      "doi": "10.48550/arxiv.2211.14305",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2211.14305",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4413145611",
+      "title": "StyleStudio: Text-Driven Style Transfer with Selective Control of Style Elements",
+      "authors": [
+        {
+          "name": "Meng-Yuan Lei",
+          "affiliation": "Westlake University"
+        },
+        {
+          "name": "Xue Song",
+          "affiliation": "Fudan University"
+        },
+        {
+          "name": "Baojian Zhu",
+          "affiliation": "Westlake University"
+        },
+        {
+          "name": "Hao Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chi Zhang",
+          "affiliation": "Westlake University"
+        }
+      ],
+      "year": 2025,
+      "abstract": "Text-driven style transfer aims to merge the style of a reference image with content described by a text prompt. Recent advancements in text-to-image models have improved the nuance of style transformations, yet significant challenges remain, particularly with overfitting to reference styles, limiting stylistic control, and misaligning with textual content. In this paper, we propose three complementary strategies to address these issues. First, we introduce a cross-modal Adaptive Instance Normalization (AdaIN) mechanism for better integration of style and text features, enhancing alignment. Second, we develop a Style-based Classifier-Free Guidance (SCFG) approach that enables selective control over stylistic elements, reducing irrelevant influences. Finally, we incorporate a teacher model during early generation stages to stabilize spatial layouts and mitigate artifacts. Our extensive evaluations demonstrate significant improvements in style transfer quality and alignment with textual prompts. Furthermore, our approach can be integrated into existing style transfer frameworks without fine-tuning.",
+      "venue": "",
+      "citation_count": 9,
+      "doi": "10.1109/cvpr52734.2025.02183",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr52734.2025.02183",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4402727797",
+      "title": "SmartMask: Context Aware High-Fidelity Mask Generation for Fine-grained Object Insertion and Layout Control",
+      "authors": [
+        {
+          "name": "Jaskirat Singh",
+          "affiliation": "Adobe Systems (United States)"
+        },
+        {
+          "name": "Jianming Zhang",
+          "affiliation": "Adobe Systems (United States)"
+        },
+        {
+          "name": "Qing Liu",
+          "affiliation": "Adobe Systems (United States)"
+        },
+        {
+          "name": "Cameron Smith",
+          "affiliation": "Adobe Systems (United States)"
+        },
+        {
+          "name": "Zhe Lin",
+          "affiliation": "Adobe Systems (United States)"
+        },
+        {
+          "name": "Liang Zheng",
+          "affiliation": "Australian National University"
+        }
+      ],
+      "year": 2024,
+      "abstract": "The field of generative image inpainting and object in-sertion has made significant progress with the recent advent of latent diffusion models. Utilizing a precise object mask can greatly enhance these applications. However, due to the challenges users encounter in creating high-fidelity masks, there is a tendency for these methods to rely on more coarse masks (e.g., bounding box) for these applications. This results in limited control and compromised background content preservation. To overcome these limitations, we introduce SmartMask, which allows any novice user to create detailed masks for precise object insertion. Combined with a ControlNet-Inpaint model, our experiments demonstrate that SmartMask achieves superior object insertion quality, preserving the background content more effectively than previous methods. Notably, unlike prior works the proposed approach can also be used even without user-mask guid-ance, which allows it to perform mask-free object insertion at diverse positions and scales. Furthermore, we find that when used iteratively with a novel instruction-tuning based planning model, SmartMask can be used to design detailed layouts from scratch. As compared with user-scribble based layout design, we observe that SmartMask allows for better quality outputs with layout-to-image generation methods.",
+      "venue": "",
+      "citation_count": 7,
+      "doi": "10.1109/cvpr52733.2024.00621",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr52733.2024.00621",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4403598330",
+      "title": "SpotActor: Training-Free Layout-Controlled Consistent Image Generation",
+      "authors": [
+        {
+          "name": "Jiahao Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Caixia Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Weizhan Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Haonan Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Mengmeng Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Guang Dai",
+          "affiliation": ""
+        },
+        {
+          "name": "Tieliang Gong",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Jingdong Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Text-to-image diffusion models significantly enhance the efficiency of artistic creation with high-fidelity image generation. However, in typical application scenarios like comic book production, they can neither place each subject into its expected spot nor maintain the consistent appearance of each subject across images. For these issues, we pioneer a novel task, Layout-to-Consistent-Image (L2CI) generation, which produces consistent and compositional images in accordance with the given layout conditions and text prompts. To accomplish this challenging task, we present a new formalization of dual energy guidance with optimization in a dual semantic-latent space and thus propose a training-free pipeline, SpotActor, which features a layout-conditioned backward update stage and a consistent forward sampling stage. In the backward stage, we innovate a nuanced layout energy function to mimic the attention activations with a sigmoid-like objective. While in the forward stage, we design Regional Interconnection Self-Attention (RISA) and Semantic Fusion Cross-Attention (SFCA) mechanisms that allow mutual interactions across images. To evaluate the performance, we present ActorBench, a specified benchmark with hundreds of reasonable prompt-box pairs stemming from object detection datasets. Comprehensive experiments are conducted to demonstrate the effectiveness of our method. The results prove that SpotActor fulfills the expectations of this task and showcases the potential for practical applications with superior layout alignment, subject consistency, prompt conformity and background diversity.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 0,
+      "doi": "10.48550/arxiv.2409.04801",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2409.04801",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4365799947",
+      "title": "Proceedings of the 28th International Conference on Computational Linguistics",
+      "authors": [
+        {
+          "name": "Xiaodan Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Preslav Nakov",
+          "affiliation": ""
+        },
+        {
+          "name": "Jun Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Michal Ptaszynski",
+          "affiliation": ""
+        },
+        {
+          "name": "Bartosz Ziolko",
+          "affiliation": ""
+        },
+        {
+          "name": "Website Chairs",
+          "affiliation": ""
+        },
+        {
+          "name": "Laura Prez- Mayos",
+          "affiliation": ""
+        },
+        {
+          "name": "Amita Misra",
+          "affiliation": ""
+        },
+        {
+          "name": "Derek Wong",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Liang Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ted Pedersen",
+          "affiliation": ""
+        },
+        {
+          "name": "Anna Rogers",
+          "affiliation": ""
+        },
+        {
+          "name": "Ghazaleh Kazeminejad",
+          "affiliation": ""
+        },
+        {
+          "name": "Feiyu Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Alexander Lser",
+          "affiliation": ""
+        },
+        {
+          "name": "Jose Manuel Gmez Prez",
+          "affiliation": ""
+        },
+        {
+          "name": "Paul Piwek",
+          "affiliation": ""
+        },
+        {
+          "name": "Padr Llus",
+          "affiliation": ""
+        },
+        {
+          "name": "Luis Cirera",
+          "affiliation": ""
+        },
+        {
+          "name": "Anke Espinosa",
+          "affiliation": ""
+        },
+        {
+          "name": "Esther Seyffarth",
+          "affiliation": ""
+        },
+        {
+          "name": "Local Support",
+          "affiliation": ""
+        },
+        {
+          "name": "Joana Clotet",
+          "affiliation": ""
+        },
+        {
+          "name": "Amanda Stent",
+          "affiliation": ""
+        },
+        {
+          "name": "Emily Bender",
+          "affiliation": ""
+        },
+        {
+          "name": "Dirk Hovy",
+          "affiliation": ""
+        },
+        {
+          "name": "Pascale Fung",
+          "affiliation": ""
+        },
+        {
+          "name": "Donia Scott",
+          "affiliation": ""
+        },
+        {
+          "name": "Leo Wanner",
+          "affiliation": ""
+        },
+        {
+          "name": "Horacio Saggion",
+          "affiliation": ""
+        },
+        {
+          "name": "Mnica Domnguez",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Ethics Group",
+          "affiliation": ""
+        },
+        {
+          "name": "Tim Baldwin",
+          "affiliation": ""
+        },
+        {
+          "name": "Saif Mohammadl",
+          "affiliation": ""
+        },
+        {
+          "name": "Joana We",
+          "affiliation": ""
+        },
+        {
+          "name": "Harald Bloomberg",
+          "affiliation": ""
+        },
+        {
+          "name": "Baayen",
+          "affiliation": ""
+        },
+        {
+          "name": "Eberhard Karls",
+          "affiliation": ""
+        },
+        {
+          "name": "Margaret Mitchell",
+          "affiliation": ""
+        },
+        {
+          "name": "Google",
+          "affiliation": ""
+        },
+        {
+          "name": "Nuria Bel",
+          "affiliation": ""
+        },
+        {
+          "name": "Chengqing Zong",
+          "affiliation": ""
+        },
+        {
+          "name": "Lucia Specia",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniel Beck",
+          "affiliation": ""
+        },
+        {
+          "name": "Workshops Co-Chairs",
+          "affiliation": ""
+        },
+        {
+          "name": "Jun Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Ann Clifton",
+          "affiliation": ""
+        },
+        {
+          "name": "Courtney Napoles",
+          "affiliation": ""
+        },
+        {
+          "name": "Grammarly",
+          "affiliation": ""
+        },
+        {
+          "name": "Techmo",
+          "affiliation": ""
+        },
+        {
+          "name": "Cirera",
+          "affiliation": ""
+        },
+        {
+          "name": "Luis Anke",
+          "affiliation": ""
+        },
+        {
+          "name": "Publicity Co-Chairs",
+          "affiliation": ""
+        },
+        {
+          "name": "Tiejun Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Beuth",
+          "affiliation": ""
+        },
+        {
+          "name": "Laura Prez-Mayos",
+          "affiliation": ""
+        },
+        {
+          "name": "Ibm Watson",
+          "affiliation": ""
+        },
+        {
+          "name": "Emily Bloomberg",
+          "affiliation": ""
+        },
+        {
+          "name": "Bender",
+          "affiliation": ""
+        },
+        {
+          "name": "Sophia Ananiadou",
+          "affiliation": ""
+        },
+        {
+          "name": "Rafael Banchs",
+          "affiliation": ""
+        },
+        {
+          "name": "Intapp Miwa",
+          "affiliation": ""
+        },
+        {
+          "name": "Alessandro Lenci",
+          "affiliation": ""
+        },
+        {
+          "name": "Michael Strube",
+          "affiliation": ""
+        },
+        {
+          "name": "Jian-Yun Nie",
+          "affiliation": ""
+        },
+        {
+          "name": "Gareth Jones",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenjie Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Michael White",
+          "affiliation": ""
+        },
+        {
+          "name": "Anya Belz",
+          "affiliation": ""
+        },
+        {
+          "name": "Sina Zarrie",
+          "affiliation": ""
+        },
+        {
+          "name": "Friedrich Schiller",
+          "affiliation": ""
+        },
+        {
+          "name": "Universitt Jena",
+          "affiliation": ""
+        },
+        {
+          "name": "Fei Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Alibaba Academy",
+          "affiliation": ""
+        },
+        {
+          "name": "Sebastian Ruder",
+          "affiliation": ""
+        },
+        {
+          "name": "Deepmind Qiu",
+          "affiliation": ""
+        },
+        {
+          "name": "Fei Xia",
+          "affiliation": ""
+        },
+        {
+          "name": "Nicoletta Calzolari",
+          "affiliation": ""
+        },
+        {
+          "name": "Jong Park",
+          "affiliation": ""
+        },
+        {
+          "name": "Shujie Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ding Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Mei Ling",
+          "affiliation": ""
+        },
+        {
+          "name": "Helen Meng",
+          "affiliation": ""
+        },
+        {
+          "name": "Kentaro Inui",
+          "affiliation": ""
+        },
+        {
+          "name": "Kallirroi Georgila",
+          "affiliation": ""
+        },
+        {
+          "name": "Girish Kumar",
+          "affiliation": ""
+        },
+        {
+          "name": "David Griol",
+          "affiliation": ""
+        },
+        {
+          "name": "Rhee Yoo",
+          "affiliation": ""
+        },
+        {
+          "name": "Justin Oh",
+          "affiliation": ""
+        },
+        {
+          "name": "Kristiina Dauwels",
+          "affiliation": ""
+        },
+        {
+          "name": "Lan Joki- Nen",
+          "affiliation": ""
+        },
+        {
+          "name": "Patrick Du",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuki Paroubek",
+          "affiliation": ""
+        },
+        {
+          "name": "Kotaro Arase",
+          "affiliation": ""
+        },
+        {
+          "name": "Michael Funakoshi",
+          "affiliation": ""
+        },
+        {
+          "name": "Jin-Dong Mctear",
+          "affiliation": ""
+        },
+        {
+          "name": "Zoraida Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Lasguido Callejas",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Only eighteen months ago, I joined Leo, Horacio, M\u00f3nica, and Nuria on a tour of the delights that the Barcelona venue would be offering us in September 2020.Together with Chengqing, we made great plans for a fantastic intellectual and social gathering with our colleagues from far and wide, Catalanstyle.We held on to this plan for as long as we could but the second wave of the COVID-19 pandemic eventually put paid to that idea, and the conference is now a virtual one.We also received a record 2195 submissions -eclipsing by double the already record-breaking number at our last COLING in 2018 in Santa Fe.For these reasons, COLING2020 will be remembered for the conference that forced us to innovate and do things differently.Transforming our well-made plans to become a virtual conference has obviously involved introducing a de facto disruptive innovation, one that has taken us far out of our comfort zone of experience.The Organising Committee thoroughly embraced this challenge, doing everything that they could and more; I am in awe of them and of the exciting offering that they have created for COLING2020.We now have before us a rich programme of over 653 papers, 7 tutorials, and 22 workshops.I want to take this opportunity to thank the entire Organising Committee for their extraordinary effort in helping to make this virtual COLING2020 possible.The PC Chairs (N\u00faria Bel, Chengqing Zong) and Local Organisation Chairs (Leo Wanner, Horacio Saggion, M\u00f3nica Dom\u00ednguez) bore the brunt of the organisational burden and worked tirelessly despite the other unexpected demands to their professional and personal lives.Enormous efforts were made by Workshop Chairs (",
+      "venue": "",
+      "citation_count": 1422,
+      "doi": "10.18653/v1/2020.coling-main",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.18653/v1/2020.coling-main",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3042009104",
+      "title": "Online University Teaching During and After the Covid-19 Crisis: Refocusing Teacher Presence and Learning Activity",
+      "authors": [
+        {
+          "name": "Chrysi Rapanta",
+          "affiliation": "Universidade Nova de Lisboa"
+        },
+        {
+          "name": "Luca Botturi",
+          "affiliation": "University of Applied Sciences and Arts of Southern Switzerland"
+        },
+        {
+          "name": "Peter Goodyear",
+          "affiliation": "University of Sydney"
+        },
+        {
+          "name": "Lourdes Gu\u00e0rdia Ortiz",
+          "affiliation": "Universitat Oberta de Catalunya"
+        },
+        {
+          "name": "Marguerite Koole",
+          "affiliation": "University of Saskatchewan"
+        }
+      ],
+      "year": 2020,
+      "abstract": "",
+      "venue": "Postdigital Science and Education",
+      "citation_count": 2007,
+      "doi": "10.1007/s42438-020-00155-y",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s42438-020-00155-y",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4206484811",
+      "title": "A Metaverse: Taxonomy, Components, Applications, and Open Challenges",
+      "authors": [
+        {
+          "name": "Sangmin Park",
+          "affiliation": "Korea University"
+        },
+        {
+          "name": "Young\u2010Gab Kim",
+          "affiliation": "Sejong University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Unlike previous studies on the Metaverse based on Second Life, the current Metaverse is based on the social value of Generation Z that online and offline selves are not different. With the technological development of deep learning-based high-precision recognition models and natural generation models, Metaverse is being strengthened with various factors, from mobile-based always-on access to connectivity with reality using virtual currency. The integration of enhanced social activities and neural-net methods requires a new definition of Metaverse suitable for the present, different from the previous Metaverse. This paper divides the concepts and essential techniques necessary for realizing the Metaverse into three components (i.e., hardware, software, and contents) and three approaches (i.e., user interaction, implementation, and application) rather than marketing or hardware approach to conduct a comprehensive analysis. Furthermore, we describe essential methods based on three components and techniques to Metaverse&#x2019;s representative Ready Player One, Roblox, and Facebook research in the domain of films, games, and studies. Finally, we summarize the limitations and directions for implementing the immersive Metaverse as social influences, constraints, and open challenges.",
+      "venue": "IEEE Access",
+      "citation_count": 1692,
+      "doi": "10.1109/access.2021.3140175",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/access.2021.3140175",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4400079601",
+      "title": "Wafer-level InP-Si covalent bonding and defect-free heterointerface for photonic quantum systems",
+      "authors": [
+        {
+          "name": "Qiushi Kang",
+          "affiliation": "Harbin Institute of Technology"
+        },
+        {
+          "name": "Fanfan Niu",
+          "affiliation": "Harbin Institute of Technology"
+        },
+        {
+          "name": "Li Ge",
+          "affiliation": "Harbin Institute of Technology"
+        },
+        {
+          "name": "Kaimeng Liu",
+          "affiliation": "Harbin Institute of Technology"
+        },
+        {
+          "name": "Tadatomo Suga",
+          "affiliation": "Meisei University"
+        },
+        {
+          "name": "Chenxi Wang",
+          "affiliation": "Harbin Institute of Technology"
+        }
+      ],
+      "year": 2024,
+      "abstract": "",
+      "venue": "Applied Surface Science",
+      "citation_count": 8,
+      "doi": "10.1016/j.apsusc.2024.160614",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.apsusc.2024.160614",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3159728495",
+      "title": "Towards complete and error-free genome assemblies of all vertebrate species",
+      "authors": [
+        {
+          "name": "Arang Rhie",
+          "affiliation": "National Human Genome Research Institute"
+        },
+        {
+          "name": "Shane McCarthy",
+          "affiliation": "Wellcome Sanger Institute"
+        },
+        {
+          "name": "Olivier F\u00e9drigo",
+          "affiliation": "Rockefeller University"
+        },
+        {
+          "name": "Joana Damas",
+          "affiliation": "University of California, Davis"
+        },
+        {
+          "name": "Giulio Formenti",
+          "affiliation": "Rockefeller University"
+        },
+        {
+          "name": "Sergey Koren",
+          "affiliation": "National Human Genome Research Institute"
+        },
+        {
+          "name": "Marcela Uliano\u2010Silva",
+          "affiliation": "Berlin Center for Genomics in Biodiversity Research"
+        },
+        {
+          "name": "William Chow",
+          "affiliation": "Wellcome Sanger Institute"
+        },
+        {
+          "name": "Arkarachai Fungtammasan",
+          "affiliation": "DNAnexus (United States)"
+        },
+        {
+          "name": "Ju\u2010Wan Kim",
+          "affiliation": "Seoul National University"
+        },
+        {
+          "name": "Chul Lee",
+          "affiliation": "Seoul National University"
+        },
+        {
+          "name": "Byung June Ko",
+          "affiliation": "Seoul National University"
+        },
+        {
+          "name": "Mark Chaisson",
+          "affiliation": "University of Southern California"
+        },
+        {
+          "name": "Gregory Gedman",
+          "affiliation": "Rockefeller University"
+        },
+        {
+          "name": "Lindsey Cantin",
+          "affiliation": "Rockefeller University"
+        },
+        {
+          "name": "Fran\u00e7oise Thibaud\u2010Nissen",
+          "affiliation": "National Center for Biotechnology Information"
+        },
+        {
+          "name": "Leanne Haggerty",
+          "affiliation": "European Bioinformatics Institute"
+        },
+        {
+          "name": "Iliana Bista",
+          "affiliation": "Wellcome Sanger Institute"
+        },
+        {
+          "name": "Michelle Smith",
+          "affiliation": "Wellcome Sanger Institute"
+        },
+        {
+          "name": "Bettina Haase",
+          "affiliation": "Rockefeller University"
+        },
+        {
+          "name": "Jacquelyn Mountcastle",
+          "affiliation": "Rockefeller University"
+        },
+        {
+          "name": "Sylke Winkler",
+          "affiliation": "Max Planck Institute of Molecular Cell Biology and Genetics"
+        },
+        {
+          "name": "Sadye Paez",
+          "affiliation": "Rockefeller University"
+        },
+        {
+          "name": "Jason T. Howard",
+          "affiliation": ""
+        },
+        {
+          "name": "Sonja C. Vernes",
+          "affiliation": "University of St Andrews"
+        },
+        {
+          "name": "Tanya M. Lama",
+          "affiliation": "University of Massachusetts Amherst"
+        },
+        {
+          "name": "Frank Gr\u00fctzner",
+          "affiliation": "The University of Adelaide"
+        },
+        {
+          "name": "Wesley C. Warren",
+          "affiliation": "University of Missouri"
+        },
+        {
+          "name": "Christopher N. Balakrishnan",
+          "affiliation": "East Carolina University"
+        },
+        {
+          "name": "David W. Burt",
+          "affiliation": "The University of Queensland"
+        },
+        {
+          "name": "Julia M. George",
+          "affiliation": "Clemson University"
+        },
+        {
+          "name": "Matthew T. Biegler",
+          "affiliation": "Rockefeller University"
+        },
+        {
+          "name": "David Iorns",
+          "affiliation": ""
+        },
+        {
+          "name": "Andrew Digby",
+          "affiliation": ""
+        },
+        {
+          "name": "Daryl Eason",
+          "affiliation": ""
+        },
+        {
+          "name": "Bruce C. Robertson",
+          "affiliation": "University of Otago"
+        },
+        {
+          "name": "Taylor Edwards",
+          "affiliation": "University of Arizona"
+        },
+        {
+          "name": "Mark Wilkinson",
+          "affiliation": "Natural History Museum"
+        },
+        {
+          "name": "George F. Turner",
+          "affiliation": "Bangor University"
+        },
+        {
+          "name": "Axel Meyer",
+          "affiliation": "University of Konstanz"
+        },
+        {
+          "name": "Andreas F. Kautt",
+          "affiliation": "Harvard University"
+        },
+        {
+          "name": "Paolo Franchini",
+          "affiliation": "University of Konstanz"
+        },
+        {
+          "name": "H. William Detrich",
+          "affiliation": "NOAA National Marine Fisheries Service Northeast Fisheries Science Center"
+        },
+        {
+          "name": "Hannes Svardal",
+          "affiliation": "University of Antwerp"
+        },
+        {
+          "name": "Maximilian Wagner",
+          "affiliation": "University of Graz"
+        },
+        {
+          "name": "Gavin J. P. Naylor",
+          "affiliation": "Florida Museum of Natural History"
+        },
+        {
+          "name": "Martin Pippel",
+          "affiliation": "Center for Systems Biology Dresden"
+        },
+        {
+          "name": "Milan Malinsky",
+          "affiliation": "University of Basel"
+        },
+        {
+          "name": "Mark P. Mooney",
+          "affiliation": "Technology Affinity Group"
+        },
+        {
+          "name": "Maria Simbirsky",
+          "affiliation": "DNAnexus (United States)"
+        },
+        {
+          "name": "Brett T. Hannigan",
+          "affiliation": "DNAnexus (United States)"
+        },
+        {
+          "name": "Trevor Pesout",
+          "affiliation": "University of California, Santa Cruz"
+        },
+        {
+          "name": "Marlys L. Houck",
+          "affiliation": "San Diego Zoo Institute for Conservation Research"
+        },
+        {
+          "name": "Ann Misuraca",
+          "affiliation": "San Diego Zoo Institute for Conservation Research"
+        },
+        {
+          "name": "Sarah B. Kingan",
+          "affiliation": "Pacific Biosciences (United States)"
+        },
+        {
+          "name": "Richard Hall",
+          "affiliation": "Pacific Biosciences (United States)"
+        },
+        {
+          "name": "Zev Kronenberg",
+          "affiliation": "Pacific Biosciences (United States)"
+        },
+        {
+          "name": "Ivan Sovi\u0107",
+          "affiliation": "Pacific Biosciences (United States)"
+        },
+        {
+          "name": "Christopher Dunn",
+          "affiliation": "Pacific Biosciences (United States)"
+        },
+        {
+          "name": "Zemin Ning",
+          "affiliation": "Wellcome Sanger Institute"
+        },
+        {
+          "name": "Alex Hastie",
+          "affiliation": "BioNano Genomics (United States)"
+        },
+        {
+          "name": "Joyce Lee",
+          "affiliation": "BioNano Genomics (United States)"
+        },
+        {
+          "name": "Siddarth Selvaraj",
+          "affiliation": "Arima Genomics (United States)"
+        },
+        {
+          "name": "Richard E. Green",
+          "affiliation": "University of California, Santa Cruz"
+        },
+        {
+          "name": "Nicholas H. Putnam",
+          "affiliation": "Santa Cruz County Office of Education"
+        },
+        {
+          "name": "Marta Gut",
+          "affiliation": "Universitat Pompeu Fabra"
+        },
+        {
+          "name": "Jay Ghurye",
+          "affiliation": "University of Maryland, College Park"
+        },
+        {
+          "name": "Erik Garrison",
+          "affiliation": "University of California, Santa Cruz"
+        },
+        {
+          "name": "Ying Sims",
+          "affiliation": "Wellcome Sanger Institute"
+        },
+        {
+          "name": "Joanna Collins",
+          "affiliation": "Wellcome Sanger Institute"
+        },
+        {
+          "name": "Sarah Pelan",
+          "affiliation": "Wellcome Sanger Institute"
+        },
+        {
+          "name": "James Torrance",
+          "affiliation": "Wellcome Sanger Institute"
+        },
+        {
+          "name": "Alan Tracey",
+          "affiliation": "Wellcome Sanger Institute"
+        },
+        {
+          "name": "Jonathan Wood",
+          "affiliation": "Wellcome Sanger Institute"
+        },
+        {
+          "name": "Robel E. Dagnew",
+          "affiliation": "University of Southern California"
+        },
+        {
+          "name": "Dengfeng Guan",
+          "affiliation": "Harbin Institute of Technology"
+        },
+        {
+          "name": "Sarah E. London",
+          "affiliation": "University of Chicago"
+        },
+        {
+          "name": "David F. Clayton",
+          "affiliation": "Clemson University"
+        },
+        {
+          "name": "Claudio V. Mello",
+          "affiliation": "Oregon Health & Science University"
+        },
+        {
+          "name": "Samantha R. Friedrich",
+          "affiliation": "Oregon Health & Science University"
+        },
+        {
+          "name": "Peter V. Lovell",
+          "affiliation": "Oregon Health & Science University"
+        },
+        {
+          "name": "Ekaterina Osipova",
+          "affiliation": "Center for Systems Biology Dresden"
+        },
+        {
+          "name": "Farooq O. Al-Ajli",
+          "affiliation": "Monash University Malaysia"
+        },
+        {
+          "name": "Simona Secomandi",
+          "affiliation": "University of Milan"
+        },
+        {
+          "name": "Heebal Kim",
+          "affiliation": "Seoul National University"
+        },
+        {
+          "name": "Constantina Theofanopoulou",
+          "affiliation": "Rockefeller University"
+        },
+        {
+          "name": "Michael Hiller",
+          "affiliation": "Senckenberg Research Institute and Natural History Museum Frankfurt/M"
+        },
+        {
+          "name": "Yang Zhou",
+          "affiliation": "BGI Group (China)"
+        },
+        {
+          "name": "Robert S. Harris",
+          "affiliation": "Pennsylvania State University"
+        },
+        {
+          "name": "Kateryna D. Makova",
+          "affiliation": "Pennsylvania State University"
+        },
+        {
+          "name": "Paul Medvedev",
+          "affiliation": "Pennsylvania State University"
+        },
+        {
+          "name": "Jinna Hoffman",
+          "affiliation": "National Center for Biotechnology Information"
+        },
+        {
+          "name": "Patrick Masterson",
+          "affiliation": "National Center for Biotechnology Information"
+        },
+        {
+          "name": "Karen Clark",
+          "affiliation": "National Center for Biotechnology Information"
+        },
+        {
+          "name": "Fergal J. Martin",
+          "affiliation": "European Bioinformatics Institute"
+        },
+        {
+          "name": "Kevin Howe",
+          "affiliation": "European Bioinformatics Institute"
+        },
+        {
+          "name": "Paul Flicek",
+          "affiliation": "European Bioinformatics Institute"
+        },
+        {
+          "name": "Brian P. Walenz",
+          "affiliation": "National Human Genome Research Institute"
+        },
+        {
+          "name": "Woori Kwak",
+          "affiliation": ""
+        },
+        {
+          "name": "Hiram Clawson",
+          "affiliation": "University of California, Santa Cruz"
+        }
+      ],
+      "year": 2021,
+      "abstract": "",
+      "venue": "Nature",
+      "citation_count": 2890,
+      "doi": "10.1038/s41586-021-03451-0",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41586-021-03451-0",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4392389092",
+      "title": "Automated shape and thickness optimization for non-matching isogeometric shells using free-form deformation",
+      "authors": [
+        {
+          "name": "Han Zhao",
+          "affiliation": "University of California, San Diego"
+        },
+        {
+          "name": "David Kamensky",
+          "affiliation": "University of California, San Diego"
+        },
+        {
+          "name": "John T. Hwang",
+          "affiliation": "University of California, San Diego"
+        },
+        {
+          "name": "Jiun\u2010Shyan Chen",
+          "affiliation": "University of California, San Diego"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Isogeometric analysis (IGA) has emerged as a promising approach in the field of structural optimization, benefiting from the seamless integration between the computer-aided design (CAD) geometry and the analysis model by employing non-uniform rational B-splines (NURBS) as basis functions. However, structural optimization for real-world CAD geometries consisting of multiple non-matching NURBS patches remains a challenging task. In this work, we propose a unified formulation for shape and thickness optimization of separately parametrized shell structures by adopting the free-form deformation (FFD) technique, so that continuity with respect to design variables is preserved at patch intersections during optimization. Shell patches are modeled with isogeometric Kirchhoff-Love theory and coupled using a penalty-based method in the analysis. We use Lagrange extraction to link the control points associated with the B-spline FFD block and shell patches, and we perform IGA using the same extraction matrices by taking advantage of existing finite element assembly procedures in the FEniCS partial differential equation (PDE) solution library. Moreover, we enable automated analytical derivative computation by leveraging advanced code generation in FEniCS, thereby facilitating efficient gradient-based optimization algorithms. The framework is validated using a collection of benchmark problems, demonstrating its applications to shape and thickness optimization of aircraft wings with complex shell layouts.",
+      "venue": "Engineering With Computers",
+      "citation_count": 11,
+      "doi": "10.1007/s00366-024-01947-7",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s00366-024-01947-7",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4387717865",
+      "title": "An Experiment and Simulation Study on Developing Algorithms for CAVs to Navigate Through Roadworks",
+      "authors": [
+        {
+          "name": "Nicolette Formosa",
+          "affiliation": "Highways England"
+        },
+        {
+          "name": "Mohammed Quddus",
+          "affiliation": "Imperial College London"
+        },
+        {
+          "name": "Mohit Kumar Singh",
+          "affiliation": "Loughborough University"
+        },
+        {
+          "name": "Cheuk Ki Man",
+          "affiliation": "Loughborough University"
+        },
+        {
+          "name": "Craig Morton",
+          "affiliation": "Loughborough University"
+        },
+        {
+          "name": "Cansu Bahar Masera",
+          "affiliation": "Loughborough University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Navigating through roadworks represents one of the main sources of safety risk for Connected and Autonomous Vehicles (CAVs) due to the altered road layouts. The built-in base maps do not normally reflect these changes, causing CAVs to experience difficulties in sensing and trajectory generation. Therefore, the objective of this paper is to evaluate different collision-free trajectory generation for CAVs at roadworks to improve safety and traffic performance. Trajectory generation algorithms using lane-level dynamic maps were examined for: 1) CAVs rely on data from in-vehicle sensor only; and 2) CAVs receive additional information via a Smart Traffic Cone (STC) in advance regarding roadwork configurations. Experiments were conducted at a controlled motorway facility operated by National Highways (England) using a vehicle instrumented with a suite of sensors. Schematics of the roadworks scenario were translated into an integrated simulation platform consisting of a traffic microsimulation (VISSIM) to simulate traffic dynamics and a sub-microscopic simulator (PreScan) capable of simulating vehicle autonomy and connectivity. Results indicate that traffic conflicts and delays decrease by 40% and 3% respectively when CAVs receive additional information in advance (i.e., Scenario 2) compared to the other scenario. These findings would assist road network operators in developing \u2018CAV-enabled roadworks\u2019 and vehicle manufacturers in designing a vehicle-based \u2018roadworks assist\u2019 system.",
+      "venue": "IEEE Transactions on Intelligent Transportation Systems",
+      "citation_count": 5,
+      "doi": "10.1109/tits.2023.3318370",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tits.2023.3318370",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4386360366",
+      "title": "Spectral control co-design of wave energy converter array layout",
+      "authors": [
+        {
+          "name": "Yerai Pe\u00f1a\u2010Sanchez",
+          "affiliation": "University of the Basque Country"
+        },
+        {
+          "name": "Demi\u00e1n Garc\u00eda-Violini",
+          "affiliation": "National University of Quilmes"
+        },
+        {
+          "name": "Markel Pe\u00f1alba",
+          "affiliation": "Mondragon Unibertsitatea"
+        },
+        {
+          "name": "Ander Zarketa",
+          "affiliation": "Mondragon Unibertsitatea"
+        },
+        {
+          "name": "Vincenzo Nava",
+          "affiliation": ""
+        },
+        {
+          "name": "John V. Ringwood",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Wave energy systems are designed to maximise energy absorption from the oscillatory motion of waves, which can make a crucial contribution in a new carbon free generation matrix [1]. Thus, the global ocean energy market (including wave and tidal) is expected to grow by more than 700\\% by 2028 [2]. However, the harsh conditions faced in the ocean, the strong variability of the resource, and the high force/velocity ratios pose significant challenges to the development of the different ocean energy technologies. Therefore, to date, wave energy converter (WEC) technology is still under development and still needs a significant progress to enhance the energy conversion efficiency and, consequently, to become commercial viable. Crucially, to meet these existing challenges, there are a number of key considerations to progress the effectiveness and efficiency of WEC technologies. In particular, energy maximising control systems, to maximise energy absorption, and the optimisation of WEC array schemes, to take advantage of constructive interaction effects, are currently considered as some of the key drivers for the development of efficient WECs [1]. Recent studies have shown that total design of WECs, analysing the impact of each individual component on the rest of the system, is a key methodology to achieve effective designs. For example, the levelised cost of energy (LCoE) is considered in the objective function in [3], analysing the interplay between the control system based on a spectral controller and the specifications of the power take-off (PTO) system defined as the maximum stroke and force. This methodology has been generally labelled as `co-design', or, when the development is carried out in a control-aware manner, `control co-design'. Similarly, in [4], the interaction between control and optimal WEC geometry is studied. In addition, as discussed before, another key driver in achieving effective wave energy system is the operation of WEC arrays. In particular, in [5] and [6] different array layouts are analysed in terms of computational efficiency and control, respectively. Considering the results in [5], where methods based on harmonic balance techniques are used to analyse the computational demand related to different array layouts, an assessment of the impact of different array layouts on the LCoE, is performed in this study. Figure 1 illustrates different array layouts (a), and the impact of different separation and number of WECs on the resulting LCoE (b). (Figure in PDF abstract)For the implementation of this study, a spectral control methodology is considered to virtually achieve optimal control solutions, even in constrained scenarios. In tandem, different layout templates, composed of multiple point absorber WECs, are considered. To achieve a clear global indicator based on the LCoE, each layout is analysed, in terms of the separation distance and the number of WECs, as well as capital and operation expenditure (CapEx and OpEx, respectively). Following the methodological guidelines considered in [3], a general co-design scheme is designed, essentially based on an exhaustive search method, indicating the interplay between different array layouts and LCoE.",
+      "venue": "Proceedings of the ... European Wave and Tidal Energy Conference",
+      "citation_count": 5,
+      "doi": "10.36688/ewtec-2023-531",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.36688/ewtec-2023-531",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4283392904",
+      "title": "Artificial intelligence and smart vision for building and construction 4.0: Machine and deep learning methods and applications",
+      "authors": [
+        {
+          "name": "Shanaka Kristombu Baduge",
+          "affiliation": "University of Melbourne"
+        },
+        {
+          "name": "Sadeep Thilakarathna",
+          "affiliation": "University of Melbourne"
+        },
+        {
+          "name": "Jude Shalitha Perera",
+          "affiliation": "University of Melbourne"
+        },
+        {
+          "name": "Mehrdad Arashpour",
+          "affiliation": "Monash University"
+        },
+        {
+          "name": "P. Sharafi",
+          "affiliation": "Western Sydney University"
+        },
+        {
+          "name": "Bertrand Teodosio",
+          "affiliation": "Victoria University"
+        },
+        {
+          "name": "Ankit Shringi",
+          "affiliation": "Monash University"
+        },
+        {
+          "name": "Priyan Mendis",
+          "affiliation": "University of Melbourne"
+        }
+      ],
+      "year": 2022,
+      "abstract": "This article presents a state-of-the-art review of the applications of Artificial Intelligence (AI), Machine Learning (ML), and Deep Learning (DL) in building and construction industry 4.0 in the facets of architectural design and visualization; material design and optimization; structural design and analysis; offsite manufacturing and automation; construction management, progress monitoring, and safety; smart operation, building management and health monitoring; and durability, life cycle analysis, and circular economy. This paper presents a unique perspective on applications of AI/DL/ML in these domains for the complete building lifecycle, from conceptual stage, design stage, construction stage, operational and maintenance stage until the end of life. Furthermore, data collection strategies using smart vision and sensors, data cleaning methods (post-processing), data storage for developing these models are discussed, and the challenges in model development and strategies to overcome these challenges are elaborated. Future trends in these domains and possible research avenues are also presented.",
+      "venue": "Automation in Construction",
+      "citation_count": 849,
+      "doi": "10.1016/j.autcon.2022.104440",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.autcon.2022.104440",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3212516020",
+      "title": "Palette: Image-to-Image Diffusion Models",
+      "authors": [
+        {
+          "name": "Chitwan Saharia",
+          "affiliation": "Google (Canada)"
+        },
+        {
+          "name": "William Chan",
+          "affiliation": "Google (Canada)"
+        },
+        {
+          "name": "Huiwen Chang",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Chris Lee",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Jonathan Ho",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Tim Salimans",
+          "affiliation": ""
+        },
+        {
+          "name": "David J. Fleet",
+          "affiliation": "Google (Canada)"
+        },
+        {
+          "name": "Mohammad Norouzi",
+          "affiliation": "Google (Canada)"
+        }
+      ],
+      "year": 2022,
+      "abstract": "This paper develops a unified framework for image-to-image translation based on conditional diffusion models and evaluates this framework on four challenging image-to-image translation tasks, namely colorization, inpainting, uncropping, and JPEG restoration. Our simple implementation of image-to-image diffusion models outperforms strong GAN and regression baselines on all tasks, without task-specific hyper-parameter tuning, architecture customization, or any auxiliary loss or sophisticated new techniques needed. We uncover the impact of an L2 vs. L1 loss in the denoising diffusion objective on sample diversity, and demonstrate the importance of self-attention in the neural architecture through empirical studies. Importantly, we advocate a unified evaluation protocol based on ImageNet, with human evaluation and sample quality scores (FID, Inception Score, Classification Accuracy of a pre-trained ResNet-50, and Perceptual Distance against original images). We expect this standardized evaluation protocol to play a role in advancing image-to-image translation research. Finally, we show that a generalist, multi-task diffusion model performs as well or better than task-specific specialist counterparts. Check out https://diffusion-palette.github.io/ for an overview of the results and code.",
+      "venue": "",
+      "citation_count": 1414,
+      "doi": "10.1145/3528233.3530757",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3528233.3530757",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3045086480",
+      "title": "6G and Beyond: The Future of Wireless Communications Systems",
+      "authors": [
+        {
+          "name": "Ian F. Akyildiz",
+          "affiliation": "Georgia Institute of Technology"
+        },
+        {
+          "name": "A.C. Kak",
+          "affiliation": "Georgia Institute of Technology"
+        },
+        {
+          "name": "Shuai Nie",
+          "affiliation": "Georgia Institute of Technology"
+        }
+      ],
+      "year": 2020,
+      "abstract": "6G and beyond will fulfill the requirements of a fully connected world and provide ubiquitous wireless connectivity for all. Transformative solutions are expected to drive the surge for accommodating a rapidly growing number of intelligent devices and services. Major technological breakthroughs to achieve connectivity goals within 6G include: (i) a network operating at the THz band with much wider spectrum resources, (ii) intelligent communication environments that enable a wireless propagation environment with active signal transmission and reception, (iii) pervasive artificial intelligence, (iv) large-scale network automation, (v) an all-spectrum reconfigurable front-end for dynamic spectrum access, (vi) ambient backscatter communications for energy savings, (vii) the Internet of Space Things enabled by CubeSats and UAVs, and (viii) cell-free massive MIMO communication networks. In this roadmap paper, use cases for these enabling techniques as well as recent advancements on related topics are highlighted, and open problems with possible solutions are discussed, followed by a development timeline outlining the worldwide efforts in the realization of 6G. Going beyond 6G, promising early-stage technologies such as the Internet of NanoThings, the Internet of BioNanoThings, and quantum communications, which are expected to have a far-reaching impact on wireless communications, have also been discussed at length in this paper.",
+      "venue": "IEEE Access",
+      "citation_count": 1298,
+      "doi": "10.1109/access.2020.3010896",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/access.2020.3010896",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4323653529",
+      "title": "Technology Roadmap for Flexible Sensors",
+      "authors": [
+        {
+          "name": "Yifei Luo",
+          "affiliation": "Agency for Science, Technology and Research"
+        },
+        {
+          "name": "Mohammad Reza Abidian",
+          "affiliation": "University of Houston"
+        },
+        {
+          "name": "Jong\u2010Hyun Ahn",
+          "affiliation": "Yonsei University"
+        },
+        {
+          "name": "Deji Akinwande",
+          "affiliation": "The University of Texas at Austin"
+        },
+        {
+          "name": "Anne M. Andrews",
+          "affiliation": "University of California, Los Angeles"
+        },
+        {
+          "name": "Markus Antonietti",
+          "affiliation": "Max Planck Institute of Colloids and Interfaces"
+        },
+        {
+          "name": "Zhenan Bao",
+          "affiliation": "Stanford University"
+        },
+        {
+          "name": "Magnus Berggren",
+          "affiliation": "Department of Science and Technology"
+        },
+        {
+          "name": "Christopher A. Berkey",
+          "affiliation": "Stanford University"
+        },
+        {
+          "name": "Christopher J. Bettinger",
+          "affiliation": "Carnegie Mellon University"
+        },
+        {
+          "name": "Jun Chen",
+          "affiliation": "University of California, Los Angeles"
+        },
+        {
+          "name": "Peng Chen",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Wenlong Cheng",
+          "affiliation": "Monash Institute of Medical Research"
+        },
+        {
+          "name": "Xu Cheng",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Seon\u2010Jin Choi",
+          "affiliation": "Hanyang University"
+        },
+        {
+          "name": "Alex Chortos",
+          "affiliation": "Purdue University West Lafayette"
+        },
+        {
+          "name": "Canan Da\u011fdeviren",
+          "affiliation": "Massachusetts Institute of Technology"
+        },
+        {
+          "name": "Reinhold H. Dauskardt",
+          "affiliation": "Stanford University"
+        },
+        {
+          "name": "Chong\u2010an Di",
+          "affiliation": "Chinese Academy of Sciences"
+        },
+        {
+          "name": "Michael D. Dickey",
+          "affiliation": "North Carolina State University"
+        },
+        {
+          "name": "Xiangfeng Duan",
+          "affiliation": "California NanoSystems Institute"
+        },
+        {
+          "name": "Antonio Facchetti",
+          "affiliation": "Northwestern University"
+        },
+        {
+          "name": "Zhiyong Fan",
+          "affiliation": "Hong Kong University of Science and Technology"
+        },
+        {
+          "name": "Yin Fang",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Jianyou Feng",
+          "affiliation": "Fudan University"
+        },
+        {
+          "name": "Xue Feng",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Huajian Gao",
+          "affiliation": "Institute of High Performance Computing"
+        },
+        {
+          "name": "Wei Gao",
+          "affiliation": "California Institute of Technology"
+        },
+        {
+          "name": "Xiwen Gong",
+          "affiliation": "University of Michigan"
+        },
+        {
+          "name": "Chuan Fei Guo",
+          "affiliation": "Southern University of Science and Technology"
+        },
+        {
+          "name": "Xiaojun Guo",
+          "affiliation": "Shanghai Jiao Tong University"
+        },
+        {
+          "name": "Martin C. Hartel",
+          "affiliation": "University of California, Los Angeles"
+        },
+        {
+          "name": "Zihan He",
+          "affiliation": "Institute of Chemistry"
+        },
+        {
+          "name": "John S. Ho",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Youfan Hu",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Qiyao Huang",
+          "affiliation": "Hong Kong Polytechnic University"
+        },
+        {
+          "name": "Yu Huang",
+          "affiliation": "University of California, Los Angeles"
+        },
+        {
+          "name": "Fengwei Huo",
+          "affiliation": "Nanjing Tech University"
+        },
+        {
+          "name": "Muhammad M. Hussain",
+          "affiliation": "Purdue University West Lafayette"
+        },
+        {
+          "name": "Ali Javey",
+          "affiliation": "Lawrence Berkeley National Laboratory"
+        },
+        {
+          "name": "Unyong Jeong",
+          "affiliation": "Pohang University of Science and Technology"
+        },
+        {
+          "name": "Chen Jiang",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Xingyu Jiang",
+          "affiliation": "Southern University of Science and Technology"
+        },
+        {
+          "name": "Jiheong Kang",
+          "affiliation": "Korea Advanced Institute of Science and Technology"
+        },
+        {
+          "name": "Daniil Karnaushenko",
+          "affiliation": "Chemnitz University of Technology"
+        },
+        {
+          "name": "Ali Khademhosseini",
+          "affiliation": "Terasaki Foundation"
+        },
+        {
+          "name": "Dae\u2010Hyeong Kim",
+          "affiliation": "Seoul National University"
+        },
+        {
+          "name": "Il\u2010Doo Kim",
+          "affiliation": "Korea Advanced Institute of Science and Technology"
+        },
+        {
+          "name": "Dmitry Kireev",
+          "affiliation": "The University of Texas at Austin"
+        },
+        {
+          "name": "Lingxuan Kong",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Chengkuo Lee",
+          "affiliation": "Suzhou Research Institute"
+        },
+        {
+          "name": "Nae\u2010Eung Lee",
+          "affiliation": "Sungkyunkwan University"
+        },
+        {
+          "name": "Pooi See Lee",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Tae\u2010Woo Lee",
+          "affiliation": "Seoul National University"
+        },
+        {
+          "name": "Fengyu Li",
+          "affiliation": "Jinan University"
+        },
+        {
+          "name": "Jinxing Li",
+          "affiliation": "Michigan State University"
+        },
+        {
+          "name": "Cuiyuan Liang",
+          "affiliation": "Harbin Institute of Technology"
+        },
+        {
+          "name": "Chwee Teck Lim",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Yuanjing Lin",
+          "affiliation": "Southern University of Science and Technology"
+        },
+        {
+          "name": "Darren J. Lipomi",
+          "affiliation": "University of California San Diego"
+        },
+        {
+          "name": "Jia Liu",
+          "affiliation": "Harvard University"
+        },
+        {
+          "name": "Kai Liu",
+          "affiliation": "Shanghai Jiao Tong University"
+        },
+        {
+          "name": "Nan Liu",
+          "affiliation": "Beijing Normal University"
+        },
+        {
+          "name": "Ren Liu",
+          "affiliation": "Harvard University"
+        },
+        {
+          "name": "Yuxin Liu",
+          "affiliation": "Agency for Science, Technology and Research"
+        },
+        {
+          "name": "Yuxuan Liu",
+          "affiliation": "Agency for Science, Technology and Research"
+        },
+        {
+          "name": "Zhiyuan Liu",
+          "affiliation": "Shenzhen Institutes of Advanced Technology"
+        },
+        {
+          "name": "Zhuangjian Liu",
+          "affiliation": "Shenzhen Institutes of Advanced Technology"
+        },
+        {
+          "name": "Xian Jun Loh",
+          "affiliation": "Agency for Science, Technology and Research"
+        },
+        {
+          "name": "Nanshu Lu",
+          "affiliation": "The University of Texas at Austin"
+        },
+        {
+          "name": "Zhisheng Lv",
+          "affiliation": "Institute of Materials Research and Engineering"
+        },
+        {
+          "name": "Shlomo Magdassi",
+          "affiliation": "Hebrew University of Jerusalem"
+        },
+        {
+          "name": "George G. Malliaras",
+          "affiliation": "University of Cambridge"
+        },
+        {
+          "name": "Naoji Matsuhisa",
+          "affiliation": "The University of Tokyo"
+        },
+        {
+          "name": "Arokia Nathan",
+          "affiliation": "Ida Darwin hospital"
+        },
+        {
+          "name": "Simiao Niu",
+          "affiliation": "Rutgers, The State University of New Jersey"
+        },
+        {
+          "name": "Jieming Pan",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Changhyun Pang",
+          "affiliation": "Sungkyunkwan University"
+        },
+        {
+          "name": "Qibing Pei",
+          "affiliation": "University of California, Los Angeles"
+        },
+        {
+          "name": "Huisheng Peng",
+          "affiliation": "Fudan University"
+        },
+        {
+          "name": "Dianpeng Qi",
+          "affiliation": "Harbin Institute of Technology"
+        },
+        {
+          "name": "Huaying Ren",
+          "affiliation": "University of California, Los Angeles"
+        },
+        {
+          "name": "John A. Rogers",
+          "affiliation": "Neurological Surgery"
+        },
+        {
+          "name": "Aaron Rowe",
+          "affiliation": "Becton Dickinson (United States)"
+        },
+        {
+          "name": "Oliver G. Schmidt",
+          "affiliation": "Chemnitz University of Technology"
+        },
+        {
+          "name": "Tsuyoshi Sekitani",
+          "affiliation": "Osaka Research Institute of Industrial Science and Technology"
+        },
+        {
+          "name": "Dae\u2010Gyo Seo",
+          "affiliation": "Seoul National University"
+        },
+        {
+          "name": "Guozhen Shen",
+          "affiliation": "Beijing Institute of Technology"
+        },
+        {
+          "name": "Xing Sheng",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Qiongfeng Shi",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Takao Someya",
+          "affiliation": "The University of Tokyo"
+        },
+        {
+          "name": "Yanlin Song",
+          "affiliation": "Institute of Chemistry"
+        },
+        {
+          "name": "Eleni Stavrinidou",
+          "affiliation": "Link\u00f6ping University"
+        },
+        {
+          "name": "Meng Su",
+          "affiliation": "Chinese Academy of Sciences"
+        },
+        {
+          "name": "Xuemei Sun",
+          "affiliation": "Fudan University"
+        },
+        {
+          "name": "Kuniharu Takei",
+          "affiliation": "Osaka Metropolitan University"
+        },
+        {
+          "name": "Xiaoming Tao",
+          "affiliation": "Hong Kong Polytechnic University"
+        },
+        {
+          "name": "Benjamin C. K. Tee",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Aaron Thean",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Tran Quang Trung",
+          "affiliation": "Sungkyunkwan University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Humans rely increasingly on sensors to address grand challenges and to improve quality of life in the era of digitalization and big data. For ubiquitous sensing, flexible sensors are developed to overcome the limitations of conventional rigid counterparts. Despite rapid advancement in bench-side research over the last decade, the market adoption of flexible sensors remains limited. To ease and to expedite their deployment, here, we identify bottlenecks hindering the maturation of flexible sensors and propose promising solutions. We first analyze challenges in achieving satisfactory sensing performance for real-world applications and then summarize issues in compatible sensor-biology interfaces, followed by brief discussions on powering and connecting sensor networks. Issues en route to commercialization and for sustainable growth of the sector are also analyzed, highlighting environmental concerns and emphasizing nontechnical issues such as business, regulatory, and ethical considerations. Additionally, we look at future intelligent flexible sensors. In proposing a comprehensive roadmap, we hope to steer research efforts towards common goals and to guide coordinated development strategies from disparate communities. Through such collaborative efforts, scientific breakthroughs can be made sooner and capitalized for the betterment of humanity.",
+      "venue": "ACS Nano",
+      "citation_count": 1145,
+      "doi": "10.1021/acsnano.2c12606",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1021/acsnano.2c12606",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3027308092",
+      "title": "CP2K: An electronic structure and molecular dynamics software package - Quickstep: Efficient and accurate electronic structure calculations",
+      "authors": [
+        {
+          "name": "Thomas D. K\u00fchne",
+          "affiliation": "Paderborn University"
+        },
+        {
+          "name": "Marcella Iannuzzi",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Mauro Del Ben",
+          "affiliation": "Lawrence Berkeley National Laboratory"
+        },
+        {
+          "name": "Vladimir V. Rybkin",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Patrick Seewald",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Frederick Stein",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Teodoro Laino",
+          "affiliation": "IBM Research - Zurich"
+        },
+        {
+          "name": "Rustam Z. Khaliullin",
+          "affiliation": "McGill University"
+        },
+        {
+          "name": "Ole Sch\u00fctt",
+          "affiliation": "ETH Zurich"
+        },
+        {
+          "name": "Florian Schiffmann",
+          "affiliation": "Victoria University"
+        },
+        {
+          "name": "Dorothea Golze",
+          "affiliation": "Aalto University"
+        },
+        {
+          "name": "Jan Wilhelm",
+          "affiliation": "University of Regensburg"
+        },
+        {
+          "name": "Sergey K. Chulkov",
+          "affiliation": "University of Lincoln"
+        },
+        {
+          "name": "Mohammad Hossein Bani-Hashemian",
+          "affiliation": "ETH Zurich"
+        },
+        {
+          "name": "Val\u00e9ry Weber",
+          "affiliation": "IBM Research - Zurich"
+        },
+        {
+          "name": "Urban Bor\u0161tnik",
+          "affiliation": "ETH Zurich"
+        },
+        {
+          "name": "Mathieu Taillefumier",
+          "affiliation": "CSCS - Swiss National Supercomputing Centre"
+        },
+        {
+          "name": "Alice Shoshana Jakobovits",
+          "affiliation": "ETH Zurich"
+        },
+        {
+          "name": "Alfio Lazzaro",
+          "affiliation": ""
+        },
+        {
+          "name": "Hans Pabst",
+          "affiliation": ""
+        },
+        {
+          "name": "Tiziano M\u00fcller",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Robert R. Schade",
+          "affiliation": "Paderborn University"
+        },
+        {
+          "name": "Manuel Guidon",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Samuel Andermatt",
+          "affiliation": "ETH Zurich"
+        },
+        {
+          "name": "Nico Holmberg",
+          "affiliation": "Aalto University"
+        },
+        {
+          "name": "Gregory K. Schenter",
+          "affiliation": "Pacific Northwest National Laboratory"
+        },
+        {
+          "name": "Anna Hehn",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Augustin Bussy",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Fabian Belleflamme",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Gloria Tabacchi",
+          "affiliation": "National Interuniversity Consortium of Materials Science and Technology"
+        },
+        {
+          "name": "Andreas Gl\u00f6\u00df",
+          "affiliation": "BASF (Germany)"
+        },
+        {
+          "name": "Michael Lass",
+          "affiliation": "Paderborn University"
+        },
+        {
+          "name": "Iain Bethune",
+          "affiliation": "Science and Technology Facilities Council"
+        },
+        {
+          "name": "Christopher J. Mundy",
+          "affiliation": "Pacific Northwest National Laboratory"
+        },
+        {
+          "name": "Christian Plessl",
+          "affiliation": "Paderborn University"
+        },
+        {
+          "name": "Matthew B. Watkins",
+          "affiliation": "University of Lincoln"
+        },
+        {
+          "name": "Joost VandeVondele",
+          "affiliation": "CSCS - Swiss National Supercomputing Centre"
+        },
+        {
+          "name": "Matthias Krack",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "J\u00fcrg Hutter",
+          "affiliation": "University of Zurich"
+        }
+      ],
+      "year": 2020,
+      "abstract": "CP2K is an open source electronic structure and molecular dynamics software package to perform atomistic simulations of solid-state, liquid, molecular, and biological systems. It is especially aimed at massively parallel and linear-scaling electronic structure methods and state-of-the-art ab initio molecular dynamics simulations. Excellent performance for electronic structure calculations is achieved using novel algorithms implemented for modern high-performance computing systems. This review revisits the main capabilities of CP2K to perform efficient and accurate electronic structure simulations. The emphasis is put on density functional theory and multiple post-Hartree-Fock methods using the Gaussian and plane wave approach and its augmented all-electron extension.",
+      "venue": "The Journal of Chemical Physics",
+      "citation_count": 3774,
+      "doi": "10.1063/5.0007045",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1063/5.0007045",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4213429554",
+      "title": "Tunable and Miniaturized Microwave Filters Using Carbon Nanotube-Based Variable Capacitors",
+      "authors": [
+        {
+          "name": "Martino Aldrigo",
+          "affiliation": "National Institute for Research and Development in Microtechnologies"
+        },
+        {
+          "name": "Mircea Dragoman",
+          "affiliation": "National Institute for Research and Development in Microtechnologies"
+        },
+        {
+          "name": "S. Iord\u0103nescu",
+          "affiliation": "National Institute for Research and Development in Microtechnologies"
+        },
+        {
+          "name": "George Boldeiu",
+          "affiliation": "National Institute for Research and Development in Microtechnologies"
+        },
+        {
+          "name": "Paolo Crippa",
+          "affiliation": "Marche Polytechnic University"
+        },
+        {
+          "name": "Giorgio Biagetti",
+          "affiliation": "Marche Polytechnic University"
+        },
+        {
+          "name": "Claudio Turchetti",
+          "affiliation": "Marche Polytechnic University"
+        },
+        {
+          "name": "Luca Pierantoni",
+          "affiliation": "Marche Polytechnic University"
+        },
+        {
+          "name": "Davide Mencarelli",
+          "affiliation": "Marche Polytechnic University"
+        },
+        {
+          "name": "St\u00e9phane Xavier",
+          "affiliation": "Thales (France)"
+        },
+        {
+          "name": "L. Gangloff",
+          "affiliation": "\u00c9cole Polytechnique"
+        },
+        {
+          "name": "A. Ziaei",
+          "affiliation": "\u00c9cole Polytechnique"
+        }
+      ],
+      "year": 2022,
+      "abstract": "In this paper, we introduce a novel concept of tunable and miniaturized filtersthat embed, as voltage-controlled elements, state-of-the-art variable capacitors, based on vertically aligned carbon nanotubes (VACNTs). Starting from a theoretical estimation of the voltage-dependent capacitance between two adjacent CNTs, we extended this physics principle to a large matrix of CNTs, suitably placed on the molybdenum electrodes of an interdigitatedcapacitor (IDC), since molybdenum can withstand the high temperature necessary in the plasma process for the growth of the VACNTs. The IDC is the tunable element of a microwave filter, which must fulfill the need for both reconfigurability (being either a low-pass, a high-pass, or a band-pass filter, at discretion) and low-voltage frequency tuning of reflection&#x002F;transmission coefficients. For all these reasons, a very compact layout made of T-type cells (comprising VACNT-based variable capacitors and distributed inductors) was designed, simulated, fabricated, and tested, targeting the C, X, and K<sub>u</sub> bands (4&#x2013;16 GHz) for wireless and radar applications. Taking as a reference the free-space wavelength <i>&#x03BB;</i><sub>0</sub> at 10 GHz, the band-pass filter has overall dimensions of just 3.19 mm &#x00D7; 3.47 mm (i.e., 0.11<i>&#x03BB;</i><sub>0</sub> &#x00D7; 0.12<i>&#x03BB;</i><sub>0</sub>), with the minimum of the reflection coefficient shifting of 1.16 GHz (within the X band) for an applied dc bias voltage of just 4 V and spanning between &#x2212;24.81 dB and &#x2212;36.13 dB. Furthermore, the maximum rejection is 31.65 dB, and the 3-dB fractional bandwidth is 12.44&#x0025;. The proposed filters are the proof that nanomaterials can be profitably integrated into microwave components for next-generation transceivers.",
+      "venue": "IEEE Transactions on Nanotechnology",
+      "citation_count": 11,
+      "doi": "10.1109/tnano.2022.3153561",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tnano.2022.3153561",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3154093784",
+      "title": "Time-Dependent Hybrid-State A\u204e and Optimal Control for Autonomous Vehicles in Arbitrary and Dynamic Environments",
+      "authors": [
+        {
+          "name": "Andreas Folkers",
+          "affiliation": "University of Bremen"
+        },
+        {
+          "name": "Matthias Rick",
+          "affiliation": "University of Bremen"
+        },
+        {
+          "name": "Christof B\u00fcskens",
+          "affiliation": "University of Bremen"
+        }
+      ],
+      "year": 2020,
+      "abstract": "The development of driving functions for autonomous vehicles in urban environments is still a challenging task. In comparison with driving on motorways, a wide variety of moving road users, such as pedestrians or cyclists, but also the strongly varying and sometimes very narrow road layout pose special challenges. The ability to make fast decisions about exact maneuvers and to execute them by applying sophisticated control commands is one of the key requirements for autonomous vehicles in such situations. In this context we present an algorithmic concept of three correlated methods. Its basis is a novel technique for the automated generation of a free-space polygon, providing a generic representation of the currently drivable area. We then develop a time-dependent hybrid-state A\u204e algorithm as a model-based planner for the efficient and precise computation of possible driving maneuvers in arbitrary dynamic environments. While on the one hand its results can be used as a basis for making short-term decisions, we also show their applicability as an initial guess for a subsequent trajectory optimization in order to compute applicable control signals. Finally, we provide numerical results for a variety of simulated situations demonstrating the efficiency and robustness of the proposed methods.",
+      "venue": "IFAC-PapersOnLine",
+      "citation_count": 5,
+      "doi": "10.1016/j.ifacol.2020.12.2029",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.ifacol.2020.12.2029",
+      "source": "openalex",
+      "_bibtex_override": ""
+    }
+  ]
+}

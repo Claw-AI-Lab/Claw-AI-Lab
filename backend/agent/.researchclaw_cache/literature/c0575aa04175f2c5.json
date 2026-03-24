@@ -1,0 +1,425 @@
+{
+  "query": "synthesized hypotheses hypothesis quantum-inspired optimization",
+  "source": "arxiv",
+  "limit": 15,
+  "timestamp": 1774020685.9273577,
+  "papers": [
+    {
+      "paper_id": "arxiv-1905.10415",
+      "title": "Quantum-inspired algorithms in practice",
+      "authors": [
+        {
+          "name": "Juan Miguel Arrazola",
+          "affiliation": ""
+        },
+        {
+          "name": "Alain Delgado",
+          "affiliation": ""
+        },
+        {
+          "name": "Bhaskar Roy Bardhan",
+          "affiliation": ""
+        },
+        {
+          "name": "Seth Lloyd",
+          "affiliation": ""
+        }
+      ],
+      "year": 2019,
+      "abstract": "We study the practical performance of quantum-inspired algorithms for recommendation systems and linear systems of equations. These algorithms were shown to have an exponential asymptotic speedup compared to previously known classical methods for problems involving low-rank matrices, but with complexity bounds that exhibit a hefty polynomial overhead compared to quantum algorithms. This raised the question of whether these methods were actually useful in practice. We conduct a theoretical analysis aimed at identifying their computational bottlenecks, then implement and benchmark the algorithms on a variety of problems, including applications to portfolio optimization and movie recommendations. On the one hand, our analysis reveals that the performance of these algorithms is better than the theoretical complexity bounds would suggest. On the other hand, their performance as seen in our implementation degrades noticeably as the rank and condition number of the input matrix are increased. Overall, our results indicate that quantum-inspired algorithms can perform well in practice provided that stringent conditions are met: low rank, low condition number, and very large dimension of the input matrix. By contrast, practical datasets are often sparse and high-rank, precisely the type that can be handled by quantum algorithms.",
+      "venue": "quant-ph",
+      "citation_count": 0,
+      "doi": "10.22331/q-2020-08-13-307",
+      "arxiv_id": "1905.10415",
+      "url": "https://arxiv.org/abs/1905.10415",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2101.06250",
+      "title": "GEO: Enhancing Combinatorial Optimization with Classical and Quantum Generative Models",
+      "authors": [
+        {
+          "name": "Javier Alcazar",
+          "affiliation": ""
+        },
+        {
+          "name": "Mohammad Ghazi Vakili",
+          "affiliation": ""
+        },
+        {
+          "name": "Can B. Kalayci",
+          "affiliation": ""
+        },
+        {
+          "name": "Alejandro Perdomo-Ortiz",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "We introduce a new framework that leverages machine learning models known as generative models to solve optimization problems. Our Generator-Enhanced Optimization (GEO) strategy is flexible to adopt any generative model, from quantum to quantum-inspired or classical, such as Generative Adversarial Networks, Variational Autoencoders, or Quantum Circuit Born Machines, to name a few. Here, we focus on a quantum-inspired version of GEO relying on tensor-network Born machines and referred to hereafter as TN-GEO. We present two prominent strategies for using TN-GEO. The first uses data points previously evaluated by any quantum or classical optimizer, and we show how TN-GEO improves the performance of the classical solver as a standalone strategy in hard-to-solve instances. The second strategy uses TN-GEO as a standalone solver, i.e., when no previous observations are available. Here, we show its superior performance when the goal is to find the best minimum given a fixed budget for the number of function calls. This might be ideal in situations where the cost function evaluation can be very expensive. To illustrate our results, we run these benchmarks in the context of the portfolio optimization problem by constructing instances from the S\\&P 500 and several other financial stock indexes. We also comprehensively compare state-of-the-art algorithms in a generalized version of the portfolio optimization problem. The results show that TN-GEO is among the best compared to these state-of-the-art algorithms; a remarkable outcome given the solvers used in the comparison have been fine-tuned for decades in this real-world industrial application. We see this as an important step toward a practical advantage with quantum-inspired models and, subsequently, with quantum generative models.",
+      "venue": "quant-ph",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2101.06250",
+      "url": "https://arxiv.org/abs/2101.06250",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-1808.06100",
+      "title": "On the solution existence and stability of polynomial optimization problems",
+      "authors": [
+        {
+          "name": "Vu Trung Hieu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2018,
+      "abstract": "This paper introduces and investigates a regularity condition in the asymptotic sense for optimization problems whose objective functions are polynomial. Under this regularity condition, the normalization argument in asymptotic analysis enables us to see the solution existence as well as the solution stability of these problems. We prove a Frank-Wolfe type theorem for regular optimization problems and an Eaves type theorem for non-regular pseudoconvex optimization problems. Moreover, we show results on the stability such as upper semicontinuity and local upper-H\u00f6lder stability of the solution map of polynomial optimization problems. At the end of the paper, we discuss the genericity of the regularity condition.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "10.1007/s11590-021-01788-z",
+      "arxiv_id": "1808.06100",
+      "url": "https://arxiv.org/abs/1808.06100",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2501.00258",
+      "title": "Optimal design of frame structures with mixed categorical and continuous design variables using the Gumbel-Softmax method",
+      "authors": [
+        {
+          "name": "Mehran Ebrahimi",
+          "affiliation": ""
+        },
+        {
+          "name": "Hyunmin Cheong",
+          "affiliation": ""
+        },
+        {
+          "name": "Pradeep Kumar Jayaraman",
+          "affiliation": ""
+        },
+        {
+          "name": "Farhad Javid",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "In optimizing real-world structures, due to fabrication or budgetary restraints, the design variables may be restricted to a set of standard engineering choices. Such variables, commonly called categorical variables, are discrete and unordered in essence, precluding the utilization of gradient-based optimizers for the problems containing them. In this paper, incorporating the Gumbel-Softmax (GSM) method, we propose a new gradient-based optimizer for handling such variables in the optimal design of large-scale frame structures. The GSM method provides a means to draw differentiable samples from categorical distributions, thereby enabling sensitivity analysis for the variables generated from such distributions. The sensitivity information can greatly reduce the computational cost of traversing high-dimensional and discrete design spaces in comparison to employing gradient-free optimization methods. In addition, since the developed optimizer is gradient-based, it can naturally handle the simultaneous optimization of categorical and continuous design variables. Through three numerical case studies, different aspects of the proposed optimizer are studied and its advantages over population-based optimizers, specifically a genetic algorithm, are demonstrated.",
+      "venue": "cs.CE",
+      "citation_count": 0,
+      "doi": "10.1007/s00158-024-03745-7",
+      "arxiv_id": "2501.00258",
+      "url": "https://arxiv.org/abs/2501.00258",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2409.09919",
+      "title": "Engineering topological states and quantum-inspired information processing using classical circuits",
+      "authors": [
+        {
+          "name": "Tian Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Weixuan Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Deyuan Zou",
+          "affiliation": ""
+        },
+        {
+          "name": "Yifan Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiangdong Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Based on the correspondence between circuit Laplacian and Schrodinger equation, recent investigations have shown that classical electric circuits can be used to simulate various topological physics and the Schrodinger's equation. Furthermore, a series of quantum-inspired information processing have been implemented by using classical electric circuit networks. In this review, we begin by analyzing the similarity between circuit Laplacian and lattice Hamiltonian, introducing topological physics based on classical circuits. Subsequently, we provide reviews of the research progress in quantum-inspired information processing based on the electric circuit, including discussions of topological quantum computing with classical circuits, quantum walk based on classical circuits, quantum combinational logics based on classical circuits, electric-circuit realization of fast quantum search, implementing unitary transforms and so on.",
+      "venue": "cond-mat.mes-hall",
+      "citation_count": 0,
+      "doi": "10.1002/qute.202400448",
+      "arxiv_id": "2409.09919",
+      "url": "https://arxiv.org/abs/2409.09919",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2303.08710",
+      "title": "Two-Scale Optimization of Graded Lattice Structures respecting Buckling on Micro- and Macroscale",
+      "authors": [
+        {
+          "name": "Daniel H\u00fcbner",
+          "affiliation": ""
+        },
+        {
+          "name": "Fabian Wein",
+          "affiliation": ""
+        },
+        {
+          "name": "Michael Stingl",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Interest in components with detailed structures increased with the progress in advanced manufacturing techniques in recent years. Parts with graded lattice elements can provide interesting mechanical, thermal, and acoustic properties compared to parts where only coarse features are included. One of these improvements is better global buckling resistance of the component. However, thin features are prone to local buckling. Normally, analyses with high computational effort are conducted on high-resolution finite element meshes to optimize parts with good global and local stability. Until recently, works focused only on either global or local buckling behavior. We use two-scale optimization based on asymptotic homogenization of elastic properties and local buckling behavior to reduce the effort of full-scale analyses. For this, we present an approach for concurrent local and global buckling optimization of parameterized graded lattice structures. It is based on a worst-case model for the homogenized buckling load factor, which acts as a safeguard against pure local buckling. Cross-modes residing on both scales are not detected. We support our theory with numerical examples and validations on dehomogenized designs, which show the capabilities of our method, and discuss the advantages and limitations of the worst-case model.",
+      "venue": "cs.CE",
+      "citation_count": 0,
+      "doi": "10.1007/s00158-023-03619-4",
+      "arxiv_id": "2303.08710",
+      "url": "https://arxiv.org/abs/2303.08710",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2201.02491",
+      "title": "An efficient and easy-to-extend Matlab code of the Moving Morphable Component (MMC) method for three-dimensional topology optimization",
+      "authors": [
+        {
+          "name": "Zongliang Du",
+          "affiliation": ""
+        },
+        {
+          "name": "Tianchen Cui",
+          "affiliation": ""
+        },
+        {
+          "name": "Chang Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Weisheng Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yilin Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Xu Guo",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Explicit topology optimization methods have received ever-increasing interest in recent years. In particular, a 188-line Matlab code of the two-dimensional (2D) Moving Morphable Component (MMC)-based topology optimization method was released by Zhang et al. (Struct Multidiscip Optim 53(6):1243-1260, 2016). The present work aims to propose an efficient and easy-to-extend 256-line Matlab code of the MMC method for three-dimensional (3D) topology optimization implementing some new numerical techniques. To be specific, by virtue of the function aggregation technique, accurate sensitivity analysis, which is also easy-to-extend to other problems, is achieved. Besides, based on an efficient identification algorithm for load transmission path, the degrees of freedoms (DOFs) not belonging to the load transmission path are removed in finite element analysis (FEA), which significantly accelerates the optimization process. As a result, compared to the corresponding 188-line 2D code, the performance of the optimization results, the computational efficiency of FEA, and the convergence rate and the robustness of optimization process are greatly improved. For the sake of completeness, a refined 218-line Matlab code implementing the 2D-MMC method is also provided.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "10.1007/s00158-022-03239-4",
+      "arxiv_id": "2201.02491",
+      "url": "https://arxiv.org/abs/2201.02491",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2305.16395",
+      "title": "Approaching Collateral Optimization for NISQ and Quantum-Inspired Computing",
+      "authors": [
+        {
+          "name": "Megan Giron",
+          "affiliation": ""
+        },
+        {
+          "name": "Georgios Korpas",
+          "affiliation": ""
+        },
+        {
+          "name": "Waqas Parvaiz",
+          "affiliation": ""
+        },
+        {
+          "name": "Prashant Malik",
+          "affiliation": ""
+        },
+        {
+          "name": "Johannes Aspman",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Collateral optimization refers to the systematic allocation of financial assets to satisfy obligations or secure transactions, while simultaneously minimizing costs and optimizing the usage of available resources. {This involves assessing number of characteristics, such as cost of funding and quality of the underlying assets to ascertain the optimal collateral quantity to be posted to cover exposure arising from a given transaction or a set of transactions. One of the common objectives is to minimise the cost of collateral required to mitigate the risk associated with a particular transaction or a portfolio of transactions while ensuring sufficient protection for the involved parties}. Often, this results in a large-scale combinatorial optimization problem. In this study, we initially present a Mixed Integer Linear Programming (MILP) formulation for the collateral optimization problem, followed by a Quadratic Unconstrained Binary optimization (QUBO) formulation in order to pave the way towards approaching the problem in a hybrid-quantum and NISQ-ready way. We conduct local computational small-scale tests using various Software Development Kits (SDKs) and discuss the behavior of our formulations as well as the potential for performance enhancements. We further survey the recent literature that proposes alternative ways to attack combinatorial optimization problems suitable for collateral optimization.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "10.1109/TQE.2023.3314839",
+      "arxiv_id": "2305.16395",
+      "url": "https://arxiv.org/abs/2305.16395",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-1810.05633",
+      "title": "Stochastic (Approximate) Proximal Point Methods: Convergence, Optimality, and Adaptivity",
+      "authors": [
+        {
+          "name": "Hilal Asi",
+          "affiliation": ""
+        },
+        {
+          "name": "John C. Duchi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2018,
+      "abstract": "We develop model-based methods for solving stochastic convex optimization problems, introducing the approximate-proximal point, or aProx, family, which includes stochastic subgradient, proximal point, and bundle methods. When the modeling approaches we propose are appropriately accurate, the methods enjoy stronger convergence and robustness guarantees than classical approaches, even though the model-based methods typically add little to no computational overhead over stochastic subgradient methods. For example, we show that improved models converge with probability 1 and enjoy optimal asymptotic normality results under weak assumptions; these methods are also adaptive to a natural class of what we term easy optimization problems, achieving linear convergence under appropriate strong growth conditions on the objective. Our substantial experimental investigation shows the advantages of more accurate modeling over standard subgradient methods across many smooth and non-smooth optimization problems.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "10.1137/18M1230323",
+      "arxiv_id": "1810.05633",
+      "url": "https://arxiv.org/abs/1810.05633",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2105.13646",
+      "title": "Conic-Optimization Based Algorithms for Nonnegative Matrix Factorization",
+      "authors": [
+        {
+          "name": "Valentin Leplat",
+          "affiliation": ""
+        },
+        {
+          "name": "Yurii Nesterov",
+          "affiliation": ""
+        },
+        {
+          "name": "Nicolas Gillis",
+          "affiliation": ""
+        },
+        {
+          "name": "Fran\u00e7ois Glineur",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Nonnegative matrix factorization is the following problem: given a nonnegative input matrix $V$ and a factorization rank $K$, compute two nonnegative matrices, $W$ with $K$ columns and $H$ with $K$ rows, such that $WH$ approximates $V$ as well as possible. In this paper, we propose two new approaches for computing high-quality NMF solutions using conic optimization. These approaches rely on the same two steps. First, we reformulate NMF as minimizing a concave function over a product of convex cones--one approach is based on the exponential cone, and the other on the second-order cone. Then, we solve these reformulations iteratively: at each step, we minimize exactly, over the feasible set, a majorization of the objective functions obtained via linearization at the current iterate. Hence these subproblems are convex conic programs and can be solved efficiently using dedicated algorithms. We prove that our approaches reach a stationary point with an accuracy decreasing as $\\mathcal{O}(\\frac{1}{i})$, where $i$ denotes the iteration number. To the best of our knowledge, our analysis is the first to provide a convergence rate to stationary points for NMF. Furthermore, in the particular cases of rank-one factorizations (that is, $K=1$), we show that one of our formulations can be expressed as a convex optimization problem implying that optimal rank-one approximations can be computed efficiently. Finally, we show on several numerical examples that our approaches are able to frequently compute exact NMFs (that is, with $V = WH$), and compete favorably with the state of the art.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "10.1080/10556788.2023.2189714",
+      "arxiv_id": "2105.13646",
+      "url": "https://arxiv.org/abs/2105.13646",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2111.15645",
+      "title": "Survey Descent: A Multipoint Generalization of Gradient Descent for Nonsmooth Optimization",
+      "authors": [
+        {
+          "name": "X. Y. Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Adrian S. Lewis",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "For strongly convex objectives that are smooth, the classical theory of gradient descent ensures linear convergence relative to the number of gradient evaluations. An analogous nonsmooth theory is challenging. Even when the objective is smooth at every iterate, the corresponding local models are unstable and the number of cutting planes invoked by traditional remedies is difficult to bound, leading to convergences guarantees that are sublinear relative to the cumulative number of gradient evaluations. We instead propose a multipoint generalization of the gradient descent iteration for local optimization. While designed with general objectives in mind, we are motivated by a ``max-of-smooth'' model that captures the subdifferential dimension at optimality. We prove linear convergence when the objective is itself max-of-smooth, and experiments suggest a more general phenomenon.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "10.1137/21M1468450",
+      "arxiv_id": "2111.15645",
+      "url": "https://arxiv.org/abs/2111.15645",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2005.11788",
+      "title": "Convergence Results for Optimal Control Problems Governed by Elliptic Quasivariational Inequalities",
+      "authors": [
+        {
+          "name": "Mircea Sofonea",
+          "affiliation": ""
+        },
+        {
+          "name": "Domingo A. Tarzia",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "We consider an optimal control problem $\\cQ$ governed by an elliptic quasivariational inequality with unilateral constraints. The existence of optimal pairs of the problem is a well known result, see \\cite{SS}, for instance. We associate to $\\cQ$ a new optimal control problem $\\wQ$, obtained by perturbing the state inequality (including the set of constraints and the nonlinear operator) and the cost functional, as well. Then, we provide sufficient conditions which guarantee the convergence of solutions of Problem $\\wQ$ to a solution of Problem $\\cQ$. The proofs are based on convergence results for elliptic quasivariational inequalities, obtained by using arguments of compactness, lower semicontinuity, monotonicity, penalty and various estimates. Finally, we illustrate the use of the abstract convergence results in the study of optimal control associated with two boundary value problems. The first one describes the equilibrium of an elastic body in frictional contact with an obstacle, the so-called foundation. The process is static and the contact is modeled with normal compliance and unilateral constraint, associated to a version of Coulomb's law of dry friction. The second one describes a stationary heat transfer problem with unilateral constraints. For the two problems we prove existence, uniqueness and convergence results together with the corresponding physical interpretation.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "10.1080/01630563.2020.1772288",
+      "arxiv_id": "2005.11788",
+      "url": "https://arxiv.org/abs/2005.11788",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-1607.01655",
+      "title": "L1 penalization of volumetric dose objectives in optimal control of PDEs",
+      "authors": [
+        {
+          "name": "Richard C. Barnard",
+          "affiliation": ""
+        },
+        {
+          "name": "Christian Clason",
+          "affiliation": ""
+        }
+      ],
+      "year": 2016,
+      "abstract": "This work is concerned with a class of optimal control problems governed by a partial differential equation that are motivated by an application in radiotherapy treatment planning, where the primary design objective is to minimize the volume where a functional of the state violates a prescribed level, but prescribing these levels in the form of pointwise state constraints can lead to infeasible problems. We therefore propose an alternative approach based on $L^1$ penalization of the violation. We establish well-posedness of the corresponding optimal control problem, derive first-order optimality conditions, and present a semismooth Newton method for the efficient numerical solution of these problems. The performance of this method for a model problem is illustrated and contrasted with the alternative approach based on (regularized) state constraints.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "10.1007/s10589-017-9897-6",
+      "arxiv_id": "1607.01655",
+      "url": "https://arxiv.org/abs/1607.01655",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-1507.06243",
+      "title": "A Smooth Primal-Dual Optimization Framework for Nonsmooth Composite Convex Minimization",
+      "authors": [
+        {
+          "name": "Quoc Tran-Dinh",
+          "affiliation": ""
+        },
+        {
+          "name": "Olivier Fercoq",
+          "affiliation": ""
+        },
+        {
+          "name": "Volkan Cevher",
+          "affiliation": ""
+        }
+      ],
+      "year": 2015,
+      "abstract": "We propose a new first-order primal-dual optimization framework for a convex optimization template with broad applications. Our optimization algorithms feature optimal convergence guarantees under a variety of common structure assumptions on the problem template. Our analysis relies on a novel combination of three classic ideas applied to the primal-dual gap function: smoothing, acceleration, and homotopy. The algorithms due to the new approach achieve the best known convergence rate results, in particular when the template consists of only non-smooth functions. We also outline a restart strategy for the acceleration to significantly enhance the practical performance. We demonstrate relations with the augmented Lagrangian method and show how to exploit the strongly convex objectives with rigorous convergence rate guarantees. We provide numerical evidence with two examples and illustrate that the new methods can outperform the state-of-the-art, including Chambolle-Pock, and the alternating direction method-of-multipliers algorithms.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "1507.06243",
+      "url": "https://arxiv.org/abs/1507.06243",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-1109.1320",
+      "title": "Examples of inconsistency in optimization by expected improvement",
+      "authors": [
+        {
+          "name": "Dmitry Yarotsky",
+          "affiliation": ""
+        }
+      ],
+      "year": 2011,
+      "abstract": "We consider the 1D Expected Improvement optimization based on Gaussian processes having spectral densities converging to zero faster than exponentially. We give examples of problems where the optimization trajectory is not dense in the design space. In particular, we prove that for Gaussian kernels there exist smooth objective functions for which the optimization does not converge on the optimum.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "10.1007/s10898-012-9936-x",
+      "arxiv_id": "1109.1320",
+      "url": "https://arxiv.org/abs/1109.1320",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

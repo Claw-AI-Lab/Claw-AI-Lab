@@ -1,0 +1,417 @@
+{
+  "query": "Data augmentation for MNIST: comparing no augmentation vs random rotation vs random affine on simple CNN",
+  "source": "arxiv",
+  "limit": 15,
+  "timestamp": 1773986044.3963535,
+  "papers": [
+    {
+      "paper_id": "arxiv-2210.08363",
+      "title": "Data-Efficient Augmentation for Training Neural Networks",
+      "authors": [
+        {
+          "name": "Tian Yu Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Baharan Mirzasoleiman",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Data augmentation is essential to achieve state-of-the-art performance in many deep learning applications. However, the most effective augmentation techniques become computationally prohibitive for even medium-sized datasets. To address this, we propose a rigorous technique to select subsets of data points that when augmented, closely capture the training dynamics of full data augmentation. We first show that data augmentation, modeled as additive perturbations, improves learning and generalization by relatively enlarging and perturbing the smaller singular values of the network Jacobian, while preserving its prominent directions. This prevents overfitting and enhances learning the harder to learn information. Then, we propose a framework to iteratively extract small subsets of training data that when augmented, closely capture the alignment of the fully augmented Jacobian with labels/residuals. We prove that stochastic gradient descent applied to the augmented subsets found by our approach has similar training dynamics to that of fully augmented data. Our experiments demonstrate that our method achieves 6.3x speedup on CIFAR10 and 2.2x speedup on SVHN, and outperforms the baselines by up to 10% across various subset sizes. Similarly, on TinyImageNet and ImageNet, our method beats the baselines by up to 8%, while achieving up to 3.3x speedup across various subset sizes. Finally, training on and augmenting 50% subsets using our method on a version of CIFAR10 corrupted with label noise even outperforms using the full dataset. Our code is available at: https://github.com/tianyu139/data-efficient-augmentation",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2210.08363",
+      "url": "https://arxiv.org/abs/2210.08363",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2410.01088",
+      "title": "Exploring Empty Spaces: Human-in-the-Loop Data Augmentation",
+      "authors": [
+        {
+          "name": "Catherine Yeh",
+          "affiliation": ""
+        },
+        {
+          "name": "Donghao Ren",
+          "affiliation": ""
+        },
+        {
+          "name": "Yannick Assogba",
+          "affiliation": ""
+        },
+        {
+          "name": "Dominik Moritz",
+          "affiliation": ""
+        },
+        {
+          "name": "Fred Hohman",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Data augmentation is crucial to make machine learning models more robust and safe. However, augmenting data can be challenging as it requires generating diverse data points to rigorously evaluate model behavior on edge cases and mitigate potential harms. Creating high-quality augmentations that cover these \"unknown unknowns\" is a time- and creativity-intensive task. In this work, we introduce Amplio, an interactive tool to help practitioners navigate \"unknown unknowns\" in unstructured text datasets and improve data diversity by systematically identifying empty data spaces to explore. Amplio includes three human-in-the-loop data augmentation techniques: Augment With Concepts, Augment by Interpolation, and Augment with Large Language Model. In a user study with 18 professional red teamers, we demonstrate the utility of our augmentation methods in helping generate high-quality, diverse, and relevant model safety prompts. We find that Amplio enabled red teamers to augment data quickly and creatively, highlighting the transformative potential of interactive augmentation workflows.",
+      "venue": "cs.HC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2410.01088",
+      "url": "https://arxiv.org/abs/2410.01088",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2108.06949",
+      "title": "Data Augmentation for Scene Text Recognition",
+      "authors": [
+        {
+          "name": "Rowel Atienza",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Scene text recognition (STR) is a challenging task in computer vision due to the large number of possible text appearances in natural scenes. Most STR models rely on synthetic datasets for training since there are no sufficiently big and publicly available labelled real datasets. Since STR models are evaluated using real data, the mismatch between training and testing data distributions results into poor performance of models especially on challenging text that are affected by noise, artifacts, geometry, structure, etc. In this paper, we introduce STRAug which is made of 36 image augmentation functions designed for STR. Each function mimics certain text image properties that can be found in natural scenes, caused by camera sensors, or induced by signal processing operations but poorly represented in the training dataset. When applied to strong baseline models using RandAugment, STRAug significantly increases the overall absolute accuracy of STR models across regular and irregular test datasets by as much as 2.10% on Rosetta, 1.48% on R2AM, 1.30% on CRNN, 1.35% on RARE, 1.06% on TRBA and 0.89% on GCRNN. The diversity and simplicity of API provided by STRAug functions enable easy replication and validation of existing data augmentation methods for STR. STRAug is available at https://github.com/roatienza/straug.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2108.06949",
+      "url": "https://arxiv.org/abs/2108.06949",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2407.21523",
+      "title": "Tabular Data Augmentation for Machine Learning: Progress and Prospects of Embracing Generative AI",
+      "authors": [
+        {
+          "name": "Lingxi Cui",
+          "affiliation": ""
+        },
+        {
+          "name": "Huan Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Ke Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Lidan Shou",
+          "affiliation": ""
+        },
+        {
+          "name": "Gang Chen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Machine learning (ML) on tabular data is ubiquitous, yet obtaining abundant high-quality tabular data for model training remains a significant obstacle. Numerous works have focused on tabular data augmentation (TDA) to enhance the original table with additional data, thereby improving downstream ML tasks. Recently, there has been a growing interest in leveraging the capabilities of generative AI for TDA. Therefore, we believe it is time to provide a comprehensive review of the progress and future prospects of TDA, with a particular emphasis on the trending generative AI. Specifically, we present an architectural view of the TDA pipeline, comprising three main procedures: pre-augmentation, augmentation, and post-augmentation. Pre-augmentation encompasses preparation tasks that facilitate subsequent TDA, including error handling, table annotation, table simplification, table representation, table indexing, table navigation, schema matching, and entity matching. Augmentation systematically analyzes current TDA methods, categorized into retrieval-based methods, which retrieve external data, and generation-based methods, which generate synthetic data. We further subdivide these methods based on the granularity of the augmentation process at the row, column, cell, and table levels. Post-augmentation focuses on the datasets, evaluation and optimization aspects of TDA. We also summarize current trends and future directions for TDA, highlighting promising opportunities in the era of generative AI. In addition, the accompanying papers and related resources are continuously updated and maintained in the GitHub repository at https://github.com/SuDIS-ZJU/awesome-tabular-data-augmentation to reflect ongoing advancements in the field.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2407.21523",
+      "url": "https://arxiv.org/abs/2407.21523",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2510.21391",
+      "title": "TerraGen: A Unified Multi-Task Layout Generation Framework for Remote Sensing Data Augmentation",
+      "authors": [
+        {
+          "name": "Datao Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yudeng Xin",
+          "affiliation": ""
+        },
+        {
+          "name": "Hui Qiao",
+          "affiliation": ""
+        },
+        {
+          "name": "Dongsheng Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yin Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiheng Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiangyong Cao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Remote sensing vision tasks require extensive labeled data across multiple, interconnected domains. However, current generative data augmentation frameworks are task-isolated, i.e., each vision task requires training an independent generative model, and ignores the modeling of geographical information and spatial constraints. To address these issues, we propose \\textbf{TerraGen}, a unified layout-to-image generation framework that enables flexible, spatially controllable synthesis of remote sensing imagery for various high-level vision tasks, e.g., detection, segmentation, and extraction. Specifically, TerraGen introduces a geographic-spatial layout encoder that unifies bounding box and segmentation mask inputs, combined with a multi-scale injection scheme and mask-weighted loss to explicitly encode spatial constraints, from global structures to fine details. Also, we construct the first large-scale multi-task remote sensing layout generation dataset containing 45k images and establish a standardized evaluation protocol for this task. Experimental results show that our TerraGen can achieve the best generation image quality across diverse tasks. Additionally, TerraGen can be used as a universal data-augmentation generator, enhancing downstream task performance significantly and demonstrating robust cross-task generalisation in both full-data and few-shot scenarios.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2510.21391",
+      "url": "https://arxiv.org/abs/2510.21391",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2301.10131",
+      "title": "Random perfect matchings in regular graphs",
+      "authors": [
+        {
+          "name": "Bertille Granet",
+          "affiliation": ""
+        },
+        {
+          "name": "Felix Joos",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We prove that in all regular robust expanders $G$ every edge is asymptotically equally likely contained in a uniformly chosen perfect matching $M$. We also show that given any fixed matching or spanning regular graph $N$ in $G$, the random variable $|M\\cap E(N)|$ is approximately Poisson distributed. This in particular confirms a conjecture and a question due to Spiro and Surya, and complements results due to Kahn and Kim who proved that in a regular graph every vertex is asymptotically equally likely contained in a uniformly chosen matching. Our proofs rely on the switching method and the fact that simple random walks mix rapidly in robust expanders.",
+      "venue": "math.CO",
+      "citation_count": 0,
+      "doi": "10.1002/rsa.21172",
+      "arxiv_id": "2301.10131",
+      "url": "https://arxiv.org/abs/2301.10131",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-1510.02335",
+      "title": "Cliques in dense inhomogeneous random graphs",
+      "authors": [
+        {
+          "name": "Martin Dole\u017eal",
+          "affiliation": ""
+        },
+        {
+          "name": "Jan Hladk\u00fd",
+          "affiliation": ""
+        },
+        {
+          "name": "Andr\u00e1s M\u00e1th\u00e9",
+          "affiliation": ""
+        }
+      ],
+      "year": 2015,
+      "abstract": "The theory of dense graph limits comes with a natural sampling process which yields an inhomogeneous variant G(n,W) of the Erdos-Renyi random graph. Here we study the clique number of these random graphs. We establish the concentration of the clique number of G(n,W) for each fixed n, and give examples of graphons for which G(n,W) exhibits wild long-term behavior. Our main result is an asymptotic formula which gives the almost sure clique number of these random graphs. We obtain a similar result for the bipartite version of the problem. We also make an observation that might be of independent interest: Every graphon avoiding a fixed graph is countably-partite.",
+      "venue": "math.CO",
+      "citation_count": 0,
+      "doi": "10.1002/rsa.20715",
+      "arxiv_id": "1510.02335",
+      "url": "https://arxiv.org/abs/1510.02335",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-http://arxiv.org/abs/math/0504589v3",
+      "title": "The phase transition in inhomogeneous random graphs",
+      "authors": [
+        {
+          "name": "Bela Bollobas",
+          "affiliation": ""
+        },
+        {
+          "name": "Svante Janson",
+          "affiliation": ""
+        },
+        {
+          "name": "Oliver Riordan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2005,
+      "abstract": "We introduce a very general model of an inhomogenous random graph with independence between the edges, which scales so that the number of edges is linear in the number of vertices. This scaling corresponds to the p=c/n scaling for G(n,p) used to study the phase transition; also, it seems to be a property of many large real-world graphs. Our model includes as special cases many models previously studied.\n  We show that under one very weak assumption (that the expected number of edges is `what it should be'), many properties of the model can be determined, in particular the critical point of the phase transition, and the size of the giant component above the transition. We do this by relating our random graphs to branching processes, which are much easier to analyze.\n  We also consider other properties of the model, showing, for example, that when there is a giant component, it is `stable': for a typical random graph, no matter how we add or delete o(n) edges, the size of the giant component does not change by more than o(n).",
+      "venue": "math.PR",
+      "citation_count": 0,
+      "doi": "10.1002/rsa.20168",
+      "arxiv_id": "",
+      "url": "http://arxiv.org/abs/math/0504589v3",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2207.06956",
+      "title": "Cover and Hitting Times of Hyperbolic Random Graphs",
+      "authors": [
+        {
+          "name": "Marcos Kiwi",
+          "affiliation": ""
+        },
+        {
+          "name": "Markus Schepers",
+          "affiliation": ""
+        },
+        {
+          "name": "John Sylvester",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "We study random walks on the giant component of Hyperbolic Random Graphs (HRGs), in the regime when the degree distribution obeys a power law with exponent in the range $(2,3)$. In particular, we first focus on the expected time for a random walk to hit a given vertex or visit, i.e. cover, all vertices. We show that, a.a.s. (with respect to the HRG), and up to multiplicative constants: the cover time is $n(\\log n)^2$, the maximum hitting time is $n\\log n$, and the average hitting time is $n$. We then determine the expected time to commute between two given vertices a.a.s., up to a small factor polylogarithmic in $n$, and under some mild hypothesis on the pair of vertices involved. Our results are proved by controlling effective resistances using the energy dissipated by carefully designed network flows associated to a tiling of the hyperbolic plane, on which we overlay a forest-like structure.",
+      "venue": "math.PR",
+      "citation_count": 0,
+      "doi": "10.1002/rsa.21249",
+      "arxiv_id": "2207.06956",
+      "url": "https://arxiv.org/abs/2207.06956",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2403.03513",
+      "title": "Spectrum of random centrosymmetric matrices; CLT and Circular law",
+      "authors": [
+        {
+          "name": "Indrajit Jana",
+          "affiliation": ""
+        },
+        {
+          "name": "Sunita Rani",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "We analyze the asymptotic fluctuations of linear eigenvalue statistics of random centrosymmetric matrices with i.i.d. entries. We prove that for a complex analytic test function, the centered and normalized linear eigenvalue statistics of random centrosymmetric matrices converge to a normal distribution. We find the exact expression of the variance of the limiting normal distribution via combinatorial arguments. Moreover, we also argue that the limiting spectral distribution of properly scaled centrosymmetric matrices follows the circular law.",
+      "venue": "math.PR",
+      "citation_count": 0,
+      "doi": "10.1142/S2010326324500266",
+      "arxiv_id": "2403.03513",
+      "url": "https://arxiv.org/abs/2403.03513",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-1102.0300",
+      "title": "Invertibility of symmetric random matrices",
+      "authors": [
+        {
+          "name": "Roman Vershynin",
+          "affiliation": ""
+        }
+      ],
+      "year": 2011,
+      "abstract": "We study n by n symmetric random matrices H, possibly discrete, with iid above-diagonal entries. We show that H is singular with probability at most exp(-n^c), and the spectral norm of the inverse of H is O(sqrt{n}). Furthermore, the spectrum of H is delocalized on the optimal scale o(n^{-1/2}). These results improve upon a polynomial singularity bound due to Costello, Tao and Vu, and they generalize, up to constant factors, results of Tao and Vu, and Erdos, Schlein and Yau.",
+      "venue": "math.PR",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "1102.0300",
+      "url": "https://arxiv.org/abs/1102.0300",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-0806.1993",
+      "title": "Words Maps and Spectra of Random Graph Lifts",
+      "authors": [
+        {
+          "name": "Nati Linial",
+          "affiliation": ""
+        },
+        {
+          "name": "Doron Puder",
+          "affiliation": ""
+        }
+      ],
+      "year": 2008,
+      "abstract": "We begin with a new analysis of formal words. Let w be a formal word in letters g_1,...,g_k. The word map associated with w maps the permutations s_1,...,s_k in S_n to the permutation obtained by replacing for each i, every occurrence of g_i in w by s_i. We investigate the random variable X_w^n that counts the fixed points in this permutation when the s_i are selected uniformly at random. A major ingredient of our work is a new categorization of words which considerably extends the dichotomy of primitive vs. imprimitive words. We establish some results and make a few conjectures about the relation between the expectation E(X_w^n) and this new categorization.\n  This analysis contributes deeply to our study of the spectra of random lifts of graphs. Let G be a connected graph, and let the infinite tree T be its universal cover space. If L and R are the spectral radii of G and T respectively, then, as shown by J. Friedman, for almost every n-lift H of G, all \"new\" eigenvalues of H are < O(L^(1/2)R^(1/2)). We improve this upper bound to O(L^(1/3)R^(2/3)), and our aforementioned conjectures suggest a possible approach to proving an upper bound of O(R). This is a generalization of the problem of bounding the second eigenvalue in a random 2d-regular graph.\n  As an aside, we obtain a new conceptual and relatively simple proof of a theorem of A. Nica, which determines, for every fixed w, the limit distribution (as n \\to \\infty) of X_w^n. A surprising aspect of this theorem is that the answer depends only on the largest integer d so that w=u^d for some word u.",
+      "venue": "math.CO",
+      "citation_count": 0,
+      "doi": "10.1002/rsa.20304",
+      "arxiv_id": "0806.1993",
+      "url": "https://arxiv.org/abs/0806.1993",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2501.13372",
+      "title": "Generative Data Augmentation Challenge: Zero-Shot Speech Synthesis for Personalized Speech Enhancement",
+      "authors": [
+        {
+          "name": "Jae-Sung Bae",
+          "affiliation": ""
+        },
+        {
+          "name": "Anastasia Kuznetsova",
+          "affiliation": ""
+        },
+        {
+          "name": "Dinesh Manocha",
+          "affiliation": ""
+        },
+        {
+          "name": "John Hershey",
+          "affiliation": ""
+        },
+        {
+          "name": "Trausti Kristjansson",
+          "affiliation": ""
+        },
+        {
+          "name": "Minje Kim",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "This paper presents a new challenge that calls for zero-shot text-to-speech (TTS) systems to augment speech data for the downstream task, personalized speech enhancement (PSE), as part of the Generative Data Augmentation workshop at ICASSP 2025. Collecting high-quality personalized data is challenging due to privacy concerns and technical difficulties in recording audio from the test scene. To address these issues, synthetic data generation using generative models has gained significant attention. In this challenge, participants are tasked first with building zero-shot TTS systems to augment personalized data. Subsequently, PSE systems are asked to be trained with this augmented personalized dataset. Through this challenge, we aim to investigate how the quality of augmented data generated by zero-shot TTS models affects PSE model performance. We also provide baseline experiments using open-source zero-shot TTS models to encourage participation and benchmark advancements. Our baseline code implementation and checkpoints are available online.",
+      "venue": "eess.AS",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2501.13372",
+      "url": "https://arxiv.org/abs/2501.13372",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-http://arxiv.org/abs/math/0401385v2",
+      "title": "Random Bulgarian solitaire",
+      "authors": [
+        {
+          "name": "Serguei Popov",
+          "affiliation": ""
+        }
+      ],
+      "year": 2004,
+      "abstract": "We consider a stochastic variant of the game of Bulgarian solitaire [M. Gardner (1983), Sci. Amer. 249, 12-21]. For the stationary measure of the random Bulgarian solitaire, we prove that most of its mass is concentrated on (roughly) triangular configurations of certain type.",
+      "venue": "math.PR",
+      "citation_count": 0,
+      "doi": "10.1002/rsa.20076",
+      "arxiv_id": "",
+      "url": "http://arxiv.org/abs/math/0401385v2",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-1912.11518",
+      "title": "Fluctuations of the spectrum in rotationally invariant random matrix ensembles",
+      "authors": [
+        {
+          "name": "Elizabeth S. Meckes",
+          "affiliation": ""
+        },
+        {
+          "name": "Mark W. Meckes",
+          "affiliation": ""
+        }
+      ],
+      "year": 2019,
+      "abstract": "We investigate traces of powers of random matrices whose distributions are invariant under rotations (with respect to the Hilbert--Schmidt inner product) within a real-linear subspace of the space of $n\\times n$ matrices. The matrices we consider may be real or complex, and Hermitian, antihermitian, or general. We use Stein's method to prove multivariate central limit theorems, with convergence rates, for these traces of powers, which imply central limit theorems for polynomial linear eigenvalue statistics. In contrast to the usual situation in random matrix theory, in our approach general, nonnormal matrices turn out to be easier to study than Hermitian matrices.",
+      "venue": "math.PR",
+      "citation_count": 0,
+      "doi": "10.1142/S2010326321500258",
+      "arxiv_id": "1912.11518",
+      "url": "https://arxiv.org/abs/1912.11518",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

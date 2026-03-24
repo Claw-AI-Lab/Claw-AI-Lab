@@ -1,0 +1,771 @@
+{
+  "query": "action model",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1774287624.5983238,
+  "papers": [
+    {
+      "paper_id": "arxiv-2503.00200",
+      "title": "Unified Video Action Model",
+      "authors": [
+        {
+          "name": "Shuang Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yihuai Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Dorsa Sadigh",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuran Song",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "A unified video and action model holds significant promise for robotics, where videos provide rich scene information for action prediction, and actions provide dynamics information for video prediction. However, effectively combining video generation and action prediction remains challenging, and current video generation-based methods struggle to match the performance of direct policy learning in action accuracy and inference speed. To bridge this gap, we introduce the Unified Video Action model (UVA), which jointly optimizes video and action predictions to achieve both high accuracy and efficient action inference. The key lies in learning a joint video-action latent representation and decoupling video-action decoding. The joint latent representation bridges the visual and action domains, effectively modeling the relationship between video and action sequences. Meanwhile, the decoupled decoding, powered by two lightweight diffusion heads, enables high-speed action inference by bypassing video generation during inference. Such a unified framework further enables versatile functionality through masked input training. By selectively masking actions or videos, a single model can tackle diverse tasks beyond policy learning, such as forward and inverse dynamics modeling and video generation. Via an extensive set of experiments, we demonstrate that UVA can serve as a general-purpose solution for a wide range of robotics tasks, such as policy learning, forward/inverse dynamics and video observation prediction, without compromising performance compared to methods tailored for specific applications. Results are best viewed on https://unified-video-action-model.github.io/.",
+      "venue": "cs.RO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2503.00200",
+      "url": "https://arxiv.org/abs/2503.00200",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2303.07347",
+      "title": "TriDet: Temporal Action Detection with Relative Boundary Modeling",
+      "authors": [
+        {
+          "name": "Dingfeng Shi",
+          "affiliation": ""
+        },
+        {
+          "name": "Yujie Zhong",
+          "affiliation": ""
+        },
+        {
+          "name": "Qiong Cao",
+          "affiliation": ""
+        },
+        {
+          "name": "Lin Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Jia Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Dacheng Tao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "In this paper, we present a one-stage framework TriDet for temporal action detection. Existing methods often suffer from imprecise boundary predictions due to the ambiguous action boundaries in videos. To alleviate this problem, we propose a novel Trident-head to model the action boundary via an estimated relative probability distribution around the boundary. In the feature pyramid of TriDet, we propose an efficient Scalable-Granularity Perception (SGP) layer to mitigate the rank loss problem of self-attention that takes place in the video features and aggregate information across different temporal granularities. Benefiting from the Trident-head and the SGP-based feature pyramid, TriDet achieves state-of-the-art performance on three challenging benchmarks: THUMOS14, HACS and EPIC-KITCHEN 100, with lower computational costs, compared to previous methods. For example, TriDet hits an average mAP of $69.3\\%$ on THUMOS14, outperforming the previous best by $2.5\\%$, but with only $74.6\\%$ of its latency. The code is released to https://github.com/sssste/TriDet.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2303.07347",
+      "url": "https://arxiv.org/abs/2303.07347",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2003.12424",
+      "title": "Weakly-Supervised Action Localization by Generative Attention Modeling",
+      "authors": [
+        {
+          "name": "Baifeng Shi",
+          "affiliation": ""
+        },
+        {
+          "name": "Qi Dai",
+          "affiliation": ""
+        },
+        {
+          "name": "Yadong Mu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jingdong Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Weakly-supervised temporal action localization is a problem of learning an action localization model with only video-level action labeling available. The general framework largely relies on the classification activation, which employs an attention model to identify the action-related frames and then categorizes them into different classes. Such method results in the action-context confusion issue: context frames near action clips tend to be recognized as action frames themselves, since they are closely related to the specific classes. To solve the problem, in this paper we propose to model the class-agnostic frame-wise probability conditioned on the frame attention using conditional Variational Auto-Encoder (VAE). With the observation that the context exhibits notable difference from the action at representation level, a probabilistic model, i.e., conditional VAE, is learned to model the likelihood of each frame given the attention. By maximizing the conditional probability with respect to the attention, the action and non-action frames are well separated. Experiments on THUMOS14 and ActivityNet1.2 demonstrate advantage of our method and effectiveness in handling action-context confusion problem. Code is now available on GitHub.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2003.12424",
+      "url": "https://arxiv.org/abs/2003.12424",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2010.14680",
+      "title": "Learning to Represent Action Values as a Hypergraph on the Action Vertices",
+      "authors": [
+        {
+          "name": "Arash Tavakoli",
+          "affiliation": ""
+        },
+        {
+          "name": "Mehdi Fatemi",
+          "affiliation": ""
+        },
+        {
+          "name": "Petar Kormushev",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Action-value estimation is a critical component of many reinforcement learning (RL) methods whereby sample complexity relies heavily on how fast a good estimator for action value can be learned. By viewing this problem through the lens of representation learning, good representations of both state and action can facilitate action-value estimation. While advances in deep learning have seamlessly driven progress in learning state representations, given the specificity of the notion of agency to RL, little attention has been paid to learning action representations. We conjecture that leveraging the combinatorial structure of multi-dimensional action spaces is a key ingredient for learning good representations of action. To test this, we set forth the action hypergraph networks framework -- a class of functions for learning action representations in multi-dimensional discrete action spaces with a structural inductive bias. Using this framework we realise an agent class based on a combination with deep Q-networks, which we dub hypergraph Q-networks. We show the effectiveness of our approach on a myriad of domains: illustrative prediction problems under minimal confounding effects, Atari 2600 games, and discretised physical control benchmarks.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2010.14680",
+      "url": "https://arxiv.org/abs/2010.14680",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2603.15969",
+      "title": "Robust Language Identification for Romansh Varieties",
+      "authors": [
+        {
+          "name": "Charlotte Model",
+          "affiliation": ""
+        },
+        {
+          "name": "Sina Ahmadi",
+          "affiliation": ""
+        },
+        {
+          "name": "Jannis Vamvas",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "The Romansh language has several regional varieties, called idioms, which sometimes have limited mutual intelligibility. Despite this linguistic diversity, there has been a lack of documented efforts to build a language identification (LID) system that can distinguish between these idioms. Since Romansh LID should also be able to recognize Rumantsch Grischun, a supra-regional variety that combines elements of several idioms, this makes for a novel and interesting classification problem. In this paper, we present a LID system for Romansh idioms based on an SVM approach. We evaluate our model on a newly curated benchmark across two domains and find that it reaches an average in-domain accuracy of 97%, enabling applications such as idiom-aware spell checking or machine translation. Our classifier is publicly available.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2603.15969",
+      "url": "https://arxiv.org/abs/2603.15969",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2603.14523",
+      "title": "VLA-Thinker: Boosting Vision-Language-Action Models through Thinking-with-Image Reasoning",
+      "authors": [
+        {
+          "name": "Chaoyang Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenrui Bao",
+          "affiliation": ""
+        },
+        {
+          "name": "Sicheng Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Bingxin Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Tian",
+          "affiliation": ""
+        },
+        {
+          "name": "Yogesh S. Rawat",
+          "affiliation": ""
+        },
+        {
+          "name": "Yunhao Ge",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuzhang Shang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Vision-Language-Action (VLA) models have shown promising capabilities for embodied intelligence, but most existing approaches rely on text-based chain-of-thought reasoning where visual inputs are treated as static context. This limits the ability of the model to actively revisit the environment and resolve ambiguities during long-horizon tasks. We propose VLA-Thinker, a thinking-with-image reasoning framework that models perception as a dynamically invocable reasoning action. To train such a system, we introduce a two-stage training pipeline consisting of (1) an SFT cold-start phase with curated visual Chain-of-Thought data to activate structured reasoning and tool-use behaviors, and (2) GRPO-based reinforcement learning to align complete reasoning-action trajectories with task-level success. Extensive experiments on LIBERO and RoboTwin 2.0 benchmarks demonstrate that VLA-Thinker significantly improves manipulation performance, achieving 97.5% success rate on LIBERO and strong gains across long-horizon robotic tasks. Project and Codes: https://cywang735.github.io/VLA-Thinker/ .",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2603.14523",
+      "url": "https://arxiv.org/abs/2603.14523",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2007.08180",
+      "title": "Challenge report:VIPriors Action Recognition Challenge",
+      "authors": [
+        {
+          "name": "Zhipeng Luo",
+          "affiliation": ""
+        },
+        {
+          "name": "Dawei Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiguang Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "This paper is a brief report to our submission to the VIPriors Action Recognition Challenge. Action recognition has attracted many researchers attention for its full application, but it is still challenging. In this paper, we study previous methods and propose our method. In our method, we are primarily making improvements on the SlowFast Network and fusing with TSM to make further breakthroughs. Also, we use a fast but effective way to extract motion features from videos by using residual frames as input. Better motion features can be extracted using residual frames with SlowFast, and the residual-frame-input path is an excellent supplement for existing RGB-frame-input models. And better performance obtained by combining 3D convolution(SlowFast) with 2D convolution(TSM). The above experiments were all trained from scratch on UCF101.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2007.08180",
+      "url": "https://arxiv.org/abs/2007.08180",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2503.22673",
+      "title": "ActionStudio: A Lightweight Framework for Data and Training of Large Action Models",
+      "authors": [
+        {
+          "name": "Jianguo Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Thai Hoang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ming Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zuxin Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Shiyu Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Tulika Awalgaonkar",
+          "affiliation": ""
+        },
+        {
+          "name": "Akshara Prabhakar",
+          "affiliation": ""
+        },
+        {
+          "name": "Haolin Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Weiran Yao",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiwei Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Juntao Tan",
+          "affiliation": ""
+        },
+        {
+          "name": "Juan Carlos Niebles",
+          "affiliation": ""
+        },
+        {
+          "name": "Shelby Heinecke",
+          "affiliation": ""
+        },
+        {
+          "name": "Huan Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Silvio Savarese",
+          "affiliation": ""
+        },
+        {
+          "name": "Caiming Xiong",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Large Action models are essential for enabling autonomous agents to perform complex tasks. However, training such models remains challenging due to the diversity of agent environments and the complexity of noisy agentic data. Existing infrastructure offers limited support for scalable, agent-specific fine-tuning and standardized agent data processing. We introduce ActionStudio, a lightweight and extensible data and training framework designed for large action models. ActionStudio unifies diverse agent trajectories using our proposed Unified Format 2.0, supports a range of training workflows with optimized multi-node distributed setup, and integrates robust preprocessing and real-time verification tools. ActionStudio demonstrates up to 9x higher throughput compared to existing agentic training frameworks, and our trained models yield top performances across public and realistic agent benchmarks. To support the broader research community, we open-source the ActionStudio framework and release actionstudio-98k, a curated dataset of 98k high-quality trajectories. Code: https://github.com/SalesforceAIResearch/xLAM.",
+      "venue": "cs.AI",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2503.22673",
+      "url": "https://arxiv.org/abs/2503.22673",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2505.04999",
+      "title": "CLAM: Continuous Latent Action Models for Robot Learning from Unlabeled Demonstrations",
+      "authors": [
+        {
+          "name": "Anthony Liang",
+          "affiliation": ""
+        },
+        {
+          "name": "Pavel Czempin",
+          "affiliation": ""
+        },
+        {
+          "name": "Matthew Hong",
+          "affiliation": ""
+        },
+        {
+          "name": "Yutai Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Erdem Biyik",
+          "affiliation": ""
+        },
+        {
+          "name": "Stephen Tu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Learning robot policies using imitation learning requires collecting large amounts of costly action-labeled expert demonstrations, which fundamentally limits the scale of training data. A promising approach to address this bottleneck is to harness the abundance of unlabeled observations-e.g., from video demonstrations-to learn latent action labels in an unsupervised way. However, we find that existing methods struggle when applied to complex robot tasks requiring fine-grained motions. We design continuous latent action models (CLAM) which incorporate two key ingredients we find necessary for learning to solve complex continuous control tasks from unlabeled observation data: (a) using continuous latent action labels instead of discrete representations, and (b) jointly training an action decoder to ensure that the latent action space can be easily grounded to real actions with relatively few labeled examples. Importantly, the labeled examples can be collected from non-optimal play data, enabling CLAM to learn performant policies without access to any action-labeled expert data. We demonstrate on continuous control benchmarks in DMControl (locomotion) and MetaWorld (manipulation), as well as on a real WidowX robot arm that CLAM significantly outperforms prior state-of-the-art methods, remarkably with a 2-3x improvement in task success rate compared to the best baseline. Videos and code can be found at clamrobot.github.io.",
+      "venue": "cs.RO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2505.04999",
+      "url": "https://arxiv.org/abs/2505.04999",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2011.01928",
+      "title": "Generalization to New Actions in Reinforcement Learning",
+      "authors": [
+        {
+          "name": "Ayush Jain",
+          "affiliation": ""
+        },
+        {
+          "name": "Andrew Szot",
+          "affiliation": ""
+        },
+        {
+          "name": "Joseph J. Lim",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "A fundamental trait of intelligence is the ability to achieve goals in the face of novel circumstances, such as making decisions from new action choices. However, standard reinforcement learning assumes a fixed set of actions and requires expensive retraining when given a new action set. To make learning agents more adaptable, we introduce the problem of zero-shot generalization to new actions. We propose a two-stage framework where the agent first infers action representations from action information acquired separately from the task. A policy flexible to varying action sets is then trained with generalization objectives. We benchmark generalization on sequential tasks, such as selecting from an unseen tool-set to solve physical reasoning puzzles and stacking towers with novel 3D shapes. Videos and code are available at https://sites.google.com/view/action-generalization",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2011.01928",
+      "url": "https://arxiv.org/abs/2011.01928",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2407.14834",
+      "title": "Can VLMs be used on videos for action recognition? LLMs are Visual Reasoning Coordinators",
+      "authors": [
+        {
+          "name": "Harsh Lunia",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Recent advancements have introduced multiple vision-language models (VLMs) demonstrating impressive commonsense reasoning across various domains. Despite their individual capabilities, the potential of synergizing these complementary VLMs remains underexplored. The Cola Framework addresses this by showcasing how a large language model (LLM) can efficiently coordinate multiple VLMs through natural language communication, leveraging their distinct strengths. We have verified this claim on the challenging A-OKVQA dataset, confirming the effectiveness of such coordination. Building on this, our study investigates whether the same methodology can be applied to surveillance videos for action recognition. Specifically, we explore if leveraging the combined knowledge base of VLMs and LLM can effectively deduce actions from a video when presented with only a few selectively important frames and minimal temporal information. Our experiments demonstrate that LLM, when coordinating different VLMs, can successfully recognize patterns and deduce actions in various scenarios despite the weak temporal signals. However, our findings suggest that to enhance this approach as a viable alternative solution, integrating a stronger temporal signal and exposing the models to slightly more frames would be beneficial.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2407.14834",
+      "url": "https://arxiv.org/abs/2407.14834",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2004.10366",
+      "title": "Cyclic group actions on Fukaya categories and mirror symmetry",
+      "authors": [
+        {
+          "name": "Chi Hong Chow",
+          "affiliation": ""
+        },
+        {
+          "name": "Naichung Conan Leung",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Let $(X,\u03c9)$ be a compact symplectic manifold whose first Chern class $c_1(X)$ is divisible by a positive integer $n$. We construct a $\\mathbb{Z}_{2n}$-action on its Fukaya category $Fuk(X)$ and a $\\mathbb{Z}_n$-action on the local models of its moduli of Lagrangian branes. We show that this action is compatible with the gluing functions for different local models.",
+      "venue": "math.SG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2004.10366",
+      "url": "https://arxiv.org/abs/2004.10366",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2308.05430",
+      "title": "Ensemble Modeling for Multimodal Visual Action Recognition",
+      "authors": [
+        {
+          "name": "Jyoti Kini",
+          "affiliation": ""
+        },
+        {
+          "name": "Sarah Fleischer",
+          "affiliation": ""
+        },
+        {
+          "name": "Ishan Dave",
+          "affiliation": ""
+        },
+        {
+          "name": "Mubarak Shah",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "In this work, we propose an ensemble modeling approach for multimodal action recognition. We independently train individual modality models using a variant of focal loss tailored to handle the long-tailed distribution of the MECCANO [21] dataset. Based on the underlying principle of focal loss, which captures the relationship between tail (scarce) classes and their prediction difficulties, we propose an exponentially decaying variant of focal loss for our current task. It initially emphasizes learning from the hard misclassified examples and gradually adapts to the entire range of examples in the dataset. This annealing process encourages the model to strike a balance between focusing on the sparse set of hard samples, while still leveraging the information provided by the easier ones. Additionally, we opt for the late fusion strategy to combine the resultant probability distributions from RGB and Depth modalities for final action prediction. Experimental evaluations on the MECCANO dataset demonstrate the effectiveness of our approach.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2308.05430",
+      "url": "https://arxiv.org/abs/2308.05430",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2407.17792",
+      "title": "Harnessing Temporal Causality for Advanced Temporal Action Detection",
+      "authors": [
+        {
+          "name": "Shuming Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Lin Sui",
+          "affiliation": ""
+        },
+        {
+          "name": "Chen-Lin Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Fangzhou Mu",
+          "affiliation": ""
+        },
+        {
+          "name": "Chen Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Bernard Ghanem",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "As a fundamental task in long-form video understanding, temporal action detection (TAD) aims to capture inherent temporal relations in untrimmed videos and identify candidate actions with precise boundaries. Over the years, various networks, including convolutions, graphs, and transformers, have been explored for effective temporal modeling for TAD. However, these modules typically treat past and future information equally, overlooking the crucial fact that changes in action boundaries are essentially causal events. Inspired by this insight, we propose leveraging the temporal causality of actions to enhance TAD representation by restricting the model's access to only past or future context. We introduce CausalTAD, which combines causal attention and causal Mamba to achieve state-of-the-art performance on multiple benchmarks. Notably, with CausalTAD, we ranked 1st in the Action Recognition, Action Detection, and Audio-Based Interaction Detection tracks at the EPIC-Kitchens Challenge 2024, as well as 1st in the Moment Queries track at the Ego4D Challenge 2024. Our code is available at https://github.com/sming256/OpenTAD/.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2407.17792",
+      "url": "https://arxiv.org/abs/2407.17792",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2106.13014",
+      "title": "Exploring Stronger Feature for Temporal Action Localization",
+      "authors": [
+        {
+          "name": "Zhiwu Qing",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiang Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ziyuan Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yutong Feng",
+          "affiliation": ""
+        },
+        {
+          "name": "Shiwei Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "jianwen Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Mingqian Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Changxin Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Nong Sang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Temporal action localization aims to localize starting and ending time with action category. Limited by GPU memory, mainstream methods pre-extract features for each video. Therefore, feature quality determines the upper bound of detection performance. In this technical report, we explored classic convolution-based backbones and the recent surge of transformer-based backbones. We found that the transformer-based methods can achieve better classification performance than convolution-based, but they cannot generate accuracy action proposals. In addition, extracting features with larger frame resolution to reduce the loss of spatial information can also effectively improve the performance of temporal action localization. Finally, we achieve 42.42% in terms of mAP on validation set with a single SlowFast feature by a simple combination: BMN+TCANet, which is 1.87% higher than the result of 2020's multi-model ensemble. Finally, we achieve Rank 1st on the CVPR2021 HACS supervised Temporal Action Localization Challenge.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2106.13014",
+      "url": "https://arxiv.org/abs/2106.13014",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2308.09897",
+      "title": "Spatial-Temporal Alignment Network for Action Recognition",
+      "authors": [
+        {
+          "name": "Jinhui Ye",
+          "affiliation": ""
+        },
+        {
+          "name": "Junwei Liang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "This paper studies introducing viewpoint invariant feature representations in existing action recognition architecture. Despite significant progress in action recognition, efficiently handling geometric variations in large-scale datasets remains challenging. To tackle this problem, we propose a novel Spatial-Temporal Alignment Network (STAN), which explicitly learns geometric invariant representations for action recognition. Notably, the STAN model is light-weighted and generic, which could be plugged into existing action recognition models (e.g., MViTv2) with a low extra computational cost. We test our STAN model on widely-used datasets like UCF101 and HMDB51. The experimental results show that the STAN model can consistently improve the state-of-the-art models in action recognition tasks in trained-from-scratch settings.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2308.09897",
+      "url": "https://arxiv.org/abs/2308.09897",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2004.09141",
+      "title": "Spatial Action Maps for Mobile Manipulation",
+      "authors": [
+        {
+          "name": "Jimmy Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xingyuan Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Andy Zeng",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuran Song",
+          "affiliation": ""
+        },
+        {
+          "name": "Johnny Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Szymon Rusinkiewicz",
+          "affiliation": ""
+        },
+        {
+          "name": "Thomas Funkhouser",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Typical end-to-end formulations for learning robotic navigation involve predicting a small set of steering command actions (e.g., step forward, turn left, turn right, etc.) from images of the current state (e.g., a bird's-eye view of a SLAM reconstruction). Instead, we show that it can be advantageous to learn with dense action representations defined in the same domain as the state. In this work, we present \"spatial action maps,\" in which the set of possible actions is represented by a pixel map (aligned with the input image of the current state), where each pixel represents a local navigational endpoint at the corresponding scene location. Using ConvNets to infer spatial action maps from state images, action predictions are thereby spatially anchored on local visual features in the scene, enabling significantly faster learning of complex behaviors for mobile manipulation tasks with reinforcement learning. In our experiments, we task a robot with pushing objects to a goal location, and find that policies learned with spatial action maps achieve much better performance than traditional alternatives.",
+      "venue": "cs.RO",
+      "citation_count": 0,
+      "doi": "10.15607/RSS.2020.XVI.035",
+      "arxiv_id": "2004.09141",
+      "url": "https://arxiv.org/abs/2004.09141",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2106.11812",
+      "title": "Proposal Relation Network for Temporal Action Detection",
+      "authors": [
+        {
+          "name": "Xiang Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiwu Qing",
+          "affiliation": ""
+        },
+        {
+          "name": "Ziyuan Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yutong Feng",
+          "affiliation": ""
+        },
+        {
+          "name": "Shiwei Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianwen Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Mingqian Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Changxin Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Nong Sang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "This technical report presents our solution for temporal action detection task in AcitivityNet Challenge 2021. The purpose of this task is to locate and identify actions of interest in long untrimmed videos. The crucial challenge of the task comes from that the temporal duration of action varies dramatically, and the target actions are typically embedded in a background of irrelevant activities. Our solution builds on BMN, and mainly contains three steps: 1) action classification and feature encoding by Slowfast, CSN and ViViT; 2) proposal generation. We improve BMN by embedding the proposed Proposal Relation Network (PRN), by which we can generate proposals of high quality; 3) action detection. We calculate the detection results by assigning the proposals with corresponding classification results. Finally, we ensemble the results under different settings and achieve 44.7% on the test set, which improves the champion result in ActivityNet 2020 by 1.9% in terms of average mAP.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2106.11812",
+      "url": "https://arxiv.org/abs/2106.11812",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2506.02550",
+      "title": "Technical Report for Ego4D Long-Term Action Anticipation Challenge 2025",
+      "authors": [
+        {
+          "name": "Qiaohui Chu",
+          "affiliation": ""
+        },
+        {
+          "name": "Haoyu Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yisen Feng",
+          "affiliation": ""
+        },
+        {
+          "name": "Meng Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Weili Guan",
+          "affiliation": ""
+        },
+        {
+          "name": "Yaowei Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Liqiang Nie",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "In this report, we present a novel three-stage framework developed for the Ego4D Long-Term Action Anticipation (LTA) task. Inspired by recent advances in foundation models, our method consists of three stages: feature extraction, action recognition, and long-term action anticipation. First, visual features are extracted using a high-performance visual encoder. The features are then fed into a Transformer to predict verbs and nouns, with a verb-noun co-occurrence matrix incorporated to enhance recognition accuracy. Finally, the predicted verb-noun pairs are formatted as textual prompts and input into a fine-tuned large language model (LLM) to anticipate future action sequences. Our framework achieves first place in this challenge at CVPR 2025, establishing a new state-of-the-art in long-term action prediction. Our code will be released at https://github.com/CorrineQiu/Ego4D-LTA-Challenge-2025.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2506.02550",
+      "url": "https://arxiv.org/abs/2506.02550",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2207.14132",
+      "title": "Distance between various discretized fermion actions",
+      "authors": [
+        {
+          "name": "Dian-Jun Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Gen Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Fangcheng He",
+          "affiliation": ""
+        },
+        {
+          "name": "Luchang Jin",
+          "affiliation": ""
+        },
+        {
+          "name": "Peng Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi-Bo Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Kuan Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "We present the leading order mixed-action effect $\u0394_{\\rm mix}\\equiv m_{\u03c0,{\\rm vs}}^2-\\frac{m_{\u03c0,{\\rm vv}}^2+m_{\u03c0,{\\rm ss}}^2}{2}$ using HISQ, clover or overlap valence fermion actions on gauge ensembles using various sea fermion actions across a widely-used lattice spacing range $a\\in [0.04,0.19]$~fm. The results suggest that $\u0394_{\\rm mix}$ decreases as the fourth order of the lattice spacing on the gauge ensembles with dynamical chiral sea fermions, such as Domain wall or HISQ fermions. When a clover sea fermion action which has explicit chiral symmetry breaking is used in the ensemble, $\u0394_{\\rm mix}$ can be much larger regardless of the valence fermion action used.",
+      "venue": "hep-lat",
+      "citation_count": 0,
+      "doi": "10.1103/PhysRevD.107.L091501",
+      "arxiv_id": "2207.14132",
+      "url": "https://arxiv.org/abs/2207.14132",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2306.03780",
+      "title": "Notes on conformal anomaly, nonlocal effective action and the metamorphosis of the running scale",
+      "authors": [
+        {
+          "name": "A. O. Barvinsky",
+          "affiliation": ""
+        },
+        {
+          "name": "W. Wachowski",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We discuss the structure of nonlocal effective action generating the conformal anomaly in classically Weyl invariant theories in curved spacetime. By the procedure of conformal gauge fixing, selecting the metric representative on a conformal group orbit, we split the renormalized effective action into anomalous and Weyl invariant parts. A wide family of thus obtained anomalous actions is shown to include two special cases of Riegert--Fradkin--Tseytlin and Fradkin--Vilkovisky actions. Both actions are shown to be contained in the first three orders of the curvature expansion for a generic one-loop effective action obtained by covariant perturbation theory. The complementary Weyl invariant part of the action is given by the ``conformization'' of the full effective action -- restricting its argument to the conformally invariant representative of the orbit of the conformal group. This is likely to resolve a long-standing debate between the proponents of the Riegert action and adherents of the perturbation expansion for the effective action with typical nonlocal logarithmic form factors. We derive the relation between quantum stress tensors on conformally related metric backgrounds, which generalizes the known Brown-Cassidy equation to the case of nonzero Weyl tensor, and discuss applications of this relation in the cosmological model driven by conformal field theory. We also discuss the issue of renormalization group running for the cosmological and gravitational coupling constants and show that it exhibits a kind of a metamorphosis to the nonlocal form factors of the so-called partners of the cosmological and Einstein terms -- nonlocal curvature squared terms of the effective action.",
+      "venue": "hep-th",
+      "citation_count": 0,
+      "doi": "10.1103/PhysRevD.108.045014",
+      "arxiv_id": "2306.03780",
+      "url": "https://arxiv.org/abs/2306.03780",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

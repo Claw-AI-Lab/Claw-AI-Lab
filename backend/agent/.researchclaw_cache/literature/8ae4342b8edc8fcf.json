@@ -1,0 +1,561 @@
+{
+  "query": "Training-free layout-controlled generation extending FreeCustom with spatial guidance based on FreeCustom codebase at /home/user/PyramidResearchTeam/backend/codebases/FreeCustom",
+  "source": "arxiv",
+  "limit": 15,
+  "timestamp": 1773983871.1596549,
+  "papers": [
+    {
+      "paper_id": "arxiv-2304.03373",
+      "title": "Training-Free Layout Control with Cross-Attention Guidance",
+      "authors": [
+        {
+          "name": "Minghao Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Iro Laina",
+          "affiliation": ""
+        },
+        {
+          "name": "Andrea Vedaldi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Recent diffusion-based generators can produce high-quality images from textual prompts. However, they often disregard textual instructions that specify the spatial layout of the composition. We propose a simple approach that achieves robust layout control without the need for training or fine-tuning of the image generator. Our technique manipulates the cross-attention layers that the model uses to interface textual and visual information and steers the generation in the desired direction given, e.g., a user-specified layout. To determine how to best guide attention, we study the role of attention maps and explore two alternative strategies, forward and backward guidance. We thoroughly evaluate our approach on three benchmarks and provide several qualitative examples and a comparative analysis of the two strategies that demonstrate the superiority of backward guidance compared to forward guidance, as well as prior work. We further demonstrate the versatility of layout guidance by extending it to applications such as editing the layout and context of real images.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2304.03373",
+      "url": "https://arxiv.org/abs/2304.03373",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2405.13870",
+      "title": "FreeCustom: Tuning-Free Customized Image Generation for Multi-Concept Composition",
+      "authors": [
+        {
+          "name": "Ganggui Ding",
+          "affiliation": ""
+        },
+        {
+          "name": "Canyu Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Wen Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhen Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zide Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Chunhua Shen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Benefiting from large-scale pre-trained text-to-image (T2I) generative models, impressive progress has been achieved in customized image generation, which aims to generate user-specified concepts. Existing approaches have extensively focused on single-concept customization and still encounter challenges when it comes to complex scenarios that involve combining multiple concepts. These approaches often require retraining/fine-tuning using a few images, leading to time-consuming training processes and impeding their swift implementation. Furthermore, the reliance on multiple images to represent a singular concept increases the difficulty of customization. To this end, we propose FreeCustom, a novel tuning-free method to generate customized images of multi-concept composition based on reference concepts, using only one image per concept as input. Specifically, we introduce a new multi-reference self-attention (MRSA) mechanism and a weighted mask strategy that enables the generated image to access and focus more on the reference concepts. In addition, MRSA leverages our key finding that input concepts are better preserved when providing images with context interactions. Experiments show that our method's produced images are consistent with the given concepts and better aligned with the input text. Our method outperforms or performs on par with other training-based methods in terms of multi-concept composition and single-concept customization, but is simpler. Codes can be found at https://github.com/aim-uofa/FreeCustom.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2405.13870",
+      "url": "https://arxiv.org/abs/2405.13870",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2506.07177",
+      "title": "Frame Guidance: Training-Free Guidance for Frame-Level Control in Video Diffusion Models",
+      "authors": [
+        {
+          "name": "Sangwon Jang",
+          "affiliation": ""
+        },
+        {
+          "name": "Taekyung Ki",
+          "affiliation": ""
+        },
+        {
+          "name": "Jaehyeong Jo",
+          "affiliation": ""
+        },
+        {
+          "name": "Jaehong Yoon",
+          "affiliation": ""
+        },
+        {
+          "name": "Soo Ye Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhe Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Sung Ju Hwang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Advancements in diffusion models have significantly improved video quality, directing attention to fine-grained controllability. However, many existing methods depend on fine-tuning large-scale video models for specific tasks, which becomes increasingly impractical as model sizes continue to grow. In this work, we present Frame Guidance, a training-free guidance for controllable video generation based on frame-level signals, such as keyframes, style reference images, sketches, or depth maps. For practical training-free guidance, we propose a simple latent processing method that dramatically reduces memory usage, and apply a novel latent optimization strategy designed for globally coherent video generation. Frame Guidance enables effective control across diverse tasks, including keyframe guidance, stylization, and looping, without any training, compatible with any video models. Experimental results show that Frame Guidance can produce high-quality controlled videos for a wide range of tasks and input signals.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2506.07177",
+      "url": "https://arxiv.org/abs/2506.07177",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2306.05414",
+      "title": "Improving Tuning-Free Real Image Editing with Proximal Guidance",
+      "authors": [
+        {
+          "name": "Ligong Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Song Wen",
+          "affiliation": ""
+        },
+        {
+          "name": "Qi Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhixing Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Kunpeng Song",
+          "affiliation": ""
+        },
+        {
+          "name": "Mengwei Ren",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruijiang Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Anastasis Stathopoulos",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaoxiao He",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuxiao Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Di Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Qilong Zhangli",
+          "affiliation": ""
+        },
+        {
+          "name": "Jindong Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhaoyang Xia",
+          "affiliation": ""
+        },
+        {
+          "name": "Akash Srivastava",
+          "affiliation": ""
+        },
+        {
+          "name": "Dimitris Metaxas",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "DDIM inversion has revealed the remarkable potential of real image editing within diffusion-based methods. However, the accuracy of DDIM reconstruction degrades as larger classifier-free guidance (CFG) scales being used for enhanced editing. Null-text inversion (NTI) optimizes null embeddings to align the reconstruction and inversion trajectories with larger CFG scales, enabling real image editing with cross-attention control. Negative-prompt inversion (NPI) further offers a training-free closed-form solution of NTI. However, it may introduce artifacts and is still constrained by DDIM reconstruction quality. To overcome these limitations, we propose proximal guidance and incorporate it to NPI with cross-attention control. We enhance NPI with a regularization term and reconstruction guidance, which reduces artifacts while capitalizing on its training-free nature. Additionally, we extend the concepts to incorporate mutual self-attention control, enabling geometry and layout alterations in the editing process. Our method provides an efficient and straightforward approach, effectively addressing real image editing tasks with minimal computational overhead.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2306.05414",
+      "url": "https://arxiv.org/abs/2306.05414",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2306.00288",
+      "title": "Training-free Neural Architecture Search for RNNs and Transformers",
+      "authors": [
+        {
+          "name": "Aaron Serianni",
+          "affiliation": ""
+        },
+        {
+          "name": "Jugal Kalita",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Neural architecture search (NAS) has allowed for the automatic creation of new and effective neural network architectures, offering an alternative to the laborious process of manually designing complex architectures. However, traditional NAS algorithms are slow and require immense amounts of computing power. Recent research has investigated training-free NAS metrics for image classification architectures, drastically speeding up search algorithms. In this paper, we investigate training-free NAS metrics for recurrent neural network (RNN) and BERT-based transformer architectures, targeted towards language modeling tasks. First, we develop a new training-free metric, named hidden covariance, that predicts the trained performance of an RNN architecture and significantly outperforms existing training-free metrics. We experimentally evaluate the effectiveness of the hidden covariance metric on the NAS-Bench-NLP benchmark. Second, we find that the current search space paradigm for transformer architectures is not optimized for training-free neural architecture search. Instead, a simple qualitative analysis can effectively shrink the search space to the best performing architectures. This conclusion is based on our investigation of existing training-free metrics and new metrics developed from recent transformer pruning literature, evaluated on our own benchmark of trained BERT architectures. Ultimately, our analysis shows that the architecture search space and the training-free metric must be developed together in order to achieve effective results.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2306.00288",
+      "url": "https://arxiv.org/abs/2306.00288",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2509.15962",
+      "title": "Structured Information for Improving Spatial Relationships in Text-to-Image Generation",
+      "authors": [
+        {
+          "name": "Sander Schildermans",
+          "affiliation": ""
+        },
+        {
+          "name": "Chang Tian",
+          "affiliation": ""
+        },
+        {
+          "name": "Ying Jiao",
+          "affiliation": ""
+        },
+        {
+          "name": "Marie-Francine Moens",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Text-to-image (T2I) generation has advanced rapidly, yet faithfully capturing spatial relationships described in natural language prompts remains a major challenge. Prior efforts have addressed this issue through prompt optimization, spatially grounded generation, and semantic refinement. This work introduces a lightweight approach that augments prompts with tuple-based structured information, using a fine-tuned language model for automatic conversion and seamless integration into T2I pipelines. Experimental results demonstrate substantial improvements in spatial accuracy, without compromising overall image quality as measured by Inception Score. Furthermore, the automatically generated tuples exhibit quality comparable to human-crafted tuples. This structured information provides a practical and portable solution to enhance spatial relationships in T2I generation, addressing a key limitation of current large-scale generative systems.",
+      "venue": "cs.AI",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2509.15962",
+      "url": "https://arxiv.org/abs/2509.15962",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2303.08137",
+      "title": "LayoutDM: Discrete Diffusion Model for Controllable Layout Generation",
+      "authors": [
+        {
+          "name": "Naoto Inoue",
+          "affiliation": ""
+        },
+        {
+          "name": "Kotaro Kikuchi",
+          "affiliation": ""
+        },
+        {
+          "name": "Edgar Simo-Serra",
+          "affiliation": ""
+        },
+        {
+          "name": "Mayu Otani",
+          "affiliation": ""
+        },
+        {
+          "name": "Kota Yamaguchi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Controllable layout generation aims at synthesizing plausible arrangement of element bounding boxes with optional constraints, such as type or position of a specific element. In this work, we try to solve a broad range of layout generation tasks in a single model that is based on discrete state-space diffusion models. Our model, named LayoutDM, naturally handles the structured layout data in the discrete representation and learns to progressively infer a noiseless layout from the initial input, where we model the layout corruption process by modality-wise discrete diffusion. For conditional generation, we propose to inject layout constraints in the form of masking or logit adjustment during inference. We show in the experiments that our LayoutDM successfully generates high-quality layouts and outperforms both task-specific and task-agnostic baselines on several layout tasks.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2303.08137",
+      "url": "https://arxiv.org/abs/2303.08137",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2512.04830",
+      "title": "FreeGen: Feed-Forward Reconstruction-Generation Co-Training for Free-Viewpoint Driving Scene Synthesis",
+      "authors": [
+        {
+          "name": "Shijie Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Peixi Peng",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Closed-loop simulation and scalable pre-training for autonomous driving require synthesizing free-viewpoint driving scenes. However, existing datasets and generative pipelines rarely provide consistent off-trajectory observations, limiting large-scale evaluation and training. While recent generative models demonstrate strong visual realism, they struggle to jointly achieve interpolation consistency and extrapolation realism without per-scene optimization. To address this, we propose FreeGen, a feed-forward reconstruction-generation co-training framework for free-viewpoint driving scene synthesis. The reconstruction model provides stable geometric representations to ensure interpolation consistency, while the generation model performs geometry-aware enhancement to improve realism at unseen viewpoints. Through co-training, generative priors are distilled into the reconstruction model to improve off-trajectory rendering, and the refined geometry in turn offers stronger structural guidance for generation. Experiments demonstrate that FreeGen achieves state-of-the-art performance for free-viewpoint driving scene synthesis.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2512.04830",
+      "url": "https://arxiv.org/abs/2512.04830",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2409.07359",
+      "title": "Training-Free Guidance for Discrete Diffusion Models for Molecular Generation",
+      "authors": [
+        {
+          "name": "Thomas J. Kerby",
+          "affiliation": ""
+        },
+        {
+          "name": "Kevin R. Moon",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Training-free guidance methods for continuous data have seen an explosion of interest due to the fact that they enable foundation diffusion models to be paired with interchangable guidance models. Currently, equivalent guidance methods for discrete diffusion models are unknown. We present a framework for applying training-free guidance to discrete data and demonstrate its utility on molecular graph generation tasks using the discrete diffusion model architecture of DiGress. We pair this model with guidance functions that return the proportion of heavy atoms that are a specific atom type and the molecular weight of the heavy atoms and demonstrate our method's ability to guide the data generation.",
+      "venue": "stat.ML",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2409.07359",
+      "url": "https://arxiv.org/abs/2409.07359",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2403.12404",
+      "title": "Understanding and Improving Training-free Loss-based Diffusion Guidance",
+      "authors": [
+        {
+          "name": "Yifei Shen",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinyang Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yezhen Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yifan Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Dongqi Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Dongsheng Li",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Adding additional control to pretrained diffusion models has become an increasingly popular research area, with extensive applications in computer vision, reinforcement learning, and AI for science. Recently, several studies have proposed training-free loss-based guidance by using off-the-shelf networks pretrained on clean images. This approach enables zero-shot conditional generation for universal control formats, which appears to offer a free lunch in diffusion guidance. In this paper, we aim to develop a deeper understanding of training-free guidance, as well as overcome its limitations. We offer a theoretical analysis that supports training-free guidance from the perspective of optimization, distinguishing it from classifier-based (or classifier-free) guidance. To elucidate their drawbacks, we theoretically demonstrate that training-free guidance is more susceptible to adversarial gradients and exhibits slower convergence rates compared to classifier guidance. We then introduce a collection of techniques designed to overcome the limitations, accompanied by theoretical rationale and empirical evidence. Our experiments in image and motion generation confirm the efficacy of these techniques.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2403.12404",
+      "url": "https://arxiv.org/abs/2403.12404",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-1912.09127",
+      "title": "Fast Mining of Spatial Frequent Wordset from Social Database",
+      "authors": [
+        {
+          "name": "Yongmi Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Kwang Woo Nam",
+          "affiliation": ""
+        },
+        {
+          "name": "Keun Ho Ryu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2019,
+      "abstract": "In this paper, we propose an algorithm that extracts spatial frequent patterns to explain the relative characteristics of a specific location from the available social data. This paper proposes a spatial social data model which includes spatial social data, spatial support, spatial frequent patterns, spatial partition, and spatial clustering; these concepts are used for describing the exploration algorithm of spatial frequent patterns. With these defined concepts as the foundation, an SFP-tree structure that maintains not only the frequent words but also the frequent cells was proposed, and an SFP-growth algorithm that explores the frequent patterns on the basis of this SFP-tree was proposed.",
+      "venue": "cs.DB",
+      "citation_count": 0,
+      "doi": "10.1007/s41324-017-0094-6",
+      "arxiv_id": "1912.09127",
+      "url": "https://arxiv.org/abs/1912.09127",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2506.10036",
+      "title": "Token Perturbation Guidance for Diffusion Models",
+      "authors": [
+        {
+          "name": "Javad Rajabi",
+          "affiliation": ""
+        },
+        {
+          "name": "Soroush Mehraban",
+          "affiliation": ""
+        },
+        {
+          "name": "Seyedmorteza Sadat",
+          "affiliation": ""
+        },
+        {
+          "name": "Babak Taati",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Classifier-free guidance (CFG) has become an essential component of modern diffusion models to enhance both generation quality and alignment with input conditions. However, CFG requires specific training procedures and is limited to conditional generation. To address these limitations, we propose Token Perturbation Guidance (TPG), a novel method that applies perturbation matrices directly to intermediate token representations within the diffusion network. TPG employs a norm-preserving shuffling operation to provide effective and stable guidance signals that improve generation quality without architectural changes. As a result, TPG is training-free and agnostic to input conditions, making it readily applicable to both conditional and unconditional generation. We further analyze the guidance term provided by TPG and show that its effect on sampling more closely resembles CFG compared to existing training-free guidance techniques. Extensive experiments on SDXL and Stable Diffusion 2.1 show that TPG achieves nearly a 2$\\times$ improvement in FID for unconditional generation over the SDXL baseline, while closely matching CFG in prompt alignment. These results establish TPG as a general, condition-agnostic guidance method that brings CFG-like benefits to a broader class of diffusion models.",
+      "venue": "cs.GR",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2506.10036",
+      "url": "https://arxiv.org/abs/2506.10036",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2412.01284",
+      "title": "MFTF: Mask-free Training-free Object Level Layout Control Diffusion Model",
+      "authors": [
+        {
+          "name": "Shan Yang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Text-to-image generation models have revolutionized content creation, but diffusion-based vision-language models still face challenges in precisely controlling the shape, appearance, and positional placement of objects in generated images using text guidance alone. Existing global image editing models rely on additional masks or images as guidance to achieve layout control, often requiring retraining of the model. While local object-editing models allow modifications to object shapes, they lack the capability to control object positions. To address these limitations, we propose the Mask-free Training-free Object-Level Layout Control Diffusion Model (MFTF), which provides precise control over object positions without requiring additional masks or images. The MFTF model supports both single-object and multi-object positional adjustments, such as translation and rotation, while enabling simultaneous layout control and object semantic editing. The MFTF model employs a parallel denoising process for both the source and target diffusion models. During this process, attention masks are dynamically generated from the cross-attention layers of the source diffusion model and applied to queries from the self-attention layers to isolate objects. These queries, generated in the source diffusion model, are then adjusted according to the layout control parameters and re-injected into the self-attention layers of the target diffusion model. This approach ensures accurate and precise positional control of objects. Project source code available at https://github.com/syang-genai/MFTF.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2412.01284",
+      "url": "https://arxiv.org/abs/2412.01284",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2409.04801",
+      "title": "SpotActor: Training-Free Layout-Controlled Consistent Image Generation",
+      "authors": [
+        {
+          "name": "Jiahao Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Caixia Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Weizhan Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Haonan Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Mengmeng Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Guang Dai",
+          "affiliation": ""
+        },
+        {
+          "name": "Tieliang Gong",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Jingdong Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Text-to-image diffusion models significantly enhance the efficiency of artistic creation with high-fidelity image generation. However, in typical application scenarios like comic book production, they can neither place each subject into its expected spot nor maintain the consistent appearance of each subject across images. For these issues, we pioneer a novel task, Layout-to-Consistent-Image (L2CI) generation, which produces consistent and compositional images in accordance with the given layout conditions and text prompts. To accomplish this challenging task, we present a new formalization of dual energy guidance with optimization in a dual semantic-latent space and thus propose a training-free pipeline, SpotActor, which features a layout-conditioned backward update stage and a consistent forward sampling stage. In the backward stage, we innovate a nuanced layout energy function to mimic the attention activations with a sigmoid-like objective. While in the forward stage, we design Regional Interconnection Self-Attention (RISA) and Semantic Fusion Cross-Attention (SFCA) mechanisms that allow mutual interactions across images. To evaluate the performance, we present ActorBench, a specified benchmark with hundreds of reasonable prompt-box pairs stemming from object detection datasets. Comprehensive experiments are conducted to demonstrate the effectiveness of our method. The results prove that SpotActor fulfills the expectations of this task and showcases the potential for practical applications with superior layout alignment, subject consistency, prompt conformity and background diversity.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2409.04801",
+      "url": "https://arxiv.org/abs/2409.04801",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2405.11788",
+      "title": "TinyLLaVA Factory: A Modularized Codebase for Small-scale Large Multimodal Models",
+      "authors": [
+        {
+          "name": "Junlong Jia",
+          "affiliation": ""
+        },
+        {
+          "name": "Ying Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xi Weng",
+          "affiliation": ""
+        },
+        {
+          "name": "Yiming Shi",
+          "affiliation": ""
+        },
+        {
+          "name": "Miao Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Xingjian Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Baichuan Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Ziyu Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jie Luo",
+          "affiliation": ""
+        },
+        {
+          "name": "Lei Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ji Wu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "We present TinyLLaVA Factory, an open-source modular codebase for small-scale large multimodal models (LMMs) with a focus on simplicity of code implementations, extensibility of new features, and reproducibility of training results. Following the design philosophy of the factory pattern in software engineering, TinyLLaVA Factory modularizes the entire system into interchangeable components, with each component integrating a suite of cutting-edge models and methods, meanwhile leaving room for extensions to more features. In addition to allowing users to customize their own LMMs, TinyLLaVA Factory provides popular training recipes to let users pretrain and finetune their models with less coding effort. Empirical experiments validate the effectiveness of our codebase. The goal of TinyLLaVA Factory is to assist researchers and practitioners in exploring the wide landscape of designing and training small-scale LMMs with affordable computational resources.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2405.11788",
+      "url": "https://arxiv.org/abs/2405.11788",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

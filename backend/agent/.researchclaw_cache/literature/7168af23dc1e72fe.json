@@ -1,0 +1,1081 @@
+{
+  "query": "multi-reference self-attention",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1774290538.7111285,
+  "papers": [
+    {
+      "paper_id": "arxiv-2603.00175",
+      "title": "Self-Attention And Beyond the Infinite: Towards Linear Transformers with Infinite Self-Attention",
+      "authors": [
+        {
+          "name": "Giorgio Roffo",
+          "affiliation": ""
+        },
+        {
+          "name": "Luke Palmer",
+          "affiliation": ""
+        },
+        {
+          "name": "Nilli Lavie",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "The quadratic cost of softmax attention limits Transformer scalability in high-resolution vision. We introduce Infinite Self-Attention (InfSA), a spectral reformulation that treats each attention layer as a diffusion step on a content-adaptive token graph, accumulating multi-hop interactions through a discounted Neumann series over attention matrices. This links self-attention to classical graph centrality (Katz, PageRank, eigenvector centrality) for interpretable token weighting. We also show the Neumann kernel equals the fundamental matrix of an absorbing Markov chain, so a token's centrality is its expected number of random-walk visits before absorption. We then propose Linear-InfSA, a linear-time variant that approximates the principal eigenvector of the implicit attention operator without forming the full attention matrix. It keeps an auxiliary state of fixed size proportional to per-head dimension dh (independent of sequence length N), is drop-in compatible with Vision Transformers, and supports stable training at 4096 by 4096 and inference at 9216 by 9216 (about 332k tokens). In a 4-layer ViT (53.5M parameters, 59 GFLOPs at 224 by 224), Linear-InfSA reaches 84.7% top-1 on ImageNet-1K, a +3.2 point architectural gain over an equal-depth softmax ViT trained with the same recipe. On ImageNet-V2, InfViT variants outperform all compared baselines (up to 79.8% vs 76.8%), indicating robustness under distribution shift. On an A100 40GB GPU, Linear-InfViT runs at 231 images/s and 0.87 J/image (13x better throughput and energy than equal-depth ViT) and is the only tested model to complete 9216 by 9216 inference without out-of-memory. The linear approximation closely matches the dominant eigenvector of the quadratic operator (cosine 0.985). Code available at: https://huggingface.co/groffo/infinite-self-attention or https://github.com/giorgioroffo/infinite-self-attention",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2603.00175",
+      "url": "https://arxiv.org/abs/2603.00175",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2305.19798",
+      "title": "Primal-Attention: Self-attention through Asymmetric Kernel SVD in Primal Representation",
+      "authors": [
+        {
+          "name": "Yingyi Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Qinghua Tao",
+          "affiliation": ""
+        },
+        {
+          "name": "Francesco Tonin",
+          "affiliation": ""
+        },
+        {
+          "name": "Johan A. K. Suykens",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Recently, a new line of works has emerged to understand and improve self-attention in Transformers by treating it as a kernel machine. However, existing works apply the methods for symmetric kernels to the asymmetric self-attention, resulting in a nontrivial gap between the analytical understanding and numerical implementation. In this paper, we provide a new perspective to represent and optimize self-attention through asymmetric Kernel Singular Value Decomposition (KSVD), which is also motivated by the low-rank property of self-attention normally observed in deep layers. Through asymmetric KSVD, $i$) a primal-dual representation of self-attention is formulated, where the optimization objective is cast to maximize the projection variances in the attention outputs; $ii$) a novel attention mechanism, i.e., Primal-Attention, is proposed via the primal representation of KSVD, avoiding explicit computation of the kernel matrix in the dual; $iii$) with KKT conditions, we prove that the stationary solution to the KSVD optimization in Primal-Attention yields a zero-value objective. In this manner, KSVD optimization can be implemented by simply minimizing a regularization loss, so that low-rank property is promoted without extra decomposition. Numerical experiments show state-of-the-art performance of our Primal-Attention with improved efficiency. Moreover, we demonstrate that the deployed KSVD optimization regularizes Primal-Attention with a sharper singular value decay than that of the canonical self-attention, further verifying the great potential of our method. To the best of our knowledge, this is the first work that provides a primal-dual representation for the asymmetric kernel in self-attention and successfully applies it to modeling and optimization.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2305.19798",
+      "url": "https://arxiv.org/abs/2305.19798",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.13780",
+      "title": "Self-Attention as Distributional Projection: A Unified Interpretation of Transformer Architecture",
+      "authors": [
+        {
+          "name": "Nihal Mehta",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "This paper presents a mathematical interpretation of self-attention by connecting it to distributional semantics principles. We show that self-attention emerges from projecting corpus-level co-occurrence statistics into sequence context. Starting from the co-occurrence matrix underlying GloVe embeddings, we demonstrate how the projection naturally captures contextual influence, with the query-key-value mechanism arising as the natural asymmetric extension for modeling directional relationships. Positional encodings and multi-head attention then follow as structured refinements of this same projection principle. Our analysis demonstrates that the Transformer architecture's particular algebraic form follows from these projection principles rather than being an arbitrary design choice.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.13780",
+      "url": "https://arxiv.org/abs/2511.13780",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2402.04563",
+      "title": "Attention Guided CAM: Visual Explanations of Vision Transformer Guided by Self-Attention",
+      "authors": [
+        {
+          "name": "Saebom Leem",
+          "affiliation": ""
+        },
+        {
+          "name": "Hyunseok Seo",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Vision Transformer(ViT) is one of the most widely used models in the computer vision field with its great performance on various tasks. In order to fully utilize the ViT-based architecture in various applications, proper visualization methods with a decent localization performance are necessary, but these methods employed in CNN-based models are still not available in ViT due to its unique structure. In this work, we propose an attention-guided visualization method applied to ViT that provides a high-level semantic explanation for its decision. Our method selectively aggregates the gradients directly propagated from the classification output to each self-attention, collecting the contribution of image features extracted from each location of the input image. These gradients are additionally guided by the normalized self-attention scores, which are the pairwise patch correlation scores. They are used to supplement the gradients on the patch-level context information efficiently detected by the self-attention mechanism. This approach of our method provides elaborate high-level semantic explanations with great localization performance only with the class labels. As a result, our method outperforms the previous leading explainability methods of ViT in the weakly-supervised localization task and presents great capability in capturing the full instances of the target class object. Meanwhile, our method provides a visualization that faithfully explains the model, which is demonstrated in the perturbation comparison test.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2402.04563",
+      "url": "https://arxiv.org/abs/2402.04563",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2210.00939",
+      "title": "Improving Sample Quality of Diffusion Models Using Self-Attention Guidance",
+      "authors": [
+        {
+          "name": "Susung Hong",
+          "affiliation": ""
+        },
+        {
+          "name": "Gyuseong Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Wooseok Jang",
+          "affiliation": ""
+        },
+        {
+          "name": "Seungryong Kim",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Denoising diffusion models (DDMs) have attracted attention for their exceptional generation quality and diversity. This success is largely attributed to the use of class- or text-conditional diffusion guidance methods, such as classifier and classifier-free guidance. In this paper, we present a more comprehensive perspective that goes beyond the traditional guidance methods. From this generalized perspective, we introduce novel condition- and training-free strategies to enhance the quality of generated images. As a simple solution, blur guidance improves the suitability of intermediate samples for their fine-scale information and structures, enabling diffusion models to generate higher quality samples with a moderate guidance scale. Improving upon this, Self-Attention Guidance (SAG) uses the intermediate self-attention maps of diffusion models to enhance their stability and efficacy. Specifically, SAG adversarially blurs only the regions that diffusion models attend to at each iteration and guides them accordingly. Our experimental results show that our SAG improves the performance of various diffusion models, including ADM, IDDPM, Stable Diffusion, and DiT. Moreover, combining SAG with conventional guidance methods leads to further improvement.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2210.00939",
+      "url": "https://arxiv.org/abs/2210.00939",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2603.01036",
+      "title": "SMR-Net:Robot Snap Detection Based on Multi-Scale Features and Self-Attention Network",
+      "authors": [
+        {
+          "name": "Kuanxu Hou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "In robot automated assembly, snap assembly precision and efficiency directly determine overall production quality. As a core prerequisite, snap detection and localization critically affect subsequent assembly success. Traditional visual methods suffer from poor robustness and large localization errors when handling complex scenarios (e.g., transparent or low-contrast snaps), failing to meet high-precision assembly demands. To address this, this paper designs a dedicated sensor and proposes SMR-Net, an self-attention-based multi-scale object detection algorithm, to synergistically enhance detection and localization performance. SMR-Net adopts an attention-enhanced multi-scale feature fusion architecture: raw sensor data is encoded via an attention-embedded feature extractor to strengthen key snap features and suppress noise; three multi-scale feature maps are processed in parallel with standard and dilated convolution for dimension unification while preserving resolution; an adaptive reweighting network dynamically assigns weights to fused features, generating fine representations integrating details and global semantics. Experimental results on Type A and Type B snap datasets show SMR-Net outperforms traditional Faster R-CNN significantly: Intersection over Union (IoU) improves by 6.52% and 5.8%, and mean Average Precision (mAP) increases by 2.8% and 1.5% respectively. This fully demonstrates the method's superiority in complex snap detection and localization tasks.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2603.01036",
+      "url": "https://arxiv.org/abs/2603.01036",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2402.01476",
+      "title": "Self-Attention through Kernel-Eigen Pair Sparse Variational Gaussian Processes",
+      "authors": [
+        {
+          "name": "Yingyi Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Qinghua Tao",
+          "affiliation": ""
+        },
+        {
+          "name": "Francesco Tonin",
+          "affiliation": ""
+        },
+        {
+          "name": "Johan A. K. Suykens",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "While the great capability of Transformers significantly boosts prediction accuracy, it could also yield overconfident predictions and require calibrated uncertainty estimation, which can be commonly tackled by Gaussian processes (GPs). Existing works apply GPs with symmetric kernels under variational inference to the attention kernel; however, omitting the fact that attention kernels are in essence asymmetric. Moreover, the complexity of deriving the GP posteriors remains high for large-scale data. In this work, we propose Kernel-Eigen Pair Sparse Variational Gaussian Processes (KEP-SVGP) for building uncertainty-aware self-attention where the asymmetry of attention kernels is tackled by Kernel SVD (KSVD) and a reduced complexity is acquired. Through KEP-SVGP, i) the SVGP pair induced by the two sets of singular vectors from KSVD w.r.t. the attention kernel fully characterizes the asymmetry; ii) using only a small set of adjoint eigenfunctions from KSVD, the derivation of SVGP posteriors can be based on the inversion of a diagonal matrix containing singular values, contributing to a reduction in time complexity; iii) an evidence lower bound is derived so that variational parameters and network weights can be optimized with it. Experiments verify our excellent performances and efficiency on in-distribution, distribution-shift and out-of-distribution benchmarks.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2402.01476",
+      "url": "https://arxiv.org/abs/2402.01476",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2105.02358",
+      "title": "Beyond Self-attention: External Attention using Two Linear Layers for Visual Tasks",
+      "authors": [
+        {
+          "name": "Meng-Hao Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Zheng-Ning Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Tai-Jiang Mu",
+          "affiliation": ""
+        },
+        {
+          "name": "Shi-Min Hu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Attention mechanisms, especially self-attention, have played an increasingly important role in deep feature representation for visual tasks. Self-attention updates the feature at each position by computing a weighted sum of features using pair-wise affinities across all positions to capture the long-range dependency within a single sample. However, self-attention has quadratic complexity and ignores potential correlation between different samples. This paper proposes a novel attention mechanism which we call external attention, based on two external, small, learnable, shared memories, which can be implemented easily by simply using two cascaded linear layers and two normalization layers; it conveniently replaces self-attention in existing popular architectures. External attention has linear complexity and implicitly considers the correlations between all data samples. We further incorporate the multi-head mechanism into external attention to provide an all-MLP architecture, external attention MLP (EAMLP), for image classification. Extensive experiments on image classification, object detection, semantic segmentation, instance segmentation, image generation, and point cloud analysis reveal that our method provides results comparable or superior to the self-attention mechanism and some of its variants, with much lower computational and memory costs.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2105.02358",
+      "url": "https://arxiv.org/abs/2105.02358",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2006.03265",
+      "title": "Understanding Self-Attention of Self-Supervised Audio Transformers",
+      "authors": [
+        {
+          "name": "Shu-wen Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Andy T. Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hung-yi Lee",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Self-supervised Audio Transformers (SAT) enable great success in many downstream speech applications like ASR, but how they work has not been widely explored yet. In this work, we present multiple strategies for the analysis of attention mechanisms in SAT. We categorize attentions into explainable categories, where we discover each category possesses its own unique functionality. We provide a visualization tool for understanding multi-head self-attention, importance ranking strategies for identifying critical attention, and attention refinement techniques to improve model performance.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2006.03265",
+      "url": "https://arxiv.org/abs/2006.03265",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2002.00741",
+      "title": "D\u00e9j\u00e0 vu: A Contextualized Temporal Attention Mechanism for Sequential Recommendation",
+      "authors": [
+        {
+          "name": "Jibang Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Renqin Cai",
+          "affiliation": ""
+        },
+        {
+          "name": "Hongning Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Predicting users' preferences based on their sequential behaviors in history is challenging and crucial for modern recommender systems. Most existing sequential recommendation algorithms focus on transitional structure among the sequential actions, but largely ignore the temporal and context information, when modeling the influence of a historical event to current prediction.\n  In this paper, we argue that the influence from the past events on a user's current action should vary over the course of time and under different context. Thus, we propose a Contextualized Temporal Attention Mechanism that learns to weigh historical actions' influence on not only what action it is, but also when and how the action took place. More specifically, to dynamically calibrate the relative input dependence from the self-attention mechanism, we deploy multiple parameterized kernel functions to learn various temporal dynamics, and then use the context information to determine which of these reweighing kernels to follow for each input. In empirical evaluations on two large public recommendation datasets, our model consistently outperformed an extensive set of state-of-the-art sequential recommendation methods.",
+      "venue": "cs.IR",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2002.00741",
+      "url": "https://arxiv.org/abs/2002.00741",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2403.17377",
+      "title": "Self-Rectifying Diffusion Sampling with Perturbed-Attention Guidance",
+      "authors": [
+        {
+          "name": "Donghoon Ahn",
+          "affiliation": ""
+        },
+        {
+          "name": "Hyoungwon Cho",
+          "affiliation": ""
+        },
+        {
+          "name": "Jaewon Min",
+          "affiliation": ""
+        },
+        {
+          "name": "Wooseok Jang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jungwoo Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "SeonHwa Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Hyun Hee Park",
+          "affiliation": ""
+        },
+        {
+          "name": "Kyong Hwan Jin",
+          "affiliation": ""
+        },
+        {
+          "name": "Seungryong Kim",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Recent studies have demonstrated that diffusion models are capable of generating high-quality samples, but their quality heavily depends on sampling guidance techniques, such as classifier guidance (CG) and classifier-free guidance (CFG). These techniques are often not applicable in unconditional generation or in various downstream tasks such as image restoration. In this paper, we propose a novel sampling guidance, called Perturbed-Attention Guidance (PAG), which improves diffusion sample quality across both unconditional and conditional settings, achieving this without requiring additional training or the integration of external modules. PAG is designed to progressively enhance the structure of samples throughout the denoising process. It involves generating intermediate samples with degraded structure by substituting selected self-attention maps in diffusion U-Net with an identity matrix, by considering the self-attention mechanisms' ability to capture structural information, and guiding the denoising process away from these degraded samples. In both ADM and Stable Diffusion, PAG surprisingly improves sample quality in conditional and even unconditional scenarios. Moreover, PAG significantly improves the baseline performance in various downstream tasks where existing guidances such as CG or CFG cannot be fully utilized, including ControlNet with empty prompts and image restoration such as inpainting and deblurring.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2403.17377",
+      "url": "https://arxiv.org/abs/2403.17377",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2102.04762",
+      "title": "Referring Segmentation in Images and Videos with Cross-Modal Self-Attention Network",
+      "authors": [
+        {
+          "name": "Linwei Ye",
+          "affiliation": ""
+        },
+        {
+          "name": "Mrigank Rochan",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhi Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaoqin Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "We consider the problem of referring segmentation in images and videos with natural language. Given an input image (or video) and a referring expression, the goal is to segment the entity referred by the expression in the image or video. In this paper, we propose a cross-modal self-attention (CMSA) module to utilize fine details of individual words and the input image or video, which effectively captures the long-range dependencies between linguistic and visual features. Our model can adaptively focus on informative words in the referring expression and important regions in the visual input. We further propose a gated multi-level fusion (GMLF) module to selectively integrate self-attentive cross-modal features corresponding to different levels of visual features. This module controls the feature fusion of information flow of features at different levels with high-level and low-level semantic information related to different attentive words. Besides, we introduce cross-frame self-attention (CFSA) module to effectively integrate temporal information in consecutive frames which extends our method in the case of referring segmentation in videos. Experiments on benchmark datasets of four referring image datasets and two actor and action video segmentation datasets consistently demonstrate that our proposed approach outperforms existing state-of-the-art methods.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1109/TPAMI.2021.3054384",
+      "arxiv_id": "2102.04762",
+      "url": "https://arxiv.org/abs/2102.04762",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2202.09741",
+      "title": "Visual Attention Network",
+      "authors": [
+        {
+          "name": "Meng-Hao Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Cheng-Ze Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zheng-Ning Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ming-Ming Cheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Shi-Min Hu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "While originally designed for natural language processing tasks, the self-attention mechanism has recently taken various computer vision areas by storm. However, the 2D nature of images brings three challenges for applying self-attention in computer vision. (1) Treating images as 1D sequences neglects their 2D structures. (2) The quadratic complexity is too expensive for high-resolution images. (3) It only captures spatial adaptability but ignores channel adaptability. In this paper, we propose a novel linear attention named large kernel attention (LKA) to enable self-adaptive and long-range correlations in self-attention while avoiding its shortcomings. Furthermore, we present a neural network based on LKA, namely Visual Attention Network (VAN). While extremely simple, VAN surpasses similar size vision transformers(ViTs) and convolutional neural networks(CNNs) in various tasks, including image classification, object detection, semantic segmentation, panoptic segmentation, pose estimation, etc. For example, VAN-B6 achieves 87.8% accuracy on ImageNet benchmark and set new state-of-the-art performance (58.2 PQ) for panoptic segmentation. Besides, VAN-B2 surpasses Swin-T 4% mIoU (50.1 vs. 46.1) for semantic segmentation on ADE20K benchmark, 2.6% AP (48.8 vs. 46.2) for object detection on COCO dataset. It provides a novel method and a simple yet strong baseline for the community. Code is available at https://github.com/Visual-Attention-Network.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2202.09741",
+      "url": "https://arxiv.org/abs/2202.09741",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2207.04293",
+      "title": "Attention and Self-Attention in Random Forests",
+      "authors": [
+        {
+          "name": "Lev V. Utkin",
+          "affiliation": ""
+        },
+        {
+          "name": "Andrei V. Konstantinov",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "New models of random forests jointly using the attention and self-attention mechanisms are proposed for solving the regression problem. The models can be regarded as extensions of the attention-based random forest whose idea stems from applying a combination of the Nadaraya-Watson kernel regression and the Huber's contamination model to random forests. The self-attention aims to capture dependencies of the tree predictions and to remove noise or anomalous predictions in the random forest. The self-attention module is trained jointly with the attention module for computing weights. It is shown that the training process of attention weights is reduced to solving a single quadratic or linear optimization problem. Three modifications of the general approach are proposed and compared. A specific multi-head self-attention for the random forest is also considered. Heads of the self-attention are obtained by changing its tuning parameters including the kernel parameters and the contamination parameter of models. Numerical experiments with various datasets illustrate the proposed models and show that the supplement of the self-attention improves the model performance for many datasets.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2207.04293",
+      "url": "https://arxiv.org/abs/2207.04293",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2003.05997",
+      "title": "Efficient Content-Based Sparse Attention with Routing Transformers",
+      "authors": [
+        {
+          "name": "Aurko Roy",
+          "affiliation": ""
+        },
+        {
+          "name": "Mohammad Saffar",
+          "affiliation": ""
+        },
+        {
+          "name": "Ashish Vaswani",
+          "affiliation": ""
+        },
+        {
+          "name": "David Grangier",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Self-attention has recently been adopted for a wide range of sequence modeling problems. Despite its effectiveness, self-attention suffers from quadratic compute and memory requirements with respect to sequence length. Successful approaches to reduce this complexity focused on attending to local sliding windows or a small set of locations independent of content. Our work proposes to learn dynamic sparse attention patterns that avoid allocating computation and memory to attend to content unrelated to the query of interest. This work builds upon two lines of research: it combines the modeling flexibility of prior work on content-based sparse attention with the efficiency gains from approaches based on local, temporal sparse attention. Our model, the Routing Transformer, endows self-attention with a sparse routing module based on online k-means while reducing the overall complexity of attention to $O\\left(n^{1.5}d\\right)$ from $O\\left(n^2d\\right)$ for sequence length $n$ and hidden dimension $d$. We show that our model outperforms comparable sparse attention models on language modeling on Wikitext-103 (15.8 vs 18.3 perplexity) as well as on image generation on ImageNet-64 (3.43 vs 3.44 bits/dim) while using fewer self-attention layers. Additionally, we set a new state-of-the-art on the newly released PG-19 data-set, obtaining a test perplexity of 33.2 with a 22 layer Routing Transformer model trained on sequences of length 8192.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2003.05997",
+      "url": "https://arxiv.org/abs/2003.05997",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2304.03369",
+      "title": "EGA-Depth: Efficient Guided Attention for Self-Supervised Multi-Camera Depth Estimation",
+      "authors": [
+        {
+          "name": "Yunxiao Shi",
+          "affiliation": ""
+        },
+        {
+          "name": "Hong Cai",
+          "affiliation": ""
+        },
+        {
+          "name": "Amin Ansari",
+          "affiliation": ""
+        },
+        {
+          "name": "Fatih Porikli",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "The ubiquitous multi-camera setup on modern autonomous vehicles provides an opportunity to construct surround-view depth. Existing methods, however, either perform independent monocular depth estimations on each camera or rely on computationally heavy self attention mechanisms. In this paper, we propose a novel guided attention architecture, EGA-Depth, which can improve both the efficiency and accuracy of self-supervised multi-camera depth estimation. More specifically, for each camera, we use its perspective view as the query to cross-reference its neighboring views to derive informative features for this camera view. This allows the model to perform attention only across views with considerable overlaps and avoid the costly computations of standard self-attention. Given its efficiency, EGA-Depth enables us to exploit higher-resolution visual features, leading to improved accuracy. Furthermore, EGA-Depth can incorporate more frames from previous time steps as it scales linearly w.r.t. the number of views and frames. Extensive experiments on two challenging autonomous driving benchmarks nuScenes and DDAD demonstrate the efficacy of our proposed EGA-Depth and show that it achieves the new state-of-the-art in self-supervised multi-camera depth estimation.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2304.03369",
+      "url": "https://arxiv.org/abs/2304.03369",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2303.04970",
+      "title": "LMR: A Large-Scale Multi-Reference Dataset for Reference-based Super-Resolution",
+      "authors": [
+        {
+          "name": "Lin Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xin Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Dongliang He",
+          "affiliation": ""
+        },
+        {
+          "name": "Errui Ding",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhaoxiang Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "It is widely agreed that reference-based super-resolution (RefSR) achieves superior results by referring to similar high quality images, compared to single image super-resolution (SISR). Intuitively, the more references, the better performance. However, previous RefSR methods have all focused on single-reference image training, while multiple reference images are often available in testing or practical applications. The root cause of such training-testing mismatch is the absence of publicly available multi-reference SR training datasets, which greatly hinders research efforts on multi-reference super-resolution. To this end, we construct a large-scale, multi-reference super-resolution dataset, named LMR. It contains 112,142 groups of 300x300 training images, which is 10x of the existing largest RefSR dataset. The image size is also much larger. More importantly, each group is equipped with 5 reference images with different similarity levels. Furthermore, we propose a new baseline method for multi-reference super-resolution: MRefSR, including a Multi-Reference Attention Module (MAM) for feature fusion of an arbitrary number of reference images, and a Spatial Aware Filtering Module (SAFM) for the fused feature selection. The proposed MRefSR achieves significant improvements over state-of-the-art approaches on both quantitative and qualitative evaluations. Our code and data would be made available soon.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2303.04970",
+      "url": "https://arxiv.org/abs/2303.04970",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2406.13770",
+      "title": "Elliptical Attention",
+      "authors": [
+        {
+          "name": "Stefan K. Nielsen",
+          "affiliation": ""
+        },
+        {
+          "name": "Laziz U. Abdullaev",
+          "affiliation": ""
+        },
+        {
+          "name": "Rachel S. Y. Teo",
+          "affiliation": ""
+        },
+        {
+          "name": "Tan M. Nguyen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Pairwise dot-product self-attention is key to the success of transformers that achieve state-of-the-art performance across a variety of applications in language and vision. This dot-product self-attention computes attention weights among the input tokens using Euclidean distance, which makes the model prone to representation collapse and vulnerable to contaminated samples. In this paper, we propose using a Mahalanobis distance metric for computing the attention weights to stretch the underlying feature space in directions of high contextual relevance. In particular, we define a hyper-ellipsoidal neighborhood around each query to increase the attention weights of the tokens lying in the contextually important directions. We term this novel class of attention Elliptical Attention. Our Elliptical Attention provides two benefits: 1) reducing representation collapse and 2) enhancing the model's robustness as Elliptical Attention pays more attention to contextually relevant information rather than focusing on some small subset of informative features. We empirically demonstrate the advantages of Elliptical Attention over the baseline dot-product attention and state-of-the-art attention methods on various practical tasks, including object classification, image segmentation, and language modeling across different data modalities.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2406.13770",
+      "url": "https://arxiv.org/abs/2406.13770",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2004.13621",
+      "title": "Exploring Self-attention for Image Recognition",
+      "authors": [
+        {
+          "name": "Hengshuang Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiaya Jia",
+          "affiliation": ""
+        },
+        {
+          "name": "Vladlen Koltun",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Recent work has shown that self-attention can serve as a basic building block for image recognition models. We explore variations of self-attention and assess their effectiveness for image recognition. We consider two forms of self-attention. One is pairwise self-attention, which generalizes standard dot-product attention and is fundamentally a set operator. The other is patchwise self-attention, which is strictly more powerful than convolution. Our pairwise self-attention networks match or outperform their convolutional counterparts, and the patchwise models substantially outperform the convolutional baselines. We also conduct experiments that probe the robustness of learned representations and conclude that self-attention networks may have significant benefits in terms of robustness and generalization.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2004.13621",
+      "url": "https://arxiv.org/abs/2004.13621",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2107.05262",
+      "title": "Dihedral multi-reference alignment",
+      "authors": [
+        {
+          "name": "Tamir Bendory",
+          "affiliation": ""
+        },
+        {
+          "name": "Dan Edidin",
+          "affiliation": ""
+        },
+        {
+          "name": "William Leeb",
+          "affiliation": ""
+        },
+        {
+          "name": "Nir Sharon",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "We study the dihedral multi-reference alignment problem of estimating the orbit of a signal from multiple noisy observations of the signal, acted on by random elements of the dihedral group. We show that if the group elements are drawn from a generic distribution, the orbit of a generic signal is uniquely determined from the second moment of the observations. This implies that the optimal estimation rate in the high noise regime is proportional to the square of the variance of the noise. This is the first result of this type for multi-reference alignment over a non-abelian group with a non-uniform distribution of group elements. Based on tools from invariant theory and algebraic geometry, we also delineate conditions for unique orbit recovery for multi-reference alignment models over finite groups (namely, when the dihedral group is replaced by a general finite group) when the group elements are drawn from a generic distribution. Finally, we design and study numerically three computational frameworks for estimating the signal based on group synchronization, expectation-maximization, and the method of moments.",
+      "venue": "cs.IT",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2107.05262",
+      "url": "https://arxiv.org/abs/2107.05262",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2311.02772",
+      "title": "Attention or Convolution: Transformer Encoders in Audio Language Models for Inference Efficiency",
+      "authors": [
+        {
+          "name": "Sungho Jeon",
+          "affiliation": ""
+        },
+        {
+          "name": "Ching-Feng Yeh",
+          "affiliation": ""
+        },
+        {
+          "name": "Hakan Inan",
+          "affiliation": ""
+        },
+        {
+          "name": "Wei-Ning Hsu",
+          "affiliation": ""
+        },
+        {
+          "name": "Rashi Rungta",
+          "affiliation": ""
+        },
+        {
+          "name": "Yashar Mehdad",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniel Bikel",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "In this paper, we show that a simple self-supervised pre-trained audio model can achieve comparable inference efficiency to more complicated pre-trained models with speech transformer encoders. These speech transformers rely on mixing convolutional modules with self-attention modules. They achieve state-of-the-art performance on ASR with top efficiency. We first show that employing these speech transformers as an encoder significantly improves the efficiency of pre-trained audio models as well. However, our study shows that we can achieve comparable efficiency with advanced self-attention solely. We demonstrate that this simpler approach is particularly beneficial with a low-bit weight quantization technique of a neural network to improve efficiency. We hypothesize that it prevents propagating the errors between different quantized modules compared to recent speech transformers mixing quantized convolution and the quantized self-attention modules.",
+      "venue": "cs.SD",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2311.02772",
+      "url": "https://arxiv.org/abs/2311.02772",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2309.15520",
+      "title": "SAF-Net: Self-Attention Fusion Network for Myocardial Infarction Detection using Multi-View Echocardiography",
+      "authors": [
+        {
+          "name": "Ilke Adalioglu",
+          "affiliation": ""
+        },
+        {
+          "name": "Mete Ahishali",
+          "affiliation": ""
+        },
+        {
+          "name": "Aysen Degerli",
+          "affiliation": ""
+        },
+        {
+          "name": "Serkan Kiranyaz",
+          "affiliation": ""
+        },
+        {
+          "name": "Moncef Gabbouj",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Myocardial infarction (MI) is a severe case of coronary artery disease (CAD) and ultimately, its detection is substantial to prevent progressive damage to the myocardium. In this study, we propose a novel view-fusion model named self-attention fusion network (SAF-Net) to detect MI from multi-view echocardiography recordings. The proposed framework utilizes apical 2-chamber (A2C) and apical 4-chamber (A4C) view echocardiography recordings for classification. Three reference frames are extracted from each recording of both views and deployed pre-trained deep networks to extract highly representative features. The SAF-Net model utilizes a self-attention mechanism to learn dependencies in extracted feature vectors. The proposed model is computationally efficient thanks to its compact architecture having three main parts: a feature embedding to reduce dimensionality, self-attention for view-pooling, and dense layers for the classification. Experimental evaluation is performed using the HMC-QU-TAU dataset which consists of 160 patients with A2C and A4C view echocardiography recordings. The proposed SAF-Net model achieves a high-performance level with 88.26% precision, 77.64% sensitivity, and 78.13% accuracy. The results demonstrate that the SAF-Net model achieves the most accurate MI detection over multi-view echocardiography recordings.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "10.22489/CinC.2023.240",
+      "arxiv_id": "2309.15520",
+      "url": "https://arxiv.org/abs/2309.15520",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2209.04881",
+      "title": "On The Computational Complexity of Self-Attention",
+      "authors": [
+        {
+          "name": "Feyza Duman Keles",
+          "affiliation": ""
+        },
+        {
+          "name": "Pruthuvi Mahesakya Wijewardena",
+          "affiliation": ""
+        },
+        {
+          "name": "Chinmay Hegde",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Transformer architectures have led to remarkable progress in many state-of-art applications. However, despite their successes, modern transformers rely on the self-attention mechanism, whose time- and space-complexity is quadratic in the length of the input. Several approaches have been proposed to speed up self-attention mechanisms to achieve sub-quadratic running time; however, the large majority of these works are not accompanied by rigorous error guarantees. In this work, we establish lower bounds on the computational complexity of self-attention in a number of scenarios. We prove that the time complexity of self-attention is necessarily quadratic in the input length, unless the Strong Exponential Time Hypothesis (SETH) is false. This argument holds even if the attention computation is performed only approximately, and for a variety of attention mechanisms. As a complement to our lower bounds, we show that it is indeed possible to approximate dot-product self-attention using finite Taylor series in linear-time, at the cost of having an exponential dependence on the polynomial order.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2209.04881",
+      "url": "https://arxiv.org/abs/2209.04881",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.22989",
+      "title": "MultiBanana: A Challenging Benchmark for Multi-Reference Text-to-Image Generation",
+      "authors": [
+        {
+          "name": "Yuta Oshima",
+          "affiliation": ""
+        },
+        {
+          "name": "Daiki Miyake",
+          "affiliation": ""
+        },
+        {
+          "name": "Kohsei Matsutani",
+          "affiliation": ""
+        },
+        {
+          "name": "Yusuke Iwasawa",
+          "affiliation": ""
+        },
+        {
+          "name": "Masahiro Suzuki",
+          "affiliation": ""
+        },
+        {
+          "name": "Yutaka Matsuo",
+          "affiliation": ""
+        },
+        {
+          "name": "Hiroki Furuta",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Recent text-to-image generation models have acquired the ability of multi-reference generation and editing; the ability to inherit the appearance of subjects from multiple reference images and re-render them under new contexts. However, the existing benchmark datasets often focus on the generation with single or a few reference images, which prevents us from measuring the progress on how model performance advances or pointing out their weaknesses, under different multi-reference conditions. In addition, their task definitions are still vague, typically limited to axes such as \"what to edit\" or \"how many references are given\", and therefore fail to capture the intrinsic difficulty of multi-reference settings. To address this gap, we introduce $\\textbf{MultiBanana}$, which is carefully designed to assesses the edge of model capabilities by widely covering multi-reference-specific problems at scale: (1) varying the number of references, (2) domain mismatch among references (e.g., photo vs. anime), (3) scale mismatch between reference and target scenes, (4) references containing rare concepts (e.g., a red banana), and (5) multilingual textual references for rendering. Our analysis among a variety of text-to-image models reveals their superior performances, typical failure modes, and areas for improvement. MultiBanana will be released as an open benchmark to push the boundaries and establish a standardized basis for fair comparison in multi-reference image generation. Our data and code are available at https://github.com/matsuolab/multibanana .",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.22989",
+      "url": "https://arxiv.org/abs/2511.22989",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2006.04710",
+      "title": "The Lipschitz Constant of Self-Attention",
+      "authors": [
+        {
+          "name": "Hyunjik Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "George Papamakarios",
+          "affiliation": ""
+        },
+        {
+          "name": "Andriy Mnih",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Lipschitz constants of neural networks have been explored in various contexts in deep learning, such as provable adversarial robustness, estimating Wasserstein distance, stabilising training of GANs, and formulating invertible neural networks. Such works have focused on bounding the Lipschitz constant of fully connected or convolutional networks, composed of linear maps and pointwise non-linearities. In this paper, we investigate the Lipschitz constant of self-attention, a non-linear neural network module widely used in sequence modelling. We prove that the standard dot-product self-attention is not Lipschitz for unbounded input domain, and propose an alternative L2 self-attention that is Lipschitz. We derive an upper bound on the Lipschitz constant of L2 self-attention and provide empirical evidence for its asymptotic tightness. To demonstrate the practical relevance of our theoretical work, we formulate invertible self-attention and use it in a Transformer-based architecture for a character-level language modelling task.",
+      "venue": "stat.ML",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2006.04710",
+      "url": "https://arxiv.org/abs/2006.04710",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2306.05427",
+      "title": "Grounded Text-to-Image Synthesis with Attention Refocusing",
+      "authors": [
+        {
+          "name": "Quynh Phung",
+          "affiliation": ""
+        },
+        {
+          "name": "Songwei Ge",
+          "affiliation": ""
+        },
+        {
+          "name": "Jia-Bin Huang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Driven by the scalable diffusion models trained on large-scale datasets, text-to-image synthesis methods have shown compelling results. However, these models still fail to precisely follow the text prompt involving multiple objects, attributes, or spatial compositions. In this paper, we reveal the potential causes in the diffusion model's cross-attention and self-attention layers. We propose two novel losses to refocus attention maps according to a given spatial layout during sampling. Creating the layouts manually requires additional effort and can be tedious. Therefore, we explore using large language models (LLM) to produce these layouts for our method. We conduct extensive experiments on the DrawBench, HRS, and TIFA benchmarks to evaluate our proposed method. We show that our proposed attention refocusing effectively improves the controllability of existing approaches.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2306.05427",
+      "url": "https://arxiv.org/abs/2306.05427",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2006.12467",
+      "title": "The Depth-to-Width Interplay in Self-Attention",
+      "authors": [
+        {
+          "name": "Yoav Levine",
+          "affiliation": ""
+        },
+        {
+          "name": "Noam Wies",
+          "affiliation": ""
+        },
+        {
+          "name": "Or Sharir",
+          "affiliation": ""
+        },
+        {
+          "name": "Hofit Bata",
+          "affiliation": ""
+        },
+        {
+          "name": "Amnon Shashua",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Self-attention architectures, which are rapidly pushing the frontier in natural language processing, demonstrate a surprising depth-inefficient behavior: previous works indicate that increasing the internal representation (network width) is just as useful as increasing the number of self-attention layers (network depth). We theoretically predict a width-dependent transition between depth-efficiency and depth-inefficiency in self-attention. We conduct systematic empirical ablations on networks of depths 6 to 48 that clearly reveal the theoretically predicted behaviors, and provide explicit quantitative suggestions regarding the optimal depth-to-width allocation for a given self-attention network size. The race towards beyond 1-Trillion parameter language models renders informed guidelines for increasing self-attention depth and width in tandem an essential ingredient. Our guidelines elucidate the depth-to-width trade-off in self-attention networks of sizes up to the scale of GPT3 (which we project to be too deep for its size), and beyond, marking an unprecedented width of 30K as optimal for a 1-Trillion parameter network.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2006.12467",
+      "url": "https://arxiv.org/abs/2006.12467",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2209.05680",
+      "title": "Switchable Self-attention Module",
+      "authors": [
+        {
+          "name": "Shanshan Zhong",
+          "affiliation": ""
+        },
+        {
+          "name": "Wushao Wen",
+          "affiliation": ""
+        },
+        {
+          "name": "Jinghui Qin",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Attention mechanism has gained great success in vision recognition. Many works are devoted to improving the effectiveness of attention mechanism, which finely design the structure of the attention operator. These works need lots of experiments to pick out the optimal settings when scenarios change, which consumes a lot of time and computational resources. In addition, a neural network often contains many network layers, and most studies often use the same attention module to enhance different network layers, which hinders the further improvement of the performance of the self-attention mechanism. To address the above problems, we propose a self-attention module SEM. Based on the input information of the attention module and alternative attention operators, SEM can automatically decide to select and integrate attention operators to compute attention maps. The effectiveness of SEM is demonstrated by extensive experiments on widely used benchmark datasets and popular self-attention networks.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2209.05680",
+      "url": "https://arxiv.org/abs/2209.05680",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2107.05637",
+      "title": "Locally Enhanced Self-Attention: Combining Self-Attention and Convolution as Local and Context Terms",
+      "authors": [
+        {
+          "name": "Chenglin Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Siyuan Qiao",
+          "affiliation": ""
+        },
+        {
+          "name": "Adam Kortylewski",
+          "affiliation": ""
+        },
+        {
+          "name": "Alan Yuille",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Self-Attention has become prevalent in computer vision models. Inspired by fully connected Conditional Random Fields (CRFs), we decompose self-attention into local and context terms. They correspond to the unary and binary terms in CRF and are implemented by attention mechanisms with projection matrices. We observe that the unary terms only make small contributions to the outputs, and meanwhile standard CNNs that rely solely on the unary terms achieve great performances on a variety of tasks. Therefore, we propose Locally Enhanced Self-Attention (LESA), which enhances the unary term by incorporating it with convolutions, and utilizes a fusion module to dynamically couple the unary and binary operations. In our experiments, we replace the self-attention modules with LESA. The results on ImageNet and COCO show the superiority of LESA over convolution and self-attention baselines for the tasks of image recognition, object detection, and instance segmentation. The code is made publicly available.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2107.05637",
+      "url": "https://arxiv.org/abs/2107.05637",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2104.02858",
+      "title": "Capturing Multi-Resolution Context by Dilated Self-Attention",
+      "authors": [
+        {
+          "name": "Niko Moritz",
+          "affiliation": ""
+        },
+        {
+          "name": "Takaaki Hori",
+          "affiliation": ""
+        },
+        {
+          "name": "Jonathan Le Roux",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Self-attention has become an important and widely used neural network component that helped to establish new state-of-the-art results for various applications, such as machine translation and automatic speech recognition (ASR). However, the computational complexity of self-attention grows quadratically with the input sequence length. This can be particularly problematic for applications such as ASR, where an input sequence generated from an utterance can be relatively long. In this work, we propose a combination of restricted self-attention and a dilation mechanism, which we refer to as dilated self-attention. The restricted self-attention allows attention to neighboring frames of the query at a high resolution, and the dilation mechanism summarizes distant information to allow attending to it with a lower resolution. Different methods for summarizing distant frames are studied, such as subsampling, mean-pooling, and attention-based pooling. ASR results demonstrate substantial improvements compared to restricted self-attention alone, achieving similar results compared to full-sequence based self-attention with a fraction of the computational costs.",
+      "venue": "eess.AS",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2104.02858",
+      "url": "https://arxiv.org/abs/2104.02858",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2503.23814",
+      "title": "An extension of linear self-attention for in-context learning",
+      "authors": [
+        {
+          "name": "Katsuyuki Hagiwara",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "In-context learning is a remarkable property of transformers and has been the focus of recent research. An attention mechanism is a key component in transformers, in which an attention matrix encodes relationships between words in a sentence and is used as weights for words in a sentence. This mechanism is effective for capturing language representations. However, it is questionable whether naive self-attention is suitable for in-context learning in general tasks, since the computation implemented by self-attention is somewhat restrictive in terms of matrix multiplication. In fact, we may need appropriate input form designs when considering heuristic implementations of computational algorithms. In this paper, in case of linear self-attention, we extend it by introducing a bias matrix in addition to a weight matrix for an input. Despite the simple extension, the extended linear self-attention can output any constant matrix, input matrix and multiplications of two or three matrices in the input. Note that the second property implies that it can be a skip connection. Therefore, flexible matrix manipulations can be implemented by connecting the extended linear self-attention components. As an example of implementation using the extended linear self-attention, we show a heuristic construction of a batch-type gradient descent of ridge regression under a reasonable input form.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2503.23814",
+      "url": "https://arxiv.org/abs/2503.23814",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2305.10819",
+      "title": "CLEME: Debiasing Multi-reference Evaluation for Grammatical Error Correction",
+      "authors": [
+        {
+          "name": "Jingheng Ye",
+          "affiliation": ""
+        },
+        {
+          "name": "Yinghui Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Qingyu Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Yangning Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Shirong Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Hai-Tao Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Ying Shen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Evaluating the performance of Grammatical Error Correction (GEC) systems is a challenging task due to its subjectivity. Designing an evaluation metric that is as objective as possible is crucial to the development of GEC task. However, mainstream evaluation metrics, i.e., reference-based metrics, introduce bias into the multi-reference evaluation by extracting edits without considering the presence of multiple references. To overcome this issue, we propose Chunk-LEvel Multi-reference Evaluation (CLEME), designed to evaluate GEC systems in the multi-reference evaluation setting. CLEME builds chunk sequences with consistent boundaries for the source, the hypothesis and references, thus eliminating the bias caused by inconsistent edit boundaries. Furthermore, we observe the consistent boundary could also act as the boundary of grammatical errors, based on which the F$_{0.5}$ score is then computed following the correction independence assumption. We conduct experiments on six English reference sets based on the CoNLL-2014 shared task. Extensive experiments and detailed analyses demonstrate the correctness of our discovery and the effectiveness of CLEME. Further analysis reveals that CLEME is robust to evaluate GEC systems across reference sets with varying numbers of references and annotation style.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2305.10819",
+      "url": "https://arxiv.org/abs/2305.10819",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2110.05841",
+      "title": "Relative Molecule Self-Attention Transformer",
+      "authors": [
+        {
+          "name": "\u0141ukasz Maziarka",
+          "affiliation": ""
+        },
+        {
+          "name": "Dawid Majchrowski",
+          "affiliation": ""
+        },
+        {
+          "name": "Tomasz Danel",
+          "affiliation": ""
+        },
+        {
+          "name": "Piotr Gai\u0144ski",
+          "affiliation": ""
+        },
+        {
+          "name": "Jacek Tabor",
+          "affiliation": ""
+        },
+        {
+          "name": "Igor Podolak",
+          "affiliation": ""
+        },
+        {
+          "name": "Pawe\u0142 Morkisz",
+          "affiliation": ""
+        },
+        {
+          "name": "Stanis\u0142aw Jastrz\u0119bski",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Self-supervised learning holds promise to revolutionize molecule property prediction - a central task to drug discovery and many more industries - by enabling data efficient learning from scarce experimental data. Despite significant progress, non-pretrained methods can be still competitive in certain settings. We reason that architecture might be a key bottleneck. In particular, enriching the backbone architecture with domain-specific inductive biases has been key for the success of self-supervised learning in other domains. In this spirit, we methodologically explore the design space of the self-attention mechanism tailored to molecular data. We identify a novel variant of self-attention adapted to processing molecules, inspired by the relative self-attention layer, which involves fusing embedded graph and distance relationships between atoms. Our main contribution is Relative Molecule Attention Transformer (R-MAT): a novel Transformer-based model based on the developed self-attention layer that achieves state-of-the-art or very competitive results across a~wide range of molecule property prediction tasks.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2110.05841",
+      "url": "https://arxiv.org/abs/2110.05841",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2108.13697",
+      "title": "Attention-based Multi-Reference Learning for Image Super-Resolution",
+      "authors": [
+        {
+          "name": "Marco Pesavento",
+          "affiliation": ""
+        },
+        {
+          "name": "Marco Volino",
+          "affiliation": ""
+        },
+        {
+          "name": "Adrian Hilton",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "This paper proposes a novel Attention-based Multi-Reference Super-resolution network (AMRSR) that, given a low-resolution image, learns to adaptively transfer the most similar texture from multiple reference images to the super-resolution output whilst maintaining spatial coherence. The use of multiple reference images together with attention-based sampling is demonstrated to achieve significantly improved performance over state-of-the-art reference super-resolution approaches on multiple benchmark datasets. Reference super-resolution approaches have recently been proposed to overcome the ill-posed problem of image super-resolution by providing additional information from a high-resolution reference image. Multi-reference super-resolution extends this approach by providing a more diverse pool of image features to overcome the inherent information deficit whilst maintaining memory efficiency. A novel hierarchical attention-based sampling approach is introduced to learn the similarity between low-resolution image features and multiple reference images based on a perceptual loss. Ablation demonstrates the contribution of both multi-reference and hierarchical attention-based sampling to overall performance. Perceptual and quantitative ground-truth evaluation demonstrates significant improvement in performance even when the reference images deviate significantly from the target image. The project website can be found at https://marcopesavento.github.io/AMRSR/",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2108.13697",
+      "url": "https://arxiv.org/abs/2108.13697",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2108.11637",
+      "title": "Self-Attention for Audio Super-Resolution",
+      "authors": [
+        {
+          "name": "Nathana\u00ebl Carraz Rakotonirina",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Convolutions operate only locally, thus failing to model global interactions. Self-attention is, however, able to learn representations that capture long-range dependencies in sequences. We propose a network architecture for audio super-resolution that combines convolution and self-attention. Attention-based Feature-Wise Linear Modulation (AFiLM) uses self-attention mechanism instead of recurrent neural networks to modulate the activations of the convolutional model. Extensive experiments show that our model outperforms existing approaches on standard benchmarks. Moreover, it allows for more parallelization resulting in significantly faster training.",
+      "venue": "cs.SD",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2108.11637",
+      "url": "https://arxiv.org/abs/2108.11637",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

@@ -1,0 +1,1181 @@
+{
+  "query": "Training-free multi-concept composition in comparison",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1773976009.3701868,
+  "papers": [
+    {
+      "paper_id": "arxiv-2306.00288",
+      "title": "Training-free Neural Architecture Search for RNNs and Transformers",
+      "authors": [
+        {
+          "name": "Aaron Serianni",
+          "affiliation": ""
+        },
+        {
+          "name": "Jugal Kalita",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Neural architecture search (NAS) has allowed for the automatic creation of new and effective neural network architectures, offering an alternative to the laborious process of manually designing complex architectures. However, traditional NAS algorithms are slow and require immense amounts of computing power. Recent research has investigated training-free NAS metrics for image classification architectures, drastically speeding up search algorithms. In this paper, we investigate training-free NAS metrics for recurrent neural network (RNN) and BERT-based transformer architectures, targeted towards language modeling tasks. First, we develop a new training-free metric, named hidden covariance, that predicts the trained performance of an RNN architecture and significantly outperforms existing training-free metrics. We experimentally evaluate the effectiveness of the hidden covariance metric on the NAS-Bench-NLP benchmark. Second, we find that the current search space paradigm for transformer architectures is not optimized for training-free neural architecture search. Instead, a simple qualitative analysis can effectively shrink the search space to the best performing architectures. This conclusion is based on our investigation of existing training-free metrics and new metrics developed from recent transformer pruning literature, evaluated on our own benchmark of trained BERT architectures. Ultimately, our analysis shows that the architecture search space and the training-free metric must be developed together in order to achieve effective results.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2306.00288",
+      "url": "https://arxiv.org/abs/2306.00288",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2602.20839",
+      "title": "Training-Free Multi-Concept Image Editing",
+      "authors": [
+        {
+          "name": "Niki Foteinopoulou",
+          "affiliation": ""
+        },
+        {
+          "name": "Ignas Budvytis",
+          "affiliation": ""
+        },
+        {
+          "name": "Stephan Liwicki",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Editing images with diffusion models under strict training-free constraints remains a significant challenge. While recent optimisation-based methods achieve strong zero-shot edits from text, they struggle to preserve identity and capture intricate details, such as facial structure, material texture, or object-specific geometry, that exist below the level of linguistic abstraction. To address this fundamental gap, we propose Concept Distillation Sampling (CDS). To the best of our knowledge, we are the first to introduce a unified, training-free framework for target-less, multi-concept image editing. CDS overcomes the linguistic bottleneck of previous methods by integrating a highly stable distillation backbone (featuring ordered timesteps, regularisation, and negative-prompt guidance), with a dynamic weighting mechanism. This approach enables the seamless composition and control of multiple visual concepts directly within the diffusion process, utilising spatially-aware priors from pretrained LoRA adapters without spatial interference. Our method preserves instance fidelity without requiring reference samples of the desired edit. Extensive quantitative and qualitative evaluations demonstrate consistent state-of-the-art performance over existing training-free editing and multi-LoRA composition methods on the InstructPix2Pix and ComposLoRA benchmarks. Code will be made publicly available.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2602.20839",
+      "url": "https://arxiv.org/abs/2602.20839",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2505.20525",
+      "title": "MultLFG: Training-free Multi-LoRA composition using Frequency-domain Guidance",
+      "authors": [
+        {
+          "name": "Aniket Roy",
+          "affiliation": ""
+        },
+        {
+          "name": "Maitreya Suin",
+          "affiliation": ""
+        },
+        {
+          "name": "Ketul Shah",
+          "affiliation": ""
+        },
+        {
+          "name": "Rama Chellappa",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Low-Rank Adaptation (LoRA) has gained prominence as a computationally efficient method for fine-tuning generative models, enabling distinct visual concept synthesis with minimal overhead. However, current methods struggle to effectively merge multiple LoRA adapters without training, particularly in complex compositions involving diverse visual elements. We introduce MultLFG, a novel framework for training-free multi-LoRA composition that utilizes frequency-domain guidance to achieve adaptive fusion of multiple LoRAs. Unlike existing methods that uniformly aggregate concept-specific LoRAs, MultLFG employs a timestep and frequency subband adaptive fusion strategy, selectively activating relevant LoRAs based on content relevance at specific timesteps and frequency bands. This frequency-sensitive guidance not only improves spatial coherence but also provides finer control over multi-LoRA composition, leading to more accurate and consistent results. Experimental evaluations on the ComposLoRA benchmark reveal that MultLFG substantially enhances compositional fidelity and image quality across various styles and concept sets, outperforming state-of-the-art baselines in multi-concept generation tasks. Code will be released.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2505.20525",
+      "url": "https://arxiv.org/abs/2505.20525",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2405.13870",
+      "title": "FreeCustom: Tuning-Free Customized Image Generation for Multi-Concept Composition",
+      "authors": [
+        {
+          "name": "Ganggui Ding",
+          "affiliation": ""
+        },
+        {
+          "name": "Canyu Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Wen Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhen Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zide Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Chunhua Shen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Benefiting from large-scale pre-trained text-to-image (T2I) generative models, impressive progress has been achieved in customized image generation, which aims to generate user-specified concepts. Existing approaches have extensively focused on single-concept customization and still encounter challenges when it comes to complex scenarios that involve combining multiple concepts. These approaches often require retraining/fine-tuning using a few images, leading to time-consuming training processes and impeding their swift implementation. Furthermore, the reliance on multiple images to represent a singular concept increases the difficulty of customization. To this end, we propose FreeCustom, a novel tuning-free method to generate customized images of multi-concept composition based on reference concepts, using only one image per concept as input. Specifically, we introduce a new multi-reference self-attention (MRSA) mechanism and a weighted mask strategy that enables the generated image to access and focus more on the reference concepts. In addition, MRSA leverages our key finding that input concepts are better preserved when providing images with context interactions. Experiments show that our method's produced images are consistent with the given concepts and better aligned with the input text. Our method outperforms or performs on par with other training-based methods in terms of multi-concept composition and single-concept customization, but is simpler. Codes can be found at https://github.com/aim-uofa/FreeCustom.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2405.13870",
+      "url": "https://arxiv.org/abs/2405.13870",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2502.04923",
+      "title": "Cached Multi-Lora Composition for Multi-Concept Image Generation",
+      "authors": [
+        {
+          "name": "Xiandong Zou",
+          "affiliation": ""
+        },
+        {
+          "name": "Mingzhu Shen",
+          "affiliation": ""
+        },
+        {
+          "name": "Christos-Savvas Bouganis",
+          "affiliation": ""
+        },
+        {
+          "name": "Yiren Zhao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Low-Rank Adaptation (LoRA) has emerged as a widely adopted technique in text-to-image models, enabling precise rendering of multiple distinct elements, such as characters and styles, in multi-concept image generation. However, current approaches face significant challenges when composing these LoRAs for multi-concept image generation, resulting in diminished generated image quality. In this paper, we initially investigate the role of LoRAs in the denoising process through the lens of the Fourier frequency domain. Based on the hypothesis that applying multiple LoRAs could lead to \"semantic conflicts\", we find that certain LoRAs amplify high-frequency features such as edges and textures, whereas others mainly focus on low-frequency elements, including the overall structure and smooth color gradients. Building on these insights, we devise a frequency domain based sequencing strategy to determine the optimal order in which LoRAs should be integrated during inference. This strategy offers a methodical and generalizable solution compared to the naive integration commonly found in existing LoRA fusion techniques. To fully leverage our proposed LoRA order sequence determination method in multi-LoRA composition tasks, we introduce a novel, training-free framework, Cached Multi-LoRA (CMLoRA), designed to efficiently integrate multiple LoRAs while maintaining cohesive image generation. With its flexible backbone for multi-LoRA fusion and a non-uniform caching strategy tailored to individual LoRAs, CMLoRA has the potential to reduce semantic conflicts in LoRA composition and improve computational efficiency. Our experimental evaluations demonstrate that CMLoRA outperforms state-of-the-art training-free LoRA fusion methods by a significant margin -- it achieves an average improvement of $2.19\\%$ in CLIPScore, and $11.25\\%$ in MLLM win rate compared to LoraHub, LoRA Composite, and LoRA Switch.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2502.04923",
+      "url": "https://arxiv.org/abs/2502.04923",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2403.11627",
+      "title": "LoRA-Composer: Leveraging Low-Rank Adaptation for Multi-Concept Customization in Training-Free Diffusion Models",
+      "authors": [
+        {
+          "name": "Yang Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wen Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Liang Peng",
+          "affiliation": ""
+        },
+        {
+          "name": "Chaotian Song",
+          "affiliation": ""
+        },
+        {
+          "name": "Yao Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Hengjia Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaolong Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Qinglin Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Deng Cai",
+          "affiliation": ""
+        },
+        {
+          "name": "Boxi Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Wei Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Customization generation techniques have significantly advanced the synthesis of specific concepts across varied contexts. Multi-concept customization emerges as the challenging task within this domain. Existing approaches often rely on training a fusion matrix of multiple Low-Rank Adaptations (LoRAs) to merge various concepts into a single image. However, we identify this straightforward method faces two major challenges: 1) concept confusion, where the model struggles to preserve distinct individual characteristics, and 2) concept vanishing, where the model fails to generate the intended subjects. To address these issues, we introduce LoRA-Composer, a training-free framework designed for seamlessly integrating multiple LoRAs, thereby enhancing the harmony among different concepts within generated images. LoRA-Composer addresses concept vanishing through concept injection constraints, enhancing concept visibility via an expanded cross-attention mechanism. To combat concept confusion, concept isolation constraints are introduced, refining the self-attention computation. Furthermore, latent re-initialization is proposed to effectively stimulate concept-specific latent within designated regions. Our extensive testing showcases a notable enhancement in LoRA-Composer's performance compared to standard baselines, especially when eliminating the image-based conditions like canny edge or pose estimations. Code is released at \\url{https://github.com/Young98CN/LoRA_Composer}",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2403.11627",
+      "url": "https://arxiv.org/abs/2403.11627",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2602.09971",
+      "title": "SCOPE: A Training-Free Online 3D Deployment for UAV-BSs with Theoretical Analysis and Comparative Study",
+      "authors": [
+        {
+          "name": "Chuan-Chi Lai",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Unmanned Aerial Vehicle (UAV)-mounted Base Stations (UAV-BSs) offer a flexible solution for serving ground users in temporary hotspot scenarios. However, efficiently deploying UAV-BSs to satisfy heterogeneous user distributions remains a challenging optimization problem. While recent data-driven approaches, particularly Deep Reinforcement Learning (DRL), have shown promise in dynamic environments, they often suffer from prohibitive training overhead, poor generalization to topology changes, and high computational complexity. To address these limitations, this paper proposes Satisfaction-driven Coverage Optimization via Perimeter Extraction (SCOPE), a training-free and online 3D deployment framework. Unlike heuristic baselines that rely on fixed-altitude assumptions, SCOPE integrates a perimeter extraction mechanism with the Smallest Enclosing Circle (SEC) algorithm to dynamically optimize 3D UAV positions. Theoretically, we provide a rigorous convergence proof of the proposed algorithm and derive its polynomial time complexity of $O(N^2 \\log N)$. Experimentally, we conduct a comprehensive comparative study against state-of-the-art DRL baselines (e.g., PPO). Simulation results demonstrate that SCOPE achieves comparable user satisfaction to DRL methods but significantly lower computational latency (milliseconds vs. hours of training) and superior energy efficiency, making it an ideal solution for real-time, on-demand emergency deployment.",
+      "venue": "cs.NI",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2602.09971",
+      "url": "https://arxiv.org/abs/2602.09971",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2403.07908",
+      "title": "Adaptation of the Multi-Concept Multivariate Elo Rating System to Medical Students Training Data",
+      "authors": [
+        {
+          "name": "Erva Nihan Kandemir",
+          "affiliation": ""
+        },
+        {
+          "name": "Jill-Jenn Vie",
+          "affiliation": ""
+        },
+        {
+          "name": "Adam Sanchez-Ayte",
+          "affiliation": ""
+        },
+        {
+          "name": "Olivier Palombi",
+          "affiliation": ""
+        },
+        {
+          "name": "Franck Ramus",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Accurate estimation of question difficulty and prediction of student performance play key roles in optimizing educational instruction and enhancing learning outcomes within digital learning platforms. The Elo rating system is widely recognized for its proficiency in predicting student performance by estimating both question difficulty and student ability while providing computational efficiency and real-time adaptivity. This paper presents an adaptation of a multi concept variant of the Elo rating system to the data collected by a medical training platform, a platform characterized by a vast knowledge corpus, substantial inter-concept overlap, a huge question bank with significant sparsity in user question interactions, and a highly diverse user population, presenting unique challenges. Our study is driven by two primary objectives: firstly, to comprehensively evaluate the Elo rating systems capabilities on this real-life data, and secondly, to tackle the issue of imprecise early stage estimations when implementing the Elo rating system for online assessments. Our findings suggest that the Elo rating system exhibits comparable accuracy to the well-established logistic regression model in predicting final exam outcomes for users within our digital platform. Furthermore, results underscore that initializing Elo rating estimates with historical data remarkably reduces errors and enhances prediction accuracy, especially during the initial phases of student interactions.",
+      "venue": "cs.CY",
+      "citation_count": 0,
+      "doi": "10.1145/3636555.3636858",
+      "arxiv_id": "2403.07908",
+      "url": "https://arxiv.org/abs/2403.07908",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2402.15504",
+      "title": "Gen4Gen: Generative Data Pipeline for Generative Multi-Concept Composition",
+      "authors": [
+        {
+          "name": "Chun-Hsiao Yeh",
+          "affiliation": ""
+        },
+        {
+          "name": "Ta-Ying Cheng",
+          "affiliation": ""
+        },
+        {
+          "name": "He-Yen Hsieh",
+          "affiliation": ""
+        },
+        {
+          "name": "Chuan-En Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Andrew Markham",
+          "affiliation": ""
+        },
+        {
+          "name": "Niki Trigoni",
+          "affiliation": ""
+        },
+        {
+          "name": "H. T. Kung",
+          "affiliation": ""
+        },
+        {
+          "name": "Yubei Chen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Recent text-to-image diffusion models are able to learn and synthesize images containing novel, personalized concepts (e.g., their own pets or specific items) with just a few examples for training. This paper tackles two interconnected issues within this realm of personalizing text-to-image diffusion models. First, current personalization techniques fail to reliably extend to multiple concepts -- we hypothesize this to be due to the mismatch between complex scenes and simple text descriptions in the pre-training dataset (e.g., LAION). Second, given an image containing multiple personalized concepts, there lacks a holistic metric that evaluates performance on not just the degree of resemblance of personalized concepts, but also whether all concepts are present in the image and whether the image accurately reflects the overall text description. To address these issues, we introduce Gen4Gen, a semi-automated dataset creation pipeline utilizing generative models to combine personalized concepts into complex compositions along with text-descriptions. Using this, we create a dataset called MyCanvas, that can be used to benchmark the task of multi-concept personalization. In addition, we design a comprehensive metric comprising two scores (CP-CLIP and TI-CLIP) for better quantifying the performance of multi-concept, personalized text-to-image diffusion methods. We provide a simple baseline built on top of Custom Diffusion with empirical prompting strategies for future researchers to evaluate on MyCanvas. We show that by improving data quality and prompting strategies, we can significantly increase multi-concept personalized image generation quality, without requiring any modifications to model architecture or training algorithms.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2402.15504",
+      "url": "https://arxiv.org/abs/2402.15504",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2505.18612",
+      "title": "Mod-Adapter: Tuning-Free and Versatile Multi-concept Personalization via Modulation Adapter",
+      "authors": [
+        {
+          "name": "Weizhi Zhong",
+          "affiliation": ""
+        },
+        {
+          "name": "Huan Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zheng Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Huiguo He",
+          "affiliation": ""
+        },
+        {
+          "name": "Zijian He",
+          "affiliation": ""
+        },
+        {
+          "name": "Xuesong Niu",
+          "affiliation": ""
+        },
+        {
+          "name": "Di Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Guanbin Li",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Personalized text-to-image generation aims to synthesize images of user-provided concepts in diverse contexts. Despite recent progress in multi-concept personalization, most are limited to object concepts and struggle to customize abstract concepts (e.g., pose, lighting). Some methods have begun exploring multi-concept personalization supporting abstract concepts, but they require test-time fine-tuning for each new concept, which is time-consuming and prone to overfitting on limited training images. In this work, we propose a novel tuning-free method for multi-concept personalization that can effectively customize both object and abstract concepts without test-time fine-tuning. Our method builds upon the modulation mechanism in pre-trained Diffusion Transformers (DiTs) model, leveraging the localized and semantically meaningful properties of the modulation space. Specifically, we propose a novel module, Mod-Adapter, to predict concept-specific modulation direction for the modulation process of concept-related text tokens. It introduces vision-language cross-attention for extracting concept visual features, and Mixture-of-Experts (MoE) layers that adaptively map the concept features into the modulation space. Furthermore, to mitigate the training difficulty caused by the large gap between the concept image space and the modulation space, we introduce a VLM-guided pre-training strategy that leverages the strong image understanding capabilities of vision-language models to provide semantic supervision signals. For a comprehensive comparison, we extend a standard benchmark by incorporating abstract concepts. Our method achieves state-of-the-art performance in multi-concept personalization, supported by quantitative, qualitative, and human evaluations.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2505.18612",
+      "url": "https://arxiv.org/abs/2505.18612",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2403.16954",
+      "title": "Isolated Diffusion: Optimizing Multi-Concept Text-to-Image Generation Training-Freely with Isolated Diffusion Guidance",
+      "authors": [
+        {
+          "name": "Jingyuan Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Huimin Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiansheng Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Jian Yuan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Large-scale text-to-image diffusion models have achieved great success in synthesizing high-quality and diverse images given target text prompts. Despite the revolutionary image generation ability, current state-of-the-art models still struggle to deal with multi-concept generation accurately in many cases. This phenomenon is known as ``concept bleeding\" and displays as the unexpected overlapping or merging of various concepts. This paper presents a general approach for text-to-image diffusion models to address the mutual interference between different subjects and their attachments in complex scenes, pursuing better text-image consistency. The core idea is to isolate the synthesizing processes of different concepts. We propose to bind each attachment to corresponding subjects separately with split text prompts. Besides, we introduce a revision method to fix the concept bleeding problem in multi-subject synthesis. We first depend on pre-trained object detection and segmentation models to obtain the layouts of subjects. Then we isolate and resynthesize each subject individually with corresponding text prompts to avoid mutual interference. Overall, we achieve a training-free strategy, named Isolated Diffusion, to optimize multi-concept text-to-image synthesis. It is compatible with the latest Stable Diffusion XL (SDXL) and prior Stable Diffusion (SD) models. We compare our approach with alternative methods using a variety of multi-concept text prompts and demonstrate its effectiveness with clear advantages in text-image consistency and user study.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2403.16954",
+      "url": "https://arxiv.org/abs/2403.16954",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.09180",
+      "title": "FSampler: Training Free Acceleration of Diffusion Sampling via Epsilon Extrapolation",
+      "authors": [
+        {
+          "name": "Michael A. Vladimir",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "FSampler is a training free, sampler agnostic execution layer that accelerates diffusion sampling by reducing the number of function evaluations (NFE). FSampler maintains a short history of denoising signals (epsilon) from recent real model calls and extrapolates the next epsilon using finite difference predictors at second order, third order, or fourth order, falling back to lower order when history is insufficient. On selected steps the predicted epsilon substitutes the model call while keeping each sampler's update rule unchanged. Predicted epsilons are validated for finiteness and magnitude; a learning stabilizer rescales predictions on skipped steps to correct drift, and an optional gradient estimation stabilizer compensates local curvature. Protected windows, periodic anchors, and a cap on consecutive skips bound deviation over the trajectory. Operating at the sampler level, FSampler integrates with Euler/DDIM, DPM++ 2M/2S, LMS/AB2, and RES family exponential multistep methods and drops into standard workflows. FLUX.1 dev, Qwen Image, and Wan 2.2, FSampler reduces time by 8 to 22% and model calls by 15 to 25% at high fidelity (Structural Similarity Index (SSIM) 0.95 to 0.99), without altering sampler formulas. With an aggressive adaptive gate, reductions can reach 45 to 50% fewer model calls at lower fidelity (SSIM 0.73 to 0.74).",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.09180",
+      "url": "https://arxiv.org/abs/2511.09180",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2408.03632",
+      "title": "Concept Conductor: Orchestrating Multiple Personalized Concepts in Text-to-Image Synthesis",
+      "authors": [
+        {
+          "name": "Zebin Yao",
+          "affiliation": ""
+        },
+        {
+          "name": "Fangxiang Feng",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruifan Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaojie Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "The customization of text-to-image models has seen significant advancements, yet generating multiple personalized concepts remains a challenging task. Current methods struggle with attribute leakage and layout confusion when handling multiple concepts, leading to reduced concept fidelity and semantic consistency. In this work, we introduce a novel training-free framework, Concept Conductor, designed to ensure visual fidelity and correct layout in multi-concept customization. Concept Conductor isolates the sampling processes of multiple custom models to prevent attribute leakage between different concepts and corrects erroneous layouts through self-attention-based spatial guidance. Additionally, we present a concept injection technique that employs shape-aware masks to specify the generation area for each concept. This technique injects the structure and appearance of personalized concepts through feature fusion in the attention layers, ensuring harmony in the final image. Extensive qualitative and quantitative experiments demonstrate that Concept Conductor can consistently generate composite images with accurate layouts while preserving the visual details of each concept. Compared to existing baselines, Concept Conductor shows significant performance improvements. Our method supports the combination of any number of concepts and maintains high fidelity even when dealing with visually similar concepts. The code and models are available at https://github.com/Nihukat/Concept-Conductor.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2408.03632",
+      "url": "https://arxiv.org/abs/2408.03632",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2401.09195",
+      "title": "Training-Free Semantic Video Composition via Pre-trained Diffusion Model",
+      "authors": [
+        {
+          "name": "Jiaqi Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Sitong Su",
+          "affiliation": ""
+        },
+        {
+          "name": "Junchen Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Lianli Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Jingkuan Song",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "The video composition task aims to integrate specified foregrounds and backgrounds from different videos into a harmonious composite. Current approaches, predominantly trained on videos with adjusted foreground color and lighting, struggle to address deep semantic disparities beyond superficial adjustments, such as domain gaps. Therefore, we propose a training-free pipeline employing a pre-trained diffusion model imbued with semantic prior knowledge, which can process composite videos with broader semantic disparities. Specifically, we process the video frames in a cascading manner and handle each frame in two processes with the diffusion model. In the inversion process, we propose Balanced Partial Inversion to obtain generation initial points that balance reversibility and modifiability. Then, in the generation process, we further propose Inter-Frame Augmented attention to augment foreground continuity across frames. Experimental results reveal that our pipeline successfully ensures the visual harmony and inter-frame coherence of the outputs, demonstrating efficacy in managing broader semantic disparities.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2401.09195",
+      "url": "https://arxiv.org/abs/2401.09195",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2208.06878",
+      "title": "Models of Music Cognition and Composition",
+      "authors": [
+        {
+          "name": "Abhimanyu Sethia",
+          "affiliation": ""
+        },
+        {
+          "name": "Aayush",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Much like most of cognition research, music cognition is an interdisciplinary field, which attempts to apply methods of cognitive science (neurological, computational and experimental) to understand the perception and process of composition of music. In this paper, we first motivate why music is relevant to cognitive scientists and give an overview of the approaches to computational modelling of music cognition. We then review literature on the various models of music perception, including non-computational models, computational non-cognitive models and computational cognitive models. Lastly, we review literature on modelling the creative behaviour and on computer systems capable of composing music. Since a lot of technical terms from music theory have been used, we have appended a list of relevant terms and their definitions at the end.",
+      "venue": "cs.SD",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2208.06878",
+      "url": "https://arxiv.org/abs/2208.06878",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2401.14701",
+      "title": "Curious ill-posedness phenomena in the composition of non-compact linear operators in Hilbert spaces",
+      "authors": [
+        {
+          "name": "Stefan Kindermann",
+          "affiliation": ""
+        },
+        {
+          "name": "Bernd Hofmann",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "We consider the composition of operators with non-closed range in Hilbert spaces and how the nature of ill-posedness is affected by their composition. Specifically, we study the \\mbox{Hausdorff-,} Ces\u00e0ro-, integration operator, and their adjoints, as well as some combinations of those. For the composition of the Hausdorff- and the Ces\u00e0ro-operator, we give estimates of the decay of the corresponding singular values. As a curiosity, this provides also an example of two practically relevant non-compact operators, for which their composition is compact. Furthermore, we characterize those operators for which a composition with a non-compact operator gives a compact one.",
+      "venue": "math.FA",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2401.14701",
+      "url": "https://arxiv.org/abs/2401.14701",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2510.16781",
+      "title": "Xiaoice: Training-Free Video Understanding via Self-Supervised Spatio-Temporal Clustering of Semantic Features",
+      "authors": [
+        {
+          "name": "Shihao Ji",
+          "affiliation": ""
+        },
+        {
+          "name": "Zihui Song",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The remarkable zero-shot reasoning capabilities of large-scale Visual Language Models (VLMs) on static images have yet to be fully translated to the video domain. Conventional video understanding models often rely on extensive, task-specific training on annotated datasets, a process that is both costly and limited in scalability. This paper introduces a novel, training-free framework for video understanding that circumvents end-to-end training by synergistically combining the rich semantic priors of pre-trained VLMs with classic machine learning algorithms for pattern discovery. Our core idea is to reframe video understanding as a self-supervised spatio-temporal clustering problem within a high-dimensional semantic feature space. The proposed pipeline first transforms a video stream into a semantic feature trajectory using the frozen visual encoder of a pre-trained VLM. Subsequently, we employ Kernel Temporal Segmentation (KTS), a robust machine learning technique, to partition the continuous feature stream into discrete, semantically coherent event segments. These segments are then subjected to unsupervised density-based clustering to identify recurring macroscopic scenes and themes throughout the video. By selecting representative keyframes from each discovered cluster and leveraging the VLM's generative capabilities for textual description, our framework automatically produces a structured, multi-modal summary of the video content. This approach provides an effective, interpretable, and model-agnostic pathway for zero-shot, automated structural analysis of video content.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2510.16781",
+      "url": "https://arxiv.org/abs/2510.16781",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2405.18716",
+      "title": "SketchDeco: Training-Free Latent Composition for Precise Sketch Colourisation",
+      "authors": [
+        {
+          "name": "Chaitat Utintu",
+          "affiliation": ""
+        },
+        {
+          "name": "Pinaki Nath Chowdhury",
+          "affiliation": ""
+        },
+        {
+          "name": "Aneeshan Sain",
+          "affiliation": ""
+        },
+        {
+          "name": "Subhadeep Koley",
+          "affiliation": ""
+        },
+        {
+          "name": "Ayan Kumar Bhunia",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi-Zhe Song",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "We introduce SketchDeco, a training-free approach to sketch colourisation that bridges the gap between professional design needs and intuitive, region-based control. Our method empowers artists to use simple masks and colour palettes for precise spatial and chromatic specification, avoiding both the tediousness of manual assignment and the ambiguity of text-based prompts. We reformulate this task as a novel, training-free composition problem. Our core technical contribution is a guided latent-space blending process: we first leverage diffusion inversion to precisely ``paint'' user-defined colours into specified regions, and then use a custom self-attention mechanism to harmoniously blend these local edits with a globally consistent base image. This ensures both local colour fidelity and global harmony without requiring any model fine-tuning. Our system produces high-quality results in 15--20 inference steps on consumer GPUs, making professional-quality, controllable colourisation accessible.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2405.18716",
+      "url": "https://arxiv.org/abs/2405.18716",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2406.15829",
+      "title": "MVOC: a training-free multiple video object composition method with diffusion models",
+      "authors": [
+        {
+          "name": "Wei Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yaosen Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuegen Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Qi Yuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Shubin Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yanru Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Video composition is the core task of video editing. Although image composition based on diffusion models has been highly successful, it is not straightforward to extend the achievement to video object composition tasks, which not only exhibit corresponding interaction effects but also ensure that the objects in the composited video maintain motion and identity consistency, which is necessary to composite a physical harmony video. To address this challenge, we propose a Multiple Video Object Composition (MVOC) method based on diffusion models. Specifically, we first perform DDIM inversion on each video object to obtain the corresponding noise features. Secondly, we combine and edit each object by image editing methods to obtain the first frame of the composited video. Finally, we use the image-to-video generation model to composite the video with feature and attention injections in the Video Object Dependence Module, which is a training-free conditional guidance operation for video generation, and enables the coordination of features and attention maps between various objects that can be non-independent in the composited video. The final generative model not only constrains the objects in the generated video to be consistent with the original object motion and identity, but also introduces interaction effects between objects. Extensive experiments have demonstrated that the proposed method outperforms existing state-of-the-art approaches. Project page: https://sobeymil.github.io/mvoc.com.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2406.15829",
+      "url": "https://arxiv.org/abs/2406.15829",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2208.02555",
+      "title": "Multi-modal volumetric concept activation to explain detection and classification of metastatic prostate cancer on PSMA-PET/CT",
+      "authors": [
+        {
+          "name": "Rosa C. J. Kraaijveld",
+          "affiliation": ""
+        },
+        {
+          "name": "Marielle E. P. Philippens",
+          "affiliation": ""
+        },
+        {
+          "name": "Wietse S. C. Eppinga",
+          "affiliation": ""
+        },
+        {
+          "name": "Ina M. J\u00fcrgenliemk-Schulz",
+          "affiliation": ""
+        },
+        {
+          "name": "Kenneth G. A. Gilhuijs",
+          "affiliation": ""
+        },
+        {
+          "name": "Petra S. Kroon",
+          "affiliation": ""
+        },
+        {
+          "name": "Bas H. M. van der Velden",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Explainable artificial intelligence (XAI) is increasingly used to analyze the behavior of neural networks. Concept activation uses human-interpretable concepts to explain neural network behavior. This study aimed at assessing the feasibility of regression concept activation to explain detection and classification of multi-modal volumetric data.\n  Proof-of-concept was demonstrated in metastatic prostate cancer patients imaged with positron emission tomography/computed tomography (PET/CT). Multi-modal volumetric concept activation was used to provide global and local explanations.\n  Sensitivity was 80% at 1.78 false positive per patient. Global explanations showed that detection focused on CT for anatomical location and on PET for its confidence in the detection. Local explanations showed promise to aid in distinguishing true positives from false positives. Hence, this study demonstrated feasibility to explain detection and classification of multi-modal volumetric data using regression concept activation.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2208.02555",
+      "url": "https://arxiv.org/abs/2208.02555",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2307.12493",
+      "title": "TF-ICON: Diffusion-Based Training-Free Cross-Domain Image Composition",
+      "authors": [
+        {
+          "name": "Shilin Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yanzhu Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Adams Wai-Kin Kong",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Text-driven diffusion models have exhibited impressive generative capabilities, enabling various image editing tasks. In this paper, we propose TF-ICON, a novel Training-Free Image COmpositioN framework that harnesses the power of text-driven diffusion models for cross-domain image-guided composition. This task aims to seamlessly integrate user-provided objects into a specific visual context. Current diffusion-based methods often involve costly instance-based optimization or finetuning of pretrained models on customized datasets, which can potentially undermine their rich prior. In contrast, TF-ICON can leverage off-the-shelf diffusion models to perform cross-domain image-guided composition without requiring additional training, finetuning, or optimization. Moreover, we introduce the exceptional prompt, which contains no information, to facilitate text-driven diffusion models in accurately inverting real images into latent representations, forming the basis for compositing. Our experiments show that equipping Stable Diffusion with the exceptional prompt outperforms state-of-the-art inversion methods on various datasets (CelebA-HQ, COCO, and ImageNet), and that TF-ICON surpasses prior baselines in versatile visual domains. Code is available at https://github.com/Shilin-LU/TF-ICON",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2307.12493",
+      "url": "https://arxiv.org/abs/2307.12493",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2601.06163",
+      "title": "Forget-It-All: Multi-Concept Machine Unlearning via Concept-Aware Neuron Masking",
+      "authors": [
+        {
+          "name": "Kaiyuan Deng",
+          "affiliation": ""
+        },
+        {
+          "name": "Bo Hui",
+          "affiliation": ""
+        },
+        {
+          "name": "Gen Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Jie Ji",
+          "affiliation": ""
+        },
+        {
+          "name": "Minghai Qin",
+          "affiliation": ""
+        },
+        {
+          "name": "Geng Yuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaolong Ma",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "The widespread adoption of text-to-image (T2I) diffusion models has raised concerns about their potential to generate copyrighted, inappropriate, or sensitive imagery learned from massive training corpora. As a practical solution, machine unlearning aims to selectively erase unwanted concepts from a pre-trained model without retraining from scratch. While most existing methods are effective for single-concept unlearning, they often struggle in real-world scenarios that require removing multiple concepts, since extending them to this setting is both non-trivial and problematic, causing significant challenges in unlearning effectiveness, generation quality, and sensitivity to hyperparameters and datasets. In this paper, we take a unique perspective on multi-concept unlearning by leveraging model sparsity and propose the Forget It All (FIA) framework. FIA first introduces Contrastive Concept Saliency to quantify each weight connection's contribution to a target concept. It then identifies Concept-Sensitive Neurons by combining temporal and spatial information, ensuring that only neurons consistently responsive to the target concept are selected. Finally, FIA constructs masks from the identified neurons and fuses them into a unified multi-concept mask, where Concept-Agnostic Neurons that broadly support general content generation are preserved while concept-specific neurons are pruned to remove the targets. FIA is training-free and requires only minimal hyperparameter tuning for new tasks, thereby promoting a plug-and-play paradigm. Extensive experiments across three distinct unlearning tasks demonstrate that FIA achieves more reliable multi-concept unlearning, improving forgetting effectiveness while maintaining semantic fidelity and image quality.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2601.06163",
+      "url": "https://arxiv.org/abs/2601.06163",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2506.09984",
+      "title": "InterActHuman: Multi-Concept Human Animation with Layout-Aligned Audio Conditions",
+      "authors": [
+        {
+          "name": "Zhenzhi Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiaqi Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianwen Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chao Liang",
+          "affiliation": ""
+        },
+        {
+          "name": "Gaojie Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Zerong Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Ceyuan Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuan Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Mingyuan Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Dahua Lin",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "End-to-end human animation with rich multi-modal conditions, e.g., text, image and audio has achieved remarkable advancements in recent years. However, most existing methods could only animate a single subject and inject conditions in a global manner, ignoring scenarios where multiple concepts could appear in the same video with rich human-human interactions and human-object interactions. Such a global assumption prevents precise and per-identity control of multiple concepts including humans and objects, therefore hinders applications. In this work, we discard the single-entity assumption and introduce a novel framework that enforces strong, region-specific binding of conditions from modalities to each identity's spatiotemporal footprint. Given reference images of multiple concepts, our method could automatically infer layout information by leveraging a mask predictor to match appearance cues between the denoised video and each reference appearance. Furthermore, we inject local audio condition into its corresponding region to ensure layout-aligned modality matching in an iterative manner. This design enables the high-quality generation of human dialogue videos between two to three people or video customization from multiple reference images. Empirical results and ablation studies validate the effectiveness of our explicit layout control for multi-modal conditions compared to implicit counterparts and other existing methods. Video demos are available at https://zhenzhiwang.github.io/interacthuman/",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2506.09984",
+      "url": "https://arxiv.org/abs/2506.09984",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2404.05268",
+      "title": "MC$^2$: Multi-concept Guidance for Customized Multi-concept Generation",
+      "authors": [
+        {
+          "name": "Jiaxiu Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yabo Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Kailai Feng",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaohe Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenbo Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Renjing Pei",
+          "affiliation": ""
+        },
+        {
+          "name": "Fan Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Wangmeng Zuo",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Customized text-to-image generation, which synthesizes images based on user-specified concepts, has made significant progress in handling individual concepts. However, when extended to multiple concepts, existing methods often struggle with properly integrating different models and avoiding the unintended blending of characteristics from distinct concepts. In this paper, we propose MC$^2$, a novel approach for multi-concept customization that enhances flexibility and fidelity through inference-time optimization. MC$^2$ enables the integration of multiple single-concept models with heterogeneous architectures. By adaptively refining attention weights between visual and textual tokens, our method ensures that image regions accurately correspond to their associated concepts while minimizing interference between concepts. Extensive experiments demonstrate that MC$^2$ outperforms training-based methods in terms of prompt-reference alignment. Furthermore, MC$^2$ can be seamlessly applied to text-to-image generation, providing robust compositional capabilities. To facilitate the evaluation of multi-concept customization, we also introduce a new benchmark, MC++. The code will be publicly available at https://github.com/JIANGJiaXiu/MC-2.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2404.05268",
+      "url": "https://arxiv.org/abs/2404.05268",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2408.03637",
+      "title": "TALE: Training-free Cross-domain Image Composition via Adaptive Latent Manipulation and Energy-guided Optimization",
+      "authors": [
+        {
+          "name": "Kien T. Pham",
+          "affiliation": ""
+        },
+        {
+          "name": "Jingye Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Qifeng Chen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "We present TALE, a novel training-free framework harnessing the generative capabilities of text-to-image diffusion models to address the cross-domain image composition task that focuses on flawlessly incorporating user-specified objects into a designated visual contexts regardless of domain disparity. Previous methods often involve either training auxiliary networks or finetuning diffusion models on customized datasets, which are expensive and may undermine the robust textual and visual priors of pre-trained diffusion models. Some recent works attempt to break the barrier by proposing training-free workarounds that rely on manipulating attention maps to tame the denoising process implicitly. However, composing via attention maps does not necessarily yield desired compositional outcomes. These approaches could only retain some semantic information and usually fall short in preserving identity characteristics of input objects or exhibit limited background-object style adaptation in generated images. In contrast, TALE is a novel method that operates directly on latent space to provide explicit and effective guidance for the composition process to resolve these problems. Specifically, we equip TALE with two mechanisms dubbed Adaptive Latent Manipulation and Energy-guided Latent Optimization. The former formulates noisy latents conducive to initiating and steering the composition process by directly leveraging background and foreground latents at corresponding timesteps, and the latter exploits designated energy functions to further optimize intermediate latents conforming to specific conditions that complement the former to generate desired final results. Our experiments demonstrate that TALE surpasses prior baselines and attains state-of-the-art performance in image-guided composition across various photorealistic and artistic domains.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1145/3664647.3681079",
+      "arxiv_id": "2408.03637",
+      "url": "https://arxiv.org/abs/2408.03637",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2505.23758",
+      "title": "LoRAShop: Training-Free Multi-Concept Image Generation and Editing with Rectified Flow Transformers",
+      "authors": [
+        {
+          "name": "Yusuf Dalva",
+          "affiliation": ""
+        },
+        {
+          "name": "Hidir Yesiltepe",
+          "affiliation": ""
+        },
+        {
+          "name": "Pinar Yanardag",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "We introduce LoRAShop, the first framework for multi-concept image editing with LoRA models. LoRAShop builds on a key observation about the feature interaction patterns inside Flux-style diffusion transformers: concept-specific transformer features activate spatially coherent regions early in the denoising process. We harness this observation to derive a disentangled latent mask for each concept in a prior forward pass and blend the corresponding LoRA weights only within regions bounding the concepts to be personalized. The resulting edits seamlessly integrate multiple subjects or styles into the original scene while preserving global context, lighting, and fine details. Our experiments demonstrate that LoRAShop delivers better identity preservation compared to baselines. By eliminating retraining and external constraints, LoRAShop turns personalized diffusion models into a practical `photoshop-with-LoRAs' tool and opens new avenues for compositional visual storytelling and rapid creative iteration.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2505.23758",
+      "url": "https://arxiv.org/abs/2505.23758",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2509.13291",
+      "title": "Towards an Embodied Composition Framework for Organizing Immersive Computational Notebooks",
+      "authors": [
+        {
+          "name": "Sungwon In",
+          "affiliation": ""
+        },
+        {
+          "name": "Eric Krokos",
+          "affiliation": ""
+        },
+        {
+          "name": "Kirsten Whitley",
+          "affiliation": ""
+        },
+        {
+          "name": "Chris North",
+          "affiliation": ""
+        },
+        {
+          "name": "Yalong Yang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "As immersive technologies evolve, immersive computational notebooks offer new opportunities for interacting with code, data, and outputs. However, scaling these environments remains a challenge, particularly when analysts manually arrange large numbers of cells to maintain both execution logic and visual coherence. To address this, we introduce an embodied composition framework, facilitating organizational processes in the context of immersive computational notebooks. To evaluate the effectiveness of the embodied composition framework, we conducted a controlled user study comparing manual and embodied composition frameworks in an organizational process. The results show that embodied composition frameworks significantly reduced user effort and decreased completion time. However, the design of the triggering mechanism requires further refinement. Our findings highlight the potential of embodied composition frameworks to enhance the scalability of the organizational process in immersive computational notebooks.",
+      "venue": "cs.HC",
+      "citation_count": 0,
+      "doi": "10.1145/3756884.3766011",
+      "arxiv_id": "2509.13291",
+      "url": "https://arxiv.org/abs/2509.13291",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2512.00677",
+      "title": "Dynamic-eDiTor: Training-Free Text-Driven 4D Scene Editing with Multimodal Diffusion Transformer",
+      "authors": [
+        {
+          "name": "Dong In Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Hyungjun Doh",
+          "affiliation": ""
+        },
+        {
+          "name": "Seunggeun Chi",
+          "affiliation": ""
+        },
+        {
+          "name": "Runlin Duan",
+          "affiliation": ""
+        },
+        {
+          "name": "Sangpil Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Karthik Ramani",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Recent progress in 4D representations, such as Dynamic NeRF and 4D Gaussian Splatting (4DGS), has enabled dynamic 4D scene reconstruction. However, text-driven 4D scene editing remains under-explored due to the challenge of ensuring both multi-view and temporal consistency across space and time during editing. Existing studies rely on 2D diffusion models that edit frames independently, often causing motion distortion, geometric drift, and incomplete editing. We introduce Dynamic-eDiTor, a training-free text-driven 4D editing framework leveraging Multimodal Diffusion Transformer (MM-DiT) and 4DGS. This mechanism consists of Spatio-Temporal Sub-Grid Attention (STGA) for locally consistent cross-view and temporal fusion, and Context Token Propagation (CTP) for global propagation via token inheritance and optical-flow-guided token replacement. Together, these components allow Dynamic-eDiTor to perform seamless, globally consistent multi-view video without additional training and directly optimize pre-trained source 4DGS. Extensive experiments on multi-view video dataset DyNeRF demonstrate that our method achieves superior editing fidelity and both multi-view and temporal consistency prior approaches. Project page for results and code: https://di-lee.github.io/dynamic-eDiTor/",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2512.00677",
+      "url": "https://arxiv.org/abs/2512.00677",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2008.00645",
+      "title": "Active Classification with Uncertainty Comparison Queries",
+      "authors": [
+        {
+          "name": "Zhenghang Cui",
+          "affiliation": ""
+        },
+        {
+          "name": "Issei Sato",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Noisy pairwise comparison feedback has been incorporated to improve the overall query complexity of interactively learning binary classifiers. The \\textit{positivity comparison oracle} is used to provide feedback on which is more likely to be positive given a pair of data points. Because it is impossible to infer accurate labels using this oracle alone \\textit{without knowing the classification threshold}, existing methods still rely on the traditional \\textit{explicit labeling oracle}, which directly answers the label given a data point. Existing methods conduct sorting on all data points and use explicit labeling oracle to find the classification threshold. The current methods, however, have two drawbacks: (1) they needs unnecessary sorting for label inference; (2) quick sort is naively adapted to noisy feedback and negatively affects practical performance. In order to avoid this inefficiency and acquire information of the classification threshold, we propose a new pairwise comparison oracle concerning uncertainties. This oracle receives two data points as input and answers which one has higher uncertainty. We then propose an efficient adaptive labeling algorithm using the proposed oracle and the positivity comparison oracle. In addition, we also address the situation where the labeling budget is insufficient compared to the dataset size, which can be dealt with by plugging the proposed algorithm into an active learning algorithm. Furthermore, we confirm the feasibility of the proposed oracle and the performance of the proposed algorithm theoretically and empirically.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2008.00645",
+      "url": "https://arxiv.org/abs/2008.00645",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2501.13449",
+      "title": "MultiDreamer3D: Multi-concept 3D Customization with Concept-Aware Diffusion Guidance",
+      "authors": [
+        {
+          "name": "Wooseok Song",
+          "affiliation": ""
+        },
+        {
+          "name": "Seunggyu Chang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jaejun Yoo",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "While single-concept customization has been studied in 3D, multi-concept customization remains largely unexplored. To address this, we propose MultiDreamer3D that can generate coherent multi-concept 3D content in a divide-and-conquer manner. First, we generate 3D bounding boxes using an LLM-based layout controller. Next, a selective point cloud generator creates coarse point clouds for each concept. These point clouds are placed in the 3D bounding boxes and initialized into 3D Gaussian Splatting with concept labels, enabling precise identification of concept attributions in 2D projections. Finally, we refine 3D Gaussians via concept-aware interval score matching, guided by concept-aware diffusion. Our experimental results show that MultiDreamer3D not only ensures object presence and preserves the distinct identities of each concept but also successfully handles complex cases such as property change or interaction. To the best of our knowledge, we are the first to address the multi-concept customization in 3D.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2501.13449",
+      "url": "https://arxiv.org/abs/2501.13449",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.00106",
+      "title": "Wayfinding through the AI wilderness: Mapping rhetorics of ChatGPT prompt writing on X (formerly Twitter) to promote critical AI literacies",
+      "authors": [
+        {
+          "name": "Anuj Gupta",
+          "affiliation": ""
+        },
+        {
+          "name": "Ann Shivers-McNair",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "In this paper, we demonstrate how studying the rhetorics of ChatGPT prompt writing on social media can promote critical AI literacies. Prompt writing is the process of writing instructions for generative AI tools like ChatGPT to elicit desired outputs and there has been an upsurge of conversations about it on social media. To study this rhetorical activity, we build on four overlapping traditions of digital writing research in computers and composition that inform how we frame literacies, how we study social media rhetorics, how we engage iteratively and reflexively with methodologies and technologies, and how we blend computational methods with qualitative methods. Drawing on these four traditions, our paper shows our iterative research process through which we gathered and analyzed a dataset of 32,000 posts (formerly known as tweets) from X (formerly Twitter) about prompt writing posted between November 2022 to May 2023. We present five themes about these emerging AI literacy practices: (1) areas of communication impacted by prompt writing, (2) micro-literacy resources shared for prompt writing, (3) market rhetoric shaping prompt writing, (4) rhetorical characteristics of prompts, and (5) definitions of prompt writing. In discussing these themes and our methodologies, we highlight takeaways for digital writing teachers and researchers who are teaching and analyzing critical AI literacies.",
+      "venue": "cs.CY",
+      "citation_count": 0,
+      "doi": "10.1016/j.compcom.2024.102882",
+      "arxiv_id": "2511.00106",
+      "url": "https://arxiv.org/abs/2511.00106",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2503.19145",
+      "title": "Compositional Caching for Training-free Open-vocabulary Attribute Detection",
+      "authors": [
+        {
+          "name": "Marco Garosi",
+          "affiliation": ""
+        },
+        {
+          "name": "Alessandro Conti",
+          "affiliation": ""
+        },
+        {
+          "name": "Gaowen Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Elisa Ricci",
+          "affiliation": ""
+        },
+        {
+          "name": "Massimiliano Mancini",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Attribute detection is crucial for many computer vision tasks, as it enables systems to describe properties such as color, texture, and material. Current approaches often rely on labor-intensive annotation processes which are inherently limited: objects can be described at an arbitrary level of detail (e.g., color vs. color shades), leading to ambiguities when the annotators are not instructed carefully. Furthermore, they operate within a predefined set of attributes, reducing scalability and adaptability to unforeseen downstream applications. We present Compositional Caching (ComCa), a training-free method for open-vocabulary attribute detection that overcomes these constraints. ComCa requires only the list of target attributes and objects as input, using them to populate an auxiliary cache of images by leveraging web-scale databases and Large Language Models to determine attribute-object compatibility. To account for the compositional nature of attributes, cache images receive soft attribute labels. Those are aggregated at inference time based on the similarity between the input and cache images, refining the predictions of underlying Vision-Language Models (VLMs). Importantly, our approach is model-agnostic, compatible with various VLMs. Experiments on public datasets demonstrate that ComCa significantly outperforms zero-shot and cache-based baselines, competing with recent training-based methods, proving that a carefully designed training-free approach can successfully address open-vocabulary attribute detection.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2503.19145",
+      "url": "https://arxiv.org/abs/2503.19145",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2307.08122",
+      "title": "Tangent Transformers for Composition, Privacy and Removal",
+      "authors": [
+        {
+          "name": "Tian Yu Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Aditya Golatkar",
+          "affiliation": ""
+        },
+        {
+          "name": "Stefano Soatto",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We introduce Tangent Attention Fine-Tuning (TAFT), a method for fine-tuning linearized transformers obtained by computing a First-order Taylor Expansion around a pre-trained initialization. We show that the Jacobian-Vector Product resulting from linearization can be computed efficiently in a single forward pass, reducing training and inference cost to the same order of magnitude as its original non-linear counterpart, while using the same number of parameters. Furthermore, we show that, when applied to various downstream visual classification tasks, the resulting Tangent Transformer fine-tuned with TAFT can perform comparably with fine-tuning the original non-linear network. Since Tangent Transformers are linear with respect to the new set of weights, and the resulting fine-tuning loss is convex, we show that TAFT enjoys several advantages compared to non-linear fine-tuning when it comes to model composition, parallel training, machine unlearning, and differential privacy. Our code is available at: https://github.com/tianyu139/tangent-model-composition",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2307.08122",
+      "url": "https://arxiv.org/abs/2307.08122",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2406.18453",
+      "title": "Towards Human-Level 3D Relative Pose Estimation: Generalizable, Training-Free, with Single Reference",
+      "authors": [
+        {
+          "name": "Yuan Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Yajing Luo",
+          "affiliation": ""
+        },
+        {
+          "name": "Junhong Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Kui Jia",
+          "affiliation": ""
+        },
+        {
+          "name": "Gui-Song Xia",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Humans can easily deduce the relative pose of a previously unseen object, without labeling or training, given only a single query-reference image pair. This is arguably achieved by incorporating i) 3D/2.5D shape perception from a single image, ii) render-and-compare simulation, and iii) rich semantic cue awareness to furnish (coarse) reference-query correspondence. Motivated by this, we propose a novel 3D generalizable relative pose estimation method by elaborating 3D/2.5D shape perception with a 2.5D shape from an RGB-D reference, fulfilling the render-and-compare paradigm with an off-the-shelf differentiable renderer, and leveraging the semantic cues from a pretrained model like DINOv2. Specifically, our differentiable renderer takes the 2.5D rotatable mesh textured by the RGB and the semantic maps (obtained by DINOv2 from the RGB input), then renders new RGB and semantic maps (with back-surface culling) under a novel rotated view. The refinement loss comes from comparing the rendered RGB and semantic maps with the query ones, back-propagating the gradients through the differentiable renderer to refine the 3D relative pose. As a result, \\emph{our method can be readily applied to unseen objects, given only a single RGB-D reference, without labeling or training}. Extensive experiments on LineMOD, LM-O, and YCB-V show that our training-free method significantly outperforms the state-of-the-art supervised methods, especially under the rigorous \\texttt{Acc@5/10/15}$^\\circ$ metrics and the challenging cross-dataset settings.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1109/TPAMI.2025.3600413",
+      "arxiv_id": "2406.18453",
+      "url": "https://arxiv.org/abs/2406.18453",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2211.13854",
+      "title": "ComCLIP: Training-Free Compositional Image and Text Matching",
+      "authors": [
+        {
+          "name": "Kenan Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xuehai He",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruize Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xin Eric Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Contrastive Language-Image Pretraining (CLIP) has demonstrated great zero-shot performance for matching images and text. However, it is still challenging to adapt vision-lanaguage pretrained models like CLIP to compositional image and text matching -- a more challenging image and text matching task requiring the model understanding of compositional word concepts and visual components. Towards better compositional generalization in zero-shot image and text matching, in this paper, we study the problem from a causal perspective: the erroneous semantics of individual entities are essentially confounders that cause the matching failure. Therefore, we propose a novel \\textbf{\\textit{training-free}} compositional CLIP model (ComCLIP). ComCLIP disentangles input images into subjects, objects, and action sub-images and composes CLIP's vision encoder and text encoder to perform evolving matching over compositional text embedding and sub-image embeddings. In this way, ComCLIP can mitigate spurious correlations introduced by the pretrained CLIP models and dynamically evaluate the importance of each component. Experiments on four compositional image-text matching datasets: SVO, ComVG, Winoground, and VL-checklist, and two general image-text retrieval datasets: Flick30K, and MSCOCO demonstrate the effectiveness of our plug-and-play method, which boosts the \\textbf{\\textit{zero-shot}} inference ability of CLIP, SLIP, and BLIP2 even without further training or fine-tuning. Our codes can be found at https://github.com/eric-ai-lab/ComCLIP.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2211.13854",
+      "url": "https://arxiv.org/abs/2211.13854",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

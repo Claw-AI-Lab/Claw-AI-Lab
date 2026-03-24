@@ -1,0 +1,851 @@
+{
+  "query": "attention-based texture generation methods",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1773978993.0595472,
+  "papers": [
+    {
+      "paper_id": "arxiv-2412.07766",
+      "title": "Make-A-Texture: Fast Shape-Aware Texture Generation in 3 Seconds",
+      "authors": [
+        {
+          "name": "Xiaoyu Xiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Liat Sless Gorelik",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuchen Fan",
+          "affiliation": ""
+        },
+        {
+          "name": "Omri Armstrong",
+          "affiliation": ""
+        },
+        {
+          "name": "Forrest Iandola",
+          "affiliation": ""
+        },
+        {
+          "name": "Yilei Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Ita Lifshitz",
+          "affiliation": ""
+        },
+        {
+          "name": "Rakesh Ranjan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "We present Make-A-Texture, a new framework that efficiently synthesizes high-resolution texture maps from textual prompts for given 3D geometries. Our approach progressively generates textures that are consistent across multiple viewpoints with a depth-aware inpainting diffusion model, in an optimized sequence of viewpoints determined by an automatic view selection algorithm.\n  A significant feature of our method is its remarkable efficiency, achieving a full texture generation within an end-to-end runtime of just 3.07 seconds on a single NVIDIA H100 GPU, significantly outperforming existing methods. Such an acceleration is achieved by optimizations in the diffusion model and a specialized backprojection method. Moreover, our method reduces the artifacts in the backprojection phase, by selectively masking out non-frontal faces, and internal faces of open-surfaced objects.\n  Experimental results demonstrate that Make-A-Texture matches or exceeds the quality of other state-of-the-art methods. Our work significantly improves the applicability and practicality of texture generation models for real-world 3D content creation, including interactive creation and text-guided texture editing.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2412.07766",
+      "url": "https://arxiv.org/abs/2412.07766",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2008.01180",
+      "title": "Describing Textures using Natural Language",
+      "authors": [
+        {
+          "name": "Chenyun Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Mikayla Timm",
+          "affiliation": ""
+        },
+        {
+          "name": "Subhransu Maji",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Textures in natural images can be characterized by color, shape, periodicity of elements within them, and other attributes that can be described using natural language. In this paper, we study the problem of describing visual attributes of texture on a novel dataset containing rich descriptions of textures, and conduct a systematic study of current generative and discriminative models for grounding language to images on this dataset. We find that while these models capture some properties of texture, they fail to capture several compositional properties, such as the colors of dots. We provide critical analysis of existing models by generating synthetic but realistic textures with different descriptions. Our dataset also allows us to train interpretable models and generate language-based explanations of what discriminative features are learned by deep networks for fine-grained categorization where texture plays a key role. We present visualizations of several fine-grained domains and show that texture attributes learned on our dataset offer improvements over expert-designed attributes on the Caltech-UCSD Birds dataset.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2008.01180",
+      "url": "https://arxiv.org/abs/2008.01180",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2211.13874",
+      "title": "FFHQ-UV: Normalized Facial UV-Texture Dataset for 3D Face Reconstruction",
+      "authors": [
+        {
+          "name": "Haoran Bai",
+          "affiliation": ""
+        },
+        {
+          "name": "Di Kang",
+          "affiliation": ""
+        },
+        {
+          "name": "Haoxian Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jinshan Pan",
+          "affiliation": ""
+        },
+        {
+          "name": "Linchao Bao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "We present a large-scale facial UV-texture dataset that contains over 50,000 high-quality texture UV-maps with even illuminations, neutral expressions, and cleaned facial regions, which are desired characteristics for rendering realistic 3D face models under different lighting conditions. The dataset is derived from a large-scale face image dataset namely FFHQ, with the help of our fully automatic and robust UV-texture production pipeline. Our pipeline utilizes the recent advances in StyleGAN-based facial image editing approaches to generate multi-view normalized face images from single-image inputs. An elaborated UV-texture extraction, correction, and completion procedure is then applied to produce high-quality UV-maps from the normalized face images. Compared with existing UV-texture datasets, our dataset has more diverse and higher-quality texture maps. We further train a GAN-based texture decoder as the nonlinear texture basis for parametric fitting based 3D face reconstruction. Experiments show that our method improves the reconstruction accuracy over state-of-the-art approaches, and more importantly, produces high-quality texture maps that are ready for realistic renderings. The dataset, code, and pre-trained texture decoder are publicly available at https://github.com/csbhr/FFHQ-UV.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2211.13874",
+      "url": "https://arxiv.org/abs/2211.13874",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2206.04801",
+      "title": "Learning Attention-based Representations from Multiple Patterns for Relation Prediction in Knowledge Graphs",
+      "authors": [
+        {
+          "name": "V\u00edtor Louren\u00e7o",
+          "affiliation": ""
+        },
+        {
+          "name": "Aline Paes",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Knowledge bases, and their representations in the form of knowledge graphs (KGs), are naturally incomplete. Since scientific and industrial applications have extensively adopted them, there is a high demand for solutions that complete their information. Several recent works tackle this challenge by learning embeddings for entities and relations, then employing them to predict new relations among the entities. Despite their aggrandizement, most of those methods focus only on the local neighbors of a relation to learn the embeddings. As a result, they may fail to capture the KGs' context information by neglecting long-term dependencies and the propagation of entities' semantics. In this manuscript, we propose \u00c6MP (Attention-based Embeddings from Multiple Patterns), a novel model for learning contextualized representations by: (i) acquiring entities' context information through an attention-enhanced message-passing scheme, which captures the entities' local semantics while focusing on different aspects of their neighborhood; and (ii) capturing the semantic context, by leveraging the paths and their relationships between entities. Our empirical findings draw insights into how attention mechanisms can improve entities' context representation and how combining entities and semantic path contexts improves the general representation of entities and the relation predictions. Experimental results on several large and small knowledge graph benchmarks show that \u00c6MP either outperforms or competes with state-of-the-art relation prediction methods.",
+      "venue": "cs.AI",
+      "citation_count": 0,
+      "doi": "10.1016/j.knosys.2022.109232",
+      "arxiv_id": "2206.04801",
+      "url": "https://arxiv.org/abs/2206.04801",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2307.00161",
+      "title": "FFPDG: Fast, Fair and Private Data Generation",
+      "authors": [
+        {
+          "name": "Weijie Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jinjin Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Francis Iannacci",
+          "affiliation": ""
+        },
+        {
+          "name": "Bo Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Generative modeling has been used frequently in synthetic data generation. Fairness and privacy are two big concerns for synthetic data. Although Recent GAN [\\cite{goodfellow2014generative}] based methods show good results in preserving privacy, the generated data may be more biased. At the same time, these methods require high computation resources. In this work, we design a fast, fair, flexible and private data generation method. We show the effectiveness of our method theoretically and empirically. We show that models trained on data generated by the proposed method can perform well (in inference stage) on real application scenarios.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2307.00161",
+      "url": "https://arxiv.org/abs/2307.00161",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2407.16206",
+      "title": "Cluster Haptic Texture Dataset: Haptic Texture Dataset with Varied Velocity-Direction Sliding Contacts",
+      "authors": [
+        {
+          "name": "Michikuni Eguchi",
+          "affiliation": ""
+        },
+        {
+          "name": "Tomohiro Hayase",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuichi Hiroi",
+          "affiliation": ""
+        },
+        {
+          "name": "Takefumi Hiraki",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Haptic sciences and technologies benefit greatly from comprehensive datasets that capture tactile stimuli under controlled, systematic conditions. However, existing haptic datasets collect data through uncontrolled exploration, which hinders the systematic analysis of how motion parameters (e.g., motion direction and velocity) influence tactile perception. This paper introduces Cluster Haptic Texture Dataset, a multimodal dataset recorded using a 3-axis machine with an artificial finger to precisely control sliding velocity and direction. The dataset encompasses 118 textured surfaces across 9 material categories, with recordings at 5 velocity levels (20-60 mm/s) and 8 directions. Each surface was tested under 160 conditions, yielding 18,880 synchronized recordings of audio, acceleration, force, position, and visual data. Validation using convolutional neural networks demonstrates classification accuracies of 96% for texture recognition, 88.76% for velocity estimation, and 78.79% for direction estimation, confirming the dataset's utility for machine learning applications. This resource enables research in haptic rendering, texture recognition algorithms, and human tactile perception mechanisms, supporting the development of realistic haptic interfaces for virtual reality systems and robotic applications.",
+      "venue": "cs.HC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2407.16206",
+      "url": "https://arxiv.org/abs/2407.16206",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2401.09109",
+      "title": "Trapped in texture bias? A large scale comparison of deep instance segmentation",
+      "authors": [
+        {
+          "name": "Johannes Theodoridis",
+          "affiliation": ""
+        },
+        {
+          "name": "Jessica Hofmann",
+          "affiliation": ""
+        },
+        {
+          "name": "Johannes Maucher",
+          "affiliation": ""
+        },
+        {
+          "name": "Andreas Schilling",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Do deep learning models for instance segmentation generalize to novel objects in a systematic way? For classification, such behavior has been questioned. In this study, we aim to understand if certain design decisions such as framework, architecture or pre-training contribute to the semantic understanding of instance segmentation. To answer this question, we consider a special case of robustness and compare pre-trained models on a challenging benchmark for object-centric, out-of-distribution texture. We do not introduce another method in this work. Instead, we take a step back and evaluate a broad range of existing literature. This includes Cascade and Mask R-CNN, Swin Transformer, BMask, YOLACT(++), DETR, BCNet, SOTR and SOLOv2. We find that YOLACT++, SOTR and SOLOv2 are significantly more robust to out-of-distribution texture than other frameworks. In addition, we show that deeper and dynamic architectures improve robustness whereas training schedules, data augmentation and pre-training have only a minor impact. In summary we evaluate 68 models on 61 versions of MS COCO for a total of 4148 evaluations.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1007/978-3-031-20074-8_35",
+      "arxiv_id": "2401.09109",
+      "url": "https://arxiv.org/abs/2401.09109",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2107.12524",
+      "title": "Ensemble Learning For Mega Man Level Generation",
+      "authors": [
+        {
+          "name": "Bowei Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruohan Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuqing Xue",
+          "affiliation": ""
+        },
+        {
+          "name": "Ricky Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenwen Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Matthew Guzdial",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Procedural content generation via machine learning (PCGML) is the process of procedurally generating game content using models trained on existing game content. PCGML methods can struggle to capture the true variance present in underlying data with a single model. In this paper, we investigated the use of ensembles of Markov chains for procedurally generating \\emph{Mega Man} levels. We conduct an initial investigation of our approach and evaluate it on measures of playability and stylistic similarity in comparison to a non-ensemble, existing Markov chain approach.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "10.1145/3472538.3472600",
+      "arxiv_id": "2107.12524",
+      "url": "https://arxiv.org/abs/2107.12524",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2107.12533",
+      "title": "Toward Co-creative Dungeon Generation via Transfer Learning",
+      "authors": [
+        {
+          "name": "Zisen Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Matthew Guzdial",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Co-creative Procedural Content Generation via Machine Learning (PCGML) refers to systems where a PCGML agent and a human work together to produce output content. One of the limitations of co-creative PCGML is that it requires co-creative training data for a PCGML agent to learn to interact with humans. However, acquiring this data is a difficult and time-consuming process. In this work, we propose approximating human-AI interaction data and employing transfer learning to adapt learned co-creative knowledge from one game to a different game. We explore this approach for co-creative Zelda dungeon room generation.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "10.1145/3472538.3472601",
+      "arxiv_id": "2107.12533",
+      "url": "https://arxiv.org/abs/2107.12533",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2309.03001",
+      "title": "Role of unphysical neutrino phases in the phenomenology of consistently defined textures. Case study: traceless neutrino mass matrix",
+      "authors": [
+        {
+          "name": "N. Chamoun",
+          "affiliation": ""
+        },
+        {
+          "name": "E. I. Lashin",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We highlight the role played by the unphysical phases in the definition of neutrino mass matrix, showing it does not relate to mere semantics, rather it has an effect on the phenomenology. As a case study, we take the neutrino mass matrix texture characterized by a vanishing trace, and study the effect of the phases, physical and unphysical, in its definition. We undergo a thorough phenomenological analysis, first (second) when the unphysical (CP) phases are vanishing, then move on to the general case where all phases exist. We stress that the effect of the unphysical phases on the phenomenology originates from changing the texture definition upon introducing them, while they are not observable. Finally we present a theoretical realization of the texture based on $A_5$ non-abelian flavor symmetry, which is also related to a consistently defined texture.",
+      "venue": "hep-ph",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2309.03001",
+      "url": "https://arxiv.org/abs/2309.03001",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2107.12506",
+      "title": "TaikoNation: Patterning-focused Chart Generation for Rhythm Action Games",
+      "authors": [
+        {
+          "name": "Emily Halina",
+          "affiliation": ""
+        },
+        {
+          "name": "Matthew Guzdial",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Generating rhythm game charts from songs via machine learning has been a problem of increasing interest in recent years. However, all existing systems struggle to replicate human-like patterning: the placement of game objects in relation to each other to form congruent patterns based on events in the song. Patterning is a key identifier of high quality rhythm game content, seen as a necessary component in human rankings. We establish a new approach for chart generation that produces charts with more congruent, human-like patterning than seen in prior work.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "10.1145/3472538.3472589",
+      "arxiv_id": "2107.12506",
+      "url": "https://arxiv.org/abs/2107.12506",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2007.06108",
+      "title": "Tabletop Roleplaying Games as Procedural Content Generators",
+      "authors": [
+        {
+          "name": "Matthew Guzdial",
+          "affiliation": ""
+        },
+        {
+          "name": "Devi Acharya",
+          "affiliation": ""
+        },
+        {
+          "name": "Max Kreminski",
+          "affiliation": ""
+        },
+        {
+          "name": "Michael Cook",
+          "affiliation": ""
+        },
+        {
+          "name": "Mirjam Eladhari",
+          "affiliation": ""
+        },
+        {
+          "name": "Antonios Liapis",
+          "affiliation": ""
+        },
+        {
+          "name": "Anne Sullivan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Tabletop roleplaying games (TTRPGs) and procedural content generators can both be understood as systems of rules for producing content. In this paper, we argue that TTRPG design can usefully be viewed as procedural content generator design. We present several case studies linking key concepts from PCG research -- including possibility spaces, expressive range analysis, and generative pipelines -- to key concepts in TTRPG design. We then discuss the implications of these relationships and suggest directions for future work uniting research in TTRPGs and PCG.",
+      "venue": "cs.AI",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2007.06108",
+      "url": "https://arxiv.org/abs/2007.06108",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2107.12532",
+      "title": "Generating Lode Runner Levels by Learning Player Paths with LSTMs",
+      "authors": [
+        {
+          "name": "Kynan Sorochan",
+          "affiliation": ""
+        },
+        {
+          "name": "Jerry Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Yakun Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Matthew Guzdial",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Machine learning has been a popular tool in many different fields, including procedural content generation. However, procedural content generation via machine learning (PCGML) approaches can struggle with controllability and coherence. In this paper, we attempt to address these problems by learning to generate human-like paths, and then generating levels based on these paths. We extract player path data from gameplay video, train an LSTM to generate new paths based on this data, and then generate game levels based on this path data. We demonstrate that our approach leads to more coherent levels for the game Lode Runner in comparison to an existing PCGML approach.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "10.1145/3472538.3472602",
+      "arxiv_id": "2107.12532",
+      "url": "https://arxiv.org/abs/2107.12532",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2509.05131",
+      "title": "A Scalable Attention-Based Approach for Image-to-3D Texture Mapping",
+      "authors": [
+        {
+          "name": "Arianna Rampini",
+          "affiliation": ""
+        },
+        {
+          "name": "Kanika Madan",
+          "affiliation": ""
+        },
+        {
+          "name": "Bruno Roy",
+          "affiliation": ""
+        },
+        {
+          "name": "AmirHossein Zamani",
+          "affiliation": ""
+        },
+        {
+          "name": "Derek Cheung",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "High-quality textures are critical for realistic 3D content creation, yet existing generative methods are slow, rely on UV maps, and often fail to remain faithful to a reference image. To address these challenges, we propose a transformer-based framework that predicts a 3D texture field directly from a single image and a mesh, eliminating the need for UV mapping and differentiable rendering, and enabling faster texture generation. Our method integrates a triplane representation with depth-based backprojection losses, enabling efficient training and faster inference. Once trained, it generates high-fidelity textures in a single forward pass, requiring only 0.2s per shape. Extensive qualitative, quantitative, and user preference evaluations demonstrate that our method outperforms state-of-the-art baselines on single-image texture reconstruction in terms of both fidelity to the input image and perceptual quality, highlighting its practicality for scalable, high-quality, and controllable 3D content creation.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2509.05131",
+      "url": "https://arxiv.org/abs/2509.05131",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2508.09699",
+      "title": "Slot Attention-based Feature Filtering for Few-Shot Learning",
+      "authors": [
+        {
+          "name": "Javier Rodenas",
+          "affiliation": ""
+        },
+        {
+          "name": "Eduardo Aguilar",
+          "affiliation": ""
+        },
+        {
+          "name": "Petia Radeva",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Irrelevant features can significantly degrade few-shot learn ing performance. This problem is used to match queries and support images based on meaningful similarities despite the limited data. However, in this process, non-relevant fea tures such as background elements can easily lead to confu sion and misclassification. To address this issue, we pro pose Slot Attention-based Feature Filtering for Few-Shot Learning (SAFF) that leverages slot attention mechanisms to discriminate and filter weak features, thereby improving few-shot classification performance. The key innovation of SAFF lies in its integration of slot attention with patch em beddings, unifying class-aware slots into a single attention mechanism to filter irrelevant features effectively. We intro duce a similarity matrix that computes across support and query images to quantify the relevance of filtered embed dings for classification. Through experiments, we demon strate that Slot Attention performs better than other atten tion mechanisms, capturing discriminative features while reducing irrelevant information. We validate our approach through extensive experiments on few-shot learning bench marks: CIFAR-FS, FC100, miniImageNet and tieredIma geNet, outperforming several state-of-the-art methods.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2508.09699",
+      "url": "https://arxiv.org/abs/2508.09699",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2204.00719",
+      "title": "Attention-Based Applications in Extended Reality to Support Autistic Users: A Systematic Review",
+      "authors": [
+        {
+          "name": "Katherine Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Simon Julier",
+          "affiliation": ""
+        },
+        {
+          "name": "Youngjun Cho",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "With the rising prevalence of autism diagnoses, it is essential for research to understand how to leverage technology to support the diverse nature of autistic traits. While traditional interventions focused on technology for medical cure and rehabilitation, recent research aims to understand how technology can accommodate each unique situation in an efficient and engaging way. Extended reality (XR) technology has been shown to be effective in improving attention in autistic users given that it is more engaging and motivating than other traditional mediums. Here, we conducted a systematic review of 59 research articles that explored the role of attention in XR interventions for autistic users. We systematically analyzed demographics, study design and findings, including autism screening and attention measurement methods. Furthermore, given methodological inconsistencies in the literature, we systematically synthesize methods and protocols including screening tools, physiological and behavioral cues of autism and XR tasks. While there is substantial evidence for the effectiveness of using XR in attention-based interventions for autism to support autistic traits, we have identified three principal research gaps that provide promising research directions to examine how autistic populations interact with XR. First, our findings highlight the disproportionate geographic locations of autism studies and underrepresentation of autistic adults, evidence of gender disparity, and presence of individuals diagnosed with co-occurring conditions across studies. Second, many studies used an assortment of standardized and novel tasks and self-report assessments with limited tested reliability. Lastly, the research lacks evidence of performance maintenance and transferability.",
+      "venue": "cs.HC",
+      "citation_count": 0,
+      "doi": "10.1109/ACCESS.2022.3147726",
+      "arxiv_id": "2204.00719",
+      "url": "https://arxiv.org/abs/2204.00719",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2107.04020",
+      "title": "TGHop: An Explainable, Efficient and Lightweight Method for Texture Generation",
+      "authors": [
+        {
+          "name": "Xuejing Lei",
+          "affiliation": ""
+        },
+        {
+          "name": "Ganning Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Kaitai Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "C. -C. Jay Kuo",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "An explainable, efficient and lightweight method for texture generation, called TGHop (an acronym of Texture Generation PixelHop), is proposed in this work. Although synthesis of visually pleasant texture can be achieved by deep neural networks, the associated models are large in size, difficult to explain in theory, and computationally expensive in training. In contrast, TGHop is small in its model size, mathematically transparent, efficient in training and inference, and able to generate high quality texture. Given an exemplary texture, TGHop first crops many sample patches out of it to form a collection of sample patches called the source. Then, it analyzes pixel statistics of samples from the source and obtains a sequence of fine-to-coarse subspaces for these patches by using the PixelHop++ framework. To generate texture patches with TGHop, we begin with the coarsest subspace, which is called the core, and attempt to generate samples in each subspace by following the distribution of real samples. Finally, texture patches are stitched to form texture images of a large size. It is demonstrated by experimental results that TGHop can generate texture images of superior quality with a small model size and at a fast speed.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2107.04020",
+      "url": "https://arxiv.org/abs/2107.04020",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2403.02217",
+      "title": "DragTex: Generative Point-Based Texture Editing on 3D Mesh",
+      "authors": [
+        {
+          "name": "Yudi Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Qi Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Lei Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Creating 3D textured meshes using generative artificial intelligence has garnered significant attention recently. While existing methods support text-based generative texture generation or editing on 3D meshes, they often struggle to precisely control pixels of texture images through more intuitive interaction. While 2D images can be edited generatively using drag interaction, applying this type of methods directly to 3D mesh textures still leads to issues such as the lack of local consistency among multiple views, error accumulation and long training times. To address these challenges, we propose a generative point-based 3D mesh texture editing method called DragTex. This method utilizes a diffusion model to blend locally inconsistent textures in the region near the deformed silhouette between different views, enabling locally consistent texture editing. Besides, we fine-tune a decoder to reduce reconstruction errors in the non-drag region, thereby mitigating overall error accumulation. Moreover, we train LoRA using multi-view images instead of training each view individually, which significantly shortens the training time. The experimental results show that our method effectively achieves dragging textures on 3D meshes and generates plausible textures that align with the desired intent of drag interaction.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2403.02217",
+      "url": "https://arxiv.org/abs/2403.02217",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2505.04387",
+      "title": "Geometry-Aware Texture Generation for 3D Head Modeling with Artist-driven Control",
+      "authors": [
+        {
+          "name": "Amin Fadaeinejad",
+          "affiliation": ""
+        },
+        {
+          "name": "Abdallah Dib",
+          "affiliation": ""
+        },
+        {
+          "name": "Luiz Gustavo Hafemann",
+          "affiliation": ""
+        },
+        {
+          "name": "Emeline Got",
+          "affiliation": ""
+        },
+        {
+          "name": "Trevor Anderson",
+          "affiliation": ""
+        },
+        {
+          "name": "Amaury Depierre",
+          "affiliation": ""
+        },
+        {
+          "name": "Nikolaus F. Troje",
+          "affiliation": ""
+        },
+        {
+          "name": "Marcus A. Brubaker",
+          "affiliation": ""
+        },
+        {
+          "name": "Marc-Andr\u00e9 Carbonneau",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Creating realistic 3D head assets for virtual characters that match a precise artistic vision remains labor-intensive. We present a novel framework that streamlines this process by providing artists with intuitive control over generated 3D heads. Our approach uses a geometry-aware texture synthesis pipeline that learns correlations between head geometry and skin texture maps across different demographics. The framework offers three levels of artistic control: manipulation of overall head geometry, adjustment of skin tone while preserving facial characteristics, and fine-grained editing of details such as wrinkles or facial hair. Our pipeline allows artists to make edits to a single texture map using familiar tools, with our system automatically propagating these changes coherently across the remaining texture maps needed for realistic rendering. Experiments demonstrate that our method produces diverse results with clean geometries. We showcase practical applications focusing on intuitive control for artists, including skin tone adjustments and simplified editing workflows for adding age-related details or removing unwanted features from scanned models. This integrated approach aims to streamline the artistic workflow in virtual character creation.",
+      "venue": "cs.GR",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2505.04387",
+      "url": "https://arxiv.org/abs/2505.04387",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2501.08562",
+      "title": "MIAFEx: An Attention-based Feature Extraction Method for Medical Image Classification",
+      "authors": [
+        {
+          "name": "Oscar Ramos-Soto",
+          "affiliation": ""
+        },
+        {
+          "name": "Jorge Ramos-Frutos",
+          "affiliation": ""
+        },
+        {
+          "name": "Ezequiel Perez-Zarate",
+          "affiliation": ""
+        },
+        {
+          "name": "Diego Oliva",
+          "affiliation": ""
+        },
+        {
+          "name": "Sandra E. Balderas-Mata",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Feature extraction techniques are crucial in medical image classification; however, classical feature extractors, in addition to traditional machine learning classifiers, often exhibit significant limitations in providing sufficient discriminative information for complex image sets. While Convolutional Neural Networks (CNNs) and Vision Transformer (ViT) have shown promise in feature extraction, they are prone to overfitting due to the inherent characteristics of medical imaging data, including small sample sizes or high intra-class variance. In this work, the Medical Image Attention-based Feature Extractor (MIAFEx) is proposed, a novel method that employs a learnable refinement mechanism to enhance the classification token within the Transformer encoder architecture. This mechanism adjusts the token based on learned weights, improving the extraction of salient features and enhancing the model's adaptability to the challenges presented by medical imaging data. The MIAFEx output feature quality is compared against classical feature extractors using traditional and hybrid classifiers. Also, the performance of these features is compared against modern CNN and ViT models in classification tasks, demonstrating their superiority in accuracy and robustness across multiple complex medical imaging datasets. This advantage is particularly pronounced in scenarios with limited training data, where traditional and modern models often struggle to generalize effectively. The source code of this proposal can be found at https://github.com/Oscar-RamosS/Medical-Image-Attention-based-Feature-Extractor-MIAFEx",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1016/j.knosys.2025.114468",
+      "arxiv_id": "2501.08562",
+      "url": "https://arxiv.org/abs/2501.08562",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2510.02717",
+      "title": "CST-AFNet: A dual attention-based deep learning framework for intrusion detection in IoT networks",
+      "authors": [
+        {
+          "name": "Waqas Ishtiaq",
+          "affiliation": ""
+        },
+        {
+          "name": "Ashrafun Zannat",
+          "affiliation": ""
+        },
+        {
+          "name": "A. H. M. Shahariar Parvez",
+          "affiliation": ""
+        },
+        {
+          "name": "Md. Alamgir Hossain",
+          "affiliation": ""
+        },
+        {
+          "name": "Muntasir Hasan Kanchan",
+          "affiliation": ""
+        },
+        {
+          "name": "Muhammad Masud Tarek",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The rapid expansion of the Internet of Things (IoT) has revolutionized modern industries by enabling smart automation and real time connectivity. However, this evolution has also introduced complex cybersecurity challenges due to the heterogeneous, resource constrained, and distributed nature of these environments. To address these challenges, this research presents CST AFNet, a novel dual attention based deep learning framework specifically designed for robust intrusion detection in IoT networks. The model integrates multi scale Convolutional Neural Networks (CNNs) for spatial feature extraction, Bidirectional Gated Recurrent Units (BiGRUs) for capturing temporal dependencies, and a dual attention mechanism, channel and temporal attention, to enhance focus on critical patterns in the data. The proposed method was trained and evaluated on the Edge IIoTset dataset, a comprehensive and realistic benchmark containing more than 2.2 million labeled instances spanning 15 attack types and benign traffic, collected from a seven layer industrial testbed. Our proposed model achieves outstanding accuracy for both 15 attack types and benign traffic. CST AFNet achieves 99.97 percent accuracy. Moreover, this model demonstrates exceptional performance with macro averaged precision, recall, and F1 score all above 99.3 percent. Experimental results show that CST AFNet achieves superior detection accuracy, significantly outperforming traditional deep learning models. The findings confirm that CST AFNet is a powerful and scalable solution for real time cyber threat detection in complex IoT and IIoT environments, paving the way for more secure, intelligent, and adaptive cyber physical systems.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "10.1016/j.array.2025.100501",
+      "arxiv_id": "2510.02717",
+      "url": "https://arxiv.org/abs/2510.02717",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2206.03003",
+      "title": "Transformer-based Personalized Attention Mechanism for Medical Images with Clinical Records",
+      "authors": [
+        {
+          "name": "Yusuke Takagi",
+          "affiliation": ""
+        },
+        {
+          "name": "Noriaki Hashimoto",
+          "affiliation": ""
+        },
+        {
+          "name": "Hiroki Masuda",
+          "affiliation": ""
+        },
+        {
+          "name": "Hiroaki Miyoshi",
+          "affiliation": ""
+        },
+        {
+          "name": "Koichi Ohshima",
+          "affiliation": ""
+        },
+        {
+          "name": "Hidekata Hontani",
+          "affiliation": ""
+        },
+        {
+          "name": "Ichiro Takeuchi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "In medical image diagnosis, identifying the attention region, i.e., the region of interest for which the diagnosis is made, is an important task. Various methods have been developed to automatically identify target regions from given medical images. However, in actual medical practice, the diagnosis is made based not only on the images but also on a variety of clinical records. This means that pathologists examine medical images with some prior knowledge of the patients and that the attention regions may change depending on the clinical records. In this study, we propose a method called the Personalized Attention Mechanism (PersAM), by which the attention regions in medical images are adaptively changed according to the clinical records. The primary idea of the PersAM method is to encode the relationships between the medical images and clinical records using a variant of Transformer architecture. To demonstrate the effectiveness of the PersAM method, we applied it to a large-scale digital pathology problem of identifying the subtypes of 842 malignant lymphoma patients based on their gigapixel whole slide images and clinical records.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2206.03003",
+      "url": "https://arxiv.org/abs/2206.03003",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.21309",
+      "title": "CaliTex: Geometry-Calibrated Attention for View-Coherent 3D Texture Generation",
+      "authors": [
+        {
+          "name": "Chenyu Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hongze Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Jingzhi Bao",
+          "affiliation": ""
+        },
+        {
+          "name": "Lingting Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Runze Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Weikai Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Zeyu Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yingda Yin",
+          "affiliation": ""
+        },
+        {
+          "name": "Keyang Luo",
+          "affiliation": ""
+        },
+        {
+          "name": "Xin Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Despite major advances brought by diffusion-based models, current 3D texture generation systems remain hindered by cross-view inconsistency -- textures that appear convincing from one viewpoint often fail to align across others. We find that this issue arises from attention ambiguity, where unstructured full attention is applied indiscriminately across tokens and modalities, causing geometric confusion and unstable appearance-structure coupling. To address this, we introduce CaliTex, a framework of geometry-calibrated attention that explicitly aligns attention with 3D structure. It introduces two modules: Part-Aligned Attention that enforces spatial alignment across semantically matched parts, and Condition-Routed Attention which routes appearance information through geometry-conditioned pathways to maintain spatial fidelity. Coupled with a two-stage diffusion transformer, CaliTex makes geometric coherence an inherent behavior of the network rather than a byproduct of optimization. Empirically, CaliTex produces seamless and view-consistent textures and outperforms both open-source and commercial baselines.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.21309",
+      "url": "https://arxiv.org/abs/2511.21309",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2012.04242",
+      "title": "Texture Transform Attention for Realistic Image Inpainting",
+      "authors": [
+        {
+          "name": "Yejin Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Manri Cheon",
+          "affiliation": ""
+        },
+        {
+          "name": "Junwoo Lee",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Over the last few years, the performance of inpainting to fill missing regions has shown significant improvements by using deep neural networks. Most of inpainting work create a visually plausible structure and texture, however, due to them often generating a blurry result, final outcomes appear unrealistic and make feel heterogeneity. In order to solve this problem, the existing methods have used a patch based solution with deep neural network, however, these methods also cannot transfer the texture properly. Motivated by these observation, we propose a patch based method. Texture Transform Attention network(TTA-Net) that better produces the missing region inpainting with fine details. The task is a single refinement network and takes the form of U-Net architecture that transfers fine texture features of encoder to coarse semantic features of decoder through skip-connection. Texture Transform Attention is used to create a new reassembled texture map using fine textures and coarse semantics that can efficiently transfer texture information as a result. To stabilize training process, we use a VGG feature layer of ground truth and patch discriminator. We evaluate our model end-to-end with the publicly available datasets CelebA-HQ and Places2 and demonstrate that images of higher quality can be obtained to the existing state-of-the-art approaches.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2012.04242",
+      "url": "https://arxiv.org/abs/2012.04242",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2403.05102",
+      "title": "Enhancing Texture Generation with High-Fidelity Using Advanced Texture Priors",
+      "authors": [
+        {
+          "name": "Kuo Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Maoyu Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Muyu Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Lincong Feng",
+          "affiliation": ""
+        },
+        {
+          "name": "Tianhui Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaoli Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "The recent advancements in 2D generation technology have sparked a widespread discussion on using 2D priors for 3D shape and texture content generation. However, these methods often overlook the subsequent user operations, such as texture aliasing and blurring that occur when the user acquires the 3D model and simplifies its structure. Traditional graphics methods partially alleviate this issue, but recent texture synthesis technologies fail to ensure consistency with the original model's appearance and cannot achieve high-fidelity restoration. Moreover, background noise frequently arises in high-resolution texture synthesis, limiting the practical application of these generation technologies.In this work, we propose a high-resolution and high-fidelity texture restoration technique that uses the rough texture as the initial input to enhance the consistency between the synthetic texture and the initial texture, thereby overcoming the issues of aliasing and blurring caused by the user's structure simplification operations. Additionally, we introduce a background noise smoothing technique based on a self-supervised scheme to address the noise problem in current high-resolution texture synthesis schemes. Our approach enables high-resolution texture synthesis, paving the way for high-definition and high-detail texture synthesis technology. Experiments demonstrate that our scheme outperforms currently known schemes in high-fidelity texture recovery under high-resolution conditions.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2403.05102",
+      "url": "https://arxiv.org/abs/2403.05102",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

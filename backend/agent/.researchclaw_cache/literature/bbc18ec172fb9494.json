@@ -1,0 +1,1504 @@
+{
+  "query": "Training free controllable image generation extending",
+  "source": "semantic_scholar",
+  "limit": 40,
+  "timestamp": 1773976206.8038008,
+  "papers": [
+    {
+      "paper_id": "s2-e3d32c28ae896b072a616e579a529ed0106e33f8",
+      "title": "ViFeEdit: A Video-Free Tuner of Your Video Diffusion Transformer",
+      "authors": [
+        {
+          "name": "Ruonan Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhenxiong Tan",
+          "affiliation": ""
+        },
+        {
+          "name": "Zigeng Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Songhua Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinchao Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Diffusion Transformers (DiTs) have demonstrated remarkable scalability and quality in image and video generation, prompting growing interest in extending them to controllable generation and editing tasks. However, compared to the image counterparts, progress in video control and editing remains limited, mainly due to the scarcity of paired video data and the high computational cost of training video diffusion models. To address this issue, in this paper, we propose a video-free tuning framework termed ViFeEdit for video diffusion transformers. Without requiring any forms of video training data, ViFeEdit achieves versatile video generation and editing, adapted solely with 2D images. At the core of our approach is an architectural reparameterization that decouples spatial independence from the full 3D attention in modern video diffusion transformers, which enables visually faithful editing while maintaining temporal consistency with only minimal additional parameters. Moreover, this design operates in a dual-path pipeline with separate timestep embeddings for noise scheduling, exhibiting strong adaptability to diverse conditioning signals. Extensive experiments demonstrate that our method delivers promising results of controllable video generation and editing with only minimal training on 2D image data. Codes are available https://github.com/Lexie-YU/ViFeEdit.",
+      "venue": "",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2603.15478",
+      "url": "https://www.semanticscholar.org/paper/e3d32c28ae896b072a616e579a529ed0106e33f8",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-e872ad446a3c6986feea7bd5cbd5b5754c068ab6",
+      "title": "MotionClone: Training-Free Motion Cloning for Controllable Video Generation",
+      "authors": [
+        {
+          "name": "Pengyang Ling",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiazi Bu",
+          "affiliation": ""
+        },
+        {
+          "name": "Pan Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiao-wen Dong",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuhang Zang",
+          "affiliation": ""
+        },
+        {
+          "name": "Tong Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "H. Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiaqi Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi Jin",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Motion-based controllable video generation offers the potential for creating captivating visual content. Existing methods typically necessitate model training to encode particular motion cues or incorporate fine-tuning to inject certain motion patterns, resulting in limited flexibility and generalization. In this work, we propose MotionClone, a training-free framework that enables motion cloning from reference videos to versatile motion-controlled video generation, including text-to-video and image-to-video. Based on the observation that the dominant components in temporal-attention maps drive motion synthesis, while the rest mainly capture noisy or very subtle motions, MotionClone utilizes sparse temporal attention weights as motion representations for motion guidance, facilitating diverse motion transfer across varying scenarios. Meanwhile, MotionClone allows for the direct extraction of motion representation through a single denoising step, bypassing the cumbersome inversion processes and thus promoting both efficiency and flexibility. Extensive experiments demonstrate that MotionClone exhibits proficiency in both global camera motion and local object motion, with notable superiority in terms of motion fidelity, textual alignment, and temporal consistency.",
+      "venue": "International Conference on Learning Representations",
+      "citation_count": 95,
+      "doi": "10.48550/arXiv.2406.05338",
+      "arxiv_id": "2406.05338",
+      "url": "https://www.semanticscholar.org/paper/e872ad446a3c6986feea7bd5cbd5b5754c068ab6",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-529191401a8a5f0a8bdb2a1c01301d76af585a3a",
+      "title": "ControlVideo: Training-free Controllable Text-to-Video Generation",
+      "authors": [
+        {
+          "name": "Yabo Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuxiang Wei",
+          "affiliation": ""
+        },
+        {
+          "name": "Dongsheng Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaopeng Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "W. Zuo",
+          "affiliation": ""
+        },
+        {
+          "name": "Qi Tian",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Text-driven diffusion models have unlocked unprecedented abilities in image generation, whereas their video counterpart still lags behind due to the excessive training cost of temporal modeling. Besides the training burden, the generated videos also suffer from appearance inconsistency and structural flickers, especially in long video synthesis. To address these challenges, we design a \\emph{training-free} framework called \\textbf{ControlVideo} to enable natural and efficient text-to-video generation. ControlVideo, adapted from ControlNet, leverages coarsely structural consistency from input motion sequences, and introduces three modules to improve video generation. Firstly, to ensure appearance coherence between frames, ControlVideo adds fully cross-frame interaction in self-attention modules. Secondly, to mitigate the flicker effect, it introduces an interleaved-frame smoother that employs frame interpolation on alternated frames. Finally, to produce long videos efficiently, it utilizes a hierarchical sampler that separately synthesizes each short clip with holistic coherency. Empowered with these modules, ControlVideo outperforms the state-of-the-arts on extensive motion-prompt pairs quantitatively and qualitatively. Notably, thanks to the efficient designs, it generates both short and long videos within several minutes using one NVIDIA 2080Ti. Code is available at https://github.com/YBYBZhang/ControlVideo.",
+      "venue": "International Conference on Learning Representations",
+      "citation_count": 348,
+      "doi": "10.48550/arXiv.2305.13077",
+      "arxiv_id": "2305.13077",
+      "url": "https://www.semanticscholar.org/paper/529191401a8a5f0a8bdb2a1c01301d76af585a3a",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-e329a93a0fe61e4af827e46abee98527be5f70b7",
+      "title": "TraDiffusion: Trajectory-Based Training-Free Image Generation",
+      "authors": [
+        {
+          "name": "Ming-Kuan Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Oucheng Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiayi Ji",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianzhuang Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaoshuai Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Liujuan Cao",
+          "affiliation": ""
+        },
+        {
+          "name": "Rongrong Ji",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "In this work, we propose a training-free, trajectory-based controllable T2I approach, termed TraDiffusion. This novel method allows users to effortlessly guide image generation via mouse trajectories. To achieve precise control, we design a distance awareness energy function to effectively guide latent variables, ensuring that the focus of generation is within the areas defined by the trajectory. The energy function encompasses a control function to draw the generation closer to the specified trajectory and a movement function to diminish activity in areas distant from the trajectory. Through extensive experiments and qualitative assessments on the COCO dataset, the results reveal that TraDiffusion facilitates simpler, more natural image control. Moreover, it showcases the ability to manipulate salient regions, attributes, and relationships within the generated images, alongside visual input based on arbitrary or enhanced trajectories. The code: https://github.com/och-mac/TraDiffusion.",
+      "venue": "International Journal of Computer Vision",
+      "citation_count": 5,
+      "doi": "10.1007/s11263-025-02573-6",
+      "arxiv_id": "2408.09739",
+      "url": "https://www.semanticscholar.org/paper/e329a93a0fe61e4af827e46abee98527be5f70b7",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-0f2771433c2fc4948769d0d905c8753608d33bc3",
+      "title": "T2I-Copilot: A Training-Free Multi-Agent Text-to-Image System for Enhanced Prompt Interpretation and Interactive Generation",
+      "authors": [
+        {
+          "name": "Chieh-yun Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Min Shi",
+          "affiliation": ""
+        },
+        {
+          "name": "Gong Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Humphrey Shi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Text-to-Image (T2I) generative models have revolutionized content creation but remain highly sensitive to prompt phrasing, often requiring users to repeatedly refine prompts multiple times without clear feedback. While techniques such as automatic prompt engineering, controlled text embeddings, denoising, and multi-turn generation mitigate these issues, they offer limited controllability, or often necessitate additional training, restricting the generalization abilities. Thus, we introduce T2I-Copilot, a training-free multi-agent system that leverages collaboration between (Multimodal) Large Language Models to automate prompt phrasing, model selection, and iterative refinement. This approach significantly simplifies prompt engineering while enhancing generation quality and text-image alignment compared to direct generation. Specifically, T2I-Copilot consists of three agents: (1) Input Interpreter, which parses the input prompt, resolves ambiguities, and generates a standardized report; (2) Generation Engine, which selects the appropriate model from different types of T2I models and organizes visual and textual prompts to initiate generation; and (3) Quality Evaluator, which assesses aesthetic quality and text-image alignment, providing scores and feedback for potential regeneration. T2I-Copilot can operate fully autonomously while also supporting human-in-the-loop intervention for fine-grained control. On GenAI-Bench, using open-source generation models, T2I-Copilot achieves a VQA score comparable to commercial models RecraftV3 and Imagen 3, surpasses FLUX1.1-pro by 6.17% at only 16.59% of its cost, and outperforms FLUX.1-dev and SD 3.5 Large by 9.11% and 6.36%. Code will be released at: https://github.com/SHI-Labs/T2I-Copilot.",
+      "venue": "arXiv.org",
+      "citation_count": 13,
+      "doi": "10.48550/arXiv.2507.20536",
+      "arxiv_id": "2507.20536",
+      "url": "https://www.semanticscholar.org/paper/0f2771433c2fc4948769d0d905c8753608d33bc3",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-39ba6d541d94132b816938e7e16b1e8fd49c2fd9",
+      "title": "Training-Free Consistent Text-to-Image Generation",
+      "authors": [
+        {
+          "name": "Yoad Tewel",
+          "affiliation": ""
+        },
+        {
+          "name": "Omri Kaduri",
+          "affiliation": ""
+        },
+        {
+          "name": "Rinon Gal",
+          "affiliation": ""
+        },
+        {
+          "name": "Yoni Kasten",
+          "affiliation": ""
+        },
+        {
+          "name": "Lior Wolf",
+          "affiliation": ""
+        },
+        {
+          "name": "Gal Chechik",
+          "affiliation": ""
+        },
+        {
+          "name": "Y. Atzmon",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Text-to-image models offer a new level of creative flexibility by allowing users to guide the image generation process through natural language. However, using these models to consistently portray the same subject across diverse prompts remains challenging. Existing approaches fine-tune the model to teach it new words that describe specific user-provided subjects or add image conditioning to the model. These methods require lengthy persubject optimization or large-scale pre-training. Moreover, they struggle to align generated images with text prompts and face difficulties in portraying multiple subjects. Here, we present ConsiStory, a training-free approach that enables consistent subject generation by sharing the internal activations of the pretrained model. We introduce a subject-driven shared attention block and correspondence-based feature injection to promote subject consistency between images. Additionally, we develop strategies to encourage layout diversity while maintaining subject consistency. We compare ConsiStory to a range of baselines, and demonstrate state-of-the-art performance on subject consistency and text alignment, without requiring a single optimization step. Finally, ConsiStory can naturally extend to multi-subject scenarios, and even enable training-free personalization for common objects.",
+      "venue": "ACM Transactions on Graphics",
+      "citation_count": 130,
+      "doi": "10.1145/3658157",
+      "arxiv_id": "2402.03286",
+      "url": "https://www.semanticscholar.org/paper/39ba6d541d94132b816938e7e16b1e8fd49c2fd9",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-87ec59770297d5d8860a0b74b92eea7c4e54e4b7",
+      "title": "HiFlow: Training-free High-Resolution Image Generation with Flow-Aligned Guidance",
+      "authors": [
+        {
+          "name": "Jiazi Bu",
+          "affiliation": ""
+        },
+        {
+          "name": "Pengyang Ling",
+          "affiliation": ""
+        },
+        {
+          "name": "Yujie Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Pan Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Tong Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiao-wen Dong",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuhang Zang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuhang Cao",
+          "affiliation": ""
+        },
+        {
+          "name": "Dahua Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiaqi Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Text-to-image (T2I) diffusion/flow models have drawn considerable attention recently due to their remarkable ability to deliver flexible visual creations. Still, high-resolution image synthesis presents formidable challenges due to the scarcity and complexity of high-resolution content. Recent approaches have investigated training-free strategies to enable high-resolution image synthesis with pre-trained models. However, these techniques often struggle with generating high-quality visuals and tend to exhibit artifacts or low-fidelity details, as they typically rely solely on the endpoint of the low-resolution sampling trajectory while neglecting intermediate states that are critical for preserving structure and synthesizing finer detail. To this end, we present HiFlow, a training-free and model-agnostic framework to unlock the resolution potential of pre-trained flow models. Specifically, HiFlow establishes a virtual reference flow within the high-resolution space that effectively captures the characteristics of low-resolution flow information, offering guidance for high-resolution generation through three key aspects: initialization alignment for low-frequency consistency, direction alignment for structure preservation, and acceleration alignment for detail fidelity. By leveraging such flow-aligned guidance, HiFlow substantially elevates the quality of high-resolution image synthesis of T2I models and demonstrates versatility across their personalized variants. Extensive experiments validate HiFlow's capability in achieving superior high-resolution image quality over state-of-the-art methods.",
+      "venue": "arXiv.org",
+      "citation_count": 9,
+      "doi": "10.48550/arXiv.2504.06232",
+      "arxiv_id": "2504.06232",
+      "url": "https://www.semanticscholar.org/paper/87ec59770297d5d8860a0b74b92eea7c4e54e4b7",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-9a73d07a22097402f691df7c409af02092d76b87",
+      "title": "FreeAudio: Training-Free Timing Planning for Controllable Long-Form Text-to-Audio Generation",
+      "authors": [
+        {
+          "name": "Yuxuan Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zehua Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Zeqian Ju",
+          "affiliation": ""
+        },
+        {
+          "name": "Chang Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Weibei Dou",
+          "affiliation": ""
+        },
+        {
+          "name": "Jun Zhu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Text-to-audio (T2A) generation has achieved promising results with the recent advances in generative models. However, because of the limited quality and quantity of temporally-aligned audio-text pairs, existing T2A methods struggle to handle the complex text prompts that contain precise timing control, e.g., owl hooted at 2.4s-5.2s. Recent works have explored data augmentation techniques or introduced timing conditions as model inputs to enable timing-conditioned 10-second T2A generation, while their synthesis quality is still limited. In this work, we propose a novel training-free timing-controlled T2A framework, FreeAudio, making the first attempt to enable timing-controlled long-form T2A generation, e.g., owl hooted at 2.4s-5.2s and crickets chirping at 0s-24s. Specifically, we first employ an LLM to plan non-overlapping time windows and recaption each with a refined natural language description, based on the input text and timing prompts. Then we introduce: 1) Decoupling & Aggregating Attention Control for precise timing control; 2) Contextual Latent Composition for local smoothness and Reference Guidance for global consistency. Extensive experiments show that: 1) FreeAudio achieves state-of-the-art timing-conditioned T2A synthesis quality among training-free methods and is comparable to leading training-based methods; 2) FreeAudio demonstrates comparable long-form generation quality with training-based Stable Audio and paves the way for timing-controlled long-form T2A synthesis. Demo samples are available at: https://freeaudio.github.io/FreeAudio/.",
+      "venue": "ACM Multimedia",
+      "citation_count": 11,
+      "doi": "10.1145/3746027.3755170",
+      "arxiv_id": "2507.08557",
+      "url": "https://www.semanticscholar.org/paper/9a73d07a22097402f691df7c409af02092d76b87",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-4944d132d1ed0e820ba6cc56f00778d72c0fd28c",
+      "title": "PSTF-AttControl: Per-Subject-Tuning-Free Personalized Image Generation with Controllable Face Attributes",
+      "authors": [
+        {
+          "name": "Xiang Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhaoxiang Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Huan Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zipeng Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ping Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Zezhou Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Kai Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Shiguo Lian",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Recent advancements in personalized image generation have significantly improved facial identity preservation, particularly in fields such as entertainment and social media. However, existing methods still struggle to achieve precise control over facial attributes in a per-subject-tuning-free (PSTF) way. Tuning-based techniques like PreciseControl have shown promise by providing fine-grained control over facial features, but they often require extensive technical expertise and additional training data, limiting their accessibility. In contrast, PSTF approaches simplify the process by enabling image generation from a single facial input, but they lack precise control over facial attributes. In this paper, we introduce a novel, PSTF method that enables both precise control over facial attributes and high-fidelity preservation of facial identity. Our approach utilizes a face recognition model to extract facial identity features, which are then mapped into the $W^+$ latent space of StyleGAN2 using the e4e encoder. We further enhance the model with a Triplet-Decoupled Cross-Attention module, which integrates facial identity, attribute features, and text embeddings into the UNet architecture, ensuring clean separation of identity and attribute information. Trained on the FFHQ dataset, our method allows for the generation of personalized images with fine-grained control over facial attributes, while without requiring additional fine-tuning or training data for individual identities. We demonstrate that our approach successfully balances personalization with precise facial attribute control, offering a more efficient and user-friendly solution for high-quality, adaptable facial image synthesis. The code is publicly available at https://github.com/UnicomAI/PSTF-AttControl.",
+      "venue": "Image and Vision Computing",
+      "citation_count": 0,
+      "doi": "10.1016/j.imavis.2025.105790",
+      "arxiv_id": "2510.25084",
+      "url": "https://www.semanticscholar.org/paper/4944d132d1ed0e820ba6cc56f00778d72c0fd28c",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-5370aa35ab6fc216284402435af6fc7940ec9677",
+      "title": "Accelerating Auto-regressive Text-to-Image Generation with Training-free Speculative Jacobi Decoding",
+      "authors": [
+        {
+          "name": "Yao Teng",
+          "affiliation": ""
+        },
+        {
+          "name": "Han Shi",
+          "affiliation": ""
+        },
+        {
+          "name": "Xian Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xuefei Ning",
+          "affiliation": ""
+        },
+        {
+          "name": "Guohao Dai",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhenguo Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Xihui Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "The current large auto-regressive models can generate high-quality, high-resolution images, but these models require hundreds or even thousands of steps of next-token prediction during inference, resulting in substantial time consumption. In existing studies, Jacobi decoding, an iterative parallel decoding algorithm, has been used to accelerate the auto-regressive generation and can be executed without training. However, the Jacobi decoding relies on a deterministic criterion to determine the convergence of iterations. Thus, it works for greedy decoding but is incompatible with sampling-based decoding which is crucial for visual quality and diversity in the current auto-regressive text-to-image generation. In this paper, we propose a training-free probabilistic parallel decoding algorithm, Speculative Jacobi Decoding (SJD), to accelerate auto-regressive text-to-image generation. By introducing a probabilistic convergence criterion, our SJD accelerates the inference of auto-regressive text-to-image generation while maintaining the randomness in sampling-based token decoding and allowing the model to generate diverse images. Specifically, SJD facilitates the model to predict multiple tokens at each step and accepts tokens based on the probabilistic criterion, enabling the model to generate images with fewer steps than the conventional next-token-prediction paradigm. We also investigate the token initialization strategies that leverage the spatial locality of visual data to further improve the acceleration ratio under specific scenarios. We conduct experiments for our proposed SJD on multiple auto-regressive text-to-image generation models, showing the effectiveness of model acceleration without sacrificing the visual quality. The code of our work is available here: https://github.com/tyshiwo1/Accelerating-T2I-AR-with-SJD/.",
+      "venue": "International Conference on Learning Representations",
+      "citation_count": 49,
+      "doi": "10.48550/arXiv.2410.01699",
+      "arxiv_id": "2410.01699",
+      "url": "https://www.semanticscholar.org/paper/5370aa35ab6fc216284402435af6fc7940ec9677",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-e2e2797c83486400b87a88ae7d8068e3edef9aea",
+      "title": "IP-Prompter: Training-Free Theme-Specific Image Generation via Dynamic Visual Prompting",
+      "authors": [
+        {
+          "name": "Yuxin Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Minyan Luo",
+          "affiliation": ""
+        },
+        {
+          "name": "Weiming Dong",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiao Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Haibin Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chongyang Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Oliver Deussen",
+          "affiliation": ""
+        },
+        {
+          "name": "Tong-Yee Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Changsheng Xu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The stories and characters that captivate us as we grow up shape unique fantasy worlds, with images serving as the primary medium for visually experiencing these realms. Personalizing generative models through fine-tuning with theme-specific data has become a prevalent approach in text-to-image generation. However, unlike object customization, which focuses on learning specific objects, theme-specific generation encompasses diverse elements such as characters, scenes, and objects. Such diversity also introduces a key challenge: how to adaptively generate multi-character, multi-concept, and continuous theme-specific images (TSI). Moreover, fine-tuning approaches often come with significant computational overhead, time costs, and risks of overfitting. This paper explores a fundamental question: Can image generation models directly leverage images as contextual input, similarly to how large language models use text as context? To address this, we present IP-Prompter, a novel training-free TSI generation method. IP-Prompter introduces visual prompting, a mechanism that integrates reference images into generative models, allowing users to seamlessly specify the target theme without requiring additional training. To further enhance this process, we propose a Dynamic Visual Prompting (DVP) mechanism, which iteratively optimizes visual prompts to improve the accuracy and quality of generated images. Our approach enables diverse applications, including consistent story generation, character design, realistic character generation, and style-guided image generation. Comparative evaluations against state-of-the-art personalization methods demonstrate that IP-Prompter achieves significantly better results and excels in maintaining character identity preserving, style consistency and text alignment, offering a robust and flexible solution for theme-specific image generation. Our project page: https://ip-prompter.github.io/.",
+      "venue": "International Conference on Computer Graphics and Interactive Techniques",
+      "citation_count": 3,
+      "doi": "10.1145/3721238.3730670",
+      "arxiv_id": "2501.15641",
+      "url": "https://www.semanticscholar.org/paper/e2e2797c83486400b87a88ae7d8068e3edef9aea",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-fe82c66fa13f72e57566698dbbc1a6193c520887",
+      "title": "EditID: Training-Free Editable ID Customization for Text-to-Image Generation",
+      "authors": [
+        {
+          "name": "Guandong Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhaobin Chu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "We propose EditID, a training-free approach based on the DiT architecture, which achieves highly editable customized IDs for text to image generation. Existing text-to-image models for customized IDs typically focus more on ID consistency while neglecting editability. It is challenging to alter facial orientation, character attributes, and other features through prompts. EditID addresses this by deconstructing the text-to-image model for customized IDs into an image generation branch and a character feature branch. The character feature branch is further decoupled into three modules: feature extraction, feature fusion, and feature integration. By introducing a combination of mapping features and shift features, along with controlling the intensity of ID feature integration, EditID achieves semantic compression of local features across network depths, forming an editable feature space. This enables the successful generation of high-quality images with editable IDs while maintaining ID consistency, achieving excellent results in the IBench evaluation, which is an editability evaluation framework for the field of customized ID text-to-image generation that quantitatively demonstrates the superior performance of EditID. EditID is the first text-to-image solution to propose customizable ID editability on the DiT architecture, meeting the demands of long prompts and high quality image generation.",
+      "venue": "Conference on Empirical Methods in Natural Language Processing",
+      "citation_count": 5,
+      "doi": "10.48550/arXiv.2503.12526",
+      "arxiv_id": "2503.12526",
+      "url": "https://www.semanticscholar.org/paper/fe82c66fa13f72e57566698dbbc1a6193c520887",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-95a260952ce080abe5daba4039544143e8c467b9",
+      "title": "A Training-Free Style-aligned Image Generation with Scale-wise Autoregressive Model",
+      "authors": [
+        {
+          "name": "Jihun Park",
+          "affiliation": ""
+        },
+        {
+          "name": "Jongmin Gim",
+          "affiliation": ""
+        },
+        {
+          "name": "Kyoungmin Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Minseok Oh",
+          "affiliation": ""
+        },
+        {
+          "name": "Minwoo Choi",
+          "affiliation": ""
+        },
+        {
+          "name": "Jaeyeul Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Woohyeon Park",
+          "affiliation": ""
+        },
+        {
+          "name": "Sunghoon Im",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "We present a training-free style-aligned image generation method that leverages a scale-wise autoregressive model. While large-scale text-to-image (T2I) models, particularly diffusion-based methods, have demonstrated impressive generation quality, they often suffer from style misalignment across generated image sets and slow inference speeds, limiting their practical usability. To address these issues, we propose three key components: initial feature replacement to ensure consistent background appearance, pivotal feature interpolation to align object placement, and dynamic style injection, which reinforces style consistency using a schedule function. Unlike previous methods requiring fine-tuning or additional training, our approach maintains fast inference while preserving individual content details. Extensive experiments show that our method achieves generation quality comparable to competing approaches, significantly improves style alignment, and delivers inference speeds over six times faster than the fastest model.",
+      "venue": "arXiv.org",
+      "citation_count": 5,
+      "doi": "10.48550/arXiv.2504.06144",
+      "arxiv_id": "2504.06144",
+      "url": "https://www.semanticscholar.org/paper/95a260952ce080abe5daba4039544143e8c467b9",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-8179e03fc2f398ff76930d4463ba476abd9ce236",
+      "title": "TF-TI2I: Training-Free Text-and-Image-to-Image Generation via Multi-Modal Implicit-Context Learning in Text-to-Image Models",
+      "authors": [
+        {
+          "name": "Teng-Fang Hsiao",
+          "affiliation": ""
+        },
+        {
+          "name": "Bo-Kai Ruan",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi-Lun Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Tzu-Ling Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Hong-Han Shuai",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Text-and-Image-To-Image (TI2I), an extension of Text-To-Image (T2I), integrates image inputs with textual instructions to enhance image generation. Existing methods often partially utilize image inputs, focusing on specific elements like objects or styles, or they experience a decline in generation quality with complex, multi-image instructions. To overcome these challenges, we introduce Training-Free Text-and-Image-to-Image (TF-TI2I), which adapts cutting-edge T2I models such as SD3 without the need for additional training. Our method capitalizes on the MM-DiT architecture, in which we point out that textual tokens can implicitly learn visual information from vision tokens. We enhance this interaction by extracting a condensed visual representation from reference images, facilitating selective information sharing through Reference Contextual Masking -- this technique confines the usage of contextual tokens to instruction-relevant visual information. Additionally, our Winner-Takes-All module mitigates distribution shifts by prioritizing the most pertinent references for each vision token. Addressing the gap in TI2I evaluation, we also introduce the FG-TI2I Bench, a comprehensive benchmark tailored for TI2I and compatible with existing T2I methods. Our approach shows robust performance across various benchmarks, confirming its effectiveness in handling complex image-generation tasks.",
+      "venue": "arXiv.org",
+      "citation_count": 4,
+      "doi": "10.48550/arXiv.2503.15283",
+      "arxiv_id": "2503.15283",
+      "url": "https://www.semanticscholar.org/paper/8179e03fc2f398ff76930d4463ba476abd9ce236",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-61f50fa1318d2285bc2abd93159bdba5c8c8e6e9",
+      "title": "Training-Free Watermarking for Autoregressive Image Generation",
+      "authors": [
+        {
+          "name": "Yu Tong",
+          "affiliation": ""
+        },
+        {
+          "name": "Zihao Pan",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuai Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Kaiyang Zhou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Invisible image watermarking can protect image ownership and prevent malicious misuse of visual generative models. However, existing generative watermarking methods are mainly designed for diffusion models while watermarking for autoregressive image generation models remains largely underexplored. We propose IndexMark, a training-free watermarking framework for autoregressive image generation models. IndexMark is inspired by the redundancy property of the codebook: replacing autoregressively generated indices with similar indices produces negligible visual differences. The core component in IndexMark is a simple yet effective match-then-replace method, which carefully selects watermark tokens from the codebook based on token similarity, and promotes the use of watermark tokens through token replacement, thereby embedding the watermark without affecting the image quality. Watermark verification is achieved by calculating the proportion of watermark tokens in generated images, with precision further improved by an Index Encoder. Furthermore, we introduce an auxiliary validation scheme to enhance robustness against cropping attacks. Experiments demonstrate that IndexMark achieves state-of-the-art performance in terms of image quality and verification accuracy, and exhibits robustness against various perturbations, including cropping, noises, Gaussian blur, random erasing, color jittering, and JPEG compression.",
+      "venue": "arXiv.org",
+      "citation_count": 3,
+      "doi": "10.48550/arXiv.2505.14673",
+      "arxiv_id": "2505.14673",
+      "url": "https://www.semanticscholar.org/paper/61f50fa1318d2285bc2abd93159bdba5c8c8e6e9",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-2bbc003dd5a0906644b5bbebf2ceb034bbd16997",
+      "title": "LaRender: Training-Free Occlusion Control in Image Generation via Latent Rendering",
+      "authors": [
+        {
+          "name": "Xiaohang Zhan",
+          "affiliation": ""
+        },
+        {
+          "name": "Dingming Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "We propose a novel training-free image generation algorithm that precisely controls the occlusion relationships between objects in an image. Existing image generation methods typically rely on prompts to influence occlusion, which often lack precision. While layout-to-image methods provide control over object locations, they fail to address occlusion relationships explicitly. Given a pre-trained image diffusion model, our method leverages volume rendering principles to\"render\"the scene in latent space, guided by occlusion relationships and the estimated transmittance of objects. This approach does not require retraining or fine-tuning the image diffusion model, yet it enables accurate occlusion control due to its physics-grounded foundation. In extensive experiments, our method significantly outperforms existing approaches in terms of occlusion accuracy. Furthermore, we demonstrate that by adjusting the opacities of objects or concepts during rendering, our method can achieve a variety of effects, such as altering the transparency of objects, the density of mass (e.g., forests), the concentration of particles (e.g., rain, fog), the intensity of light, and the strength of lens effects, etc.",
+      "venue": "arXiv.org",
+      "citation_count": 5,
+      "doi": "10.48550/arXiv.2508.07647",
+      "arxiv_id": "2508.07647",
+      "url": "https://www.semanticscholar.org/paper/2bbc003dd5a0906644b5bbebf2ceb034bbd16997",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-c4d574ff17f45eb210aa65dcf478ab8975e826cb",
+      "title": "PIXART-\u03b4: Fast and Controllable Image Generation with Latent Consistency Models",
+      "authors": [
+        {
+          "name": "Junsong Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Yue Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Simian Luo",
+          "affiliation": ""
+        },
+        {
+          "name": "Enze Xie",
+          "affiliation": ""
+        },
+        {
+          "name": "Sayak Paul",
+          "affiliation": ""
+        },
+        {
+          "name": "Ping Luo",
+          "affiliation": ""
+        },
+        {
+          "name": "Hang Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhenguo Li",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "This technical report introduces PIXART-{\\delta}, a text-to-image synthesis framework that integrates the Latent Consistency Model (LCM) and ControlNet into the advanced PIXART-{\\alpha} model. PIXART-{\\alpha} is recognized for its ability to generate high-quality images of 1024px resolution through a remarkably efficient training process. The integration of LCM in PIXART-{\\delta} significantly accelerates the inference speed, enabling the production of high-quality images in just 2-4 steps. Notably, PIXART-{\\delta} achieves a breakthrough 0.5 seconds for generating 1024x1024 pixel images, marking a 7x improvement over the PIXART-{\\alpha}. Additionally, PIXART-{\\delta} is designed to be efficiently trainable on 32GB V100 GPUs within a single day. With its 8-bit inference capability (von Platen et al., 2023), PIXART-{\\delta} can synthesize 1024px images within 8GB GPU memory constraints, greatly enhancing its usability and accessibility. Furthermore, incorporating a ControlNet-like module enables fine-grained control over text-to-image diffusion models. We introduce a novel ControlNet-Transformer architecture, specifically tailored for Transformers, achieving explicit controllability alongside high-quality image generation. As a state-of-the-art, open-source image generation model, PIXART-{\\delta} offers a promising alternative to the Stable Diffusion family of models, contributing significantly to text-to-image synthesis.",
+      "venue": "arXiv.org",
+      "citation_count": 134,
+      "doi": "10.48550/arXiv.2401.05252",
+      "arxiv_id": "2401.05252",
+      "url": "https://www.semanticscholar.org/paper/c4d574ff17f45eb210aa65dcf478ab8975e826cb",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-b47dbe932662a7f3612ba288cd230c07f8db9c13",
+      "title": "Exploring Position Encoding in Diffusion U-Net for Training-free High-resolution Image Generation",
+      "authors": [
+        {
+          "name": "Feng Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Pu Cao",
+          "affiliation": ""
+        },
+        {
+          "name": "Yiyang Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Lu Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianqin Yin",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Denoising higher-resolution latents via a pre-trained U-Net leads to repetitive and disordered image patterns. Although recent studies make efforts to improve generative quality by aligning denoising process across original and higher resolutions, the root cause of suboptimal generation is still lacking exploration. Through comprehensive analysis of position encoding in U-Net, we attribute it to inconsistent position encoding, sourced by the inadequate propagation of position information from zero-padding to latent features in convolution layers as resolution increases. To address this issue, we propose a novel training-free approach, introducing a Progressive Boundary Complement (PBC) method. This method creates dynamic virtual image boundaries inside the feature map to enhance position information propagation, enabling high-quality and rich-content high-resolution image synthesis. Extensive experiments demonstrate the superiority of our method.",
+      "venue": "arXiv.org",
+      "citation_count": 3,
+      "doi": "10.48550/arXiv.2503.09830",
+      "arxiv_id": "2503.09830",
+      "url": "https://www.semanticscholar.org/paper/b47dbe932662a7f3612ba288cd230c07f8db9c13",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-2f69821a131b42126d4768e7c5cadd9554b077e1",
+      "title": "HiWave: Training-Free High-Resolution Image Generation via Wavelet-Based Diffusion Sampling",
+      "authors": [
+        {
+          "name": "Tobias Vontobel",
+          "affiliation": ""
+        },
+        {
+          "name": "Seyedmorteza Sadat",
+          "affiliation": ""
+        },
+        {
+          "name": "Farnood Salehi",
+          "affiliation": ""
+        },
+        {
+          "name": "Romann M. Weber",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Diffusion models have emerged as the leading approach for image synthesis, demonstrating exceptional photorealism and diversity. However, training diffusion models at high resolutions remains computationally prohibitive, and existing zero-shot generation techniques for synthesizing images beyond training resolutions often produce artifacts, including object duplication and spatial incoherence. In this paper, we introduce HiWave, a training-free, zero-shot approach that substantially enhances visual fidelity and structural coherence in ultra-high-resolution image synthesis using pretrained diffusion models. Our method employs a two-stage pipeline: generating a base image from the pretrained model followed by a patch-wise DDIM inversion step and a novel wavelet-based detail enhancer module. Specifically, we first utilize inversion methods to derive initial noise vectors that preserve global coherence from the base image. Subsequently, during sampling, our wavelet-domain detail enhancer retains low-frequency components from the base image to ensure structural consistency, while selectively guiding high-frequency components to enrich fine details and textures. Extensive evaluations using Stable Diffusion XL demonstrate that HiWave effectively mitigates common visual artifacts seen in prior methods, achieving superior perceptual quality. A user study confirmed HiWave\u2019s performance, where it was preferred over the state-of-the-art alternative in more than 80% of comparisons, highlighting its effectiveness for high-quality, ultra-high-resolution image synthesis without requiring retraining or architectural modifications.",
+      "venue": "ACM SIGGRAPH Conference and Exhibition on Computer Graphics and Interactive Techniques in Asia",
+      "citation_count": 4,
+      "doi": "10.1145/3757377.3763979",
+      "arxiv_id": "2506.20452",
+      "url": "https://www.semanticscholar.org/paper/2f69821a131b42126d4768e7c5cadd9554b077e1",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-d07382cae7c767c9ed91477b18200968860ca2bb",
+      "title": "StereoDiffusion: Training-Free Stereo Image Generation Using Latent Diffusion Models",
+      "authors": [
+        {
+          "name": "Lezhong Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Frisvad",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Jensen",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Bigdeli",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "The demand for stereo images increases as manufacturers launch more extended reality (XR) devices. To meet this demand, we introduce StereoDiffusion, a method that, unlike traditional inpainting pipelines, is training-free and straightforward to use with seamless integration into the original Stable Diffusion model. Our method modifies the latent variable to provide an end-to-end, lightweight method for fast generation of stereo image pairs, without the need for fine-tuning model weights or any post-processing of images. Using the original input to generate a left image and estimate a disparity map for it, we generate the latent vector for the right image through Stereo Pixel Shift operations, complemented by Symmetric Pixel Shift Masking Denoise and Self-Attention Layer Modifications to align the right-side image with the left-side image. Moreover, our proposed method maintains a high standard of image quality throughout the stereo generation process, achieving state-of-the-art scores in various quantitative evaluations.",
+      "venue": "2024 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)",
+      "citation_count": 24,
+      "doi": "10.1109/CVPRW63382.2024.00737",
+      "arxiv_id": "2403.04965",
+      "url": "https://www.semanticscholar.org/paper/d07382cae7c767c9ed91477b18200968860ca2bb",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-654572f31e51bad219ceffbefd73c4b8b7b618bd",
+      "title": "RichControl: Structure- and Appearance-Rich Training-Free Spatial Control for Text-to-Image Generation",
+      "authors": [
+        {
+          "name": "Liheng Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Lexi Pang",
+          "affiliation": ""
+        },
+        {
+          "name": "Hang Ye",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaoxuan Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Yizhou Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Text-to-image (T2I) diffusion models have shown remarkable success in generating high-quality images from text prompts. Recent efforts extend these models to incorporate conditional images (e.g., canny edge) for fine-grained spatial control. Among them, feature injection methods have emerged as a training-free alternative to traditional fine-tuning-based approaches. However, they often suffer from structural misalignment, condition leakage, and visual artifacts, especially when the condition image diverges significantly from natural RGB distributions. Through an empirical analysis of existing methods, we identify a key limitation: the sampling schedule of condition features, previously unexplored, fails to account for the evolving interplay between structure preservation and domain alignment throughout diffusion steps. Inspired by this observation, we propose a flexible training-free framework that decouples the sampling schedule of condition features from the denoising process, and systematically investigate the spectrum of feature injection schedules for a higher-quality structure guidance in the feature space. Specifically, we find that condition features sampled from a single timestep are sufficient, yielding a simple yet efficient schedule that balances structure alignment and appearance quality. We further enhance the sampling process by introducing a restart refinement schedule, and improve the visual quality with an appearance-rich prompting strategy. Together, these designs enable training-free generation that is both structure-rich and appearance-rich. Extensive experiments show that our approach achieves state-of-the-art results across diverse zero-shot conditioning scenarios.",
+      "venue": "arXiv.org",
+      "citation_count": 0,
+      "doi": "10.48550/arXiv.2507.02792",
+      "arxiv_id": "2507.02792",
+      "url": "https://www.semanticscholar.org/paper/654572f31e51bad219ceffbefd73c4b8b7b618bd",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-1d954600f17a7c3f16aa726a5eaa902d6851e808",
+      "title": "SAFREE: Training-Free and Adaptive Guard for Safe Text-to-Image And Video Generation",
+      "authors": [
+        {
+          "name": "Jaehong Yoon",
+          "affiliation": ""
+        },
+        {
+          "name": "Shoubin Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Vaidehi Patil",
+          "affiliation": ""
+        },
+        {
+          "name": "Huaxiu Yao",
+          "affiliation": ""
+        },
+        {
+          "name": "Mohit Bansal",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Recent advances in diffusion models have significantly enhanced their ability to generate high-quality images and videos, but they have also increased the risk of producing unsafe content. Existing unlearning/editing-based methods for safe generation remove harmful concepts from models but face several challenges: (1) They cannot instantly remove harmful concepts without training. (2) Their safe generation capabilities depend on collected training data. (3) They alter model weights, risking degradation in quality for content unrelated to toxic concepts. To address these, we propose SAFREE, a novel, training-free approach for safe T2I and T2V, that does not alter the model's weights. Specifically, we detect a subspace corresponding to a set of toxic concepts in the text embedding space and steer prompt embeddings away from this subspace, thereby filtering out harmful content while preserving intended semantics. To balance the trade-off between filtering toxicity and preserving safe concepts, SAFREE incorporates a novel self-validating filtering mechanism that dynamically adjusts the denoising steps when applying the filtered embeddings. Additionally, we incorporate adaptive re-attention mechanisms within the diffusion latent space to selectively diminish the influence of features related to toxic concepts at the pixel level. In the end, SAFREE ensures coherent safety checking, preserving the fidelity, quality, and safety of the output. SAFREE achieves SOTA performance in suppressing unsafe content in T2I generation compared to training-free baselines and effectively filters targeted concepts while maintaining high-quality images. It also shows competitive results against training-based methods. We extend SAFREE to various T2I backbones and T2V tasks, showcasing its flexibility and generalization. SAFREE provides a robust and adaptable safeguard for ensuring safe visual generation.",
+      "venue": "International Conference on Learning Representations",
+      "citation_count": 72,
+      "doi": "10.48550/arXiv.2410.12761",
+      "arxiv_id": "2410.12761",
+      "url": "https://www.semanticscholar.org/paper/1d954600f17a7c3f16aa726a5eaa902d6851e808",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-cfd8851cc343fee867dfad3a9627a1a16890e9f0",
+      "title": "LoRAShop: Training-Free Multi-Concept Image Generation and Editing with Rectified Flow Transformers",
+      "authors": [
+        {
+          "name": "Yusuf Dalva",
+          "affiliation": ""
+        },
+        {
+          "name": "Hidir Yesiltepe",
+          "affiliation": ""
+        },
+        {
+          "name": "Pinar Yanardag",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "We introduce LoRAShop, the first framework for multi-concept image editing with LoRA models. LoRAShop builds on a key observation about the feature interaction patterns inside Flux-style diffusion transformers: concept-specific transformer features activate spatially coherent regions early in the denoising process. We harness this observation to derive a disentangled latent mask for each concept in a prior forward pass and blend the corresponding LoRA weights only within regions bounding the concepts to be personalized. The resulting edits seamlessly integrate multiple subjects or styles into the original scene while preserving global context, lighting, and fine details. Our experiments demonstrate that LoRAShop delivers better identity preservation compared to baselines. By eliminating retraining and external constraints, LoRAShop turns personalized diffusion models into a practical `photoshop-with-LoRAs' tool and opens new avenues for compositional visual storytelling and rapid creative iteration.",
+      "venue": "arXiv.org",
+      "citation_count": 7,
+      "doi": "10.48550/arXiv.2505.23758",
+      "arxiv_id": "2505.23758",
+      "url": "https://www.semanticscholar.org/paper/cfd8851cc343fee867dfad3a9627a1a16890e9f0",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-8e9338a23ed51f20f52ba10cae6abd173d5bd369",
+      "title": "Filter-Guided Diffusion for Controllable Image Generation",
+      "authors": [
+        {
+          "name": "Zeqi Gu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ethan Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Abe Davis",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Recent advances in diffusion-based generative models have shown incredible promise for zero shot image-to-image translation and editing. Most of these approaches work by combining or replacing network-specific features used in the generation of new images with those taken from the inversion of some guide image. Methods of this type are considered the current state-of-the-art in training-free approaches, but have some notable limitations: they tend to be costly in runtime and memory, and often depend on deterministic sampling that limits variation in generated results. We propose Filter-Guided Diffusion (FGD), an alternative approach that leverages fast filtering operations during the diffusion process to support finer control over the strength and frequencies of guidance and can work with non-deterministic samplers to produce greater variety. With its efficiency, FGD can be sampled over multiple seeds and hyperparameters in less time than a single run of other SOTA methods to produce superior results based on structural and semantic metrics. We conduct extensive quantitative and qualitative experiments to evaluate the performance of FGD in translation tasks and also demonstrate its potential in localized editing when used with masks.",
+      "venue": "International Conference on Computer Graphics and Interactive Techniques",
+      "citation_count": 4,
+      "doi": "10.1145/3641519.3657489",
+      "arxiv_id": "2306.17141",
+      "url": "https://www.semanticscholar.org/paper/8e9338a23ed51f20f52ba10cae6abd173d5bd369",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-cd73a4e0c75c1b30606bea08613fb1c9113e5e88",
+      "title": "CtrLoRA: An Extensible and Efficient Framework for Controllable Image Generation",
+      "authors": [
+        {
+          "name": "Yifeng Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhenliang He",
+          "affiliation": ""
+        },
+        {
+          "name": "Shiguang Shan",
+          "affiliation": ""
+        },
+        {
+          "name": "Xilin Chen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Recently, large-scale diffusion models have made impressive progress in text-to-image (T2I) generation. To further equip these T2I models with fine-grained spatial control, approaches like ControlNet introduce an extra network that learns to follow a condition image. However, for every single condition type, ControlNet requires independent training on millions of data pairs with hundreds of GPU hours, which is quite expensive and makes it challenging for ordinary users to explore and develop new types of conditions. To address this problem, we propose the CtrLoRA framework, which trains a Base ControlNet to learn the common knowledge of image-to-image generation from multiple base conditions, along with condition-specific LoRAs to capture distinct characteristics of each condition. Utilizing our pretrained Base ControlNet, users can easily adapt it to new conditions, requiring as few as 1,000 data pairs and less than one hour of single-GPU training to obtain satisfactory results in most scenarios. Moreover, our CtrLoRA reduces the learnable parameters by 90% compared to ControlNet, significantly lowering the threshold to distribute and deploy the model weights. Extensive experiments on various types of conditions demonstrate the efficiency and effectiveness of our method. Codes and model weights will be released at https://github.com/xyfJASON/ctrlora.",
+      "venue": "International Conference on Learning Representations",
+      "citation_count": 19,
+      "doi": "10.48550/arXiv.2410.09400",
+      "arxiv_id": "2410.09400",
+      "url": "https://www.semanticscholar.org/paper/cd73a4e0c75c1b30606bea08613fb1c9113e5e88",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-f05326e3880da2bbb78eb0c07eb44123f015f9de",
+      "title": "Refining Text-to-Image Generation: Towards Accurate Training-Free Glyph-Enhanced Image Generation",
+      "authors": [
+        {
+          "name": "Sanyam Lakhanpal",
+          "affiliation": ""
+        },
+        {
+          "name": "Shivang Chopra",
+          "affiliation": ""
+        },
+        {
+          "name": "Vinija Jain",
+          "affiliation": ""
+        },
+        {
+          "name": "Aman Chadha",
+          "affiliation": ""
+        },
+        {
+          "name": "Man Luo",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Over the past few years, Text-to-Image (T2I) generation approaches based on diffusion models have gained signifi-cant attention. However, vanilla diffusion models often suffer from spelling inaccuracies in the text displayed within the generated images. The capability to generate visual text is crucial, offering both academic interest and a wide range of practical applications. To produce accurate visual text images, state-of-the-art techniques adopt a glyph-controlled image generation approach, consisting of a text layout generator followed by an image generator that is conditioned on the generated text layout. Nevertheless, our study reveals that these models still face three primary challenges, prompting us to develop a testbed to facilitate future research. We introduce a benchmark, LenCom-Eval, specifically designed for testing models' capability in generating images with Lengthy and Complex visual text. Subsequently, we introduce a training-free framework to enhance the two-stage generation approaches. We examine the effectiveness of our approach on both LenCom-Eval and MARIO-Eval bench-marks and demonstrate notable improvements across a range of evaluation metrics, including CLIPScore, OCR precision, recall, F1 score, accuracy, and edit distance scores. For instance, our proposed framework improves the backbone model, TextDiffuser, by more than 23% and 13.5% in terms of OCR word F1 on LenCom-Eval and MARIO-Eval, re-spectively. Our work makes a unique contribution to the field by focusing on generating images with long and rare text sequences, a niche previously unexplored by existing literature11The code and the datasets are available at https://github.com/SanyamLakhanpal/SAOcr/tree/main.",
+      "venue": "IEEE Workshop/Winter Conference on Applications of Computer Vision",
+      "citation_count": 18,
+      "doi": "10.1109/WACV61041.2025.00429",
+      "arxiv_id": "2403.16422",
+      "url": "https://www.semanticscholar.org/paper/f05326e3880da2bbb78eb0c07eb44123f015f9de",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-0a50d811b1a80374cad82ab293e9811429828732",
+      "title": "TF\u00b2: Few-Shot Text-Free Training-Free Defect Image Generation for Industrial Anomaly Inspection",
+      "authors": [
+        {
+          "name": "Qianzi Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Kai Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang Cao",
+          "affiliation": ""
+        },
+        {
+          "name": "Feijie Xia",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Kang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Anomaly inspection aims at identifying various defects in real time on modern industrial production lines. However, due to insufficient anomaly data, existing detectors cannot effectively accomplish the classification of defects, thereby failing to provide guidance for subsequent production. To address it, we propose TF2, a few-shot text-free training-free defect image generation method, which jointly models the image distribution of class-agnostic defects and backgrounds, achieving efficient semantic enhancement. Firstly, we propose the Response Alignment Strategy, which merges the reversed latent space of both defect-free and defective samples, generating new defect images not limited to textual descriptions yet with consistent content. Moreover, we introduce the Defect Moving Strategy and the Regional Average Loss to merge the reversed latent space of the moving areas and enhance the variability of detail features, increasing both the location and content diversity of defects. Extensive experiments demonstrate the superiority of our model over the state-of-the-art competitors. The metrics indicate that our generated anomaly data focuses on balancing both image quality and diversity, effectively improving the performance of downstream anomaly inspection tasks.",
+      "venue": "IEEE transactions on circuits and systems for video technology (Print)",
+      "citation_count": 16,
+      "doi": "10.1109/TCSVT.2024.3424435",
+      "arxiv_id": "",
+      "url": "https://www.semanticscholar.org/paper/0a50d811b1a80374cad82ab293e9811429828732",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-36c0d2c76be2fbe02bfc1bdc2814953a0eb8e6f0",
+      "title": "SpotActor: Training-Free Layout-Controlled Consistent Image Generation",
+      "authors": [
+        {
+          "name": "Jiahao Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Caixia Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Weizhan Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Haonan Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Mengmeng Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Guang Dai",
+          "affiliation": ""
+        },
+        {
+          "name": "Tieliang Gong",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Jingdong Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Text-to-image diffusion models significantly enhance the efficiency of artistic creation with high-fidelity image generation. However, in typical application scenarios like comic book production, they can neither place each subject into its expected spot nor maintain the consistent appearance of each subject across images. For these issues, we pioneer a novel task, Layout-to-Consistent-Image (L2CI) generation, which produces consistent and compositional images in accordance with the given layout conditions and text prompts. To accomplish this challenging task, we present a new formalization of dual energy guidance with optimization in a dual semantic-latent space and thus propose a training-free pipeline, SpotActor, which features a layout-conditioned optimizing stage and a consistent sampling stage. In the optimizing stage, we innovate a nuanced layout energy function to mimic the attention activations with a sigmoid-like objective. While in the sampling stage, we design Regional Interconnection Self-Attention (RISA) and Semantic Fusion Cross-Attention (SFCA) mechanisms that allow mutual interactions across images. To evaluate the performance, we present ActorBench, a specified benchmark with hundreds of reasonable prompt-box pairs stemming from object detection datasets. Comprehensive experiments are conducted to demonstrate the effectiveness of our method. The results prove that SpotActor fulfills the expectations of this task and showcases the potential for practical applications with superior layout alignment, subject consistency, prompt conformity and background diversity.",
+      "venue": "AAAI Conference on Artificial Intelligence",
+      "citation_count": 9,
+      "doi": "10.48550/arXiv.2409.04801",
+      "arxiv_id": "2409.04801",
+      "url": "https://www.semanticscholar.org/paper/36c0d2c76be2fbe02bfc1bdc2814953a0eb8e6f0",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-16736e51de84f7c8397b77019ae4f24074c160aa",
+      "title": "Training-free Subject-Enhanced Attention Guidance for Compositional Text-to-image Generation",
+      "authors": [
+        {
+          "name": "Shengyuan Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Bo Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ye Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Te Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xipeng Cao",
+          "affiliation": ""
+        },
+        {
+          "name": "Quan Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Han Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Di Dong",
+          "affiliation": ""
+        },
+        {
+          "name": "Peng Jiang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Existing subject-driven text-to-image generation models suffer from tedious fine-tuning steps and struggle to maintain both text-image alignment and subject fidelity. For generating compositional subjects, it often encounters problems such as object missing and attribute mixing, where some subjects in the input prompt are not generated or their attributes are incorrectly combined. To address these limitations, we propose a subject-driven generation framework and introduce training-free guidance to intervene in the generative process during inference time. This approach strengthens the attention map, allowing for precise attribute binding and feature injection for each subject. Notably, our method exhibits exceptional zero-shot generation ability, especially in the challenging task of compositional generation. Furthermore, we propose a novel metric GroundingScore to evaluate subject alignment thoroughly. The obtained quantitative results serve as compelling evidence showcasing the effectiveness of our proposed method. The code will be released soon.",
+      "venue": "Pattern Recognition",
+      "citation_count": 6,
+      "doi": "10.1016/j.patcog.2025.112111",
+      "arxiv_id": "2405.06948",
+      "url": "https://www.semanticscholar.org/paper/16736e51de84f7c8397b77019ae4f24074c160aa",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-3f5e5d6dfb326779e6100177040c9cad0763013a",
+      "title": "Training-Free Layout-to-Image Generation with Marginal Attention Constraints",
+      "authors": [
+        {
+          "name": "Huancheng Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Jingtao Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Weiming Zhuang",
+          "affiliation": ""
+        },
+        {
+          "name": "H. Vikalo",
+          "affiliation": ""
+        },
+        {
+          "name": "Lingjuan Lyu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Recently, many text-to-image diffusion models excel at generating high-resolution images from text but struggle with precise control over spatial composition and object counting. To address these challenges, prior works developed layout-to-image (L2I) approaches that incorporate layout instructions into text-to-image models. However, existing L2I methods typically require fine-tuning of pre-trained parameters or training additional control modules for the diffusion models. In this work, we propose a training-free L2I approach, MAC (Marginal Attention Constrained Generation), which eliminates the need for additional modules or fine-tuning. Specifically, we use text-visual cross-attention feature maps to quantify inconsistencies between the layout of the generated images and the provided instructions, and then compute loss functions to optimize latent features during the diffusion reverse process. To enhance spatial controllability and mitigate semantic failures in complex layout instructions, we leverage pixel-to-pixel correlations in the self-attention feature maps to align cross-attention maps and combine three loss functions constrained by boundary attention to update latent features. Comprehensive experimental results on both L2I and non-L2I pretrained diffusion models demonstrate that our method outperforms existing training-free L2I techniques both quantitatively and qualitatively in terms of image composition on the DrawBench and HRS benchmarks.",
+      "venue": "",
+      "citation_count": 3,
+      "doi": "",
+      "arxiv_id": "2411.10495",
+      "url": "https://www.semanticscholar.org/paper/3f5e5d6dfb326779e6100177040c9cad0763013a",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-55a1017ef186cd7d47dbf14ddd6cc55e6a511d57",
+      "title": "Controllable Text-to-Audio Generation with Training-Free Temporal Guidance Diffusion",
+      "authors": [
+        {
+          "name": "Tianjiao Du",
+          "affiliation": ""
+        },
+        {
+          "name": "Jun Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiasheng Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Qinmei Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Huan Liao",
+          "affiliation": ""
+        },
+        {
+          "name": "Yupeng Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiyong Wu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "The controllability of text-to-audio (TTA) systems is constrained due to the exclusive generation of audio from text, leading to issues of temporal disorganization and semantic omission. Some studies have endeavored to integrate conditions, such as frame-level annotation of sound events, to regulate the generated audio content. However, this necessitates a substantial amount of paired data and time for fine-tuning or training the model. This paper introduces a novel, training-free approach for controllable TTA generation based on temporal condition, e.g., the location and duration of corresponding sound events. Through updating latent variables during inference process, our approach ensures that the content generated by pretrained TTA models adheres to the specified temporal conditions, thereby achieving precise temporal control. Experimental results affirm that the proposed approach effectively governs the initiation and conclusion of sound events as indicated by the text, while preserving the high-quality and diverse generation capabilities of the diffusion model",
+      "venue": "IEEE International Conference on Multimedia and Expo",
+      "citation_count": 3,
+      "doi": "10.1109/ICME57554.2024.10687830",
+      "arxiv_id": "",
+      "url": "https://www.semanticscholar.org/paper/55a1017ef186cd7d47dbf14ddd6cc55e6a511d57",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-fbebb1a5d72aec2a6b13fc909f781f6ba9b04925",
+      "title": "Diffusion Self-Guidance for Controllable Image Generation",
+      "authors": [
+        {
+          "name": "D. Epstein",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Jabri",
+          "affiliation": ""
+        },
+        {
+          "name": "Ben Poole",
+          "affiliation": ""
+        },
+        {
+          "name": "Alexei A. Efros",
+          "affiliation": ""
+        },
+        {
+          "name": "Aleksander Holynski",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Large-scale generative models are capable of producing high-quality images from detailed text descriptions. However, many aspects of an image are difficult or impossible to convey through text. We introduce self-guidance, a method that provides greater control over generated images by guiding the internal representations of diffusion models. We demonstrate that properties such as the shape, location, and appearance of objects can be extracted from these representations and used to steer sampling. Self-guidance works similarly to classifier guidance, but uses signals present in the pretrained model itself, requiring no additional models or training. We show how a simple set of properties can be composed to perform challenging image manipulations, such as modifying the position or size of objects, merging the appearance of objects in one image with the layout of another, composing objects from many images into one, and more. We also show that self-guidance can be used to edit real images. For results and an interactive demo, see our project page at https://dave.ml/selfguidance/",
+      "venue": "Neural Information Processing Systems",
+      "citation_count": 364,
+      "doi": "10.48550/arXiv.2306.00986",
+      "arxiv_id": "2306.00986",
+      "url": "https://www.semanticscholar.org/paper/fbebb1a5d72aec2a6b13fc909f781f6ba9b04925",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-7f9cb9a28285b2a29ddc57c99e2da1ad121b1c4e",
+      "title": "Training-free Camera Control for Video Generation",
+      "authors": [
+        {
+          "name": "Chen Hou",
+          "affiliation": ""
+        },
+        {
+          "name": "Guoqiang Wei",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "We propose a training-free and robust solution to offer camera movement control for off-the-shelf video diffusion models. Unlike previous work, our method does not require any supervised finetuning on camera-annotated datasets or self-supervised training via data augmentation. Instead, it can be plug-and-play with most pretrained video diffusion models and generate camera-controllable videos with a single image or text prompt as input. The inspiration for our work comes from the layout prior that intermediate latents encode for the generated results, thus rearranging noisy pixels in them will cause the output content to relocate as well. As camera moving could also be seen as a type of pixel rearrangement caused by perspective change, videos can be reorganized following specific camera motion if their noisy latents change accordingly. Building on this, we propose CamTrol, which enables robust camera control for video diffusion models. It is achieved by a two-stage process. First, we model image layout rearrangement through explicit camera movement in 3D point cloud space. Second, we generate videos with camera motion by leveraging the layout prior of noisy latents formed by a series of rearranged images. Extensive experiments have demonstrated its superior performance in both video generation and camera motion alignment compared with other finetuned methods. Furthermore, we show the capability of CamTrol to generalize to various base models, as well as its impressive applications in scalable motion control, dealing with complicated trajectories and unsupervised 3D video generation. Videos available at https://lifedecoder.github.io/CamTrol/.",
+      "venue": "International Conference on Learning Representations",
+      "citation_count": 90,
+      "doi": "10.48550/arXiv.2406.10126",
+      "arxiv_id": "2406.10126",
+      "url": "https://www.semanticscholar.org/paper/7f9cb9a28285b2a29ddc57c99e2da1ad121b1c4e",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-6b3d58d367b049532c0dd7a203eb0c17c94e734e",
+      "title": "Image Anything: Towards Reasoning-coherent and Training-free Multi-modal Image Generation",
+      "authors": [
+        {
+          "name": "Yuanhuiyi Lyu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xueye Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Lin Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "The multifaceted nature of human perception and comprehension indicates that, when we think, our body can naturally take any combination of senses, a.k.a., modalities and form a beautiful picture in our brain. For example, when we see a cattery and simultaneously perceive the cat's purring sound, our brain can construct a picture of a cat in the cattery. Intuitively, generative AI models should hold the versatility of humans and be capable of generating images from any combination of modalities efficiently and collaboratively. This paper presents ImgAny, a novel end-to-end multi-modal generative model that can mimic human reasoning and generate high-quality images. Our method serves as the first attempt in its capacity of efficiently and flexibly taking any combination of seven modalities, ranging from language, audio to vision modalities, including image, point cloud, thermal, depth, and event data. Our key idea is inspired by human-level cognitive processes and involves the integration and harmonization of multiple input modalities at both the entity and attribute levels without specific tuning across modalities. Accordingly, our method brings two novel training-free technical branches: 1) Entity Fusion Branch ensures the coherence between inputs and outputs. It extracts entity features from the multi-modal representations powered by our specially constructed entity knowledge graph; 2) Attribute Fusion Branch adeptly preserves and processes the attributes. It efficiently amalgamates distinct attributes from diverse input modalities via our proposed attribute knowledge graph. Lastly, the entity and attribute features are adaptively fused as the conditional inputs to the pre-trained Stable Diffusion model for image generation. Extensive experiments under diverse modality combinations demonstrate its exceptional capability for visual content creation.",
+      "venue": "arXiv.org",
+      "citation_count": 13,
+      "doi": "10.48550/arXiv.2401.17664",
+      "arxiv_id": "2401.17664",
+      "url": "https://www.semanticscholar.org/paper/6b3d58d367b049532c0dd7a203eb0c17c94e734e",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-7febbd5b9ed9142f01a8ec9d0b8a90eea317773d",
+      "title": "Training-free Composite Scene Generation for Layout-to-Image Synthesis",
+      "authors": [
+        {
+          "name": "Jiaqi Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Tao Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chang Xu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Recent breakthroughs in text-to-image diffusion models have significantly advanced the generation of high-fidelity, photo-realistic images from textual descriptions. Yet, these models often struggle with interpreting spatial arrangements from text, hindering their ability to produce images with precise spatial configurations. To bridge this gap, layout-to-image generation has emerged as a promising direction. However, training-based approaches are limited by the need for extensively annotated datasets, leading to high data acquisition costs and a constrained conceptual scope. Conversely, training-free methods face challenges in accurately locating and generating semantically similar objects within complex compositions. This paper introduces a novel training-free approach designed to overcome adversarial semantic intersections during the diffusion conditioning phase. By refining intra-token loss with selective sampling and enhancing the diffusion process with attention redistribution, we propose two innovative constraints: 1) an inter-token constraint that resolves token conflicts to ensure accurate concept synthesis; and 2) a self-attention constraint that improves pixel-to-pixel relationships. Our evaluations confirm the effectiveness of leveraging layout information for guiding the diffusion process, generating content-rich images with enhanced fidelity and complexity. Code is available at https://github.com/Papple-F/csg.git.",
+      "venue": "European Conference on Computer Vision",
+      "citation_count": 10,
+      "doi": "10.48550/arXiv.2407.13609",
+      "arxiv_id": "2407.13609",
+      "url": "https://www.semanticscholar.org/paper/7febbd5b9ed9142f01a8ec9d0b8a90eea317773d",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-220f2089ee8356777ce877eef3ce88313ae9d669",
+      "title": "MULAN: A Multi Layer Annotated Dataset for Controllable Text-to-Image Generation",
+      "authors": [
+        {
+          "name": "Petru-Daniel Tudosiu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yongxin Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Shifeng Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Feimei Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Steven McDonagh",
+          "affiliation": ""
+        },
+        {
+          "name": "Gerasimos Lampouras",
+          "affiliation": ""
+        },
+        {
+          "name": "Ignacio Iacobacci",
+          "affiliation": ""
+        },
+        {
+          "name": "Sarah Parisot",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Text-to-image generation has achieved astonishing results, yet precise spatial controllability and prompt fidelity remain highly challenging. This limitation is typically addressed through cumbersome prompt engineering, scene layout conditioning, or image editing techniques which often require hand drawn masks. Nonetheless, pre-existing works struggle to take advantage of the natural instance-level compositionality of scenes due to the typically flat nature of rasterized RGB output images. Towards adressing this challenge, we introduce MuLAn: a novel dataset comprising over 44K MUlti-Layer ANnotations of RGB images as multi-layer, instance-wise RGBA decompositions, and over 100K instance images. To build MuLAn, we developed a training free pipeline which decomposes a monocular RGB image into a stack of RGBA layers comprising of background and isolated instances. We achieve this through the use of pre-trained general-purpose models, and by developing three modules: image decomposition for instance discovery and extraction, instance completion to reconstruct occluded areas, and image re-assembly. We use our pipeline to create MuLAn-COCO and MuLAn-LAION datasets, which contain a variety of image decompositions in terms of style, composition and complexity. With MuLAn, we provide the first photorealistic resource providing instance decompo-sition and occlusion information for high quality images, opening up new avenues for text-to-image generative AI re-search. With this, we aim to encourage the development of novel generation and editing technology, in particular layer-wise solutions. MuLAn data resources are available at https://MuLAn-dataset.github.io/.",
+      "venue": "Computer Vision and Pattern Recognition",
+      "citation_count": 30,
+      "doi": "10.1109/CVPR52733.2024.02115",
+      "arxiv_id": "2404.02790",
+      "url": "https://www.semanticscholar.org/paper/220f2089ee8356777ce877eef3ce88313ae9d669",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-fce4b0c025b738750dd5f7c882fa41577b32350a",
+      "title": "FlexID: Training-Free Flexible Identity Injection via Intent-Aware Modulation for Text-to-Image Generation",
+      "authors": [
+        {
+          "name": "Guandong Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yijun Ding",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Personalized text-to-image generation aims to seamlessly integrate specific identities into textual descriptions. However, existing training-free methods often rely on rigid visual feature injection, creating a conflict between identity fidelity and textual adaptability. To address this, we propose FlexID, a novel training-free framework utilizing intent-aware modulation. FlexID orthogonally decouples identity into two dimensions: a Semantic Identity Projector (SIP) that injects high-level priors into the language space, and a Visual Feature Anchor (VFA) that ensures structural fidelity within the latent space. Crucially, we introduce a Context-Aware Adaptive Gating (CAG) mechanism that dynamically modulates the weights of these streams based on editing intent and diffusion timesteps. By automatically relaxing rigid visual constraints when strong editing intent is detected, CAG achieves synergy between identity preservation and semantic variation. Extensive experiments on IBench demonstrate that FlexID achieves a state-of-the-art balance between identity consistency and text adherence, offering an efficient solution for complex narrative generation.",
+      "venue": "",
+      "citation_count": 2,
+      "doi": "",
+      "arxiv_id": "2602.07554",
+      "url": "https://www.semanticscholar.org/paper/fce4b0c025b738750dd5f7c882fa41577b32350a",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-acbcc78c9fe3b7fabe3844528baf08dcc630f268",
+      "title": "One-Prompt-One-Story: Free-Lunch Consistent Text-to-Image Generation Using a Single Prompt",
+      "authors": [
+        {
+          "name": "Tao Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Kai Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Senmao Li",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Weijer",
+          "affiliation": ""
+        },
+        {
+          "name": "Fahad Shahbaz Khan",
+          "affiliation": ""
+        },
+        {
+          "name": "Shiqi Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yaxing Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jian Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ming-Ming Cheng",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Text-to-image generation models can create high-quality images from input prompts. However, they struggle to support the consistent generation of identity-preserving requirements for storytelling. Existing approaches to this problem typically require extensive training in large datasets or additional modifications to the original model architectures. This limits their applicability across different domains and diverse diffusion model configurations. In this paper, we first observe the inherent capability of language models, coined context consistency, to comprehend identity through context with a single prompt. Drawing inspiration from the inherent context consistency, we propose a novel training-free method for consistent text-to-image (T2I) generation, termed\"One-Prompt-One-Story\"(1Prompt1Story). Our approach 1Prompt1Story concatenates all prompts into a single input for T2I diffusion models, initially preserving character identities. We then refine the generation process using two novel techniques: Singular-Value Reweighting and Identity-Preserving Cross-Attention, ensuring better alignment with the input description for each frame. In our experiments, we compare our method against various existing consistent T2I generation approaches to demonstrate its effectiveness through quantitative metrics and qualitative assessments. Code is available at https://github.com/byliutao/1Prompt1Story.",
+      "venue": "International Conference on Learning Representations",
+      "citation_count": 43,
+      "doi": "10.48550/arXiv.2501.13554",
+      "arxiv_id": "2501.13554",
+      "url": "https://www.semanticscholar.org/paper/acbcc78c9fe3b7fabe3844528baf08dcc630f268",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-386af41e16114574f3e0da7f759e9b365d1e96d6",
+      "title": "I2V3D: Controllable image-to-video generation with 3D guidance",
+      "authors": [
+        {
+          "name": "Zhiyuan Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Dongdong Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Jing Liao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "We present I2V3D, a novel framework for animating static images into dynamic videos with precise 3D control, leveraging the strengths of both 3D geometry guidance and advanced generative models. Our approach combines the precision of a computer graphics pipeline, enabling accurate control over elements such as camera movement, object rotation, and character animation, with the visual fidelity of generative AI to produce high-quality videos from coarsely rendered inputs. To support animations with any initial start point and extended sequences, we adopt a two-stage generation process guided by 3D geometry: 1) 3D-Guided Keyframe Generation, where a customized image diffusion model refines rendered keyframes to ensure consistency and quality, and 2) 3D-Guided Video Interpolation, a training-free approach that generates smooth, high-quality video frames between keyframes using bidirectional guidance. Experimental results highlight the effectiveness of our framework in producing controllable, high-quality animations from single input images by harmonizing 3D geometry with generative models. The code for our framework will be publicly released.",
+      "venue": "arXiv.org",
+      "citation_count": 5,
+      "doi": "10.48550/arXiv.2503.09733",
+      "arxiv_id": "2503.09733",
+      "url": "https://www.semanticscholar.org/paper/386af41e16114574f3e0da7f759e9b365d1e96d6",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-915fedefabced2a87bb89b547cf4d5fdd24ec4d0",
+      "title": "MotionMaster: Training-free Camera Motion Transfer For Video Generation",
+      "authors": [
+        {
+          "name": "Teng Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiangning Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ran Yi",
+          "affiliation": ""
+        },
+        {
+          "name": "Yating Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Hongrui Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jieyu Weng",
+          "affiliation": ""
+        },
+        {
+          "name": "Yabiao Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Lizhuang Ma",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "The emergence of diffusion models has greatly propelled the progress in image and video generation. Recently, some efforts have been made in controllable video generation, including text-to-video generation and video motion control, among which camera motion control is an important topic. However, existing camera motion control methods rely on training a temporal camera module, and necessitate substantial computation resources due to the large amount of parameters in video generation models. Moreover, existing methods pre-define camera motion types during training, which limits their flexibility in camera control. Therefore, to reduce training costs and achieve flexible camera control, we propose COMD, a novel training-free video motion transfer model, which disentangles camera motions and object motions in source videos and transfers the extracted camera motions to new videos. We first propose a one-shot camera motion disentanglement method to extract camera motion from a single source video, which separates the moving objects from the background and estimates the camera motion in the moving objects region based on the motion in the background by solving a Poisson equation. Furthermore, we propose a few-shot camera motion disentanglement method to extract the common camera motion from multiple videos with similar camera motions, which employs a window-based clustering technique to extract the common features in temporal attention maps of multiple videos. Finally, we propose a motion combination method to combine different types of camera motions together, enabling our model a more controllable and flexible camera control. Extensive experiments demonstrate that our training-free approach can effectively decouple camera-object motion and apply the decoupled camera motion to a wide range of controllable video generation tasks, achieving flexible and diverse camera motion control.",
+      "venue": "arXiv.org",
+      "citation_count": 38,
+      "doi": "10.48550/arXiv.2404.15789",
+      "arxiv_id": "2404.15789",
+      "url": "https://www.semanticscholar.org/paper/915fedefabced2a87bb89b547cf4d5fdd24ec4d0",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    }
+  ]
+}

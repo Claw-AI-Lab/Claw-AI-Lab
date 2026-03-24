@@ -1,0 +1,1283 @@
+{
+  "query": "Training-free customized inpainting using benchmark",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1773979487.3888464,
+  "papers": [
+    {
+      "paper_id": "arxiv-2306.00288",
+      "title": "Training-free Neural Architecture Search for RNNs and Transformers",
+      "authors": [
+        {
+          "name": "Aaron Serianni",
+          "affiliation": ""
+        },
+        {
+          "name": "Jugal Kalita",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Neural architecture search (NAS) has allowed for the automatic creation of new and effective neural network architectures, offering an alternative to the laborious process of manually designing complex architectures. However, traditional NAS algorithms are slow and require immense amounts of computing power. Recent research has investigated training-free NAS metrics for image classification architectures, drastically speeding up search algorithms. In this paper, we investigate training-free NAS metrics for recurrent neural network (RNN) and BERT-based transformer architectures, targeted towards language modeling tasks. First, we develop a new training-free metric, named hidden covariance, that predicts the trained performance of an RNN architecture and significantly outperforms existing training-free metrics. We experimentally evaluate the effectiveness of the hidden covariance metric on the NAS-Bench-NLP benchmark. Second, we find that the current search space paradigm for transformer architectures is not optimized for training-free neural architecture search. Instead, a simple qualitative analysis can effectively shrink the search space to the best performing architectures. This conclusion is based on our investigation of existing training-free metrics and new metrics developed from recent transformer pruning literature, evaluated on our own benchmark of trained BERT architectures. Ultimately, our analysis shows that the architecture search space and the training-free metric must be developed together in order to achieve effective results.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2306.00288",
+      "url": "https://arxiv.org/abs/2306.00288",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2201.09865",
+      "title": "RePaint: Inpainting using Denoising Diffusion Probabilistic Models",
+      "authors": [
+        {
+          "name": "Andreas Lugmayr",
+          "affiliation": ""
+        },
+        {
+          "name": "Martin Danelljan",
+          "affiliation": ""
+        },
+        {
+          "name": "Andres Romero",
+          "affiliation": ""
+        },
+        {
+          "name": "Fisher Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Radu Timofte",
+          "affiliation": ""
+        },
+        {
+          "name": "Luc Van Gool",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Free-form inpainting is the task of adding new content to an image in the regions specified by an arbitrary binary mask. Most existing approaches train for a certain distribution of masks, which limits their generalization capabilities to unseen mask types. Furthermore, training with pixel-wise and perceptual losses often leads to simple textural extensions towards the missing areas instead of semantically meaningful generation. In this work, we propose RePaint: A Denoising Diffusion Probabilistic Model (DDPM) based inpainting approach that is applicable to even extreme masks. We employ a pretrained unconditional DDPM as the generative prior. To condition the generation process, we only alter the reverse diffusion iterations by sampling the unmasked regions using the given image information. Since this technique does not modify or condition the original DDPM network itself, the model produces high-quality and diverse output images for any inpainting form. We validate our method for both faces and general-purpose image inpainting using standard and extreme masks.\n  RePaint outperforms state-of-the-art Autoregressive, and GAN approaches for at least five out of six mask distributions.\n  Github Repository: git.io/RePaint",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2201.09865",
+      "url": "https://arxiv.org/abs/2201.09865",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2307.07678",
+      "title": "Both Spatial and Frequency Cues Contribute to High-Fidelity Image Inpainting",
+      "authors": [
+        {
+          "name": "Ze Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yalei Lv",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenqi Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Pengfei Xiong",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Deep generative approaches have obtained great success in image inpainting recently. However, most generative inpainting networks suffer from either over-smooth results or aliasing artifacts. The former lacks high-frequency details, while the latter lacks semantic structure. To address this issue, we propose an effective Frequency-Spatial Complementary Network (FSCN) by exploiting rich semantic information in both spatial and frequency domains. Specifically, we introduce an extra Frequency Branch and Frequency Loss on the spatial-based network to impose direct supervision on the frequency information, and propose a Frequency-Spatial Cross-Attention Block (FSCAB) to fuse multi-domain features and combine the corresponding characteristics. With our FSCAB, the inpainting network is capable of capturing frequency information and preserving visual consistency simultaneously. Extensive quantitative and qualitative experiments demonstrate that our inpainting network can effectively achieve superior results, outperforming previous state-of-the-art approaches with significantly fewer parameters and less computation cost. The code will be released soon.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2307.07678",
+      "url": "https://arxiv.org/abs/2307.07678",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2208.03382",
+      "title": "Keys to Better Image Inpainting: Structure and Texture Go Hand in Hand",
+      "authors": [
+        {
+          "name": "Jitesh Jain",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuqian Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Ning Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Humphrey Shi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Deep image inpainting has made impressive progress with recent advances in image generation and processing algorithms. We claim that the performance of inpainting algorithms can be better judged by the generated structures and textures. Structures refer to the generated object boundary or novel geometric structures within the hole, while texture refers to high-frequency details, especially man-made repeating patterns filled inside the structural regions. We believe that better structures are usually obtained from a coarse-to-fine GAN-based generator network while repeating patterns nowadays can be better modeled using state-of-the-art high-frequency fast fourier convolutional layers. In this paper, we propose a novel inpainting network combining the advantages of the two designs. Therefore, our model achieves a remarkable visual quality to match state-of-the-art performance in both structure generation and repeating texture synthesis using a single network. Extensive experiments demonstrate the effectiveness of the method, and our conclusions further highlight the two critical factors of image inpainting quality, structures, and textures, as the future design directions of inpainting networks.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2208.03382",
+      "url": "https://arxiv.org/abs/2208.03382",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2004.04727",
+      "title": "3D Photography using Context-aware Layered Depth Inpainting",
+      "authors": [
+        {
+          "name": "Meng-Li Shih",
+          "affiliation": ""
+        },
+        {
+          "name": "Shih-Yang Su",
+          "affiliation": ""
+        },
+        {
+          "name": "Johannes Kopf",
+          "affiliation": ""
+        },
+        {
+          "name": "Jia-Bin Huang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "We propose a method for converting a single RGB-D input image into a 3D photo - a multi-layer representation for novel view synthesis that contains hallucinated color and depth structures in regions occluded in the original view. We use a Layered Depth Image with explicit pixel connectivity as underlying representation, and present a learning-based inpainting model that synthesizes new local color-and-depth content into the occluded region in a spatial context-aware manner. The resulting 3D photos can be efficiently rendered with motion parallax using standard graphics engines. We validate the effectiveness of our method on a wide range of challenging everyday scenes and show fewer artifacts compared with the state of the arts.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2004.04727",
+      "url": "https://arxiv.org/abs/2004.04727",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2508.08890",
+      "title": "Transient Noise Removal via Diffusion-based Speech Inpainting",
+      "authors": [
+        {
+          "name": "Mordehay Moradi",
+          "affiliation": ""
+        },
+        {
+          "name": "Sharon Gannot",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "In this paper, we present PGDI, a diffusion-based speech inpainting framework for restoring missing or severely corrupted speech segments. Unlike previous methods that struggle with speaker variability or long gap lengths, PGDI can accurately reconstruct gaps of up to one second in length while preserving speaker identity, prosody, and environmental factors such as reverberation. Central to this approach is classifier guidance, specifically phoneme-level guidance, which substantially improves reconstruction fidelity. PGDI operates in a speaker-independent manner and maintains robustness even when long segments are completely masked by strong transient noise, making it well-suited for real-world applications, such as fireworks, door slams, hammer strikes, and construction noise. Through extensive experiments across diverse speakers and gap lengths, we demonstrate PGDI's superior inpainting performance and its ability to handle challenging acoustic conditions. We consider both scenarios, with and without access to the transcript during inference, showing that while the availability of text further enhances performance, the model remains effective even in its absence. For audio samples, visit: https://mordehaym.github.io/PGDI/",
+      "venue": "eess.AS",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2508.08890",
+      "url": "https://arxiv.org/abs/2508.08890",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2303.12421",
+      "title": "Region-wise matching for image inpainting based on adaptive weighted low-rank decomposition",
+      "authors": [
+        {
+          "name": "Shenghai Liao",
+          "affiliation": ""
+        },
+        {
+          "name": "Xuya Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruyi Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Shujun Fu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuanfeng Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuliang Li",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Digital image inpainting is an interpolation problem, inferring the content in the missing (unknown) region to agree with the known region data such that the interpolated result fulfills some prior knowledge. Low-rank and nonlocal self-similarity are two important priors for image inpainting. Based on the nonlocal self-similarity assumption, an image is divided into overlapped square target patches (submatrices) and the similar patches of any target patch are reshaped as vectors and stacked into a patch matrix. Such a patch matrix usually enjoys a property of low rank or approximately low rank, and its missing entries are recoveried by low-rank matrix approximation (LRMA) algorithms. Traditionally, $n$ nearest neighbor similar patches are searched within a local window centered at a target patch. However, for an image with missing lines, the generated patch matrix is prone to having entirely-missing rows such that the downstream low-rank model fails to reconstruct it well. To address this problem, we propose a region-wise matching (RwM) algorithm by dividing the neighborhood of a target patch into multiple subregions and then search the most similar one within each subregion. A non-convex weighted low-rank decomposition (NC-WLRD) model for LRMA is also proposed to reconstruct all degraded patch matrices grouped by the proposed RwM algorithm. We solve the proposed NC-WLRD model by the alternating direction method of multipliers (ADMM) and analyze the convergence in detail. Numerous experiments on line inpainting (entire-row/column missing) demonstrate the superiority of our method over other competitive inpainting algorithms. Unlike other low-rank-based matrix completion methods and inpainting algorithms, the proposed model NC-WLRD is also effective for removing random-valued impulse noise and structural noise (stripes).",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2303.12421",
+      "url": "https://arxiv.org/abs/2303.12421",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2507.16732",
+      "title": "HarmonPaint: Harmonized Training-Free Diffusion Inpainting",
+      "authors": [
+        {
+          "name": "Ying Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinzhe Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yong Du",
+          "affiliation": ""
+        },
+        {
+          "name": "Yangyang Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Junyu Dong",
+          "affiliation": ""
+        },
+        {
+          "name": "Shengfeng He",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Existing inpainting methods often require extensive retraining or fine-tuning to integrate new content seamlessly, yet they struggle to maintain coherence in both structure and style between inpainted regions and the surrounding background. Motivated by these limitations, we introduce HarmonPaint, a training-free inpainting framework that seamlessly integrates with the attention mechanisms of diffusion models to achieve high-quality, harmonized image inpainting without any form of training. By leveraging masking strategies within self-attention, HarmonPaint ensures structural fidelity without model retraining or fine-tuning. Additionally, we exploit intrinsic diffusion model properties to transfer style information from unmasked to masked regions, achieving a harmonious integration of styles. Extensive experiments demonstrate the effectiveness of HarmonPaint across diverse scenes and styles, validating its versatility and performance.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2507.16732",
+      "url": "https://arxiv.org/abs/2507.16732",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2502.03491",
+      "title": "LanPaint: Training-Free Diffusion Inpainting with Asymptotically Exact and Fast Conditional Sampling",
+      "authors": [
+        {
+          "name": "Candi Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuan Lan",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Diffusion models excel at joint pixel sampling for image generation but lack efficient training-free methods for partial conditional sampling (e.g., inpainting with known pixels). Prior work typically formulates this as an intractable inverse problem, relying on coarse variational approximations, heuristic losses requiring expensive backpropagation, or slow stochastic sampling. These limitations preclude: (1) accurate distributional matching in inpainting results, (2) efficient inference modes without gradient, (3) compatibility with fast ODE-based samplers. To address these limitations, we propose LanPaint: a training-free, asymptotically exact partial conditional sampling methods for ODE-based and rectified flow diffusion models. By leveraging carefully designed Langevin dynamics, LanPaint enables fast, backpropagation-free Monte Carlo sampling. Experiments demonstrate that our approach achieves superior performance with precise partial conditioning and visually coherent inpainting across diverse tasks.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2502.03491",
+      "url": "https://arxiv.org/abs/2502.03491",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2106.13071",
+      "title": "ChaLearn Looking at People: Inpainting and Denoising challenges",
+      "authors": [
+        {
+          "name": "Sergio Escalera",
+          "affiliation": ""
+        },
+        {
+          "name": "Marti Soler",
+          "affiliation": ""
+        },
+        {
+          "name": "Stephane Ayache",
+          "affiliation": ""
+        },
+        {
+          "name": "Umut Guclu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jun Wan",
+          "affiliation": ""
+        },
+        {
+          "name": "Meysam Madadi",
+          "affiliation": ""
+        },
+        {
+          "name": "Xavier Baro",
+          "affiliation": ""
+        },
+        {
+          "name": "Hugo Jair Escalante",
+          "affiliation": ""
+        },
+        {
+          "name": "Isabelle Guyon",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Dealing with incomplete information is a well studied problem in the context of machine learning and computational intelligence. However, in the context of computer vision, the problem has only been studied in specific scenarios (e.g., certain types of occlusions in specific types of images), although it is common to have incomplete information in visual data. This chapter describes the design of an academic competition focusing on inpainting of images and video sequences that was part of the competition program of WCCI2018 and had a satellite event collocated with ECCV2018. The ChaLearn Looking at People Inpainting Challenge aimed at advancing the state of the art on visual inpainting by promoting the development of methods for recovering missing and occluded information from images and video. Three tracks were proposed in which visual inpainting might be helpful but still challenging: human body pose estimation, text overlays removal and fingerprint denoising. This chapter describes the design of the challenge, which includes the release of three novel datasets, and the description of evaluation metrics, baselines and evaluation protocol. The results of the challenge are analyzed and discussed in detail and conclusions derived from this event are outlined.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1007/978-3-030-25614-2_2",
+      "arxiv_id": "2106.13071",
+      "url": "https://arxiv.org/abs/2106.13071",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2509.23919",
+      "title": "Token Painter: Training-Free Text-Guided Image Inpainting via Mask Autoregressive Models",
+      "authors": [
+        {
+          "name": "Longtao Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jie Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Mingfei Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Lei Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Yongqiang Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Feng Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaojun Chang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhihui Li",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Text-guided image inpainting aims to inpaint masked image regions based on a textual prompt while preserving the background. Although diffusion-based methods have become dominant, their property of modeling the entire image in latent space makes it challenging for the results to align well with prompt details and maintain a consistent background. To address these issues, we explore Mask AutoRegressive (MAR) models for this task. MAR naturally supports image inpainting by generating latent tokens corresponding to mask regions, enabling better local controllability without altering the background. However, directly applying MAR to this task makes the inpainting content either ignore the prompts or be disharmonious with the background context. Through analysis of the attention maps from the inpainting images, we identify the impact of background tokens on text tokens during the MAR generation, and leverage this to design \\textbf{Token Painter}, a training-free text-guided image inpainting method based on MAR. Our approach introduces two key components: (1) Dual-Stream Encoder Information Fusion (DEIF), which fuses the semantic and context information from text and background in frequency domain to produce novel guidance tokens, allowing MAR to generate text-faithful inpainting content while keeping harmonious with background context. (2) Adaptive Decoder Attention Score Enhancing (ADAE), which adaptively enhances attention scores on guidance tokens and inpainting tokens to further enhance the alignment of prompt details and the content visual quality. Extensive experiments demonstrate that our training-free method outperforms prior state-of-the-art methods across almost all metrics. Codes: https://github.com/longtaojiang/Token-Painter.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2509.23919",
+      "url": "https://arxiv.org/abs/2509.23919",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2603.05507",
+      "title": "Transformer-Based Inpainting for Real-Time 3D Streaming in Sparse Multi-Camera Setups",
+      "authors": [
+        {
+          "name": "Leif Van Holland",
+          "affiliation": ""
+        },
+        {
+          "name": "Domenic Zingsheim",
+          "affiliation": ""
+        },
+        {
+          "name": "Mana Takhsha",
+          "affiliation": ""
+        },
+        {
+          "name": "Hannah Dr\u00f6ge",
+          "affiliation": ""
+        },
+        {
+          "name": "Patrick Stotko",
+          "affiliation": ""
+        },
+        {
+          "name": "Markus Plack",
+          "affiliation": ""
+        },
+        {
+          "name": "Reinhard Klein",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "High-quality 3D streaming from multiple cameras is crucial for immersive experiences in many AR/VR applications. The limited number of views - often due to real-time constraints - leads to missing information and incomplete surfaces in the rendered images. Existing approaches typically rely on simple heuristics for the hole filling, which can result in inconsistencies or visual artifacts. We propose to complete the missing textures using a novel, application-targeted inpainting method independent of the underlying representation as an image-based post-processing step after the novel view rendering. The method is designed as a standalone module compatible with any calibrated multi-camera system. For this we introduce a multi-view aware, transformer-based network architecture using spatio-temporal embeddings to ensure consistency across frames while preserving fine details. Additionally, our resolution-independent design allows adaptation to different camera setups, while an adaptive patch selection strategy balances inference speed and quality, allowing real-time performance. We evaluate our approach against state-of-the-art inpainting techniques under the same real-time constraints and demonstrate that our model achieves the best trade-off between quality and speed, outperforming competitors in both image and video-based metrics.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2603.05507",
+      "url": "https://arxiv.org/abs/2603.05507",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2501.12267",
+      "title": "VipDiff: Towards Coherent and Diverse Video Inpainting via Training-free Denoising Diffusion Models",
+      "authors": [
+        {
+          "name": "Chaohao Xie",
+          "affiliation": ""
+        },
+        {
+          "name": "Kai Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Kwan-Yee K. Wong",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Recent video inpainting methods have achieved encouraging improvements by leveraging optical flow to guide pixel propagation from reference frames either in the image space or feature space. However, they would produce severe artifacts in the mask center when the masked area is too large and no pixel correspondences can be found for the center. Recently, diffusion models have demonstrated impressive performance in generating diverse and high-quality images, and have been exploited in a number of works for image inpainting. These methods, however, cannot be applied directly to videos to produce temporal-coherent inpainting results. In this paper, we propose a training-free framework, named VipDiff, for conditioning diffusion model on the reverse diffusion process to produce temporal-coherent inpainting results without requiring any training data or fine-tuning the pre-trained diffusion models. VipDiff takes optical flow as guidance to extract valid pixels from reference frames to serve as constraints in optimizing the randomly sampled Gaussian noise, and uses the generated results for further pixel propagation and conditional generation. VipDiff also allows for generating diverse video inpainting results over different sampled noise. Experiments demonstrate that VipDiff can largely outperform state-of-the-art video inpainting methods in terms of both spatial-temporal coherence and fidelity.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2501.12267",
+      "url": "https://arxiv.org/abs/2501.12267",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2403.19534",
+      "title": "Locate, Assign, Refine: Taming Customized Promptable Image Inpainting",
+      "authors": [
+        {
+          "name": "Yulin Pan",
+          "affiliation": ""
+        },
+        {
+          "name": "Chaojie Mao",
+          "affiliation": ""
+        },
+        {
+          "name": "Zeyinzi Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhen Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Jingfeng Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiangteng He",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Prior studies have made significant progress in image inpainting guided by either text description or subject image. However, the research on inpainting with flexible guidance or control, i.e., text-only, image-only, and their combination, is still in the early stage. Therefore, in this paper, we introduce the multimodal promptable image inpainting project: a new task model, and data for taming customized image inpainting. We propose LAR-Gen, a novel approach for image inpainting that enables seamless inpainting of specific region in images corresponding to the mask prompt, incorporating both the text prompt and image prompt. Our LAR-Gen adopts a coarse-to-fine manner to ensure the context consistency of source image, subject identity consistency, local semantic consistency to the text description, and smoothness consistency. It consists of three mechanisms: (i) Locate mechanism: concatenating the noise with masked scene image to achieve precise regional editing, (ii) Assign mechanism: employing decoupled cross-attention mechanism to accommodate multi-modal guidance, and (iii) Refine mechanism: using a novel RefineNet to supplement subject details. Additionally, to address the issue of scarce training data, we introduce a novel data engine to automatically extract substantial pairs of data consisting of local text prompts and corresponding visual instances from a vast image data, leveraging publicly available pre-trained large models. Extensive experiments and various application scenarios demonstrate the superiority of LAR-Gen in terms of both identity preservation and text semantic consistency.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2403.19534",
+      "url": "https://arxiv.org/abs/2403.19534",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2504.18361",
+      "title": "COCO-Inpaint: A Benchmark for Image Inpainting Detection and Manipulation Localization",
+      "authors": [
+        {
+          "name": "Haozhen Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Yan Hong",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiahui Zhan",
+          "affiliation": ""
+        },
+        {
+          "name": "Yikun Ji",
+          "affiliation": ""
+        },
+        {
+          "name": "Jun Lan",
+          "affiliation": ""
+        },
+        {
+          "name": "Huijia Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Weiqiang Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianfu Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Recent advancements in image manipulation have achieved unprecedented progress in generating photorealistic content, but also simultaneously eliminating barriers to arbitrary manipulation and editing, raising concerns about multimedia authenticity and cybersecurity. However, existing Image Manipulation Detection and Localization (IMDL) methodologies predominantly focus on splicing or copy-move forgeries, lacking dedicated benchmarks for inpainting-based manipulations. To bridge this gap, we present COCOInpaint, a comprehensive benchmark specifically designed for inpainting detection, with three key contributions: 1) High-quality inpainting samples generated by six state-of-the-art inpainting models, 2) Diverse generation scenarios enabled by four mask generation strategies with optional text guidance, and 3) Large-scale coverage with 258,266 inpainted images with rich semantic diversity. Our benchmark is constructed to emphasize intrinsic inconsistencies between inpainted and authentic regions, rather than superficial semantic artifacts such as object shapes. We establish a rigorous evaluation protocol using three standard metrics to assess existing IMDL approaches. The dataset will be made publicly available to facilitate future research in this area.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2504.18361",
+      "url": "https://arxiv.org/abs/2504.18361",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2007.05080",
+      "title": "A Benchmark for Inpainting of Clothing Images with Irregular Holes",
+      "authors": [
+        {
+          "name": "Furkan K\u0131nl\u0131",
+          "affiliation": ""
+        },
+        {
+          "name": "Bar\u0131\u015f \u00d6zcan",
+          "affiliation": ""
+        },
+        {
+          "name": "Furkan K\u0131ra\u00e7",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Fashion image understanding is an active research field with a large number of practical applications for the industry. Despite its practical impacts on intelligent fashion analysis systems, clothing image inpainting has not been extensively examined yet. For that matter, we present an extensive benchmark of clothing image inpainting on well-known fashion datasets. Furthermore, we introduce the use of a dilated version of partial convolutions, which efficiently derive the mask update step, and empirically show that the proposed method reduces the required number of layers to form fully-transparent masks. Experiments show that dilated partial convolutions (DPConv) improve the quantitative inpainting performance when compared to the other inpainting strategies, especially it performs better when the mask size is 20% or more of the image. \\keywords{image inpainting, fashion image understanding, dilated convolutions, partial convolutions",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2007.05080",
+      "url": "https://arxiv.org/abs/2007.05080",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2105.05332",
+      "title": "The DEVIL is in the Details: A Diagnostic Evaluation Benchmark for Video Inpainting",
+      "authors": [
+        {
+          "name": "Ryan Szeto",
+          "affiliation": ""
+        },
+        {
+          "name": "Jason J. Corso",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Quantitative evaluation has increased dramatically among recent video inpainting work, but the video and mask content used to gauge performance has received relatively little attention. Although attributes such as camera and background scene motion inherently change the difficulty of the task and affect methods differently, existing evaluation schemes fail to control for them, thereby providing minimal insight into inpainting failure modes. To address this gap, we propose the Diagnostic Evaluation of Video Inpainting on Landscapes (DEVIL) benchmark, which consists of two contributions: (i) a novel dataset of videos and masks labeled according to several key inpainting failure modes, and (ii) an evaluation scheme that samples slices of the dataset characterized by a fixed content attribute, and scores performance on each slice according to reconstruction, realism, and temporal consistency quality. By revealing systematic changes in performance induced by particular characteristics of the input content, our challenging benchmark enables more insightful analysis into video inpainting methods and serves as an invaluable diagnostic tool for the field. Our code and data are available at https://github.com/MichiganCOG/devil .",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2105.05332",
+      "url": "https://arxiv.org/abs/2105.05332",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2102.00142",
+      "title": "Latent-Space Inpainting for Packet Loss Concealment in Collaborative Object Detection",
+      "authors": [
+        {
+          "name": "Ivan V. Baji\u0107",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Edge devices, such as cameras and mobile units, are increasingly capable of performing sophisticated computation in addition to their traditional roles in sensing and communicating signals. The focus of this paper is on collaborative object detection, where deep features computed on the edge device from input images are transmitted to the cloud for further processing. We consider the impact of packet loss on the transmitted features and examine several ways for recovering the missing data. In particular, through theory and experiments, we show that methods for image inpainting based on partial differential equations work well for the recovery of missing features in the latent space. The obtained results represent the new state of the art for missing data recovery in collaborative object detection.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2102.00142",
+      "url": "https://arxiv.org/abs/2102.00142",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2106.07597",
+      "title": "MLPerf Tiny Benchmark",
+      "authors": [
+        {
+          "name": "Colby Banbury",
+          "affiliation": ""
+        },
+        {
+          "name": "Vijay Janapa Reddi",
+          "affiliation": ""
+        },
+        {
+          "name": "Peter Torelli",
+          "affiliation": ""
+        },
+        {
+          "name": "Jeremy Holleman",
+          "affiliation": ""
+        },
+        {
+          "name": "Nat Jeffries",
+          "affiliation": ""
+        },
+        {
+          "name": "Csaba Kiraly",
+          "affiliation": ""
+        },
+        {
+          "name": "Pietro Montino",
+          "affiliation": ""
+        },
+        {
+          "name": "David Kanter",
+          "affiliation": ""
+        },
+        {
+          "name": "Sebastian Ahmed",
+          "affiliation": ""
+        },
+        {
+          "name": "Danilo Pau",
+          "affiliation": ""
+        },
+        {
+          "name": "Urmish Thakker",
+          "affiliation": ""
+        },
+        {
+          "name": "Antonio Torrini",
+          "affiliation": ""
+        },
+        {
+          "name": "Peter Warden",
+          "affiliation": ""
+        },
+        {
+          "name": "Jay Cordaro",
+          "affiliation": ""
+        },
+        {
+          "name": "Giuseppe Di Guglielmo",
+          "affiliation": ""
+        },
+        {
+          "name": "Javier Duarte",
+          "affiliation": ""
+        },
+        {
+          "name": "Stephen Gibellini",
+          "affiliation": ""
+        },
+        {
+          "name": "Videet Parekh",
+          "affiliation": ""
+        },
+        {
+          "name": "Honson Tran",
+          "affiliation": ""
+        },
+        {
+          "name": "Nhan Tran",
+          "affiliation": ""
+        },
+        {
+          "name": "Niu Wenxu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xu Xuesong",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Advancements in ultra-low-power tiny machine learning (TinyML) systems promise to unlock an entirely new class of smart applications. However, continued progress is limited by the lack of a widely accepted and easily reproducible benchmark for these systems. To meet this need, we present MLPerf Tiny, the first industry-standard benchmark suite for ultra-low-power tiny machine learning systems. The benchmark suite is the collaborative effort of more than 50 organizations from industry and academia and reflects the needs of the community. MLPerf Tiny measures the accuracy, latency, and energy of machine learning inference to properly evaluate the tradeoffs between systems. Additionally, MLPerf Tiny implements a modular design that enables benchmark submitters to show the benefits of their product, regardless of where it falls on the ML deployment stack, in a fair and reproducible manner. The suite features four benchmarks: keyword spotting, visual wake words, image classification, and anomaly detection.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2106.07597",
+      "url": "https://arxiv.org/abs/2106.07597",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2008.05058",
+      "title": "Dynamic Object Removal and Spatio-Temporal RGB-D Inpainting via Geometry-Aware Adversarial Learning",
+      "authors": [
+        {
+          "name": "Borna Be\u0161i\u0107",
+          "affiliation": ""
+        },
+        {
+          "name": "Abhinav Valada",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Dynamic objects have a significant impact on the robot's perception of the environment which degrades the performance of essential tasks such as localization and mapping. In this work, we address this problem by synthesizing plausible color, texture and geometry in regions occluded by dynamic objects. We propose the novel geometry-aware DynaFill architecture that follows a coarse-to-fine topology and incorporates our gated recurrent feedback mechanism to adaptively fuse information from previous timesteps. We optimize our architecture using adversarial training to synthesize fine realistic textures which enables it to hallucinate color and depth structure in occluded regions online in a spatially and temporally coherent manner, without relying on future frame information. Casting our inpainting problem as an image-to-image translation task, our model also corrects regions correlated with the presence of dynamic objects in the scene, such as shadows or reflections. We introduce a large-scale hyperrealistic dataset with RGB-D images, semantic segmentation labels, camera poses as well as groundtruth RGB-D information of occluded regions. Extensive quantitative and qualitative evaluations show that our approach achieves state-of-the-art performance, even in challenging weather conditions. Furthermore, we present results for retrieval-based visual localization with the synthesized images that demonstrate the utility of our approach.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2008.05058",
+      "url": "https://arxiv.org/abs/2008.05058",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2503.12526",
+      "title": "EditID: Training-Free Editable ID Customization for Text-to-Image Generation",
+      "authors": [
+        {
+          "name": "Guandong Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhaobin Chu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "We propose EditID, a training-free approach based on the DiT architecture, which achieves highly editable customized IDs for text to image generation. Existing text-to-image models for customized IDs typically focus more on ID consistency while neglecting editability. It is challenging to alter facial orientation, character attributes, and other features through prompts. EditID addresses this by deconstructing the text-to-image model for customized IDs into an image generation branch and a character feature branch. The character feature branch is further decoupled into three modules: feature extraction, feature fusion, and feature integration. By introducing a combination of mapping features and shift features, along with controlling the intensity of ID feature integration, EditID achieves semantic compression of local features across network depths, forming an editable feature space. This enables the successful generation of high-quality images with editable IDs while maintaining ID consistency, achieving excellent results in the IBench evaluation, which is an editability evaluation framework for the field of customized ID text-to-image generation that quantitatively demonstrates the superior performance of EditID. EditID is the first text-to-image solution to propose customizable ID editability on the DiT architecture, meeting the demands of long prompts and high quality image generation.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2503.12526",
+      "url": "https://arxiv.org/abs/2503.12526",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2602.09971",
+      "title": "SCOPE: A Training-Free Online 3D Deployment for UAV-BSs with Theoretical Analysis and Comparative Study",
+      "authors": [
+        {
+          "name": "Chuan-Chi Lai",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Unmanned Aerial Vehicle (UAV)-mounted Base Stations (UAV-BSs) offer a flexible solution for serving ground users in temporary hotspot scenarios. However, efficiently deploying UAV-BSs to satisfy heterogeneous user distributions remains a challenging optimization problem. While recent data-driven approaches, particularly Deep Reinforcement Learning (DRL), have shown promise in dynamic environments, they often suffer from prohibitive training overhead, poor generalization to topology changes, and high computational complexity. To address these limitations, this paper proposes Satisfaction-driven Coverage Optimization via Perimeter Extraction (SCOPE), a training-free and online 3D deployment framework. Unlike heuristic baselines that rely on fixed-altitude assumptions, SCOPE integrates a perimeter extraction mechanism with the Smallest Enclosing Circle (SEC) algorithm to dynamically optimize 3D UAV positions. Theoretically, we provide a rigorous convergence proof of the proposed algorithm and derive its polynomial time complexity of $O(N^2 \\log N)$. Experimentally, we conduct a comprehensive comparative study against state-of-the-art DRL baselines (e.g., PPO). Simulation results demonstrate that SCOPE achieves comparable user satisfaction to DRL methods but significantly lower computational latency (milliseconds vs. hours of training) and superior energy efficiency, making it an ideal solution for real-time, on-demand emergency deployment.",
+      "venue": "cs.NI",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2602.09971",
+      "url": "https://arxiv.org/abs/2602.09971",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2506.19348",
+      "title": "Training-Free Motion Customization for Distilled Video Generators with Adaptive Test-Time Distillation",
+      "authors": [
+        {
+          "name": "Jintao Rong",
+          "affiliation": ""
+        },
+        {
+          "name": "Xin Xie",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinyi Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Linlin Ou",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinyu Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chunhua Shen",
+          "affiliation": ""
+        },
+        {
+          "name": "Dong Gong",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Distilled video generation models offer fast and efficient synthesis but struggle with motion customization when guided by reference videos, especially under training-free settings. Existing training-free methods, originally designed for standard diffusion models, fail to generalize due to the accelerated generative process and large denoising steps in distilled models. To address this, we propose MotionEcho, a novel training-free test-time distillation framework that enables motion customization by leveraging diffusion teacher forcing. Our approach uses high-quality, slow teacher models to guide the inference of fast student models through endpoint prediction and interpolation. To maintain efficiency, we dynamically allocate computation across timesteps according to guidance needs. Extensive experiments across various distilled video generation models and benchmark datasets demonstrate that our method significantly improves motion fidelity and generation quality while preserving high efficiency. Project page: https://euminds.github.io/motionecho/",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2506.19348",
+      "url": "https://arxiv.org/abs/2506.19348",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.20401",
+      "title": "A Training-Free Approach for Multi-ID Customization via Attention Adjustment and Spatial Control",
+      "authors": [
+        {
+          "name": "Jiawei Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Guanlong Jiao",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianjin Xu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Multi-ID customization is an interesting topic in computer vision and attracts considerable attention recently. Given the ID images of multiple individuals, its purpose is to generate a customized image that seamlessly integrates them while preserving their respective identities. Compared to single-ID customization, multi-ID customization is much more difficult and poses two major challenges. First, since the multi-ID customization model is trained to reconstruct an image from the cropped person regions, it often encounters the copy-paste issue during inference, leading to lower quality. Second, the model also suffers from inferior text controllability. The generated result simply combines multiple persons into one image, regardless of whether it is aligned with the input text. In this work, we propose MultiID to tackle this challenging task in a training-free manner. Since the existing single-ID customization models have less copy-paste issue, our key idea is to adapt these models to achieve multi-ID customization. To this end, we present an ID-decoupled cross-attention mechanism, injecting distinct ID embeddings into the corresponding image regions and thus generating multi-ID outputs. To enhance the generation controllability, we introduce three critical strategies, namely the local prompt, depth-guided spatial control, and extended self-attention, making the results more consistent with the text prompts and ID images. We also carefully build a benchmark, called IDBench, for evaluation. The extensive qualitative and quantitative results demonstrate the effectiveness of MultiID in solving the aforementioned two challenges. Its performance is comparable or even better than the training-based multi-ID customization methods.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.20401",
+      "url": "https://arxiv.org/abs/2511.20401",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2301.10048",
+      "title": "Exploiting Optical Flow Guidance for Transformer-Based Video Inpainting",
+      "authors": [
+        {
+          "name": "Kaidong Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jialun Peng",
+          "affiliation": ""
+        },
+        {
+          "name": "Jingjing Fu",
+          "affiliation": ""
+        },
+        {
+          "name": "Dong Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Transformers have been widely used for video processing owing to the multi-head self attention (MHSA) mechanism. However, the MHSA mechanism encounters an intrinsic difficulty for video inpainting, since the features associated with the corrupted regions are degraded and incur inaccurate self attention. This problem, termed query degradation, may be mitigated by first completing optical flows and then using the flows to guide the self attention, which was verified in our previous work - flow-guided transformer (FGT). We further exploit the flow guidance and propose FGT++ to pursue more effective and efficient video inpainting. First, we design a lightweight flow completion network by using local aggregation and edge loss. Second, to address the query degradation, we propose a flow guidance feature integration module, which uses the motion discrepancy to enhance the features, together with a flow-guided feature propagation module that warps the features according to the flows. Third, we decouple the transformer along the temporal and spatial dimensions, where flows are used to select the tokens through a temporally deformable MHSA mechanism, and global tokens are combined with the inner-window local tokens through a dual perspective MHSA mechanism. FGT++ is experimentally evaluated to be outperforming the existing video inpainting networks qualitatively and quantitatively.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1109/TPAMI.2024.3361010",
+      "arxiv_id": "2301.10048",
+      "url": "https://arxiv.org/abs/2301.10048",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2309.13890",
+      "title": "Bitstream-Corrupted Video Recovery: A Novel Benchmark Dataset and Method",
+      "authors": [
+        {
+          "name": "Tianyi Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Kejun Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenyang Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Kim-Hui Yap",
+          "affiliation": ""
+        },
+        {
+          "name": "Lap-Pui Chau",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "The past decade has witnessed great strides in video recovery by specialist technologies, like video inpainting, completion, and error concealment. However, they typically simulate the missing content by manual-designed error masks, thus failing to fill in the realistic video loss in video communication (e.g., telepresence, live streaming, and internet video) and multimedia forensics. To address this, we introduce the bitstream-corrupted video (BSCV) benchmark, the first benchmark dataset with more than 28,000 video clips, which can be used for bitstream-corrupted video recovery in the real world. The BSCV is a collection of 1) a proposed three-parameter corruption model for video bitstream, 2) a large-scale dataset containing rich error patterns, multiple corruption levels, and flexible dataset branches, and 3) a plug-and-play module in video recovery framework that serves as a benchmark. We evaluate state-of-the-art video inpainting methods on the BSCV dataset, demonstrating existing approaches' limitations and our framework's advantages in solving the bitstream-corrupted video recovery problem. The benchmark and dataset are released at https://github.com/LIUTIGHE/BSCV-Dataset.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2309.13890",
+      "url": "https://arxiv.org/abs/2309.13890",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2303.13133",
+      "title": "Generative Image Inpainting with Segmentation Confusion Adversarial Training and Contrastive Learning",
+      "authors": [
+        {
+          "name": "Zhiwen Zuo",
+          "affiliation": ""
+        },
+        {
+          "name": "Lei Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Ailin Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhizhong Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhanjie Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiafu Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Wei Xing",
+          "affiliation": ""
+        },
+        {
+          "name": "Dongming Lu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "This paper presents a new adversarial training framework for image inpainting with segmentation confusion adversarial training (SCAT) and contrastive learning. SCAT plays an adversarial game between an inpainting generator and a segmentation network, which provides pixel-level local training signals and can adapt to images with free-form holes. By combining SCAT with standard global adversarial training, the new adversarial training framework exhibits the following three advantages simultaneously: (1) the global consistency of the repaired image, (2) the local fine texture details of the repaired image, and (3) the flexibility of handling images with free-form holes. Moreover, we propose the textural and semantic contrastive learning losses to stabilize and improve our inpainting model's training by exploiting the feature representation space of the discriminator, in which the inpainting images are pulled closer to the ground truth images but pushed farther from the corrupted images. The proposed contrastive losses better guide the repaired images to move from the corrupted image data points to the real image data points in the feature representation space, resulting in more realistic completed images. We conduct extensive experiments on two benchmark datasets, demonstrating our model's effectiveness and superiority both qualitatively and quantitatively.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1609/aaai.v37i3.25502",
+      "arxiv_id": "2303.13133",
+      "url": "https://arxiv.org/abs/2303.13133",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.09180",
+      "title": "FSampler: Training Free Acceleration of Diffusion Sampling via Epsilon Extrapolation",
+      "authors": [
+        {
+          "name": "Michael A. Vladimir",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "FSampler is a training free, sampler agnostic execution layer that accelerates diffusion sampling by reducing the number of function evaluations (NFE). FSampler maintains a short history of denoising signals (epsilon) from recent real model calls and extrapolates the next epsilon using finite difference predictors at second order, third order, or fourth order, falling back to lower order when history is insufficient. On selected steps the predicted epsilon substitutes the model call while keeping each sampler's update rule unchanged. Predicted epsilons are validated for finiteness and magnitude; a learning stabilizer rescales predictions on skipped steps to correct drift, and an optional gradient estimation stabilizer compensates local curvature. Protected windows, periodic anchors, and a cap on consecutive skips bound deviation over the trajectory. Operating at the sampler level, FSampler integrates with Euler/DDIM, DPM++ 2M/2S, LMS/AB2, and RES family exponential multistep methods and drops into standard workflows. FLUX.1 dev, Qwen Image, and Wan 2.2, FSampler reduces time by 8 to 22% and model calls by 15 to 25% at high fidelity (Structural Similarity Index (SSIM) 0.95 to 0.99), without altering sampler formulas. With an aggressive adaptive gate, reductions can reach 45 to 50% fewer model calls at lower fidelity (SSIM 0.73 to 0.74).",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.09180",
+      "url": "https://arxiv.org/abs/2511.09180",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2304.13998",
+      "title": "Mimic-IV-ICD: A new benchmark for eXtreme MultiLabel Classification",
+      "authors": [
+        {
+          "name": "Thanh-Tung Nguyen",
+          "affiliation": ""
+        },
+        {
+          "name": "Viktor Schlegel",
+          "affiliation": ""
+        },
+        {
+          "name": "Abhinav Kashyap",
+          "affiliation": ""
+        },
+        {
+          "name": "Stefan Winkler",
+          "affiliation": ""
+        },
+        {
+          "name": "Shao-Syuan Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jie-Jyun Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Chih-Jen Lin",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Clinical notes are assigned ICD codes - sets of codes for diagnoses and procedures. In the recent years, predictive machine learning models have been built for automatic ICD coding. However, there is a lack of widely accepted benchmarks for automated ICD coding models based on large-scale public EHR data.\n  This paper proposes a public benchmark suite for ICD-10 coding using a large EHR dataset derived from MIMIC-IV, the most recent public EHR dataset. We implement and compare several popular methods for ICD coding prediction tasks to standardize data preprocessing and establish a comprehensive ICD coding benchmark dataset. This approach fosters reproducibility and model comparison, accelerating progress toward employing automated ICD coding in future studies. Furthermore, we create a new ICD-9 benchmark using MIMIC-IV data, providing more data points and a higher number of ICD codes than MIMIC-III. Our open-source code offers easy access to data processing steps, benchmark creation, and experiment replication for those with MIMIC-IV access, providing insights, guidance, and protocols to efficiently develop ICD coding models.",
+      "venue": "cs.AI",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2304.13998",
+      "url": "https://arxiv.org/abs/2304.13998",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2107.13275",
+      "title": "Benchmark Instances and Optimal Solutions for the Traveling Salesman Problem with Drone",
+      "authors": [
+        {
+          "name": "Mauro Dell'Amico",
+          "affiliation": ""
+        },
+        {
+          "name": "Roberto Montemanni",
+          "affiliation": ""
+        },
+        {
+          "name": "Stefano Novellani",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "The use of drones in logistics is gaining more and more interest, and drones are becoming a more viable and common way of distributing parcels in an urban environment. As a consequence, there is a flourishing production of articles in the field of operational optimization of the combined use of trucks and drones for fulfilling customers requests. The aim is minimizing the total time required to service all the customers, since this has obvious economical impacts. However in the literature there is not yet a widely recognized basic model, and there are not well assessed sets of instances and optimal solutions that can be considered as a benchmark to prove the effectiveness of new solution methods. The aim of this paper is to fill this gap. On one side we will clearly describe some of the most common components of the truck/drone routing problems and we will define nine basic problem settings, by combining these components. On the other side we will consider some of the instances used by many researchers and we will provide optimal solutions for all the problem settings previously identified. Instances and detailed solutions are then organized into benchmarks made publicly available as validation tools for future research methods.",
+      "venue": "cs.DM",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2107.13275",
+      "url": "https://arxiv.org/abs/2107.13275",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2201.10753",
+      "title": "Interactive Image Inpainting Using Semantic Guidance",
+      "authors": [
+        {
+          "name": "Wangbo Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jinhao Du",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruixin Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yixuan Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuesheng zhu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Image inpainting approaches have achieved significant progress with the help of deep neural networks. However, existing approaches mainly focus on leveraging the priori distribution learned by neural networks to produce a single inpainting result or further yielding multiple solutions, where the controllability is not well studied. This paper develops a novel image inpainting approach that enables users to customize the inpainting result by their own preference or memory. Specifically, our approach is composed of two stages that utilize the prior of neural network and user's guidance to jointly inpaint corrupted images. In the first stage, an autoencoder based on a novel external spatial attention mechanism is deployed to produce reconstructed features of the corrupted image and a coarse inpainting result that provides semantic mask as the medium for user interaction. In the second stage, a semantic decoder that takes the reconstructed features as prior is adopted to synthesize a fine inpainting result guided by user's customized semantic mask, so that the final inpainting result will share the same content with user's guidance while the textures and colors reconstructed in the first stage are preserved. Extensive experiments demonstrate the superiority of our approach in terms of inpainting quality and controllability.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2201.10753",
+      "url": "https://arxiv.org/abs/2201.10753",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2301.08044",
+      "title": "Reference Guided Image Inpainting using Facial Attributes",
+      "authors": [
+        {
+          "name": "Dongsik Yoon",
+          "affiliation": ""
+        },
+        {
+          "name": "Jeonggi Kwak",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuanming Li",
+          "affiliation": ""
+        },
+        {
+          "name": "David Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Youngsaeng Jin",
+          "affiliation": ""
+        },
+        {
+          "name": "Hanseok Ko",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Image inpainting is a technique of completing missing pixels such as occluded region restoration, distracting objects removal, and facial completion. Among these inpainting tasks, facial completion algorithm performs face inpainting according to the user direction. Existing approaches require delicate and well controlled input by the user, thus it is difficult for an average user to provide the guidance sufficiently accurate for the algorithm to generate desired results. To overcome this limitation, we propose an alternative user-guided inpainting architecture that manipulates facial attributes using a single reference image as the guide. Our end-to-end model consists of attribute extractors for accurate reference image attribute transfer and an inpainting model to map the attributes realistically and accurately to generated images. We customize MS-SSIM loss and learnable bidirectional attention maps in which importance structures remain intact even with irregular shaped masks. Based on our evaluation using the publicly available dataset CelebA-HQ, we demonstrate that the proposed method delivers superior performance compared to some state-of-the-art methods specialized in inpainting tasks.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2301.08044",
+      "url": "https://arxiv.org/abs/2301.08044",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2212.05680",
+      "title": "REAP: A Large-Scale Realistic Adversarial Patch Benchmark",
+      "authors": [
+        {
+          "name": "Nabeel Hingun",
+          "affiliation": ""
+        },
+        {
+          "name": "Chawin Sitawarin",
+          "affiliation": ""
+        },
+        {
+          "name": "Jerry Li",
+          "affiliation": ""
+        },
+        {
+          "name": "David Wagner",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Machine learning models are known to be susceptible to adversarial perturbation. One famous attack is the adversarial patch, a sticker with a particularly crafted pattern that makes the model incorrectly predict the object it is placed on. This attack presents a critical threat to cyber-physical systems that rely on cameras such as autonomous cars. Despite the significance of the problem, conducting research in this setting has been difficult; evaluating attacks and defenses in the real world is exceptionally costly while synthetic data are unrealistic. In this work, we propose the REAP (REalistic Adversarial Patch) benchmark, a digital benchmark that allows the user to evaluate patch attacks on real images, and under real-world conditions. Built on top of the Mapillary Vistas dataset, our benchmark contains over 14,000 traffic signs. Each sign is augmented with a pair of geometric and lighting transformations, which can be used to apply a digitally generated patch realistically onto the sign. Using our benchmark, we perform the first large-scale assessments of adversarial patch attacks under realistic conditions. Our experiments suggest that adversarial patch attacks may present a smaller threat than previously believed and that the success rate of an attack on simpler digital simulations is not predictive of its actual effectiveness in practice. We release our benchmark publicly at https://github.com/wagner-group/reap-benchmark.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2212.05680",
+      "url": "https://arxiv.org/abs/2212.05680",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2503.18947",
+      "title": "Tuning-Free Amodal Segmentation via the Occlusion-Free Bias of Inpainting Models",
+      "authors": [
+        {
+          "name": "Jae Joong Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Bedrich Benes",
+          "affiliation": ""
+        },
+        {
+          "name": "Raymond A. Yeh",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Amodal segmentation aims to predict segmentation masks for both the visible and occluded regions of an object. Most existing works formulate this as a supervised learning problem, requiring manually annotated amodal masks or synthetic training data. Consequently, their performance depends on the quality of the datasets, which often lack diversity and scale. This work introduces a tuning-free approach that repurposes pretrained diffusion-based inpainting models for amodal segmentation. Our approach is motivated by the \"occlusion-free bias\" of inpainting models, i.e., the inpainted objects tend to be complete objects without occlusions. Specifically, we reconstruct the occluded regions of an object via inpainting and then apply segmentation, all without additional training or fine-tuning. Experiments on five datasets demonstrate the generalizability and robustness of our approach. On average, our approach achieves 5.3% more accurate masks over the state-of-the-art.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2503.18947",
+      "url": "https://arxiv.org/abs/2503.18947",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2510.16781",
+      "title": "Xiaoice: Training-Free Video Understanding via Self-Supervised Spatio-Temporal Clustering of Semantic Features",
+      "authors": [
+        {
+          "name": "Shihao Ji",
+          "affiliation": ""
+        },
+        {
+          "name": "Zihui Song",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The remarkable zero-shot reasoning capabilities of large-scale Visual Language Models (VLMs) on static images have yet to be fully translated to the video domain. Conventional video understanding models often rely on extensive, task-specific training on annotated datasets, a process that is both costly and limited in scalability. This paper introduces a novel, training-free framework for video understanding that circumvents end-to-end training by synergistically combining the rich semantic priors of pre-trained VLMs with classic machine learning algorithms for pattern discovery. Our core idea is to reframe video understanding as a self-supervised spatio-temporal clustering problem within a high-dimensional semantic feature space. The proposed pipeline first transforms a video stream into a semantic feature trajectory using the frozen visual encoder of a pre-trained VLM. Subsequently, we employ Kernel Temporal Segmentation (KTS), a robust machine learning technique, to partition the continuous feature stream into discrete, semantically coherent event segments. These segments are then subjected to unsupervised density-based clustering to identify recurring macroscopic scenes and themes throughout the video. By selecting representative keyframes from each discovered cluster and leveraging the VLM's generative capabilities for textual description, our framework automatically produces a structured, multi-modal summary of the video content. This approach provides an effective, interpretable, and model-agnostic pathway for zero-shot, automated structural analysis of video content.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2510.16781",
+      "url": "https://arxiv.org/abs/2510.16781",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.19985",
+      "title": "SONIC: Spectral Optimization of Noise for Inpainting with Consistency",
+      "authors": [
+        {
+          "name": "Seungyeon Baek",
+          "affiliation": ""
+        },
+        {
+          "name": "Erqun Dong",
+          "affiliation": ""
+        },
+        {
+          "name": "Shadan Namazifard",
+          "affiliation": ""
+        },
+        {
+          "name": "Mark J. Matthews",
+          "affiliation": ""
+        },
+        {
+          "name": "Kwang Moo Yi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "We propose a novel training-free method for inpainting with off-the-shelf text-to-image models. While guidance-based methods in theory allow generic models to be used for inverse problems such as inpainting, in practice, their effectiveness is limited, leading to the necessity of specialized inpainting-specific models. In this work, we argue that the missing ingredient for training-free inpainting is the optimization (guidance) of the initial seed noise. We propose to optimize the initial seed noise to approximately match the unmasked parts of the data - with as few as a few tens of optimization steps. We then apply conventional training-free inpainting methods on top of our optimized initial seed noise. Critically, we propose two core ideas to effectively implement this idea: (i) to avoid the costly unrolling required to relate the initial noise and the generated outcome, we perform linear approximation; and (ii) to stabilize the optimization, we optimize the initial seed noise in the spectral domain. We demonstrate the effectiveness of our method on various inpainting tasks, outperforming the state of the art. Project page: https://ubc-vision.github.io/sonic/",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.19985",
+      "url": "https://arxiv.org/abs/2511.19985",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2412.00857",
+      "title": "Coherent Video Inpainting Using Optical Flow-Guided Efficient Diffusion",
+      "authors": [
+        {
+          "name": "Bohai Gu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Luo",
+          "affiliation": ""
+        },
+        {
+          "name": "Song Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Peiran Dong",
+          "affiliation": ""
+        },
+        {
+          "name": "Qihua Zhou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "The text-guided video inpainting technique has significantly improved the performance of content generation applications. A recent family for these improvements uses diffusion models, which have become essential for achieving high-quality video inpainting results, yet they still face performance bottlenecks in temporal consistency and computational efficiency. This motivates us to propose a new video inpainting framework using optical Flow-guided Efficient Diffusion (FloED) for higher video coherence. Specifically, FloED employs a dual-branch architecture, where the time-agnostic flow branch restores corrupted flow first, and the multi-scale flow adapters provide motion guidance to the main inpainting branch. Besides, a training-free latent interpolation method is proposed to accelerate the multi-step denoising process using flow warping. With the flow attention cache mechanism, FLoED efficiently reduces the computational cost of incorporating optical flow. Extensive experiments on background restoration and object removal tasks show that FloED outperforms state-of-the-art diffusion-based methods in both quality and efficiency. Our codes and models will be made publicly available.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2412.00857",
+      "url": "https://arxiv.org/abs/2412.00857",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

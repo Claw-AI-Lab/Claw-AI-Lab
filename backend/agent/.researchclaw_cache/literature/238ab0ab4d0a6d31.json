@@ -1,0 +1,1083 @@
+{
+  "query": "multi head attention memory",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1773944592.8563027,
+  "papers": [
+    {
+      "paper_id": "arxiv-2211.05409",
+      "title": "Radiomics-enhanced Deep Multi-task Learning for Outcome Prediction in Head and Neck Cancer",
+      "authors": [
+        {
+          "name": "Mingyuan Meng",
+          "affiliation": ""
+        },
+        {
+          "name": "Lei Bi",
+          "affiliation": ""
+        },
+        {
+          "name": "Dagan Feng",
+          "affiliation": ""
+        },
+        {
+          "name": "Jinman Kim",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Outcome prediction is crucial for head and neck cancer patients as it can provide prognostic information for early treatment planning. Radiomics methods have been widely used for outcome prediction from medical images. However, these methods are limited by their reliance on intractable manual segmentation of tumor regions. Recently, deep learning methods have been proposed to perform end-to-end outcome prediction so as to remove the reliance on manual segmentation. Unfortunately, without segmentation masks, these methods will take the whole image as input, such that makes them difficult to focus on tumor regions and potentially unable to fully leverage the prognostic information within the tumor regions. In this study, we propose a radiomics-enhanced deep multi-task framework for outcome prediction from PET/CT images, in the context of HEad and neCK TumOR segmentation and outcome prediction challenge (HECKTOR 2022). In our framework, our novelty is to incorporate radiomics as an enhancement to our recently proposed Deep Multi-task Survival model (DeepMTS). The DeepMTS jointly learns to predict the survival risk scores of patients and the segmentation masks of tumor regions. Radiomics features are extracted from the predicted tumor regions and combined with the predicted survival risk scores for final outcome prediction, through which the prognostic information in tumor regions can be further leveraged. Our method achieved a C-index of 0.681 on the testing set, placing the 2nd on the leaderboard with only 0.00068 lower in C-index than the 1st place.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "10.1007/978-3-031-27420-6_14",
+      "arxiv_id": "2211.05409",
+      "url": "https://arxiv.org/abs/2211.05409",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2602.17526",
+      "title": "The Anxiety of Influence: Bloom Filters in Transformer Attention Heads",
+      "authors": [
+        {
+          "name": "Peter Balogh",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Some transformer attention heads appear to function as membership testers, dedicating themselves to answering the question \"has this token appeared before in the context?\" We identify these heads across four language models (GPT-2 small, medium, and large; Pythia-160M) and show that they form a spectrum of membership-testing strategies. Two heads (L0H1 and L0H5 in GPT-2 small) function as high-precision membership filters with false positive rates of 0-4\\% even at 180 unique context tokens -- well above the $d_\\text{head} = 64$ bit capacity of a classical Bloom filter. A third head (L1H11) shows the classic Bloom filter capacity curve: its false positive rate follows the theoretical formula $p \\approx (1 - e^{-kn/m})^k$ with $R^2 = 1.0$ and fitted capacity $m \\approx 5$ bits, saturating by $n \\approx 20$ unique tokens. A fourth head initially identified as a Bloom filter (L3H0) was reclassified as a general prefix-attention head after confound controls revealed its apparent capacity curve was a sequence-length artifact. Together, the three genuine membership-testing heads form a multi-resolution system concentrated in early layers (0-1), taxonomically distinct from induction and previous-token heads, with false positive rates that decay monotonically with embedding distance -- consistent with distance-sensitive Bloom filters. These heads generalize broadly: they respond to any repeated token type, not just repeated names, with 43\\% higher generalization than duplicate-token-only heads. Ablation reveals these heads contribute to both repeated and novel token processing, indicating that membership testing coexists with broader computational roles. The reclassification of L3H0 through confound controls strengthens rather than weakens the case: the surviving heads withstand the scrutiny that eliminated a false positive in our own analysis.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2602.17526",
+      "url": "https://arxiv.org/abs/2602.17526",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2603.09616",
+      "title": "Surgical Repair of Collapsed Attention Heads in ALiBi Transformers",
+      "authors": [
+        {
+          "name": "Palmer Schallon",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "We identify a systematic attention collapse pathology in the BLOOM family of transformer language models, where ALiBi positional encoding causes 31-44% of attention heads to attend almost entirely to the beginning-of-sequence token. The collapse follows a predictable pattern across four model scales (560M to 7.1B parameters), concentrating in head indices where ALiBi's slope schedule imposes the steepest distance penalties. We introduce surgical reinitialization: targeted Q/K/V reinitialization with zeroed output projections and gradient-masked freezing of all non-surgical parameters. Applied to BLOOM-1b7 on a single consumer GPU, the technique recovers 98.7% operational head capacity (242 to 379 of 384 heads) in two passes. A controlled comparison with C4 training data confirms that reinitialization -- not corpus content -- drives recovery, and reveals two distinct post-surgical phenomena: early global functional redistribution that improves the model, and late local degradation that accumulates under noisy training signal. An extended experiment reinitializing mostly-healthy heads alongside collapsed ones produces a model that transiently outperforms stock BLOOM-1b7 by 25% on training perplexity (12.70 vs. 16.99), suggesting that pretrained attention configurations are suboptimal local minima. Code, checkpoints, and diagnostic tools are released as open-source software.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2603.09616",
+      "url": "https://arxiv.org/abs/2603.09616",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2101.11935",
+      "title": "A Machine Learning Challenge for Prognostic Modelling in Head and Neck Cancer Using Multi-modal Data",
+      "authors": [
+        {
+          "name": "Michal Kazmierski",
+          "affiliation": ""
+        },
+        {
+          "name": "Mattea Welch",
+          "affiliation": ""
+        },
+        {
+          "name": "Sejin Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Chris McIntosh",
+          "affiliation": ""
+        },
+        {
+          "name": "Princess Margaret Head",
+          "affiliation": ""
+        },
+        {
+          "name": "Neck Cancer Group",
+          "affiliation": ""
+        },
+        {
+          "name": "Katrina Rey-McIntyre",
+          "affiliation": ""
+        },
+        {
+          "name": "Shao Hui Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Tirth Patel",
+          "affiliation": ""
+        },
+        {
+          "name": "Tony Tadic",
+          "affiliation": ""
+        },
+        {
+          "name": "Michael Milosevic",
+          "affiliation": ""
+        },
+        {
+          "name": "Fei-Fei Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Andrew Hope",
+          "affiliation": ""
+        },
+        {
+          "name": "Scott Bratman",
+          "affiliation": ""
+        },
+        {
+          "name": "Benjamin Haibe-Kains",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Accurate prognosis for an individual patient is a key component of precision oncology. Recent advances in machine learning have enabled the development of models using a wider range of data, including imaging. Radiomics aims to extract quantitative predictive and prognostic biomarkers from routine medical imaging, but evidence for computed tomography radiomics for prognosis remains inconclusive. We have conducted an institutional machine learning challenge to develop an accurate model for overall survival prediction in head and neck cancer using clinical data etxracted from electronic medical records and pre-treatment radiological images, as well as to evaluate the true added benefit of radiomics for head and neck cancer prognosis. Using a large, retrospective dataset of 2,552 patients and a rigorous evaluation framework, we compared 12 different submissions using imaging and clinical data, separately or in combination. The winning approach used non-linear, multitask learning on clinical data and tumour volume, achieving high prognostic accuracy for 2-year and lifetime survival prediction and outperforming models relying on clinical data only, engineered radiomics and deep learning. Combining all submissions in an ensemble model resulted in improved accuracy, with the highest gain from a image-based deep learning model. Our results show the potential of machine learning and simple, informative prognostic factors in combination with large datasets as a tool to guide personalized cancer care.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2101.11935",
+      "url": "https://arxiv.org/abs/2101.11935",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2410.11842",
+      "title": "MoH: Multi-Head Attention as Mixture-of-Head Attention",
+      "authors": [
+        {
+          "name": "Peng Jin",
+          "affiliation": ""
+        },
+        {
+          "name": "Bo Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Li Yuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuicheng Yan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "In this work, we upgrade the multi-head attention mechanism, the core of the Transformer model, to improve efficiency while maintaining or surpassing the previous accuracy level. We show that multi-head attention can be expressed in the summation form. Drawing on the insight that not all attention heads hold equal significance, we propose Mixture-of-Head attention (MoH), a new architecture that treats attention heads as experts in the Mixture-of-Experts (MoE) mechanism. MoH has two significant advantages: First, MoH enables each token to select the appropriate attention heads, enhancing inference efficiency without compromising accuracy or increasing the number of parameters. Second, MoH replaces the standard summation in multi-head attention with a weighted summation, introducing flexibility to the attention mechanism and unlocking extra performance potential. Extensive experiments on ViT, DiT, and LLMs demonstrate that MoH outperforms multi-head attention by using only 50%-90% of the attention heads. Moreover, we demonstrate that pre-trained multi-head attention models, such as LLaMA3-8B, can be further continue-tuned into our MoH models. Notably, MoH-LLaMA3-8B achieves an average accuracy of 64.0% across 14 benchmarks, outperforming LLaMA3-8B by 2.4% by utilizing only 75% of the attention heads. We believe the proposed MoH is a promising alternative to multi-head attention and provides a strong foundation for developing advanced and efficient attention-based models.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2410.11842",
+      "url": "https://arxiv.org/abs/2410.11842",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2310.07911",
+      "title": "Pit One Against Many: Leveraging Attention-head Embeddings for Parameter-efficient Multi-head Attention",
+      "authors": [
+        {
+          "name": "Huiyin Xue",
+          "affiliation": ""
+        },
+        {
+          "name": "Nikolaos Aletras",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Scaling pre-trained language models has resulted in large performance gains in various natural language processing tasks but comes with a large cost in memory requirements. Inspired by the position embeddings in transformers, we aim to simplify and reduce the memory footprint of the multi-head attention (MHA) mechanism. We propose an alternative module that uses only a single shared projection matrix and multiple head embeddings (MHE), i.e. one per head. We empirically demonstrate that our MHE attention is substantially more memory efficient compared to alternative attention mechanisms while achieving high predictive performance retention ratio to vanilla MHA on several downstream tasks. MHE attention only requires a negligible fraction of additional parameters ($3nd$, where $n$ is the number of attention heads and $d$ the size of the head embeddings) compared to a single-head attention, while MHA requires $(3n^2-3n)d^2-3nd$ additional parameters.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2310.07911",
+      "url": "https://arxiv.org/abs/2310.07911",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2211.05770",
+      "title": "Efficient Image Generation with Variadic Attention Heads",
+      "authors": [
+        {
+          "name": "Steven Walton",
+          "affiliation": ""
+        },
+        {
+          "name": "Ali Hassani",
+          "affiliation": ""
+        },
+        {
+          "name": "Xingqian Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhangyang Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Humphrey Shi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "While the integration of transformers in vision models have yielded significant improvements on vision tasks they still require significant amounts of computation for both training and inference. Restricted attention mechanisms significantly reduce these computational burdens but come at the cost of losing either global or local coherence. We propose a simple, yet powerful method to reduce these trade-offs: allow the attention heads of a single transformer to attend to multiple receptive fields.\n  We demonstrate our method utilizing Neighborhood Attention (NA) and integrate it into a StyleGAN based architecture for image generation. With this work, dubbed StyleNAT, we are able to achieve a FID of 2.05 on FFHQ, a 6% improvement over StyleGAN-XL, while utilizing 28% fewer parameters and with 4$\\times$ the throughput capacity. StyleNAT achieves the Pareto Frontier on FFHQ-256 and demonstrates powerful and efficient image generation on other datasets. Our code and model checkpoints are publicly available at: https://github.com/SHI-Labs/StyleNAT",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2211.05770",
+      "url": "https://arxiv.org/abs/2211.05770",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2601.05960",
+      "title": "Distilling Feedback into Memory-as-a-Tool",
+      "authors": [
+        {
+          "name": "V\u00edctor Gallego",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "We propose a framework that amortizes the cost of inference-time reasoning by converting transient critiques into retrievable guidelines, through a file-based memory system and agent-controlled tool calls. We evaluate this method on the Rubric Feedback Bench, a novel dataset for rubric-based learning. Experiments demonstrate that our augmented LLMs rapidly match the performance of test-time refinement pipelines while drastically reducing inference cost.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2601.05960",
+      "url": "https://arxiv.org/abs/2601.05960",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2505.08426",
+      "title": "DHECA-SuperGaze: Dual Head-Eye Cross-Attention and Super-Resolution for Unconstrained Gaze Estimation",
+      "authors": [
+        {
+          "name": "Franko \u0160iki\u0107",
+          "affiliation": ""
+        },
+        {
+          "name": "Donik Vr\u0161nak",
+          "affiliation": ""
+        },
+        {
+          "name": "Sven Lon\u010dari\u0107",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Unconstrained gaze estimation is the process of determining where a subject is directing their visual attention in uncontrolled environments. Gaze estimation systems are important for a myriad of tasks such as driver distraction monitoring, exam proctoring, accessibility features in modern software, etc. However, these systems face challenges in real-world scenarios, partially due to the low resolution of in-the-wild images and partially due to insufficient modeling of head-eye interactions in current state-of-the-art (SOTA) methods. This paper introduces DHECA-SuperGaze, a deep learning-based method that advances gaze prediction through super-resolution (SR) and a dual head-eye cross-attention (DHECA) module. Our dual-branch convolutional backbone processes eye and multiscale SR head images, while the proposed DHECA module enables bidirectional feature refinement between the extracted visual features through cross-attention mechanisms. Furthermore, we identified critical annotation errors in one of the most diverse and widely used gaze estimation datasets, Gaze360, and rectified the mislabeled data. Performance evaluation on Gaze360 and GFIE datasets demonstrates superior within-dataset performance of the proposed method, reducing angular error (AE) by 0.48\u00b0 (Gaze360) and 2.95\u00b0 (GFIE) in static configurations, and 0.59\u00b0 (Gaze360) and 3.00\u00b0 (GFIE) in temporal settings compared to prior SOTA methods. Cross-dataset testing shows improvements in AE of more than 1.53\u00b0 (Gaze360) and 3.99\u00b0 (GFIE) in both static and temporal settings, validating the robust generalization properties of our approach.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1007/s00521-026-11849-y",
+      "arxiv_id": "2505.08426",
+      "url": "https://arxiv.org/abs/2505.08426",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2207.05345",
+      "title": "HEAD: HEtero-Assists Distillation for Heterogeneous Object Detectors",
+      "authors": [
+        {
+          "name": "Luting Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaojie Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yue Liao",
+          "affiliation": ""
+        },
+        {
+          "name": "Zeren Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianlong Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Fei Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chen Qian",
+          "affiliation": ""
+        },
+        {
+          "name": "Si Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Conventional knowledge distillation (KD) methods for object detection mainly concentrate on homogeneous teacher-student detectors. However, the design of a lightweight detector for deployment is often significantly different from a high-capacity detector. Thus, we investigate KD among heterogeneous teacher-student pairs for a wide application. We observe that the core difficulty for heterogeneous KD (hetero-KD) is the significant semantic gap between the backbone features of heterogeneous detectors due to the different optimization manners. Conventional homogeneous KD (homo-KD) methods suffer from such a gap and are hard to directly obtain satisfactory performance for hetero-KD. In this paper, we propose the HEtero-Assists Distillation (HEAD) framework, leveraging heterogeneous detection heads as assistants to guide the optimization of the student detector to reduce this gap. In HEAD, the assistant is an additional detection head with the architecture homogeneous to the teacher head attached to the student backbone. Thus, a hetero-KD is transformed into a homo-KD, allowing efficient knowledge transfer from the teacher to the student. Moreover, we extend HEAD into a Teacher-Free HEAD (TF-HEAD) framework when a well-trained teacher detector is unavailable. Our method has achieved significant improvement compared to current detection KD methods. For example, on the MS-COCO dataset, TF-HEAD helps R18 RetinaNet achieve 33.9 mAP (+2.2), while HEAD further pushes the limit to 36.2 mAP (+4.5).",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2207.05345",
+      "url": "https://arxiv.org/abs/2207.05345",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2404.02544",
+      "title": "Semi-Supervised Unconstrained Head Pose Estimation in the Wild",
+      "authors": [
+        {
+          "name": "Huayi Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Fei Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jin Yuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Yong Rui",
+          "affiliation": ""
+        },
+        {
+          "name": "Hongtao Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Kui Jia",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Existing research on unconstrained in-the-wild head pose estimation suffers from the flaws of its datasets, which consist of either numerous samples by non-realistic synthesis or constrained collection, or small-scale natural images yet with plausible manual annotations. This makes fully-supervised solutions compromised due to the reliance on generous labels. To alleviate it, we propose the first semi-supervised unconstrained head pose estimation method SemiUHPE, which can leverage abundant easily available unlabeled head images. Technically, we choose semi-supervised rotation regression and adapt it to the error-sensitive and label-scarce problem of unconstrained head pose. Our method is based on the observation that the aspect-ratio invariant cropping of wild heads is superior to previous landmark-based affine alignment given that landmarks of unconstrained human heads are usually unavailable, especially for underexplored non-frontal heads. Instead of using a pre-fixed threshold to filter out pseudo labeled heads, we propose dynamic entropy based filtering to adaptively remove unlabeled outliers as training progresses by updating the threshold in multiple stages. We then revisit the design of weak-strong augmentations and improve it by devising two novel head-oriented strong augmentations, termed pose-irrelevant cut-occlusion and pose-altering rotation consistency respectively. Extensive experiments and ablation studies show that SemiUHPE outperforms its counterparts greatly on public benchmarks under both the front-range and full-range settings. Furthermore, our proposed method is also beneficial for solving other closely related problems, including generic object rotation regression and 3D head reconstruction, demonstrating good versatility and extensibility. Code is in https://github.com/hnuzhy/SemiUHPE.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2404.02544",
+      "url": "https://arxiv.org/abs/2404.02544",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2501.09994",
+      "title": "Multi-Modal Attention Networks for Enhanced Segmentation and Depth Estimation of Subsurface Defects in Pulse Thermography",
+      "authors": [
+        {
+          "name": "Mohammed Salah",
+          "affiliation": ""
+        },
+        {
+          "name": "Naoufel Werghi",
+          "affiliation": ""
+        },
+        {
+          "name": "Davor Svetinovic",
+          "affiliation": ""
+        },
+        {
+          "name": "Yusra Abdulrahman",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "AI-driven pulse thermography (PT) has become a crucial tool in non-destructive testing (NDT), enabling automatic detection of hidden anomalies in various industrial components. Current state-of-the-art techniques feed segmentation and depth estimation networks compressed PT sequences using either Principal Component Analysis (PCA) or Thermographic Signal Reconstruction (TSR). However, treating these two modalities independently constrains the performance of PT inspection models as these representations possess complementary semantic features. To address this limitation, this work proposes PT-Fusion, a multi-modal attention-based fusion network that fuses both PCA and TSR modalities for defect segmentation and depth estimation of subsurface defects in PT setups. PT-Fusion introduces novel feature fusion modules, Encoder Attention Fusion Gate (EAFG) and Attention Enhanced Decoding Block (AEDB), to fuse PCA and TSR features for enhanced segmentation and depth estimation of subsurface defects. In addition, a novel data augmentation technique is proposed based on random data sampling from thermographic sequences to alleviate the scarcity of PT datasets. The proposed method is benchmarked against state-of-the-art PT inspection models, including U-Net, attention U-Net, and 3D-CNN on the Universit\u00e9 Laval IRT-PVC dataset. The results demonstrate that PT-Fusion outperforms the aforementioned models in defect segmentation and depth estimation accuracies with a margin of 10%.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2501.09994",
+      "url": "https://arxiv.org/abs/2501.09994",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2402.17507",
+      "title": "Interactive Multi-Head Self-Attention with Linear Complexity",
+      "authors": [
+        {
+          "name": "Hankyul Kang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ming-Hsuan Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jongbin Ryu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "We propose an efficient interactive method for multi-head self-attention via decomposition. For existing methods using multi-head self-attention, the attention operation of each head is computed independently. However, we show that the interactions between cross-heads of the attention matrix enhance the information flow of the attention operation. Considering that the attention matrix of each head can be seen as a feature of networks, it is beneficial to establish connectivity between them to capture interactions better. However, a straightforward approach to capture the interactions between the cross-heads is computationally prohibitive as the complexity grows substantially with the high dimension of an attention matrix. In this work, we propose an effective method to decompose the attention operation into query- and key-less components. This will result in a more manageable size for the attention matrix, specifically for the cross-head interactions. Expensive experimental results show that the proposed cross-head interaction approach performs favorably against existing efficient attention methods and state-of-the-art backbone models.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2402.17507",
+      "url": "https://arxiv.org/abs/2402.17507",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2007.13199",
+      "title": "Double Multi-Head Attention for Speaker Verification",
+      "authors": [
+        {
+          "name": "Miquel India",
+          "affiliation": ""
+        },
+        {
+          "name": "Pooyan Safari",
+          "affiliation": ""
+        },
+        {
+          "name": "Javier Hernando",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Most state-of-the-art Deep Learning systems for speaker verification are based on speaker embedding extractors. These architectures are commonly composed of a feature extractor front-end together with a pooling layer to encode variable-length utterances into fixed-length speaker vectors. In this paper we present Double Multi-Head Attention pooling, which extends our previous approach based on Self Multi-Head Attention. An additional self attention layer is added to the pooling layer that summarizes the context vectors produced by Multi-Head Attention into a unique speaker representation. This method enhances the pooling mechanism by giving weights to the information captured for each head and it results in creating more discriminative speaker embeddings. We have evaluated our approach with the VoxCeleb2 dataset. Our results show 6.09% and 5.23% relative improvement in terms of EER compared to Self Attention pooling and Self Multi-Head Attention, respectively. According to the obtained results, Double Multi-Head Attention has shown to be an excellent approach to efficiently select the most relevant features captured by the CNN-based front-ends from the speech signal.",
+      "venue": "eess.AS",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2007.13199",
+      "url": "https://arxiv.org/abs/2007.13199",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2309.04371",
+      "title": "Study of Io's sodium jets with the TRAPPIST telescopes",
+      "authors": [
+        {
+          "name": "Alexander de Becker",
+          "affiliation": ""
+        },
+        {
+          "name": "Linus Head",
+          "affiliation": ""
+        },
+        {
+          "name": "Bertrand Bonfond",
+          "affiliation": ""
+        },
+        {
+          "name": "Emmanu\u00ebl Jehin",
+          "affiliation": ""
+        },
+        {
+          "name": "Jean Manfroid",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhonghua Yao",
+          "affiliation": ""
+        },
+        {
+          "name": "Binzheng Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Denis Grodent",
+          "affiliation": ""
+        },
+        {
+          "name": "Nicholas Schneider",
+          "affiliation": ""
+        },
+        {
+          "name": "Zouhair Benkhaldoun",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Io is the most volcanically active body in the Solar System. This volcanic activity results in the ejection of material into Io's atmosphere, which may then escape from the atmosphere to form various structures in the jovian magnetosphere, including the plasma torus and clouds of neutral particles. The physical processes involved in the escape of particles - for example, how the volcanoes of Io provide material to the plasma torus - are not yet fully understood. In particular, it is not clear to what extent the sodium jet, one of the sodium neutral clouds related to Io, is a proxy of processes that populate the various reservoirs of plasma in Jupiter's magnetosphere. Here, we report on observations carried out over 17 nights in 2014-2015, 30 nights in 2021, and 23 nights in 2022-2023 with the TRAPPIST telescopes, in which particular attention was paid to the sodium jet and the quantification of their physical properties (length, brightness). It was found that these properties can vary greatly from one jet to another and independently of the position of Io in its orbit. No clear link was found between the presence of jets and global brightening of the plasma torus and extended sodium nebula, indicating that jets do not contribute straightforwardly to their population. This work also demonstrates the advantage of regular and long-term monitoring to understanding the variability of the sodium jet and presents a large corpus of jet detections against which work in related fields may compare.",
+      "venue": "astro-ph.EP",
+      "citation_count": 0,
+      "doi": "10.1051/0004-6361/202347447",
+      "arxiv_id": "2309.04371",
+      "url": "https://arxiv.org/abs/2309.04371",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2603.02188",
+      "title": "Multi-Head Low-Rank Attention",
+      "authors": [
+        {
+          "name": "Songtao Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hongwu Peng",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiwei Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhengyu Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Yue Guo",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Long-context inference in large language models is bottlenecked by Key--Value (KV) cache loading during the decoding stage, where the sequential nature of generation requires repeatedly transferring the KV cache from off-chip High-Bandwidth Memory (HBM) to on-chip Static Random-Access Memory (SRAM) at each step. While Multi-Head Latent Attention (MLA) significantly reduces the total KV cache size, it suffers from a sharding bottleneck during distributed decoding via Tensor Parallelism (TP). Since its single latent head cannot be partitioned, each device is forced to redundantly load the complete KV cache for every token, consuming excessive memory traffic and diminishing TP benefits like weight sharding. In this work, we propose Multi-Head Low-Rank Attention (MLRA), which enables partitionable latent states for efficient 4-way TP decoding. Extensive experiments show that MLRA achieves state-of-the-art perplexity and downstream task performance, while also delivering a 2.8$\\times$ decoding speedup over MLA. Code is available at https://github.com/SongtaoLiu0823/MLRA. Pretrained weights, along with the training and evaluation data, are available at https://huggingface.co/Soughing/MLRA.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2603.02188",
+      "url": "https://arxiv.org/abs/2603.02188",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2508.09597",
+      "title": "SVG-Head: Hybrid Surface-Volumetric Gaussians for High-Fidelity Head Reconstruction and Real-Time Editing",
+      "authors": [
+        {
+          "name": "Heyi Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Cong Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Tian-Xing Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jingwei Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Di Kang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chunchao Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Song-Hai Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Creating high-fidelity and editable head avatars is a pivotal challenge in computer vision and graphics, boosting many AR/VR applications. While recent advancements have achieved photorealistic renderings and plausible animation, head editing, especially real-time appearance editing, remains challenging due to the implicit representation and entangled modeling of the geometry and global appearance. To address this, we propose Surface-Volumetric Gaussian Head Avatar (SVG-Head), a novel hybrid representation that explicitly models the geometry with 3D Gaussians bound on a FLAME mesh and leverages disentangled texture images to capture the global appearance. Technically, it contains two types of Gaussians, in which surface Gaussians explicitly model the appearance of head avatars using learnable texture images, facilitating real-time texture editing, while volumetric Gaussians enhance the reconstruction quality of non-Lambertian regions (e.g., lips and hair). To model the correspondence between 3D world and texture space, we provide a mesh-aware Gaussian UV mapping method, which leverages UV coordinates given by the FLAME mesh to obtain sharp texture images and real-time rendering speed. A hierarchical optimization strategy is further designed to pursue the optimal performance in both reconstruction quality and editing flexibility. Experiments on the NeRSemble dataset show that SVG-Head not only generates high-fidelity rendering results, but also is the first method to obtain explicit texture images for Gaussian head avatars and support real-time appearance editing.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2508.09597",
+      "url": "https://arxiv.org/abs/2508.09597",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2505.13544",
+      "title": "Multi-head Temporal Latent Attention",
+      "authors": [
+        {
+          "name": "Keqi Deng",
+          "affiliation": ""
+        },
+        {
+          "name": "Philip C. Woodland",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "While Transformer self-attention offers strong parallelism, the Key-Value (KV) cache grows linearly with sequence length and becomes a bottleneck for inference efficiency. Multi-head latent attention was recently developed to compress the KV cache into a low-rank latent space. This paper proposes Multi-head Temporal Latent Attention (MTLA), which further reduces the KV cache size along the temporal dimension, greatly lowering the memory footprint of self-attention inference. MTLA employs a hyper-network to dynamically merge temporally adjacent KV cache vectors. To address the mismatch between the compressed KV cache and processed sequence lengths, a stride-aware causal mask is proposed to ensure efficient parallel training and consistency with inference behaviour. Experiments across tasks, including speech translation, speech recognition, speech understanding and text summarisation, demonstrate that MTLA achieves competitive performance compared to standard Multi-Head Attention (MHA), while greatly improving inference speed and GPU memory usage. For example, on a English-German speech translation task, MTLA achieves a 5.3x speedup and a reduction in GPU memory usage by a factor of 8.3 compared to MHA, while maintaining translation quality.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2505.13544",
+      "url": "https://arxiv.org/abs/2505.13544",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2410.14874",
+      "title": "Improving Vision Transformers by Overlapping Heads in Multi-Head Self-Attention",
+      "authors": [
+        {
+          "name": "Tianxiao Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Bo Luo",
+          "affiliation": ""
+        },
+        {
+          "name": "Guanghui Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Vision Transformers have made remarkable progress in recent years, achieving state-of-the-art performance in most vision tasks. A key component of this success is due to the introduction of the Multi-Head Self-Attention (MHSA) module, which enables each head to learn different representations by applying the attention mechanism independently. In this paper, we empirically demonstrate that Vision Transformers can be further enhanced by overlapping the heads in MHSA. We introduce Multi-Overlapped-Head Self-Attention (MOHSA), where heads are overlapped with their two adjacent heads for queries, keys, and values, while zero-padding is employed for the first and last heads, which have only one neighboring head. Various paradigms for overlapping ratios are proposed to fully investigate the optimal performance of our approach. The proposed approach is evaluated using five Transformer models on four benchmark datasets and yields a significant performance boost. The source code will be made publicly available upon publication.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2410.14874",
+      "url": "https://arxiv.org/abs/2410.14874",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2009.09364",
+      "title": "Repulsive Attention: Rethinking Multi-head Attention as Bayesian Inference",
+      "authors": [
+        {
+          "name": "Bang An",
+          "affiliation": ""
+        },
+        {
+          "name": "Jie Lyu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhenyi Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chunyuan Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Changwei Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Fei Tan",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruiyi Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yifan Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Changyou Chen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "The neural attention mechanism plays an important role in many natural language processing applications. In particular, the use of multi-head attention extends single-head attention by allowing a model to jointly attend information from different perspectives. Without explicit constraining, however, multi-head attention may suffer from attention collapse, an issue that makes different heads extract similar attentive features, thus limiting the model's representation power. In this paper, for the first time, we provide a novel understanding of multi-head attention from a Bayesian perspective. Based on the recently developed particle-optimization sampling techniques, we propose a non-parametric approach that explicitly improves the repulsiveness in multi-head attention and consequently strengthens model's expressiveness. Remarkably, our Bayesian interpretation provides theoretical inspirations on the not-well-understood questions: why and how one uses multi-head attention. Extensive experiments on various attention models and applications demonstrate that the proposed repulsive attention can improve the learned feature diversity, leading to more informative representations with consistent performance improvement on various tasks.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2009.09364",
+      "url": "https://arxiv.org/abs/2009.09364",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2002.07028",
+      "title": "Low-Rank Bottleneck in Multi-head Attention Models",
+      "authors": [
+        {
+          "name": "Srinadh Bhojanapalli",
+          "affiliation": ""
+        },
+        {
+          "name": "Chulhee Yun",
+          "affiliation": ""
+        },
+        {
+          "name": "Ankit Singh Rawat",
+          "affiliation": ""
+        },
+        {
+          "name": "Sashank J. Reddi",
+          "affiliation": ""
+        },
+        {
+          "name": "Sanjiv Kumar",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Attention based Transformer architecture has enabled significant advances in the field of natural language processing. In addition to new pre-training techniques, recent improvements crucially rely on working with a relatively larger embedding dimension for tokens. Unfortunately, this leads to models that are prohibitively large to be employed in the downstream tasks. In this paper we identify one of the important factors contributing to the large embedding size requirement. In particular, our analysis highlights that the scaling between the number of heads and the size of each head in the current architecture gives rise to a low-rank bottleneck in attention heads, causing this limitation. We further validate this in our experiments. As a solution we propose to set the head size of an attention unit to input sequence length, and independent of the number of heads, resulting in multi-head attention layers with provably more expressive power. We empirically show that this allows us to train models with a relatively smaller embedding dimension and with better performance scaling.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2002.07028",
+      "url": "https://arxiv.org/abs/2002.07028",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2401.17426",
+      "title": "Superiority of Multi-Head Attention in In-Context Linear Regression",
+      "authors": [
+        {
+          "name": "Yingqian Cui",
+          "affiliation": ""
+        },
+        {
+          "name": "Jie Ren",
+          "affiliation": ""
+        },
+        {
+          "name": "Pengfei He",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiliang Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yue Xing",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "We present a theoretical analysis of the performance of transformer with softmax attention in in-context learning with linear regression tasks. While the existing literature predominantly focuses on the convergence of transformers with single-/multi-head attention, our research centers on comparing their performance. We conduct an exact theoretical analysis to demonstrate that multi-head attention with a substantial embedding dimension performs better than single-head attention. When the number of in-context examples D increases, the prediction loss using single-/multi-head attention is in O(1/D), and the one for multi-head attention has a smaller multiplicative constant. In addition to the simplest data distribution setting, we consider more scenarios, e.g., noisy labels, local examples, correlated features, and prior knowledge. We observe that, in general, multi-head attention is preferred over single-head attention. Our results verify the effectiveness of the design of multi-head attention in the transformer architecture.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2401.17426",
+      "url": "https://arxiv.org/abs/2401.17426",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2405.12069",
+      "title": "Gaussian Head & Shoulders: High Fidelity Neural Upper Body Avatars with Anchor Gaussian Guided Texture Warping",
+      "authors": [
+        {
+          "name": "Tianhao Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jing Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhilin Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Jingyi Wan",
+          "affiliation": ""
+        },
+        {
+          "name": "Fangcheng Zhong",
+          "affiliation": ""
+        },
+        {
+          "name": "Cengiz Oztireli",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "By equipping the most recent 3D Gaussian Splatting representation with head 3D morphable models (3DMM), existing methods manage to create head avatars with high fidelity. However, most existing methods only reconstruct a head without the body, substantially limiting their application scenarios. We found that naively applying Gaussians to model the clothed chest and shoulders tends to result in blurry reconstruction and noisy floaters under novel poses. This is because of the fundamental limitation of Gaussians and point clouds -- each Gaussian or point can only have a single directional radiance without spatial variance, therefore an unnecessarily large number of them is required to represent complicated spatially varying texture, even for simple geometry. In contrast, we propose to model the body part with a neural texture that consists of coarse and pose-dependent fine colors. To properly render the body texture for each view and pose without accurate geometry nor UV mapping, we optimize another sparse set of Gaussians as anchors that constrain the neural warping field that maps image plane coordinates to the texture space. We demonstrate that Gaussian Head & Shoulders can fit the high-frequency details on the clothed upper body with high fidelity and potentially improve the accuracy and fidelity of the head region. We evaluate our method with casual phone-captured and internet videos and show our method archives superior reconstruction quality and robustness in both self and cross reenactment tasks. To fully utilize the efficient rendering speed of Gaussian splatting, we additionally propose an accelerated inference method of our trained model without Multi-Layer Perceptron (MLP) queries and reach a stable rendering speed of around 130 FPS for any subjects.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2405.12069",
+      "url": "https://arxiv.org/abs/2405.12069",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2507.02944",
+      "title": "Beyond Parallelism: Synergistic Computational Graph Effects in Multi-Head Attention",
+      "authors": [
+        {
+          "name": "Haitz S\u00e1ez de Oc\u00e1riz Borde",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Multi-head attention powers Transformer networks, the primary deep learning architecture behind the success of large language models (LLMs). Yet, the theoretical advantages of multi-head versus single-head attention, beyond mere parallel processing, remain underexplored. In this paper, we reframe multi-head attention as a system of potentially synergistic computational graphs, where each head functions as a feedforward directed acyclic graph (DAG) with a common sink state. We provide intuition and preliminary theoretical analysis of mixing time and minimax fidelity in this framework. Our results show that multi-head attention can synergistically enhance information propagation, yielding faster mixing times and minimax fidelity amplification under specific head-diversity conditions. Finally, we train single-head and multi-head Transformers, each with the same total number of parameters, on sequence manipulation tasks and empirically verify the predicted effects. The code is available at https://github.com/haitzsaezdeocariz/beyondparallelism.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2507.02944",
+      "url": "https://arxiv.org/abs/2507.02944",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2101.09115",
+      "title": "The heads hypothesis: A unifying statistical approach towards understanding multi-headed attention in BERT",
+      "authors": [
+        {
+          "name": "Madhura Pande",
+          "affiliation": ""
+        },
+        {
+          "name": "Aakriti Budhraja",
+          "affiliation": ""
+        },
+        {
+          "name": "Preksha Nema",
+          "affiliation": ""
+        },
+        {
+          "name": "Pratyush Kumar",
+          "affiliation": ""
+        },
+        {
+          "name": "Mitesh M. Khapra",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Multi-headed attention heads are a mainstay in transformer-based models. Different methods have been proposed to classify the role of each attention head based on the relations between tokens which have high pair-wise attention. These roles include syntactic (tokens with some syntactic relation), local (nearby tokens), block (tokens in the same sentence) and delimiter (the special [CLS], [SEP] tokens). There are two main challenges with existing methods for classification: (a) there are no standard scores across studies or across functional roles, and (b) these scores are often average quantities measured across sentences without capturing statistical significance. In this work, we formalize a simple yet effective score that generalizes to all the roles of attention heads and employs hypothesis testing on this score for robust inference. This provides us the right lens to systematically analyze attention heads and confidently comment on many commonly posed questions on analyzing the BERT model. In particular, we comment on the co-location of multiple functional roles in the same attention head, the distribution of attention heads across layers, and effect of fine-tuning for specific NLP tasks on these functional roles.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2101.09115",
+      "url": "https://arxiv.org/abs/2101.09115",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2002.01869",
+      "title": "Prediction of head motion from speech waveforms with a canonical-correlation-constrained autoencoder",
+      "authors": [
+        {
+          "name": "JinHong Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hiroshi Shimodaira",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "This study investigates the direct use of speech waveforms to predict head motion for speech-driven head-motion synthesis, whereas the use of spectral features such as MFCC as basic input features together with additional features such as energy and F0 is common in the literature. We show that, rather than combining different features that originate from waveforms, it is more effective to use waveforms directly predicting corresponding head motion. The challenge with the waveform-based approach is that waveforms contain a large amount of information irrelevant to predict head motion, which hinders the training of neural networks. To overcome the problem, we propose a canonical-correlation-constrained autoencoder (CCCAE), where hidden layers are trained to not only minimise the error but also maximise the canonical correlation with head motion. Compared with an MFCC-based system, the proposed system shows comparable performance in objective evaluation, and better performance in subject evaluation.",
+      "venue": "eess.AS",
+      "citation_count": 0,
+      "doi": "10.21437/Interspeech.2020-1218",
+      "arxiv_id": "2002.01869",
+      "url": "https://arxiv.org/abs/2002.01869",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2305.14380",
+      "title": "Finding the Pillars of Strength for Multi-Head Attention",
+      "authors": [
+        {
+          "name": "Jinjie Ni",
+          "affiliation": ""
+        },
+        {
+          "name": "Rui Mao",
+          "affiliation": ""
+        },
+        {
+          "name": "Zonglin Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Han Lei",
+          "affiliation": ""
+        },
+        {
+          "name": "Erik Cambria",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Recent studies have revealed some issues of Multi-Head Attention (MHA), e.g., redundancy and over-parameterization. Specifically, the heads of MHA were originally designed to attend to information from different representation subspaces, whereas prior studies found that some attention heads likely learn similar features and can be pruned without harming performance. Inspired by the minimum-redundancy feature selection, we assume that focusing on the most representative and distinctive features with minimum resources can mitigate the above issues and lead to more effective and efficient MHAs. In particular, we propose Grouped Head Attention, trained with a self-supervised group constraint that group attention heads, where each group focuses on an essential but distinctive feature subset. We additionally propose a Voting-to-Stay procedure to remove redundant heads, thus achieving a transformer with lighter weights. Moreover, our method achieves significant performance gains on three well-established tasks while considerably compressing parameters.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2305.14380",
+      "url": "https://arxiv.org/abs/2305.14380",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2105.02358",
+      "title": "Beyond Self-attention: External Attention using Two Linear Layers for Visual Tasks",
+      "authors": [
+        {
+          "name": "Meng-Hao Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Zheng-Ning Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Tai-Jiang Mu",
+          "affiliation": ""
+        },
+        {
+          "name": "Shi-Min Hu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Attention mechanisms, especially self-attention, have played an increasingly important role in deep feature representation for visual tasks. Self-attention updates the feature at each position by computing a weighted sum of features using pair-wise affinities across all positions to capture the long-range dependency within a single sample. However, self-attention has quadratic complexity and ignores potential correlation between different samples. This paper proposes a novel attention mechanism which we call external attention, based on two external, small, learnable, shared memories, which can be implemented easily by simply using two cascaded linear layers and two normalization layers; it conveniently replaces self-attention in existing popular architectures. External attention has linear complexity and implicitly considers the correlations between all data samples. We further incorporate the multi-head mechanism into external attention to provide an all-MLP architecture, external attention MLP (EAMLP), for image classification. Extensive experiments on image classification, object detection, semantic segmentation, instance segmentation, image generation, and point cloud analysis reveal that our method provides results comparable or superior to the self-attention mechanism and some of its variants, with much lower computational and memory costs.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2105.02358",
+      "url": "https://arxiv.org/abs/2105.02358",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2405.08553",
+      "title": "Improving Transformers with Dynamically Composable Multi-Head Attention",
+      "authors": [
+        {
+          "name": "Da Xiao",
+          "affiliation": ""
+        },
+        {
+          "name": "Qingye Meng",
+          "affiliation": ""
+        },
+        {
+          "name": "Shengping Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Xingyuan Yuan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Multi-Head Attention (MHA) is a key component of Transformer. In MHA, attention heads work independently, causing problems such as low-rank bottleneck of attention score matrices and head redundancy. We propose Dynamically Composable Multi-Head Attention (DCMHA), a parameter and computation efficient attention architecture that tackles the shortcomings of MHA and increases the expressive power of the model by dynamically composing attention heads. At the core of DCMHA is a $\\it{Compose}$ function that transforms the attention score and weight matrices in an input-dependent way. DCMHA can be used as a drop-in replacement of MHA in any transformer architecture to obtain the corresponding DCFormer. DCFormer significantly outperforms Transformer on different architectures and model scales in language modeling, matching the performance of models with ~1.7x-2.0x compute. For example, DCPythia-6.9B outperforms open source Pythia-12B on both pretraining perplexity and downstream task evaluation. The code and models are available at https://github.com/Caiyun-AI/DCFormer.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2405.08553",
+      "url": "https://arxiv.org/abs/2405.08553",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2405.20867",
+      "title": "Automatic Channel Pruning for Multi-Head Attention",
+      "authors": [
+        {
+          "name": "Eunho Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Youngbae Hwang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Despite the strong performance of Transformers, their quadratic computation complexity presents challenges in applying them to vision tasks. Automatic pruning is one of effective methods for reducing computation complexity without heuristic approaches. However, directly applying it to multi-head attention is not straightforward due to channel misalignment. In this paper, we propose an automatic channel pruning method to take into account the multi-head attention mechanism. First, we incorporate channel similarity-based weights into the pruning indicator to preserve more informative channels in each head. Then, we adjust pruning indicator to enforce removal of channels in equal proportions across all heads, preventing the channel misalignment. We also add a reweight module to compensate for information loss resulting from channel removal, and an effective initialization step for pruning indicator based on difference of attention between original structure and each channel. Our proposed method can be used to not only original attention, but also linear attention, which is more efficient as linear complexity with respect to the number of tokens. On ImageNet-1K, applying our pruning method to the FLattenTransformer, which includes both attention mechanisms, shows outperformed accuracy for several MACs compared with previous state-of-the-art efficient models and pruned methods. Code will be available soon.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2405.20867",
+      "url": "https://arxiv.org/abs/2405.20867",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2402.19442",
+      "title": "Training Dynamics of Multi-Head Softmax Attention for In-Context Learning: Emergence, Convergence, and Optimality",
+      "authors": [
+        {
+          "name": "Siyu Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Heejune Sheen",
+          "affiliation": ""
+        },
+        {
+          "name": "Tianhao Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhuoran Yang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "We study the dynamics of gradient flow for training a multi-head softmax attention model for in-context learning of multi-task linear regression. We establish the global convergence of gradient flow under suitable choices of initialization. In addition, we prove that an interesting \"task allocation\" phenomenon emerges during the gradient flow dynamics, where each attention head focuses on solving a single task of the multi-task model. Specifically, we prove that the gradient flow dynamics can be split into three phases -- a warm-up phase where the loss decreases rather slowly and the attention heads gradually build up their inclination towards individual tasks, an emergence phase where each head selects a single task and the loss rapidly decreases, and a convergence phase where the attention parameters converge to a limit. Furthermore, we prove the optimality of gradient flow in the sense that the limiting model learned by gradient flow is on par with the best possible multi-head softmax attention model up to a constant factor. Our analysis also delineates a strict separation in terms of the prediction accuracy of ICL between single-head and multi-head attention models. The key technique for our convergence analysis is to map the gradient flow dynamics in the parameter space to a set of ordinary differential equations in the spectral domain, where the relative magnitudes of the semi-singular values of the attention weights determines task allocation. To our best knowledge, our work provides the first convergence result for the multi-head softmax attention model.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2402.19442",
+      "url": "https://arxiv.org/abs/2402.19442",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.02468",
+      "title": "HAGI++: Head-Assisted Gaze Imputation and Generation",
+      "authors": [
+        {
+          "name": "Chuhan Jiao",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiming Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Andreas Bulling",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Mobile eye tracking plays a vital role in capturing human visual attention across both real-world and extended reality (XR) environments, making it an essential tool for applications ranging from behavioural research to human-computer interaction. However, missing values due to blinks, pupil detection errors, or illumination changes pose significant challenges for further gaze data analysis. To address this challenge, we introduce HAGI++ - a multi-modal diffusion-based approach for gaze data imputation that, for the first time, uses the integrated head orientation sensors to exploit the inherent correlation between head and eye movements. HAGI++ employs a transformer-based diffusion model to learn cross-modal dependencies between eye and head representations and can be readily extended to incorporate additional body movements. Extensive evaluations on the large-scale Nymeria, Ego-Exo4D, and HOT3D datasets demonstrate that HAGI++ consistently outperforms conventional interpolation methods and deep learning-based time-series imputation baselines in gaze imputation. Furthermore, statistical analyses confirm that HAGI++ produces gaze velocity distributions that closely match actual human gaze behaviour, ensuring more realistic gaze imputations. Moreover, by incorporating wrist motion captured from commercial wearable devices, HAGI++ surpasses prior methods that rely on full-body motion capture in the extreme case of 100% missing gaze data (pure gaze generation). Our method paves the way for more complete and accurate eye gaze recordings in real-world settings and has significant potential for enhancing gaze-based analysis and interaction across various application domains.",
+      "venue": "cs.HC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.02468",
+      "url": "https://arxiv.org/abs/2511.02468",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2504.19414",
+      "title": "GMAR: Gradient-Driven Multi-Head Attention Rollout for Vision Transformer Interpretability",
+      "authors": [
+        {
+          "name": "Sehyeong Jo",
+          "affiliation": ""
+        },
+        {
+          "name": "Gangjae Jang",
+          "affiliation": ""
+        },
+        {
+          "name": "Haesol Park",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The Vision Transformer (ViT) has made significant advancements in computer vision, utilizing self-attention mechanisms to achieve state-of-the-art performance across various tasks, including image classification, object detection, and segmentation. Its architectural flexibility and capabilities have made it a preferred choice among researchers and practitioners. However, the intricate multi-head attention mechanism of ViT presents significant challenges to interpretability, as the underlying prediction process remains opaque. A critical limitation arises from an observation commonly noted in transformer architectures: \"Not all attention heads are equally meaningful.\" Overlooking the relative importance of specific heads highlights the limitations of existing interpretability methods. To address these challenges, we introduce Gradient-Driven Multi-Head Attention Rollout (GMAR), a novel method that quantifies the importance of each attention head using gradient-based scores. These scores are normalized to derive a weighted aggregate attention score, effectively capturing the relative contributions of individual heads. GMAR clarifies the role of each head in the prediction process, enabling more precise interpretability at the head level. Experimental results demonstrate that GMAR consistently outperforms traditional attention rollout techniques. This work provides a practical contribution to transformer-based architectures, establishing a robust framework for enhancing the interpretability of Vision Transformer models.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2504.19414",
+      "url": "https://arxiv.org/abs/2504.19414",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

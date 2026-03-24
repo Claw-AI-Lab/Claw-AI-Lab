@@ -1,0 +1,1643 @@
+{
+  "query": "FlowEdit Wan2 3B t2v benchmark",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1774338088.633918,
+  "papers": [
+    {
+      "paper_id": "arxiv-2407.14505",
+      "title": "T2V-CompBench: A Comprehensive Benchmark for Compositional Text-to-video Generation",
+      "authors": [
+        {
+          "name": "Kaiyue Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Kaiyi Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xian Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yue Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zihan Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhenguo Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Xihui Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Text-to-video (T2V) generative models have advanced significantly, yet their ability to compose different objects, attributes, actions, and motions into a video remains unexplored. Previous text-to-video benchmarks also neglect this important ability for evaluation. In this work, we conduct the first systematic study on compositional text-to-video generation. We propose T2V-CompBench, the first benchmark tailored for compositional text-to-video generation. T2V-CompBench encompasses diverse aspects of compositionality, including consistent attribute binding, dynamic attribute binding, spatial relationships, motion binding, action binding, object interactions, and generative numeracy. We further carefully design evaluation metrics of multimodal large language model (MLLM)-based, detection-based, and tracking-based metrics, which can better reflect the compositional text-to-video generation quality of seven proposed categories with 1400 text prompts. The effectiveness of the proposed metrics is verified by correlation with human evaluations. We also benchmark various text-to-video generative models and conduct in-depth analysis across different models and various compositional categories. We find that compositional text-to-video generation is highly challenging for current models, and we hope our attempt could shed light on future research in this direction.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2407.14505",
+      "url": "https://arxiv.org/abs/2407.14505",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2412.08629",
+      "title": "FlowEdit: Inversion-Free Text-Based Editing Using Pre-Trained Flow Models",
+      "authors": [
+        {
+          "name": "Vladimir Kulikov",
+          "affiliation": ""
+        },
+        {
+          "name": "Matan Kleiner",
+          "affiliation": ""
+        },
+        {
+          "name": "Inbar Huberman-Spiegelglas",
+          "affiliation": ""
+        },
+        {
+          "name": "Tomer Michaeli",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Editing real images using a pre-trained text-to-image (T2I) diffusion/flow model often involves inverting the image into its corresponding noise map. However, inversion by itself is typically insufficient for obtaining satisfactory results, and therefore many methods additionally intervene in the sampling process. Such methods achieve improved results but are not seamlessly transferable between model architectures. Here, we introduce FlowEdit, a text-based editing method for pre-trained T2I flow models, which is inversion-free, optimization-free and model agnostic. Our method constructs an ODE that directly maps between the source and target distributions (corresponding to the source and target text prompts) and achieves a lower transport cost than the inversion approach. This leads to state-of-the-art results, as we illustrate with Stable Diffusion 3 and FLUX. Code and examples are available on the project's webpage.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2412.08629",
+      "url": "https://arxiv.org/abs/2412.08629",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2405.18750",
+      "title": "T2V-Turbo: Breaking the Quality Bottleneck of Video Consistency Model with Mixed Reward Feedback",
+      "authors": [
+        {
+          "name": "Jiachen Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Weixi Feng",
+          "affiliation": ""
+        },
+        {
+          "name": "Tsu-Jui Fu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinyi Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Sugato Basu",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenhu Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "William Yang Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Diffusion-based text-to-video (T2V) models have achieved significant success but continue to be hampered by the slow sampling speed of their iterative sampling processes. To address the challenge, consistency models have been proposed to facilitate fast inference, albeit at the cost of sample quality. In this work, we aim to break the quality bottleneck of a video consistency model (VCM) to achieve $\\textbf{both fast and high-quality video generation}$. We introduce T2V-Turbo, which integrates feedback from a mixture of differentiable reward models into the consistency distillation (CD) process of a pre-trained T2V model. Notably, we directly optimize rewards associated with single-step generations that arise naturally from computing the CD loss, effectively bypassing the memory constraints imposed by backpropagating gradients through an iterative sampling process. Remarkably, the 4-step generations from our T2V-Turbo achieve the highest total score on VBench, even surpassing Gen-2 and Pika. We further conduct human evaluations to corroborate the results, validating that the 4-step generations from our T2V-Turbo are preferred over the 50-step DDIM samples from their teacher models, representing more than a tenfold acceleration while improving video generation quality.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2405.18750",
+      "url": "https://arxiv.org/abs/2405.18750",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2410.05677",
+      "title": "T2V-Turbo-v2: Enhancing Video Generation Model Post-Training through Data, Reward, and Conditional Guidance Design",
+      "authors": [
+        {
+          "name": "Jiachen Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Qian Long",
+          "affiliation": ""
+        },
+        {
+          "name": "Jian Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaofeng Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Robinson Piramuthu",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenhu Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "William Yang Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "In this paper, we focus on enhancing a diffusion-based text-to-video (T2V) model during the post-training phase by distilling a highly capable consistency model from a pretrained T2V model. Our proposed method, T2V-Turbo-v2, introduces a significant advancement by integrating various supervision signals, including high-quality training data, reward model feedback, and conditional guidance, into the consistency distillation process. Through comprehensive ablation studies, we highlight the crucial importance of tailoring datasets to specific learning objectives and the effectiveness of learning from diverse reward models for enhancing both the visual quality and text-video alignment. Additionally, we highlight the vast design space of conditional guidance strategies, which centers on designing an effective energy function to augment the teacher ODE solver. We demonstrate the potential of this approach by extracting motion guidance from the training datasets and incorporating it into the ODE solver, showcasing its effectiveness in improving the motion quality of the generated videos with the improved motion-related metrics from VBench and T2V-CompBench. Empirically, our T2V-Turbo-v2 establishes a new state-of-the-art result on VBench, with a Total score of 85.13, surpassing proprietary systems such as Gen-3 and Kling.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2410.05677",
+      "url": "https://arxiv.org/abs/2410.05677",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2501.08545",
+      "title": "T2VEval: Benchmark Dataset and Objective Evaluation Method for T2V-generated Videos",
+      "authors": [
+        {
+          "name": "Zelu Qi",
+          "affiliation": ""
+        },
+        {
+          "name": "Ping Shi",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuqi Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chaoyang Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Fei Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Zefeng Ying",
+          "affiliation": ""
+        },
+        {
+          "name": "Da Pan",
+          "affiliation": ""
+        },
+        {
+          "name": "Xi Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zheqi He",
+          "affiliation": ""
+        },
+        {
+          "name": "Teng Dai",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Recent advances in text-to-video (T2V) technology, as demonstrated by models such as Runway Gen-3, Pika, Sora, and Kling, have significantly broadened the applicability and popularity of the technology. This progress has created a growing demand for accurate quality assessment metrics to evaluate the perceptual quality of T2V-generated videos and optimize video generation models. However, assessing the quality of text-to-video outputs remain challenging due to the presence of highly complex distortions, such as unnatural actions and phenomena that defy human cognition. To address these challenges, we constructed T2VEval-Bench, a multi-dimensional benchmark dataset for text-to-video quality evaluation, which contains 148 textual prompts and 1,783 videos generated by 13 T2V models. To ensure a comprehensive evaluation, we scored each video on four dimensions in the subjective experiment, which are overall impression, text-video consistency, realness, and technical quality. Based on T2VEval-Bench, we developed T2VEval, a multi-branch fusion scheme for T2V quality evaluation. T2VEval assesses videos across three branches: text-video consistency, realness, and technical quality. Using an attention-based fusion module, T2VEval effectively integrates features from each branch and predicts scores with the aid of a large language model. Additionally, we implemented a divide-and-conquer training strategy, enabling each branch to learn targeted knowledge while maintaining synergy with the others. Experimental results demonstrate that T2VEval achieves state-of-the-art performance across multiple metrics.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2501.08545",
+      "url": "https://arxiv.org/abs/2501.08545",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2106.07597",
+      "title": "MLPerf Tiny Benchmark",
+      "authors": [
+        {
+          "name": "Colby Banbury",
+          "affiliation": ""
+        },
+        {
+          "name": "Vijay Janapa Reddi",
+          "affiliation": ""
+        },
+        {
+          "name": "Peter Torelli",
+          "affiliation": ""
+        },
+        {
+          "name": "Jeremy Holleman",
+          "affiliation": ""
+        },
+        {
+          "name": "Nat Jeffries",
+          "affiliation": ""
+        },
+        {
+          "name": "Csaba Kiraly",
+          "affiliation": ""
+        },
+        {
+          "name": "Pietro Montino",
+          "affiliation": ""
+        },
+        {
+          "name": "David Kanter",
+          "affiliation": ""
+        },
+        {
+          "name": "Sebastian Ahmed",
+          "affiliation": ""
+        },
+        {
+          "name": "Danilo Pau",
+          "affiliation": ""
+        },
+        {
+          "name": "Urmish Thakker",
+          "affiliation": ""
+        },
+        {
+          "name": "Antonio Torrini",
+          "affiliation": ""
+        },
+        {
+          "name": "Peter Warden",
+          "affiliation": ""
+        },
+        {
+          "name": "Jay Cordaro",
+          "affiliation": ""
+        },
+        {
+          "name": "Giuseppe Di Guglielmo",
+          "affiliation": ""
+        },
+        {
+          "name": "Javier Duarte",
+          "affiliation": ""
+        },
+        {
+          "name": "Stephen Gibellini",
+          "affiliation": ""
+        },
+        {
+          "name": "Videet Parekh",
+          "affiliation": ""
+        },
+        {
+          "name": "Honson Tran",
+          "affiliation": ""
+        },
+        {
+          "name": "Nhan Tran",
+          "affiliation": ""
+        },
+        {
+          "name": "Niu Wenxu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xu Xuesong",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Advancements in ultra-low-power tiny machine learning (TinyML) systems promise to unlock an entirely new class of smart applications. However, continued progress is limited by the lack of a widely accepted and easily reproducible benchmark for these systems. To meet this need, we present MLPerf Tiny, the first industry-standard benchmark suite for ultra-low-power tiny machine learning systems. The benchmark suite is the collaborative effort of more than 50 organizations from industry and academia and reflects the needs of the community. MLPerf Tiny measures the accuracy, latency, and energy of machine learning inference to properly evaluate the tradeoffs between systems. Additionally, MLPerf Tiny implements a modular design that enables benchmark submitters to show the benefits of their product, regardless of where it falls on the ML deployment stack, in a fair and reproducible manner. The suite features four benchmarks: keyword spotting, visual wake words, image classification, and anomaly detection.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2106.07597",
+      "url": "https://arxiv.org/abs/2106.07597",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2510.08398",
+      "title": "VideoVerse: Does Your T2V Generator Have World Model Capability to Synthesize Videos?",
+      "authors": [
+        {
+          "name": "Zeqing Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinyu Wei",
+          "affiliation": ""
+        },
+        {
+          "name": "Bairui Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhen Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Jinrui Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Hongyang Wei",
+          "affiliation": ""
+        },
+        {
+          "name": "Keze Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Lei Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The recent rapid advancement of Text-to-Video (T2V) generation technologies are engaging the trained models with more world model ability, making the existing benchmarks increasingly insufficient to evaluate state-of-the-art T2V models. First, current evaluation dimensions, such as per-frame aesthetic quality and temporal consistency, are no longer able to differentiate state-of-the-art T2V models. Second, event-level temporal causality-an essential property that differentiates videos from other modalities-remains largely unexplored. Third, existing benchmarks lack a systematic assessment of world knowledge, which are essential capabilities for building world models. To address these issues, we introduce VideoVerse, a comprehensive benchmark focusing on evaluating whether the current T2V model could understand complex temporal causality and world knowledge to synthesize videos. We collect representative videos across diverse domains and extract their event-level descriptions with inherent temporal causality, which are then rewritten into text-to-video prompts by independent annotators. For each prompt, we design ten evaluation dimensions covering dynamic and static properties, resulting in 300 prompts, 815 events, and 793 evaluation questions. Consequently, a human preference-aligned QA-based evaluation pipeline is developed by using modern vision-language models to systematically benchmark leading open- and closed-source T2V systems, revealing the current gap between T2V models and desired world modeling abilities.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2510.08398",
+      "url": "https://arxiv.org/abs/2510.08398",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2412.16211",
+      "title": "Is Your World Simulator a Good Story Presenter? A Consecutive Events-Based Benchmark for Future Long Video Generation",
+      "authors": [
+        {
+          "name": "Yiping Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xuehai He",
+          "affiliation": ""
+        },
+        {
+          "name": "Kuan Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Luyao Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianwei Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuohang Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Simon Shaolei Du",
+          "affiliation": ""
+        },
+        {
+          "name": "Yelong Shen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "The current state-of-the-art video generative models can produce commercial-grade videos with highly realistic details. However, they still struggle to coherently present multiple sequential events in the stories specified by the prompts, which is foreseeable an essential capability for future long video generation scenarios. For example, top T2V generative models still fail to generate a video of the short simple story 'how to put an elephant into a refrigerator.' While existing detail-oriented benchmarks primarily focus on fine-grained metrics like aesthetic quality and spatial-temporal consistency, they fall short of evaluating models' abilities to handle event-level story presentation. To address this gap, we introduce StoryEval, a story-oriented benchmark specifically designed to assess text-to-video (T2V) models' story-completion capabilities. StoryEval features 423 prompts spanning 7 classes, each representing short stories composed of 2-4 consecutive events. We employ advanced vision-language models, such as GPT-4V and LLaVA-OV-Chat-72B, to verify the completion of each event in the generated videos, applying a unanimous voting method to enhance reliability. Our methods ensure high alignment with human evaluations, and the evaluation of 11 models reveals its challenge, with none exceeding an average story-completion rate of 50%. StoryEval provides a new benchmark for advancing T2V models and highlights the challenges and opportunities in developing next-generation solutions for coherent story-driven video generation.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2412.16211",
+      "url": "https://arxiv.org/abs/2412.16211",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2304.13998",
+      "title": "Mimic-IV-ICD: A new benchmark for eXtreme MultiLabel Classification",
+      "authors": [
+        {
+          "name": "Thanh-Tung Nguyen",
+          "affiliation": ""
+        },
+        {
+          "name": "Viktor Schlegel",
+          "affiliation": ""
+        },
+        {
+          "name": "Abhinav Kashyap",
+          "affiliation": ""
+        },
+        {
+          "name": "Stefan Winkler",
+          "affiliation": ""
+        },
+        {
+          "name": "Shao-Syuan Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jie-Jyun Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Chih-Jen Lin",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Clinical notes are assigned ICD codes - sets of codes for diagnoses and procedures. In the recent years, predictive machine learning models have been built for automatic ICD coding. However, there is a lack of widely accepted benchmarks for automated ICD coding models based on large-scale public EHR data.\n  This paper proposes a public benchmark suite for ICD-10 coding using a large EHR dataset derived from MIMIC-IV, the most recent public EHR dataset. We implement and compare several popular methods for ICD coding prediction tasks to standardize data preprocessing and establish a comprehensive ICD coding benchmark dataset. This approach fosters reproducibility and model comparison, accelerating progress toward employing automated ICD coding in future studies. Furthermore, we create a new ICD-9 benchmark using MIMIC-IV data, providing more data points and a higher number of ICD codes than MIMIC-III. Our open-source code offers easy access to data processing steps, benchmark creation, and experiment replication for those with MIMIC-IV access, providing insights, guidance, and protocols to efficiently develop ICD coding models.",
+      "venue": "cs.AI",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2304.13998",
+      "url": "https://arxiv.org/abs/2304.13998",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2512.01843",
+      "title": "PhyDetEx: Detecting and Explaining the Physical Plausibility of T2V Models",
+      "authors": [
+        {
+          "name": "Zeqing Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Keze Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Lei Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Driven by the growing capacity and training scale, Text-to-Video (T2V) generation models have recently achieved substantial progress in video quality, length, and instruction-following capability. However, whether these models can understand physics and generate physically plausible videos remains a question. While Vision-Language Models (VLMs) have been widely used as general-purpose evaluators in various applications, they struggle to identify the physically impossible content from generated videos. To investigate this issue, we construct a \\textbf{PID} (\\textbf{P}hysical \\textbf{I}mplausibility \\textbf{D}etection) dataset, which consists of a \\textit{test split} of 500 manually annotated videos and a \\textit{train split} of 2,588 paired videos, where each implausible video is generated by carefully rewriting the caption of its corresponding real-world video to induce T2V models producing physically implausible content. With the constructed dataset, we introduce a lightweight fine-tuning approach, enabling VLMs to not only detect physically implausible events but also generate textual explanations on the violated physical principles. Taking the fine-tuned VLM as a physical plausibility detector and explainer, namely \\textbf{PhyDetEx}, we benchmark a series of state-of-the-art T2V models to assess their adherence to physical laws. Our findings show that although recent T2V models have made notable progress toward generating physically plausible content, understanding and adhering to physical laws remains a challenging issue, especially for open-source models. Our dataset, training code, and checkpoints are available at \\href{https://github.com/Zeqing-Wang/PhyDetEx}{https://github.com/Zeqing-Wang/PhyDetEx}.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2512.01843",
+      "url": "https://arxiv.org/abs/2512.01843",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2212.05680",
+      "title": "REAP: A Large-Scale Realistic Adversarial Patch Benchmark",
+      "authors": [
+        {
+          "name": "Nabeel Hingun",
+          "affiliation": ""
+        },
+        {
+          "name": "Chawin Sitawarin",
+          "affiliation": ""
+        },
+        {
+          "name": "Jerry Li",
+          "affiliation": ""
+        },
+        {
+          "name": "David Wagner",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Machine learning models are known to be susceptible to adversarial perturbation. One famous attack is the adversarial patch, a sticker with a particularly crafted pattern that makes the model incorrectly predict the object it is placed on. This attack presents a critical threat to cyber-physical systems that rely on cameras such as autonomous cars. Despite the significance of the problem, conducting research in this setting has been difficult; evaluating attacks and defenses in the real world is exceptionally costly while synthetic data are unrealistic. In this work, we propose the REAP (REalistic Adversarial Patch) benchmark, a digital benchmark that allows the user to evaluate patch attacks on real images, and under real-world conditions. Built on top of the Mapillary Vistas dataset, our benchmark contains over 14,000 traffic signs. Each sign is augmented with a pair of geometric and lighting transformations, which can be used to apply a digitally generated patch realistically onto the sign. Using our benchmark, we perform the first large-scale assessments of adversarial patch attacks under realistic conditions. Our experiments suggest that adversarial patch attacks may present a smaller threat than previously believed and that the success rate of an attack on simpler digital simulations is not predictive of its actual effectiveness in practice. We release our benchmark publicly at https://github.com/wagner-group/reap-benchmark.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2212.05680",
+      "url": "https://arxiv.org/abs/2212.05680",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.04317",
+      "title": "RISE-T2V: Rephrasing and Injecting Semantics with LLM for Expansive Text-to-Video Generation",
+      "authors": [
+        {
+          "name": "Xiangjun Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Litong Gong",
+          "affiliation": ""
+        },
+        {
+          "name": "Yinglin Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Yansong Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Wentao Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Mingyi Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Biao Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Tiezheng Ge",
+          "affiliation": ""
+        },
+        {
+          "name": "Ming Zeng",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Most text-to-video(T2V) diffusion models depend on pre-trained text encoders for semantic alignment, yet they often fail to maintain video quality when provided with concise prompts rather than well-designed ones. The primary issue lies in their limited textual semantics understanding. Moreover, these text encoders cannot rephrase prompts online to better align with user intentions, which limits both the scalability and usability of the models, To address these challenges, we introduce RISE-T2V, which uniquely integrates the processes of prompt rephrasing and semantic feature extraction into a single and seamless step instead of two separate steps. RISE-T2V is universal and can be applied to various pre-trained LLMs and video diffusion models(VDMs), significantly enhancing their capabilities for T2V tasks. We propose an innovative module called the Rephrasing Adapter, enabling diffusion models to utilize text hidden states during the next token prediction of the LLM as a condition for video generation. By employing a Rephrasing Adapter, the video generation model can implicitly rephrase basic prompts into more comprehensive representations that better match the user's intent. Furthermore, we leverage the powerful capabilities of LLMs to enable video generation models to accomplish a broader range of T2V tasks. Extensive experiments demonstrate that RISE-T2V is a versatile framework applicable to different video diffusion model architectures, significantly enhancing the ability of T2V models to generate high-quality videos that align with user intent. Visual results are available on the webpage at https://rise-t2v.github.io.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.04317",
+      "url": "https://arxiv.org/abs/2511.04317",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2505.17166",
+      "title": "ViDoRe Benchmark V2: Raising the Bar for Visual Retrieval",
+      "authors": [
+        {
+          "name": "Quentin Mac\u00e9",
+          "affiliation": ""
+        },
+        {
+          "name": "Ant\u00f3nio Loison",
+          "affiliation": ""
+        },
+        {
+          "name": "Manuel Faysse",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The ViDoRe Benchmark V1 was approaching saturation with top models exceeding 90% nDCG@5, limiting its ability to discern improvements. ViDoRe Benchmark V2 introduces realistic, challenging retrieval scenarios via blind contextual querying, long and cross-document queries, and a hybrid synthetic and human-in-the-loop query generation process. It comprises four diverse, multilingual datasets and provides clear evaluation instructions. Initial results demonstrate substantial room for advancement and highlight insights on model generalization and multilingual capability. This benchmark is designed as a living resource, inviting community contributions to maintain relevance through future evaluations.",
+      "venue": "cs.IR",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2505.17166",
+      "url": "https://arxiv.org/abs/2505.17166",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2309.11568",
+      "title": "BTLM-3B-8K: 7B Parameter Performance in a 3B Parameter Model",
+      "authors": [
+        {
+          "name": "Nolan Dey",
+          "affiliation": ""
+        },
+        {
+          "name": "Daria Soboleva",
+          "affiliation": ""
+        },
+        {
+          "name": "Faisal Al-Khateeb",
+          "affiliation": ""
+        },
+        {
+          "name": "Bowen Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ribhu Pathria",
+          "affiliation": ""
+        },
+        {
+          "name": "Hemant Khachane",
+          "affiliation": ""
+        },
+        {
+          "name": "Shaheer Muhammad",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiming",
+          "affiliation": ""
+        },
+        {
+          "name": "Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Robert Myers",
+          "affiliation": ""
+        },
+        {
+          "name": "Jacob Robert Steeves",
+          "affiliation": ""
+        },
+        {
+          "name": "Natalia Vassilieva",
+          "affiliation": ""
+        },
+        {
+          "name": "Marvin Tom",
+          "affiliation": ""
+        },
+        {
+          "name": "Joel Hestness",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We introduce the Bittensor Language Model, called \"BTLM-3B-8K\", a new state-of-the-art 3 billion parameter open-source language model. BTLM-3B-8K was trained on 627B tokens from the SlimPajama dataset with a mixture of 2,048 and 8,192 context lengths. BTLM-3B-8K outperforms all existing 3B parameter models by 2-5.5% across downstream tasks. BTLM-3B-8K is even competitive with some 7B parameter models. Additionally, BTLM-3B-8K provides excellent long context performance, outperforming MPT-7B-8K and XGen-7B-8K on tasks up to 8,192 context length. We trained the model on a cleaned and deduplicated SlimPajama dataset; aggressively tuned the \\textmu P hyperparameters and schedule; used ALiBi position embeddings; and adopted the SwiGLU nonlinearity.\n  On Hugging Face, the most popular models have 7B parameters, indicating that users prefer the quality-size ratio of 7B models. Compacting the 7B parameter model to one with 3B parameters, with little performance impact, is an important milestone. BTLM-3B-8K needs only 3GB of memory with 4-bit precision and takes 2.5x less inference compute than 7B models, helping to open up access to a powerful language model on mobile and edge devices. BTLM-3B-8K is available under an Apache 2.0 license on Hugging Face: https://huggingface.co/cerebras/btlm-3b-8k-base.",
+      "venue": "cs.AI",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2309.11568",
+      "url": "https://arxiv.org/abs/2309.11568",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2602.11674",
+      "title": "Benchmark Health Index: A Systematic Framework for Benchmarking the Benchmarks of LLMs",
+      "authors": [
+        {
+          "name": "Longyuan Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hairan Hua",
+          "affiliation": ""
+        },
+        {
+          "name": "Linlin Miao",
+          "affiliation": ""
+        },
+        {
+          "name": "Bing Zhao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Large Language Models (LLMs) are advancing rapidly, yet the benchmarks used to measure this progress are becoming increasingly unreliable. Score inflation and selective reporting have eroded the authority of standard benchmarks, leaving the community uncertain about which evaluation results remain trustworthy. We introduce the Benchmark Health Index (BHI), a pure data-driven framework for auditing evaluation sets along three orthogonal and complementary axes: (1) Capability Discrimination, measuring how sharply a benchmark separates model performance beyond noise; (2) Anti-Saturation, estimating remaining headroom before ceiling effects erode resolution and thus the benchmark's expected longevity; and (3) Impact, quantifying influence across academic and industrial ecosystems via adoption breadth and practice-shaping power. By distilling 106 validated benchmarks from the technical reports of 91 representative models in 2025, we systematically characterize the evaluation landscape. BHI is the first framework to quantify benchmark health at a macro level, providing a principled basis for benchmark selection and enabling dynamic lifecycle management for next-generation evaluation protocols.",
+      "venue": "cs.AI",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2602.11674",
+      "url": "https://arxiv.org/abs/2602.11674",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2406.11898",
+      "title": "Towards Better Benchmark Datasets for Inductive Knowledge Graph Completion",
+      "authors": [
+        {
+          "name": "Harry Shomer",
+          "affiliation": ""
+        },
+        {
+          "name": "Jay Revolinsky",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiliang Tang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Knowledge Graph Completion (KGC) attempts to predict missing facts in a Knowledge Graph (KG). Recently, there's been an increased focus on designing KGC methods that can excel in the inductive setting, where a portion or all of the entities and relations seen in inference are unobserved during training. Numerous benchmark datasets have been proposed for inductive KGC, all of which are subsets of existing KGs used for transductive KGC. However, we find that the current procedure for constructing inductive KGC datasets inadvertently creates a shortcut that can be exploited even while disregarding the relational information. Specifically, we observe that the Personalized PageRank (PPR) score can achieve strong or near SOTA performance on most datasets. In this paper, we study the root cause of this problem. Using these insights, we propose an alternative strategy for constructing inductive KGC datasets that helps mitigate the PPR shortcut. We then benchmark multiple popular methods using the newly constructed datasets and analyze their performance. The new benchmark datasets help promote a better understanding of the capabilities and challenges of inductive KGC by removing any shortcuts that obfuscate performance. The code and dataset and can be found at https://github.com/HarryShomer/Better-Inductive-KGC.",
+      "venue": "cs.AI",
+      "citation_count": 0,
+      "doi": "10.1145/3711896.3737438",
+      "arxiv_id": "2406.11898",
+      "url": "https://arxiv.org/abs/2406.11898",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2107.13275",
+      "title": "Benchmark Instances and Optimal Solutions for the Traveling Salesman Problem with Drone",
+      "authors": [
+        {
+          "name": "Mauro Dell'Amico",
+          "affiliation": ""
+        },
+        {
+          "name": "Roberto Montemanni",
+          "affiliation": ""
+        },
+        {
+          "name": "Stefano Novellani",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "The use of drones in logistics is gaining more and more interest, and drones are becoming a more viable and common way of distributing parcels in an urban environment. As a consequence, there is a flourishing production of articles in the field of operational optimization of the combined use of trucks and drones for fulfilling customers requests. The aim is minimizing the total time required to service all the customers, since this has obvious economical impacts. However in the literature there is not yet a widely recognized basic model, and there are not well assessed sets of instances and optimal solutions that can be considered as a benchmark to prove the effectiveness of new solution methods. The aim of this paper is to fill this gap. On one side we will clearly describe some of the most common components of the truck/drone routing problems and we will define nine basic problem settings, by combining these components. On the other side we will consider some of the instances used by many researchers and we will provide optimal solutions for all the problem settings previously identified. Instances and detailed solutions are then organized into benchmarks made publicly available as validation tools for future research methods.",
+      "venue": "cs.DM",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2107.13275",
+      "url": "https://arxiv.org/abs/2107.13275",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2206.10071",
+      "title": "BOND: Benchmarking Unsupervised Outlier Node Detection on Static Attributed Graphs",
+      "authors": [
+        {
+          "name": "Kay Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yingtong Dou",
+          "affiliation": ""
+        },
+        {
+          "name": "Yue Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Xueying Ding",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiyang Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruitong Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Kaize Ding",
+          "affiliation": ""
+        },
+        {
+          "name": "Canyu Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Peng",
+          "affiliation": ""
+        },
+        {
+          "name": "Kai Shu",
+          "affiliation": ""
+        },
+        {
+          "name": "Lichao Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Jundong Li",
+          "affiliation": ""
+        },
+        {
+          "name": "George H. Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhihao Jia",
+          "affiliation": ""
+        },
+        {
+          "name": "Philip S. Yu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Detecting which nodes in graphs are outliers is a relatively new machine learning task with numerous applications. Despite the proliferation of algorithms developed in recent years for this task, there has been no standard comprehensive setting for performance evaluation. Consequently, it has been difficult to understand which methods work well and when under a broad range of settings. To bridge this gap, we present--to the best of our knowledge--the first comprehensive benchmark for unsupervised outlier node detection on static attributed graphs called BOND, with the following highlights. (1) We benchmark the outlier detection performance of 14 methods ranging from classical matrix factorization to the latest graph neural networks. (2) Using nine real datasets, our benchmark assesses how the different detection methods respond to two major types of synthetic outliers and separately to \"organic\" (real non-synthetic) outliers. (3) Using an existing random graph generation technique, we produce a family of synthetically generated datasets of different graph sizes that enable us to compare the running time and memory usage of the different outlier detection algorithms. Based on our experimental results, we discuss the pros and cons of existing graph outlier detection algorithms, and we highlight opportunities for future research. Importantly, our code is freely available and meant to be easily extendable: https://github.com/pygod-team/pygod/tree/main/benchmark",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2206.10071",
+      "url": "https://arxiv.org/abs/2206.10071",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2505.12925",
+      "title": "CPRet: A Dataset, Benchmark, and Model for Retrieval in Competitive Programming",
+      "authors": [
+        {
+          "name": "Han Deng",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuan Meng",
+          "affiliation": ""
+        },
+        {
+          "name": "Shixiang Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wanli Ouyang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinzhu Ma",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Competitive programming benchmarks are widely used in scenarios such as programming contests and large language model assessments. However, the growing presence of duplicate or highly similar problems raises concerns not only about competition fairness, but also about the validity of competitive programming as a benchmark for model evaluation. In this paper, we propose a new problem, similar question retrieval, to tackle this issue. Due to the lack of both data and models, solving this problem is challenging. To this end, we introduce CPRet, a retrieval-oriented benchmark suite for competitive programming, covering four retrieval tasks: two code-centric (i.e., Text-to-Code, Code-to-Code) and two newly proposed problem-centric tasks (i.e., Problem-to-Duplicate, Simplified-to-Full) built from a combination of automatically crawled problem-solution data and manually curated annotations. Our contribution includes both high-quality training data and temporally separated test sets for reliable evaluation. Besides, we further develop two task-specialized retrievers based on this dataset: CPRetriever-Code, trained with a novel Group-InfoNCE loss for problem-code alignment, and CPRetriever-Prob, fine-tuned for identifying problem-level similarity. Both models achieve strong results and are open-sourced for local use. Finally, we analyze LiveCodeBench and find that high-similarity problems inflate model pass rates and reduce differentiation, underscoring the need for similarity-aware evaluation in future benchmarks.\n  Github: https://github.com/coldchair/CPRet\n  Online Demo: https://www.cpret.online/",
+      "venue": "cs.SE",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2505.12925",
+      "url": "https://arxiv.org/abs/2505.12925",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2206.02096",
+      "title": "PEER: A Comprehensive and Multi-Task Benchmark for Protein Sequence Understanding",
+      "authors": [
+        {
+          "name": "Minghao Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zuobai Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiarui Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhaocheng Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yangtian Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chang Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Runcheng Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jian Tang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "We are now witnessing significant progress of deep learning methods in a variety of tasks (or datasets) of proteins. However, there is a lack of a standard benchmark to evaluate the performance of different methods, which hinders the progress of deep learning in this field. In this paper, we propose such a benchmark called PEER, a comprehensive and multi-task benchmark for Protein sEquence undERstanding. PEER provides a set of diverse protein understanding tasks including protein function prediction, protein localization prediction, protein structure prediction, protein-protein interaction prediction, and protein-ligand interaction prediction. We evaluate different types of sequence-based methods for each task including traditional feature engineering approaches, different sequence encoding methods as well as large-scale pre-trained protein language models. In addition, we also investigate the performance of these methods under the multi-task learning setting. Experimental results show that large-scale pre-trained protein language models achieve the best performance for most individual tasks, and jointly training multiple tasks further boosts the performance. The datasets and source codes of this benchmark are all available at https://github.com/DeepGraphLearning/PEER_Benchmark",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2206.02096",
+      "url": "https://arxiv.org/abs/2206.02096",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2407.17856",
+      "title": "Enhancing clinical decision support with physiological waveforms -- a multimodal benchmark in emergency care",
+      "authors": [
+        {
+          "name": "Juan Miguel Lopez Alcaraz",
+          "affiliation": ""
+        },
+        {
+          "name": "Hjalmar Bouma",
+          "affiliation": ""
+        },
+        {
+          "name": "Nils Strodthoff",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Background: AI-driven prediction algorithms have the potential to enhance emergency medicine by enabling rapid and accurate decision-making regarding patient status and potential deterioration. However, the integration of multimodal data, including raw waveform signals, remains underexplored in clinical decision support. Methods: We present a dataset and benchmarking protocol designed to advance multimodal decision support in emergency care. Our models utilize demographics, biometrics, vital signs, laboratory values, and electrocardiogram (ECG) waveforms as inputs to predict both discharge diagnoses and patient deterioration. Results: The diagnostic model achieves area under the receiver operating curve (AUROC) scores above 0.8 for 609 out of 1,428 conditions, covering both cardiac (e.g., myocardial infarction) and non-cardiac (e.g., renal disease, diabetes) diagnoses. The deterioration model attains AUROC scores above 0.8 for 14 out of 15 targets, accurately predicting critical events such as cardiac arrest, mechanical ventilation, ICU admission, and mortality. Conclusions: Our study highlights the positive impact of incorporating raw waveform data into decision support models, improving predictive performance. By introducing a unique, publicly available dataset and baseline models, we provide a foundation for measurable progress in AI-driven decision support for emergency care.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "10.1016/j.compbiomed.2025.110196",
+      "arxiv_id": "2407.17856",
+      "url": "https://arxiv.org/abs/2407.17856",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2402.14660",
+      "title": "ConceptMath: A Bilingual Concept-wise Benchmark for Measuring Mathematical Reasoning of Large Language Models",
+      "authors": [
+        {
+          "name": "Yanan Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jie Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xingyuan Bu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiaheng Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhanhui Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuanxing Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chenchen Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiqi Bai",
+          "affiliation": ""
+        },
+        {
+          "name": "Haibin Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Tiezheng Ge",
+          "affiliation": ""
+        },
+        {
+          "name": "Wanli Ouyang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenbo Su",
+          "affiliation": ""
+        },
+        {
+          "name": "Bo Zheng",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "This paper introduces ConceptMath, a bilingual (English and Chinese), fine-grained benchmark that evaluates concept-wise mathematical reasoning of Large Language Models (LLMs). Unlike traditional benchmarks that evaluate general mathematical reasoning with an average accuracy, ConceptMath systematically organizes math problems under a hierarchy of math concepts, so that mathematical reasoning can be evaluated at different granularity with concept-wise accuracies. Based on our ConcepthMath, we evaluate a broad range of LLMs, and we observe existing LLMs, though achieving high average accuracies on traditional benchmarks, exhibit significant performance variations across different math concepts and may even fail catastrophically on the most basic ones. Besides, we also introduce an efficient fine-tuning strategy to enhance the weaknesses of existing LLMs. Finally, we hope ConceptMath could guide the developers to understand the fine-grained mathematical abilities of their models and facilitate the growth of foundation models.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2402.14660",
+      "url": "https://arxiv.org/abs/2402.14660",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2501.18463",
+      "title": "A Benchmark and Evaluation for Real-World Out-of-Distribution Detection Using Vision-Language Models",
+      "authors": [
+        {
+          "name": "Shiho Noda",
+          "affiliation": ""
+        },
+        {
+          "name": "Atsuyuki Miyai",
+          "affiliation": ""
+        },
+        {
+          "name": "Qing Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Go Irie",
+          "affiliation": ""
+        },
+        {
+          "name": "Kiyoharu Aizawa",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Out-of-distribution (OOD) detection is a task that detects OOD samples during inference to ensure the safety of deployed models. However, conventional benchmarks have reached performance saturation, making it difficult to compare recent OOD detection methods. To address this challenge, we introduce three novel OOD detection benchmarks that enable a deeper understanding of method characteristics and reflect real-world conditions. First, we present ImageNet-X, designed to evaluate performance under challenging semantic shifts. Second, we propose ImageNet-FS-X for full-spectrum OOD detection, assessing robustness to covariate shifts (feature distribution shifts). Finally, we propose Wilds-FS-X, which extends these evaluations to real-world datasets, offering a more comprehensive testbed. Our experiments reveal that recent CLIP-based OOD detection methods struggle to varying degrees across the three proposed benchmarks, and none of them consistently outperforms the others. We hope the community goes beyond specific benchmarks and includes more challenging conditions reflecting real-world scenarios. The code is https://github.com/hoshi23/OOD-X-Benchmarks.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2501.18463",
+      "url": "https://arxiv.org/abs/2501.18463",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2406.10580",
+      "title": "IMDL-BenCo: A Comprehensive Benchmark and Codebase for Image Manipulation Detection & Localization",
+      "authors": [
+        {
+          "name": "Xiaochen Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Xuekang Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Lei Su",
+          "affiliation": ""
+        },
+        {
+          "name": "Bo Du",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhuohang Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Bingkui Tong",
+          "affiliation": ""
+        },
+        {
+          "name": "Zeyu Lei",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinyu Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chi-Man Pun",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiancheng Lv",
+          "affiliation": ""
+        },
+        {
+          "name": "Jizhe Zhou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "A comprehensive benchmark is yet to be established in the Image Manipulation Detection & Localization (IMDL) field. The absence of such a benchmark leads to insufficient and misleading model evaluations, severely undermining the development of this field. However, the scarcity of open-sourced baseline models and inconsistent training and evaluation protocols make conducting rigorous experiments and faithful comparisons among IMDL models challenging. To address these challenges, we introduce IMDL-BenCo, the first comprehensive IMDL benchmark and modular codebase. IMDL-BenCo: i) decomposes the IMDL framework into standardized, reusable components and revises the model construction pipeline, improving coding efficiency and customization flexibility; ii) fully implements or incorporates training code for state-of-the-art models to establish a comprehensive IMDL benchmark; and iii) conducts deep analysis based on the established benchmark and codebase, offering new insights into IMDL model architecture, dataset characteristics, and evaluation standards. Specifically, IMDL-BenCo includes common processing algorithms, 8 state-of-the-art IMDL models (1 of which are reproduced from scratch), 2 sets of standard training and evaluation protocols, 15 GPU-accelerated evaluation metrics, and 3 kinds of robustness evaluation. This benchmark and codebase represent a significant leap forward in calibrating the current progress in the IMDL field and inspiring future breakthroughs. Code is available at: https://github.com/scu-zjz/IMDLBenCo.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2406.10580",
+      "url": "https://arxiv.org/abs/2406.10580",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2505.06679",
+      "title": "T2V-OptJail: Discrete Prompt Optimization for Text-to-Video Jailbreak Attacks",
+      "authors": [
+        {
+          "name": "Jiayang Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Siyuan Liang",
+          "affiliation": ""
+        },
+        {
+          "name": "Shiqian Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Rongcheng Tu",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenbo Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Aishan Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Dacheng Tao",
+          "affiliation": ""
+        },
+        {
+          "name": "Siew Kei Lam",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "In recent years, fueled by the rapid advancement of diffusion models, text-to-video (T2V) generation models have achieved remarkable progress, with notable examples including Pika, Luma, Kling, and Open-Sora. Although these models exhibit impressive generative capabilities, they also expose significant security risks due to their vulnerability to jailbreak attacks, where the models are manipulated to produce unsafe content such as pornography, violence, or discrimination. Existing works such as T2VSafetyBench provide preliminary benchmarks for safety evaluation, but lack systematic methods for thoroughly exploring model vulnerabilities. To address this gap, we are the first to formalize the T2V jailbreak attack as a discrete optimization problem and propose a joint objective-based optimization framework, called T2V-OptJail. This framework consists of two key optimization goals: bypassing the built-in safety filtering mechanisms to increase the attack success rate, preserving semantic consistency between the adversarial prompt and the unsafe input prompt, as well as between the generated video and the unsafe input prompt, to enhance content controllability. In addition, we introduce an iterative optimization strategy guided by prompt variants, where multiple semantically equivalent candidates are generated in each round, and their scores are aggregated to robustly guide the search toward optimal adversarial prompts. We conduct large-scale experiments on several T2V models, covering both open-source models and real commercial closed-source models. The experimental results show that the proposed method improves 11.4% and 10.0% over the existing state-of-the-art method in terms of attack success rate assessed by GPT-4, attack success rate assessed by human accessors, respectively, verifying the significant advantages of the method in terms of attack effectiveness and content control.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2505.06679",
+      "url": "https://arxiv.org/abs/2505.06679",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2406.12384",
+      "title": "VRSBench: A Versatile Vision-Language Benchmark Dataset for Remote Sensing Image Understanding",
+      "authors": [
+        {
+          "name": "Xiang Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Jian Ding",
+          "affiliation": ""
+        },
+        {
+          "name": "Mohamed Elhoseiny",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "We introduce a new benchmark designed to advance the development of general-purpose, large-scale vision-language models for remote sensing images. Although several vision-language datasets in remote sensing have been proposed to pursue this goal, existing datasets are typically tailored to single tasks, lack detailed object information, or suffer from inadequate quality control. Exploring these improvement opportunities, we present a Versatile vision-language Benchmark for Remote Sensing image understanding, termed VRSBench. This benchmark comprises 29,614 images, with 29,614 human-verified detailed captions, 52,472 object references, and 123,221 question-answer pairs. It facilitates the training and evaluation of vision-language models across a broad spectrum of remote sensing image understanding tasks. We further evaluated state-of-the-art models on this benchmark for three vision-language tasks: image captioning, visual grounding, and visual question answering. Our work aims to significantly contribute to the development of advanced vision-language models in the field of remote sensing. The data and code can be accessed at https://github.com/lx709/VRSBench.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2406.12384",
+      "url": "https://arxiv.org/abs/2406.12384",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2406.10391",
+      "title": "BEACON: Benchmark for Comprehensive RNA Tasks and Language Models",
+      "authors": [
+        {
+          "name": "Yuchen Ren",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiyuan Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Lifeng Qiao",
+          "affiliation": ""
+        },
+        {
+          "name": "Hongtai Jing",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuchen Cai",
+          "affiliation": ""
+        },
+        {
+          "name": "Sheng Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Peng Ye",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinzhu Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Siqi Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Hongliang Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Dong Yuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Wanli Ouyang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xihui Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "RNA plays a pivotal role in translating genetic instructions into functional outcomes, underscoring its importance in biological processes and disease mechanisms. Despite the emergence of numerous deep learning approaches for RNA, particularly universal RNA language models, there remains a significant lack of standardized benchmarks to assess the effectiveness of these methods. In this study, we introduce the first comprehensive RNA benchmark BEACON (\\textbf{BE}nchm\\textbf{A}rk for \\textbf{CO}mprehensive R\\textbf{N}A Task and Language Models). First, BEACON comprises 13 distinct tasks derived from extensive previous work covering structural analysis, functional studies, and engineering applications, enabling a comprehensive assessment of the performance of methods on various RNA understanding tasks. Second, we examine a range of models, including traditional approaches like CNNs, as well as advanced RNA foundation models based on language models, offering valuable insights into the task-specific performances of these models. Third, we investigate the vital RNA language model components from the tokenizer and positional encoding aspects. Notably, our findings emphasize the superiority of single nucleotide tokenization and the effectiveness of Attention with Linear Biases (ALiBi) over traditional positional encoding methods. Based on these insights, a simple yet strong baseline called BEACON-B is proposed, which can achieve outstanding performance with limited data and computational resources. The datasets and source code of our benchmark are available at https://github.com/terry-r123/RNABenchmark.",
+      "venue": "q-bio.QM",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2406.10391",
+      "url": "https://arxiv.org/abs/2406.10391",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.13127",
+      "title": "SPARK: Jailbreaking T2V Models by Synergistically Prompting Auditory and Recontextualized Knowledge",
+      "authors": [
+        {
+          "name": "Zonghao Ying",
+          "affiliation": ""
+        },
+        {
+          "name": "Moyang Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Nizhang Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiqiang Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenxin Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Quanchen Zou",
+          "affiliation": ""
+        },
+        {
+          "name": "Zonglei Jing",
+          "affiliation": ""
+        },
+        {
+          "name": "Aishan Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xianglong Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Jailbreak attacks can circumvent model safety guardrails and reveal critical blind spots. Prior attacks on text-to-video (T2V) models typically add adversarial perturbations to obviously unsafe prompts, which are often easy to detect and defend. In contrast, we show that benign-looking prompts containing rich, implicit cues can induce T2V models to generate semantically unsafe videos that both violate policy and preserve the original (blocked) intent. To realize this, we propose SPARK, a jailbreak framework that leverages T2V models cross-modal associative patterns via a modular prompt design. Specifically, our prompts combine three components: neutral scene anchors, which provide the surface-level scene description extracted from the blocked intent to maintain plausibility; latent auditory triggers, textual descriptions of innocuous-sounding audio events (e.g., creaking, muffled noises) that exploit learned audio-visual co-occurrence priors to bias the model toward particular unsafe visual concepts; and stylistic modulators, cinematic directives (e.g., camera framing, atmosphere) that amplify and stabilize the latent trigger's effect. We formalize attack generation as a constrained optimization over the above modular prompt space and solve it with a guided search procedure that balances stealth and effectiveness. Extensive experiments over 7 T2V models demonstrate the efficacy of our attack, achieving a +23% improvement in average attack success rate in commercial models.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.13127",
+      "url": "https://arxiv.org/abs/2511.13127",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2104.08663",
+      "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+      "authors": [
+        {
+          "name": "Nandan Thakur",
+          "affiliation": ""
+        },
+        {
+          "name": "Nils Reimers",
+          "affiliation": ""
+        },
+        {
+          "name": "Andreas R\u00fcckl\u00e9",
+          "affiliation": ""
+        },
+        {
+          "name": "Abhishek Srivastava",
+          "affiliation": ""
+        },
+        {
+          "name": "Iryna Gurevych",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Existing neural information retrieval (IR) models have often been studied in homogeneous and narrow settings, which has considerably limited insights into their out-of-distribution (OOD) generalization capabilities. To address this, and to facilitate researchers to broadly evaluate the effectiveness of their models, we introduce Benchmarking-IR (BEIR), a robust and heterogeneous evaluation benchmark for information retrieval. We leverage a careful selection of 18 publicly available datasets from diverse text retrieval tasks and domains and evaluate 10 state-of-the-art retrieval systems including lexical, sparse, dense, late-interaction and re-ranking architectures on the BEIR benchmark. Our results show BM25 is a robust baseline and re-ranking and late-interaction-based models on average achieve the best zero-shot performances, however, at high computational costs. In contrast, dense and sparse-retrieval models are computationally more efficient but often underperform other approaches, highlighting the considerable room for improvement in their generalization capabilities. We hope this framework allows us to better evaluate and understand existing retrieval systems, and contributes to accelerating progress towards better robust and generalizable systems in the future. BEIR is publicly available at https://github.com/UKPLab/beir.",
+      "venue": "cs.IR",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2104.08663",
+      "url": "https://arxiv.org/abs/2104.08663",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2503.21380",
+      "title": "Challenging the Boundaries of Reasoning: An Olympiad-Level Math Benchmark for Large Language Models",
+      "authors": [
+        {
+          "name": "Haoxiang Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Yingqian Min",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhipeng Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Wayne Xin Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Lei Fang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zheng Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhongyuan Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ji-Rong Wen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "In recent years, the rapid development of large reasoning models has resulted in the saturation of existing benchmarks for evaluating mathematical reasoning, highlighting the urgent need for more challenging and rigorous evaluation frameworks. To address this gap, we introduce OlymMATH, a novel Olympiad-level mathematical benchmark, designed to rigorously test the complex reasoning capabilities of LLMs. OlymMATH features 200 meticulously curated problems, each manually verified and available in parallel English and Chinese versions. The problems are systematically organized into two distinct difficulty tiers: (1) AIME-level problems (easy) that establish a baseline for mathematical reasoning assessment, and (2) significantly more challenging problems (hard) designed to push the boundaries of current state-of-the-art models. In our benchmark, these problems span four core mathematical fields, each including a verifiable numerical solution to enable objective, rule-based evaluation. Empirical results underscore the significant challenge presented by OlymMATH, with state-of-the-art models including DeepSeek-R1, OpenAI's o3-mini and Gemini 2.5 Pro Exp demonstrating notably limited accuracy on the hard subset. Furthermore, the benchmark facilitates comprehensive bilingual assessment of mathematical reasoning abilities-a critical dimension that remains largely unaddressed in mainstream mathematical reasoning benchmarks. We release the benchmark, evaluation code, detailed results and a data visualization tool at https://github.com/RUCAIBox/OlymMATH.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2503.21380",
+      "url": "https://arxiv.org/abs/2503.21380",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2309.13890",
+      "title": "Bitstream-Corrupted Video Recovery: A Novel Benchmark Dataset and Method",
+      "authors": [
+        {
+          "name": "Tianyi Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Kejun Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenyang Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Kim-Hui Yap",
+          "affiliation": ""
+        },
+        {
+          "name": "Lap-Pui Chau",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "The past decade has witnessed great strides in video recovery by specialist technologies, like video inpainting, completion, and error concealment. However, they typically simulate the missing content by manual-designed error masks, thus failing to fill in the realistic video loss in video communication (e.g., telepresence, live streaming, and internet video) and multimedia forensics. To address this, we introduce the bitstream-corrupted video (BSCV) benchmark, the first benchmark dataset with more than 28,000 video clips, which can be used for bitstream-corrupted video recovery in the real world. The BSCV is a collection of 1) a proposed three-parameter corruption model for video bitstream, 2) a large-scale dataset containing rich error patterns, multiple corruption levels, and flexible dataset branches, and 3) a plug-and-play module in video recovery framework that serves as a benchmark. We evaluate state-of-the-art video inpainting methods on the BSCV dataset, demonstrating existing approaches' limitations and our framework's advantages in solving the bitstream-corrupted video recovery problem. The benchmark and dataset are released at https://github.com/LIUTIGHE/BSCV-Dataset.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2309.13890",
+      "url": "https://arxiv.org/abs/2309.13890",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2504.04596",
+      "title": "SECQUE: A Benchmark for Evaluating Real-World Financial Analysis Capabilities",
+      "authors": [
+        {
+          "name": "Noga Ben Yoash",
+          "affiliation": ""
+        },
+        {
+          "name": "Meni Brief",
+          "affiliation": ""
+        },
+        {
+          "name": "Oded Ovadia",
+          "affiliation": ""
+        },
+        {
+          "name": "Gil Shenderovitz",
+          "affiliation": ""
+        },
+        {
+          "name": "Moshik Mishaeli",
+          "affiliation": ""
+        },
+        {
+          "name": "Rachel Lemberg",
+          "affiliation": ""
+        },
+        {
+          "name": "Eitam Sheetrit",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "We introduce SECQUE, a comprehensive benchmark for evaluating large language models (LLMs) in financial analysis tasks. SECQUE comprises 565 expert-written questions covering SEC filings analysis across four key categories: comparison analysis, ratio calculation, risk assessment, and financial insight generation. To assess model performance, we develop SECQUE-Judge, an evaluation mechanism leveraging multiple LLM-based judges, which demonstrates strong alignment with human evaluations. Additionally, we provide an extensive analysis of various models' performance on our benchmark. By making SECQUE publicly available, we aim to facilitate further research and advancements in financial AI.",
+      "venue": "cs.AI",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2504.04596",
+      "url": "https://arxiv.org/abs/2504.04596",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2505.06371",
+      "title": "The ML.ENERGY Benchmark: Toward Automated Inference Energy Measurement and Optimization",
+      "authors": [
+        {
+          "name": "Jae-Won Chung",
+          "affiliation": ""
+        },
+        {
+          "name": "Jeff J. Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruofan Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiachen Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Oh Jun Kweon",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuxuan Xia",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiyu Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Mosharaf Chowdhury",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "As the adoption of Generative AI in real-world services grow explosively, energy has emerged as a critical bottleneck resource. However, energy remains a metric that is often overlooked, under-explored, or poorly understood in the context of building ML systems. We present the ML$.$ENERGY Benchmark, a benchmark suite and tool for measuring inference energy consumption under realistic service environments, and the corresponding ML$.$ENERGY Leaderboard, which have served as a valuable resource for those hoping to understand and optimize the energy consumption of their generative AI services. In this paper, we explain four key design principles for benchmarking ML energy we have acquired over time, and then describe how they are implemented in the ML$.$ENERGY Benchmark. We then highlight results from the early 2025 iteration of the benchmark, including energy measurements of 40 widely used model architectures across 6 different tasks, case studies of how ML design choices impact energy consumption, and how automated optimization recommendations can lead to significant (sometimes more than 40%) energy savings without changing what is being computed by the model. The ML$.$ENERGY Benchmark is open-source and can be easily extended to various customized models and application scenarios.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2505.06371",
+      "url": "https://arxiv.org/abs/2505.06371",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2108.00783",
+      "title": "CARLA: A Python Library to Benchmark Algorithmic Recourse and Counterfactual Explanation Algorithms",
+      "authors": [
+        {
+          "name": "Martin Pawelczyk",
+          "affiliation": ""
+        },
+        {
+          "name": "Sascha Bielawski",
+          "affiliation": ""
+        },
+        {
+          "name": "Johannes van den Heuvel",
+          "affiliation": ""
+        },
+        {
+          "name": "Tobias Richter",
+          "affiliation": ""
+        },
+        {
+          "name": "Gjergji Kasneci",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Counterfactual explanations provide means for prescriptive model explanations by suggesting actionable feature changes (e.g., increase income) that allow individuals to achieve favorable outcomes in the future (e.g., insurance approval). Choosing an appropriate method is a crucial aspect for meaningful counterfactual explanations. As documented in recent reviews, there exists a quickly growing literature with available methods. Yet, in the absence of widely available opensource implementations, the decision in favor of certain models is primarily based on what is readily available. Going forward - to guarantee meaningful comparisons across explanation methods - we present CARLA (Counterfactual And Recourse LibrAry), a python library for benchmarking counterfactual explanation methods across both different data sets and different machine learning models. In summary, our work provides the following contributions: (i) an extensive benchmark of 11 popular counterfactual explanation methods, (ii) a benchmarking framework for research on future counterfactual explanation methods, and (iii) a standardized set of integrated evaluation measures and data sets for transparent and extensive comparisons of these methods. We have open-sourced CARLA and our experimental results on Github, making them available as competitive baselines. We welcome contributions from other research groups and practitioners.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2108.00783",
+      "url": "https://arxiv.org/abs/2108.00783",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2209.08814",
+      "title": "T2V-DDPM: Thermal to Visible Face Translation using Denoising Diffusion Probabilistic Models",
+      "authors": [
+        {
+          "name": "Nithin Gopalakrishnan Nair",
+          "affiliation": ""
+        },
+        {
+          "name": "Vishal M. Patel",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Modern-day surveillance systems perform person recognition using deep learning-based face verification networks. Most state-of-the-art facial verification systems are trained using visible spectrum images. But, acquiring images in the visible spectrum is impractical in scenarios of low-light and nighttime conditions, and often images are captured in an alternate domain such as the thermal infrared domain. Facial verification in thermal images is often performed after retrieving the corresponding visible domain images. This is a well-established problem often known as the Thermal-to-Visible (T2V) image translation. In this paper, we propose a Denoising Diffusion Probabilistic Model (DDPM) based solution for T2V translation specifically for facial images. During training, the model learns the conditional distribution of visible facial images given their corresponding thermal image through the diffusion process. During inference, the visible domain image is obtained by starting from Gaussian noise and performing denoising repeatedly. The existing inference process for DDPMs is stochastic and time-consuming. Hence, we propose a novel inference strategy for speeding up the inference time of DDPMs, specifically for the problem of T2V image translation. We achieve the state-of-the-art results on multiple datasets. The code and pretrained models are publically available at http://github.com/Nithin-GK/T2V-DDPM",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2209.08814",
+      "url": "https://arxiv.org/abs/2209.08814",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2512.00387",
+      "title": "WiseEdit: Benchmarking Cognition- and Creativity-Informed Image Editing",
+      "authors": [
+        {
+          "name": "Kaihang Pan",
+          "affiliation": ""
+        },
+        {
+          "name": "Weile Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Haiyi Qiu",
+          "affiliation": ""
+        },
+        {
+          "name": "Qifan Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Wendong Bu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zehan Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yun Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Juncheng Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Siliang Tang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Recent image editing models boast next-level intelligent capabilities, facilitating cognition- and creativity-informed image editing. Yet, existing benchmarks provide too narrow a scope for evaluation, failing to holistically assess these advanced abilities. To address this, we introduce WiseEdit, a knowledge-intensive benchmark for comprehensive evaluation of cognition- and creativity-informed image editing, featuring deep task depth and broad knowledge breadth. Drawing an analogy to human cognitive creation, WiseEdit decomposes image editing into three cascaded steps, i.e., Awareness, Interpretation, and Imagination, each corresponding to a task that poses a challenge for models to complete at the specific step. It also encompasses complex tasks, where none of the three steps can be finished easily. Furthermore, WiseEdit incorporates three fundamental types of knowledge: Declarative, Procedural, and Metacognitive knowledge. Ultimately, WiseEdit comprises 1,220 test cases, objectively revealing the limitations of SoTA image editing models in knowledge-based cognitive reasoning and creative composition capabilities. The benchmark, evaluation code, and the generated images of each model will be made publicly available soon. Project Page: https://qnancy.github.io/wiseedit_project_page/.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2512.00387",
+      "url": "https://arxiv.org/abs/2512.00387",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2204.13879",
+      "title": "DGBench: An Open-Source, Reproducible Benchmark for Dynamic Grasping",
+      "authors": [
+        {
+          "name": "Ben Burgess-Limerick",
+          "affiliation": ""
+        },
+        {
+          "name": "Chris Lehnert",
+          "affiliation": ""
+        },
+        {
+          "name": "Jurgen Leitner",
+          "affiliation": ""
+        },
+        {
+          "name": "Peter Corke",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "This paper introduces DGBench, a fully reproducible open-source testing system to enable benchmarking of dynamic grasping in environments with unpredictable relative motion between robot and object. We use the proposed benchmark to compare several visual perception arrangements. Traditional perception systems developed for static grasping are unable to provide feedback during the final phase of a grasp due to sensor minimum range, occlusion, and a limited field of view. A multi-camera eye-in-hand perception system is presented that has advantages over commonly used camera configurations. We quantitatively evaluate the performance on a real robot with an image-based visual servoing grasp controller and show a significantly improved success rate on a dynamic grasping task.",
+      "venue": "cs.RO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2204.13879",
+      "url": "https://arxiv.org/abs/2204.13879",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

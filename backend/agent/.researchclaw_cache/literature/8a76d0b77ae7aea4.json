@@ -1,0 +1,3540 @@
+{
+  "query": "multi-subject diffusion cross attention disentanglement",
+  "source": "openalex",
+  "limit": 40,
+  "timestamp": 1774164027.7326536,
+  "papers": [
+    {
+      "paper_id": "oalex-W4403792309",
+      "title": "DisenStudio: Customized Multi-Subject Text-to-Video Generation with Disentangled Spatial Control",
+      "authors": [
+        {
+          "name": "Hong Chen",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Xin Wang",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Y. J. Zhang",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Yuwei Zhou",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Zeyang Zhang",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Siao Tang",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Wenwu Zhu",
+          "affiliation": "Tsinghua University"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Generating customized content in videos has received increasing attention recently. However, existing works primarily focus on customized text-to-video generation for single subject, suffering from subject-missing and attribute-binding problems when the video is expected to contain multiple subjects. Furthermore, existing models struggle to assign the desired actions to the corresponding subjects (action-binding problem), failing to achieve satisfactory multi-subject generation performance. To tackle the problems, in this paper, we propose DisenStudio, a novel framework that can generate text-guided videos for customized multiple subjects, given few images for each subject. Specifically, DisenStudio enhances a pretrained diffusion-based text-to-video model with our proposed spatial-disentangled cross-attention mechanism to associate each subject with the desired action. Then the model is customized for the multiple subjects with the proposed motion-preserved disentangled finetuning, which involves three tuning strategies: multi-subject co-occurrence tuning, masked single-subject tuning, and multi-subject motion-preserved tuning. The first two strategies guarantee the subject occurrence and preserve their visual attributes, and the third strategy helps the model maintain the temporal motion-generation ability when finetuning on static images. We conduct extensive experiments to demonstrate our proposed DisenStudio significantly outperforms existing methods in various metrics. Additionally, we show that DisenStudio can be used as a powerful tool for various controllable generation applications.",
+      "venue": "",
+      "citation_count": 7,
+      "doi": "10.1145/3664647.3680637",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3664647.3680637",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4402716318",
+      "title": "DiffPortrait3D: Controllable Diffusion for Zero-Shot Portrait View Synthesis",
+      "authors": [
+        {
+          "name": "Yuming Gu",
+          "affiliation": "University of Southern California"
+        },
+        {
+          "name": "Hongyi Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "You Xie",
+          "affiliation": ""
+        },
+        {
+          "name": "Guoxian Song",
+          "affiliation": ""
+        },
+        {
+          "name": "Yichun Shi",
+          "affiliation": ""
+        },
+        {
+          "name": "Di Chang",
+          "affiliation": "University of Southern California"
+        },
+        {
+          "name": "Jing Yang",
+          "affiliation": "University of Southern California"
+        },
+        {
+          "name": "Linjie Luo",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "We present DiffPortrait3D, a conditional diffusion model that is capable of synthesizing 3D-consistent photo-realistic novel views from as few as a single in-the-wild portrait. Specifically, given a single RGB input, we aim to synthesize plausible but consistent facial details rendered from novel camera views with retained both identity and facial expression. In lieu of time-consuming optimization and fine-tuning, our zero-shot method generalizes well to arbitrary face portraits with unposed camera views, extreme facial expressions, and diverse artistic depictions. At its core, we leverage the generative prior of 2D diffusion models pre-trained on large-scale image datasets as our rendering backbone, while the denoising is guided with disentangled attentive control of appearance and camera pose. To achieve this, we first inject the appearance context from the reference image into the self-attention layers of the frozen UNets. The rendering view is then manipulated with a novel conditional control module that interprets the camera pose by watching a condition image of a crossed subject from the same view. Furthermore, we insert a trainable cross-view attention module to enhance view consistency, which is further strengthened with a novel 3D-aware noise generation process during inference. We demonstrate state-of-the-art results both qualitatively and quantitatively on our challenging in-the-wild and multi-view benchmarks.",
+      "venue": "",
+      "citation_count": 8,
+      "doi": "10.1109/cvpr52733.2024.00995",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr52733.2024.00995",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3096655658",
+      "title": "Contrastive Representation Learning: A Framework and Review",
+      "authors": [
+        {
+          "name": "Phuc H. Le-Khac",
+          "affiliation": "Dublin City University"
+        },
+        {
+          "name": "Graham Healy",
+          "affiliation": "Dublin City University"
+        },
+        {
+          "name": "Alan F. Smeaton",
+          "affiliation": "Dublin City University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Contrastive Learning has recently received interest due to its success in self-supervised representation learning in the computer vision domain. However, the origins of Contrastive Learning date as far back as the 1990s and its development has spanned across many fields and domains including Metric Learning and natural language processing. In this paper, we provide a comprehensive literature review and we propose a general Contrastive Representation Learning framework that simplifies and unifies many different contrastive learning methods. We also provide a taxonomy for each of the components of contrastive learning in order to summarise it and distinguish it from other forms of machine learning. We then discuss the inductive biases which are present in any contrastive learning system and we analyse our framework under different views from various sub-fields of Machine Learning. Examples of how contrastive learning has been applied in computer vision, natural language processing, audio processing, and others, as well as in Reinforcement Learning are also presented. Finally, we discuss the challenges and some of the most promising future research directions ahead.",
+      "venue": "IEEE Access",
+      "citation_count": 789,
+      "doi": "10.1109/access.2020.3031549",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/access.2020.3031549",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2945526235",
+      "title": "Explainable Machine Learning for Scientific Insights and Discoveries",
+      "authors": [
+        {
+          "name": "Ribana Roscher",
+          "affiliation": "University of Bonn"
+        },
+        {
+          "name": "Bastian Bohn",
+          "affiliation": "University of Bonn"
+        },
+        {
+          "name": "Marco F. Duarte",
+          "affiliation": "University of Massachusetts Amherst"
+        },
+        {
+          "name": "Jochen Garcke",
+          "affiliation": "University of Bonn"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Machine learning methods have been remarkably successful for a wide range of application areas in the extraction of essential information from data. An exciting and relatively recent development is the uptake of machine learning in the natural sciences, where the major goal is to obtain novel scientific insights and discoveries from observational or simulated data. A prerequisite for obtaining a scientific outcome is domain knowledge, which is needed to gain explainability, but also to enhance scientific consistency. In this article, we review explainable machine learning in view of applications in the natural sciences and discuss three core elements that we identified as relevant in this context: transparency, interpretability, and explainability. With respect to these core elements, we provide a survey of recent scientific works that incorporate machine learning and the way that explainable machine learning is used in combination with domain knowledge from the application areas.",
+      "venue": "IEEE Access",
+      "citation_count": 934,
+      "doi": "10.1109/access.2020.2976199",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/access.2020.2976199",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2769544142",
+      "title": "Autism spectrum disorder",
+      "authors": [
+        {
+          "name": "Catherine Lord",
+          "affiliation": "University of California, Los Angeles"
+        },
+        {
+          "name": "Traolach Brugha",
+          "affiliation": "University of Leicester"
+        },
+        {
+          "name": "Tony Charman",
+          "affiliation": "King's College London"
+        },
+        {
+          "name": "James Cusack",
+          "affiliation": "Autistica"
+        },
+        {
+          "name": "Guillaume Dumas",
+          "affiliation": "Universit\u00e9 Paris Cit\u00e9"
+        },
+        {
+          "name": "Thomas Frazier",
+          "affiliation": "Autism Speaks"
+        },
+        {
+          "name": "Emily J. H. Jones",
+          "affiliation": "University of London"
+        },
+        {
+          "name": "Rebecca M. Jones",
+          "affiliation": "Autism360"
+        },
+        {
+          "name": "Andrew Pickles",
+          "affiliation": "King's College London"
+        },
+        {
+          "name": "Matthew W. State",
+          "affiliation": "University of California, San Francisco"
+        },
+        {
+          "name": "Julie Lounds Taylor",
+          "affiliation": "Vanderbilt University Medical Center"
+        },
+        {
+          "name": "Jeremy Veenstra\u2010VanderWeele",
+          "affiliation": "Columbia University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "",
+      "venue": "Nature Reviews Disease Primers",
+      "citation_count": 1559,
+      "doi": "10.1038/s41572-019-0138-4",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41572-019-0138-4",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4307402605",
+      "title": "The 2022 report of the Lancet Countdown on health and climate change: health at the mercy of fossil fuels",
+      "authors": [
+        {
+          "name": "Marina Romanello",
+          "affiliation": "University College London"
+        },
+        {
+          "name": "Claudia Di Napoli",
+          "affiliation": "University of Reading"
+        },
+        {
+          "name": "Paul Drummond",
+          "affiliation": "Centre for Sustainable Energy"
+        },
+        {
+          "name": "Carole Green",
+          "affiliation": "University of Washington"
+        },
+        {
+          "name": "Harry Kennard",
+          "affiliation": "Energy Institute"
+        },
+        {
+          "name": "Pete Lampard",
+          "affiliation": "University of York"
+        },
+        {
+          "name": "Daniel Scamman",
+          "affiliation": "Centre for Sustainable Energy"
+        },
+        {
+          "name": "Nigel W. Arnell",
+          "affiliation": "University of Reading"
+        },
+        {
+          "name": "Sonja Ayeb\u2010Karlsson",
+          "affiliation": "University College London"
+        },
+        {
+          "name": "Lea Berrang\u2010Ford",
+          "affiliation": "University of Leeds"
+        },
+        {
+          "name": "Kristine Belesova",
+          "affiliation": "London School of Hygiene & Tropical Medicine"
+        },
+        {
+          "name": "Kathryn Bowen",
+          "affiliation": "University of Melbourne"
+        },
+        {
+          "name": "Wenjia Cai",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Max Callaghan",
+          "affiliation": "Mercator Research Institute on Global Commons and Climate Change"
+        },
+        {
+          "name": "Diarmid Campbell\u2010Lendrum",
+          "affiliation": "World Health Organization"
+        },
+        {
+          "name": "Jonathan Chambers",
+          "affiliation": "University of Geneva"
+        },
+        {
+          "name": "Kim Robin van Daalen",
+          "affiliation": "University of Cambridge"
+        },
+        {
+          "name": "Carole Dalin",
+          "affiliation": "University College London"
+        },
+        {
+          "name": "Niheer Dasandi",
+          "affiliation": "University of Birmingham"
+        },
+        {
+          "name": "Shouro Dasgupta",
+          "affiliation": "CMCC Foundation - Euro-Mediterranean Center on Climate Change"
+        },
+        {
+          "name": "Michael Davies",
+          "affiliation": "University College London"
+        },
+        {
+          "name": "Paula Dom\u00ednguez-Salas",
+          "affiliation": "University of Greenwich"
+        },
+        {
+          "name": "Robert Dubrow",
+          "affiliation": "Center for Environmental Health"
+        },
+        {
+          "name": "Kristie L. Ebi",
+          "affiliation": "University of Washington"
+        },
+        {
+          "name": "Matthew J. Eckelman",
+          "affiliation": "Northeastern University"
+        },
+        {
+          "name": "Paul Ekins",
+          "affiliation": "Centre for Sustainable Energy"
+        },
+        {
+          "name": "Luis E. Escobar",
+          "affiliation": "Virginia Tech"
+        },
+        {
+          "name": "Lucien Georgeson",
+          "affiliation": "University College London"
+        },
+        {
+          "name": "Hilary Graham",
+          "affiliation": "University of York"
+        },
+        {
+          "name": "Samuel H Gunther",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Ian Hamilton",
+          "affiliation": "Energy Institute"
+        },
+        {
+          "name": "Yun Hang",
+          "affiliation": "Emory University"
+        },
+        {
+          "name": "Risto H\u00e4nninen",
+          "affiliation": "Finnish Meteorological Institute"
+        },
+        {
+          "name": "Stella M. Hartinger",
+          "affiliation": "Universidad Peruana Cayetano Heredia"
+        },
+        {
+          "name": "Kehan He",
+          "affiliation": "University College London"
+        },
+        {
+          "name": "Jeremy Hess",
+          "affiliation": "University of Washington"
+        },
+        {
+          "name": "Shih-Che Hsu",
+          "affiliation": "University College London"
+        },
+        {
+          "name": "Slava Mikhaylov",
+          "affiliation": "Hertie School"
+        },
+        {
+          "name": "Louis Jamart",
+          "affiliation": ""
+        },
+        {
+          "name": "Ollie Jay",
+          "affiliation": "University of Sydney"
+        },
+        {
+          "name": "Ilan Kelman",
+          "affiliation": "University College London"
+        },
+        {
+          "name": "Gregor Kiesewetter",
+          "affiliation": "International Institute for Applied Systems Analysis"
+        },
+        {
+          "name": "Patrick L. Kinney",
+          "affiliation": ""
+        },
+        {
+          "name": "Tord Kjellstr\u00f6m",
+          "affiliation": ""
+        },
+        {
+          "name": "Dominic Kniveton",
+          "affiliation": "University of Sussex"
+        },
+        {
+          "name": "Jason Lee",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Bruno Lemke",
+          "affiliation": "Nelson Marlborough Institute of Technology"
+        },
+        {
+          "name": "Yang Liu",
+          "affiliation": "Emory University"
+        },
+        {
+          "name": "Zhao Liu",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Melissa Lott",
+          "affiliation": "Columbia University"
+        },
+        {
+          "name": "Mart\u00edn Lotto Batista",
+          "affiliation": "Barcelona Supercomputing Center"
+        },
+        {
+          "name": "Rachel Lowe",
+          "affiliation": "Barcelona Supercomputing Center"
+        },
+        {
+          "name": "Frances MacGuire",
+          "affiliation": "University College London"
+        },
+        {
+          "name": "Maquins Odhiambo Sewe",
+          "affiliation": "Ume\u00e5 University"
+        },
+        {
+          "name": "Jaime Mart\u00ednez-Urtaza",
+          "affiliation": "Universitat de Barcelona"
+        },
+        {
+          "name": "Mark Maslin",
+          "affiliation": "University College London"
+        },
+        {
+          "name": "Lucy McAllister",
+          "affiliation": "Technical University of Munich"
+        },
+        {
+          "name": "Alice McGushin",
+          "affiliation": "University of Cambridge"
+        },
+        {
+          "name": "Celia McMichael",
+          "affiliation": "University of Melbourne"
+        },
+        {
+          "name": "Zhifu Mi",
+          "affiliation": "University of London"
+        },
+        {
+          "name": "James Milner",
+          "affiliation": "London School of Hygiene & Tropical Medicine"
+        },
+        {
+          "name": "Kelton Minor",
+          "affiliation": "University of Copenhagen"
+        },
+        {
+          "name": "Jan C. Minx",
+          "affiliation": "Mercator Research Institute on Global Commons and Climate Change"
+        },
+        {
+          "name": "Nahid Mohajeri",
+          "affiliation": "University College London"
+        },
+        {
+          "name": "Maziar Moradi\u2010Lakeh",
+          "affiliation": "Iran University of Medical Sciences"
+        },
+        {
+          "name": "Karyn Morrissey",
+          "affiliation": "Technical University of Denmark"
+        },
+        {
+          "name": "Simon Munzert",
+          "affiliation": "Hertie School"
+        },
+        {
+          "name": "Kris A. Murray",
+          "affiliation": "MRC Unit the Gambia"
+        },
+        {
+          "name": "Tara Neville",
+          "affiliation": "World Health Organization"
+        },
+        {
+          "name": "Maria Nilsson",
+          "affiliation": "Ume\u00e5 University"
+        },
+        {
+          "name": "Nick Obradovich",
+          "affiliation": "Max Planck Institute for Human Development"
+        },
+        {
+          "name": "Megan B O'Hare",
+          "affiliation": "University College London"
+        },
+        {
+          "name": "Tadj Oreszczyn",
+          "affiliation": "Energy Institute"
+        },
+        {
+          "name": "Matthias Otto",
+          "affiliation": "Nelson Marlborough Institute of Technology"
+        },
+        {
+          "name": "Fereidoon Owfi",
+          "affiliation": "Agricultural Biotechnology Research Institute of Iran"
+        },
+        {
+          "name": "Pete Lampard",
+          "affiliation": "University of Colorado Boulder"
+        },
+        {
+          "name": "Mahnaz Rabbaniha",
+          "affiliation": "Agricultural Biotechnology Research Institute of Iran"
+        },
+        {
+          "name": "Elizabeth Robinson",
+          "affiliation": "London School of Economics and Political Science"
+        },
+        {
+          "name": "Joacim Rockl\u00f6v",
+          "affiliation": "Heidelberg University"
+        },
+        {
+          "name": "Renee N. Salas",
+          "affiliation": "Harvard University"
+        },
+        {
+          "name": "Jan C. Semenza",
+          "affiliation": "Heidelberg University"
+        },
+        {
+          "name": "Jodi D. Sherman",
+          "affiliation": "Yale University"
+        },
+        {
+          "name": "Liuhua Shi",
+          "affiliation": "Emory University"
+        },
+        {
+          "name": "Joy Shumake-Guillemot",
+          "affiliation": ""
+        },
+        {
+          "name": "Grant Silbert",
+          "affiliation": "University of Melbourne"
+        },
+        {
+          "name": "Mikhail Sofiev",
+          "affiliation": "Finnish Meteorological Institute"
+        },
+        {
+          "name": "Marco Springmann",
+          "affiliation": "University of Oxford"
+        },
+        {
+          "name": "Jennifer Stowell",
+          "affiliation": ""
+        },
+        {
+          "name": "Meisam Tabatabaei",
+          "affiliation": "Universiti Malaysia Terengganu"
+        },
+        {
+          "name": "Jonathon Taylor",
+          "affiliation": "Tampere University"
+        },
+        {
+          "name": "Joaqu\u00edn Tri\u00f1anes",
+          "affiliation": "Universidade de Santiago de Compostela"
+        },
+        {
+          "name": "Fabian Wagner",
+          "affiliation": "International Institute for Applied Systems Analysis"
+        },
+        {
+          "name": "Paul Wilkinson",
+          "affiliation": "London School of Hygiene & Tropical Medicine"
+        },
+        {
+          "name": "Matthew Winning",
+          "affiliation": "Centre for Sustainable Energy"
+        },
+        {
+          "name": "Marisol Yglesias-Gonz\u00e1lez",
+          "affiliation": "Universidad Peruana Cayetano Heredia"
+        },
+        {
+          "name": "Shihui Zhang",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Peng Gong",
+          "affiliation": "University of Hong Kong"
+        },
+        {
+          "name": "Hugh Montgomery",
+          "affiliation": "Centre for Mental Health"
+        },
+        {
+          "name": "Anthony Costello",
+          "affiliation": "University College London"
+        }
+      ],
+      "year": 2022,
+      "abstract": "",
+      "venue": "The Lancet",
+      "citation_count": 1545,
+      "doi": "10.1016/s0140-6736(22)01540-9",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/s0140-6736(22)01540-9",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4366262984",
+      "title": "Explainable Artificial Intelligence (XAI): What we know and what is left to attain Trustworthy Artificial Intelligence",
+      "authors": [
+        {
+          "name": "Sajid Ali",
+          "affiliation": "Sungkyunkwan University"
+        },
+        {
+          "name": "Tamer Abuhmed",
+          "affiliation": "Sungkyunkwan University"
+        },
+        {
+          "name": "Shaker El\u2013Sappagh",
+          "affiliation": "Suez University"
+        },
+        {
+          "name": "Khan Muhammad",
+          "affiliation": "Sungkyunkwan University"
+        },
+        {
+          "name": "Jos\u00e9 M. Alonso",
+          "affiliation": "Universidade de Santiago de Compostela"
+        },
+        {
+          "name": "Roberto Confalonieri",
+          "affiliation": "University of Padua"
+        },
+        {
+          "name": "Riccardo Guidotti",
+          "affiliation": "University of Pisa"
+        },
+        {
+          "name": "Javier Del Ser",
+          "affiliation": "Association of Electronic and Information Technologies"
+        },
+        {
+          "name": "Natalia D\u00edaz-Rodr\u00edguez",
+          "affiliation": "Universidad de Granada"
+        },
+        {
+          "name": "Francisco Herrera",
+          "affiliation": "Universidad de Granada"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Artificial intelligence (AI) is currently being utilized in a wide range of sophisticated applications, but the outcomes of many AI models are challenging to comprehend and trust due to their black-box nature. Usually, it is essential to understand the reasoning behind an AI model\u2019s decision-making. Thus, the need for eXplainable AI (XAI) methods for improving trust in AI models has arisen. XAI has become a popular research subject within the AI field in recent years. Existing survey papers have tackled the concepts of XAI, its general terms, and post-hoc explainability methods but there have not been any reviews that have looked at the assessment methods, available tools, XAI datasets, and other related aspects. Therefore, in this comprehensive study, we provide readers with an overview of the current research and trends in this rapidly emerging area with a case study example. The study starts by explaining the background of XAI, common definitions, and summarizing recently proposed techniques in XAI for supervised machine learning. The review divides XAI techniques into four axes using a hierarchical categorization system: (i) data explainability, (ii) model explainability, (iii) post-hoc explainability, and (iv) assessment of explanations. We also introduce available evaluation metrics as well as open-source packages and datasets with future research directions. Then, the significance of explainability in terms of legal demands, user viewpoints, and application orientation is outlined, termed as XAI concerns. This paper advocates for tailoring explanation content to specific user types. An examination of XAI techniques and evaluation was conducted by looking at 410 critical articles, published between January 2016 and October 2022, in reputed journals and using a wide range of research databases as a source of information. The article is aimed at XAI researchers who are interested in making their AI models more trustworthy, as well as towards researchers from other disciplines who are looking for effective XAI methods to complete tasks with confidence while communicating meaning from data.",
+      "venue": "Information Fusion",
+      "citation_count": 1322,
+      "doi": "10.1016/j.inffus.2023.101805",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.inffus.2023.101805",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4391514872",
+      "title": "Autoencoders and their applications in machine learning: a survey",
+      "authors": [
+        {
+          "name": "Kamal Berahmand",
+          "affiliation": "Queensland University of Technology"
+        },
+        {
+          "name": "Fatemeh Daneshfar",
+          "affiliation": "University of Kurdistan"
+        },
+        {
+          "name": "Elaheh Sadat Salehi",
+          "affiliation": "Shiraz University"
+        },
+        {
+          "name": "Yuefeng Li",
+          "affiliation": "Queensland University of Technology"
+        },
+        {
+          "name": "Yue Xu",
+          "affiliation": "Queensland University of Technology"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Abstract Autoencoders have become a hot researched topic in unsupervised learning due to their ability to learn data features and act as a dimensionality reduction method. With rapid evolution of autoencoder methods, there has yet to be a complete study that provides a full autoencoders roadmap for both stimulating technical improvements and orienting research newbies to autoencoders. In this paper, we present a comprehensive survey of autoencoders, starting with an explanation of the principle of conventional autoencoder and their primary development process. We then provide a taxonomy of autoencoders based on their structures and principles and thoroughly analyze and discuss the related models. Furthermore, we review the applications of autoencoders in various fields, including machine vision, natural language processing, complex network, recommender system, speech process, anomaly detection, and others. Lastly, we summarize the limitations of current autoencoder algorithms and discuss the future directions of the field.",
+      "venue": "Artificial Intelligence Review",
+      "citation_count": 429,
+      "doi": "10.1007/s10462-023-10662-6",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s10462-023-10662-6",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4389519153",
+      "title": "Findings of the Association for Computational Linguistics: EMNLP 2023",
+      "authors": [
+        {
+          "name": "Graham Mcdougal",
+          "affiliation": ""
+        },
+        {
+          "name": "Caron",
+          "affiliation": ""
+        },
+        {
+          "name": "Shashank Srivastava",
+          "affiliation": ""
+        },
+        {
+          "name": "Siyu Yuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiangjie Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Xuyang Ge",
+          "affiliation": ""
+        },
+        {
+          "name": "Yanghua Xiao",
+          "affiliation": ""
+        },
+        {
+          "name": "Deqing Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianfeng Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Mengting Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yike Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Bingzhe Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yalan Xie",
+          "affiliation": ""
+        },
+        {
+          "name": "Mingming Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Renhong Cheng",
+          "affiliation": ""
+        },
+        {
+          "name": "; Gpt",
+          "affiliation": ""
+        },
+        {
+          "name": "Yixuan Weng",
+          "affiliation": ""
+        },
+        {
+          "name": "Minjun Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Fei Xia",
+          "affiliation": ""
+        },
+        {
+          "name": "Bin Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Shizhu He",
+          "affiliation": ""
+        },
+        {
+          "name": "Shengping Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Bin Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Kang Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jun Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Michail Mersinias",
+          "affiliation": ""
+        },
+        {
+          "name": "Kyle Mahowald",
+          "affiliation": ""
+        },
+        {
+          "name": "Michal Yarom",
+          "affiliation": ""
+        },
+        {
+          "name": "Ashish Thapliyal ; Daejin",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniel Jo",
+          "affiliation": ""
+        },
+        {
+          "name": "Nam",
+          "affiliation": ""
+        },
+        {
+          "name": "Weixiang Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuchen Tian",
+          "affiliation": ""
+        },
+        {
+          "name": "Yunzhe Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Qian Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Wen Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Doctrack ; Hao Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Qingxuan Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yue Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Changqing Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chenhui Chu",
+          "affiliation": ""
+        },
+        {
+          "name": "Rui Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "; Jinsung Yoon",
+          "affiliation": ""
+        },
+        {
+          "name": "Sayna Ebrahimi",
+          "affiliation": ""
+        },
+        {
+          "name": "Tomas Sercan O Arik",
+          "affiliation": ""
+        },
+        {
+          "name": "Somesh Pfister",
+          "affiliation": ""
+        },
+        {
+          "name": "; Shoujie Jha",
+          "affiliation": ""
+        },
+        {
+          "name": "Heming Tong",
+          "affiliation": ""
+        },
+        {
+          "name": "Damai Xia",
+          "affiliation": ""
+        },
+        {
+          "name": "Runxin Dai",
+          "affiliation": ""
+        },
+        {
+          "name": "Tianyu Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Binghuai Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yunbo Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhifang Cao",
+          "affiliation": ""
+        },
+        {
+          "name": "Sui",
+          "affiliation": ""
+        },
+        {
+          "name": "Karina Vida",
+          "affiliation": ""
+        },
+        {
+          "name": "Judith Simon",
+          "affiliation": ""
+        },
+        {
+          "name": "Anne Lauscher",
+          "affiliation": ""
+        },
+        {
+          "name": "Luis Fernando",
+          "affiliation": ""
+        },
+        {
+          "name": "D' Haro",
+          "affiliation": ""
+        },
+        {
+          "name": "Chengguang Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ke Shi",
+          "affiliation": ""
+        },
+        {
+          "name": "Guohua Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Haizhou Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuxiang Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Hong",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhipang Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Guodong Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "; Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Rui Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhihua Wei",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinpeng Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "; Muru Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Sewon Min",
+          "affiliation": ""
+        },
+        {
+          "name": "Ludwig Schmidt",
+          "affiliation": ""
+        },
+        {
+          "name": "Noah Smith",
+          "affiliation": ""
+        },
+        {
+          "name": "Mike Lewis",
+          "affiliation": ""
+        },
+        {
+          "name": "Guoqing Luo",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Tong Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Lili Mou",
+          "affiliation": ""
+        },
+        {
+          "name": "Mauajama Firdaus",
+          "affiliation": ""
+        },
+        {
+          "name": "Fida Alvi Aveen Khan",
+          "affiliation": ""
+        },
+        {
+          "name": "Nuzhat Kamal",
+          "affiliation": ""
+        },
+        {
+          "name": "Tasnim Nower",
+          "affiliation": ""
+        },
+        {
+          "name": "Sabbir Ahmed",
+          "affiliation": ""
+        },
+        {
+          "name": "Tareque Ahmed",
+          "affiliation": ""
+        },
+        {
+          "name": "Chowdhury Mohmud",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yanan Cao",
+          "affiliation": ""
+        },
+        {
+          "name": "Yubing Ren",
+          "affiliation": ""
+        },
+        {
+          "name": "Fang Fang",
+          "affiliation": ""
+        },
+        {
+          "name": "Lanxue Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yingjie Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Shi Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "; Ruqing Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiafeng Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Maarten De Rijke ; Chieh Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Akari Asai",
+          "affiliation": ""
+        },
+        {
+          "name": "Minghan Li",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "",
+      "venue": "",
+      "citation_count": 348,
+      "doi": "10.18653/v1/2023.findings-emnlp",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.18653/v1/2023.findings-emnlp",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3017377412",
+      "title": "Digital transformation: a review, synthesis and opportunities for future research",
+      "authors": [
+        {
+          "name": "Swen Nadkarni",
+          "affiliation": "Zeppelin Universit\u00e4t gemeinn\u00fctzige GmbH"
+        },
+        {
+          "name": "Reinhard Pr\u00fcgl",
+          "affiliation": "Zeppelin Universit\u00e4t gemeinn\u00fctzige GmbH"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Abstract In the last years, scholarly attention was on a steady rise leading to a significant increase in the number of papers addressing different technological and organizational aspects of digital transformation. In this paper, we consolidate existing findings which mainly stem from the literature of information systems, map the territory by sharing important macro- and micro-level observations, and propose future research opportunities for this pervasive field. The paper systematically reviews 58 peer-reviewed studies published between 2001 and 2019, dealing with different aspects of digital transformation. Emerging from our review, we develop inductive thematic maps which identify technology and actor as the two aggregate dimensions of digital transformation. For each dimension, we derive further units of analysis (nine core themes in total) which help to disentangle the particularities of digital transformation processes and thereby emphasize the most influential and unique antecedents and consequences. In a second step, in order to assist in breaking down disciplinary silos and strengthen the management perspective, we supplement the resulting state-of-the-art of digital transformation by integrating cross-disciplinary contributions from reviewing 28 papers on technological disruption and 32 papers on corporate entrepreneurship. The review reveals that certain aspects, such as the pace of transformation, the culture and work environment, or the middle management perspective are significantly underdeveloped.",
+      "venue": "Management Review Quarterly",
+      "citation_count": 901,
+      "doi": "10.1007/s11301-020-00185-7",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s11301-020-00185-7",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3005127469",
+      "title": "Eleven grand challenges in single-cell data science",
+      "authors": [
+        {
+          "name": "David L\u00e4hnemann",
+          "affiliation": "D\u00fcsseldorf University Hospital"
+        },
+        {
+          "name": "Johannes K\u00f6ster",
+          "affiliation": "Dana-Farber Cancer Institute"
+        },
+        {
+          "name": "Ewa Szczurek",
+          "affiliation": "University of Warsaw"
+        },
+        {
+          "name": "Davis J. McCarthy",
+          "affiliation": "St Vincents Institute of Medical Research"
+        },
+        {
+          "name": "Stephanie C. Hicks",
+          "affiliation": "Johns Hopkins University"
+        },
+        {
+          "name": "Mark D. Robinson",
+          "affiliation": "SIB Swiss Institute of Bioinformatics"
+        },
+        {
+          "name": "Catalina A. Vallejos",
+          "affiliation": "The Alan Turing Institute"
+        },
+        {
+          "name": "Kieran R. Campbell",
+          "affiliation": "BC Cancer Agency"
+        },
+        {
+          "name": "Niko Beerenwinkel",
+          "affiliation": "ETH Zurich"
+        },
+        {
+          "name": "Ahmed Mahfouz",
+          "affiliation": "Leiden University Medical Center"
+        },
+        {
+          "name": "Luca Pinello",
+          "affiliation": "Center for Cancer Research"
+        },
+        {
+          "name": "Pavel Skums",
+          "affiliation": "Georgia State University"
+        },
+        {
+          "name": "Alexandros Stamatakis",
+          "affiliation": "Heidelberg Institute for Theoretical Studies"
+        },
+        {
+          "name": "Camille Stephan\u2010Otto Attolini",
+          "affiliation": "Institute for Research in Biomedicine"
+        },
+        {
+          "name": "Samuel Apar\u00edcio",
+          "affiliation": "BC Cancer Agency"
+        },
+        {
+          "name": "Jasmijn A. Baaijens",
+          "affiliation": "Centrum Wiskunde & Informatica"
+        },
+        {
+          "name": "Marleen Balvert",
+          "affiliation": "Centrum Wiskunde & Informatica"
+        },
+        {
+          "name": "Buys de Barbanson",
+          "affiliation": "Oncode Institute"
+        },
+        {
+          "name": "Antonio Cappuccio",
+          "affiliation": "Netherlands Institute for Advanced Study in the Humanities and Social Sciences"
+        },
+        {
+          "name": "Giacomo Corleone",
+          "affiliation": "Imperial College London"
+        },
+        {
+          "name": "Bas E. Dutilh",
+          "affiliation": "Radboud University Medical Center"
+        },
+        {
+          "name": "Maria Florescu",
+          "affiliation": "Hubrecht Institute for Developmental Biology and Stem Cell Research"
+        },
+        {
+          "name": "Victor Guryev",
+          "affiliation": "University Medical Center Groningen"
+        },
+        {
+          "name": "Rens Holmer",
+          "affiliation": "Wageningen University & Research"
+        },
+        {
+          "name": "Katharina Jahn",
+          "affiliation": "SIB Swiss Institute of Bioinformatics"
+        },
+        {
+          "name": "Thamar Jessurun Lobo",
+          "affiliation": "University of Groningen"
+        },
+        {
+          "name": "Emma M Keizer",
+          "affiliation": "Wageningen University & Research"
+        },
+        {
+          "name": "Indu Khatri",
+          "affiliation": "Leiden University Medical Center"
+        },
+        {
+          "name": "Szymon M. Kie\u0142basa",
+          "affiliation": "Leiden University Medical Center"
+        },
+        {
+          "name": "Jan O. Korbel",
+          "affiliation": "European Molecular Biology Laboratory"
+        },
+        {
+          "name": "Alexey M. Kozlov",
+          "affiliation": "Heidelberg Institute for Theoretical Studies"
+        },
+        {
+          "name": "Tzu-Hao Kuo",
+          "affiliation": "Helmholtz Centre for Infection Research"
+        },
+        {
+          "name": "Boudewijn P. F. Lelieveldt",
+          "affiliation": "Leiden University Medical Center"
+        },
+        {
+          "name": "Ion M\u0103ndoiu",
+          "affiliation": "University of Connecticut"
+        },
+        {
+          "name": "John C. Marioni",
+          "affiliation": "Cancer Research UK Cambridge Center"
+        },
+        {
+          "name": "Tobias Marschall",
+          "affiliation": "Saarland University"
+        },
+        {
+          "name": "Felix M\u00f6lder",
+          "affiliation": "University of Duisburg-Essen"
+        },
+        {
+          "name": "Amir Niknejad",
+          "affiliation": "Zuse Institute Berlin"
+        },
+        {
+          "name": "Alicja R\u0105czkowska",
+          "affiliation": "University of Warsaw"
+        },
+        {
+          "name": "Marcel Reinders",
+          "affiliation": "Delft University of Technology"
+        },
+        {
+          "name": "Jeroen de Ridder",
+          "affiliation": "Oncode Institute"
+        },
+        {
+          "name": "Antoine-Emmanuel Saliba",
+          "affiliation": "Helmholtz Institute for RNA-based Infection Research"
+        },
+        {
+          "name": "Antonios Somarakis",
+          "affiliation": "Leiden University Medical Center"
+        },
+        {
+          "name": "Oliver Stegle",
+          "affiliation": "European Bioinformatics Institute"
+        },
+        {
+          "name": "Fabian J. Theis",
+          "affiliation": "Helmholtz Zentrum M\u00fcnchen"
+        },
+        {
+          "name": "Huan Yang",
+          "affiliation": "Centre for Human Drug Research"
+        },
+        {
+          "name": "Alex Zelikovsky",
+          "affiliation": "Georgia State University"
+        },
+        {
+          "name": "Alice C. McHardy",
+          "affiliation": "Helmholtz Centre for Infection Research"
+        },
+        {
+          "name": "Benjamin J. Raphael",
+          "affiliation": "Princeton University"
+        },
+        {
+          "name": "Sohrab P. Shah",
+          "affiliation": "Memorial Sloan Kettering Cancer Center"
+        },
+        {
+          "name": "Alexander Sch\u00f6nhuth",
+          "affiliation": "Utrecht University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "The recent boom in microfluidics and combinatorial indexing strategies, combined with low sequencing costs, has empowered single-cell sequencing technology. Thousands-or even millions-of cells analyzed in a single experiment amount to a data revolution in single-cell biology and pose unique data science problems. Here, we outline eleven challenges that will be central to bringing this emerging field of single-cell data science forward. For each challenge, we highlight motivating research questions, review prior work, and formulate open problems. This compendium is for established researchers, newcomers, and students alike, highlighting interesting and rewarding problems for the coming years.",
+      "venue": "Genome biology",
+      "citation_count": 1374,
+      "doi": "10.1186/s13059-020-1926-6",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1186/s13059-020-1926-6",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3177813494",
+      "title": "Evaluating Large Language Models Trained on Code",
+      "authors": [
+        {
+          "name": "Mark Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Jerry Tworek",
+          "affiliation": ""
+        },
+        {
+          "name": "Heewoo Jun",
+          "affiliation": ""
+        },
+        {
+          "name": "Qiming Yuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Henrique Pond\u00e9 de Oliveira Pinto",
+          "affiliation": ""
+        },
+        {
+          "name": "Jared Kaplan",
+          "affiliation": ""
+        },
+        {
+          "name": "Harrison Edwards",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuri Burda",
+          "affiliation": ""
+        },
+        {
+          "name": "Nicholas Joseph",
+          "affiliation": ""
+        },
+        {
+          "name": "Greg Brockman",
+          "affiliation": ""
+        },
+        {
+          "name": "Alex Ray",
+          "affiliation": ""
+        },
+        {
+          "name": "Raul Puri",
+          "affiliation": ""
+        },
+        {
+          "name": "Gretchen Krueger",
+          "affiliation": ""
+        },
+        {
+          "name": "Michael Petrov",
+          "affiliation": ""
+        },
+        {
+          "name": "Heidy Khlaaf",
+          "affiliation": ""
+        },
+        {
+          "name": "Girish Sastry",
+          "affiliation": ""
+        },
+        {
+          "name": "Pamela Mishkin",
+          "affiliation": ""
+        },
+        {
+          "name": "Brooke Chan",
+          "affiliation": ""
+        },
+        {
+          "name": "Scott Gray",
+          "affiliation": ""
+        },
+        {
+          "name": "Nick Ryder",
+          "affiliation": ""
+        },
+        {
+          "name": "Mikhail Pavlov",
+          "affiliation": ""
+        },
+        {
+          "name": "Alethea Power",
+          "affiliation": ""
+        },
+        {
+          "name": "\u0141ukasz Kaiser",
+          "affiliation": ""
+        },
+        {
+          "name": "Mohammad Bavarian",
+          "affiliation": ""
+        },
+        {
+          "name": "Clemens Winter",
+          "affiliation": ""
+        },
+        {
+          "name": "Philippe Tillet",
+          "affiliation": ""
+        },
+        {
+          "name": "Felipe Petroski Such",
+          "affiliation": ""
+        },
+        {
+          "name": "Dave Cummings",
+          "affiliation": ""
+        },
+        {
+          "name": "Matthias Plappert",
+          "affiliation": ""
+        },
+        {
+          "name": "Fotios Chantzis",
+          "affiliation": ""
+        },
+        {
+          "name": "Elizabeth A. Barnes",
+          "affiliation": ""
+        },
+        {
+          "name": "Ariel Herbert-Voss",
+          "affiliation": ""
+        },
+        {
+          "name": "William H. Guss",
+          "affiliation": ""
+        },
+        {
+          "name": "Alex Nichol",
+          "affiliation": ""
+        },
+        {
+          "name": "Alex Paino",
+          "affiliation": ""
+        },
+        {
+          "name": "Nikolas Tezak",
+          "affiliation": ""
+        },
+        {
+          "name": "Jie Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "I. Babuschkin",
+          "affiliation": ""
+        },
+        {
+          "name": "Suchir Balaji",
+          "affiliation": ""
+        },
+        {
+          "name": "Shantanu Jain",
+          "affiliation": ""
+        },
+        {
+          "name": "William S. Saunders",
+          "affiliation": ""
+        },
+        {
+          "name": "Christopher Hesse",
+          "affiliation": ""
+        },
+        {
+          "name": "Andrew N. Carr",
+          "affiliation": ""
+        },
+        {
+          "name": "Jan Leike",
+          "affiliation": ""
+        },
+        {
+          "name": "Joshua Achiam",
+          "affiliation": ""
+        },
+        {
+          "name": "Vedant Misra",
+          "affiliation": ""
+        },
+        {
+          "name": "Evan Morikawa",
+          "affiliation": ""
+        },
+        {
+          "name": "Alec Radford",
+          "affiliation": ""
+        },
+        {
+          "name": "Matthew M. Knight",
+          "affiliation": ""
+        },
+        {
+          "name": "Miles Brundage",
+          "affiliation": ""
+        },
+        {
+          "name": "Mira Murati",
+          "affiliation": ""
+        },
+        {
+          "name": "Katie Mayer",
+          "affiliation": ""
+        },
+        {
+          "name": "Peter Welinder",
+          "affiliation": ""
+        },
+        {
+          "name": "Bob McGrew",
+          "affiliation": ""
+        },
+        {
+          "name": "Dario Amodei",
+          "affiliation": ""
+        },
+        {
+          "name": "Sam McCandlish",
+          "affiliation": ""
+        },
+        {
+          "name": "Ilya Sutskever",
+          "affiliation": ""
+        },
+        {
+          "name": "Wojciech Zaremba",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "We introduce Codex, a GPT language model fine-tuned on publicly available code from GitHub, and study its Python code-writing capabilities. A distinct production version of Codex powers GitHub Copilot. On HumanEval, a new evaluation set we release to measure functional correctness for synthesizing programs from docstrings, our model solves 28.8% of the problems, while GPT-3 solves 0% and GPT-J solves 11.4%. Furthermore, we find that repeated sampling from the model is a surprisingly effective strategy for producing working solutions to difficult prompts. Using this method, we solve 70.2% of our problems with 100 samples per problem. Careful investigation of our model reveals its limitations, including difficulty with docstrings describing long chains of operations and with binding operations to variables. Finally, we discuss the potential broader impacts of deploying powerful code generation technologies, covering safety, security, and economics.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 1403,
+      "doi": "10.48550/arxiv.2107.03374",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2107.03374",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4413822416",
+      "title": "Incomplete Multi-Modal Disentanglement Learning With Application to Alzheimer\u2019s Disease Diagnosis",
+      "authors": [
+        {
+          "name": "Kangfu Han",
+          "affiliation": "Southern Medical University"
+        },
+        {
+          "name": "Dan Hu",
+          "affiliation": "University of North Carolina at Chapel Hill"
+        },
+        {
+          "name": "Fenqiang Zhao",
+          "affiliation": "University of North Carolina at Chapel Hill"
+        },
+        {
+          "name": "Tianming Liu",
+          "affiliation": "University of Georgia"
+        },
+        {
+          "name": "Feng Yang",
+          "affiliation": "Southern Medical University"
+        },
+        {
+          "name": "Gang Li",
+          "affiliation": "University of North Carolina at Chapel Hill"
+        }
+      ],
+      "year": 2025,
+      "abstract": "Multi-modal neuroimaging data, including magnetic resonance imaging (MRI) and fluorodeoxyglucose positron emission tomography (PET), have greatly advanced the computer-aided diagnosis of Alzheimer's disease (AD) by providing shared and complementary information. However, the problem of incomplete multi-modal data remains inevitable and challenging. Conventional strategies that exclude subjects with missing data or synthesize missing scans either result in substantial sample reduction or introduce unwanted noise. To address this issue, we propose an Incomplete Multi-modal Disentanglement Learning method (IMDL) for AD diagnosis without missing scan synthesis, a novel model that employs a tiny Transformer to fuse incomplete multi-modal features extracted by modality-wise variational autoencoders adaptively. Specifically, we first design a cross-modality contrastive learning module to encourage modality-wise variational autoencoders to disentangle shared and complementary representations of each modality. Then, to alleviate the potential information gap between the representations obtained from complete and incomplete multi-modal neuroimages, we leverage the technique of adversarial learning to harmonize these representations with two discriminators. Furthermore, we develop a local attention rectification module comprising local attention alignment and multi-instance attention rectification to enhance the localization of atrophic areas associated with AD. This module aligns inter-modality and intra-modality attention within the Transformer, thus making attention weights more explainable. Extensive experiments conducted on ADNI and AIBL datasets demonstrated the superior performance of the proposed IMDL in AD diagnosis, and a further validation on the HABS-HD dataset highlighted its effectiveness for dementia diagnosis using different multi-modal neuroimaging data (i.e., T1-weighted MRI and diffusion tensor imaging).",
+      "venue": "IEEE Transactions on Medical Imaging",
+      "citation_count": 1,
+      "doi": "10.1109/tmi.2025.3604361",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tmi.2025.3604361",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4388275106",
+      "title": "Smart nanoparticles for cancer therapy",
+      "authors": [
+        {
+          "name": "Leming Sun",
+          "affiliation": "University of Electronic Science and Technology of China"
+        },
+        {
+          "name": "Hongmei Liu",
+          "affiliation": "University of Electronic Science and Technology of China"
+        },
+        {
+          "name": "Yanqi Ye",
+          "affiliation": "Sorrento Therapeutics (United States)"
+        },
+        {
+          "name": "Lei Yang",
+          "affiliation": "Northwestern Polytechnical University"
+        },
+        {
+          "name": "Rehmat Islam",
+          "affiliation": "Northwestern Polytechnical University"
+        },
+        {
+          "name": "Sumin Tan",
+          "affiliation": "University of Electronic Science and Technology of China"
+        },
+        {
+          "name": "Rongsheng Tong",
+          "affiliation": "University of Electronic Science and Technology of China"
+        },
+        {
+          "name": "Yang\u2010Bao Miao",
+          "affiliation": "University of Electronic Science and Technology of China"
+        },
+        {
+          "name": "Lulu Cai",
+          "affiliation": "University of Electronic Science and Technology of China"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Smart nanoparticles, which can respond to biological cues or be guided by them, are emerging as a promising drug delivery platform for precise cancer treatment. The field of oncology, nanotechnology, and biomedicine has witnessed rapid progress, leading to innovative developments in smart nanoparticles for safer and more effective cancer therapy. In this review, we will highlight recent advancements in smart nanoparticles, including polymeric nanoparticles, dendrimers, micelles, liposomes, protein nanoparticles, cell membrane nanoparticles, mesoporous silica nanoparticles, gold nanoparticles, iron oxide nanoparticles, quantum dots, carbon nanotubes, black phosphorus, MOF nanoparticles, and others. We will focus on their classification, structures, synthesis, and intelligent features. These smart nanoparticles possess the ability to respond to various external and internal stimuli, such as enzymes, pH, temperature, optics, and magnetism, making them intelligent systems. Additionally, this review will explore the latest studies on tumor targeting by functionalizing the surfaces of smart nanoparticles with tumor-specific ligands like antibodies, peptides, transferrin, and folic acid. We will also summarize different types of drug delivery options, including small molecules, peptides, proteins, nucleic acids, and even living cells, for their potential use in cancer therapy. While the potential of smart nanoparticles is promising, we will also acknowledge the challenges and clinical prospects associated with their use. Finally, we will propose a blueprint that involves the use of artificial intelligence-powered nanoparticles in cancer treatment applications. By harnessing the potential of smart nanoparticles, this review aims to usher in a new era of precise and personalized cancer therapy, providing patients with individualized treatment options.",
+      "venue": "Signal Transduction and Targeted Therapy",
+      "citation_count": 821,
+      "doi": "10.1038/s41392-023-01642-x",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41392-023-01642-x",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3030790048",
+      "title": "AI in Medical Imaging Informatics: Current Challenges and Future Directions",
+      "authors": [
+        {
+          "name": "Andreas S. Panayides",
+          "affiliation": "University of Cyprus"
+        },
+        {
+          "name": "Amir A. Amini",
+          "affiliation": "University of Louisville"
+        },
+        {
+          "name": "Nenad Filipovi\u0107",
+          "affiliation": "University of Kragujevac"
+        },
+        {
+          "name": "Ashish Sharma",
+          "affiliation": "Emory University"
+        },
+        {
+          "name": "Sotirios A. Tsaftaris",
+          "affiliation": "The Alan Turing Institute"
+        },
+        {
+          "name": "Alistair A. Young",
+          "affiliation": "University of Auckland"
+        },
+        {
+          "name": "David J. Foran",
+          "affiliation": "Rutgers, The State University of New Jersey"
+        },
+        {
+          "name": "Nhan Do",
+          "affiliation": "United States Department of Veterans Affairs"
+        },
+        {
+          "name": "Spyretta Golemati",
+          "affiliation": "National and Kapodistrian University of Athens"
+        },
+        {
+          "name": "Tahsin Kur\u00e7",
+          "affiliation": "Stony Brook University"
+        },
+        {
+          "name": "Kun Huang",
+          "affiliation": "Indiana University"
+        },
+        {
+          "name": "Konstantina S. Nikita",
+          "affiliation": "National Technical University of Athens"
+        },
+        {
+          "name": "Ben P. Veasey",
+          "affiliation": "University of Louisville"
+        },
+        {
+          "name": "Michalis Zervakis",
+          "affiliation": "Technical University of Crete"
+        },
+        {
+          "name": "Joel Saltz",
+          "affiliation": "Stony Brook University"
+        },
+        {
+          "name": "Constantinos S. Pattichis",
+          "affiliation": "University of Cyprus"
+        }
+      ],
+      "year": 2020,
+      "abstract": "This paper reviews state-of-the-art research solutions across the spectrum of medical imaging informatics, discusses clinical translation, and provides future directions for advancing clinical practice. More specifically, it summarizes advances in medical imaging acquisition technologies for different modalities, highlighting the necessity for efficient medical data management strategies in the context of AI in big healthcare data analytics. It then provides a synopsis of contemporary and emerging algorithmic methods for disease classification and organ/ tissue segmentation, focusing on AI and deep learning architectures that have already become the de facto approach. The clinical benefits of in-silico modelling advances linked with evolving 3D reconstruction and visualization applications are further documented. Concluding, integrative analytics approaches driven by associate research branches highlighted in this study promise to revolutionize imaging informatics as known today across the healthcare continuum for both radiology and digital pathology applications. The latter, is projected to enable informed, more accurate diagnosis, timely prognosis, and effective treatment planning, underpinning precision medicine.",
+      "venue": "IEEE Journal of Biomedical and Health Informatics",
+      "citation_count": 628,
+      "doi": "10.1109/jbhi.2020.2991043",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/jbhi.2020.2991043",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3189676709",
+      "title": "Prefrontal cortex and depression",
+      "authors": [
+        {
+          "name": "Diego A. Pizzagalli",
+          "affiliation": "Harvard University"
+        },
+        {
+          "name": "Angela Roberts",
+          "affiliation": "University of Cambridge"
+        }
+      ],
+      "year": 2021,
+      "abstract": "",
+      "venue": "Neuropsychopharmacology",
+      "citation_count": 550,
+      "doi": "10.1038/s41386-021-01101-7",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41386-021-01101-7",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4367174885",
+      "title": "Deep Learning Approaches for Data Augmentation in Medical Imaging: A Review",
+      "authors": [
+        {
+          "name": "Aghiles Kebaili",
+          "affiliation": "Normandie Universit\u00e9"
+        },
+        {
+          "name": "J\u00e9r\u00f4me Lapuyade\u2010Lahorgue",
+          "affiliation": "Institut National des Sciences Appliqu\u00e9es Rouen Normandie"
+        },
+        {
+          "name": "Su Ruan",
+          "affiliation": "Normandie Universit\u00e9"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Deep learning has become a popular tool for medical image analysis, but the limited availability of training data remains a major challenge, particularly in the medical field where data acquisition can be costly and subject to privacy regulations. Data augmentation techniques offer a solution by artificially increasing the number of training samples, but these techniques often produce limited and unconvincing results. To address this issue, a growing number of studies have proposed the use of deep generative models to generate more realistic and diverse data that conform to the true distribution of the data. In this review, we focus on three types of deep generative models for medical image augmentation: variational autoencoders, generative adversarial networks, and diffusion models. We provide an overview of the current state of the art in each of these models and discuss their potential for use in different downstream tasks in medical imaging, including classification, segmentation, and cross-modal translation. We also evaluate the strengths and limitations of each model and suggest directions for future research in this field. Our goal is to provide a comprehensive review about the use of deep generative models for medical image augmentation and to highlight the potential of these models for improving the performance of deep learning algorithms in medical image analysis.",
+      "venue": "Journal of Imaging",
+      "citation_count": 220,
+      "doi": "10.3390/jimaging9040081",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/jimaging9040081",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4391848979",
+      "title": "Explainable Artificial Intelligence (XAI) 2.0: A manifesto of open challenges and interdisciplinary research directions",
+      "authors": [
+        {
+          "name": "Luca Longo",
+          "affiliation": "Intel (Ireland)"
+        },
+        {
+          "name": "Mario Br\u010di\u0107",
+          "affiliation": "University of Zagreb"
+        },
+        {
+          "name": "Federico Cabitza",
+          "affiliation": "Istituto Clinico Sant'Ambrogio"
+        },
+        {
+          "name": "Jaesik Choi",
+          "affiliation": "Korea Advanced Institute of Science and Technology"
+        },
+        {
+          "name": "Roberto Confalonieri",
+          "affiliation": "University of Padua"
+        },
+        {
+          "name": "Javier Del Ser",
+          "affiliation": "Universidad de Granada"
+        },
+        {
+          "name": "Riccardo Guidotti",
+          "affiliation": "University of Pisa"
+        },
+        {
+          "name": "Yoichi Hayashi",
+          "affiliation": "Meiji University"
+        },
+        {
+          "name": "Francisco Herrera",
+          "affiliation": "Instituto Andaluz de Ciencias de la Tierra"
+        },
+        {
+          "name": "Andreas Holzinger",
+          "affiliation": "BOKU University"
+        },
+        {
+          "name": "Richard Jiang",
+          "affiliation": "Lancaster University"
+        },
+        {
+          "name": "Hassan Khosravi",
+          "affiliation": "University of Queensland"
+        },
+        {
+          "name": "Freddy L\u00e9cu\u00e9",
+          "affiliation": "Institut national de recherche en informatique et en automatique"
+        },
+        {
+          "name": "Gianclaudio Malgieri",
+          "affiliation": "Leiden University"
+        },
+        {
+          "name": "Andr\u00e9s P\u00e1ez",
+          "affiliation": "Universidad de Los Andes"
+        },
+        {
+          "name": "Wojciech Samek",
+          "affiliation": "Fraunhofer Institute for Telecommunications, Heinrich Hertz Institute"
+        },
+        {
+          "name": "Johannes Schneider",
+          "affiliation": "University of Liechtenstein"
+        },
+        {
+          "name": "Timo Speith",
+          "affiliation": "Saarland University"
+        },
+        {
+          "name": "Simone Stumpf",
+          "affiliation": "University of Glasgow"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Understanding black box models has become paramount as systems based on opaque Artificial Intelligence (AI) continue to flourish in diverse real-world applications. In response, Explainable AI (XAI) has emerged as a field of research with practical and ethical benefits across various domains. This paper highlights the advancements in XAI and its application in real-world scenarios and addresses the ongoing challenges within XAI, emphasizing the need for broader perspectives and collaborative efforts. We bring together experts from diverse fields to identify open problems, striving to synchronize research agendas and accelerate XAI in practical applications. By fostering collaborative discussion and interdisciplinary cooperation, we aim to propel XAI forward, contributing to its continued success. We aim to develop a comprehensive proposal for advancing XAI. To achieve this goal, we present a manifesto of 28 open problems categorized into nine categories. These challenges encapsulate the complexities and nuances of XAI and offer a road map for future research. For each problem, we provide promising research directions in the hope of harnessing the collective intelligence of interested stakeholders.",
+      "venue": "Information Fusion",
+      "citation_count": 396,
+      "doi": "10.1016/j.inffus.2024.102301",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.inffus.2024.102301",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4389636360",
+      "title": "Can Large Language Models Transform Computational Social Science?",
+      "authors": [
+        {
+          "name": "Caleb Ziems",
+          "affiliation": "Stanford University"
+        },
+        {
+          "name": "William A. Held",
+          "affiliation": "Georgia Institute of Technology"
+        },
+        {
+          "name": "Omar Ahmed Shaikh",
+          "affiliation": "Stanford University"
+        },
+        {
+          "name": "Jiaao Chen",
+          "affiliation": "Georgia Institute of Technology"
+        },
+        {
+          "name": "Zhehao Zhang",
+          "affiliation": "Dartmouth College"
+        },
+        {
+          "name": "Diyi Yang",
+          "affiliation": "Stanford University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Abstract Large language models (LLMs) are capable of successfully performing many language processing tasks zero-shot (without training data). If zero-shot LLMs can also reliably classify and explain social phenomena like persuasiveness and political ideology, then LLMs could augment the computational social science (CSS) pipeline in important ways. This work provides a road map for using LLMs as CSS tools. Towards this end, we contribute a set of prompting best practices and an extensive evaluation pipeline to measure the zero-shot performance of 13 language models on 25 representative English CSS benchmarks. On taxonomic labeling tasks (classification), LLMs fail to outperform the best fine-tuned models but still achieve fair levels of agreement with humans. On free-form coding tasks (generation), LLMs produce explanations that often exceed the quality of crowdworkers\u2019 gold references. We conclude that the performance of today\u2019s LLMs can augment the CSS research pipeline in two ways: (1) serving as zero-shot data annotators on human annotation teams, and (2) bootstrapping challenging creative generation tasks (e.g., explaining the underlying attributes of a text). In summary, LLMs are posed to meaningfully participate in social science analysis in partnership with humans.",
+      "venue": "Computational Linguistics",
+      "citation_count": 385,
+      "doi": "10.1162/coli_a_00502",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1162/coli_a_00502",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3119666920",
+      "title": "Best practices for fNIRS publications",
+      "authors": [
+        {
+          "name": "Meryem A. Y\u00fccel",
+          "affiliation": "Boston University"
+        },
+        {
+          "name": "Alexander von L\u00fchmann",
+          "affiliation": "Massachusetts General Hospital"
+        },
+        {
+          "name": "Felix Scholkmann",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Judit Gervain",
+          "affiliation": "Centre Neurosciences int\u00e9gratives et Cognition"
+        },
+        {
+          "name": "Ippeita Dan",
+          "affiliation": "Chuo University"
+        },
+        {
+          "name": "Hasan Ayaz",
+          "affiliation": "Drexel University"
+        },
+        {
+          "name": "David A. Boas",
+          "affiliation": "Boston University"
+        },
+        {
+          "name": "Robert J. Cooper",
+          "affiliation": "University College London"
+        },
+        {
+          "name": "Joseph P. Culver",
+          "affiliation": "Washington University in St. Louis"
+        },
+        {
+          "name": "Clare E. Elwell",
+          "affiliation": "University College London"
+        },
+        {
+          "name": "Adam T. Eggebrecht",
+          "affiliation": "Mallinckrodt (United States)"
+        },
+        {
+          "name": "Maria Angela Franceschini",
+          "affiliation": "Athinoula A. Martinos Center for Biomedical Imaging"
+        },
+        {
+          "name": "Christophe Grova",
+          "affiliation": "Concordia University"
+        },
+        {
+          "name": "Fumitaka Homae",
+          "affiliation": "University of Bern"
+        },
+        {
+          "name": "Fr\u00e9d\u00e9ric Lesage",
+          "affiliation": "Polytechnique Montr\u00e9al"
+        },
+        {
+          "name": "Hellmuth Obrig",
+          "affiliation": "Chuo University"
+        },
+        {
+          "name": "Ilias Tachtsidis",
+          "affiliation": "University College London"
+        },
+        {
+          "name": "Sungho Tak",
+          "affiliation": "University of Bern"
+        },
+        {
+          "name": "Yunjie Tong",
+          "affiliation": "Purdue University West Lafayette"
+        },
+        {
+          "name": "Alessandro Torricelli",
+          "affiliation": "Politecnico di Milano"
+        },
+        {
+          "name": "Heidrun Wabnitz",
+          "affiliation": "Physikalisch-Technische Bundesanstalt"
+        },
+        {
+          "name": "Martin Wolf",
+          "affiliation": "University of Zurich"
+        }
+      ],
+      "year": 2021,
+      "abstract": "The application of functional near-infrared spectroscopy (fNIRS) in the neurosciences has been expanding over the last 40 years. Today, it is addressing a wide range of applications within different populations and utilizes a great variety of experimental paradigms. With the rapid growth and the diversification of research methods, some inconsistencies are appearing in the way in which methods are presented, which can make the interpretation and replication of studies unnecessarily challenging. The Society for Functional Near-Infrared Spectroscopy has thus been motivated to organize a representative (but not exhaustive) group of leaders in the field to build a consensus on the best practices for describing the methods utilized in fNIRS studies. Our paper has been designed to provide guidelines to help enhance the reliability, repeatability, and traceability of reported fNIRS studies and encourage best practices throughout the community. A checklist is provided to guide authors in the preparation of their manuscripts and to assist reviewers when evaluating fNIRS papers.",
+      "venue": "Neurophotonics",
+      "citation_count": 460,
+      "doi": "10.1117/1.nph.8.1.012101",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1117/1.nph.8.1.012101",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3005743304",
+      "title": "Machine Learning for Cultural Heritage: A Survey",
+      "authors": [
+        {
+          "name": "Marco Fiorucci",
+          "affiliation": "Center for Cultural Heritage Technology"
+        },
+        {
+          "name": "Marina Khoroshiltseva",
+          "affiliation": "Center for Cultural Heritage Technology"
+        },
+        {
+          "name": "Massimiliano Pontil",
+          "affiliation": "Italian Institute of Technology"
+        },
+        {
+          "name": "Arianna Traviglia",
+          "affiliation": "Italian Institute of Technology"
+        },
+        {
+          "name": "Alessio Del Bue",
+          "affiliation": "Italian Institute of Technology"
+        },
+        {
+          "name": "Stuart James",
+          "affiliation": "Italian Institute of Technology"
+        }
+      ],
+      "year": 2020,
+      "abstract": "The application of Machine Learning (ML) to Cultural Heritage (CH) has evolved since basic statistical approaches such as Linear Regression to complex Deep Learning models. The question remains how much of this actively improves on the underlying algorithm versus using it within a \u2018black box\u2019 setting. We survey across ML and CH literature to identify the theoretical changes which contribute to the algorithm and in turn them suitable for CH applications. Alternatively, and most commonly, when there are no changes, we review the CH applications, features and pre/post-processing which make the algorithm suitable for its use. We analyse the dominant divides within ML, Supervised, Semi-supervised and Unsupervised, and reflect on a variety of algorithms that have been extensively used. From such an analysis, we give a critical look at the use of ML in CH and consider why CH has only limited adoption of ML.",
+      "venue": "Pattern Recognition Letters",
+      "citation_count": 311,
+      "doi": "10.1016/j.patrec.2020.02.017",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.patrec.2020.02.017",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3112901540",
+      "title": "Exploring the impact of digital transformation on technology entrepreneurship and technological market expansion: The role of technology readiness, exploration and exploitation",
+      "authors": [
+        {
+          "name": "Vahid Jafari\u2010Sadeghi",
+          "affiliation": "Coventry University"
+        },
+        {
+          "name": "Alexeis Garc\u00eda-P\u00e9rez",
+          "affiliation": "Coventry University"
+        },
+        {
+          "name": "Elena Candelo",
+          "affiliation": "University of Turin"
+        },
+        {
+          "name": "J\u00e9r\u00f4me Couturier",
+          "affiliation": "ESCP Business School"
+        }
+      ],
+      "year": 2020,
+      "abstract": "",
+      "venue": "Journal of Business Research",
+      "citation_count": 463,
+      "doi": "10.1016/j.jbusres.2020.11.020",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.jbusres.2020.11.020",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4387397415",
+      "title": "Artificial intelligence \u2010 driven sustainable development: Examining organizational, technical, and processing approaches to achieving global goals",
+      "authors": [
+        {
+          "name": "Ignat Kulkov",
+          "affiliation": "\u00c5bo Akademi University"
+        },
+        {
+          "name": "Julia Kulkova",
+          "affiliation": "Aalto University"
+        },
+        {
+          "name": "Ren\u00e9 Rohrbeck",
+          "affiliation": "Ecole des Hautes Etudes Commerciales du Nord"
+        },
+        {
+          "name": "Lo\u00efck Menvielle",
+          "affiliation": "Ecole des Hautes Etudes Commerciales du Nord"
+        },
+        {
+          "name": "Valtteri Kaartemo",
+          "affiliation": "Turku Centre for Computer Science"
+        },
+        {
+          "name": "Hannu Makkonen",
+          "affiliation": "University of Vaasa"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Abstract This study presents a comprehensive literature review using a systematic approach to explore the role of artificial intelligence (AI) in promoting sustainable development in line with the United Nations Sustainable Development Goals (SDGs). The systematic review approach was applied to collect and analyze topics, and the literature search was conducted in two stages, encompassing 57 articles that met the research requirements. Our analysis reveals that AI's contribution to sustainability is concentrated within three key areas: organizational, technical, and processing aspects. The organizational aspect focuses on the integration of AI in companies and industries, addressing barriers to implementation and the relationship between companies, partners, and customers. The technical aspect highlights the development of AI algorithms that can address global challenges and contribute to the growth of stability and development in society. The processing aspect emphasizes the internal transformation of companies, their business models, and strategies in response to AI integration. Our proposed conceptual model outlines the essential elements organizations must consider when incorporating AI into their sustainability efforts, such as strategic alignment, infrastructure development, change management, and continuous improvement. By addressing these critical aspects, organizations can harness the potential of AI to drive positive social, environmental, and economic outcomes, ultimately contributing to the achievement of the SDGs. The model serves as a comprehensive framework for organizations seeking to leverage AI for sustainable development, but it should be adapted to individual contexts to ensure its relevance and effectiveness.",
+      "venue": "Sustainable Development",
+      "citation_count": 289,
+      "doi": "10.1002/sd.2773",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1002/sd.2773",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3005821439",
+      "title": "The 2020 motile active matter roadmap",
+      "authors": [
+        {
+          "name": "Gerhard Gompper",
+          "affiliation": "Forschungszentrum J\u00fclich"
+        },
+        {
+          "name": "Roland G. Winkler",
+          "affiliation": "Civilisations Matter"
+        },
+        {
+          "name": "Thomas Speck",
+          "affiliation": "Civilisations Matter"
+        },
+        {
+          "name": "Alexandre Solon",
+          "affiliation": "Civilisations Matter"
+        },
+        {
+          "name": "Cesare Nardini",
+          "affiliation": "CEA Paris-Saclay"
+        },
+        {
+          "name": "Fernando Peruani",
+          "affiliation": "Observatoire de la C\u00f4te d\u2019Azur"
+        },
+        {
+          "name": "Hartmut L\u00f6wen",
+          "affiliation": "Heinrich Heine University D\u00fcsseldorf"
+        },
+        {
+          "name": "Ramin Golestanian",
+          "affiliation": "University of Oxford"
+        },
+        {
+          "name": "U. Benjamin Kaupp",
+          "affiliation": "Center of Advanced European Studies and Research"
+        },
+        {
+          "name": "Luis \u00c1lvarez",
+          "affiliation": "Civilisations Matter"
+        },
+        {
+          "name": "Thomas Ki\u00f8rboe",
+          "affiliation": "Technical University of Denmark"
+        },
+        {
+          "name": "Eric Lauga",
+          "affiliation": "Civilisations Matter"
+        },
+        {
+          "name": "Wilson C. K. Poon",
+          "affiliation": "Civilisations Matter"
+        },
+        {
+          "name": "Antonio DeSimone",
+          "affiliation": "Civilisations Matter"
+        },
+        {
+          "name": "Santiago Mu\u00ed\u00f1os-Land\u00edn",
+          "affiliation": "Leipzig University"
+        },
+        {
+          "name": "Alexander Fischer",
+          "affiliation": "Civilisations Matter"
+        },
+        {
+          "name": "Nicola Andreas S\u00f6ker",
+          "affiliation": "Leipzig University"
+        },
+        {
+          "name": "Frank Cichos",
+          "affiliation": "Leipzig University"
+        },
+        {
+          "name": "Raymond Kapral",
+          "affiliation": "Civilisations Matter"
+        },
+        {
+          "name": "Pierre Gaspard",
+          "affiliation": "Universit\u00e9 Libre de Bruxelles"
+        },
+        {
+          "name": "Marisol Ripoll",
+          "affiliation": "Forschungszentrum J\u00fclich"
+        },
+        {
+          "name": "Francesc Sagu\u00e9s",
+          "affiliation": "Universitat de Barcelona"
+        },
+        {
+          "name": "Amin Doostmohammadi",
+          "affiliation": "University of Copenhagen"
+        },
+        {
+          "name": "Julia M. Yeomans",
+          "affiliation": "Civilisations Matter"
+        },
+        {
+          "name": "Igor S. Aranson",
+          "affiliation": "Pennsylvania State University"
+        },
+        {
+          "name": "Clemens Bechinger",
+          "affiliation": "Civilisations Matter"
+        },
+        {
+          "name": "Holger Stark",
+          "affiliation": "Technische Universit\u00e4t Berlin"
+        },
+        {
+          "name": "Charlotte K. Hemelrijk",
+          "affiliation": "Civilisations Matter"
+        },
+        {
+          "name": "Fran\u00e7ois N\u00e9d\u00e9lec",
+          "affiliation": "Sainsbury Laboratory"
+        },
+        {
+          "name": "Trinish Sarkar",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Thibault Aryaksama",
+          "affiliation": "Institut Curie"
+        },
+        {
+          "name": "Mathilde Lacroix",
+          "affiliation": "Sorbonne Universit\u00e9"
+        },
+        {
+          "name": "Guillaume Duclos",
+          "affiliation": "Sorbonne Universit\u00e9"
+        },
+        {
+          "name": "Victor Yashunsky",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Pascal Silberzan",
+          "affiliation": "Institut Curie"
+        },
+        {
+          "name": "Marino Arroyo",
+          "affiliation": "Civilisations Matter"
+        },
+        {
+          "name": "Sohan Kale",
+          "affiliation": "Civilisations Matter"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Activity and autonomous motion are fundamental in living and engineering systems. This has stimulated the new field of 'active matter' in recent years, which focuses on the physical aspects of propulsion mechanisms, and on motility-induced emergent collective behavior of a larger number of identical agents. The scale of agents ranges from nanomotors and microswimmers, to cells, fish, birds, and people. Inspired by biological microswimmers, various designs of autonomous synthetic nano- and micromachines have been proposed. Such machines provide the basis for multifunctional, highly responsive, intelligent (artificial) active materials, which exhibit emergent behavior and the ability to perform tasks in response to external stimuli. A major challenge for understanding and designing active matter is their inherent nonequilibrium nature due to persistent energy consumption, which invalidates equilibrium concepts such as free energy, detailed balance, and time-reversal symmetry. Unraveling, predicting, and controlling the behavior of active matter is a truly interdisciplinary endeavor at the interface of biology, chemistry, ecology, engineering, mathematics, and physics. The vast complexity of phenomena and mechanisms involved in the self-organization and dynamics of motile active matter comprises a major challenge. Hence, to advance, and eventually reach a comprehensive understanding, this important research area requires a concerted, synergetic approach of the various disciplines. The 2020 motile active matter roadmap of Journal of Physics: Condensed Matter addresses the current state of the art of the field and provides guidance for both students as well as established scientists in their efforts to advance this fascinating area.",
+      "venue": "Journal of Physics Condensed Matter",
+      "citation_count": 459,
+      "doi": "10.1088/1361-648x/ab6348",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1088/1361-648x/ab6348",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3016917064",
+      "title": "Dynamics of polymer segments, polymer chains, and nanoparticles in polymer nanocomposite melts: A review",
+      "authors": [
+        {
+          "name": "Eric Bailey",
+          "affiliation": "University of Pennsylvania"
+        },
+        {
+          "name": "Karen I. Winey",
+          "affiliation": "University of Pennsylvania"
+        }
+      ],
+      "year": 2020,
+      "abstract": "",
+      "venue": "Progress in Polymer Science",
+      "citation_count": 343,
+      "doi": "10.1016/j.progpolymsci.2020.101242",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.progpolymsci.2020.101242",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4366494274",
+      "title": "Image harmonization: A review of statistical and deep learning methods for removing batch effects and evaluation metrics for effective harmonization",
+      "authors": [
+        {
+          "name": "Fengling Hu",
+          "affiliation": "Penn Center for AIDS Research"
+        },
+        {
+          "name": "Andrew A. Chen",
+          "affiliation": "University of Pennsylvania"
+        },
+        {
+          "name": "Hannah Horng",
+          "affiliation": "University of Pennsylvania"
+        },
+        {
+          "name": "Vishnu Bashyam",
+          "affiliation": ""
+        },
+        {
+          "name": "Christos Davatzikos",
+          "affiliation": ""
+        },
+        {
+          "name": "Aaron Alexander\u2010Bloch",
+          "affiliation": "Lifespan"
+        },
+        {
+          "name": "Mingyao Li",
+          "affiliation": "University of Pennsylvania"
+        },
+        {
+          "name": "Haochang Shou",
+          "affiliation": "Penn Center for AIDS Research"
+        },
+        {
+          "name": "Theodore D. Satterthwaite",
+          "affiliation": "University of Pennsylvania"
+        },
+        {
+          "name": "Meichen Yu",
+          "affiliation": "Indiana University"
+        },
+        {
+          "name": "Russell T. Shinohara",
+          "affiliation": "University of Pennsylvania"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Magnetic resonance imaging and computed tomography from multiple batches (e.g. sites, scanners, datasets, etc.) are increasingly used alongside complex downstream analyses to obtain new insights into the human brain. However, significant confounding due to batch-related technical variation, called batch effects, is present in this data; direct application of downstream analyses to the data may lead to biased results. Image harmonization methods seek to remove these batch effects and enable increased generalizability and reproducibility of downstream results. In this review, we describe and categorize current approaches in statistical and deep learning harmonization methods. We also describe current evaluation metrics used to assess harmonization methods and provide a standardized framework to evaluate newly-proposed methods for effective harmonization and preservation of biological information. Finally, we provide recommendations to end-users to advocate for more effective use of current methods and to methodologists to direct future efforts and accelerate development of the field.",
+      "venue": "NeuroImage",
+      "citation_count": 129,
+      "doi": "10.1016/j.neuroimage.2023.120125",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.neuroimage.2023.120125",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3004761551",
+      "title": "Ultra-High-Molecular-Weight-Polyethylene (UHMWPE) as a Promising Polymer Material for Biomedical Applications: A Concise Review",
+      "authors": [
+        {
+          "name": "Muzamil Hussain",
+          "affiliation": "NFC Institute of Engineering and Technology"
+        },
+        {
+          "name": "Rizwan Ali Naqvi",
+          "affiliation": "Sejong University"
+        },
+        {
+          "name": "Naseem Abbas",
+          "affiliation": "Chung-Ang University"
+        },
+        {
+          "name": "Shahzad Masood Khan",
+          "affiliation": "University of the Punjab"
+        },
+        {
+          "name": "Saad Nawaz",
+          "affiliation": "University of Engineering and Technology Lahore"
+        },
+        {
+          "name": "Arif Hussain",
+          "affiliation": "Hanyang University"
+        },
+        {
+          "name": "Nida Zahra",
+          "affiliation": "Government College University, Faisalabad"
+        },
+        {
+          "name": "Muhammad Waqas Khalid",
+          "affiliation": "NFC Institute of Engineering and Technology"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Ultra-High Molecular Weight Polyethylene (UHMWPE) is used in biomedical applications due to its high wear-resistance, ductility, and biocompatibility. A great deal of research in recent decades has focused on further improving its mechanical and tribological performances in order to provide durable implants in patients. Several methods, including irradiation, surface modifications, and reinforcements have been employed to improve the tribological and mechanical performance of UHMWPE. The effect of these modifications on tribological and mechanical performance was discussed in this review.",
+      "venue": "Polymers",
+      "citation_count": 221,
+      "doi": "10.3390/polym12020323",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/polym12020323",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4213356397",
+      "title": "Quantum gravity phenomenology at the dawn of the multi-messenger era\u2014A review",
+      "authors": [
+        {
+          "name": "Andrea Addazi",
+          "affiliation": "Istituto Nazionale di Fisica Nucleare, Laboratori Nazionali di Frascati"
+        },
+        {
+          "name": "Jaime \u00c1lvarez-Mu\u00f1iz",
+          "affiliation": "Universidade de Santiago de Compostela"
+        },
+        {
+          "name": "Rafael Alves Batista",
+          "affiliation": "Universidad Aut\u00f3noma de Madrid"
+        },
+        {
+          "name": "Giovanni Amelino-Camelia",
+          "affiliation": "Istituto Nazionale di Fisica Nucleare, Sezione di Napoli"
+        },
+        {
+          "name": "V. Antonelli",
+          "affiliation": "Istituto Nazionale di Fisica Nucleare, Sezione di Milano"
+        },
+        {
+          "name": "Michele Arzano",
+          "affiliation": "Istituto Nazionale di Fisica Nucleare, Sezione di Napoli"
+        },
+        {
+          "name": "M. Asorey",
+          "affiliation": "Universidad de Zaragoza"
+        },
+        {
+          "name": "J. L. Atteia",
+          "affiliation": "Universit\u00e9 F\u00e9d\u00e9rale de Toulouse Midi-Pyr\u00e9n\u00e9es"
+        },
+        {
+          "name": "Sebasti\u00e1n Bahamonde",
+          "affiliation": "Tokyo Institute of Technology"
+        },
+        {
+          "name": "Francesco Bajardi",
+          "affiliation": ""
+        },
+        {
+          "name": "\u00c1ngel Ballesteros",
+          "affiliation": "Universidad de Burgos"
+        },
+        {
+          "name": "B. Baret",
+          "affiliation": "Laboratoire AstroParticule et Cosmologie"
+        },
+        {
+          "name": "D. M. Barreiros",
+          "affiliation": "Instituto Polit\u00e9cnico de Lisboa"
+        },
+        {
+          "name": "Spyros Basilakos",
+          "affiliation": "National Observatory of Athens"
+        },
+        {
+          "name": "David Benisty",
+          "affiliation": "University of Cambridge"
+        },
+        {
+          "name": "O. Birnholtz",
+          "affiliation": "Bar-Ilan University"
+        },
+        {
+          "name": "Jos\u00e9 J. Blanco-Pillado",
+          "affiliation": "Ikerbasque"
+        },
+        {
+          "name": "Diego Blas",
+          "affiliation": "Institute for High Energy Physics"
+        },
+        {
+          "name": "J. Bolmont",
+          "affiliation": "Institut National de Physique Nucl\u00e9aire et de Physique des Particules"
+        },
+        {
+          "name": "Denise Boncioli",
+          "affiliation": "Istituto Nazionale di Fisica Nucleare, Laboratori Nazionali del Gran Sasso"
+        },
+        {
+          "name": "Pasquale Bosso",
+          "affiliation": "University of the Basque Country"
+        },
+        {
+          "name": "Gianluca Calcagni",
+          "affiliation": "Istituto Nazionale di Fisica Nucleare, Sezione di Napoli"
+        },
+        {
+          "name": "Salvatore Capozz\u0131ello",
+          "affiliation": "Institute for High Energy Physics"
+        },
+        {
+          "name": "J. M. Carmona",
+          "affiliation": "Universidad de Zaragoza"
+        },
+        {
+          "name": "S. Cerci",
+          "affiliation": "Institute for High Energy Physics"
+        },
+        {
+          "name": "M. Chernyakova",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "S\u00e9bastien Clesse",
+          "affiliation": "Universitat Aut\u00f2noma de Barcelona"
+        },
+        {
+          "name": "J. A. B. Coelho",
+          "affiliation": "Universit\u00e9 Paris Cit\u00e9"
+        },
+        {
+          "name": "S. M. Colak",
+          "affiliation": "Institute for High Energy Physics"
+        },
+        {
+          "name": "J. L. Cort\u00e9s",
+          "affiliation": "Universit\u00e9 F\u00e9d\u00e9rale de Toulouse Midi-Pyr\u00e9n\u00e9es"
+        },
+        {
+          "name": "Saurya Das",
+          "affiliation": "Institute for High Energy Physics"
+        }
+      ],
+      "year": 2022,
+      "abstract": "",
+      "venue": "Zurich Open Repository and Archive (University of Zurich)",
+      "citation_count": 435,
+      "doi": "10.5167/uzh-230734",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.5167/uzh-230734",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3191765601",
+      "title": "Heritability and interindividual variability of regional structure-function coupling",
+      "authors": [
+        {
+          "name": "Zijin Gu",
+          "affiliation": "Cornell University"
+        },
+        {
+          "name": "Keith Jamison",
+          "affiliation": "Weill Cornell Medicine"
+        },
+        {
+          "name": "Mert R. Sabuncu",
+          "affiliation": "Weill Cornell Medicine"
+        },
+        {
+          "name": "Amy Kuceyeski",
+          "affiliation": "Weill Cornell Medicine"
+        }
+      ],
+      "year": 2021,
+      "abstract": "White matter structural connections are likely to support flow of functional activation or functional connectivity. While the relationship between structural and functional connectivity profiles, here called SC-FC coupling, has been studied on a whole-brain, global level, few studies have investigated this relationship at a regional scale. Here we quantify regional SC-FC coupling in healthy young adults using diffusion-weighted MRI and resting-state functional MRI data from the Human Connectome Project and study how SC-FC coupling may be heritable and varies between individuals. We show that regional SC-FC coupling strength varies widely across brain regions, but was strongest in highly structurally connected visual and subcortical areas. We also show interindividual regional differences based on age, sex and composite cognitive scores, and that SC-FC coupling was highly heritable within certain networks. These results suggest regional structure-function coupling is an idiosyncratic feature of brain organisation that may be influenced by genetic factors.",
+      "venue": "Nature Communications",
+      "citation_count": 206,
+      "doi": "10.1038/s41467-021-25184-4",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41467-021-25184-4",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4206780588",
+      "title": "Human activity recognition in artificial intelligence framework: a narrative review",
+      "authors": [
+        {
+          "name": "Neha Gupta",
+          "affiliation": "Bennett University"
+        },
+        {
+          "name": "Suneet Gupta",
+          "affiliation": "Bennett University"
+        },
+        {
+          "name": "Rajesh Kumar Pathak",
+          "affiliation": ""
+        },
+        {
+          "name": "Vanita Jain",
+          "affiliation": "Bharati Vidyapeeth Deemed University"
+        },
+        {
+          "name": "Parisa Rashidi",
+          "affiliation": "University of Florida"
+        },
+        {
+          "name": "Jasjit S. Suri",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "The online version contains supplementary material available at 10.1007/s10462-021-10116-x.",
+      "venue": "Artificial Intelligence Review",
+      "citation_count": 301,
+      "doi": "10.1007/s10462-021-10116-x",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s10462-021-10116-x",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3023290013",
+      "title": "Mapping brain asymmetry in health and disease through the <scp>ENIGMA</scp> consortium",
+      "authors": [
+        {
+          "name": "Xiangzhen Kong",
+          "affiliation": "Max Planck Institute for Psycholinguistics"
+        },
+        {
+          "name": "Merel C. Postema",
+          "affiliation": "Max Planck Institute for Psycholinguistics"
+        },
+        {
+          "name": "Tulio Guadalupe",
+          "affiliation": "Max Planck Institute for Psycholinguistics"
+        },
+        {
+          "name": "Carolien G. F. de Kovel",
+          "affiliation": "Max Planck Institute for Psycholinguistics"
+        },
+        {
+          "name": "Premika S.W. Boedhoe",
+          "affiliation": "Amsterdam Neuroscience"
+        },
+        {
+          "name": "Martine Hoogman",
+          "affiliation": "Radboud University Nijmegen"
+        },
+        {
+          "name": "Samuel R. Mathias",
+          "affiliation": "Boston Children's Hospital"
+        },
+        {
+          "name": "Daan van Rooij",
+          "affiliation": "Radboud University Nijmegen"
+        },
+        {
+          "name": "Dick Schijven",
+          "affiliation": "Max Planck Institute for Psycholinguistics"
+        },
+        {
+          "name": "David C. Glahn",
+          "affiliation": "Harvard University"
+        },
+        {
+          "name": "Sarah E. Medland",
+          "affiliation": "QIMR Berghofer Medical Research Institute"
+        },
+        {
+          "name": "Neda Jahanshad",
+          "affiliation": "University of Southern California"
+        },
+        {
+          "name": "Sophia I. Thomopoulos",
+          "affiliation": "University of Southern California"
+        },
+        {
+          "name": "Jessica A. Turner",
+          "affiliation": "Georgia Institute of Technology"
+        },
+        {
+          "name": "Jan K. Buitelaar",
+          "affiliation": "Radboud University Medical Center"
+        },
+        {
+          "name": "Theo G.M. van Erp",
+          "affiliation": "University of California, Irvine"
+        },
+        {
+          "name": "Barbara Franke",
+          "affiliation": "Radboud University Medical Center"
+        },
+        {
+          "name": "Simon E. Fisher",
+          "affiliation": "Max Planck Institute for Psycholinguistics"
+        },
+        {
+          "name": "Odile A. van den Heuvel",
+          "affiliation": "Amsterdam Neuroscience"
+        },
+        {
+          "name": "Lianne Schmaal",
+          "affiliation": "The University of Melbourne"
+        },
+        {
+          "name": "Paul M. Thompson",
+          "affiliation": "Georgia Institute of Technology"
+        },
+        {
+          "name": "Clyde Francks",
+          "affiliation": "Radboud University Nijmegen"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Left-right asymmetry of the human brain is one of its cardinal features, and also a complex, multivariate trait. Decades of research have suggested that brain asymmetry may be altered in psychiatric disorders. However, findings have been inconsistent and often based on small sample sizes. There are also open questions surrounding which structures are asymmetrical on average in the healthy population, and how variability in brain asymmetry relates to basic biological variables such as age and sex. Over the last 4 years, the ENIGMA-Laterality Working Group has published six studies of gray matter morphological asymmetry based on total sample sizes from roughly 3,500 to 17,000 individuals, which were between one and two orders of magnitude larger than those published in previous decades. A population-level mapping of average asymmetry was achieved, including an intriguing fronto-occipital gradient of cortical thickness asymmetry in healthy brains. ENIGMA's multi-dataset approach also supported an empirical illustration of reproducibility of hemispheric differences across datasets. Effect sizes were estimated for gray matter asymmetry based on large, international, samples in relation to age, sex, handedness, and brain volume, as well as for three psychiatric disorders: autism spectrum disorder was associated with subtly reduced asymmetry of cortical thickness at regions spread widely over the cortex; pediatric obsessive-compulsive disorder was associated with altered subcortical asymmetry; major depressive disorder was not significantly associated with changes of asymmetry. Ongoing studies are examining brain asymmetry in other disorders. Moreover, a groundwork has been laid for possibly identifying shared genetic contributions to brain asymmetry and disorders.",
+      "venue": "Human Brain Mapping",
+      "citation_count": 187,
+      "doi": "10.1002/hbm.25033",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1002/hbm.25033",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3157696973",
+      "title": "Semi-crystalline feedstock for filament-based 3D printing of polymers",
+      "authors": [
+        {
+          "name": "Dries Vaes",
+          "affiliation": "KU Leuven"
+        },
+        {
+          "name": "Peter Van Puyvelde",
+          "affiliation": "KU Leuven"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Additive Manufacturing (AM), and more specifically Fused Filament Fabrication (FFF), allow the production of highly customized parts, provide enormous freedom-of-design and can lead to material savings due to the layer-by-layer material deposition that is inherent to this family of production processes. FFF utilizes both amorphous and semi-crystalline thermoplastic filaments as feedstock materials, offering a wider range of materials compared to some other polymer-based additive manufacturing techniques. However, the current trend where FFF, and AM in general, are changing from a technique for rapid prototyping to the production of fully functional parts designed for high-end applications creates the inevitable need to incorporate more engineering and high-performance thermoplastics, which are most often semi-crystalline polymers, into the material palette. Crystallization provides semi-crystalline polymers with some distinct features that set them apart from their amorphous counterparts, yet it also can present difficulties regarding their processing. Understanding of the behavior of semicrystalline polymers during FFF processing is thus a prerequisite to exploit their full potential. This review provides a broad overview of FFF processing of semicrystalline polymers. Particular focus lies on the impact of processing conditions and feedstock modifications, such as the incorporation of fillers or the formation of blends, on crystallinity as well as the microstructure of printed parts, the impact of microstructure on the mechanical performance, and general part quality. Furthermore, attention is given to some specific phenomena that can occur during printing of semi-crystalline feedstock filaments which have shown to strongly impact the printing process. Examples are self-nucleation in the case of insufficient heat transfer and melting, flow-induced crystallization due to high shear deformations upon extrusion, and the negative impact of crystallization on chain mobility which is relevant for the development of interlayer strength and on dimensional accuracy due to excessive shrinkage. Finally, this review is concluded with a critical outlook on perspectives for future research to address the current challenges that are still faced when employing semi-crystalline polymers as FFF feedstock.",
+      "venue": "Progress in Polymer Science",
+      "citation_count": 213,
+      "doi": "10.1016/j.progpolymsci.2021.101411",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.progpolymsci.2021.101411",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3194056670",
+      "title": "Governance and Design of Digital Platforms: A Review and Future Research Directions on a Meta-Organization",
+      "authors": [
+        {
+          "name": "Liang Chen",
+          "affiliation": "University of Melbourne"
+        },
+        {
+          "name": "Tony W. Tong",
+          "affiliation": ""
+        },
+        {
+          "name": "Shaoqin Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Nianchen Han",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "The burgeoning digital-platforms literature across multiple business disciplines has primarily characterized the platform as a market or network. Although the organizing role of platform owners is well recognized, the literature lacks a coherent approach to understanding organizational governance in the platform context. Drawing on classic organizational governance theories, this paper views digital platforms as a distinct organizational form where the mechanisms of incentive and control routinely take center stage. We systematically review research on digital platforms, categorize specific governance mechanisms related to incentive and control, and map a multitude of idiosyncratic design features studied in prior research onto these mechanisms. We further develop an integrative framework to synthesize the review and to offer novel insights into the interrelations among three building blocks: value, governance, and design. Using this framework as a guide, we discuss specific directions for future research and offer a number of illustrative questions to help advance our knowledge about digital platforms\u2019 governance mechanisms and design features.",
+      "venue": "Journal of Management",
+      "citation_count": 271,
+      "doi": "10.1177/01492063211045023",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1177/01492063211045023",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3011856986",
+      "title": "Early diagnosis of Alzheimer\u2019s disease: the role of biomarkers including advanced EEG signal analysis. Report from the IFCN-sponsored panel of experts",
+      "authors": [
+        {
+          "name": "Paolo Maria Rossini",
+          "affiliation": "Istituto di Ricovero e Cura a Carattere Scientifico San Raffaele"
+        },
+        {
+          "name": "Riccardo Di Iorio",
+          "affiliation": "Agostino Gemelli University Polyclinic"
+        },
+        {
+          "name": "Fabrizio Vecchio",
+          "affiliation": "Istituti di Ricovero e Cura a Carattere Scientifico"
+        },
+        {
+          "name": "Maria Anfossi",
+          "affiliation": ""
+        },
+        {
+          "name": "Claudio Babiloni",
+          "affiliation": "Sapienza University of Rome"
+        },
+        {
+          "name": "Marco Bozzali",
+          "affiliation": "Istituti di Ricovero e Cura a Carattere Scientifico"
+        },
+        {
+          "name": "Amalia C. Bruni",
+          "affiliation": ""
+        },
+        {
+          "name": "Stefano F. Cappa",
+          "affiliation": "Istituti di Ricovero e Cura a Carattere Scientifico"
+        },
+        {
+          "name": "Javier Escudero",
+          "affiliation": "University of Edinburgh"
+        },
+        {
+          "name": "Francisco J. Fraga",
+          "affiliation": "Universidade Federal do ABC"
+        },
+        {
+          "name": "Pant\u00e9leimon Giannakopoulos",
+          "affiliation": "University Hospital of Geneva"
+        },
+        {
+          "name": "Bahar G\u00fcntekin",
+          "affiliation": "Istanbul Medipol University"
+        },
+        {
+          "name": "Giancarlo Logroscino",
+          "affiliation": "University of Bari Aldo Moro"
+        },
+        {
+          "name": "Camillo Marra",
+          "affiliation": "Universit\u00e0 Cattolica del Sacro Cuore"
+        },
+        {
+          "name": "Francesca Miraglia",
+          "affiliation": "Istituto di Ricovero e Cura a Carattere Scientifico San Raffaele"
+        },
+        {
+          "name": "Francesco Panza",
+          "affiliation": "University of Bari Aldo Moro"
+        },
+        {
+          "name": "Franca Tecchio",
+          "affiliation": "National Research Council"
+        },
+        {
+          "name": "\u00c1lvaro Pascual\u2010Leone",
+          "affiliation": "Berenson Allen Center for Noninvasive Brain Stimulation"
+        },
+        {
+          "name": "Bruno Dubois",
+          "affiliation": "Sorbonne Universit\u00e9"
+        }
+      ],
+      "year": 2020,
+      "abstract": "",
+      "venue": "Clinical Neurophysiology",
+      "citation_count": 223,
+      "doi": "10.1016/j.clinph.2020.03.003",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.clinph.2020.03.003",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3082428588",
+      "title": "Volume I. Introduction to DUNE",
+      "authors": [
+        {
+          "name": "B. Abi",
+          "affiliation": "University of Oxford"
+        },
+        {
+          "name": "R. Acciarri",
+          "affiliation": "Fermi National Accelerator Laboratory"
+        },
+        {
+          "name": "M. A. Acero",
+          "affiliation": "University of Atl\u00e1ntico"
+        },
+        {
+          "name": "G. Adamov",
+          "affiliation": "Georgian Technical University"
+        },
+        {
+          "name": "D. L. Adams",
+          "affiliation": "Brookhaven National Laboratory"
+        },
+        {
+          "name": "M. Adinolfi",
+          "affiliation": "University of Bristol"
+        },
+        {
+          "name": "Zahid Ahmad",
+          "affiliation": "Variable Energy Cyclotron Centre"
+        },
+        {
+          "name": "J. Ahmed",
+          "affiliation": "University of Warwick"
+        },
+        {
+          "name": "T. Alion",
+          "affiliation": "University of Sussex"
+        },
+        {
+          "name": "S. Alonso Monsalve",
+          "affiliation": "European Organization for Nuclear Research"
+        },
+        {
+          "name": "C. Alt",
+          "affiliation": "ETH Zurich"
+        },
+        {
+          "name": "J. Anderson",
+          "affiliation": "Argonne National Laboratory"
+        },
+        {
+          "name": "C. Andreopoulos",
+          "affiliation": "University of Liverpool"
+        },
+        {
+          "name": "M. Andrews",
+          "affiliation": "Fermi National Accelerator Laboratory"
+        },
+        {
+          "name": "F. Andrianala",
+          "affiliation": "University of Antananarivo"
+        },
+        {
+          "name": "S. Andringa",
+          "affiliation": "LIP - Laboratory of Instrumentation and Experimental Particle Physics"
+        },
+        {
+          "name": "A. Ankowski",
+          "affiliation": "SLAC National Accelerator Laboratory"
+        },
+        {
+          "name": "M. Antonova",
+          "affiliation": "Instituto de F\u00edsica Corpuscular"
+        },
+        {
+          "name": "Stefan Antusch",
+          "affiliation": "University of Basel"
+        },
+        {
+          "name": "Alfredo Aranda",
+          "affiliation": "Universidad de Colima"
+        },
+        {
+          "name": "A. Ariga",
+          "affiliation": "University of Bern"
+        },
+        {
+          "name": "L.O. Arnold",
+          "affiliation": "Columbia University"
+        },
+        {
+          "name": "M. A. Arroyave",
+          "affiliation": "EIA University"
+        },
+        {
+          "name": "J. Asaadi",
+          "affiliation": "The University of Texas at Arlington"
+        },
+        {
+          "name": "A. Aurisano",
+          "affiliation": "University of Cincinnati"
+        },
+        {
+          "name": "V. Aushev",
+          "affiliation": ""
+        },
+        {
+          "name": "D. Autiero",
+          "affiliation": "Institut de Physique"
+        },
+        {
+          "name": "F. Azfar",
+          "affiliation": "University of Oxford"
+        },
+        {
+          "name": "H. Back",
+          "affiliation": "Pacific Northwest National Laboratory"
+        },
+        {
+          "name": "J.J. Back",
+          "affiliation": "University of Warwick"
+        },
+        {
+          "name": "Chris Backhouse",
+          "affiliation": "University College London"
+        },
+        {
+          "name": "P. Baesso",
+          "affiliation": "University of Bristol"
+        },
+        {
+          "name": "L. Bagby",
+          "affiliation": "Fermi National Accelerator Laboratory"
+        },
+        {
+          "name": "R. Bajou",
+          "affiliation": "Laboratoire AstroParticule et Cosmologie"
+        },
+        {
+          "name": "S. Balasubramanian",
+          "affiliation": "Yale University"
+        },
+        {
+          "name": "P. Baldi",
+          "affiliation": "University of California, Irvine"
+        },
+        {
+          "name": "B. Bambah",
+          "affiliation": "University of Hyderabad"
+        },
+        {
+          "name": "F. Bar\u00e3o",
+          "affiliation": "Instituto Superior T\u00e9cnico"
+        },
+        {
+          "name": "Gabriela Barenboim",
+          "affiliation": "Instituto de F\u00edsica Corpuscular"
+        },
+        {
+          "name": "Gareth J. Barker",
+          "affiliation": "University of Warwick"
+        },
+        {
+          "name": "W. Barkhouse",
+          "affiliation": "University of North Dakota"
+        },
+        {
+          "name": "C. Barnes",
+          "affiliation": "University of Michigan"
+        },
+        {
+          "name": "G. Barr",
+          "affiliation": "University of Oxford"
+        },
+        {
+          "name": "J. Barranco Monarca",
+          "affiliation": "Universidad de Guanajuato"
+        },
+        {
+          "name": "N. Barros",
+          "affiliation": "LIP - Laboratory of Instrumentation and Experimental Particle Physics"
+        },
+        {
+          "name": "J. Barrow",
+          "affiliation": "University of Tennessee at Knoxville"
+        },
+        {
+          "name": "A. Bashyal",
+          "affiliation": "Oregon State University"
+        },
+        {
+          "name": "V. Basque",
+          "affiliation": "University of Manchester"
+        },
+        {
+          "name": "F. Bay",
+          "affiliation": "National Institute for Subatomic Physics"
+        },
+        {
+          "name": "J. L. Bazo Alba",
+          "affiliation": "Pontifical Catholic University of Peru"
+        },
+        {
+          "name": "J. F. Beacom",
+          "affiliation": "The Ohio State University"
+        },
+        {
+          "name": "E. Bechetoille",
+          "affiliation": "Institut de Physique"
+        },
+        {
+          "name": "B. Behera",
+          "affiliation": "Colorado State University"
+        },
+        {
+          "name": "L. Bellantoni",
+          "affiliation": "Fermi National Accelerator Laboratory"
+        },
+        {
+          "name": "G. Bellettini",
+          "affiliation": "Virgo"
+        },
+        {
+          "name": "Vincenzo Bellini",
+          "affiliation": "University of Catania"
+        },
+        {
+          "name": "O. Beltramello",
+          "affiliation": "European Organization for Nuclear Research"
+        },
+        {
+          "name": "D. Belver",
+          "affiliation": "Centro de Investigaciones Energ\u00e9ticas, Medioambientales y Tecnol\u00f3gicas"
+        },
+        {
+          "name": "N. Benekos",
+          "affiliation": "European Organization for Nuclear Research"
+        },
+        {
+          "name": "F. Neves",
+          "affiliation": "LIP - Laboratory of Instrumentation and Experimental Particle Physics"
+        },
+        {
+          "name": "J. Berger",
+          "affiliation": "University of Pittsburgh"
+        },
+        {
+          "name": "S. Berkman",
+          "affiliation": "Fermi National Accelerator Laboratory"
+        },
+        {
+          "name": "P. Bernardini",
+          "affiliation": "University of Salento"
+        },
+        {
+          "name": "R. M. Berner",
+          "affiliation": "University of Bern"
+        },
+        {
+          "name": "H. Berns",
+          "affiliation": "University of California, Davis"
+        },
+        {
+          "name": "S. Bertolucci",
+          "affiliation": "Istituto Nazionale di Fisica Nucleare"
+        },
+        {
+          "name": "M. Betancourt",
+          "affiliation": "Fermi National Accelerator Laboratory"
+        },
+        {
+          "name": "Y. Bezawada",
+          "affiliation": "University of California, Davis"
+        },
+        {
+          "name": "M. Bhattacharjee",
+          "affiliation": "Indian Institute of Technology Guwahati"
+        },
+        {
+          "name": "B. Bhuyan",
+          "affiliation": "Indian Institute of Technology Guwahati"
+        },
+        {
+          "name": "S. Biagi",
+          "affiliation": "Istituto Nazionale di Fisica Nucleare, Laboratori Nazionali del Sud"
+        },
+        {
+          "name": "J. Bian",
+          "affiliation": "University of California, Irvine"
+        },
+        {
+          "name": "M. Biassoni",
+          "affiliation": "Istituto Nazionale di Fisica Nucleare, Sezione di Milano Bicocca"
+        },
+        {
+          "name": "V. Bocci",
+          "affiliation": "Fermi National Accelerator Laboratory"
+        },
+        {
+          "name": "B. Bilki",
+          "affiliation": "Beykent University"
+        },
+        {
+          "name": "M. Bishai",
+          "affiliation": "Brookhaven National Laboratory"
+        },
+        {
+          "name": "A. Bitadze",
+          "affiliation": "University of Manchester"
+        },
+        {
+          "name": "A. Blake",
+          "affiliation": "Lancaster University"
+        },
+        {
+          "name": "B. Blanco Siffert",
+          "affiliation": "Universidade Federal do Rio de Janeiro"
+        },
+        {
+          "name": "F. Blaszczyk",
+          "affiliation": "Fermi National Accelerator Laboratory"
+        },
+        {
+          "name": "G. Blazey",
+          "affiliation": "Northern Illinois University"
+        },
+        {
+          "name": "E. Blucher",
+          "affiliation": "University of Chicago"
+        },
+        {
+          "name": "J. Boissevain",
+          "affiliation": "Los Alamos National Laboratory"
+        },
+        {
+          "name": "S. Bolognesi",
+          "affiliation": "Institut de Recherche sur les Lois Fondamentales de l'Univers"
+        },
+        {
+          "name": "T. Bolton",
+          "affiliation": "Kansas State University"
+        },
+        {
+          "name": "M. Bonesini",
+          "affiliation": "University of Milano-Bicocca"
+        },
+        {
+          "name": "M. Bongrand",
+          "affiliation": "Grand Acc\u00e9l\u00e9rateur National d'Ions Lourds"
+        },
+        {
+          "name": "F. Bonini",
+          "affiliation": "Brookhaven National Laboratory"
+        },
+        {
+          "name": "A. Booth",
+          "affiliation": "University of Sussex"
+        },
+        {
+          "name": "A. Booth",
+          "affiliation": "University of Sheffield"
+        },
+        {
+          "name": "S. Bordoni",
+          "affiliation": "European Organization for Nuclear Research"
+        },
+        {
+          "name": "A. Borkum",
+          "affiliation": "University of Sussex"
+        },
+        {
+          "name": "T. Boschi",
+          "affiliation": "Durham University"
+        },
+        {
+          "name": "N. Bostan",
+          "affiliation": "University of Iowa"
+        },
+        {
+          "name": "P. Bour",
+          "affiliation": "Czech Technical University in Prague"
+        },
+        {
+          "name": "S. B. Boyd",
+          "affiliation": "University of Warwick"
+        },
+        {
+          "name": "D. Boyden",
+          "affiliation": "Northern Illinois University"
+        },
+        {
+          "name": "J. Bracinik",
+          "affiliation": "University of Birmingham"
+        },
+        {
+          "name": "D. Braga",
+          "affiliation": "Fermi National Accelerator Laboratory"
+        },
+        {
+          "name": "D. Brailsford",
+          "affiliation": "Lancaster University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "A.4 Constraining the flux in the ND A.4.1 Neutrino-electron elastic scattering A.4.2 The low- method A.4.3 Coherent neutrino-nucleus scattering A.4.4 Beam e content A.5 Movable components of the ND and the DUNE-PRISM program A.5.1 Introduction to DUNE-PRISM A.5.2 LArTPC component in the DUNE ND: ArgonCube A.5.3 Multipurpose detector A.5.4 The DUNE-PRISM program A.6 Fixed on-axis component of the DUNE ND A.6.1 Motivation and introduction A.6.2 Three-dimensional projection scintillator tracker spectrometer A.7 Meeting the near detector requirements A.7.1 Overarching requirements A.7.2 Event rate and flux measurements A.7.3 Control of systematic errors B ND hall and construction C Computing roles and collaborative projects C.1 Roles C.2 Specific collaborative computing projects C.2.1 LArSoft for event reconstruction C.2.2 WLCG/OSG and the HEP Software Foundation C.2.3 Evaluations of other important infrastructure",
+      "venue": "Journal of Instrumentation",
+      "citation_count": 391,
+      "doi": "10.1088/1748-0221/15/08/t08008",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1088/1748-0221/15/08/t08008",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3035127016",
+      "title": "Inferring Causality from Noninvasive Brain Stimulation in Cognitive Neuroscience",
+      "authors": [
+        {
+          "name": "Til Ole Bergmann",
+          "affiliation": "Leibniz Institute for Resilience Research"
+        },
+        {
+          "name": "Gesa Hartwigsen",
+          "affiliation": "Max Planck Institute for Human Cognitive and Brain Sciences"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Noninvasive brain stimulation (NIBS) techniques, such as transcranial magnetic stimulation or transcranial direct and alternating current stimulation, are advocated as measures to enable causal inference in cognitive neuroscience experiments. Transcending the limitations of purely correlative neuroimaging measures and experimental sensory stimulation, they allow to experimentally manipulate brain activity and study its consequences for perception, cognition, and eventually, behavior. Although this is true in principle, particular caution is advised when interpreting brain stimulation experiments in a causal manner. Research hypotheses are often oversimplified, disregarding the underlying (implicitly assumed) complex chain of causation, namely, that the stimulation technique has to generate an electric field in the brain tissue, which then evokes or modulates neuronal activity both locally in the target region and in connected remote sites of the network, which in consequence affects the cognitive function of interest and eventually results in a change of the behavioral measure. Importantly, every link in this causal chain of effects can be confounded by several factors that have to be experimentally eliminated or controlled to attribute the observed results to their assumed cause. This is complicated by the fact that many of the mediating and confounding variables are not directly observable and dose-response relationships are often nonlinear. We will walk the reader through the chain of causation for a generic cognitive neuroscience NIBS study, discuss possible confounds, and advise appropriate control conditions. If crucial assumptions are explicitly tested (where possible) and confounds are experimentally well controlled, NIBS can indeed reveal cause-effect relationships in cognitive neuroscience studies.",
+      "venue": "Journal of Cognitive Neuroscience",
+      "citation_count": 278,
+      "doi": "10.1162/jocn_a_01591",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1162/jocn_a_01591",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3043321626",
+      "title": "Challenges for biophysical modeling of microstructure",
+      "authors": [
+        {
+          "name": "Ileana Jelescu",
+          "affiliation": "\u00c9cole Polytechnique F\u00e9d\u00e9rale de Lausanne"
+        },
+        {
+          "name": "Marco Palombo",
+          "affiliation": "University College London"
+        },
+        {
+          "name": "Francesca Bagnato",
+          "affiliation": "Vanderbilt University Medical Center"
+        },
+        {
+          "name": "Kurt G. Schilling",
+          "affiliation": "Vanderbilt University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "The biophysical modeling efforts in diffusion MRI have grown considerably over the past 25 years. In this review, we dwell on the various challenges along the journey of bringing a biophysical model from initial design to clinical implementation, identifying both hurdles that have been already overcome and outstanding issues. First, we describe the critical initial task of selecting which features of tissue microstructure can be estimated using a model and which acquisition protocol needs to be implemented to make the estimation possible. The model performance should necessarily be tested in realistic numerical simulations and in experimental data - adapting the fitting strategy accordingly, and parameter estimates should be validated against complementary techniques, when/if available. Secondly, the model performance and validity should be explored in pathological conditions, and, if appropriate, dedicated models for pathology should be developed. We build on examples from tumors, ischemia and demyelinating diseases. We then discuss the challenges associated with clinical translation and added value. Finally, we single out four major unresolved challenges that are related to: the availability of a microstructural ground truth, the validation of model parameters which cannot be accessed with complementary techniques, the development of a generalized standard model for any brain region and pathology, and the seamless communication between different parties involved in the development and application of biophysical models of diffusion.",
+      "venue": "Journal of Neuroscience Methods",
+      "citation_count": 167,
+      "doi": "10.1016/j.jneumeth.2020.108861",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.jneumeth.2020.108861",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4308055694",
+      "title": "Deep Learning for Image Enhancement and Correction in Magnetic Resonance Imaging\u2014State-of-the-Art and Challenges",
+      "authors": [
+        {
+          "name": "Zhaolin Chen",
+          "affiliation": "Monash University"
+        },
+        {
+          "name": "Kamlesh Pawar",
+          "affiliation": "Monash University"
+        },
+        {
+          "name": "Mevan Ekanayake",
+          "affiliation": "Monash University"
+        },
+        {
+          "name": "Cameron Dennis Pain",
+          "affiliation": "Monash University"
+        },
+        {
+          "name": "Shenjun Zhong",
+          "affiliation": "Monash University"
+        },
+        {
+          "name": "Gary F. Egan",
+          "affiliation": "Monash University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Magnetic resonance imaging (MRI) provides excellent soft-tissue contrast for clinical diagnoses and research which underpin many recent breakthroughs in medicine and biology. The post-processing of reconstructed MR images is often automated for incorporation into MRI scanners by the manufacturers and increasingly plays a critical role in the final image quality for clinical reporting and interpretation. For image enhancement and correction, the post-processing steps include noise reduction, image artefact correction, and image resolution improvements. With the recent success of deep learning in many research fields, there is great potential to apply deep learning for MR image enhancement, and recent publications have demonstrated promising results. Motivated by the rapidly growing literature in this area, in this review paper, we provide a comprehensive overview of deep learning-based methods for post-processing MR images to enhance image quality and correct image artefacts. We aim to provide researchers in MRI or other research fields, including computer vision and image processing, a literature survey of deep learning approaches for MR image enhancement. We discuss the current limitations of the application of artificial intelligence in MRI and highlight possible directions for future developments. In the era of deep learning, we highlight the importance of a critical appraisal of the explanatory information provided and the generalizability of deep learning algorithms in medical imaging.",
+      "venue": "Journal of Digital Imaging",
+      "citation_count": 168,
+      "doi": "10.1007/s10278-022-00721-9",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s10278-022-00721-9",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3139408336",
+      "title": "The Amsterdam Open MRI Collection, a set of multimodal MRI datasets for individual difference analyses",
+      "authors": [
+        {
+          "name": "Lukas Snoek",
+          "affiliation": "University of Amsterdam"
+        },
+        {
+          "name": "Maite M. van der Miesen",
+          "affiliation": "University of Amsterdam"
+        },
+        {
+          "name": "Tinka Beemsterboer",
+          "affiliation": "Spinoza Centre for Neuroimaging"
+        },
+        {
+          "name": "Andries van der Leij",
+          "affiliation": "University of Amsterdam"
+        },
+        {
+          "name": "Annemarie Eigenhuis",
+          "affiliation": "University of Amsterdam"
+        },
+        {
+          "name": "H. Steven Scholte",
+          "affiliation": "Spinoza Centre for Neuroimaging"
+        }
+      ],
+      "year": 2021,
+      "abstract": "We present the Amsterdam Open MRI Collection (AOMIC): three datasets with multimodal (3 T) MRI data including structural (T1-weighted), diffusion-weighted, and (resting-state and task-based) functional BOLD MRI data, as well as detailed demographics and psychometric variables from a large set of healthy participants (N = 928, N = 226, and N = 216). Notably, task-based fMRI was collected during various robust paradigms (targeting naturalistic vision, emotion perception, working memory, face perception, cognitive conflict and control, and response inhibition) for which extensively annotated event-files are available. For each dataset and data modality, we provide the data in both raw and preprocessed form (both compliant with the Brain Imaging Data Structure), which were subjected to extensive (automated and manual) quality control. All data is publicly available from the OpenNeuro data sharing platform.",
+      "venue": "Scientific Data",
+      "citation_count": 157,
+      "doi": "10.1038/s41597-021-00870-6",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41597-021-00870-6",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4378782804",
+      "title": "The neuroconnectionist research programme",
+      "authors": [
+        {
+          "name": "Adrien Doerig",
+          "affiliation": ""
+        },
+        {
+          "name": "Rowan P. Sommers",
+          "affiliation": "Max Planck Institute for Psycholinguistics"
+        },
+        {
+          "name": "Katja Seeliger",
+          "affiliation": "Max Planck Institute for Human Cognitive and Brain Sciences"
+        },
+        {
+          "name": "Blake A. Richards",
+          "affiliation": "Montreal Neurological Institute and Hospital"
+        },
+        {
+          "name": "Jenann Ismael",
+          "affiliation": "Johns Hopkins University"
+        },
+        {
+          "name": "Grace W. Lindsay",
+          "affiliation": "New York University"
+        },
+        {
+          "name": "Konrad P. K\u00f6rding",
+          "affiliation": "Canadian Institute for Advanced Research"
+        },
+        {
+          "name": "Talia Konkle",
+          "affiliation": "Harvard University Press"
+        },
+        {
+          "name": "Marcel van Gerven",
+          "affiliation": "Radboud University Nijmegen"
+        },
+        {
+          "name": "Nikolaus Kriegeskorte",
+          "affiliation": "Columbia University"
+        },
+        {
+          "name": "Tim C. Kietzmann",
+          "affiliation": "Osnabr\u00fcck University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "",
+      "venue": "Nature reviews. Neuroscience",
+      "citation_count": 221,
+      "doi": "10.1038/s41583-023-00705-w",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41583-023-00705-w",
+      "source": "openalex",
+      "_bibtex_override": ""
+    }
+  ]
+}

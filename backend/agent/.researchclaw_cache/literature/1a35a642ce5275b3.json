@@ -1,0 +1,425 @@
+{
+  "query": "Simple 2-layer CNN for MNIST digit classification comparing SGD vs Adam optimizer on accuracy and convergence speed",
+  "source": "arxiv",
+  "limit": 15,
+  "timestamp": 1774028687.1144125,
+  "papers": [
+    {
+      "paper_id": "arxiv-2103.10093",
+      "title": "Conjectures on Convergence and Scalar Curvature",
+      "authors": [
+        {
+          "name": "Christina Sormani",
+          "affiliation": ""
+        },
+        {
+          "name": "Participants at the IAS Emerging Topics Workshop on Scalar Curvature",
+          "affiliation": ""
+        },
+        {
+          "name": "Convergence",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Here we survey the compactness and geometric stability conjectures formulated by the participants at the 2018 IAS Emerging Topics Workshop on {\\em Scalar Curvature and Convergence}. We have tried to survey all the progress towards these conjectures as well as related examples, although it is impossible to cover everything. We focus primarily on sequences of compact Riemannian manifolds with nonnegative scalar curvature and their limit spaces. Christina Sormani is grateful to have had the opportunity to write up our ideas and has done her best to credit everyone involved within the paper even though she is the only author listed above. In truth we are a team of over thirty people working together and apart on these deep questions and we welcome everyone who is interested in these conjectures to join us.",
+      "venue": "math.DG",
+      "citation_count": 0,
+      "doi": "10.1142/12644",
+      "arxiv_id": "2103.10093",
+      "url": "https://arxiv.org/abs/2103.10093",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2508.04293",
+      "title": "Comparative Analysis of Novel NIRMAL Optimizer Against Adam and SGD with Momentum",
+      "authors": [
+        {
+          "name": "Nirmal Gaud",
+          "affiliation": ""
+        },
+        {
+          "name": "Surej Mouli",
+          "affiliation": ""
+        },
+        {
+          "name": "Preeti Katiyar",
+          "affiliation": ""
+        },
+        {
+          "name": "Vaduguru Venkata Ramya",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "This study proposes NIRMAL (Novel Integrated Robust Multi-Adaptation Learning), a novel optimization algorithm that combines multiple strategies inspired by the movements of the chess piece. These strategies include gradient descent, momentum, stochastic perturbations, adaptive learning rates, and non-linear transformations. We carefully evaluated NIRMAL against two widely used and successful optimizers, Adam and SGD with Momentum, on four benchmark image classification datasets: MNIST, FashionMNIST, CIFAR-10, and CIFAR-100. The custom convolutional neural network (CNN) architecture is applied on each dataset. The experimental results show that NIRMAL achieves competitive performance, particularly on the more challenging CIFAR-100 dataset, where it achieved a test accuracy of 45.32\\%and a weighted F1-score of 0.4328. This performance surpasses Adam (41.79\\% accuracy, 0.3964 F1-score) and closely matches SGD with Momentum (46.97\\% accuracy, 0.4531 F1-score). Also, NIRMAL exhibits robust convergence and strong generalization capabilities, especially on complex datasets, as evidenced by stable training results in loss and accuracy curves. These findings underscore NIRMAL's significant ability as a versatile and effective optimizer for various deep learning tasks.",
+      "venue": "cs.IR",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2508.04293",
+      "url": "https://arxiv.org/abs/2508.04293",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2011.08042",
+      "title": "Mixing ADAM and SGD: a Combined Optimization Method",
+      "authors": [
+        {
+          "name": "Nicola Landro",
+          "affiliation": ""
+        },
+        {
+          "name": "Ignazio Gallo",
+          "affiliation": ""
+        },
+        {
+          "name": "Riccardo La Grassa",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Optimization methods (optimizers) get special attention for the efficient training of neural networks in the field of deep learning. In literature there are many papers that compare neural models trained with the use of different optimizers. Each paper demonstrates that for a particular problem an optimizer is better than the others but as the problem changes this type of result is no longer valid and we have to start from scratch. In our paper we propose to use the combination of two very different optimizers but when used simultaneously they can overcome the performances of the single optimizers in very different problems. We propose a new optimizer called MAS (Mixing ADAM and SGD) that integrates SGD and ADAM simultaneously by weighing the contributions of both through the assignment of constant weights. Rather than trying to improve SGD or ADAM we exploit both at the same time by taking the best of both. We have conducted several experiments on images and text document classification, using various CNNs, and we demonstrated by experiments that the proposed MAS optimizer produces better performance than the single SGD or ADAM optimizers. The source code and all the results of the experiments are available online at the following link https://gitlab.com/nicolalandro/multi\\_optimizer",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2011.08042",
+      "url": "https://arxiv.org/abs/2011.08042",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2407.21078",
+      "title": "Convergence rates for the Adam optimizer",
+      "authors": [
+        {
+          "name": "Steffen Dereich",
+          "affiliation": ""
+        },
+        {
+          "name": "Arnulf Jentzen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Stochastic gradient descent (SGD) optimization methods are nowadays the method of choice for the training of deep neural networks (DNNs) in artificial intelligence systems. In practically relevant training problems, usually not the plain vanilla standard SGD method is the employed optimization scheme but instead suitably accelerated and adaptive SGD optimization methods are applied. As of today, maybe the most popular variant of such accelerated and adaptive SGD optimization methods is the famous Adam optimizer proposed by Kingma & Ba in 2014. Despite the popularity of the Adam optimizer in implementations, it remained an open problem of research to provide a convergence analysis for the Adam optimizer even in the situation of simple quadratic stochastic optimization problems where the objective function (the function one intends to minimize) is strongly convex. In this work we solve this problem by establishing optimal convergence rates for the Adam optimizer for a large class of stochastic optimization problems, in particular, covering simple quadratic stochastic optimization problems. The key ingredient of our convergence analysis is a new vector field function which we propose to refer to as the Adam vector field. This Adam vector field accurately describes the macroscopic behaviour of the Adam optimization process but differs from the negative gradient of the objective function (the function we intend to minimize) of the considered stochastic optimization problem. In particular, our convergence analysis reveals that the Adam optimizer does typically not converge to critical points of the objective function (zeros of the gradient of the objective function) of the considered optimization problem but converges with rates to zeros of this Adam vector field.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2407.21078",
+      "url": "https://arxiv.org/abs/2407.21078",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2306.00204",
+      "title": "Toward Understanding Why Adam Converges Faster Than SGD for Transformers",
+      "authors": [
+        {
+          "name": "Yan Pan",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuanzhi Li",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "While stochastic gradient descent (SGD) is still the most popular optimization algorithm in deep learning, adaptive algorithms such as Adam have established empirical advantages over SGD in some deep learning applications such as training transformers. However, it remains a question that why Adam converges significantly faster than SGD in these scenarios. In this paper, we propose one explanation of why Adam converges faster than SGD using a new concept directional sharpness. We argue that the performance of optimization algorithms is closely related to the directional sharpness of the update steps, and show SGD has much worse directional sharpness compared to adaptive algorithms. We further observe that only a small fraction of the coordinates causes the bad sharpness and slow convergence of SGD, and propose to use coordinate-wise clipping as a solution to SGD and other optimization algorithms. We demonstrate the effect of coordinate-wise clipping on sharpness reduction and speeding up the convergence of optimization algorithms under various settings. We show that coordinate-wise clipping improves the local loss reduction when only a small fraction of the coordinates has bad sharpness. We conclude that the sharpness reduction effect of adaptive coordinate-wise scaling is the reason for Adam's success in practice and suggest the use of coordinate-wise clipping as a universal technique to speed up deep learning optimization.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2306.00204",
+      "url": "https://arxiv.org/abs/2306.00204",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2508.02719",
+      "title": "ZetA: A Riemann Zeta-Scaled Extension of Adam for Deep Learning",
+      "authors": [
+        {
+          "name": "Samiksha BC",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "This work introduces ZetA, a novel deep learning optimizer that extends Adam by incorporating dynamic scaling based on the Riemann zeta function. To the best of our knowledge, ZetA is the first optimizer to apply zeta-based gradient scaling within deep learning optimization. The method improves generalization and robustness through a hybrid update mechanism that integrates adaptive damping, cosine similarity-based momentum boosting, entropy-regularized loss, and Sharpness-Aware Minimization (SAM)-style perturbations. Empirical evaluations on SVHN, CIFAR10, CIFAR100, STL10, and noisy CIFAR10 consistently show test accuracy improvements over Adam. All experiments employ a lightweight fully connected network trained for five epochs under mixed-precision settings. The results demonstrate that ZetA is a computationally efficient and robust alternative to Adam, particularly effective in noisy or high-granularity classification tasks.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2508.02719",
+      "url": "https://arxiv.org/abs/2508.02719",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2410.04458",
+      "title": "A Comprehensive Framework for Analyzing the Convergence of Adam: Bridging the Gap with SGD",
+      "authors": [
+        {
+          "name": "Ruinan Jin",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiao Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yaoliang Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Baoxiang Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Adaptive Moment Estimation (Adam) is a cornerstone optimization algorithm in deep learning, widely recognized for its flexibility with adaptive learning rates and efficiency in handling large-scale data. However, despite its practical success, the theoretical understanding of Adam's convergence has been constrained by stringent assumptions, such as almost surely bounded stochastic gradients or uniformly bounded gradients, which are more restrictive than those typically required for analyzing stochastic gradient descent (SGD).\n  In this paper, we introduce a novel and comprehensive framework for analyzing the convergence properties of Adam. This framework offers a versatile approach to establishing Adam's convergence. Specifically, we prove that Adam achieves asymptotic (last iterate sense) convergence in both the almost sure sense and the \\(L_1\\) sense under the relaxed assumptions typically used for SGD, namely \\(L\\)-smoothness and the ABC inequality. Meanwhile, under the same assumptions, we show that Adam attains non-asymptotic sample complexity bounds similar to those of SGD.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2410.04458",
+      "url": "https://arxiv.org/abs/2410.04458",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2505.24022",
+      "title": "The Rich and the Simple: On the Implicit Bias of Adam and SGD",
+      "authors": [
+        {
+          "name": "Bhavya Vasudeva",
+          "affiliation": ""
+        },
+        {
+          "name": "Jung Whan Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Vatsal Sharan",
+          "affiliation": ""
+        },
+        {
+          "name": "Mahdi Soltanolkotabi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Adam is the de facto optimization algorithm for several deep learning applications, but an understanding of its implicit bias and how it differs from other algorithms, particularly standard first-order methods such as (stochastic) gradient descent (GD), remains limited. In practice, neural networks (NNs) trained with SGD are known to exhibit simplicity bias -- a tendency to find simple solutions. In contrast, we show that Adam is more resistant to such simplicity bias. First, we investigate the differences in the implicit biases of Adam and GD when training two-layer ReLU NNs on a binary classification task with Gaussian data. We find that GD exhibits a simplicity bias, resulting in a linear decision boundary with a suboptimal margin, whereas Adam leads to much richer and more diverse features, producing a nonlinear boundary that is closer to the Bayes' optimal predictor. This richer decision boundary also allows Adam to achieve higher test accuracy both in-distribution and under certain distribution shifts. We theoretically prove these results by analyzing the population gradients. Next, to corroborate our theoretical findings, we present extensive empirical results showing that this property of Adam leads to superior generalization across various datasets with spurious correlations where NNs trained with SGD are known to show simplicity bias and do not generalize well under certain distributional shifts.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2505.24022",
+      "url": "https://arxiv.org/abs/2505.24022",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2003.02395",
+      "title": "A Simple Convergence Proof of Adam and Adagrad",
+      "authors": [
+        {
+          "name": "Alexandre D\u00e9fossez",
+          "affiliation": ""
+        },
+        {
+          "name": "L\u00e9on Bottou",
+          "affiliation": ""
+        },
+        {
+          "name": "Francis Bach",
+          "affiliation": ""
+        },
+        {
+          "name": "Nicolas Usunier",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "We provide a simple proof of convergence covering both the Adam and Adagrad adaptive optimization algorithms when applied to smooth (possibly non-convex) objective functions with bounded gradients. We show that in expectation, the squared norm of the objective gradient averaged over the trajectory has an upper-bound which is explicit in the constants of the problem, parameters of the optimizer, the dimension $d$, and the total number of iterations $N$. This bound can be made arbitrarily small, and with the right hyper-parameters, Adam can be shown to converge with the same rate of convergence $O(d\\ln(N)/\\sqrt{N})$. When used with the default parameters, Adam doesn't converge, however, and just like constant step-size SGD, it moves away from the initialization point faster than Adagrad, which might explain its practical success. Finally, we obtain the tightest dependency on the heavy ball momentum decay rate $\u03b2_1$ among all previous convergence bounds for non-convex Adam and Adagrad, improving from $O((1-\u03b2_1)^{-3})$ to $O((1-\u03b2_1)^{-1})$.",
+      "venue": "stat.ML",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2003.02395",
+      "url": "https://arxiv.org/abs/2003.02395",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2102.02888",
+      "title": "1-bit Adam: Communication Efficient Large-Scale Training with Adam's Convergence Speed",
+      "authors": [
+        {
+          "name": "Hanlin Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Shaoduo Gan",
+          "affiliation": ""
+        },
+        {
+          "name": "Ammar Ahmad Awan",
+          "affiliation": ""
+        },
+        {
+          "name": "Samyam Rajbhandari",
+          "affiliation": ""
+        },
+        {
+          "name": "Conglong Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiangru Lian",
+          "affiliation": ""
+        },
+        {
+          "name": "Ji Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ce Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuxiong He",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Scalable training of large models (like BERT and GPT-3) requires careful optimization rooted in model design, architecture, and system capabilities. From a system standpoint, communication has become a major bottleneck, especially on commodity systems with standard TCP interconnects that offer limited network bandwidth. Communication compression is an important technique to reduce training time on such systems. One of the most effective methods is error-compensated compression, which offers robust convergence speed even under 1-bit compression. However, state-of-the-art error compensation techniques only work with basic optimizers like SGD and momentum SGD, which are linearly dependent on the gradients. They do not work with non-linear gradient-based optimizers like Adam, which offer state-of-the-art convergence efficiency and accuracy for models like BERT. In this paper, we propose 1-bit Adam that reduces the communication volume by up to $5\\times$, offers much better scalability, and provides the same convergence speed as uncompressed Adam. Our key finding is that Adam's variance (non-linear term) becomes stable (after a warmup phase) and can be used as a fixed precondition for the rest of the training (compression phase). Experiments on up to 256 GPUs show that 1-bit Adam enables up to $3.3\\times$ higher throughput for BERT-Large pre-training and up to $2.9\\times$ higher throughput for SQuAD fine-tuning. In addition, we provide theoretical analysis for our proposed work.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2102.02888",
+      "url": "https://arxiv.org/abs/2102.02888",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2006.16541",
+      "title": "AdaSGD: Bridging the gap between SGD and Adam",
+      "authors": [
+        {
+          "name": "Jiaxuan Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jenna Wiens",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "In the context of stochastic gradient descent(SGD) and adaptive moment estimation (Adam),researchers have recently proposed optimization techniques that transition from Adam to SGD with the goal of improving both convergence and generalization performance. However, precisely how each approach trades off early progress and generalization is not well understood; thus, it is unclear when or even if, one should transition from one approach to the other. In this work, by first studying the convex setting, we identify potential contributors to observed differences in performance between SGD and Adam. In particular,we provide theoretical insights for when and why Adam outperforms SGD and vice versa. We ad-dress the performance gap by adapting a single global learning rate for SGD, which we refer to as AdaSGD. We justify this proposed approach with empirical analyses in non-convex settings. On several datasets that span three different domains,we demonstrate how AdaSGD combines the benefits of both SGD and Adam, eliminating the need for approaches that transition from Adam to SGD.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2006.16541",
+      "url": "https://arxiv.org/abs/2006.16541",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2108.00969",
+      "title": "Convergence rates of deep ReLU networks for multiclass classification",
+      "authors": [
+        {
+          "name": "Thijs Bos",
+          "affiliation": ""
+        },
+        {
+          "name": "Johannes Schmidt-Hieber",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "For classification problems, trained deep neural networks return probabilities of class memberships. In this work we study convergence of the learned probabilities to the true conditional class probabilities. More specifically we consider sparse deep ReLU network reconstructions minimizing cross-entropy loss in the multiclass classification setup. Interesting phenomena occur when the class membership probabilities are close to zero. Convergence rates are derived that depend on the near-zero behaviour via a margin-type condition.",
+      "venue": "math.ST",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2108.00969",
+      "url": "https://arxiv.org/abs/2108.00969",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.06675",
+      "title": "Adam symmetry theorem: characterization of the convergence of the stochastic Adam optimizer",
+      "authors": [
+        {
+          "name": "Steffen Dereich",
+          "affiliation": ""
+        },
+        {
+          "name": "Thang Do",
+          "affiliation": ""
+        },
+        {
+          "name": "Arnulf Jentzen",
+          "affiliation": ""
+        },
+        {
+          "name": "Philippe von Wurstemberger",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Beside the standard stochastic gradient descent (SGD) method, the Adam optimizer due to Kingma & Ba (2014) is currently probably the best-known optimization method for the training of deep neural networks in artificial intelligence (AI) systems. Despite the popularity and the success of Adam it remains an \\emph{open research problem} to provide a rigorous convergence analysis for Adam even for the class of strongly convex SOPs. In one of the main results of this work we establish convergence rates for Adam in terms of the number of gradient steps (convergence rate \\nicefrac{1}{2} w.r.t. the size of the learning rate), the size of the mini-batches (convergence rate 1 w.r.t. the size of the mini-batches), and the size of the second moment parameter of Adam (convergence rate 1 w.r.t. the distance of the second moment parameter to 1) for the class of strongly convex SOPs. In a further main result of this work, which we refer to as \\emph{Adam symmetry theorem}, we illustrate the optimality of the established convergence rates by proving for a special class of simple quadratic strongly convex SOPs that Adam converges as the number of gradient steps increases to infinity to the solution of the SOP (the unique minimizer of the strongly convex objective function) if and \\emph{only} if the random variables in the SOP (the data in the SOP) are \\emph{symmetrically distributed}. In particular, in the standard case where the random variables in the SOP are not symmetrically distributed we \\emph{disprove} that Adam converges to the minimizer of the SOP as the number of Adam steps increases to infinity. We also complement the conclusions of our convergence analysis and the Adam symmetry theorem by several numerical simulations that indicate the sharpness of the established convergence rates and that illustrate the practical appearance of the phenomena revealed in the \\emph{Adam symmetry theorem}.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.06675",
+      "url": "https://arxiv.org/abs/2511.06675",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2205.10247",
+      "title": "SADAM: Stochastic Adam, A Stochastic Operator for First-Order Gradient-based Optimizer",
+      "authors": [
+        {
+          "name": "Wei Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Bao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "In this work, to efficiently help escape the stationary and saddle points, we propose, analyze, and generalize a stochastic strategy performed as an operator for a first-order gradient descent algorithm in order to increase the target accuracy and reduce time consumption. Unlike existing algorithms, the proposed stochastic the strategy does not require any batches and sampling techniques, enabling efficient implementation and maintaining the initial first-order optimizer's convergence rate, but provides an incomparable improvement of target accuracy when optimizing the target functions. In short, the proposed strategy is generalized, applied to Adam, and validated via the decomposition of biomedical signals using Deep Matrix Fitting and another four peer optimizers. The validation results show that the proposed random strategy can be easily generalized for first-order optimizers and efficiently improve the target accuracy.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2205.10247",
+      "url": "https://arxiv.org/abs/2205.10247",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-1712.07628",
+      "title": "Improving Generalization Performance by Switching from Adam to SGD",
+      "authors": [
+        {
+          "name": "Nitish Shirish Keskar",
+          "affiliation": ""
+        },
+        {
+          "name": "Richard Socher",
+          "affiliation": ""
+        }
+      ],
+      "year": 2017,
+      "abstract": "Despite superior training outcomes, adaptive optimization methods such as Adam, Adagrad or RMSprop have been found to generalize poorly compared to Stochastic gradient descent (SGD). These methods tend to perform well in the initial portion of training but are outperformed by SGD at later stages of training. We investigate a hybrid strategy that begins training with an adaptive method and switches to SGD when appropriate. Concretely, we propose SWATS, a simple strategy which switches from Adam to SGD when a triggering condition is satisfied. The condition we propose relates to the projection of Adam steps on the gradient subspace. By design, the monitoring process for this condition adds very little overhead and does not increase the number of hyperparameters in the optimizer. We report experiments on several standard benchmarks such as: ResNet, SENet, DenseNet and PyramidNet for the CIFAR-10 and CIFAR-100 data sets, ResNet on the tiny-ImageNet data set and language modeling with recurrent networks on the PTB and WT2 data sets. The results show that our strategy is capable of closing the generalization gap between SGD and Adam on a majority of the tasks.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "1712.07628",
+      "url": "https://arxiv.org/abs/1712.07628",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

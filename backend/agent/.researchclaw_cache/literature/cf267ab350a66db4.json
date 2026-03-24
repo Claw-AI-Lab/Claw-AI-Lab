@@ -1,0 +1,726 @@
+{
+  "query": "Training free identity comparison",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1773984095.7341588,
+  "papers": [
+    {
+      "paper_id": "arxiv-2306.00288",
+      "title": "Training-free Neural Architecture Search for RNNs and Transformers",
+      "authors": [
+        {
+          "name": "Aaron Serianni",
+          "affiliation": ""
+        },
+        {
+          "name": "Jugal Kalita",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Neural architecture search (NAS) has allowed for the automatic creation of new and effective neural network architectures, offering an alternative to the laborious process of manually designing complex architectures. However, traditional NAS algorithms are slow and require immense amounts of computing power. Recent research has investigated training-free NAS metrics for image classification architectures, drastically speeding up search algorithms. In this paper, we investigate training-free NAS metrics for recurrent neural network (RNN) and BERT-based transformer architectures, targeted towards language modeling tasks. First, we develop a new training-free metric, named hidden covariance, that predicts the trained performance of an RNN architecture and significantly outperforms existing training-free metrics. We experimentally evaluate the effectiveness of the hidden covariance metric on the NAS-Bench-NLP benchmark. Second, we find that the current search space paradigm for transformer architectures is not optimized for training-free neural architecture search. Instead, a simple qualitative analysis can effectively shrink the search space to the best performing architectures. This conclusion is based on our investigation of existing training-free metrics and new metrics developed from recent transformer pruning literature, evaluated on our own benchmark of trained BERT architectures. Ultimately, our analysis shows that the architecture search space and the training-free metric must be developed together in order to achieve effective results.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2306.00288",
+      "url": "https://arxiv.org/abs/2306.00288",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.09180",
+      "title": "FSampler: Training Free Acceleration of Diffusion Sampling via Epsilon Extrapolation",
+      "authors": [
+        {
+          "name": "Michael A. Vladimir",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "FSampler is a training free, sampler agnostic execution layer that accelerates diffusion sampling by reducing the number of function evaluations (NFE). FSampler maintains a short history of denoising signals (epsilon) from recent real model calls and extrapolates the next epsilon using finite difference predictors at second order, third order, or fourth order, falling back to lower order when history is insufficient. On selected steps the predicted epsilon substitutes the model call while keeping each sampler's update rule unchanged. Predicted epsilons are validated for finiteness and magnitude; a learning stabilizer rescales predictions on skipped steps to correct drift, and an optional gradient estimation stabilizer compensates local curvature. Protected windows, periodic anchors, and a cap on consecutive skips bound deviation over the trajectory. Operating at the sampler level, FSampler integrates with Euler/DDIM, DPM++ 2M/2S, LMS/AB2, and RES family exponential multistep methods and drops into standard workflows. FLUX.1 dev, Qwen Image, and Wan 2.2, FSampler reduces time by 8 to 22% and model calls by 15 to 25% at high fidelity (Structural Similarity Index (SSIM) 0.95 to 0.99), without altering sampler formulas. With an aggressive adaptive gate, reductions can reach 45 to 50% fewer model calls at lower fidelity (SSIM 0.73 to 0.74).",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.09180",
+      "url": "https://arxiv.org/abs/2511.09180",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2406.00552",
+      "title": "Graph Neural Network Training Systems: A Performance Comparison of Full-Graph and Mini-Batch",
+      "authors": [
+        {
+          "name": "Saurabh Bajaj",
+          "affiliation": ""
+        },
+        {
+          "name": "Hojae Son",
+          "affiliation": ""
+        },
+        {
+          "name": "Juelin Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hui Guan",
+          "affiliation": ""
+        },
+        {
+          "name": "Marco Serafini",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Graph Neural Networks (GNNs) have gained significant attention in recent years due to their ability to learn representations of graph-structured data. Two common methods for training GNNs are mini-batch training and full-graph training. Since these two methods require different training pipelines and systems optimizations, two separate classes of GNN training systems emerged, each tailored for one method. Works that introduce systems belonging to a particular category predominantly compare them with other systems within the same category, offering limited or no comparison with systems from the other category. Some prior work also justifies its focus on one specific training method by arguing that it achieves higher accuracy than the alternative. The literature, however, has incomplete and contradictory evidence in this regard.\n  In this paper, we provide a comprehensive empirical comparison of representative full-graph and mini-batch GNN training systems. We find that the mini-batch training systems consistently converge faster than the full-graph training ones across multiple datasets, GNN models, and system configurations. We also find that mini-batch training techniques converge to similar to or often higher accuracy values than full-graph training ones, showing that mini-batch sampling is not necessarily detrimental to accuracy. Our work highlights the importance of comparing systems across different classes, using time-to-accuracy rather than epoch time for performance comparison, and selecting appropriate hyperparameters for each training method separately.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2406.00552",
+      "url": "https://arxiv.org/abs/2406.00552",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2505.06766",
+      "title": "Beyond Identity: A Generalizable Approach for Deepfake Audio Detection",
+      "authors": [
+        {
+          "name": "Yasaman Ahmadiadli",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiao-Ping Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Naimul Khan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Deepfake audio presents a growing threat to digital security, due to its potential for social engineering, fraud, and identity misuse. However, existing detection models suffer from poor generalization across datasets, due to implicit identity leakage, where models inadvertently learn speaker-specific features instead of manipulation artifacts. To the best of our knowledge, this is the first study to explicitly analyze and address identity leakage in the audio deepfake detection domain. This work proposes an identity-independent audio deepfake detection framework that mitigates identity leakage by encouraging the model to focus on forgery-specific artifacts instead of overfitting to speaker traits. Our approach leverages Artifact Detection Modules (ADMs) to isolate synthetic artifacts in both time and frequency domains, enhancing cross-dataset generalization. We introduce novel dynamic artifact generation techniques, including frequency domain swaps, time domain manipulations, and background noise augmentation, to enforce learning of dataset-invariant features. Extensive experiments conducted on ASVspoof2019, ADD 2022, FoR, and In-The-Wild datasets demonstrate that the proposed ADM-enhanced models achieve F1 scores of 0.230 (ADD 2022), 0.604 (FoR), and 0.813 (In-The-Wild), consistently outperforming the baseline. Dynamic Frequency Swap proves to be the most effective strategy across diverse conditions. These findings emphasize the value of artifact-based learning in mitigating implicit identity leakage for more generalizable audio deepfake detection.",
+      "venue": "cs.SD",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2505.06766",
+      "url": "https://arxiv.org/abs/2505.06766",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2405.14987",
+      "title": "Simultaneous quantum identity authentication scheme utilizing entanglement swapping with secret key preservation",
+      "authors": [
+        {
+          "name": "Arindam Dutta",
+          "affiliation": ""
+        },
+        {
+          "name": "Anirban Pathak",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Unconditional security in quantum key distribution (QKD) relies on authenticating the identities of users involved in key distribution. While classical identity authentication schemes were initially utilized in QKD implementations, concerns regarding their vulnerability have prompted the exploration of quantum identity authentication (QIA) protocols. In this study, we introduce a new protocol for QIA, derived from the concept of controlled secure direct quantum communication. Our proposed scheme facilitates simultaneous authentication between two users, Alice and Bob, leveraging Bell states with the assistance of a third party, Charlie. Through rigorous security analysis, we demonstrate that the proposed protocol withstands various known attacks, including impersonation, intercept and resend and impersonated fraudulent attacks. Additionally, we establish the relevance of the proposed protocol by comparing it with the existing protocols of similar type.",
+      "venue": "quant-ph",
+      "citation_count": 0,
+      "doi": "10.1142/S0217732324501967",
+      "arxiv_id": "2405.14987",
+      "url": "https://arxiv.org/abs/2405.14987",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2401.01673",
+      "title": "Coded Beam Training",
+      "authors": [
+        {
+          "name": "Tianyue Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Jieao Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Qiumo Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yongli Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Linglong Dai",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "In extremely large-scale multiple input multiple output (XL-MIMO) systems for future sixth-generation (6G) communications, codebook-based beam training stands out as a promising technology to acquire channel state information (CSI). Despite their effectiveness, when the pilot overhead is limited, existing beam training methods suffer from significant achievable rate degradation for remote users with low signal-to-noise ratio (SNR). To tackle this challenge, leveraging the error-correcting capability of channel codes, we introduce channel coding theory into hierarchical beam training to extend the coverage area. Specifically, we establish the duality between hierarchical beam training and channel coding, and the proposed coded beam training scheme serves as a general framework. Then, we present two specific implementations exemplified by coded beam training methods based on Hamming codes and convolutional codes, during which the beam encoding and decoding processes are refined respectively to better accommodate the beam training problem. Simulation results have demonstrated that the proposed coded beam training method can enable reliable beam training performance for remote users with low SNR while keeping training overhead low.",
+      "venue": "cs.IT",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2401.01673",
+      "url": "https://arxiv.org/abs/2401.01673",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2504.17759",
+      "title": "Identity Control Plane: The Unifying Layer for Zero Trust Infrastructure",
+      "authors": [
+        {
+          "name": "Surya Teja Avirneni",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "This paper introduces the Identity Control Plane (ICP), an architectural framework for enforcing identity-aware Zero Trust access across human users, workloads, and automation systems. The ICP model unifies SPIFFE-based workload identity, OIDC/SAML user identity, and scoped automation credentials via broker-issued transaction tokens. We propose a composable enforcement layer using ABAC policy engines (e.g., OPA, Cedar), aligned with IETF WIMSE drafts and OAuth transaction tokens. The paper includes architectural components, integration patterns, use cases, a comparative analysis with current models, and theorized performance metrics. A FedRAMP and SLSA compliance mapping is also presented. This is a theoretical infrastructure architecture paper intended for security researchers and platform architects. No prior version of this work has been published.",
+      "venue": "cs.CR",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2504.17759",
+      "url": "https://arxiv.org/abs/2504.17759",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2510.14256",
+      "title": "Identity-GRPO: Optimizing Multi-Human Identity-preserving Video Generation via Reinforcement Learning",
+      "authors": [
+        {
+          "name": "Xiangyu Meng",
+          "affiliation": ""
+        },
+        {
+          "name": "Zixian Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhenghao Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Junchao Liao",
+          "affiliation": ""
+        },
+        {
+          "name": "Long Qin",
+          "affiliation": ""
+        },
+        {
+          "name": "Weizhi Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "While advanced methods like VACE and Phantom have advanced video generation for specific subjects in diverse scenarios, they struggle with multi-human identity preservation in dynamic interactions, where consistent identities across multiple characters are critical. To address this, we propose Identity-GRPO, a human feedback-driven optimization pipeline for refining multi-human identity-preserving video generation. First, we construct a video reward model trained on a large-scale preference dataset containing human-annotated and synthetic distortion data, with pairwise annotations focused on maintaining human consistency throughout the video. We then employ a GRPO variant tailored for multi-human consistency, which greatly enhances both VACE and Phantom. Through extensive ablation studies, we evaluate the impact of annotation quality and design choices on policy optimization. Experiments show that Identity-GRPO achieves up to 18.9% improvement in human consistency metrics over baseline methods, offering actionable insights for aligning reinforcement learning with personalized video generation.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2510.14256",
+      "url": "https://arxiv.org/abs/2510.14256",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2310.16562",
+      "title": "Trustworthy Cross-Border Interoperable Identity System for Developing Countries",
+      "authors": [
+        {
+          "name": "Ayei E. Ibor",
+          "affiliation": ""
+        },
+        {
+          "name": "Mark Hooper",
+          "affiliation": ""
+        },
+        {
+          "name": "Carsten Maple",
+          "affiliation": ""
+        },
+        {
+          "name": "Gregory Epiphaniou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Foundational identity systems (FIDS) have been used to optimise service delivery and inclusive economic growth in developing countries. As developing nations increasingly seek to use FIDS for the identification and authentication of identity (ID) holders, trustworthy interoperability will help to develop a cross-border dimension of e-Government. Despite this potential, there has not been any significant research on the interoperability of FIDS in the African identity ecosystem. There are several challenges to this; on one hand, complex internal political dynamics have resulted in weak institutions, implying that FIDS could be exploited for political gains. On the other hand, the trust in the government by the citizens or ID holders is habitually low, in which case, data security and privacy protection concerns become paramount. In the same sense, some FIDS are technology-locked, thus interoperability is primarily ambiguous. There are also issues of cross-system compatibility, legislation, vendor-locked system design principles and unclear regulatory provisions for data sharing. Fundamentally, interoperability is an essential prerequisite for e-Government services and underpins optimal service delivery in education, social security, and financial services including gender and equality as already demonstrated by the European Union. Furthermore, cohesive data exchange through an interoperable identity system will create an ecosystem of efficient data governance and the integration of cross-border FIDS. Consequently, this research identifies the challenges, opportunities, and requirements for cross-border interoperability in an African context. Our findings show that interoperability in the African identity ecosystem is vital to strengthen the seamless authentication and verification of ID holders for inclusive economic growth and widen the dimensions of e-Government across the continent.",
+      "venue": "cs.CY",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2310.16562",
+      "url": "https://arxiv.org/abs/2310.16562",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2004.13107",
+      "title": "Identity Management on Blockchain -- Privacy and Security Aspects",
+      "authors": [
+        {
+          "name": "Andreea-Elena Panait",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruxandra F. Olimid",
+          "affiliation": ""
+        },
+        {
+          "name": "Alin Stefanescu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "In the last years, identity management solutions on blockchain were proposed as a possible solution to the digital identity management problem. However, they are still at an early stage and further research needs to be done to conclude whether identity systems could benefit from the use of blockchain or not. Motivated by this, we investigate identity management solutions on blockchain intending to give the reader an overview of the current status and provide a better understanding of the pros and cons of using such solutions. We conduct an analysis on ten of the most known implementations, with a focus on privacy and security aspects. Finally, we identify existing challenges and give new directions for research.",
+      "venue": "cs.CR",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2004.13107",
+      "url": "https://arxiv.org/abs/2004.13107",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2512.04830",
+      "title": "FreeGen: Feed-Forward Reconstruction-Generation Co-Training for Free-Viewpoint Driving Scene Synthesis",
+      "authors": [
+        {
+          "name": "Shijie Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Peixi Peng",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Closed-loop simulation and scalable pre-training for autonomous driving require synthesizing free-viewpoint driving scenes. However, existing datasets and generative pipelines rarely provide consistent off-trajectory observations, limiting large-scale evaluation and training. While recent generative models demonstrate strong visual realism, they struggle to jointly achieve interpolation consistency and extrapolation realism without per-scene optimization. To address this, we propose FreeGen, a feed-forward reconstruction-generation co-training framework for free-viewpoint driving scene synthesis. The reconstruction model provides stable geometric representations to ensure interpolation consistency, while the generation model performs geometry-aware enhancement to improve realism at unseen viewpoints. Through co-training, generative priors are distilled into the reconstruction model to improve off-trajectory rendering, and the refined geometry in turn offers stronger structural guidance for generation. Experiments demonstrate that FreeGen achieves state-of-the-art performance for free-viewpoint driving scene synthesis.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2512.04830",
+      "url": "https://arxiv.org/abs/2512.04830",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2310.15934",
+      "title": "Redactable Signature Schemes and Zero-knowledge Proofs: A comparative examination for applications in Decentralized Digital Identity Systems",
+      "authors": [
+        {
+          "name": "Bryan Kumara",
+          "affiliation": ""
+        },
+        {
+          "name": "Mark Hooper",
+          "affiliation": ""
+        },
+        {
+          "name": "Carsten Maple",
+          "affiliation": ""
+        },
+        {
+          "name": "Timothy Hobson",
+          "affiliation": ""
+        },
+        {
+          "name": "Jon Crowcroft",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Redactable Signature Schemes and Zero-Knowledge Proofs are two radically different approaches to enable privacy. This paper analyses their merits and drawbacks when applied to decentralized identity system. Redactable Signatures, though competitively quick and compact, are not as expressive as zero-knowledge proofs and do not provide the same level of privacy. On the other hand, zero-knowledge proofs can be much faster but some protocols require a trusted set-up. We conclude that given the benefits and drawbacks, redactable signatures are more appropriate at an earlier stage and zero-knowledge proofs are more appropriate at a later stage for decentralized identity systems",
+      "venue": "cs.CR",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2310.15934",
+      "url": "https://arxiv.org/abs/2310.15934",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2112.04234",
+      "title": "A short review on quantum identity authentication protocols: How would Bob know that he is talking with Alice?",
+      "authors": [
+        {
+          "name": "Arindam Dutta",
+          "affiliation": ""
+        },
+        {
+          "name": "Anirban Pathak",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Secure communication has achieved a new dimension with the advent of the schemes of quantum key distribution (QKD) as in contrast to classical cryptography, quantum cryptography can provide unconditional security. However, a successful implementation of a scheme of QKD requires identity authentication as a prerequisite. A security loophole in the identity authentication scheme may lead to the vulnerability of the entire secure communication scheme. Consequently, identity authentication is extremely important and in the last three decades several schemes for identity authentication, using quantum resources have been proposed. The chronological development of these protocols, which are now referred to as quantum identity authentication (QIA) protocols, are briefly reviewed here with specific attention to the causal connection involved in their development. The existing protocols are classified on the basis of the required quantum resources and their relative merits and demerits are analyzed. Further, in the process of the classification of the protocols for QIA, it's observed that the existing protocols can also be classified in a few groups based on the inherent computational tasks used to design the protocols. Realization of these symmetries has led to the possibility of designing a set of new protocols for quantum identity authentication, which are based on the existing schemes of the secure computational and communication tasks. The security of such protocols is also critically analyzed.",
+      "venue": "quant-ph",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2112.04234",
+      "url": "https://arxiv.org/abs/2112.04234",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.02758",
+      "title": "Finite free probability and $S$ transforms of Jacobi processes",
+      "authors": [
+        {
+          "name": "Nizar Demni",
+          "affiliation": ""
+        },
+        {
+          "name": "Nicolas Gilliers",
+          "affiliation": ""
+        },
+        {
+          "name": "Tarek Hamdi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "In this paper, we study the $S$ transforms of Jacobi processes in the frameworks of free and finite free probability theories. We begin by deriving a partial differential equation satisfied by the free $S$ transform of the free Jacobi process, and we provide a detailed analysis of its characteristic curves. We turn next our attention to the averaged characteristic polynomial of the Hermitian Jacobi process and to the dynamic of its roots, referred to as the \\emph{frozen Jacobi process}. In particular, we prove, for a specific set of parameters, that the former aligns up to a Szeg\u00f6 variable transformation with the Hermite unitary polynomial. We also provide an expansion of the averaged characteristic polynomial of the Hermitian process in the basis of Jacobi polynomials. Finally, we establish the convergence of the frozen Jacobi process to the free Jacobi process in high dimensions by using the finite free S transform. In doing so, we prove a general result, interesting in its own, on the convergence of the finite differences of the finite free $S$ transform, which paves the way to obtain asymptotics of differential-difference equations satisfied by time-dependent finite free S-transforms of polynomial sequences with positive roots.",
+      "venue": "math.PR",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.02758",
+      "url": "https://arxiv.org/abs/2511.02758",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2602.09971",
+      "title": "SCOPE: A Training-Free Online 3D Deployment for UAV-BSs with Theoretical Analysis and Comparative Study",
+      "authors": [
+        {
+          "name": "Chuan-Chi Lai",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Unmanned Aerial Vehicle (UAV)-mounted Base Stations (UAV-BSs) offer a flexible solution for serving ground users in temporary hotspot scenarios. However, efficiently deploying UAV-BSs to satisfy heterogeneous user distributions remains a challenging optimization problem. While recent data-driven approaches, particularly Deep Reinforcement Learning (DRL), have shown promise in dynamic environments, they often suffer from prohibitive training overhead, poor generalization to topology changes, and high computational complexity. To address these limitations, this paper proposes Satisfaction-driven Coverage Optimization via Perimeter Extraction (SCOPE), a training-free and online 3D deployment framework. Unlike heuristic baselines that rely on fixed-altitude assumptions, SCOPE integrates a perimeter extraction mechanism with the Smallest Enclosing Circle (SEC) algorithm to dynamically optimize 3D UAV positions. Theoretically, we provide a rigorous convergence proof of the proposed algorithm and derive its polynomial time complexity of $O(N^2 \\log N)$. Experimentally, we conduct a comprehensive comparative study against state-of-the-art DRL baselines (e.g., PPO). Simulation results demonstrate that SCOPE achieves comparable user satisfaction to DRL methods but significantly lower computational latency (milliseconds vs. hours of training) and superior energy efficiency, making it an ideal solution for real-time, on-demand emergency deployment.",
+      "venue": "cs.NI",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2602.09971",
+      "url": "https://arxiv.org/abs/2602.09971",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2503.00938",
+      "title": "From Poses to Identity: Training-Free Person Re-Identification via Feature Centralization",
+      "authors": [
+        {
+          "name": "Chao Yuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Guiwei Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Changxiao Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Tianyi Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Guanglin Niu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Person re-identification (ReID) aims to extract accurate identity representation features. However, during feature extraction, individual samples are inevitably affected by noise (background, occlusions, and model limitations). Considering that features from the same identity follow a normal distribution around identity centers after training, we propose a Training-Free Feature Centralization ReID framework (Pose2ID) by aggregating the same identity features to reduce individual noise and enhance the stability of identity representation, which preserves the feature's original distribution for following strategies such as re-ranking. Specifically, to obtain samples of the same identity, we introduce two components: Identity-Guided Pedestrian Generation: by leveraging identity features to guide the generation process, we obtain high-quality images with diverse poses, ensuring identity consistency even in complex scenarios such as infrared, and occlusion. Neighbor Feature Centralization: it explores each sample's potential positive samples from its neighborhood. Experiments demonstrate that our generative model exhibits strong generalization capabilities and maintains high identity consistency. With the Feature Centralization framework, we achieve impressive performance even with an ImageNet pre-trained model without ReID training, reaching mAP/Rank-1 of 52.81/78.92 on Market1501. Moreover, our method sets new state-of-the-art results across standard, cross-modality, and occluded ReID tasks, showcasing strong adaptability.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2503.00938",
+      "url": "https://arxiv.org/abs/2503.00938",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2512.03964",
+      "title": "Training for Identity, Inference for Controllability: A Unified Approach to Tuning-Free Face Personalization",
+      "authors": [
+        {
+          "name": "Lianyu Pang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ji Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Qiping Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Baoquan Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhenguo Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Qing Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Xudong Mao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Tuning-free face personalization methods have developed along two distinct paradigms: text embedding approaches that map facial features into the text embedding space, and adapter-based methods that inject features through auxiliary cross-attention layers. While both paradigms have shown promise, existing methods struggle to simultaneously achieve high identity fidelity and flexible text controllability. We introduce UniID, a unified tuning-free framework that synergistically integrates both paradigms. Our key insight is that when merging these approaches, they should mutually reinforce only identity-relevant information while preserving the original diffusion prior for non-identity attributes. We realize this through a principled training-inference strategy: during training, we employ an identity-focused learning scheme that guides both branches to capture identity features exclusively; at inference, we introduce a normalized rescaling mechanism that recovers the text controllability of the base diffusion model while enabling complementary identity signals to enhance each other. This principled design enables UniID to achieve high-fidelity face personalization with flexible text controllability. Extensive experiments against six state-of-the-art methods demonstrate that UniID achieves superior performance in both identity preservation and text controllability. Code will be available at https://github.com/lyuPang/UniID",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2512.03964",
+      "url": "https://arxiv.org/abs/2512.03964",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2506.06802",
+      "title": "Training-Free Diffusion Framework for Stylized Image Generation with Identity Preservation",
+      "authors": [
+        {
+          "name": "Mohammad Ali Rezaei",
+          "affiliation": ""
+        },
+        {
+          "name": "Helia Hajikazem",
+          "affiliation": ""
+        },
+        {
+          "name": "Saeed Khanehgir",
+          "affiliation": ""
+        },
+        {
+          "name": "Mahdi Javanmardi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Although diffusion models have demonstrated remarkable generative capabilities, existing style transfer techniques often struggle to maintain identity while achieving high-quality stylization. This limitation becomes particularly critical in practical applications such as advertising and marketing, where preserving the identity of featured individuals is essential for a campaign's effectiveness. It is particularly severe when subjects are distant from the camera or appear within a group, frequently leading to a significant loss of identity. To address this issue, we introduce a novel, training-free framework for identity-preserved stylized image synthesis. Key contributions include the \"Mosaic Restored Content Image\" technique, which significantly enhances identity retention in complex scenes, and a training-free content consistency loss that improves the preservation of fine-grained details by directing more attention to the original image during stylization. Our experiments reveal that the proposed approach substantially exceeds the baseline model in concurrently maintaining high stylistic fidelity and robust identity integrity, all without necessitating model retraining or fine-tuning.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2506.06802",
+      "url": "https://arxiv.org/abs/2506.06802",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2005.11652",
+      "title": "Fast Beam Training for IRS-Assisted Multiuser Communications",
+      "authors": [
+        {
+          "name": "Changsheng You",
+          "affiliation": ""
+        },
+        {
+          "name": "Beixiong Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Rui Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "In this letter, we consider an intelligent reflecting surface (IRS)-assisted multiuser communication system, where an IRS is deployed to provide virtual line-of-sight (LoS) links between an access point (AP) and multiple users. We consider the practical codebook-based IRS passive beamforming and study efficient design for IRS reflect beam training, which is challenging due to the large number of IRS reflecting elements. In contrast to the conventional single-beam training, we propose a new multi-beam training method by dividing the IRS reflecting elements into multiple sub-arrays and designing their simultaneous multi-beam steering over time. By simply comparing the received signal power over time, each user can detect its optimal IRS beam direction with a high probability, even without searching over all possible beam directions as the single-beam training. Simulation results show that our proposed multi-beam training significantly reduces the training time of conventional single-beam training and yet achieves comparable IRS passive beamforming performance for data transmission.",
+      "venue": "cs.IT",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2005.11652",
+      "url": "https://arxiv.org/abs/2005.11652",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2509.12383",
+      "title": "Data selves and identity theft in the age of AI",
+      "authors": [
+        {
+          "name": "Tim Gorichanaz",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "This chapter examines identity theft in the digital age, particularly in the context of emerging artificial intelligence (AI) technologies. It begins with a discussion of big data and selfhood, the concepts of data selves and data doubles, and the process of identification in the digital age. Next, the literature on online identity theft is reviewed, including its theoretical and empirical aspects. As is evident from that review, AI technologies have increased the speed and scale of identity crimes that were already rampant in the online world, even while they have led to new ways of detecting and preventing such crimes. As with any new technology, AI is currently fuelling an arms race between criminals and law enforcement, with end users often caught powerless in the middle. The chapter closes by exploring some emerging directions and future possibilities of identity theft in the age of AI.",
+      "venue": "cs.HC",
+      "citation_count": 0,
+      "doi": "10.1515/9783110721751-010",
+      "arxiv_id": "2509.12383",
+      "url": "https://arxiv.org/abs/2509.12383",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2303.10856",
+      "title": "Revisiting Realistic Test-Time Training: Sequential Inference and Adaptation by Anchored Clustering Regularized Self-Training",
+      "authors": [
+        {
+          "name": "Yongyi Su",
+          "affiliation": ""
+        },
+        {
+          "name": "Xun Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Tianrui Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Kui Jia",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Deploying models on target domain data subject to distribution shift requires adaptation. Test-time training (TTT) emerges as a solution to this adaptation under a realistic scenario where access to full source domain data is not available, and instant inference on the target domain is required. Despite many efforts into TTT, there is a confusion over the experimental settings, thus leading to unfair comparisons. In this work, we first revisit TTT assumptions and categorize TTT protocols by two key factors. Among the multiple protocols, we adopt a realistic sequential test-time training (sTTT) protocol, under which we develop a test-time anchored clustering (TTAC) approach to enable stronger test-time feature learning. TTAC discovers clusters in both source and target domains and matches the target clusters to the source ones to improve adaptation. When source domain information is strictly absent (i.e. source-free) we further develop an efficient method to infer source domain distributions for anchored clustering. Finally, self-training~(ST) has demonstrated great success in learning from unlabeled data and we empirically figure out that applying ST alone to TTT is prone to confirmation bias. Therefore, a more effective TTT approach is introduced by regularizing self-training with anchored clustering, and the improved model is referred to as TTAC++. We demonstrate that, under all TTT protocols, TTAC++ consistently outperforms the state-of-the-art methods on five TTT datasets, including corrupted target domain, selected hard samples, synthetic-to-real adaptation and adversarially attacked target domain. We hope this work will provide a fair benchmarking of TTT methods, and future research should be compared within respective protocols.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2303.10856",
+      "url": "https://arxiv.org/abs/2303.10856",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2505.13265",
+      "title": "Selfless reduced free product $C^*$-algebras",
+      "authors": [
+        {
+          "name": "Ben Hayes",
+          "affiliation": ""
+        },
+        {
+          "name": "Srivatsav Kunnawalkam Elayavalli",
+          "affiliation": ""
+        },
+        {
+          "name": "Leonel Robert",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "We study selflessness in the general setting of reduced free products of $C^*$-algebras. Towards this end, we develop a suitable theory of rapid decay for filtrations in arbitrary $C^*$-probability spaces. We provide several natural examples and permanence properties of this phenomenon. By using this framework in combination with von Neumann algebraic techniques involving approximate forms of orthogonality, we are able to prove selflessness for general families of reduced free product $C^*$-algebras. As an instance of our results, we prove selflessness and thus strict comparison for the canonical $C^*$-algebras generated by Voiculescu's free semicircular systems. Our results also provide new examples of purely infinite reduced free products.",
+      "venue": "math.OA",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2505.13265",
+      "url": "https://arxiv.org/abs/2505.13265",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2512.18964",
+      "title": "DVI: Disentangling Semantic and Visual Identity for Training-Free Personalized Generation",
+      "authors": [
+        {
+          "name": "Guandong Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yijun Ding",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Recent tuning-free identity customization methods achieve high facial fidelity but often overlook visual context, such as lighting, skin texture, and environmental tone. This limitation leads to ``Semantic-Visual Dissonance,'' where accurate facial geometry clashes with the input's unique atmosphere, causing an unnatural ``sticker-like'' effect. We propose **DVI (Disentangled Visual-Identity)**, a zero-shot framework that orthogonally disentangles identity into fine-grained semantic and coarse-grained visual streams. Unlike methods relying solely on semantic vectors, DVI exploits the inherent statistical properties of the VAE latent space, utilizing mean and variance as lightweight descriptors for global visual atmosphere. We introduce a **Parameter-Free Feature Modulation** mechanism that adaptively modulates semantic embeddings with these visual statistics, effectively injecting the reference's ``visual soul'' without training. Furthermore, a **Dynamic Temporal Granularity Scheduler** aligns with the diffusion process, prioritizing visual atmosphere in early denoising stages while refining semantic details later. Extensive experiments demonstrate that DVI significantly enhances visual consistency and atmospheric fidelity without parameter fine-tuning, maintaining robust identity preservation and outperforming state-of-the-art methods in IBench evaluations.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2512.18964",
+      "url": "https://arxiv.org/abs/2512.18964",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2504.01704",
+      "title": "Performance and applications of optical pin beams in turbulent long-range free space optical communications",
+      "authors": [
+        {
+          "name": "Francesco Nardo",
+          "affiliation": ""
+        },
+        {
+          "name": "Jan Tepper",
+          "affiliation": ""
+        },
+        {
+          "name": "Ricardo Barrios",
+          "affiliation": ""
+        },
+        {
+          "name": "Jonas Krimmer",
+          "affiliation": ""
+        },
+        {
+          "name": "Sebastian Randel",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Optical pin beams (OPBs) are a promising candidate for realizing turbulence-resilient long-distance free-space optical communication links spanning hundreds of kilometers. In this work, we introduce a unified theoretical model to describe the propagation of OPBs and present comprehensive simulation results based on many realizations and link-budget analyses for constant turbulence strengths. For reference, we compare the performance of the OPBs to weakly diverging and focusing Gaussian beams. For a 100km long air-to-air link, 10km above sea level, our simulation results show that OPBs offer an improved link budget of up to 8.6dB and enhanced beam wander statistics of up to 3dB compared to the considered Gaussian beams. Additionally, we identified a quadratic relationship between the transmitter aperture diameter and the maximum achievable distances, which is crucial in deciding the suitability of OPBs for a given application scenario.",
+      "venue": "physics.optics",
+      "citation_count": 0,
+      "doi": "10.1117/12.3040720",
+      "arxiv_id": "2504.01704",
+      "url": "https://arxiv.org/abs/2504.01704",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2504.14760",
+      "title": "Establishing Workload Identity for Zero Trust CI/CD: From Secrets to SPIFFE-Based Authentication",
+      "authors": [
+        {
+          "name": "Surya Teja Avirneni",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "CI/CD systems have become privileged automation agents in modern infrastructure, but their identity is still based on secrets or temporary credentials passed between systems. In enterprise environments, these platforms are centralized and shared across teams, often with broad cloud permissions and limited isolation. These conditions introduce risk, especially in the era of supply chain attacks, where implicit trust and static credentials leave systems exposed. This paper describes the shift from static credentials to OpenID Connect (OIDC) federation, and introduces SPIFFE (Secure Production Identity Framework for Everyone) as a runtime-issued, platform-neutral identity model for non-human actors. SPIFFE decouples identity from infrastructure, enabling strong, portable authentication across job runners and deployed workloads. We show how SPIFFE identities support policy alignment, workload attestation, and mutual authentication. The paper concludes by outlining next steps in enabling policy-based access, forming the basis of a broader Zero Trust architecture for CI/CD.",
+      "venue": "cs.CR",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2504.14760",
+      "url": "https://arxiv.org/abs/2504.14760",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2104.10074",
+      "title": "Fibonacci identities and Fibonacci pairs",
+      "authors": [
+        {
+          "name": "Cheng Lien Lang",
+          "affiliation": ""
+        },
+        {
+          "name": "Mong Lung Lang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "A Fibonacci pair $F_s(w,x)$ of rank $s$ is a pair $s \\times s$ nonsingular matrices such that $wx=xw$ and that the entries of $aw^n$ and $axw^m$ are polynomials of Fibonacci or Lucas numbers for some nonzero $a$. We construct identities systematically by the study of $F_2(w, x)$ and $F_3(w, x)$.",
+      "venue": "math.CO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2104.10074",
+      "url": "https://arxiv.org/abs/2104.10074",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

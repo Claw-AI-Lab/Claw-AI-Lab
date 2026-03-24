@@ -1,0 +1,1382 @@
+{
+  "query": "Adaptive multi-reference self-attention (MRSA) survey",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1774244804.7744734,
+  "papers": [
+    {
+      "paper_id": "arxiv-2603.00175",
+      "title": "Self-Attention And Beyond the Infinite: Towards Linear Transformers with Infinite Self-Attention",
+      "authors": [
+        {
+          "name": "Giorgio Roffo",
+          "affiliation": ""
+        },
+        {
+          "name": "Luke Palmer",
+          "affiliation": ""
+        },
+        {
+          "name": "Nilli Lavie",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "The quadratic cost of softmax attention limits Transformer scalability in high-resolution vision. We introduce Infinite Self-Attention (InfSA), a spectral reformulation that treats each attention layer as a diffusion step on a content-adaptive token graph, accumulating multi-hop interactions through a discounted Neumann series over attention matrices. This links self-attention to classical graph centrality (Katz, PageRank, eigenvector centrality) for interpretable token weighting. We also show the Neumann kernel equals the fundamental matrix of an absorbing Markov chain, so a token's centrality is its expected number of random-walk visits before absorption. We then propose Linear-InfSA, a linear-time variant that approximates the principal eigenvector of the implicit attention operator without forming the full attention matrix. It keeps an auxiliary state of fixed size proportional to per-head dimension dh (independent of sequence length N), is drop-in compatible with Vision Transformers, and supports stable training at 4096 by 4096 and inference at 9216 by 9216 (about 332k tokens). In a 4-layer ViT (53.5M parameters, 59 GFLOPs at 224 by 224), Linear-InfSA reaches 84.7% top-1 on ImageNet-1K, a +3.2 point architectural gain over an equal-depth softmax ViT trained with the same recipe. On ImageNet-V2, InfViT variants outperform all compared baselines (up to 79.8% vs 76.8%), indicating robustness under distribution shift. On an A100 40GB GPU, Linear-InfViT runs at 231 images/s and 0.87 J/image (13x better throughput and energy than equal-depth ViT) and is the only tested model to complete 9216 by 9216 inference without out-of-memory. The linear approximation closely matches the dominant eigenvector of the quadratic operator (cosine 0.985). Code available at: https://huggingface.co/groffo/infinite-self-attention or https://github.com/giorgioroffo/infinite-self-attention",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2603.00175",
+      "url": "https://arxiv.org/abs/2603.00175",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2305.19798",
+      "title": "Primal-Attention: Self-attention through Asymmetric Kernel SVD in Primal Representation",
+      "authors": [
+        {
+          "name": "Yingyi Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Qinghua Tao",
+          "affiliation": ""
+        },
+        {
+          "name": "Francesco Tonin",
+          "affiliation": ""
+        },
+        {
+          "name": "Johan A. K. Suykens",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Recently, a new line of works has emerged to understand and improve self-attention in Transformers by treating it as a kernel machine. However, existing works apply the methods for symmetric kernels to the asymmetric self-attention, resulting in a nontrivial gap between the analytical understanding and numerical implementation. In this paper, we provide a new perspective to represent and optimize self-attention through asymmetric Kernel Singular Value Decomposition (KSVD), which is also motivated by the low-rank property of self-attention normally observed in deep layers. Through asymmetric KSVD, $i$) a primal-dual representation of self-attention is formulated, where the optimization objective is cast to maximize the projection variances in the attention outputs; $ii$) a novel attention mechanism, i.e., Primal-Attention, is proposed via the primal representation of KSVD, avoiding explicit computation of the kernel matrix in the dual; $iii$) with KKT conditions, we prove that the stationary solution to the KSVD optimization in Primal-Attention yields a zero-value objective. In this manner, KSVD optimization can be implemented by simply minimizing a regularization loss, so that low-rank property is promoted without extra decomposition. Numerical experiments show state-of-the-art performance of our Primal-Attention with improved efficiency. Moreover, we demonstrate that the deployed KSVD optimization regularizes Primal-Attention with a sharper singular value decay than that of the canonical self-attention, further verifying the great potential of our method. To the best of our knowledge, this is the first work that provides a primal-dual representation for the asymmetric kernel in self-attention and successfully applies it to modeling and optimization.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2305.19798",
+      "url": "https://arxiv.org/abs/2305.19798",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2204.12077",
+      "title": "AAU-net: An Adaptive Attention U-net for Breast Lesions Segmentation in Ultrasound Images",
+      "authors": [
+        {
+          "name": "Gongping Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Dai",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianxun Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Moi Hoon Yap",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Various deep learning methods have been proposed to segment breast lesion from ultrasound images. However, similar intensity distributions, variable tumor morphology and blurred boundaries present challenges for breast lesions segmentation, especially for malignant tumors with irregular shapes. Considering the complexity of ultrasound images, we develop an adaptive attention U-net (AAU-net) to segment breast lesions automatically and stably from ultrasound images. Specifically, we introduce a hybrid adaptive attention module, which mainly consists of a channel self-attention block and a spatial self-attention block, to replace the traditional convolution operation. Compared with the conventional convolution operation, the design of the hybrid adaptive attention module can help us capture more features under different receptive fields. Different from existing attention mechanisms, the hybrid adaptive attention module can guide the network to adaptively select more robust representation in channel and space dimensions to cope with more complex breast lesions segmentation. Extensive experiments with several state-of-the-art deep learning segmentation methods on three public breast ultrasound datasets show that our method has better performance on breast lesion segmentation. Furthermore, robustness analysis and external experiments demonstrate that our proposed AAU-net has better generalization performance on the segmentation of breast lesions. Moreover, the hybrid adaptive attention module can be flexibly applied to existing network frameworks.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "10.1109/TMI.2022.3226268",
+      "arxiv_id": "2204.12077",
+      "url": "https://arxiv.org/abs/2204.12077",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.13780",
+      "title": "Self-Attention as Distributional Projection: A Unified Interpretation of Transformer Architecture",
+      "authors": [
+        {
+          "name": "Nihal Mehta",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "This paper presents a mathematical interpretation of self-attention by connecting it to distributional semantics principles. We show that self-attention emerges from projecting corpus-level co-occurrence statistics into sequence context. Starting from the co-occurrence matrix underlying GloVe embeddings, we demonstrate how the projection naturally captures contextual influence, with the query-key-value mechanism arising as the natural asymmetric extension for modeling directional relationships. Positional encodings and multi-head attention then follow as structured refinements of this same projection principle. Our analysis demonstrates that the Transformer architecture's particular algebraic form follows from these projection principles rather than being an arbitrary design choice.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.13780",
+      "url": "https://arxiv.org/abs/2511.13780",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2402.04563",
+      "title": "Attention Guided CAM: Visual Explanations of Vision Transformer Guided by Self-Attention",
+      "authors": [
+        {
+          "name": "Saebom Leem",
+          "affiliation": ""
+        },
+        {
+          "name": "Hyunseok Seo",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Vision Transformer(ViT) is one of the most widely used models in the computer vision field with its great performance on various tasks. In order to fully utilize the ViT-based architecture in various applications, proper visualization methods with a decent localization performance are necessary, but these methods employed in CNN-based models are still not available in ViT due to its unique structure. In this work, we propose an attention-guided visualization method applied to ViT that provides a high-level semantic explanation for its decision. Our method selectively aggregates the gradients directly propagated from the classification output to each self-attention, collecting the contribution of image features extracted from each location of the input image. These gradients are additionally guided by the normalized self-attention scores, which are the pairwise patch correlation scores. They are used to supplement the gradients on the patch-level context information efficiently detected by the self-attention mechanism. This approach of our method provides elaborate high-level semantic explanations with great localization performance only with the class labels. As a result, our method outperforms the previous leading explainability methods of ViT in the weakly-supervised localization task and presents great capability in capturing the full instances of the target class object. Meanwhile, our method provides a visualization that faithfully explains the model, which is demonstrated in the perturbation comparison test.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2402.04563",
+      "url": "https://arxiv.org/abs/2402.04563",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2009.04544",
+      "title": "Self-Adaptive Physics-Informed Neural Networks using a Soft Attention Mechanism",
+      "authors": [
+        {
+          "name": "Levi McClenny",
+          "affiliation": ""
+        },
+        {
+          "name": "Ulisses Braga-Neto",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Physics-Informed Neural Networks (PINNs) have emerged recently as a promising application of deep neural networks to the numerical solution of nonlinear partial differential equations (PDEs). However, it has been recognized that adaptive procedures are needed to force the neural network to fit accurately the stubborn spots in the solution of \"stiff\" PDEs. In this paper, we propose a fundamentally new way to train PINNs adaptively, where the adaptation weights are fully trainable and applied to each training point individually, so the neural network learns autonomously which regions of the solution are difficult and is forced to focus on them. The self-adaptation weights specify a soft multiplicative soft attention mask, which is reminiscent of similar mechanisms used in computer vision. The basic idea behind these SA-PINNs is to make the weights increase as the corresponding losses increase, which is accomplished by training the network to simultaneously minimize the losses and maximize the weights. In addition, we show how to build a continuous map of self-adaptive weights using Gaussian Process regression, which allows the use of stochastic gradient descent in problems where conventional gradient descent is not enough to produce accurate solutions. Finally, we derive the Neural Tangent Kernel matrix for SA-PINNs and use it to obtain a heuristic understanding of the effect of the self-adaptive weights on the dynamics of training in the limiting case of infinitely-wide PINNs, which suggests that SA-PINNs work by producing a smooth equalization of the eigenvalues of the NTK matrix corresponding to the different loss terms. In numerical experiments with several linear and nonlinear benchmark problems, the SA-PINN outperformed other state-of-the-art PINN algorithm in L2 error, while using a smaller number of training epochs.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "10.1016/j.jcp.2022.111722",
+      "arxiv_id": "2009.04544",
+      "url": "https://arxiv.org/abs/2009.04544",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2210.00939",
+      "title": "Improving Sample Quality of Diffusion Models Using Self-Attention Guidance",
+      "authors": [
+        {
+          "name": "Susung Hong",
+          "affiliation": ""
+        },
+        {
+          "name": "Gyuseong Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Wooseok Jang",
+          "affiliation": ""
+        },
+        {
+          "name": "Seungryong Kim",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Denoising diffusion models (DDMs) have attracted attention for their exceptional generation quality and diversity. This success is largely attributed to the use of class- or text-conditional diffusion guidance methods, such as classifier and classifier-free guidance. In this paper, we present a more comprehensive perspective that goes beyond the traditional guidance methods. From this generalized perspective, we introduce novel condition- and training-free strategies to enhance the quality of generated images. As a simple solution, blur guidance improves the suitability of intermediate samples for their fine-scale information and structures, enabling diffusion models to generate higher quality samples with a moderate guidance scale. Improving upon this, Self-Attention Guidance (SAG) uses the intermediate self-attention maps of diffusion models to enhance their stability and efficacy. Specifically, SAG adversarially blurs only the regions that diffusion models attend to at each iteration and guides them accordingly. Our experimental results show that our SAG improves the performance of various diffusion models, including ADM, IDDPM, Stable Diffusion, and DiT. Moreover, combining SAG with conventional guidance methods leads to further improvement.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2210.00939",
+      "url": "https://arxiv.org/abs/2210.00939",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.07494",
+      "title": "Roman Galactic Plane Survey Definition Committee Report",
+      "authors": [
+        {
+          "name": "Roman Galactic Plane Survey Definition Committee",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The Roman Galactic Plane Survey (RGPS) is a 700-hour program approved for early definition as a community-designed General Astrophysics Survey. It was selected following a proposal call for science programs that would benefit from an early community-based definition (Sanderson et al 2024). The community was invited to submit white papers and science pitches with a deadline of May 20, 2024; the Roman Galactic Plane Survey Definition Committee (RGPS-DC) first met on Sep 11, 2024. Based on the input provided, the RGPS-DC recommends a survey consisting of three elements: (1) a wide-field science element (691 sq deg, 541 hrs) covering the Galactic plane, Galactic latitude |b|<2 deg and Galactic longitude l=+50.1 deg to -79 deg (281 deg), in four filters (F129, F159, F184, and F213) with higher latitude extensions for the bulge, the Serpens South/W40 star formation region, and Carina, (2) a time-domain science element (19 sq deg , 130 hrs) of six fields, including the full Nuclear Stellar Disk (NSD) and Central Molecular Zone (CMZ), with coverage in seven filters and repeat observations in one or more filters with cadences from 11 minutes to weeks, and (3) a deep-field/spectroscopic science element (4 sq deg , 30 hrs) consisting of fifteen Roman pointings (with a wide range of extinction, diffuse emission, stellar density and population) using longer exposure times in seven filters in addition to grism and prism observations. This document summarizes the science that can be done with this survey, the process of survey definition, and details on all of the program elements.",
+      "venue": "astro-ph.GA",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.07494",
+      "url": "https://arxiv.org/abs/2511.07494",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2603.01036",
+      "title": "SMR-Net:Robot Snap Detection Based on Multi-Scale Features and Self-Attention Network",
+      "authors": [
+        {
+          "name": "Kuanxu Hou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "In robot automated assembly, snap assembly precision and efficiency directly determine overall production quality. As a core prerequisite, snap detection and localization critically affect subsequent assembly success. Traditional visual methods suffer from poor robustness and large localization errors when handling complex scenarios (e.g., transparent or low-contrast snaps), failing to meet high-precision assembly demands. To address this, this paper designs a dedicated sensor and proposes SMR-Net, an self-attention-based multi-scale object detection algorithm, to synergistically enhance detection and localization performance. SMR-Net adopts an attention-enhanced multi-scale feature fusion architecture: raw sensor data is encoded via an attention-embedded feature extractor to strengthen key snap features and suppress noise; three multi-scale feature maps are processed in parallel with standard and dilated convolution for dimension unification while preserving resolution; an adaptive reweighting network dynamically assigns weights to fused features, generating fine representations integrating details and global semantics. Experimental results on Type A and Type B snap datasets show SMR-Net outperforms traditional Faster R-CNN significantly: Intersection over Union (IoU) improves by 6.52% and 5.8%, and mean Average Precision (mAP) increases by 2.8% and 1.5% respectively. This fully demonstrates the method's superiority in complex snap detection and localization tasks.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2603.01036",
+      "url": "https://arxiv.org/abs/2603.01036",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2103.01498",
+      "title": "A Survey On Universal Adversarial Attack",
+      "authors": [
+        {
+          "name": "Chaoning Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Philipp Benz",
+          "affiliation": ""
+        },
+        {
+          "name": "Chenguo Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Adil Karjauv",
+          "affiliation": ""
+        },
+        {
+          "name": "Jing Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "In So Kweon",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "The intriguing phenomenon of adversarial examples has attracted significant attention in machine learning and what might be more surprising to the community is the existence of universal adversarial perturbations (UAPs), i.e. a single perturbation to fool the target DNN for most images. With the focus on UAP against deep classifiers, this survey summarizes the recent progress on universal adversarial attacks, discussing the challenges from both the attack and defense sides, as well as the reason for the existence of UAP. We aim to extend this work as a dynamic survey that will regularly update its content to follow new works regarding UAP or universal attack in a wide range of domains, such as image, audio, video, text, etc. Relevant updates will be discussed at: https://bit.ly/2SbQlLG. We welcome authors of future works in this field to contact us for including your new finding.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "10.24963/ijcai.2021/635",
+      "arxiv_id": "2103.01498",
+      "url": "https://arxiv.org/abs/2103.01498",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2103.11481",
+      "title": "How do we Evaluate Self-adaptive Software Systems?",
+      "authors": [
+        {
+          "name": "Ilias Gerostathopoulos",
+          "affiliation": ""
+        },
+        {
+          "name": "Thomas Vogel",
+          "affiliation": ""
+        },
+        {
+          "name": "Danny Weyns",
+          "affiliation": ""
+        },
+        {
+          "name": "Patricia Lago",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "With the increase of research in self-adaptive systems, there is a need to better understand the way research contributions are evaluated. Such insights will support researchers to better compare new findings when developing new knowledge for the community. However, so far there is no clear overview of how evaluations are performed in self-adaptive systems. To address this gap, we conduct a mapping study. The study focuses on experimental evaluations published in the last decade at the prime venue of research in software engineering for self-adaptive systems -- the International Symposium on Software Engineering for Adaptive and Self-Managing Systems (SEAMS). Results point out that specifics of self-adaptive systems require special attention in the experimental process, including the distinction of the managing system (i.e., the target of evaluation) and the managed system, the presence of uncertainties that affect the system behavior and hence need to be taken into account in data analysis, and the potential of managed systems to be reused across experiments, beyond replications. To conclude, we offer a set of suggestions derived from our study that can be used as input to enhance future experiments in self-adaptive systems.",
+      "venue": "cs.SE",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2103.11481",
+      "url": "https://arxiv.org/abs/2103.11481",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2305.17173",
+      "title": "DES Y3 + KiDS-1000: Consistent cosmology combining cosmic shear surveys",
+      "authors": [
+        {
+          "name": "Dark Energy Survey",
+          "affiliation": ""
+        },
+        {
+          "name": "Kilo-Degree Survey Collaboration",
+          "affiliation": ""
+        },
+        {
+          "name": ":",
+          "affiliation": ""
+        },
+        {
+          "name": "T. M. C. Abbott",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Aguena",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Alarcon",
+          "affiliation": ""
+        },
+        {
+          "name": "O. Alves",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Amon",
+          "affiliation": ""
+        },
+        {
+          "name": "F. Andrade-Oliveira",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Asgari",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Avila",
+          "affiliation": ""
+        },
+        {
+          "name": "D. Bacon",
+          "affiliation": ""
+        },
+        {
+          "name": "K. Bechtol",
+          "affiliation": ""
+        },
+        {
+          "name": "M. R. Becker",
+          "affiliation": ""
+        },
+        {
+          "name": "G. M. Bernstein",
+          "affiliation": ""
+        },
+        {
+          "name": "E. Bertin",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Bilicki",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Blazek",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Bocquet",
+          "affiliation": ""
+        },
+        {
+          "name": "D. Brooks",
+          "affiliation": ""
+        },
+        {
+          "name": "P. Burger",
+          "affiliation": ""
+        },
+        {
+          "name": "D. L. Burke",
+          "affiliation": ""
+        },
+        {
+          "name": "H. Camacho",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Campos",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Carnero Rosell",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Carrasco Kind",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Carretero",
+          "affiliation": ""
+        },
+        {
+          "name": "F. J. Castander",
+          "affiliation": ""
+        },
+        {
+          "name": "R. Cawthon",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Chang",
+          "affiliation": ""
+        },
+        {
+          "name": "R. Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Choi",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Conselice",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Cordero",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Crocce",
+          "affiliation": ""
+        },
+        {
+          "name": "L. N. da Costa",
+          "affiliation": ""
+        },
+        {
+          "name": "M. E. da Silva Pereira",
+          "affiliation": ""
+        },
+        {
+          "name": "R. Dalal",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Davis",
+          "affiliation": ""
+        },
+        {
+          "name": "J. T. A. de Jong",
+          "affiliation": ""
+        },
+        {
+          "name": "J. DeRose",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Desai",
+          "affiliation": ""
+        },
+        {
+          "name": "H. T. Diehl",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Dodelson",
+          "affiliation": ""
+        },
+        {
+          "name": "P. Doel",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Doux",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Drlica-Wagner",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Dvornik",
+          "affiliation": ""
+        },
+        {
+          "name": "K. Eckert",
+          "affiliation": ""
+        },
+        {
+          "name": "T. F. Eifler",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Elvin-Poole",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Everett",
+          "affiliation": ""
+        },
+        {
+          "name": "X. Fang",
+          "affiliation": ""
+        },
+        {
+          "name": "I. Ferrero",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Fert\u00e9",
+          "affiliation": ""
+        },
+        {
+          "name": "B. Flaugher",
+          "affiliation": ""
+        },
+        {
+          "name": "O. Friedrich",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Frieman",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Garc\u00eda-Bellido",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Gatti",
+          "affiliation": ""
+        },
+        {
+          "name": "G. Giannini",
+          "affiliation": ""
+        },
+        {
+          "name": "B. Giblin",
+          "affiliation": ""
+        },
+        {
+          "name": "D. Gruen",
+          "affiliation": ""
+        },
+        {
+          "name": "R. A. Gruendl",
+          "affiliation": ""
+        },
+        {
+          "name": "G. Gutierrez",
+          "affiliation": ""
+        },
+        {
+          "name": "I. Harrison",
+          "affiliation": ""
+        },
+        {
+          "name": "W. G. Hartley",
+          "affiliation": ""
+        },
+        {
+          "name": "K. Herner",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Heymans",
+          "affiliation": ""
+        },
+        {
+          "name": "H. Hildebrandt",
+          "affiliation": ""
+        },
+        {
+          "name": "S. R. Hinton",
+          "affiliation": ""
+        },
+        {
+          "name": "H. Hoekstra",
+          "affiliation": ""
+        },
+        {
+          "name": "D. L. Hollowood",
+          "affiliation": ""
+        },
+        {
+          "name": "K. Honscheid",
+          "affiliation": ""
+        },
+        {
+          "name": "H. Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "E. M. Huff",
+          "affiliation": ""
+        },
+        {
+          "name": "D. Huterer",
+          "affiliation": ""
+        },
+        {
+          "name": "D. J. James",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Jarvis",
+          "affiliation": ""
+        },
+        {
+          "name": "N. Jeffrey",
+          "affiliation": ""
+        },
+        {
+          "name": "T. Jeltema",
+          "affiliation": ""
+        },
+        {
+          "name": "B. Joachimi",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Joudaki",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Kannawadi",
+          "affiliation": ""
+        },
+        {
+          "name": "E. Krause",
+          "affiliation": ""
+        },
+        {
+          "name": "K. Kuehn",
+          "affiliation": ""
+        },
+        {
+          "name": "K. Kuijken",
+          "affiliation": ""
+        },
+        {
+          "name": "N. Kuropatkin",
+          "affiliation": ""
+        },
+        {
+          "name": "O. Lahav",
+          "affiliation": ""
+        },
+        {
+          "name": "P. -F. Leget",
+          "affiliation": ""
+        },
+        {
+          "name": "P. Lemos",
+          "affiliation": ""
+        },
+        {
+          "name": "S. -S. Li",
+          "affiliation": ""
+        },
+        {
+          "name": "X. Li",
+          "affiliation": ""
+        },
+        {
+          "name": "A. R. Liddle",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Lima",
+          "affiliation": ""
+        },
+        {
+          "name": "C. -A Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "H. Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "N. MacCrann",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Mahony",
+          "affiliation": ""
+        },
+        {
+          "name": "J. L. Marshall",
+          "affiliation": ""
+        },
+        {
+          "name": "J. McCullough",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Mena-Fern\u00e1ndez",
+          "affiliation": ""
+        },
+        {
+          "name": "F. Menanteau",
+          "affiliation": ""
+        },
+        {
+          "name": "R. Miquel",
+          "affiliation": ""
+        },
+        {
+          "name": "J. J. Mohr",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Muir",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Myles",
+          "affiliation": ""
+        },
+        {
+          "name": "N. Napolitano",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Navarro-Alsina",
+          "affiliation": ""
+        },
+        {
+          "name": "R. L. C. Ogando",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Palmese",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Pandey",
+          "affiliation": ""
+        },
+        {
+          "name": "Y. Park",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Paterno",
+          "affiliation": ""
+        },
+        {
+          "name": "J. A. Peacock",
+          "affiliation": ""
+        },
+        {
+          "name": "D. Petravick",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Pieres",
+          "affiliation": ""
+        },
+        {
+          "name": "A. A. Plazas Malag\u00f3n",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Porredon",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Prat",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Radovich",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Raveri",
+          "affiliation": ""
+        },
+        {
+          "name": "R. Reischke",
+          "affiliation": ""
+        },
+        {
+          "name": "N. C. Robertson",
+          "affiliation": ""
+        },
+        {
+          "name": "R. P. Rollins",
+          "affiliation": ""
+        },
+        {
+          "name": "A. K. Romer",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Roodman",
+          "affiliation": ""
+        },
+        {
+          "name": "E. S. Rykoff",
+          "affiliation": ""
+        },
+        {
+          "name": "S. Samuroff",
+          "affiliation": ""
+        },
+        {
+          "name": "C. S\u00e1nchez",
+          "affiliation": ""
+        },
+        {
+          "name": "E. Sanchez",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Sanchez",
+          "affiliation": ""
+        },
+        {
+          "name": "P. Schneider",
+          "affiliation": ""
+        },
+        {
+          "name": "L. F. Secco",
+          "affiliation": ""
+        },
+        {
+          "name": "I. Sevilla-Noarbe",
+          "affiliation": ""
+        },
+        {
+          "name": "H. -Y. Shan",
+          "affiliation": ""
+        },
+        {
+          "name": "E. Sheldon",
+          "affiliation": ""
+        },
+        {
+          "name": "T. Shin",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Sif\u00f3n",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Smith",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Soares-Santos",
+          "affiliation": ""
+        },
+        {
+          "name": "B. St\u00f6lzner",
+          "affiliation": ""
+        },
+        {
+          "name": "E. Suchyta",
+          "affiliation": ""
+        },
+        {
+          "name": "M. E. C. Swanson",
+          "affiliation": ""
+        },
+        {
+          "name": "G. Tarle",
+          "affiliation": ""
+        },
+        {
+          "name": "D. Thomas",
+          "affiliation": ""
+        },
+        {
+          "name": "C. To",
+          "affiliation": ""
+        },
+        {
+          "name": "M. A. Troxel",
+          "affiliation": ""
+        },
+        {
+          "name": "T. Tr\u00f6ster",
+          "affiliation": ""
+        },
+        {
+          "name": "I. Tutusaus",
+          "affiliation": ""
+        },
+        {
+          "name": "J. L. van den Busch",
+          "affiliation": ""
+        },
+        {
+          "name": "T. N. Varga",
+          "affiliation": ""
+        },
+        {
+          "name": "A. R. Walker",
+          "affiliation": ""
+        },
+        {
+          "name": "N. Weaverdyck",
+          "affiliation": ""
+        },
+        {
+          "name": "R. H. Wechsler",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Weller",
+          "affiliation": ""
+        },
+        {
+          "name": "P. Wiseman",
+          "affiliation": ""
+        },
+        {
+          "name": "A. H. Wright",
+          "affiliation": ""
+        },
+        {
+          "name": "B. Yanny",
+          "affiliation": ""
+        },
+        {
+          "name": "B. Yin",
+          "affiliation": ""
+        },
+        {
+          "name": "M. Yoon",
+          "affiliation": ""
+        },
+        {
+          "name": "Y. Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Zuntz",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We present a joint cosmic shear analysis of the Dark Energy Survey (DES Y3) and the Kilo-Degree Survey (KiDS-1000) in a collaborative effort between the two survey teams. We find consistent cosmological parameter constraints between DES Y3 and KiDS-1000 which, when combined in a joint-survey analysis, constrain the parameter $S_8 = \u03c3_8 \\sqrt{\u03a9_{\\rm m}/0.3}$ with a mean value of $0.790^{+0.018}_{-0.014}$. The mean marginal is lower than the maximum a posteriori estimate, $S_8=0.801$, owing to skewness in the marginal distribution and projection effects in the multi-dimensional parameter space. Our results are consistent with $S_8$ constraints from observations of the cosmic microwave background by Planck, with agreement at the $1.7\u03c3$ level. We use a Hybrid analysis pipeline, defined from a mock survey study quantifying the impact of the different analysis choices originally adopted by each survey team. We review intrinsic alignment models, baryon feedback mitigation strategies, priors, samplers and models of the non-linear matter power spectrum.",
+      "venue": "astro-ph.CO",
+      "citation_count": 0,
+      "doi": "10.21105/astro.2305.17173",
+      "arxiv_id": "2305.17173",
+      "url": "https://arxiv.org/abs/2305.17173",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.07353",
+      "title": "Bayesian compartmental modelling of MRSA transmission within hospitals in Edmonton, Canada",
+      "authors": [
+        {
+          "name": "Ruoyu Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Rob Deardon",
+          "affiliation": ""
+        },
+        {
+          "name": "Na Li",
+          "affiliation": ""
+        },
+        {
+          "name": "John Conly",
+          "affiliation": ""
+        },
+        {
+          "name": "Jenine Leal",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Methicillin-resistant Staphylococcus aureus (MRSA) is a bacterium that leads to severe infections in hospitalized patients. Previous epidemiological research has focused on MRSA transmission, but few studies have examined the influence of both hospital-acquired MRSA (HA-MRSA) and community-acquired MRSA (CA-MRSA) on MRSA spread in hospitals. In this study, we present a unique compartmental model for studying MRSA transmission patterns in hospitals in Edmonton, Alberta. The model consists of susceptible individuals, patients who have been colonized or infected with HA-MRSA or CA-MRSA, and isolated patients. We first use Bayesian inference with Markov chain Monte Carlo (MCMC) algorithms to estimate the posterior mean of parameters in the full model using data from hospitals in Edmonton. Then we develop multiple sub-models with varying assumptions about the origin of new MRSA colonization. We also estimate transmission rates in hospitals.",
+      "venue": "stat.AP",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.07353",
+      "url": "https://arxiv.org/abs/2511.07353",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2301.07608",
+      "title": "Human-Timescale Adaptation in an Open-Ended Task Space",
+      "authors": [
+        {
+          "name": "Adaptive Agent Team",
+          "affiliation": ""
+        },
+        {
+          "name": "Jakob Bauer",
+          "affiliation": ""
+        },
+        {
+          "name": "Kate Baumli",
+          "affiliation": ""
+        },
+        {
+          "name": "Satinder Baveja",
+          "affiliation": ""
+        },
+        {
+          "name": "Feryal Behbahani",
+          "affiliation": ""
+        },
+        {
+          "name": "Avishkar Bhoopchand",
+          "affiliation": ""
+        },
+        {
+          "name": "Nathalie Bradley-Schmieg",
+          "affiliation": ""
+        },
+        {
+          "name": "Michael Chang",
+          "affiliation": ""
+        },
+        {
+          "name": "Natalie Clay",
+          "affiliation": ""
+        },
+        {
+          "name": "Adrian Collister",
+          "affiliation": ""
+        },
+        {
+          "name": "Vibhavari Dasagi",
+          "affiliation": ""
+        },
+        {
+          "name": "Lucy Gonzalez",
+          "affiliation": ""
+        },
+        {
+          "name": "Karol Gregor",
+          "affiliation": ""
+        },
+        {
+          "name": "Edward Hughes",
+          "affiliation": ""
+        },
+        {
+          "name": "Sheleem Kashem",
+          "affiliation": ""
+        },
+        {
+          "name": "Maria Loks-Thompson",
+          "affiliation": ""
+        },
+        {
+          "name": "Hannah Openshaw",
+          "affiliation": ""
+        },
+        {
+          "name": "Jack Parker-Holder",
+          "affiliation": ""
+        },
+        {
+          "name": "Shreya Pathak",
+          "affiliation": ""
+        },
+        {
+          "name": "Nicolas Perez-Nieves",
+          "affiliation": ""
+        },
+        {
+          "name": "Nemanja Rakicevic",
+          "affiliation": ""
+        },
+        {
+          "name": "Tim Rockt\u00e4schel",
+          "affiliation": ""
+        },
+        {
+          "name": "Yannick Schroecker",
+          "affiliation": ""
+        },
+        {
+          "name": "Jakub Sygnowski",
+          "affiliation": ""
+        },
+        {
+          "name": "Karl Tuyls",
+          "affiliation": ""
+        },
+        {
+          "name": "Sarah York",
+          "affiliation": ""
+        },
+        {
+          "name": "Alexander Zacherl",
+          "affiliation": ""
+        },
+        {
+          "name": "Lei Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Foundation models have shown impressive adaptation and scalability in supervised and self-supervised learning problems, but so far these successes have not fully translated to reinforcement learning (RL). In this work, we demonstrate that training an RL agent at scale leads to a general in-context learning algorithm that can adapt to open-ended novel embodied 3D problems as quickly as humans. In a vast space of held-out environment dynamics, our adaptive agent (AdA) displays on-the-fly hypothesis-driven exploration, efficient exploitation of acquired knowledge, and can successfully be prompted with first-person demonstrations. Adaptation emerges from three ingredients: (1) meta-reinforcement learning across a vast, smooth and diverse task distribution, (2) a policy parameterised as a large-scale attention-based memory architecture, and (3) an effective automated curriculum that prioritises tasks at the frontier of an agent's capabilities. We demonstrate characteristic scaling laws with respect to network size, memory length, and richness of the training task distribution. We believe our results lay the foundation for increasingly general and adaptive RL agents that perform well across ever-larger open-ended domains.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2301.07608",
+      "url": "https://arxiv.org/abs/2301.07608",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2512.14523",
+      "title": "Interfacing adaptive optics simulations with the optical model: a powerful tool for MORFEO",
+      "authors": [
+        {
+          "name": "Giorgio Pariani",
+          "affiliation": ""
+        },
+        {
+          "name": "Guido Agapito",
+          "affiliation": ""
+        },
+        {
+          "name": "Demetrio Magrin",
+          "affiliation": ""
+        },
+        {
+          "name": "Matteo Munari",
+          "affiliation": ""
+        },
+        {
+          "name": "Lorenzo Busoni",
+          "affiliation": ""
+        },
+        {
+          "name": "Marco Riva",
+          "affiliation": ""
+        },
+        {
+          "name": "Andrea Di Rocco",
+          "affiliation": ""
+        },
+        {
+          "name": "Paolo Ciliegi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "In the framework of the MORFEO project, the Multi-Conjugated Adaptive Optics (MCAO) module for the European Extremely Large Telescope (ELT), we developed an integrated modeling tool to interface the optical model with the adaptive optics simulations, called ASSO (Adaptive opticS Simulation interfaced with Optical model). This tool is our asso nella manica (ace in the hole) to predict the performances of the AO relay, i.e., to estimate the wavefront error within the technical and scientific fields of view after AO correction. The tool is based on the IDL based simulator PyrAmid Simulator Software for Adaptive opTics Arcetri (PASSATA), on Zemax OpticStudio for the optical modelling, and on Matlab as interface software.",
+      "venue": "astro-ph.IM",
+      "citation_count": 0,
+      "doi": "10.1117/12.3018817",
+      "arxiv_id": "2512.14523",
+      "url": "https://arxiv.org/abs/2512.14523",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2409.08759",
+      "title": "Dark Energy Survey: 2.1% measurement of the Baryon Acoustic Oscillation scale from the final dataset",
+      "authors": [
+        {
+          "name": "Juan Mena-Fern\u00e1ndez",
+          "affiliation": ""
+        },
+        {
+          "name": "Dark Energy Survey Collaboration",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Here, we present the angular diameter distance measurement obtained from the measurement of the Baryonic Acoustic Oscillation (BAO) feature using the completed Dark Energy Survey (DES) data, summarizing the main results of [Phys. Rev. D 110, 063514] and [Phys. Rev. D 110, 063515]. We use a galaxy sample optimized for BAO science in the redshift range 0.6 < z < 1.2, with an effective redshift of $z_{\\rm eff}$ = 0.85. Our consensus measurement constrains the ratio of the angular distance to the sound horizon scale to $D_M(z_{\\rm eff})/r_d$ = 19.51 $\\pm$ 0.41. This measurement is found to be 2.13$\u03c3$ below the angular BAO scale predicted by Planck. To date, it represents the most precise measurement from purely photometric data, and the most precise from any Stage-III experiment at such high redshift. The analysis was performed blinded to the BAO position and is shown to be robust against analysis choices, data removal, redshift calibrations and observational systematics.",
+      "venue": "astro-ph.CO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2409.08759",
+      "url": "https://arxiv.org/abs/2409.08759",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2402.01476",
+      "title": "Self-Attention through Kernel-Eigen Pair Sparse Variational Gaussian Processes",
+      "authors": [
+        {
+          "name": "Yingyi Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Qinghua Tao",
+          "affiliation": ""
+        },
+        {
+          "name": "Francesco Tonin",
+          "affiliation": ""
+        },
+        {
+          "name": "Johan A. K. Suykens",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "While the great capability of Transformers significantly boosts prediction accuracy, it could also yield overconfident predictions and require calibrated uncertainty estimation, which can be commonly tackled by Gaussian processes (GPs). Existing works apply GPs with symmetric kernels under variational inference to the attention kernel; however, omitting the fact that attention kernels are in essence asymmetric. Moreover, the complexity of deriving the GP posteriors remains high for large-scale data. In this work, we propose Kernel-Eigen Pair Sparse Variational Gaussian Processes (KEP-SVGP) for building uncertainty-aware self-attention where the asymmetry of attention kernels is tackled by Kernel SVD (KSVD) and a reduced complexity is acquired. Through KEP-SVGP, i) the SVGP pair induced by the two sets of singular vectors from KSVD w.r.t. the attention kernel fully characterizes the asymmetry; ii) using only a small set of adjoint eigenfunctions from KSVD, the derivation of SVGP posteriors can be based on the inversion of a diagonal matrix containing singular values, contributing to a reduction in time complexity; iii) an evidence lower bound is derived so that variational parameters and network weights can be optimized with it. Experiments verify our excellent performances and efficiency on in-distribution, distribution-shift and out-of-distribution benchmarks.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2402.01476",
+      "url": "https://arxiv.org/abs/2402.01476",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2401.04971",
+      "title": "A Survey on Cross-Domain Sequential Recommendation",
+      "authors": [
+        {
+          "name": "Shu Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Zitao Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Weike Pan",
+          "affiliation": ""
+        },
+        {
+          "name": "Qiang Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhong Ming",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Cross-domain sequential recommendation (CDSR) shifts the modeling of user preferences from flat to stereoscopic by integrating and learning interaction information from multiple domains at different granularities (ranging from inter-sequence to intra-sequence and from single-domain to cross-domain). In this survey, we first define the CDSR problem using a four-dimensional tensor and then analyze its multi-type input representations under multidirectional dimensionality reductions. Following that, we provide a systematic overview from both macro and micro views. From a macro view, we abstract the multi-level fusion structures of various models across domains and discuss their bridges for fusion. From a micro view, focusing on the existing models, we first discuss the basic technologies and then explain the auxiliary learning technologies. Finally, we exhibit the available public datasets and the representative experimental results as well as provide some insights into future directions for research in CDSR.",
+      "venue": "cs.IR",
+      "citation_count": 0,
+      "doi": "10.24963/ijcai.2024/884",
+      "arxiv_id": "2401.04971",
+      "url": "https://arxiv.org/abs/2401.04971",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2011.02034",
+      "title": "The Role of Time, Weather and Google Trends in Understanding and Predicting Web Survey Response",
+      "authors": [
+        {
+          "name": "Qixiang Fang",
+          "affiliation": ""
+        },
+        {
+          "name": "Joep Burger",
+          "affiliation": ""
+        },
+        {
+          "name": "Ralph Meijers",
+          "affiliation": ""
+        },
+        {
+          "name": "Kees van Berkel",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "In the literature about web survey methodology, significant efforts have been made to understand the role of time-invariant factors (e.g. gender, education and marital status) in (non-)response mechanisms. Time-invariant factors alone, however, cannot account for most variations in (non-)responses, especially fluctuations of response rates over time. This observation inspires us to investigate the counterpart of time-invariant factors, namely time-varying factors and the potential role they play in web survey (non-)response. Specifically, we study the effects of time, weather and societal trends (derived from Google Trends data) on the daily (non-)response patterns of the 2016 and 2017 Dutch Health Surveys. Using discrete-time survival analysis, we find, among others, that weekends, holidays, pleasant weather, disease outbreaks and terrorism salience are associated with fewer responses. Furthermore, we show that using these variables alone achieves satisfactory prediction accuracy of both daily and cumulative response rates when the trained model is applied to future unseen data. This approach has the further benefit of requiring only non-personal contextual information and thus involving no privacy issues. We discuss the implications of the study for survey research and data collection.",
+      "venue": "cs.SI",
+      "citation_count": 0,
+      "doi": "10.18148/srm/2021.v15i1.7633",
+      "arxiv_id": "2011.02034",
+      "url": "https://arxiv.org/abs/2011.02034",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2105.02358",
+      "title": "Beyond Self-attention: External Attention using Two Linear Layers for Visual Tasks",
+      "authors": [
+        {
+          "name": "Meng-Hao Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Zheng-Ning Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Tai-Jiang Mu",
+          "affiliation": ""
+        },
+        {
+          "name": "Shi-Min Hu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Attention mechanisms, especially self-attention, have played an increasingly important role in deep feature representation for visual tasks. Self-attention updates the feature at each position by computing a weighted sum of features using pair-wise affinities across all positions to capture the long-range dependency within a single sample. However, self-attention has quadratic complexity and ignores potential correlation between different samples. This paper proposes a novel attention mechanism which we call external attention, based on two external, small, learnable, shared memories, which can be implemented easily by simply using two cascaded linear layers and two normalization layers; it conveniently replaces self-attention in existing popular architectures. External attention has linear complexity and implicitly considers the correlations between all data samples. We further incorporate the multi-head mechanism into external attention to provide an all-MLP architecture, external attention MLP (EAMLP), for image classification. Extensive experiments on image classification, object detection, semantic segmentation, instance segmentation, image generation, and point cloud analysis reveal that our method provides results comparable or superior to the self-attention mechanism and some of its variants, with much lower computational and memory costs.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2105.02358",
+      "url": "https://arxiv.org/abs/2105.02358",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2006.03265",
+      "title": "Understanding Self-Attention of Self-Supervised Audio Transformers",
+      "authors": [
+        {
+          "name": "Shu-wen Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Andy T. Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hung-yi Lee",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Self-supervised Audio Transformers (SAT) enable great success in many downstream speech applications like ASR, but how they work has not been widely explored yet. In this work, we present multiple strategies for the analysis of attention mechanisms in SAT. We categorize attentions into explainable categories, where we discover each category possesses its own unique functionality. We provide a visualization tool for understanding multi-head self-attention, importance ranking strategies for identifying critical attention, and attention refinement techniques to improve model performance.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2006.03265",
+      "url": "https://arxiv.org/abs/2006.03265",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2002.00741",
+      "title": "D\u00e9j\u00e0 vu: A Contextualized Temporal Attention Mechanism for Sequential Recommendation",
+      "authors": [
+        {
+          "name": "Jibang Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Renqin Cai",
+          "affiliation": ""
+        },
+        {
+          "name": "Hongning Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Predicting users' preferences based on their sequential behaviors in history is challenging and crucial for modern recommender systems. Most existing sequential recommendation algorithms focus on transitional structure among the sequential actions, but largely ignore the temporal and context information, when modeling the influence of a historical event to current prediction.\n  In this paper, we argue that the influence from the past events on a user's current action should vary over the course of time and under different context. Thus, we propose a Contextualized Temporal Attention Mechanism that learns to weigh historical actions' influence on not only what action it is, but also when and how the action took place. More specifically, to dynamically calibrate the relative input dependence from the self-attention mechanism, we deploy multiple parameterized kernel functions to learn various temporal dynamics, and then use the context information to determine which of these reweighing kernels to follow for each input. In empirical evaluations on two large public recommendation datasets, our model consistently outperformed an extensive set of state-of-the-art sequential recommendation methods.",
+      "venue": "cs.IR",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2002.00741",
+      "url": "https://arxiv.org/abs/2002.00741",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

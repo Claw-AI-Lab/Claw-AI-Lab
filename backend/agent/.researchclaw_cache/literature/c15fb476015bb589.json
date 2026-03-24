@@ -1,0 +1,1386 @@
+{
+  "query": "applying multi-reference attention guidance across video",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1773979783.530763,
+  "papers": [
+    {
+      "paper_id": "arxiv-2210.00939",
+      "title": "Improving Sample Quality of Diffusion Models Using Self-Attention Guidance",
+      "authors": [
+        {
+          "name": "Susung Hong",
+          "affiliation": ""
+        },
+        {
+          "name": "Gyuseong Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Wooseok Jang",
+          "affiliation": ""
+        },
+        {
+          "name": "Seungryong Kim",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Denoising diffusion models (DDMs) have attracted attention for their exceptional generation quality and diversity. This success is largely attributed to the use of class- or text-conditional diffusion guidance methods, such as classifier and classifier-free guidance. In this paper, we present a more comprehensive perspective that goes beyond the traditional guidance methods. From this generalized perspective, we introduce novel condition- and training-free strategies to enhance the quality of generated images. As a simple solution, blur guidance improves the suitability of intermediate samples for their fine-scale information and structures, enabling diffusion models to generate higher quality samples with a moderate guidance scale. Improving upon this, Self-Attention Guidance (SAG) uses the intermediate self-attention maps of diffusion models to enhance their stability and efficacy. Specifically, SAG adversarially blurs only the regions that diffusion models attend to at each iteration and guides them accordingly. Our experimental results show that our SAG improves the performance of various diffusion models, including ADM, IDDPM, Stable Diffusion, and DiT. Moreover, combining SAG with conventional guidance methods leads to further improvement.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2210.00939",
+      "url": "https://arxiv.org/abs/2210.00939",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2506.07177",
+      "title": "Frame Guidance: Training-Free Guidance for Frame-Level Control in Video Diffusion Models",
+      "authors": [
+        {
+          "name": "Sangwon Jang",
+          "affiliation": ""
+        },
+        {
+          "name": "Taekyung Ki",
+          "affiliation": ""
+        },
+        {
+          "name": "Jaehyeong Jo",
+          "affiliation": ""
+        },
+        {
+          "name": "Jaehong Yoon",
+          "affiliation": ""
+        },
+        {
+          "name": "Soo Ye Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhe Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Sung Ju Hwang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Advancements in diffusion models have significantly improved video quality, directing attention to fine-grained controllability. However, many existing methods depend on fine-tuning large-scale video models for specific tasks, which becomes increasingly impractical as model sizes continue to grow. In this work, we present Frame Guidance, a training-free guidance for controllable video generation based on frame-level signals, such as keyframes, style reference images, sketches, or depth maps. For practical training-free guidance, we propose a simple latent processing method that dramatically reduces memory usage, and apply a novel latent optimization strategy designed for globally coherent video generation. Frame Guidance enables effective control across diverse tasks, including keyframe guidance, stylization, and looping, without any training, compatible with any video models. Experimental results show that Frame Guidance can produce high-quality controlled videos for a wide range of tasks and input signals.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2506.07177",
+      "url": "https://arxiv.org/abs/2506.07177",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2403.17377",
+      "title": "Self-Rectifying Diffusion Sampling with Perturbed-Attention Guidance",
+      "authors": [
+        {
+          "name": "Donghoon Ahn",
+          "affiliation": ""
+        },
+        {
+          "name": "Hyoungwon Cho",
+          "affiliation": ""
+        },
+        {
+          "name": "Jaewon Min",
+          "affiliation": ""
+        },
+        {
+          "name": "Wooseok Jang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jungwoo Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "SeonHwa Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Hyun Hee Park",
+          "affiliation": ""
+        },
+        {
+          "name": "Kyong Hwan Jin",
+          "affiliation": ""
+        },
+        {
+          "name": "Seungryong Kim",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Recent studies have demonstrated that diffusion models are capable of generating high-quality samples, but their quality heavily depends on sampling guidance techniques, such as classifier guidance (CG) and classifier-free guidance (CFG). These techniques are often not applicable in unconditional generation or in various downstream tasks such as image restoration. In this paper, we propose a novel sampling guidance, called Perturbed-Attention Guidance (PAG), which improves diffusion sample quality across both unconditional and conditional settings, achieving this without requiring additional training or the integration of external modules. PAG is designed to progressively enhance the structure of samples throughout the denoising process. It involves generating intermediate samples with degraded structure by substituting selected self-attention maps in diffusion U-Net with an identity matrix, by considering the self-attention mechanisms' ability to capture structural information, and guiding the denoising process away from these degraded samples. In both ADM and Stable Diffusion, PAG surprisingly improves sample quality in conditional and even unconditional scenarios. Moreover, PAG significantly improves the baseline performance in various downstream tasks where existing guidances such as CG or CFG cannot be fully utilized, including ControlNet with empty prompts and image restoration such as inpainting and deblurring.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2403.17377",
+      "url": "https://arxiv.org/abs/2403.17377",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2301.10048",
+      "title": "Exploiting Optical Flow Guidance for Transformer-Based Video Inpainting",
+      "authors": [
+        {
+          "name": "Kaidong Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jialun Peng",
+          "affiliation": ""
+        },
+        {
+          "name": "Jingjing Fu",
+          "affiliation": ""
+        },
+        {
+          "name": "Dong Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Transformers have been widely used for video processing owing to the multi-head self attention (MHSA) mechanism. However, the MHSA mechanism encounters an intrinsic difficulty for video inpainting, since the features associated with the corrupted regions are degraded and incur inaccurate self attention. This problem, termed query degradation, may be mitigated by first completing optical flows and then using the flows to guide the self attention, which was verified in our previous work - flow-guided transformer (FGT). We further exploit the flow guidance and propose FGT++ to pursue more effective and efficient video inpainting. First, we design a lightweight flow completion network by using local aggregation and edge loss. Second, to address the query degradation, we propose a flow guidance feature integration module, which uses the motion discrepancy to enhance the features, together with a flow-guided feature propagation module that warps the features according to the flows. Third, we decouple the transformer along the temporal and spatial dimensions, where flows are used to select the tokens through a temporally deformable MHSA mechanism, and global tokens are combined with the inner-window local tokens through a dual perspective MHSA mechanism. FGT++ is experimentally evaluated to be outperforming the existing video inpainting networks qualitatively and quantitatively.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1109/TPAMI.2024.3361010",
+      "arxiv_id": "2301.10048",
+      "url": "https://arxiv.org/abs/2301.10048",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2304.03373",
+      "title": "Training-Free Layout Control with Cross-Attention Guidance",
+      "authors": [
+        {
+          "name": "Minghao Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Iro Laina",
+          "affiliation": ""
+        },
+        {
+          "name": "Andrea Vedaldi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Recent diffusion-based generators can produce high-quality images from textual prompts. However, they often disregard textual instructions that specify the spatial layout of the composition. We propose a simple approach that achieves robust layout control without the need for training or fine-tuning of the image generator. Our technique manipulates the cross-attention layers that the model uses to interface textual and visual information and steers the generation in the desired direction given, e.g., a user-specified layout. To determine how to best guide attention, we study the role of attention maps and explore two alternative strategies, forward and backward guidance. We thoroughly evaluate our approach on three benchmarks and provide several qualitative examples and a comparative analysis of the two strategies that demonstrate the superiority of backward guidance compared to forward guidance, as well as prior work. We further demonstrate the versatility of layout guidance by extending it to applications such as editing the layout and context of real images.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2304.03373",
+      "url": "https://arxiv.org/abs/2304.03373",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2410.09380",
+      "title": "Prompting Video-Language Foundation Models with Domain-specific Fine-grained Heuristics for Video Question Answering",
+      "authors": [
+        {
+          "name": "Ting Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Kunhao Fu",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuhui Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Qingming Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jun Yu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Video Question Answering (VideoQA) represents a crucial intersection between video understanding and language processing, requiring both discriminative unimodal comprehension and sophisticated cross-modal interaction for accurate inference. Despite advancements in multi-modal pre-trained models and video-language foundation models, these systems often struggle with domain-specific VideoQA due to their generalized pre-training objectives. Addressing this gap necessitates bridging the divide between broad cross-modal knowledge and the specific inference demands of VideoQA tasks. To this end, we introduce HeurVidQA, a framework that leverages domain-specific entity-action heuristics to refine pre-trained video-language foundation models. Our approach treats these models as implicit knowledge engines, employing domain-specific entity-action prompters to direct the model's focus toward precise cues that enhance reasoning. By delivering fine-grained heuristics, we improve the model's ability to identify and interpret key entities and actions, thereby enhancing its reasoning capabilities. Extensive evaluations across multiple VideoQA datasets demonstrate that our method significantly outperforms existing models, underscoring the importance of integrating domain-specific knowledge into video-language models for more accurate and context-aware VideoQA.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1109/TCSVT.2024.3475510",
+      "arxiv_id": "2410.09380",
+      "url": "https://arxiv.org/abs/2410.09380",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2303.04761",
+      "title": "Video-P2P: Video Editing with Cross-attention Control",
+      "authors": [
+        {
+          "name": "Shaoteng Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuechen Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenbo Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhe Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiaya Jia",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "This paper presents Video-P2P, a novel framework for real-world video editing with cross-attention control. While attention control has proven effective for image editing with pre-trained image generation models, there are currently no large-scale video generation models publicly available. Video-P2P addresses this limitation by adapting an image generation diffusion model to complete various video editing tasks. Specifically, we propose to first tune a Text-to-Set (T2S) model to complete an approximate inversion and then optimize a shared unconditional embedding to achieve accurate video inversion with a small memory cost. For attention control, we introduce a novel decoupled-guidance strategy, which uses different guidance strategies for the source and target prompts. The optimized unconditional embedding for the source prompt improves reconstruction ability, while an initialized unconditional embedding for the target prompt enhances editability. Incorporating the attention maps of these two branches enables detailed editing. These technical designs enable various text-driven editing applications, including word swap, prompt refinement, and attention re-weighting. Video-P2P works well on real-world videos for generating new characters while optimally preserving their original poses and scenes. It significantly outperforms previous approaches.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2303.04761",
+      "url": "https://arxiv.org/abs/2303.04761",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2201.12288",
+      "title": "VRT: A Video Restoration Transformer",
+      "authors": [
+        {
+          "name": "Jingyun Liang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiezhang Cao",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuchen Fan",
+          "affiliation": ""
+        },
+        {
+          "name": "Kai Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Rakesh Ranjan",
+          "affiliation": ""
+        },
+        {
+          "name": "Yawei Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Radu Timofte",
+          "affiliation": ""
+        },
+        {
+          "name": "Luc Van Gool",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Video restoration (e.g., video super-resolution) aims to restore high-quality frames from low-quality frames. Different from single image restoration, video restoration generally requires to utilize temporal information from multiple adjacent but usually misaligned video frames. Existing deep methods generally tackle with this by exploiting a sliding window strategy or a recurrent architecture, which either is restricted by frame-by-frame restoration or lacks long-range modelling ability. In this paper, we propose a Video Restoration Transformer (VRT) with parallel frame prediction and long-range temporal dependency modelling abilities. More specifically, VRT is composed of multiple scales, each of which consists of two kinds of modules: temporal mutual self attention (TMSA) and parallel warping. TMSA divides the video into small clips, on which mutual attention is applied for joint motion estimation, feature alignment and feature fusion, while self attention is used for feature extraction. To enable cross-clip interactions, the video sequence is shifted for every other layer. Besides, parallel warping is used to further fuse information from neighboring frames by parallel feature warping. Experimental results on five tasks, including video super-resolution, video deblurring, video denoising, video frame interpolation and space-time video super-resolution, demonstrate that VRT outperforms the state-of-the-art methods by large margins ($\\textbf{up to 2.16dB}$) on fourteen benchmark datasets.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2201.12288",
+      "url": "https://arxiv.org/abs/2201.12288",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2105.08191",
+      "title": "Adaptive Video Encoding For Different Video Codecs",
+      "authors": [
+        {
+          "name": "Gangadharan Esakki",
+          "affiliation": ""
+        },
+        {
+          "name": "Andreas Panayides",
+          "affiliation": ""
+        },
+        {
+          "name": "Venkatesh Jatla",
+          "affiliation": ""
+        },
+        {
+          "name": "Marios Pattichis",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "By 2022, we expect video traffic to reach 82% of the total internet traffic. Undoubtedly, the abundance of video-driven applications will likely lead internet video traffic percentage to a further increase in the near future, enabled by associate advances in video devices' capabilities. In response to this ever-growing demand, the Alliance for Open Media (AOM) and the Joint Video Experts Team (JVET) have demonstrated strong and renewed interest in developing new video codecs. In the fast-changing video codecs' landscape, there is thus, a genuine need to develop adaptive methods that can be universally applied to different codecs. In this study, we formulate video encoding as a multi-objective optimization process where video quality (as a function of VMAF and PSNR), bitrate demands, and encoding rate (in encoded frames per second) are jointly optimized, going beyond the standard video encoding approaches that focus on rate control targeting specific bandwidths. More specifically, we create a dense video encoding space (offline) and then employ regression to generate forward prediction models for each one of the afore-described optimization objectives, using only Pareto-optimal points. We demonstrate our adaptive video encoding approach that leverages the generated forward prediction models that qualify for real-time adaptation using different codecs (e.g., SVT-AV1 and x265) for a variety of video datasets and resolutions. To motivate our approach and establish the promise for future fast VVC encoders, we also perform a comparative performance evaluation using both subjective and objective metrics and report on bitrate savings among all possible pairs between VVC, SVT-AV1, x265, and VP9 codecs.",
+      "venue": "cs.MM",
+      "citation_count": 0,
+      "doi": "10.1109/ACCESS.2021.3077313",
+      "arxiv_id": "2105.08191",
+      "url": "https://arxiv.org/abs/2105.08191",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2409.20500",
+      "title": "FreeMask: Rethinking the Importance of Attention Masks for Zero-Shot Video Editing",
+      "authors": [
+        {
+          "name": "Lingling Cai",
+          "affiliation": ""
+        },
+        {
+          "name": "Kang Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Hangjie Yuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Yingya Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Shiwei Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Kejie Huang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Text-to-video diffusion models have made remarkable advancements. Driven by their ability to generate temporally coherent videos, research on zero-shot video editing using these fundamental models has expanded rapidly. To enhance editing quality, structural controls are frequently employed in video editing. Among these techniques, cross-attention mask control stands out for its effectiveness and efficiency. However, when cross-attention masks are naively applied to video editing, they can introduce artifacts such as blurring and flickering. Our experiments uncover a critical factor overlooked in previous video editing research: cross-attention masks are not consistently clear but vary with model structure and denoising timestep. To address this issue, we propose the metric Mask Matching Cost (MMC) that quantifies this variability and propose FreeMask, a method for selecting optimal masks tailored to specific video editing tasks. Using MMC-selected masks, we further improve the masked fusion mechanism within comprehensive attention features, e.g., temp, cross, and self-attention modules. Our approach can be seamlessly integrated into existing zero-shot video editing frameworks with better performance, requiring no control assistance or parameter fine-tuning but enabling adaptive decoupling of unedited semantic layouts with mask precision control. Extensive experiments demonstrate that FreeMask achieves superior semantic fidelity, temporal consistency, and editing quality compared to state-of-the-art methods.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2409.20500",
+      "url": "https://arxiv.org/abs/2409.20500",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2512.10943",
+      "title": "AlcheMinT: Fine-grained Temporal Control for Multi-Reference Consistent Video Generation",
+      "authors": [
+        {
+          "name": "Sharath Girish",
+          "affiliation": ""
+        },
+        {
+          "name": "Viacheslav Ivanov",
+          "affiliation": ""
+        },
+        {
+          "name": "Tsai-Shien Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Aliaksandr Siarohin",
+          "affiliation": ""
+        },
+        {
+          "name": "Sergey Tulyakov",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Recent advances in subject-driven video generation with large diffusion models have enabled personalized content synthesis conditioned on user-provided subjects. However, existing methods lack fine-grained temporal control over subject appearance and disappearance, which are essential for applications such as compositional video synthesis, storyboarding, and controllable animation. We propose AlcheMinT, a unified framework that introduces explicit timestamps conditioning for subject-driven video generation. Our approach introduces a novel positional encoding mechanism that unlocks the encoding of temporal intervals, associated in our case with subject identities, while seamlessly integrating with the pretrained video generation model positional embeddings. Additionally, we incorporate subject-descriptive text tokens to strengthen binding between visual identity and video captions, mitigating ambiguity during generation. Through token-wise concatenation, AlcheMinT avoids any additional cross-attention modules and incurs negligible parameter overhead. We establish a benchmark evaluating multiple subject identity preservation, video fidelity, and temporal adherence. Experimental results demonstrate that AlcheMinT achieves visual quality matching state-of-the-art video personalization methods, while, for the first time, enabling precise temporal control over multi-subject generation within videos. Project page is at https://snap-research.github.io/Video-AlcheMinT",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2512.10943",
+      "url": "https://arxiv.org/abs/2512.10943",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2104.12770",
+      "title": "Adaptive Encoding for Constrained Video Delivery in HEVC, VP9, AV1 and VVC Compression Standards and Adaptation to Video Content",
+      "authors": [
+        {
+          "name": "Gangadharan Esakki",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "The dissertation proposes the use of a multi-objective optimization framework for designing and selecting among enhanced GOP configurations in video compression standards. The proposed methods achieve fine optimization over a set of general modes that include: (i) maximum video quality, (ii) minimum bitrate, (iii) maximum encoding rate (previously minimum encoding time mode) and (iv) can be shown to improve upon the YouTube/Netflix default encoder mode settings over a set of opposing constraints to guarantee satisfactory performance. The dissertation describes the implementation of a codec-agnostic approach using different video coding standards (x265, VP9, AV1) on a wide range of videos derived from different video datasets. The results demonstrate that the optimal encoding parameters obtained from the Pareto front space can provide significant bandwidth savings without sacrificing video quality. This is achieved by the use of effective regression models that allow for the selection of video encoding settings that are jointly optimal in the encoding time, bitrate, and video quality space. The dissertation applies the proposed methods to x265, VP9, AV1 and using new GOP configurations in x265, delivering over 40% of the optimal encodings in two standard reference videos.",
+      "venue": "cs.MM",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2104.12770",
+      "url": "https://arxiv.org/abs/2104.12770",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2306.00943",
+      "title": "Make-Your-Video: Customized Video Generation Using Textual and Structural Guidance",
+      "authors": [
+        {
+          "name": "Jinbo Xing",
+          "affiliation": ""
+        },
+        {
+          "name": "Menghan Xia",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuxin Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuechen Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yong Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yingqing He",
+          "affiliation": ""
+        },
+        {
+          "name": "Hanyuan Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Haoxin Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaodong Cun",
+          "affiliation": ""
+        },
+        {
+          "name": "Xintao Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ying Shan",
+          "affiliation": ""
+        },
+        {
+          "name": "Tien-Tsin Wong",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Creating a vivid video from the event or scenario in our imagination is a truly fascinating experience. Recent advancements in text-to-video synthesis have unveiled the potential to achieve this with prompts only. While text is convenient in conveying the overall scene context, it may be insufficient to control precisely. In this paper, we explore customized video generation by utilizing text as context description and motion structure (e.g. frame-wise depth) as concrete guidance. Our method, dubbed Make-Your-Video, involves joint-conditional video generation using a Latent Diffusion Model that is pre-trained for still image synthesis and then promoted for video generation with the introduction of temporal modules. This two-stage learning scheme not only reduces the computing resources required, but also improves the performance by transferring the rich concepts available in image datasets solely into video generation. Moreover, we use a simple yet effective causal attention mask strategy to enable longer video synthesis, which mitigates the potential quality degradation effectively. Experimental results show the superiority of our method over existing baselines, particularly in terms of temporal coherence and fidelity to users' guidance. In addition, our model enables several intriguing applications that demonstrate potential for practical usage.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2306.00943",
+      "url": "https://arxiv.org/abs/2306.00943",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2504.08641",
+      "title": "Training-free Guidance in Text-to-Video Generation via Multimodal Planning and Structured Noise Initialization",
+      "authors": [
+        {
+          "name": "Jialu Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Shoubin Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Han Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Jaemin Cho",
+          "affiliation": ""
+        },
+        {
+          "name": "Jaehong Yoon",
+          "affiliation": ""
+        },
+        {
+          "name": "Mohit Bansal",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Recent advancements in text-to-video (T2V) diffusion models have significantly enhanced the visual quality of the generated videos. However, even recent T2V models find it challenging to follow text descriptions accurately, especially when the prompt requires accurate control of spatial layouts or object trajectories. A recent line of research uses layout guidance for T2V models that require fine-tuning or iterative manipulation of the attention map during inference time. This significantly increases the memory requirement, making it difficult to adopt a large T2V model as a backbone. To address this, we introduce Video-MSG, a training-free Guidance method for T2V generation based on Multimodal planning and Structured noise initialization. Video-MSG consists of three steps, where in the first two steps, Video-MSG creates Video Sketch, a fine-grained spatio-temporal plan for the final video, specifying background, foreground, and object trajectories, in the form of draft video frames. In the last step, Video-MSG guides a downstream T2V diffusion model with Video Sketch through noise inversion and denoising. Notably, Video-MSG does not need fine-tuning or attention manipulation with additional memory during inference time, making it easier to adopt large T2V models. Video-MSG demonstrates its effectiveness in enhancing text alignment with multiple T2V backbones (VideoCrafter2 and CogVideoX-5B) on popular T2V generation benchmarks (T2VCompBench and VBench). We provide comprehensive ablation studies about noise inversion ratio, different background generators, background object detection, and foreground object segmentation.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2504.08641",
+      "url": "https://arxiv.org/abs/2504.08641",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2506.19852",
+      "title": "Radial Attention: $O(n\\log n)$ Sparse Attention with Energy Decay for Long Video Generation",
+      "authors": [
+        {
+          "name": "Xingyang Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Muyang Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Tianle Cai",
+          "affiliation": ""
+        },
+        {
+          "name": "Haocheng Xi",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuo Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yujun Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Lvmin Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Songlin Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jinbo Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Kelly Peng",
+          "affiliation": ""
+        },
+        {
+          "name": "Maneesh Agrawala",
+          "affiliation": ""
+        },
+        {
+          "name": "Ion Stoica",
+          "affiliation": ""
+        },
+        {
+          "name": "Kurt Keutzer",
+          "affiliation": ""
+        },
+        {
+          "name": "Song Han",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Recent advances in diffusion models have enabled high-quality video generation, but the additional temporal dimension significantly increases computational costs, making training and inference on long videos prohibitively expensive. In this paper, we identify a phenomenon we term Spatiotemporal Energy Decay in video diffusion models: post-softmax attention scores diminish as spatial and temporal distance between tokens increase, akin to the physical decay of signal or waves over space and time in nature. Motivated by this, we propose Radial Attention, a scalable sparse attention mechanism with $\\mathcal{O}(n \\log n)$ complexity that translates energy decay into exponentially decaying compute density, which is significantly more efficient than standard $\\mathcal{O}(n^2)$ dense attention and more expressive than linear attention. Specifically, Radial Attention employs a simple, static attention mask where each token attends to spatially nearby tokens, with the attention window size shrinking with temporal distance. Moreover, it allows pre-trained video diffusion models to extend their generation length with efficient LoRA-based fine-tuning. Extensive experiments show that Radial Attention maintains video quality across Wan2.1-14B, HunyuanVideo, and Mochi 1, achieving up to a 1.9$\\times$ speedup over the original dense attention. With minimal tuning, it enables video generation up to 4$\\times$ longer while reducing training costs by up to 4.4$\\times$ compared to direct fine-tuning and accelerating inference by up to 3.7$\\times$ compared to dense attention inference. Code is released at \\href{https://github.com/mit-han-lab/radial-attention}{https://github.com/mit-han-lab/radial-attention}.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2506.19852",
+      "url": "https://arxiv.org/abs/2506.19852",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2011.14695",
+      "title": "Adaptive Compact Attention For Few-shot Video-to-video Translation",
+      "authors": [
+        {
+          "name": "Risheng Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Li Shen",
+          "affiliation": ""
+        },
+        {
+          "name": "Xuan Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Cheng Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao-Zhi Huang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "This paper proposes an adaptive compact attention model for few-shot video-to-video translation. Existing works in this domain only use features from pixel-wise attention without considering the correlations among multiple reference images, which leads to heavy computation but limited performance. Therefore, we introduce a novel adaptive compact attention mechanism to efficiently extract contextual features jointly from multiple reference images, of which encoded view-dependent and motion-dependent information can significantly benefit the synthesis of realistic videos. Our core idea is to extract compact basis sets from all the reference images as higher-level representations. To further improve the reliability, in the inference phase, we also propose a novel method based on the Delaunay Triangulation algorithm to automatically select the resourceful references according to the input label. We extensively evaluate our method on a large-scale talking-head video dataset and a human dancing dataset; the experimental results show the superior performance of our method for producing photorealistic and temporally consistent videos, and considerable improvements over the state-of-the-art method.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2011.14695",
+      "url": "https://arxiv.org/abs/2011.14695",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2201.01893",
+      "title": "Flow-Guided Sparse Transformer for Video Deblurring",
+      "authors": [
+        {
+          "name": "Jing Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuanhao Cai",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaowan Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Haoqian Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Youliang Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Xueyi Zou",
+          "affiliation": ""
+        },
+        {
+          "name": "Henghui Ding",
+          "affiliation": ""
+        },
+        {
+          "name": "Yulun Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Radu Timofte",
+          "affiliation": ""
+        },
+        {
+          "name": "Luc Van Gool",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Exploiting similar and sharper scene patches in spatio-temporal neighborhoods is critical for video deblurring. However, CNN-based methods show limitations in capturing long-range dependencies and modeling non-local self-similarity. In this paper, we propose a novel framework, Flow-Guided Sparse Transformer (FGST), for video deblurring. In FGST, we customize a self-attention module, Flow-Guided Sparse Window-based Multi-head Self-Attention (FGSW-MSA). For each $query$ element on the blurry reference frame, FGSW-MSA enjoys the guidance of the estimated optical flow to globally sample spatially sparse yet highly related $key$ elements corresponding to the same scene patch in neighboring frames. Besides, we present a Recurrent Embedding (RE) mechanism to transfer information from past frames and strengthen long-range temporal dependencies. Comprehensive experiments demonstrate that our proposed FGST outperforms state-of-the-art (SOTA) methods on both DVD and GOPRO datasets and even yields more visually pleasing results in real video deblurring. Code and pre-trained models are publicly available at https://github.com/linjing7/VR-Baseline",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2201.01893",
+      "url": "https://arxiv.org/abs/2201.01893",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2309.14364",
+      "title": "Automata Quest: NCAs as a Video Game Life Mechanic",
+      "authors": [
+        {
+          "name": "Hiroki Sato",
+          "affiliation": ""
+        },
+        {
+          "name": "Tanner Lund",
+          "affiliation": ""
+        },
+        {
+          "name": "Takahide Yoshida",
+          "affiliation": ""
+        },
+        {
+          "name": "Atsushi Masumori",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We study life over the course of video game history as represented by their mechanics. While there have been some variations depending on genre or \"character type\", we find that most games converge to a similar representation. We also examine the development of Conway's Game of Life (one of the first zero player games) and related automata that have developed over the years. With this history in mind, we investigate the viability of one popular form of automata, namely Neural Cellular Automata, as a way to more fully express life within video game settings and innovate new game mechanics or gameplay loops.",
+      "venue": "cs.HC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2309.14364",
+      "url": "https://arxiv.org/abs/2309.14364",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2505.14708",
+      "title": "DraftAttention: Fast Video Diffusion via Low-Resolution Attention Guidance",
+      "authors": [
+        {
+          "name": "Xuan Shen",
+          "affiliation": ""
+        },
+        {
+          "name": "Chenxia Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Yufa Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Yanyue Xie",
+          "affiliation": ""
+        },
+        {
+          "name": "Yifan Gong",
+          "affiliation": ""
+        },
+        {
+          "name": "Quanyi Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yiwei Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yanzhi Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Pu Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiuxiang Gu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Diffusion transformer-based video generation models (DiTs) have recently attracted widespread attention for their excellent generation quality. However, their computational cost remains a major bottleneck-attention alone accounts for over 80% of total latency, and generating just 8 seconds of 720p video takes tens of minutes-posing serious challenges to practical application and scalability. To address this, we propose the DraftAttention, a training-free framework for the acceleration of video diffusion transformers with dynamic sparse attention on GPUs. We apply down-sampling to each feature map across frames in the compressed latent space, enabling a higher-level receptive field over the latent composed of hundreds of thousands of tokens. The low-resolution draft attention map, derived from draft query and key, exposes redundancy both spatially within each feature map and temporally across frames. We reorder the query, key, and value based on the draft attention map to guide the sparse attention computation in full resolution, and subsequently restore their original order after the attention computation. This reordering enables structured sparsity that aligns with hardware-optimized execution. Our theoretical analysis demonstrates that the low-resolution draft attention closely approximates the full attention, providing reliable guidance for constructing accurate sparse attention. Experimental results show that our method outperforms existing sparse attention approaches in video generation quality and achieves up to 1.75x end-to-end speedup on GPUs. Code: https://github.com/shawnricecake/draft-attention",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2505.14708",
+      "url": "https://arxiv.org/abs/2505.14708",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2310.05922",
+      "title": "FLATTEN: optical FLow-guided ATTENtion for consistent text-to-video editing",
+      "authors": [
+        {
+          "name": "Yuren Cong",
+          "affiliation": ""
+        },
+        {
+          "name": "Mengmeng Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Christian Simon",
+          "affiliation": ""
+        },
+        {
+          "name": "Shoufa Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiawei Ren",
+          "affiliation": ""
+        },
+        {
+          "name": "Yanping Xie",
+          "affiliation": ""
+        },
+        {
+          "name": "Juan-Manuel Perez-Rua",
+          "affiliation": ""
+        },
+        {
+          "name": "Bodo Rosenhahn",
+          "affiliation": ""
+        },
+        {
+          "name": "Tao Xiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Sen He",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Text-to-video editing aims to edit the visual appearance of a source video conditional on textual prompts. A major challenge in this task is to ensure that all frames in the edited video are visually consistent. Most recent works apply advanced text-to-image diffusion models to this task by inflating 2D spatial attention in the U-Net into spatio-temporal attention. Although temporal context can be added through spatio-temporal attention, it may introduce some irrelevant information for each patch and therefore cause inconsistency in the edited video. In this paper, for the first time, we introduce optical flow into the attention module in the diffusion model's U-Net to address the inconsistency issue for text-to-video editing. Our method, FLATTEN, enforces the patches on the same flow path across different frames to attend to each other in the attention module, thus improving the visual consistency in the edited videos. Additionally, our method is training-free and can be seamlessly integrated into any diffusion-based text-to-video editing methods and improve their visual consistency. Experiment results on existing text-to-video editing benchmarks show that our proposed method achieves the new state-of-the-art performance. In particular, our method excels in maintaining the visual consistency in the edited videos.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2310.05922",
+      "url": "https://arxiv.org/abs/2310.05922",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2301.13173",
+      "title": "Shape-aware Text-driven Layered Video Editing",
+      "authors": [
+        {
+          "name": "Yao-Chih Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Ji-Ze Genevieve Jang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi-Ting Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Elizabeth Qiu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jia-Bin Huang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Temporal consistency is essential for video editing applications. Existing work on layered representation of videos allows propagating edits consistently to each frame. These methods, however, can only edit object appearance rather than object shape changes due to the limitation of using a fixed UV mapping field for texture atlas. We present a shape-aware, text-driven video editing method to tackle this challenge. To handle shape changes in video editing, we first propagate the deformation field between the input and edited keyframe to all frames. We then leverage a pre-trained text-conditioned diffusion model as guidance for refining shape distortion and completing unseen regions. The experimental results demonstrate that our method can achieve shape-aware consistent video editing and compare favorably with the state-of-the-art.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2301.13173",
+      "url": "https://arxiv.org/abs/2301.13173",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2312.00845",
+      "title": "VMC: Video Motion Customization using Temporal Attention Adaption for Text-to-Video Diffusion Models",
+      "authors": [
+        {
+          "name": "Hyeonho Jeong",
+          "affiliation": ""
+        },
+        {
+          "name": "Geon Yeong Park",
+          "affiliation": ""
+        },
+        {
+          "name": "Jong Chul Ye",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Text-to-video diffusion models have advanced video generation significantly. However, customizing these models to generate videos with tailored motions presents a substantial challenge. In specific, they encounter hurdles in (a) accurately reproducing motion from a target video, and (b) creating diverse visual variations. For example, straightforward extensions of static image customization methods to video often lead to intricate entanglements of appearance and motion data. To tackle this, here we present the Video Motion Customization (VMC) framework, a novel one-shot tuning approach crafted to adapt temporal attention layers within video diffusion models. Our approach introduces a novel motion distillation objective using residual vectors between consecutive frames as a motion reference. The diffusion process then preserves low-frequency motion trajectories while mitigating high-frequency motion-unrelated noise in image space. We validate our method against state-of-the-art video generative models across diverse real-world motions and contexts. Our codes, data and the project demo can be found at https://video-motion-customization.github.io",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2312.00845",
+      "url": "https://arxiv.org/abs/2312.00845",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2003.12224",
+      "title": "Multi-Granularity Reference-Aided Attentive Feature Aggregation for Video-based Person Re-identification",
+      "authors": [
+        {
+          "name": "Zhizheng Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Cuiling Lan",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenjun Zeng",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhibo Chen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Video-based person re-identification (reID) aims at matching the same person across video clips. It is a challenging task due to the existence of redundancy among frames, newly revealed appearance, occlusion, and motion blurs. In this paper, we propose an attentive feature aggregation module, namely Multi-Granularity Reference-aided Attentive Feature Aggregation (MG-RAFA), to delicately aggregate spatio-temporal features into a discriminative video-level feature representation. In order to determine the contribution/importance of a spatial-temporal feature node, we propose to learn the attention from a global view with convolutional operations. Specifically, we stack its relations, i.e., pairwise correlations with respect to a representative set of reference feature nodes (S-RFNs) that represents global video information, together with the feature itself to infer the attention. Moreover, to exploit the semantics of different levels, we propose to learn multi-granularity attentions based on the relations captured at different granularities. Extensive ablation studies demonstrate the effectiveness of our attentive feature aggregation module MG-RAFA. Our framework achieves the state-of-the-art performance on three benchmark datasets.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2003.12224",
+      "url": "https://arxiv.org/abs/2003.12224",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2306.05414",
+      "title": "Improving Tuning-Free Real Image Editing with Proximal Guidance",
+      "authors": [
+        {
+          "name": "Ligong Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Song Wen",
+          "affiliation": ""
+        },
+        {
+          "name": "Qi Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhixing Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Kunpeng Song",
+          "affiliation": ""
+        },
+        {
+          "name": "Mengwei Ren",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruijiang Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Anastasis Stathopoulos",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaoxiao He",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuxiao Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Di Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Qilong Zhangli",
+          "affiliation": ""
+        },
+        {
+          "name": "Jindong Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhaoyang Xia",
+          "affiliation": ""
+        },
+        {
+          "name": "Akash Srivastava",
+          "affiliation": ""
+        },
+        {
+          "name": "Dimitris Metaxas",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "DDIM inversion has revealed the remarkable potential of real image editing within diffusion-based methods. However, the accuracy of DDIM reconstruction degrades as larger classifier-free guidance (CFG) scales being used for enhanced editing. Null-text inversion (NTI) optimizes null embeddings to align the reconstruction and inversion trajectories with larger CFG scales, enabling real image editing with cross-attention control. Negative-prompt inversion (NPI) further offers a training-free closed-form solution of NTI. However, it may introduce artifacts and is still constrained by DDIM reconstruction quality. To overcome these limitations, we propose proximal guidance and incorporate it to NPI with cross-attention control. We enhance NPI with a regularization term and reconstruction guidance, which reduces artifacts while capitalizing on its training-free nature. Additionally, we extend the concepts to incorporate mutual self-attention control, enabling geometry and layout alterations in the editing process. Our method provides an efficient and straightforward approach, effectively addressing real image editing tasks with minimal computational overhead.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2306.05414",
+      "url": "https://arxiv.org/abs/2306.05414",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2504.11894",
+      "title": "Trajectory Dispersion Control for Precision Landing Guidance of Reusable Rockets",
+      "authors": [
+        {
+          "name": "Xinglun Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Ran Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Huifeng Li",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "This article is an engineering note, and formal abstract is omitted in accordance with the requirements of the journal. The main idea of this note is as follows. In endoatmospheric landing of reusable rockets, there exist various kinds of disturbances that can induce the trajectory dispersion. The trajectory dispersion propagates with flight time and ultimately determines landing accuracy. Therefore, to achieve high-precision landing, this note proposes a novel online trajectory dispersion control method. Based on a Parameterized Optimal Feedback Guidance Law (POFGL), two key components of the proposed method are designed: online trajectory dispersion prediction and real-time guidance parameter tuning for trajectory dispersion optimization. First, by formalizing a parameterized probabilistic disturbance model, the closed-loop trajectory dispersion under the POFGL is predicted online. Compared with the covariance control guidance method, a more accurate trajectory dispersion prediction is achieved by using generalized Polynomial Chaos (gPC) expansion and pseudospectral collocation methods. Second, to ensure computational efficiency, a gradient descent based real-time guidance parameter tuning law is designed to simultaneously optimize the performance index and meet the landing error dispersion constraint, which significantly reduces the conservativeness of guidance design compared with the robust trajectory optimization method. Numerical simulations indicate that the trajectory dispersion prediction method can achieve the same accuracy as the Monte Carlo method with smaller computational resource; the guidance parameter tuning law can improve the optimal performance index and meet the desired accuracy requirements through directly shaping the trajectory dispersion.",
+      "venue": "physics.space-ph",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2504.11894",
+      "url": "https://arxiv.org/abs/2504.11894",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2506.20967",
+      "title": "DFVEdit: Conditional Delta Flow Vector for Zero-shot Video Editing",
+      "authors": [
+        {
+          "name": "Lingling Cai",
+          "affiliation": ""
+        },
+        {
+          "name": "Kang Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Hangjie Yuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiang Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yingya Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Kejie Huang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The advent of Video Diffusion Transformers (Video DiTs) marks a milestone in video generation. However, directly applying existing video editing methods to Video DiTs often incurs substantial computational overhead, due to resource-intensive attention modification or finetuning. To alleviate this problem, we present DFVEdit, an efficient zero-shot video editing method tailored for Video DiTs. DFVEdit eliminates the need for both attention modification and fine-tuning by directly operating on clean latents via flow transformation. To be more specific, we observe that editing and sampling can be unified under the continuous flow perspective. Building upon this foundation, we propose the Conditional Delta Flow Vector (CDFV) -- a theoretically unbiased estimation of DFV -- and integrate Implicit Cross Attention (ICA) guidance as well as Embedding Reinforcement (ER) to further enhance editing quality. DFVEdit excels in practical efficiency, offering at least 20x inference speed-up and 85% memory reduction on Video DiTs compared to attention-engineering-based editing methods. Extensive quantitative and qualitative experiments demonstrate that DFVEdit can be seamlessly applied to popular Video DiTs (e.g., CogVideoX and Wan2.1), attaining state-of-the-art performance on structural fidelity, spatial-temporal consistency, and editing quality.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2506.20967",
+      "url": "https://arxiv.org/abs/2506.20967",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2207.12622",
+      "title": "Multi-Attention Network for Compressed Video Referring Object Segmentation",
+      "authors": [
+        {
+          "name": "Weidong Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Dexiang Hong",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuankai Qi",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhenjun Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuhui Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Laiyun Qing",
+          "affiliation": ""
+        },
+        {
+          "name": "Qingming Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Guorong Li",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Referring video object segmentation aims to segment the object referred by a given language expression. Existing works typically require compressed video bitstream to be decoded to RGB frames before being segmented, which increases computation and storage requirements and ultimately slows the inference down. This may hamper its application in real-world computing resource limited scenarios, such as autonomous cars and drones. To alleviate this problem, in this paper, we explore the referring object segmentation task on compressed videos, namely on the original video data flow. Besides the inherent difficulty of the video referring object segmentation task itself, obtaining discriminative representation from compressed video is also rather challenging. To address this problem, we propose a multi-attention network which consists of dual-path dual-attention module and a query-based cross-modal Transformer module. Specifically, the dual-path dual-attention module is designed to extract effective representation from compressed data in three modalities, i.e., I-frame, Motion Vector and Residual. The query-based cross-modal Transformer firstly models the correlation between linguistic and visual modalities, and then the fused multi-modality features are used to guide object queries to generate a content-aware dynamic kernel and to predict final segmentation masks. Different from previous works, we propose to learn just one kernel, which thus removes the complicated post mask-matching procedure of existing methods. Extensive promising experimental results on three challenging datasets show the effectiveness of our method compared against several state-of-the-art methods which are proposed for processing RGB data. Source code is available at: https://github.com/DexiangHong/MANet.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2207.12622",
+      "url": "https://arxiv.org/abs/2207.12622",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2505.23742",
+      "title": "MAGREF: Masked Guidance for Any-Reference Video Generation with Subject Disentanglement",
+      "authors": [
+        {
+          "name": "Yufan Deng",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuanyang Yin",
+          "affiliation": ""
+        },
+        {
+          "name": "Xun Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Yizhi Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jacob Zhiyuan Fang",
+          "affiliation": ""
+        },
+        {
+          "name": "Shenghai Yuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Yiding Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Angtian Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Bo Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Haibin Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chongyang Ma",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "We tackle the task of any-reference video generation, which aims to synthesize videos conditioned on arbitrary types and combinations of reference subjects, together with textual prompts. This task faces persistent challenges, including identity inconsistency, entanglement among multiple reference subjects, and copy-paste artifacts. To address these issues, we introduce MAGREF, a unified and effective framework for any-reference video generation. Our approach incorporates masked guidance and a subject disentanglement mechanism, enabling flexible synthesis conditioned on diverse reference images and textual prompts. Specifically, masked guidance employs a region-aware masking mechanism combined with pixel-wise channel concatenation to preserve appearance features of multiple subjects along the channel dimension. This design preserves identity consistency and maintains the capabilities of the pre-trained backbone, without requiring any architectural changes. To mitigate subject confusion, we introduce a subject disentanglement mechanism which injects the semantic values of each subject derived from the text condition into its corresponding visual region. Additionally, we establish a four-stage data pipeline to construct diverse training pairs, effectively alleviating copy-paste artifacts. Extensive experiments on a comprehensive benchmark demonstrate that MAGREF consistently outperforms existing state-of-the-art approaches, paving the way for scalable, controllable, and high-fidelity any-reference video synthesis. Code and model can be found at: https://github.com/MAGREF-Video/MAGREF",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2505.23742",
+      "url": "https://arxiv.org/abs/2505.23742",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2207.10357",
+      "title": "Synthesizing Light Field Video from Monocular Video",
+      "authors": [
+        {
+          "name": "Shrisudhan Govindarajan",
+          "affiliation": ""
+        },
+        {
+          "name": "Prasan Shedligeri",
+          "affiliation": ""
+        },
+        {
+          "name": "Sarah",
+          "affiliation": ""
+        },
+        {
+          "name": "Kaushik Mitra",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "The hardware challenges associated with light-field(LF) imaging has made it difficult for consumers to access its benefits like applications in post-capture focus and aperture control. Learning-based techniques which solve the ill-posed problem of LF reconstruction from sparse (1, 2 or 4) views have significantly reduced the requirement for complex hardware. LF video reconstruction from sparse views poses a special challenge as acquiring ground-truth for training these models is hard. Hence, we propose a self-supervised learning-based algorithm for LF video reconstruction from monocular videos. We use self-supervised geometric, photometric and temporal consistency constraints inspired from a recent self-supervised technique for LF video reconstruction from stereo video. Additionally, we propose three key techniques that are relevant to our monocular video input. We propose an explicit disocclusion handling technique that encourages the network to inpaint disoccluded regions in a LF frame, using information from adjacent input temporal frames. This is crucial for a self-supervised technique as a single input frame does not contain any information about the disoccluded regions. We also propose an adaptive low-rank representation that provides a significant boost in performance by tailoring the representation to each input scene. Finally, we also propose a novel refinement block that is able to exploit the available LF image data using supervised learning to further refine the reconstruction quality. Our qualitative and quantitative analysis demonstrates the significance of each of the proposed building blocks and also the superior results compared to previous state-of-the-art monocular LF reconstruction techniques. We further validate our algorithm by reconstructing LF videos from monocular videos acquired using a commercial GoPro camera.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2207.10357",
+      "url": "https://arxiv.org/abs/2207.10357",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2506.01061",
+      "title": "AceVFI: A Comprehensive Survey of Advances in Video Frame Interpolation",
+      "authors": [
+        {
+          "name": "Dahyeon Kye",
+          "affiliation": ""
+        },
+        {
+          "name": "Changhyun Roh",
+          "affiliation": ""
+        },
+        {
+          "name": "Sukhun Ko",
+          "affiliation": ""
+        },
+        {
+          "name": "Chanho Eom",
+          "affiliation": ""
+        },
+        {
+          "name": "Jihyong Oh",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Video Frame Interpolation (VFI) is a core low-level vision task that synthesizes intermediate frames between existing ones while ensuring spatial and temporal coherence. Over the past decades, VFI methodologies have evolved from classical motion compensation-based approach to a wide spectrum of deep learning-based approaches, including kernel-, flow-, hybrid-, phase-, GAN-, Transformer-, Mamba-, and most recently, diffusion-based models. We introduce AceVFI, a comprehensive and up-to-date review of the VFI field, covering over 250 representative papers. We systematically categorize VFI methods based on their core design principles and architectural characteristics. Further, we classify them into two major learning paradigms: Center-Time Frame Interpolation (CTFI) and Arbitrary-Time Frame Interpolation (ATFI). We analyze key challenges in VFI, including large motion, occlusion, lighting variation, and non-linear motion. In addition, we review standard datasets, loss functions, evaluation metrics. We also explore VFI applications in other domains and highlight future research directions. This survey aims to serve as a valuable reference for researchers and practitioners seeking a thorough understanding of the modern VFI landscape.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1109/TCSVT.2026.3672288",
+      "arxiv_id": "2506.01061",
+      "url": "https://arxiv.org/abs/2506.01061",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2508.15003",
+      "title": "Scalable Event-Based Video Streaming for Machines with MoQ",
+      "authors": [
+        {
+          "name": "Andrew C. Freeman",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Lossy compression and rate-adaptive streaming are a mainstay in traditional video steams. However, a new class of neuromorphic ``event'' sensors records video with asynchronous pixel samples rather than image frames. These sensors are designed for computer vision applications, rather than human video consumption. Until now, researchers have focused their efforts primarily on application development, ignoring the crucial problem of data transmission. We survey the landscape of event-based video systems, discuss the technical issues with our recent scalable event streaming work, and propose a new low-latency event streaming format based on the latest additions to the Media Over QUIC protocol draft.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "10.1145/3715675.3715800",
+      "arxiv_id": "2508.15003",
+      "url": "https://arxiv.org/abs/2508.15003",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2312.06662",
+      "title": "Photorealistic Video Generation with Diffusion Models",
+      "authors": [
+        {
+          "name": "Agrim Gupta",
+          "affiliation": ""
+        },
+        {
+          "name": "Lijun Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Kihyuk Sohn",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiuye Gu",
+          "affiliation": ""
+        },
+        {
+          "name": "Meera Hahn",
+          "affiliation": ""
+        },
+        {
+          "name": "Li Fei-Fei",
+          "affiliation": ""
+        },
+        {
+          "name": "Irfan Essa",
+          "affiliation": ""
+        },
+        {
+          "name": "Lu Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jos\u00e9 Lezama",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We present W.A.L.T, a transformer-based approach for photorealistic video generation via diffusion modeling. Our approach has two key design decisions. First, we use a causal encoder to jointly compress images and videos within a unified latent space, enabling training and generation across modalities. Second, for memory and training efficiency, we use a window attention architecture tailored for joint spatial and spatiotemporal generative modeling. Taken together these design decisions enable us to achieve state-of-the-art performance on established video (UCF-101 and Kinetics-600) and image (ImageNet) generation benchmarks without using classifier free guidance. Finally, we also train a cascade of three models for the task of text-to-video generation consisting of a base latent video diffusion model, and two video super-resolution diffusion models to generate videos of $512 \\times 896$ resolution at $8$ frames per second.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2312.06662",
+      "url": "https://arxiv.org/abs/2312.06662",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2209.02854",
+      "title": "Video Restoration with a Deep Plug-and-Play Prior",
+      "authors": [
+        {
+          "name": "Antoine Monod",
+          "affiliation": ""
+        },
+        {
+          "name": "Julie Delon",
+          "affiliation": ""
+        },
+        {
+          "name": "Matias Tassano",
+          "affiliation": ""
+        },
+        {
+          "name": "Andr\u00e9s Almansa",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "This paper presents a novel method for restoring digital videos via a Deep Plug-and-Play (PnP) approach. Under a Bayesian formalism, the method consists in using a deep convolutional denoising network in place of the proximal operator of the prior in an alternating optimization scheme. We distinguish ourselves from prior PnP work by directly applying that method to restore a digital video from a degraded video observation. This way, a network trained once for denoising can be repurposed for other video restoration tasks. Our experiments in video deblurring, super-resolution, and interpolation of random missing pixels all show a clear benefit to using a network specifically designed for video denoising, as it yields better restoration performance and better temporal stability than a single image network with similar denoising performance using the same PnP formulation. Moreover, our method compares favorably to applying a different state-of-the-art PnP scheme separately on each frame of the sequence. This opens new perspectives in the field of video restoration.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2209.02854",
+      "url": "https://arxiv.org/abs/2209.02854",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2303.07489",
+      "title": "MRET: Multi-resolution Transformer for Video Quality Assessment",
+      "authors": [
+        {
+          "name": "Junjie Ke",
+          "affiliation": ""
+        },
+        {
+          "name": "Tianhao Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yilin Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Peyman Milanfar",
+          "affiliation": ""
+        },
+        {
+          "name": "Feng Yang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "No-reference video quality assessment (NR-VQA) for user generated content (UGC) is crucial for understanding and improving visual experience. Unlike video recognition tasks, VQA tasks are sensitive to changes in input resolution. Since large amounts of UGC videos nowadays are 720p or above, the fixed and relatively small input used in conventional NR-VQA methods results in missing high-frequency details for many videos. In this paper, we propose a novel Transformer-based NR-VQA framework that preserves the high-resolution quality information. With the multi-resolution input representation and a novel multi-resolution patch sampling mechanism, our method enables a comprehensive view of both the global video composition and local high-resolution details. The proposed approach can effectively aggregate quality information across different granularities in spatial and temporal dimensions, making the model robust to input resolution variations. Our method achieves state-of-the-art performance on large-scale UGC VQA datasets LSVQ and LSVQ-1080p, and on KoNViD-1k and LIVE-VQC without fine-tuning.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2303.07489",
+      "url": "https://arxiv.org/abs/2303.07489",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

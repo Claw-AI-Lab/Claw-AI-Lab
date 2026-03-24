@@ -1,0 +1,1357 @@
+{
+  "query": "token competition diffusion cross attention",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1774164078.5146673,
+  "papers": [
+    {
+      "paper_id": "arxiv-2303.17696",
+      "title": "Dual Cross-Attention for Medical Image Segmentation",
+      "authors": [
+        {
+          "name": "Gorkem Can Ates",
+          "affiliation": ""
+        },
+        {
+          "name": "Prasoon Mohan",
+          "affiliation": ""
+        },
+        {
+          "name": "Emrah Celik",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We propose Dual Cross-Attention (DCA), a simple yet effective attention module that is able to enhance skip-connections in U-Net-based architectures for medical image segmentation. DCA addresses the semantic gap between encoder and decoder features by sequentially capturing channel and spatial dependencies across multi-scale encoder features. First, the Channel Cross-Attention (CCA) extracts global channel-wise dependencies by utilizing cross-attention across channel tokens of multi-scale encoder features. Then, the Spatial Cross-Attention (SCA) module performs cross-attention to capture spatial dependencies across spatial tokens. Finally, these fine-grained encoder features are up-sampled and connected to their corresponding decoder parts to form the skip-connection scheme. Our proposed DCA module can be integrated into any encoder-decoder architecture with skip-connections such as U-Net and its variants. We test our DCA module by integrating it into six U-Net-based architectures such as U-Net, V-Net, R2Unet, ResUnet++, DoubleUnet and MultiResUnet. Our DCA module shows Dice Score improvements up to 2.05% on GlaS, 2.74% on MoNuSeg, 1.37% on CVC-ClinicDB, 1.12% on Kvasir-Seg and 1.44% on Synapse datasets. Our codes are available at: https://github.com/gorkemcanates/Dual-Cross-Attention",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1016/j.engappai.2023.107139",
+      "arxiv_id": "2303.17696",
+      "url": "https://arxiv.org/abs/2303.17696",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2311.03335",
+      "title": "Cross-Image Attention for Zero-Shot Appearance Transfer",
+      "authors": [
+        {
+          "name": "Yuval Alaluf",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniel Garibi",
+          "affiliation": ""
+        },
+        {
+          "name": "Or Patashnik",
+          "affiliation": ""
+        },
+        {
+          "name": "Hadar Averbuch-Elor",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniel Cohen-Or",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Recent advancements in text-to-image generative models have demonstrated a remarkable ability to capture a deep semantic understanding of images. In this work, we leverage this semantic knowledge to transfer the visual appearance between objects that share similar semantics but may differ significantly in shape. To achieve this, we build upon the self-attention layers of these generative models and introduce a cross-image attention mechanism that implicitly establishes semantic correspondences across images. Specifically, given a pair of images -- one depicting the target structure and the other specifying the desired appearance -- our cross-image attention combines the queries corresponding to the structure image with the keys and values of the appearance image. This operation, when applied during the denoising process, leverages the established semantic correspondences to generate an image combining the desired structure and appearance. In addition, to improve the output image quality, we harness three mechanisms that either manipulate the noisy latent codes or the model's internal representations throughout the denoising process. Importantly, our approach is zero-shot, requiring no optimization or training. Experiments show that our method is effective across a wide range of object categories and is robust to variations in shape, size, and viewpoint between the two input images.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2311.03335",
+      "url": "https://arxiv.org/abs/2311.03335",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2508.17807",
+      "title": "Attention Debiasing for Token Pruning in Vision Language Models",
+      "authors": [
+        {
+          "name": "Kai Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Wubang Yuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuchen Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Liting Ruan",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaofeng Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Deng-Ping Fan",
+          "affiliation": ""
+        },
+        {
+          "name": "Ming-Ming Cheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Dan Zeng",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Vision-language models (VLMs) typically encode substantially more visual tokens than text tokens, resulting in significant token redundancy. Pruning uninformative visual tokens is therefore crucial for improving computational efficiency, and language-to-vision attention has become a widely used importance criterion for this purpose. However, we find that attention in VLMs is systematically biased. It disproportionately favors tokens appearing later in the sequence, manifesting as over-attention to lower image regions, and assigns inflated scores to semantically empty padding tokens. These behaviors stem from intrinsic recency bias and attention sink effects inherited from large language models (LLMs), and they distort attention-based pruning by preserving irrelevant visual content. To derive a pruning criterion better aligned with semantic relevance, we introduce two lightweight yet effective debiasing techniques that restore the reliability of attention. The first compensates for positional distortions by removing recency-induced attention trends, producing a content-aware and position-agnostic importance measure. The second suppresses attention sink effects by eliminating spurious attention on padding tokens. Our method is model-agnostic, pruning-method-agnostic, and task-agnostic, enabling plug-and-play integration with existing VLM pruning models. Despite its simplicity, our approach consistently delivers strong performance gains. We evaluate our method on ten vision-language benchmarks spanning both image-based and video-based tasks, in comparison with seven state-of-the-art visual token pruning methods and across two representative VLM architectures. Our method achieves substantial performance gains, demonstrating strong effectiveness and generalizability. Our code is available at https://github.com/intcomp/attention-bias.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2508.17807",
+      "url": "https://arxiv.org/abs/2508.17807",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2506.10036",
+      "title": "Token Perturbation Guidance for Diffusion Models",
+      "authors": [
+        {
+          "name": "Javad Rajabi",
+          "affiliation": ""
+        },
+        {
+          "name": "Soroush Mehraban",
+          "affiliation": ""
+        },
+        {
+          "name": "Seyedmorteza Sadat",
+          "affiliation": ""
+        },
+        {
+          "name": "Babak Taati",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Classifier-free guidance (CFG) has become an essential component of modern diffusion models to enhance both generation quality and alignment with input conditions. However, CFG requires specific training procedures and is limited to conditional generation. To address these limitations, we propose Token Perturbation Guidance (TPG), a novel method that applies perturbation matrices directly to intermediate token representations within the diffusion network. TPG employs a norm-preserving shuffling operation to provide effective and stable guidance signals that improve generation quality without architectural changes. As a result, TPG is training-free and agnostic to input conditions, making it readily applicable to both conditional and unconditional generation. We further analyze the guidance term provided by TPG and show that its effect on sampling more closely resembles CFG compared to existing training-free guidance techniques. Extensive experiments on SDXL and Stable Diffusion 2.1 show that TPG achieves nearly a 2$\\times$ improvement in FID for unconditional generation over the SDXL baseline, while closely matching CFG in prompt alignment. These results establish TPG as a general, condition-agnostic guidance method that brings CFG-like benefits to a broader class of diffusion models.",
+      "venue": "cs.GR",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2506.10036",
+      "url": "https://arxiv.org/abs/2506.10036",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2409.17625",
+      "title": "Benign Overfitting in Token Selection of Attention Mechanism",
+      "authors": [
+        {
+          "name": "Keitaro Sakamoto",
+          "affiliation": ""
+        },
+        {
+          "name": "Issei Sato",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Attention mechanism is a fundamental component of the transformer model and plays a significant role in its success. However, the theoretical understanding of how attention learns to select tokens is still an emerging area of research. In this work, we study the training dynamics and generalization ability of the attention mechanism under classification problems with label noise. We show that, with the characterization of signal-to-noise ratio (SNR), the token selection of attention mechanism achieves benign overfitting, i.e., maintaining high generalization performance despite fitting label noise. Our work also demonstrates an interesting delayed acquisition of generalization after an initial phase of overfitting. Finally, we provide experiments to support our theoretical analysis using both synthetic and real-world datasets.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2409.17625",
+      "url": "https://arxiv.org/abs/2409.17625",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2104.08597",
+      "title": "XLEnt: Mining a Large Cross-lingual Entity Dataset with Lexical-Semantic-Phonetic Word Alignment",
+      "authors": [
+        {
+          "name": "Ahmed El-Kishky",
+          "affiliation": ""
+        },
+        {
+          "name": "Adithya Renduchintala",
+          "affiliation": ""
+        },
+        {
+          "name": "James Cross",
+          "affiliation": ""
+        },
+        {
+          "name": "Francisco Guzm\u00e1n",
+          "affiliation": ""
+        },
+        {
+          "name": "Philipp Koehn",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Cross-lingual named-entity lexica are an important resource to multilingual NLP tasks such as machine translation and cross-lingual wikification. While knowledge bases contain a large number of entities in high-resource languages such as English and French, corresponding entities for lower-resource languages are often missing. To address this, we propose Lexical-Semantic-Phonetic Align (LSP-Align), a technique to automatically mine cross-lingual entity lexica from mined web data. We demonstrate LSP-Align outperforms baselines at extracting cross-lingual entity pairs and mine 164 million entity pairs from 120 different languages aligned with English. We release these cross-lingual entity pairs along with the massively multilingual tagged named entity corpus as a resource to the NLP community.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2104.08597",
+      "url": "https://arxiv.org/abs/2104.08597",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2407.01392",
+      "title": "Diffusion Forcing: Next-token Prediction Meets Full-Sequence Diffusion",
+      "authors": [
+        {
+          "name": "Boyuan Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Diego Marti Monso",
+          "affiliation": ""
+        },
+        {
+          "name": "Yilun Du",
+          "affiliation": ""
+        },
+        {
+          "name": "Max Simchowitz",
+          "affiliation": ""
+        },
+        {
+          "name": "Russ Tedrake",
+          "affiliation": ""
+        },
+        {
+          "name": "Vincent Sitzmann",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "This paper presents Diffusion Forcing, a new training paradigm where a diffusion model is trained to denoise a set of tokens with independent per-token noise levels. We apply Diffusion Forcing to sequence generative modeling by training a causal next-token prediction model to generate one or several future tokens without fully diffusing past ones. Our approach is shown to combine the strengths of next-token prediction models, such as variable-length generation, with the strengths of full-sequence diffusion models, such as the ability to guide sampling to desirable trajectories. Our method offers a range of additional capabilities, such as (1) rolling-out sequences of continuous tokens, such as video, with lengths past the training horizon, where baselines diverge and (2) new sampling and guiding schemes that uniquely profit from Diffusion Forcing's variable-horizon and causal architecture, and which lead to marked performance gains in decision-making and planning tasks. In addition to its empirical success, our method is proven to optimize a variational lower bound on the likelihoods of all subsequences of tokens drawn from the true joint distribution. Project website: https://boyuan.space/diffusion-forcing",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2407.01392",
+      "url": "https://arxiv.org/abs/2407.01392",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2509.10918",
+      "title": "ToMA: Token Merge with Attention for Diffusion Models",
+      "authors": [
+        {
+          "name": "Wenbo Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Shaoyi Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuxuan Xia",
+          "affiliation": ""
+        },
+        {
+          "name": "Shengjie Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Diffusion models excel in high-fidelity image generation but face scalability limits due to transformers' quadratic attention complexity. Plug-and-play token reduction methods like ToMeSD and ToFu reduce FLOPs by merging redundant tokens in generated images but rely on GPU-inefficient operations (e.g., sorting, scattered writes), introducing overheads that negate theoretical speedups when paired with optimized attention implementations (e.g., FlashAttention). To bridge this gap, we propose Token Merge with Attention (ToMA), an off-the-shelf method that redesigns token reduction for GPU-aligned efficiency, with three key contributions: 1) a reformulation of token merge as a submodular optimization problem to select diverse tokens; 2) merge/unmerge as an attention-like linear transformation via GPU-friendly matrix operations; and 3) exploiting latent locality and sequential redundancy (pattern reuse) to minimize overhead. ToMA reduces SDXL/Flux generation latency by 24%/23%, respectively (with DINO $\u0394< 0.07$), outperforming prior methods. This work bridges the gap between theoretical and practical efficiency for transformers in diffusion. Code available at https://github.com/WenboLuu/ToMA.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2509.10918",
+      "url": "https://arxiv.org/abs/2509.10918",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.12280",
+      "title": "D$^{3}$ToM: Decider-Guided Dynamic Token Merging for Accelerating Diffusion MLLMs",
+      "authors": [
+        {
+          "name": "Shuochen Chang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaofeng Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Qingyang Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Li Niu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Diffusion-based multimodal large language models (Diffusion MLLMs) have recently demonstrated impressive non-autoregressive generative capabilities across vision-and-language tasks. However, Diffusion MLLMs exhibit substantially slower inference than autoregressive models: Each denoising step employs full bidirectional self-attention over the entire sequence, resulting in cubic decoding complexity that becomes computationally impractical with thousands of visual tokens. To address this challenge, we propose D$^{3}$ToM, a Decider-guided dynamic token merging method that dynamically merges redundant visual tokens at different denoising steps to accelerate inference in Diffusion MLLMs. At each denoising step, D$^{3}$ToM uses decider tokens-the tokens generated in the previous denoising step-to build an importance map over all visual tokens. Then it maintains a proportion of the most salient tokens and merges the remainder through similarity-based aggregation. This plug-and-play module integrates into a single transformer layer, physically shortening the visual token sequence for all subsequent layers without altering model parameters. Moreover, D$^{3}$ToM employs a merge ratio that dynamically varies with each denoising step, aligns with the native decoding process of Diffusion MLLMs, achieving superior performance under equivalent computational budgets. Extensive experiments show that D$^{3}$ToM accelerates inference while preserving competitive performance. The code is released at https://github.com/bcmi/D3ToM-Diffusion-MLLM.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.12280",
+      "url": "https://arxiv.org/abs/2511.12280",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2306.14891",
+      "title": "Fuzzy-Conditioned Diffusion and Diffusion Projection Attention Applied to Facial Image Correction",
+      "authors": [
+        {
+          "name": "Majed El Helou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Image diffusion has recently shown remarkable performance in image synthesis and implicitly as an image prior. Such a prior has been used with conditioning to solve the inpainting problem, but only supporting binary user-based conditioning. We derive a fuzzy-conditioned diffusion, where implicit diffusion priors can be exploited with controllable strength. Our fuzzy conditioning can be applied pixel-wise, enabling the modification of different image components to varying degrees. Additionally, we propose an application to facial image correction, where we combine our fuzzy-conditioned diffusion with diffusion-derived attention maps. Our map estimates the degree of anomaly, and we obtain it by projecting on the diffusion space. We show how our approach also leads to interpretable and autonomous facial image correction.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2306.14891",
+      "url": "https://arxiv.org/abs/2306.14891",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2505.18227",
+      "title": "Token Reduction Should Go Beyond Efficiency in Generative Models -- From Vision, Language to Multimodality",
+      "authors": [
+        {
+          "name": "Zhenglun Kong",
+          "affiliation": ""
+        },
+        {
+          "name": "Yize Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Fanhu Zeng",
+          "affiliation": ""
+        },
+        {
+          "name": "Lei Xin",
+          "affiliation": ""
+        },
+        {
+          "name": "Shvat Messica",
+          "affiliation": ""
+        },
+        {
+          "name": "Xue Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Pu Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Manolis Kellis",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Marinka Zitnik",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "In Transformer architectures, tokens\\textemdash discrete units derived from raw data\\textemdash are formed by segmenting inputs into fixed-length chunks. Each token is then mapped to an embedding, enabling parallel attention computations while preserving the input's essential information. Due to the quadratic computational complexity of transformer self-attention mechanisms, token reduction has primarily been used as an efficiency strategy. This is especially true in single vision and language domains, where it helps balance computational costs, memory usage, and inference latency. Despite these advances, this paper argues that token reduction should transcend its traditional efficiency-oriented role in the era of large generative models. Instead, we position it as a fundamental principle in generative modeling, critically influencing both model architecture and broader applications. Specifically, we contend that across vision, language, and multimodal systems, token reduction can: (i) facilitate deeper multimodal integration and alignment, (ii) mitigate \"overthinking\" and hallucinations, (iii) maintain coherence over long inputs, and (iv) enhance training stability, etc. We reframe token reduction as more than an efficiency measure. By doing so, we outline promising future directions, including algorithm design, reinforcement learning-guided token reduction, token optimization for in-context learning, agentic framework design, and broader ML and scientific domains.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2505.18227",
+      "url": "https://arxiv.org/abs/2505.18227",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2507.20499",
+      "title": "DmC: Nearest Neighbor Guidance Diffusion Model for Offline Cross-domain Reinforcement Learning",
+      "authors": [
+        {
+          "name": "Linh Le Pham Van",
+          "affiliation": ""
+        },
+        {
+          "name": "Minh Hoang Nguyen",
+          "affiliation": ""
+        },
+        {
+          "name": "Duc Kieu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hung Le",
+          "affiliation": ""
+        },
+        {
+          "name": "Hung The Tran",
+          "affiliation": ""
+        },
+        {
+          "name": "Sunil Gupta",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Cross-domain offline reinforcement learning (RL) seeks to enhance sample efficiency in offline RL by utilizing additional offline source datasets. A key challenge is to identify and utilize source samples that are most relevant to the target domain. Existing approaches address this challenge by measuring domain gaps through domain classifiers, target transition dynamics modeling, or mutual information estimation using contrastive loss. However, these methods often require large target datasets, which is impractical in many real-world scenarios. In this work, we address cross-domain offline RL under a limited target data setting, identifying two primary challenges: (1) Dataset imbalance, which is caused by large source and small target datasets and leads to overfitting in neural network-based domain gap estimators, resulting in uninformative measurements; and (2) Partial domain overlap, where only a subset of the source data is closely aligned with the target domain. To overcome these issues, we propose DmC, a novel framework for cross-domain offline RL with limited target samples. Specifically, DmC utilizes $k$-nearest neighbor ($k$-NN) based estimation to measure domain proximity without neural network training, effectively mitigating overfitting. Then, by utilizing this domain proximity, we introduce a nearest-neighbor-guided diffusion model to generate additional source samples that are better aligned with the target domain, thus enhancing policy learning with more effective source samples. Through theoretical analysis and extensive experiments in diverse MuJoCo environments, we demonstrate that DmC significantly outperforms state-of-the-art cross-domain offline RL methods, achieving substantial performance gains.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2507.20499",
+      "url": "https://arxiv.org/abs/2507.20499",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2509.10312",
+      "title": "Compute Only 16 Tokens in One Timestep: Accelerating Diffusion Transformers with Cluster-Driven Feature Caching",
+      "authors": [
+        {
+          "name": "Zhixin Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinyu Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chang Zou",
+          "affiliation": ""
+        },
+        {
+          "name": "Shaobo Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Linfeng Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Diffusion transformers have gained significant attention in recent years for their ability to generate high-quality images and videos, yet still suffer from a huge computational cost due to their iterative denoising process. Recently, feature caching has been introduced to accelerate diffusion transformers by caching the feature computation in previous timesteps and reusing it in the following timesteps, which leverage the temporal similarity of diffusion models while ignoring the similarity in the spatial dimension. In this paper, we introduce Cluster-Driven Feature Caching (ClusCa) as an orthogonal and complementary perspective for previous feature caching. Specifically, ClusCa performs spatial clustering on tokens in each timestep, computes only one token in each cluster and propagates their information to all the other tokens, which is able to reduce the number of tokens by over 90%. Extensive experiments on DiT, FLUX and HunyuanVideo demonstrate its effectiveness in both text-to-image and text-to-video generation. Besides, it can be directly applied to any diffusion transformer without requirements for training. For instance, ClusCa achieves 4.96x acceleration on FLUX with an ImageReward of 99.49%, surpassing the original model by 0.51%. The code is available at https://github.com/Shenyi-Z/Cache4Diffusion.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2509.10312",
+      "url": "https://arxiv.org/abs/2509.10312",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2006.09948",
+      "title": "Cross-Frequency Coupling During Thermoacoustic Oscillations in a Pressurized Aeronautical Gas Turbine Model Combustor",
+      "authors": [
+        {
+          "name": "Mitchell L. Passarelli",
+          "affiliation": ""
+        },
+        {
+          "name": "Timothy M. Wabel",
+          "affiliation": ""
+        },
+        {
+          "name": "Arin Cross",
+          "affiliation": ""
+        },
+        {
+          "name": "Krishna Venkatesan",
+          "affiliation": ""
+        },
+        {
+          "name": "Adam M. Steinberg",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "This paper demonstrates cross-frequency coupling between pressure, heat release rate, fuel spray and velocity oscillations in a model aeronautical gas turbine combustor operating at a pressure of approximately 10 atm. Heat release rate was characterized by 10 kHz chemiluminescence (CL) imaging of several species. Stereoscopic particle image velocimetry and laser Mie scattering from the fuel droplets were used to measure the gas velocity and spray dynamics, respectively, at 5 kHz. The pressure fluctuations were dominated by oscillations at a frequency $f_0$, whereas the spray, CL and velocity oscillated at approximately $2f_0$. All of these oscillations were nonstationary, exhibiting changes in frequency and amplitude. Comparing the time evolution of the dominant frequencies and amplitudes indicates a behavior consistent with mutually coupled self-oscillators; the observed dynamics of the 1:2 super-harmonic coupling is consistent synchronization via oscillation death. Furthermore, increases in the frequency of the ca. $f_0$ velocity oscillations away from the harmonic ratio (increased frequency detuning) were correlated with decreases in the power of the $f_0$ pressure oscillations. The corresponding nonreacting flow had a natural hydrodynamic mode at a frequency slightly greater than $2f_0$. Hence, the data are consistent with the $f_0$ acoustic mode \"pulling\" the hydrodynamic frequency towards the super-harmonic ratio.",
+      "venue": "physics.flu-dyn",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2006.09948",
+      "url": "https://arxiv.org/abs/2006.09948",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2110.08042",
+      "title": "Adversarial Attacks on ML Defense Models Competition",
+      "authors": [
+        {
+          "name": "Yinpeng Dong",
+          "affiliation": ""
+        },
+        {
+          "name": "Qi-An Fu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiao Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenzhao Xiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Tianyu Pang",
+          "affiliation": ""
+        },
+        {
+          "name": "Hang Su",
+          "affiliation": ""
+        },
+        {
+          "name": "Jun Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiayu Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuefeng Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "XiaoFeng Mao",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuan He",
+          "affiliation": ""
+        },
+        {
+          "name": "Hui Xue",
+          "affiliation": ""
+        },
+        {
+          "name": "Chao Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Ye Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Qilong Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Lianli Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Yunrui Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xitong Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhe Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Daquan Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiadong Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Chuanbiao Song",
+          "affiliation": ""
+        },
+        {
+          "name": "Zihao Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhennan Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiequan Cui",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaogang Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Pengguang Chen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Due to the vulnerability of deep neural networks (DNNs) to adversarial examples, a large number of defense techniques have been proposed to alleviate this problem in recent years. However, the progress of building more robust models is usually hampered by the incomplete or incorrect robustness evaluation. To accelerate the research on reliable evaluation of adversarial robustness of the current defense models in image classification, the TSAIL group at Tsinghua University and the Alibaba Security group organized this competition along with a CVPR 2021 workshop on adversarial machine learning (https://aisecure-workshop.github.io/amlcvpr2021/). The purpose of this competition is to motivate novel attack algorithms to evaluate adversarial robustness more effectively and reliably. The participants were encouraged to develop stronger white-box attack algorithms to find the worst-case robustness of different defenses. This competition was conducted on an adversarial robustness evaluation platform -- ARES (https://github.com/thu-ml/ares), and is held on the TianChi platform (https://tianchi.aliyun.com/competition/entrance/531847/introduction) as one of the series of AI Security Challengers Program. After the competition, we summarized the results and established a new adversarial robustness benchmark at https://ml.cs.tsinghua.edu.cn/ares-bench/, which allows users to upload adversarial attack algorithms and defense models for evaluation.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2110.08042",
+      "url": "https://arxiv.org/abs/2110.08042",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2503.09202",
+      "title": "Token Weighting for Long-Range Language Modeling",
+      "authors": [
+        {
+          "name": "Falko Helm",
+          "affiliation": ""
+        },
+        {
+          "name": "Nico Daheim",
+          "affiliation": ""
+        },
+        {
+          "name": "Iryna Gurevych",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Many applications of large language models (LLMs) require long-context understanding, but models continue to struggle with such tasks. We hypothesize that conventional next-token prediction training could contribute to this, because each token is assigned equal weight. Yet, intuitively, the amount of context needed to predict the next token accurately varies greatly across different data. To reflect this, we propose various novel token-weighting schemes that assign different weights to each training token in the loss, thereby generalizing existing works. For this, we categorize token-weighting methods using a two-step framework which compares the confidences of a long-context and short-context model to score tokens. We evaluate all methods on multiple long-context understanding tasks and show that non-uniform loss weights are helpful to improve the long-context abilities of LLMs. Different short-context models can be used effectively for token scoring, including models that are much smaller than the long-context model that is trained. All in all, this work contributes to a better understanding of the trade-offs long-context language modeling faces and provides guidelines for model steering via loss-weighting based on empirical evidence. The code can be found on Github.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2503.09202",
+      "url": "https://arxiv.org/abs/2503.09202",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2404.01102",
+      "title": "Diffusion based Zero-shot Medical Image-to-Image Translation for Cross Modality Segmentation",
+      "authors": [
+        {
+          "name": "Zihao Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yingyu Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuzhou Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Tingting Yuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Maxime Sermesant",
+          "affiliation": ""
+        },
+        {
+          "name": "Herve Delingette",
+          "affiliation": ""
+        },
+        {
+          "name": "Ona Wu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Cross-modality image segmentation aims to segment the target modalities using a method designed in the source modality. Deep generative models can translate the target modality images into the source modality, thus enabling cross-modality segmentation. However, a vast body of existing cross-modality image translation methods relies on supervised learning. In this work, we aim to address the challenge of zero-shot learning-based image translation tasks (extreme scenarios in the target modality is unseen in the training phase). To leverage generative learning for zero-shot cross-modality image segmentation, we propose a novel unsupervised image translation method. The framework learns to translate the unseen source image to the target modality for image segmentation by leveraging the inherent statistical consistency between different modalities for diffusion guidance. Our framework captures identical cross-modality features in the statistical domain, offering diffusion guidance without relying on direct mappings between the source and target domains. This advantage allows our method to adapt to changing source domains without the need for retraining, making it highly practical when sufficient labeled source domain data is not available. The proposed framework is validated in zero-shot cross-modality image segmentation tasks through empirical comparisons with influential generative models, including adversarial-based and diffusion-based models.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2404.01102",
+      "url": "https://arxiv.org/abs/2404.01102",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2412.18171",
+      "title": "Token Highlighter: Inspecting and Mitigating Jailbreak Prompts for Large Language Models",
+      "authors": [
+        {
+          "name": "Xiaomeng Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Pin-Yu Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Tsung-Yi Ho",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Large Language Models (LLMs) are increasingly being integrated into services such as ChatGPT to provide responses to user queries. To mitigate potential harm and prevent misuse, there have been concerted efforts to align the LLMs with human values and legal compliance by incorporating various techniques, such as Reinforcement Learning from Human Feedback (RLHF), into the training of the LLMs. However, recent research has exposed that even aligned LLMs are susceptible to adversarial manipulations known as Jailbreak Attacks. To address this challenge, this paper proposes a method called Token Highlighter to inspect and mitigate the potential jailbreak threats in the user query. Token Highlighter introduced a concept called Affirmation Loss to measure the LLM's willingness to answer the user query. It then uses the gradient of Affirmation Loss for each token in the user query to locate the jailbreak-critical tokens. Further, Token Highlighter exploits our proposed Soft Removal technique to mitigate the jailbreak effects of critical tokens via shrinking their token embeddings. Experimental results on two aligned LLMs (LLaMA-2 and Vicuna-V1.5) demonstrate that the proposed method can effectively defend against a variety of Jailbreak Attacks while maintaining competent performance on benign questions of the AlpacaEval benchmark. In addition, Token Highlighter is a cost-effective and interpretable defense because it only needs to query the protected LLM once to compute the Affirmation Loss and can highlight the critical tokens upon refusal.",
+      "venue": "cs.CR",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2412.18171",
+      "url": "https://arxiv.org/abs/2412.18171",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2507.06543",
+      "title": "Token Bottleneck: One Token to Remember Dynamics",
+      "authors": [
+        {
+          "name": "Taekyung Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Dongyoon Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Byeongho Heo",
+          "affiliation": ""
+        },
+        {
+          "name": "Jeongeun Park",
+          "affiliation": ""
+        },
+        {
+          "name": "Sangdoo Yun",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Deriving compact and temporally aware visual representations from dynamic scenes is essential for successful execution of sequential scene understanding tasks such as visual tracking and robotic manipulation. In this paper, we introduce Token Bottleneck (ToBo), a simple yet intuitive self-supervised learning pipeline that squeezes a scene into a bottleneck token and predicts the subsequent scene using minimal patches as hints. The ToBo pipeline facilitates the learning of sequential scene representations by conservatively encoding the reference scene into a compact bottleneck token during the squeeze step. In the reconstruction step, we guide the model to capture temporal dynamics by predicting the target scene using the bottleneck token along with few target patches as hints. This design encourages the vision backbone to embed temporal dependencies, thereby enabling understanding of dynamic transitions across scenes. Extensive experiments in diverse sequential tasks, including video label propagation and robot manipulation in simulated environments demonstrate the superiority of \\ours~over baselines. Moreover, deploying our pre-trained model on physical robots confirms its robustness and effectiveness in real-world environments. We further validate the scalability of ToBo across different model scales. Code is available at https://github.com/naver-ai/tobo.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2507.06543",
+      "url": "https://arxiv.org/abs/2507.06543",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2403.14291",
+      "title": "Open-Vocabulary Attention Maps with Token Optimization for Semantic Segmentation in Diffusion Models",
+      "authors": [
+        {
+          "name": "Pablo Marcos-Manch\u00f3n",
+          "affiliation": ""
+        },
+        {
+          "name": "Roberto Alcover-Couso",
+          "affiliation": ""
+        },
+        {
+          "name": "Juan C. SanMiguel",
+          "affiliation": ""
+        },
+        {
+          "name": "Jose M. Mart\u00ednez",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Diffusion models represent a new paradigm in text-to-image generation. Beyond generating high-quality images from text prompts, models such as Stable Diffusion have been successfully extended to the joint generation of semantic segmentation pseudo-masks. However, current extensions primarily rely on extracting attentions linked to prompt words used for image synthesis. This approach limits the generation of segmentation masks derived from word tokens not contained in the text prompt. In this work, we introduce Open-Vocabulary Attention Maps (OVAM)-a training-free method for text-to-image diffusion models that enables the generation of attention maps for any word. In addition, we propose a lightweight optimization process based on OVAM for finding tokens that generate accurate attention maps for an object class with a single annotation. We evaluate these tokens within existing state-of-the-art Stable Diffusion extensions. The best-performing model improves its mIoU from 52.1 to 86.6 for the synthetic images' pseudo-masks, demonstrating that our optimized tokens are an efficient way to improve the performance of existing methods without architectural changes or retraining.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2403.14291",
+      "url": "https://arxiv.org/abs/2403.14291",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2312.14430",
+      "title": "Proceedings of the Dialogue Robot Competition 2023",
+      "authors": [
+        {
+          "name": "Ryuichiro Higashinaka",
+          "affiliation": ""
+        },
+        {
+          "name": "Takashi Minato",
+          "affiliation": ""
+        },
+        {
+          "name": "Hiromitsu Nishizaki",
+          "affiliation": ""
+        },
+        {
+          "name": "Takayuki Nagai",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "The Dialogic Robot Competition 2023 (DRC2023) is a competition for humanoid robots (android robots that closely resemble humans) to compete in interactive capabilities. This is the third year of the competition. The top four teams from the preliminary competition held in November 2023 will compete in the final competition on Saturday, December 23. The task for the interactive robots is to recommend a tourism plan for a specific region. The robots can employ multimodal behaviors, such as language and gestures, to engage the user in the sightseeing plan they recommend. In the preliminary round, the interactive robots were stationed in a travel agency office, where visitors conversed with them and rated their performance via a questionnaire. In the final round, dialogue researchers and tourism industry professionals interacted with the robots and evaluated their performance. This event allows visitors to gain insights into the types of dialogue services that future dialogue robots should offer. The proceedings include papers on dialogue systems developed by the 12 teams participating in DRC2023, as well as an overview of the papers provided by all the teams.",
+      "venue": "cs.RO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2312.14430",
+      "url": "https://arxiv.org/abs/2312.14430",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2504.17789",
+      "title": "Token-Shuffle: Towards High-Resolution Image Generation with Autoregressive Models",
+      "authors": [
+        {
+          "name": "Xu Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Peize Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Haoyu Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chih-Yao Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Jialiang Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Kunpeng Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaoliang Dai",
+          "affiliation": ""
+        },
+        {
+          "name": "Yujun Shi",
+          "affiliation": ""
+        },
+        {
+          "name": "Xuan Ju",
+          "affiliation": ""
+        },
+        {
+          "name": "Yushi Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Artsiom Sanakoyeu",
+          "affiliation": ""
+        },
+        {
+          "name": "Felix Juefei-Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ji Hou",
+          "affiliation": ""
+        },
+        {
+          "name": "Junjiao Tian",
+          "affiliation": ""
+        },
+        {
+          "name": "Tao Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Tingbo Hou",
+          "affiliation": ""
+        },
+        {
+          "name": "Yen-Cheng Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zecheng He",
+          "affiliation": ""
+        },
+        {
+          "name": "Zijian He",
+          "affiliation": ""
+        },
+        {
+          "name": "Matt Feiszli",
+          "affiliation": ""
+        },
+        {
+          "name": "Peizhao Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Peter Vajda",
+          "affiliation": ""
+        },
+        {
+          "name": "Sam Tsai",
+          "affiliation": ""
+        },
+        {
+          "name": "Yun Fu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Autoregressive (AR) models, long dominant in language generation, are increasingly applied to image synthesis but are often considered less competitive than Diffusion-based models. A primary limitation is the substantial number of image tokens required for AR models, which constrains both training and inference efficiency, as well as image resolution. To address this, we present Token-Shuffle, a novel yet simple method that reduces the number of image tokens in Transformer. Our key insight is the dimensional redundancy of visual vocabularies in Multimodal Large Language Models (MLLMs), where low-dimensional visual codes from visual encoder are directly mapped to high-dimensional language vocabularies. Leveraging this, we consider two key operations: token-shuffle, which merges spatially local tokens along channel dimension to decrease the input token number, and token-unshuffle, which untangles the inferred tokens after Transformer blocks to restore the spatial arrangement for output. Jointly training with textual prompts, our strategy requires no additional pretrained text-encoder and enables MLLMs to support extremely high-resolution image synthesis in a unified next-token prediction way while maintaining efficient training and inference. For the first time, we push the boundary of AR text-to-image generation to a resolution of 2048x2048 with gratifying generation performance. In GenAI-benchmark, our 2.7B model achieves 0.77 overall score on hard prompts, outperforming AR models LlamaGen by 0.18 and diffusion models LDM by 0.15. Exhaustive large-scale human evaluations also demonstrate our prominent image generation ability in terms of text-alignment, visual flaw, and visual appearance. We hope that Token-Shuffle can serve as a foundational design for efficient high-resolution image generation within MLLMs.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2504.17789",
+      "url": "https://arxiv.org/abs/2504.17789",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2603.08026",
+      "title": "DyLLM: Efficient Diffusion LLM Inference via Saliency-based Token Selection and Partial Attention",
+      "authors": [
+        {
+          "name": "Younjoo Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Junghoo Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Seungkyun Dan",
+          "affiliation": ""
+        },
+        {
+          "name": "Jaiyoung Park",
+          "affiliation": ""
+        },
+        {
+          "name": "Jung Ho Ahn",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Masked Diffusion Language Models (MDLMs) enable parallel token decoding, providing a promising alternative to the sequential nature of autoregressive generation. However, their iterative denoising process remains computationally expensive because it repeatedly processes the entire sequence at every step. We observe that across these diffusion steps, most token representations remain stable; only a small subset, which we term salient tokens, contributes meaningfully to the next update. Leveraging this temporal sparsity, we present DyLLM, a training-free inference framework that accelerates decoding by selectively computing only these salient tokens. DyLLM identifies saliency by measuring the cosine similarity of attention contexts between adjacent denoising steps. It recomputes feed-forward and attention operations only for salient tokens while reusing cached activations for the remainder. Across diverse reasoning and code-generation benchmarks, DyLLM achieves up to 9.6x higher throughput while largely preserving the baseline accuracy of state-of-the-art models like LLaDA and Dream.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2603.08026",
+      "url": "https://arxiv.org/abs/2603.08026",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2504.01690",
+      "title": "Token Pruning in Audio Transformers: Optimizing Performance and Decoding Patch Importance",
+      "authors": [
+        {
+          "name": "Taehan Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Hyukjun Lee",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Vision Transformers (ViTs) have achieved state-of-the-art performance across various computer vision tasks, but their high computational cost remains a challenge. Token pruning has been proposed to reduce this cost by selectively removing less important tokens. While effective in vision tasks by discarding non-object regions, applying this technique to audio tasks presents unique challenges, as distinguishing relevant from irrelevant regions in time-frequency representations is less straightforward. In this study, for the first time, we applied token pruning to ViT-based audio classification models using Mel-spectrograms and analyzed the trade-offs between model performance and computational cost: TopK token pruning can reduce MAC operations of AudioMAE and AST by 30-40%, with less than a 1% drop in accuracy. Our analysis reveals that while high-intensity or high-variation tokens contribute significantly to model accuracy, low-intensity or low variation tokens also remain important when token pruning is applied; pruning solely based on the intensity or variation of signals in a patch leads to a noticeable drop in accuracy. We support our claim by measuring high correlation between attention scores and these statistical features and by showing retained tokens consistently receive distinct attention compared to pruned ones. We also show that AudioMAE retains more low-intensity tokens than AST. This can be explained by AudioMAE's self-supervised reconstruction objective, which encourages attention to all patches, whereas AST's supervised training focuses on label-relevant tokens.",
+      "venue": "cs.SD",
+      "citation_count": 0,
+      "doi": "10.3233/FAIA251136",
+      "arxiv_id": "2504.01690",
+      "url": "https://arxiv.org/abs/2504.01690",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2204.00452",
+      "title": "Vision Transformer with Cross-attention by Temporal Shift for Efficient Action Recognition",
+      "authors": [
+        {
+          "name": "Ryota Hashiguchi",
+          "affiliation": ""
+        },
+        {
+          "name": "Toru Tamaki",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Feature shifts have been shown to be useful for action recognition with CNN-based models since Temporal Shift Module (TSM) was proposed. It is based on frame-wise feature extraction with late fusion, and layer features are shifted along the time direction for the temporal interaction. TokenShift, a recent model based on Vision Transformer (ViT), also uses the temporal feature shift mechanism, which, however, does not fully exploit the structure of Multi-head Self-Attention (MSA) in ViT. In this paper, we propose Multi-head Self/Cross-Attention (MSCA), which fully utilizes the attention structure. TokenShift is based on a frame-wise ViT with features temporally shifted with successive frames (at time t+1 and t-1). In contrast, the proposed MSCA replaces MSA in the frame-wise ViT, and some MSA heads attend to successive frames instead of the current frame. The computation cost is the same as the frame-wise ViT and TokenShift as it simply changes the target to which the attention is taken. There is a choice about which of key, query, and value are taken from the successive frames, then we experimentally compared these variants with Kinetics400. We also investigate other variants in which the proposed MSCA is used along the patch dimension of ViT, instead of the head dimension. Experimental results show that a variant, MSCA-KV, shows the best performance and is better than TokenShift by 0.1% and then ViT by 1.2%.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2204.00452",
+      "url": "https://arxiv.org/abs/2204.00452",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2107.11919",
+      "title": "ICDAR 2021 Competition on Scene Video Text Spotting",
+      "authors": [
+        {
+          "name": "Zhanzhan Cheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Jing Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Baorui Zou",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuigeng Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Fei Wu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Scene video text spotting (SVTS) is a very important research topic because of many real-life applications. However, only a little effort has put to spotting scene video text, in contrast to massive studies of scene text spotting in static images. Due to various environmental interferences like motion blur, spotting scene video text becomes very challenging. To promote this research area, this competition introduces a new challenge dataset containing 129 video clips from 21 natural scenarios in full annotations. The competition containts three tasks, that is, video text detection (Task 1), video text tracking (Task 2) and end-to-end video text spotting (Task3). During the competition period (opened on 1st March, 2021 and closed on 11th April, 2021), a total of 24 teams participated in the three proposed tasks with 46 valid submissions, respectively. This paper includes dataset descriptions, task definitions, evaluation protocols and results summaries of the ICDAR 2021 on SVTS competition. Thanks to the healthy number of teams as well as submissions, we consider that the SVTS competition has been successfully held, drawing much attention from the community and promoting the field research and its development.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2107.11919",
+      "url": "https://arxiv.org/abs/2107.11919",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2506.19852",
+      "title": "Radial Attention: $O(n\\log n)$ Sparse Attention with Energy Decay for Long Video Generation",
+      "authors": [
+        {
+          "name": "Xingyang Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Muyang Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Tianle Cai",
+          "affiliation": ""
+        },
+        {
+          "name": "Haocheng Xi",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuo Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yujun Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Lvmin Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Songlin Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jinbo Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Kelly Peng",
+          "affiliation": ""
+        },
+        {
+          "name": "Maneesh Agrawala",
+          "affiliation": ""
+        },
+        {
+          "name": "Ion Stoica",
+          "affiliation": ""
+        },
+        {
+          "name": "Kurt Keutzer",
+          "affiliation": ""
+        },
+        {
+          "name": "Song Han",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Recent advances in diffusion models have enabled high-quality video generation, but the additional temporal dimension significantly increases computational costs, making training and inference on long videos prohibitively expensive. In this paper, we identify a phenomenon we term Spatiotemporal Energy Decay in video diffusion models: post-softmax attention scores diminish as spatial and temporal distance between tokens increase, akin to the physical decay of signal or waves over space and time in nature. Motivated by this, we propose Radial Attention, a scalable sparse attention mechanism with $\\mathcal{O}(n \\log n)$ complexity that translates energy decay into exponentially decaying compute density, which is significantly more efficient than standard $\\mathcal{O}(n^2)$ dense attention and more expressive than linear attention. Specifically, Radial Attention employs a simple, static attention mask where each token attends to spatially nearby tokens, with the attention window size shrinking with temporal distance. Moreover, it allows pre-trained video diffusion models to extend their generation length with efficient LoRA-based fine-tuning. Extensive experiments show that Radial Attention maintains video quality across Wan2.1-14B, HunyuanVideo, and Mochi 1, achieving up to a 1.9$\\times$ speedup over the original dense attention. With minimal tuning, it enables video generation up to 4$\\times$ longer while reducing training costs by up to 4.4$\\times$ compared to direct fine-tuning and accelerating inference by up to 3.7$\\times$ compared to dense attention inference. Code is released at \\href{https://github.com/mit-han-lab/radial-attention}{https://github.com/mit-han-lab/radial-attention}.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2506.19852",
+      "url": "https://arxiv.org/abs/2506.19852",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2210.12863",
+      "title": "Overview of Dialogue Robot Competition 2022",
+      "authors": [
+        {
+          "name": "Takashi Minato",
+          "affiliation": ""
+        },
+        {
+          "name": "Ryuichiro Higashinaka",
+          "affiliation": ""
+        },
+        {
+          "name": "Kurima Sakai",
+          "affiliation": ""
+        },
+        {
+          "name": "Tomo Funayama",
+          "affiliation": ""
+        },
+        {
+          "name": "Hiromitsu Nishizaki",
+          "affiliation": ""
+        },
+        {
+          "name": "Takayuki Nagai",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Although many competitions have been held on dialogue systems in the past, no competition has been organized specifically for dialogue with humanoid robots. As the first such attempt in the world, we held a dialogue robot competition in 2020 to compare the performances of interactive robots using an android that closely resembles a human. Dialogue Robot Competition 2022 (DRC2022) was the second competition, held in August 2022. The task and regulations followed those of the first competition, while the evaluation method was improved and the event was internationalized. The competition has two rounds, a preliminary round and the final round. In the preliminary round, twelve participating teams competed in performance of a dialogue robot in the manner of a field experiment, and then three of those teams were selected as finalists. The final round will be held on October 25, 2022, in the Robot Competition session of IROS2022. This paper provides an overview of the task settings and evaluation method of DRC2022 and the results of the preliminary round.",
+      "venue": "cs.RO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2210.12863",
+      "url": "https://arxiv.org/abs/2210.12863",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2306.05427",
+      "title": "Grounded Text-to-Image Synthesis with Attention Refocusing",
+      "authors": [
+        {
+          "name": "Quynh Phung",
+          "affiliation": ""
+        },
+        {
+          "name": "Songwei Ge",
+          "affiliation": ""
+        },
+        {
+          "name": "Jia-Bin Huang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Driven by the scalable diffusion models trained on large-scale datasets, text-to-image synthesis methods have shown compelling results. However, these models still fail to precisely follow the text prompt involving multiple objects, attributes, or spatial compositions. In this paper, we reveal the potential causes in the diffusion model's cross-attention and self-attention layers. We propose two novel losses to refocus attention maps according to a given spatial layout during sampling. Creating the layouts manually requires additional effort and can be tedious. Therefore, we explore using large language models (LLM) to produce these layouts for our method. We conduct extensive experiments on the DrawBench, HRS, and TIFA benchmarks to evaluate our proposed method. We show that our proposed attention refocusing effectively improves the controllability of existing approaches.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2306.05427",
+      "url": "https://arxiv.org/abs/2306.05427",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2601.15305",
+      "title": "Gated Sparse Attention: Combining Computational Efficiency with Training Stability for Long-Context Language Models",
+      "authors": [
+        {
+          "name": "Alfred Shen",
+          "affiliation": ""
+        },
+        {
+          "name": "Aaron Shen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "The computational burden of attention in long-context language models has motivated two largely independent lines of work: sparse attention mechanisms that reduce complexity by attending to selected tokens, and gated attention variants that improve training sta-bility while mitigating the attention sink phenomenon. We observe that these approaches address complementary weaknesses and propose Gated Sparse Attention (GSA), an architecture that realizes the benefits of both. GSA incorporates a gated lightning indexer with sigmoid activations that produce bounded, interpretable selection scores, an adaptive sparsity controller that modulates the number of attended tokens based on local uncertainty, and dual gating at the value and output stages. We establish theoretical foundations for the approach, including complexity analysis, expressiveness results, and convergence guarantees. In experiments with 1.7B parameter models trained on 400B tokens, GSA matches the efficiency of sparse-only baselines (12-16x speedup at 128K context) while achieving the quality gains associated with gated attention: perplexity improves from 6.03 to 5.70, RULER scores at 128K context nearly double, and attention to the first token, a proxy for attention sinks, drops from 47% to under 4%. Training stability improves markedly, with loss spikes reduced by 98%.",
+      "venue": "cs.AI",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2601.15305",
+      "url": "https://arxiv.org/abs/2601.15305",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2210.00939",
+      "title": "Improving Sample Quality of Diffusion Models Using Self-Attention Guidance",
+      "authors": [
+        {
+          "name": "Susung Hong",
+          "affiliation": ""
+        },
+        {
+          "name": "Gyuseong Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Wooseok Jang",
+          "affiliation": ""
+        },
+        {
+          "name": "Seungryong Kim",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Denoising diffusion models (DDMs) have attracted attention for their exceptional generation quality and diversity. This success is largely attributed to the use of class- or text-conditional diffusion guidance methods, such as classifier and classifier-free guidance. In this paper, we present a more comprehensive perspective that goes beyond the traditional guidance methods. From this generalized perspective, we introduce novel condition- and training-free strategies to enhance the quality of generated images. As a simple solution, blur guidance improves the suitability of intermediate samples for their fine-scale information and structures, enabling diffusion models to generate higher quality samples with a moderate guidance scale. Improving upon this, Self-Attention Guidance (SAG) uses the intermediate self-attention maps of diffusion models to enhance their stability and efficacy. Specifically, SAG adversarially blurs only the regions that diffusion models attend to at each iteration and guides them accordingly. Our experimental results show that our SAG improves the performance of various diffusion models, including ADM, IDDPM, Stable Diffusion, and DiT. Moreover, combining SAG with conventional guidance methods leads to further improvement.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2210.00939",
+      "url": "https://arxiv.org/abs/2210.00939",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2402.09712",
+      "title": "Diffusion Model with Cross Attention as an Inductive Bias for Disentanglement",
+      "authors": [
+        {
+          "name": "Tao Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Cuiling Lan",
+          "affiliation": ""
+        },
+        {
+          "name": "Yan Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Nanning zheng",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Disentangled representation learning strives to extract the intrinsic factors within observed data. Factorizing these representations in an unsupervised manner is notably challenging and usually requires tailored loss functions or specific structural designs. In this paper, we introduce a new perspective and framework, demonstrating that diffusion models with cross-attention can serve as a powerful inductive bias to facilitate the learning of disentangled representations. We propose to encode an image to a set of concept tokens and treat them as the condition of the latent diffusion for image reconstruction, where cross-attention over the concept tokens is used to bridge the interaction between the encoder and diffusion. Without any additional regularization, this framework achieves superior disentanglement performance on the benchmark datasets, surpassing all previous methods with intricate designs. We have conducted comprehensive ablation studies and visualization analysis, shedding light on the functioning of this model. This is the first work to reveal the potent disentanglement capability of diffusion models with cross-attention, requiring no complex designs. We anticipate that our findings will inspire more investigation on exploring diffusion for disentangled representation learning towards more sophisticated data analysis and understanding.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2402.09712",
+      "url": "https://arxiv.org/abs/2402.09712",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2601.06142",
+      "title": "Is Sanskrit the most token-efficient language? A quantitative study using GPT, Gemini, and SentencePiece",
+      "authors": [
+        {
+          "name": "Anshul Kumar",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Tokens are the basic units of Large Language Models (LLMs). LLMs rely on tokenizers to segment text into these tokens, and tokenization is the primary determinant of computational and inference cost. Sanskrit, one of the oldest languages, is hypothesized to express more meaning per token due to its morphology and grammar rules; however, no prior work has quantified this. We use a dataset of 701 parallel verses of the Bhagavad Gita, which comprises three languages-Sanskrit, English, and Hindi along with transliteration of Sanskrit into English. We test tokenizers including SentencePiece (SPM), older GPT models, and the latest generation tokenizers from Gemini and GPT. We use metrics of token count, characters per token (token efficiency), and tokens per character (token cost). Results show a ~2x difference in token counts between Sanskrit and English/Hindi under the unbiased SPM baseline. English/Hindi translations of Sanskrit commentary resulted in an approximately 20x increase in token count. GPT o200k base (latest, used by GPT-4o) and Gemini (latest) reduce bias by a significant degree compared to GPT cl100k base (used until GPT-4), but still fail to fully capture Sanskrit's compactness. This matters because there might be a penalty bias for non-English users, which inflates the token count. This research provides a foundation for improving future tokenizer design and shows the potential of Sanskrit for highly compact encoding, saving on cost while speeding up training and inference. The code and dataset are available at https://github.com/anshulkr713/sanskrit-token-efficiency",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2601.06142",
+      "url": "https://arxiv.org/abs/2601.06142",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2509.23109",
+      "title": "AttAnchor: Guiding Cross-Modal Token Alignment in VLMs with Attention Anchors",
+      "authors": [
+        {
+          "name": "Junyang Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Tianyi Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Thierry Tambe",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "A fundamental reason for the dominance of attention over RNNs and LSTMs in LLMs is its ability to capture long-range dependencies by modeling direct interactions between all tokens, overcoming the sequential limitations of recurrent architectures. Similarly, a key reason why today's vision language models (VLMs) hallucinate and underperform pure language models is that they rely on direct concatenation of image and text tokens with a modality-blinded positional encoding, which conveniently adopts the pretrained LLM backbone but forces unnecessary long-distance attention between semantically related tokens across modalities. This underscores the urgent need for mechanisms that efficiently enhance token locality and cross-modal alignment. In response, we propose Attention Anchor, a parameter-free framework that efficiently groups semantically similar tokens across modalities, improving cross-modal locality. By inserting text tokens near relevant visual patches, we create semantic signposts that reveal true content-based cross-modal attention scores, guiding the model to focus on the correct image regions for tasks such as VQA, MMBench and POPE. This improves answer accuracy and reduces hallucinations without disrupting the prompt's semantic flow. AttAnchor achieves improvements across 13 out of 15 different metrics and benchmarks, including up to 32% gains on reasoning tasks and up to 15% improvements on hallucination benchmarks. AttAnchor enables TinyLLaVA 1B to outperform much larger models like LLaVA 7B and QwenVL 3B on POPE with only 0.1% inference time overhead. To the best of our knowledge, this work is among the first to investigate mixed-modal token grouping, where text and image tokens are clustered jointly into shared groups rather than being grouped within a single modality or merely aligned post-hoc with additional alignment losses.",
+      "venue": "cs.AI",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2509.23109",
+      "url": "https://arxiv.org/abs/2509.23109",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2304.11966",
+      "title": "ICDAR 2023 Competition on Reading the Seal Title",
+      "authors": [
+        {
+          "name": "Wenwen Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Mingyu Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Mingrui Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Ning Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yinlong Wen",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuliang Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Dimosthenis Karatzas",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiang Bai",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Reading seal title text is a challenging task due to the variable shapes of seals, curved text, background noise, and overlapped text. However, this important element is commonly found in official and financial scenarios, and has not received the attention it deserves in the field of OCR technology. To promote research in this area, we organized ICDAR 2023 competition on reading the seal title (ReST), which included two tasks: seal title text detection (Task 1) and end-to-end seal title recognition (Task 2). We constructed a dataset of 10,000 real seal data, covering the most common classes of seals, and labeled all seal title texts with text polygons and text contents. The competition opened on 30th December, 2022 and closed on 20th March, 2023. The competition attracted 53 participants from academia and industry including 28 submissions for Task 1 and 25 submissions for Task 2, which demonstrated significant interest in this challenging task. In this report, we present an overview of the competition, including the organization, challenges, and results. We describe the dataset and tasks, and summarize the submissions and evaluation results. The results show that significant progress has been made in the field of seal title text reading, and we hope that this competition will inspire further research and development in this important area of OCR technology.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2304.11966",
+      "url": "https://arxiv.org/abs/2304.11966",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

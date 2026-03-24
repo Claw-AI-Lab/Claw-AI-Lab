@@ -1,0 +1,752 @@
+{
+  "query": "activation function",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1773986120.7285306,
+  "papers": [
+    {
+      "paper_id": "arxiv-2202.00004",
+      "title": "On Polynomial Approximation of Activation Function",
+      "authors": [
+        {
+          "name": "John Chiang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "In this work, we propose an interesting method that aims to approximate an activation function over some domain by polynomials of the presupposing low degree. The main idea behind this method can be seen as an extension of the ordinary least square method and includes the gradient of activation function into the cost function to minimize.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2202.00004",
+      "url": "https://arxiv.org/abs/2202.00004",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2401.03462",
+      "title": "Long Context Compression with Activation Beacon",
+      "authors": [
+        {
+          "name": "Peitian Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zheng Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Shitao Xiao",
+          "affiliation": ""
+        },
+        {
+          "name": "Ninglu Shao",
+          "affiliation": ""
+        },
+        {
+          "name": "Qiwei Ye",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhicheng Dou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Long context compression is a critical research problem due to its significance in reducing the high computational and memory costs associated with LLMs. In this paper, we propose Activation Beacon, a plug-in module for transformer-based LLMs that targets effective, efficient, and flexible compression of long contexts. To achieve this, our method introduces the following technical designs. 1) We directly compress the activations (i.e. keys and values at every layer), rather than leveraging soft prompts to relay information (which constitute a major bottleneck to encapsulate the complex information within long contexts). 2) We tailor the compression workflow, where each fine-grained input unit is progressively compressed, enabling high-quality compression and efficient computation during both training and inference. 3) We train the model through compression-based auto-regression, making full use of plain texts and instructional data to optimize the model's compression performance. 4) During training, we randomly sample a compression ratio at each step, teaching the model to support a wide range of compression configurations. Extensive evaluations are conducted on various long-context tasks whose lengths (e.g., 128K) may far exceed the maximum training length (20K), such as document understanding, few-shot learning, and Needle-in-a-Haystack. Whilst existing methods struggle to handle these challenging tasks, Activation Beacon maintains a comparable performance to the uncompressed baseline across various scenarios, achieving a 2x acceleration in inference time and an 8x reduction of memory costs for KV cache. Our data, model, and code have been released at \\url{https://github.com/FlagOpen/FlagEmbedding/}.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2401.03462",
+      "url": "https://arxiv.org/abs/2401.03462",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2404.15255",
+      "title": "How to use and interpret activation patching",
+      "authors": [
+        {
+          "name": "Stefan Heimersheim",
+          "affiliation": ""
+        },
+        {
+          "name": "Neel Nanda",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Activation patching is a popular mechanistic interpretability technique, but has many subtleties regarding how it is applied and how one may interpret the results. We provide a summary of advice and best practices, based on our experience using this technique in practice. We include an overview of the different ways to apply activation patching and a discussion on how to interpret the results. We focus on what evidence patching experiments provide about circuits, and on the choice of metric and associated pitfalls.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2404.15255",
+      "url": "https://arxiv.org/abs/2404.15255",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2403.05767",
+      "title": "Extending Activation Steering to Broad Skills and Multiple Behaviours",
+      "authors": [
+        {
+          "name": "Teun van der Weij",
+          "affiliation": ""
+        },
+        {
+          "name": "Massimo Poesio",
+          "affiliation": ""
+        },
+        {
+          "name": "Nandi Schoots",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Current large language models have dangerous capabilities, which are likely to become more problematic in the future. Activation steering techniques can be used to reduce risks from these capabilities. In this paper, we investigate the efficacy of activation steering for broad skills and multiple behaviours. First, by comparing the effects of reducing performance on general coding ability and Python-specific ability, we find that steering broader skills is competitive to steering narrower skills. Second, we steer models to become more or less myopic and wealth-seeking, among other behaviours. In our experiments, combining steering vectors for multiple different behaviours into one steering vector is largely unsuccessful. On the other hand, injecting individual steering vectors at different places in a model simultaneously is promising.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2403.05767",
+      "url": "https://arxiv.org/abs/2403.05767",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2209.13400",
+      "title": "Activation Learning by Local Competitions",
+      "authors": [
+        {
+          "name": "Hongchao Zhou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Despite its great success, backpropagation has certain limitations that necessitate the investigation of new learning methods. In this study, we present a biologically plausible local learning rule that improves upon Hebb's well-known proposal and discovers unsupervised features by local competitions among neurons. This simple learning rule enables the creation of a forward learning paradigm called activation learning, in which the output activation (sum of the squared output) of the neural network estimates the likelihood of the input patterns, or \"learn more, activate more\" in simpler terms. For classification on a few small classical datasets, activation learning performs comparably to backpropagation using a fully connected network, and outperforms backpropagation when there are fewer training samples or unpredictable disturbances. Additionally, the same trained network can be used for a variety of tasks, including image generation and completion. Activation learning also achieves state-of-the-art performance on several real-world datasets for anomaly detection. This new learning paradigm, which has the potential to unify supervised, unsupervised, and semi-supervised learning and is reasonably more resistant to adversarial attacks, deserves in-depth investigation.",
+      "venue": "cs.NE",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2209.13400",
+      "url": "https://arxiv.org/abs/2209.13400",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2407.19434",
+      "title": "FINER++: Building a Family of Variable-periodic Functions for Activating Implicit Neural Representation",
+      "authors": [
+        {
+          "name": "Hao Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhen Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Qi Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jingde Fu",
+          "affiliation": ""
+        },
+        {
+          "name": "Weibing Deng",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhan Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Yanwen Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Xun Cao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Implicit Neural Representation (INR), which utilizes a neural network to map coordinate inputs to corresponding attributes, is causing a revolution in the field of signal processing. However, current INR techniques suffer from the \"frequency\"-specified spectral bias and capacity-convergence gap, resulting in imperfect performance when representing complex signals with multiple \"frequencies\". We have identified that both of these two characteristics could be handled by increasing the utilization of definition domain in current activation functions, for which we propose the FINER++ framework by extending existing periodic/non-periodic activation functions to variable-periodic ones. By initializing the bias of the neural network with different ranges, sub-functions with various frequencies in the variable-periodic function are selected for activation. Consequently, the supported frequency set can be flexibly tuned, leading to improved performance in signal representation. We demonstrate the generalization and capabilities of FINER++ with different activation function backbones (Sine, Gauss. and Wavelet) and various tasks (2D image fitting, 3D signed distance field representation, 5D neural radiance fields optimization and streamable INR transmission), and we show that it improves existing INRs. Project page: {https://liuzhen0212.github.io/finerpp/}",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2407.19434",
+      "url": "https://arxiv.org/abs/2407.19434",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2102.09407",
+      "title": "Adaptive Rational Activations to Boost Deep Reinforcement Learning",
+      "authors": [
+        {
+          "name": "Quentin Delfosse",
+          "affiliation": ""
+        },
+        {
+          "name": "Patrick Schramowski",
+          "affiliation": ""
+        },
+        {
+          "name": "Martin Mundt",
+          "affiliation": ""
+        },
+        {
+          "name": "Alejandro Molina",
+          "affiliation": ""
+        },
+        {
+          "name": "Kristian Kersting",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Latest insights from biology show that intelligence not only emerges from the connections between neurons but that individual neurons shoulder more computational responsibility than previously anticipated. This perspective should be critical in the context of constantly changing distinct reinforcement learning environments, yet current approaches still primarily employ static activation functions. In this work, we motivate why rationals are suitable for adaptable activation functions and why their inclusion into neural networks is crucial. Inspired by recurrence in residual networks, we derive a condition under which rational units are closed under residual connections and formulate a naturally regularised version: the recurrent-rational. We demonstrate that equipping popular algorithms with (recurrent-)rational activations leads to consistent improvements on Atari games, especially turning simple DQN into a solid approach, competitive to DDQN and Rainbow.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2102.09407",
+      "url": "https://arxiv.org/abs/2102.09407",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2210.06313",
+      "title": "The Lazy Neuron Phenomenon: On Emergence of Activation Sparsity in Transformers",
+      "authors": [
+        {
+          "name": "Zonglin Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Chong You",
+          "affiliation": ""
+        },
+        {
+          "name": "Srinadh Bhojanapalli",
+          "affiliation": ""
+        },
+        {
+          "name": "Daliang Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Ankit Singh Rawat",
+          "affiliation": ""
+        },
+        {
+          "name": "Sashank J. Reddi",
+          "affiliation": ""
+        },
+        {
+          "name": "Ke Ye",
+          "affiliation": ""
+        },
+        {
+          "name": "Felix Chern",
+          "affiliation": ""
+        },
+        {
+          "name": "Felix Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruiqi Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Sanjiv Kumar",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "This paper studies the curious phenomenon for machine learning models with Transformer architectures that their activation maps are sparse. By activation map we refer to the intermediate output of the multi-layer perceptrons (MLPs) after a ReLU activation function, and by sparse we mean that on average very few entries (e.g., 3.0% for T5-Base and 6.3% for ViT-B16) are nonzero for each input to MLP. Moreover, larger Transformers with more layers and wider MLP hidden dimensions are sparser as measured by the percentage of nonzero entries. Through extensive experiments we demonstrate that the emergence of sparsity is a prevalent phenomenon that occurs for both natural language processing and vision tasks, on both training and evaluation data, for Transformers of various configurations, at layers of all depth levels, as well as for other architectures including MLP-mixers and 2-layer MLPs. We show that sparsity also emerges using training datasets with random labels, or with random inputs, or with infinite amount of data, demonstrating that sparsity is not a result of a specific family of datasets. We discuss how sparsity immediately implies a way to significantly reduce the FLOP count and improve efficiency for Transformers. Moreover, we demonstrate perhaps surprisingly that enforcing an even sparser activation via Top-k thresholding with a small value of k brings a collection of desired but missing properties for Transformers, namely less sensitivity to noisy training data, more robustness to input corruptions, and better calibration for their prediction confidence.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2210.06313",
+      "url": "https://arxiv.org/abs/2210.06313",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2601.22873",
+      "title": "EmoShift: Lightweight Activation Steering for Enhanced Emotion-Aware Speech Synthesis",
+      "authors": [
+        {
+          "name": "Li Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Junjie Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Tianrui Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Haizhou Li",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Achieving precise and controllable emotional expression is crucial for producing natural and context-appropriate speech in text-to-speech (TTS) synthesis. However, many emotion-aware TTS systems, including large language model (LLM)-based designs, rely on scaling fixed emotion embeddings or external guidance, limiting their ability to model emotion-specific latent characteristics. To address this gap, we present EmoShift, a lightweight activation-steering framework incorporating a EmoSteer layer, which learns a steering vector for each target emotion in the output embedding space to capture its latent offset and maintain stable, appropriate expression across utterances and categories. With only 10M trainable parameters,less than 1/30 of full fine-tuning, EmoShift outperforms zero-shot and fully fine-tuned baselines in objective and subjective evaluations, enhancing emotional expressiveness while preserving naturalness and speaker similarity. Further analysis confirms the proposed EmoSteer layer's effectiveness and reveals its potential for controllable emotional intensity in speech synthesis.",
+      "venue": "eess.AS",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2601.22873",
+      "url": "https://arxiv.org/abs/2601.22873",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2512.07667",
+      "title": "Depth-Wise Activation Steering for Honest Language Models",
+      "authors": [
+        {
+          "name": "Gracjan G\u00f3ral",
+          "affiliation": ""
+        },
+        {
+          "name": "Marysia Winkels",
+          "affiliation": ""
+        },
+        {
+          "name": "Steven Basart",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Large language models sometimes assert falsehoods despite internally representing the correct answer, failures of honesty rather than accuracy, which undermines auditability and safety. Existing approaches largely optimize factual correctness or depend on retraining and brittle single-layer edits, offering limited leverage over truthful reporting. We present a training-free activation steering method that weights steering strength across network depth using a Gaussian schedule. On the MASK benchmark, which separates honesty from knowledge, we evaluate seven models spanning the LLaMA, Qwen, and Mistral families and find that Gaussian scheduling improves honesty over no-steering and single-layer baselines in six of seven models. Equal-budget ablations on LLaMA-3.1-8B-Instruct and Qwen-2.5-7B-Instruct show the Gaussian schedule outperforms random, uniform, and box-filter depth allocations, indicating that how intervention is distributed across depth materially affects outcomes beyond total strength. The method is simple, model-agnostic, requires no finetuning, and provides a low-cost control knob for eliciting truthful reporting from models' existing capabilities.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2512.07667",
+      "url": "https://arxiv.org/abs/2512.07667",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2202.12065",
+      "title": "Activation Functions: Dive into an optimal activation function",
+      "authors": [
+        {
+          "name": "Vipul Bansal",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Activation functions have come up as one of the essential components of neural networks. The choice of adequate activation function can impact the accuracy of these methods. In this study, we experiment for finding an optimal activation function by defining it as a weighted sum of existing activation functions and then further optimizing these weights while training the network. The study uses three activation functions, ReLU, tanh, and sin, over three popular image datasets, MNIST, FashionMNIST, and KMNIST. We observe that the ReLU activation function can easily overlook other activation functions. Also, we see that initial layers prefer to have ReLU or LeakyReLU type of activation functions, but deeper layers tend to prefer more convergent activation functions.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2202.12065",
+      "url": "https://arxiv.org/abs/2202.12065",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2101.02248",
+      "title": "Average Orders of the Euler Phi Function, The Dedekind Psi Function, The Sum of Divisors Function, And The Largest Integer Function",
+      "authors": [
+        {
+          "name": "N. A. Carella",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Let $ x\\geq 1 $ be a large number, let $ [x]=x-\\{x\\} $ be the largest integer function, and let $ \\varphi(n)$ be the Euler totient function. The result $ \\sum_{n\\leq x}\\varphi([x/n])=(6/\u03c0^2)x\\log x+O\\left ( x(\\log x)^{2/3}(\\log\\log x)^{1/3}\\right ) $ was proved very recently. This note presents a short elementary proof, and sharpen the error term to $ \\sum_{n\\leq x}\\varphi([x/n])=(6/\u03c0^2)x\\log x+O(x) $. In addition, the first proofs of the asymptotics formulas for the finite sums $ \\sum_{n\\leq x}\u03c8([x/n])=(15/\u03c0^2)x\\log x+O(x\\log \\log x) $, and $ \\sum_{n\\leq x}\u03c3([x/n])=(\u03c0^2/6)x\\log x+O(x \\log \\log x) $ are also evaluated here.",
+      "venue": "math.GM",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2101.02248",
+      "url": "https://arxiv.org/abs/2101.02248",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2102.05842",
+      "title": "Exact formulas for partial sums of the M\u00f6bius function expressed by partial sums weighted by the Liouville lambda function",
+      "authors": [
+        {
+          "name": "Maxie Dion Schmidt",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "The Mertens function, $M(x) := \\sum_{n \\leq x} \u03bc(n)$, is defined as the summatory function of the classical M\u00f6bius function. The Dirichlet inverse function $g(n) := (\u03c9+1)^{-1}(n)$ is defined in terms of the shifted strongly additive function $\u03c9(n)$ that counts the number of distinct prime factors of $n$ without multiplicity. The Dirichlet generating function (DGF) of $g(n)$ is $\u03b6(s)^{-1} (1+P(s))^{-1}$ for $\\Re(s) > 1$ where $P(s) = \\sum_p p^{-s}$ is the prime zeta function. We study the distribution of the unsigned functions $|g(n)|$ with DGF $\u03b6(2s)^{-1}(1-P(s))^{-1}$ and $C_\u03a9(n)$ with DGF $(1-P(s))^{-1}$ for $\\Re(s) > 1$. We establish formulas for the average order and variance of $\\log C_\u03a9(n)$ and prove a central limit theorem for the distribution of its values on the integers $n \\leq x$ as $x \\rightarrow \\infty$. Discrete convolutions of the partial sums of $g(n)$ with the prime counting function provide new exact formulas for $M(x)$.",
+      "venue": "math.NT",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2102.05842",
+      "url": "https://arxiv.org/abs/2102.05842",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2202.01071",
+      "title": "Autocorrelation of the Mobius Function",
+      "authors": [
+        {
+          "name": "N. A. Carella",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Let $x\\geq 1$ be a large integer, and let $\u03bc:\\mathbb{N}\\longrightarrow\\{-1,0,1\\}$ be the Mobius function. This article proposes an effective asymptotic result for the autocorrelation function $\\sum_{n \\leq x} \u03bc(n) \u03bc(n+t) =O\\left( e^{-c\\sqrt{\\log x}}\\right) $, where $t\\ne 0$ be a small fixed integer, and $c>0$ is a constant.",
+      "venue": "math.GM",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2202.01071",
+      "url": "https://arxiv.org/abs/2202.01071",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2204.13359",
+      "title": "Poly-CAM: High resolution class activation map for convolutional neural networks",
+      "authors": [
+        {
+          "name": "Alexandre Englebert",
+          "affiliation": ""
+        },
+        {
+          "name": "Olivier Cornu",
+          "affiliation": ""
+        },
+        {
+          "name": "Christophe De Vleeschouwer",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "The need for Explainable AI is increasing with the development of deep learning. The saliency maps derived from convolutional neural networks generally fail in localizing with accuracy the image features justifying the network prediction. This is because those maps are either low-resolution as for CAM [Zhou et al., 2016], or smooth as for perturbation-based methods [Zeiler and Fergus, 2014], or do correspond to a large number of widespread peaky spots as for gradient-based approaches [Sundararajan et al., 2017, Smilkov et al., 2017]. In contrast, our work proposes to combine the information from earlier network layers with the one from later layers to produce a high resolution Class Activation Map that is competitive with the previous art in term of insertion-deletion faithfulness metrics, while outperforming it in term of precision of class-specific features localization.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2204.13359",
+      "url": "https://arxiv.org/abs/2204.13359",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2412.12178",
+      "title": "Activation Sparsity Opportunities for Compressing General Large Language Models",
+      "authors": [
+        {
+          "name": "Nobel Dhar",
+          "affiliation": ""
+        },
+        {
+          "name": "Bobin Deng",
+          "affiliation": ""
+        },
+        {
+          "name": "Md Romyull Islam",
+          "affiliation": ""
+        },
+        {
+          "name": "Kazi Fahim Ahmad Nasif",
+          "affiliation": ""
+        },
+        {
+          "name": "Liang Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Kun Suo",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Deploying local AI models, such as Large Language Models (LLMs), to edge devices can substantially enhance devices' independent capabilities, alleviate the server's burden, and lower the response time. Owing to these tremendous potentials, many big tech companies have released several lightweight Small Language Models (SLMs) to bridge this gap. However, we still have huge motivations to deploy more powerful (LLMs) AI models on edge devices and enhance their smartness level. Unlike the conventional approaches for AI model compression, we investigate activation sparsity. The activation sparsity method is orthogonal and combinable with existing techniques to maximize the compression rate while maintaining great accuracy. LLMs' Feed-Forward Network (FFN) components, which typically comprise a large proportion of parameters (around 2/3), ensure that our FFN optimizations would have a better chance of achieving effective compression. Moreover, our findings are beneficial to general LLMs and are not restricted to ReLU-based models. This work systematically investigates the tradeoff between enforcing activation sparsity and perplexity (accuracy) on state-of-the-art LLMs. Our empirical analysis demonstrates that we can obtain around 50% of main memory and computing reductions for critical FFN components with negligible accuracy degradation. This extra 50% sparsity does not naturally exist in the current LLMs, which require tuning LLMs' activation outputs by injecting zero-enforcing thresholds. To obtain the benefits of activation sparsity, we provide a guideline for the system architect for LLM prediction and prefetching. The success prediction allows the system to prefetch the necessary weights while omitting the inactive ones and their successors, therefore lowering cache and memory pollution and reducing LLM execution time on resource-constrained edge devices.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "10.1109/IPCCC59868.2024.10850382",
+      "arxiv_id": "2412.12178",
+      "url": "https://arxiv.org/abs/2412.12178",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2603.04308",
+      "title": "Activation Outliers in Transformer Quantization: Reproduction, Statistical Analysis, and Deployment Tradeoffs",
+      "authors": [
+        {
+          "name": "Pranav Kumar Kaliaperumal",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Post-training quantization (PTQ) of transformers is known to suffer from severe accuracy degradation due to structured activation outliers, as originally analyzed by Bondarenko et al. (EMNLP 2021) in work associated with Qualcomm AI Research. This paper provides a reproducible empirical reproduction and systems-level extension of that phenomenon in BERT-base fine-tuned on QNLI. When global W8A8 quantization is applied, validation accuracy drops sharply from 89.66% (FP32) to 54.33%, a decrease of 35.33 points. Statistical analysis of FP32 activations shows strongly heavy-tailed behavior that intensifies with model depth: kurtosis reaches 271 in the final layers and approximately 55% of activation energy is concentrated in the top 1% of channels. We evaluate several mitigation strategies. Mixed precision PTQ restores accuracy close to the FP32 baseline (89.42%). Per-embedding-group (PEG) quantization shows strong sensitivity to grouping structure, improving accuracy from 66.12% with three groups to 86.18% with four groups. In contrast, percentile-based calibration, even at thresholds between 99.0 and 99.99, fails to recover accuracy (about 50.54%), indicating that large activation channels encode structured signal rather than rare noise. Deployment profiling on an RTX 3050 GPU shows minimal differences in latency and memory usage across methods (median latency about 58-59 ms; VRAM usage about 484-486 MB), highlighting the importance of hardware-aware evaluation. Overall, the results show that PTQ failure in transformers is primarily driven by structured channel dominance amplified through residual connections. Effective mitigation therefore requires channel-aware precision allocation rather than scalar clipping alone.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2603.04308",
+      "url": "https://arxiv.org/abs/2603.04308",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2105.00790",
+      "title": "Euler Totient Function And The Largest Integer Function Over The Shifted Primes",
+      "authors": [
+        {
+          "name": "N. A. Carella",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Let $ x\\geq 1 $ be a large number, let $ [x]=x-\\{x\\} $ be the largest integer function, and let $ \\varphi(n)$ be the Euler totient function. The asymptotic formula for the new finite sum over the primes $ \\sum_{p\\leq x}\\varphi([x/p])=(6/\u03c0^2)x\\log \\log x+c_0x+O\\left (x(\\log x)^{-1}\\right) $, where $c_0$ is a constant, is evaluated in this note.",
+      "venue": "math.GM",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2105.00790",
+      "url": "https://arxiv.org/abs/2105.00790",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2402.09249",
+      "title": "Exploring the Relationship: Transformative Adaptive Activation Functions in Comparison to Other Activation Functions",
+      "authors": [
+        {
+          "name": "Vladim\u00edr Kunc",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Neural networks are the state-of-the-art approach for many tasks and the activation function is one of the main building blocks that allow such performance. Recently, a novel transformative adaptive activation function (TAAF) allowing for any vertical and horizontal translation and scaling was proposed. This work sets the TAAF into the context of other activation functions. It shows that the TAAFs generalize over 50 existing activation functions and utilize similar concepts as over 70 other activation functions, underscoring the versatility of TAAFs. This comprehensive exploration positions TAAFs as a promising and adaptable addition to neural networks.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2402.09249",
+      "url": "https://arxiv.org/abs/2402.09249",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2004.13271",
+      "title": "Trainable Activation Function in Image Classification",
+      "authors": [
+        {
+          "name": "Zhaohe Liao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "In the current research of neural networks, the activation function is manually specified by human and not able to change themselves during training. This paper focus on how to make the activation function trainable for deep neural networks. We use series and linear combination of different activation functions make activation functions continuously variable. Also, we test the performance of CNNs with Fourier series simulated activation(Fourier-CNN) and CNNs with linear combined activation function (LC-CNN) on Cifar-10 dataset. The result shows our trainable activation function reveals better performance than the most used ReLU activation function. Finally, we improves the performance of Fourier-CNN with Autoencoder, and test the performance of PSO algorithm in optimizing the parameters of networks",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2004.13271",
+      "url": "https://arxiv.org/abs/2004.13271",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2208.14111",
+      "title": "Transformers with Learnable Activation Functions",
+      "authors": [
+        {
+          "name": "Haishuo Fang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ji-Ung Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Nafise Sadat Moosavi",
+          "affiliation": ""
+        },
+        {
+          "name": "Iryna Gurevych",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Activation functions can have a significant impact on reducing the topological complexity of input data and therefore improve the performance of the model. Selecting a suitable activation function is an essential step in neural model design. However, the choice of activation function is seldom discussed or explored in Transformer-based language models. Their activation functions are chosen beforehand and then remain fixed from pre-training to fine-tuning. As a result, the inductive biases they imposed on models cannot be adjusted during this long life cycle. Moreover, subsequently developed models (e.g., RoBERTa, BART, and GPT-3) often follow up prior work (e.g., BERT) to use the same activation function without justification. In this paper, we investigate the effectiveness of using Rational Activation Function (RAF), a learnable activation function, in the Transformer architecture. In contrast to conventional, predefined activation functions, RAFs can adaptively learn optimal activation functions during training according to input data. Our experiments show the RAF-based Transformer (RAFT) achieves a lower validation perplexity than a vanilla BERT with the GELU function. We further evaluate RAFT on downstream tasks in low- and full-data settings. Our results show that RAFT outperforms the counterpart model across the majority of tasks and settings. For instance, RAFT outperforms vanilla BERT on the GLUE benchmark by 5.71 points on average in low-data scenario (where 100 training examples are available) and by 2.05 points on SQuAD in full-data setting. Analysis of the shapes of learned RAFs further unveils that they substantially vary between different layers of the pre-trained model and mostly look very different from conventional activation functions. RAFT opens a new research direction for analyzing and interpreting pre-trained models according to the learned activation functions.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2208.14111",
+      "url": "https://arxiv.org/abs/2208.14111",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2211.06077",
+      "title": "Overparameterized random feature regression with nearly orthogonal data",
+      "authors": [
+        {
+          "name": "Zhichao Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yizhe Zhu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "We investigate the properties of random feature ridge regression (RFRR) given by a two-layer neural network with random Gaussian initialization. We study the non-asymptotic behaviors of the RFRR with nearly orthogonal deterministic unit-length input data vectors in the overparameterized regime, where the width of the first layer is much larger than the sample size. Our analysis shows high-probability non-asymptotic concentration results for the training errors, cross-validations, and generalization errors of RFRR centered around their respective values for a kernel ridge regression (KRR). This KRR is derived from an expected kernel generated by a nonlinear random feature map. We then approximate the performance of the KRR by a polynomial kernel matrix obtained from the Hermite polynomial expansion of the activation function, whose degree only depends on the orthogonality among different data points. This polynomial kernel determines the asymptotic behavior of the RFRR and the KRR. Our results hold for a wide variety of activation functions and input data sets that exhibit nearly orthogonal properties. Based on these approximations, we obtain a lower bound for the generalization error of the RFRR for a nonlinear student-teacher model.",
+      "venue": "math.ST",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2211.06077",
+      "url": "https://arxiv.org/abs/2211.06077",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2503.19142",
+      "title": "Activation Functions Considered Harmful: Recovering Neural Network Weights through Controlled Channels",
+      "authors": [
+        {
+          "name": "Jesse Spielman",
+          "affiliation": ""
+        },
+        {
+          "name": "David Oswald",
+          "affiliation": ""
+        },
+        {
+          "name": "Mark Ryan",
+          "affiliation": ""
+        },
+        {
+          "name": "Jo Van Bulck",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "With high-stakes machine learning applications increasingly moving to untrusted end-user or cloud environments, safeguarding pre-trained model parameters becomes essential for protecting intellectual property and user privacy. Recent advancements in hardware-isolated enclaves, notably Intel SGX, hold the promise to secure the internal state of machine learning applications even against compromised operating systems. However, we show that privileged software adversaries can exploit input-dependent memory access patterns in common neural network activation functions to extract secret weights and biases from an SGX enclave.\n  Our attack leverages the SGX-Step framework to obtain a noise-free, instruction-granular page-access trace. In a case study of an 11-input regression network using the Tensorflow Microlite library, we demonstrate complete recovery of all first-layer weights and biases, as well as partial recovery of parameters from deeper layers under specific conditions. Our novel attack technique requires only 20 queries per input per weight to obtain all first-layer weights and biases with an average absolute error of less than 1%, improving over prior model stealing attacks.\n  Additionally, a broader ecosystem analysis reveals the widespread use of activation functions with input-dependent memory access patterns in popular machine learning frameworks (either directly or via underlying math libraries). Our findings highlight the limitations of deploying confidential models in SGX enclaves and emphasise the need for stricter side-channel validation of machine learning implementations, akin to the vetting efforts applied to secure cryptographic libraries.",
+      "venue": "cs.CR",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2503.19142",
+      "url": "https://arxiv.org/abs/2503.19142",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2210.11672",
+      "title": "Stochastic Adaptive Activation Function",
+      "authors": [
+        {
+          "name": "Kyungsu Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Jaeseung Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Haeyun Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Jae Youn Hwang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "The simulation of human neurons and neurotransmission mechanisms has been realized in deep neural networks based on the theoretical implementations of activation functions. However, recent studies have reported that the threshold potential of neurons exhibits different values according to the locations and types of individual neurons, and that the activation functions have limitations in terms of representing this variability. Therefore, this study proposes a simple yet effective activation function that facilitates different thresholds and adaptive activations according to the positions of units and the contexts of inputs. Furthermore, the proposed activation function mathematically exhibits a more generalized form of Swish activation function, and thus we denoted it as Adaptive SwisH (ASH). ASH highlights informative features that exhibit large values in the top percentiles in an input, whereas it rectifies low values. Most importantly, ASH exhibits trainable, adaptive, and context-aware properties compared to other activation functions. Furthermore, ASH represents general formula of the previously studied activation function and provides a reasonable mathematical background for the superior performance. To validate the effectiveness and robustness of ASH, we implemented ASH into many deep learning models for various tasks, including classification, detection, segmentation, and image generation. Experimental analysis demonstrates that our activation function can provide the benefits of more accurate prediction and earlier convergence in many deep learning applications.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2210.11672",
+      "url": "https://arxiv.org/abs/2210.11672",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2211.06878",
+      "title": "Evaluating CNN with Oscillatory Activation Function",
+      "authors": [
+        {
+          "name": "Jeevanshi Sharma",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "The reason behind CNNs capability to learn high-dimensional complex features from the images is the non-linearity introduced by the activation function. Several advanced activation functions have been discovered to improve the training process of neural networks, as choosing an activation function is a crucial step in the modeling. Recent research has proposed using an oscillating activation function to solve classification problems inspired by the human brain cortex. This paper explores the performance of one of the CNN architecture ALexNet on MNIST and CIFAR10 datasets using oscillatory activation function (GCU) and some other commonly used activation functions like ReLu, PReLu, and Mish.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2211.06878",
+      "url": "https://arxiv.org/abs/2211.06878",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2206.12956",
+      "title": "Result on the Mobius Function over Shifted Primes",
+      "authors": [
+        {
+          "name": "N. A. Carella",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "This article provides new asymptotic results for the summatory Mobius function $\\sum_{p \\leq x} \u03bc(p+a) =O \\left (x(\\log x)^{-c} \\right )$ and the summatory Liouville function $\\sum_{p \\leq x} \u03bb(p+a) =O \\left (x(\\log x)^{-c} \\right )$ over the shifted primes, where $a\\ne0$ is a fixed parameter, and $c>1$ is an arbitrary constant. These results improve the current estimates $\\sum_{p \\leq x} \u03bc(p+a)=(1-\u03b4)\u03c0(x)$, and $\\sum_{p \\leq x} \u03bb(p+a)=(1-\u03b4)\u03c0(x)$ for $\u03b4>0$, respectively. Furthermore, a conditional proof for the autocorrelation function $\\sum_{p \\leq x} \u03bc(p+a)\u03bc(p+b) =O \\left (x(\\log x)^{-c} \\right )$, and an unconditional proof for the autocorrelation function $\\sum_{p \\leq x} \u03bb(p+a)\u03bb(p+b) =O \\left (x(\\log x)^{-c} \\right )$ over the shifted primes, where $a\\ne b$, are also included.",
+      "venue": "math.GM",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2206.12956",
+      "url": "https://arxiv.org/abs/2206.12956",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2405.04459",
+      "title": "A Significantly Better Class of Activation Functions Than ReLU Like Activation Functions",
+      "authors": [
+        {
+          "name": "Mathew Mithra Noel",
+          "affiliation": ""
+        },
+        {
+          "name": "Yug Oswal",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "This paper introduces a significantly better class of activation functions than the almost universally used ReLU like and Sigmoidal class of activation functions. Two new activation functions referred to as the Cone and Parabolic-Cone that differ drastically from popular activation functions and significantly outperform these on the CIFAR-10 and Imagenette benchmmarks are proposed. The cone activation functions are positive only on a finite interval and are strictly negative except at the end-points of the interval, where they become zero. Thus the set of inputs that produce a positive output for a neuron with cone activation functions is a hyperstrip and not a half-space as is the usual case. Since a hyper strip is the region between two parallel hyper-planes, it allows neurons to more finely divide the input feature space into positive and negative classes than with infinitely wide half-spaces. In particular the XOR function can be learn by a single neuron with cone-like activation functions. Both the cone and parabolic-cone activation functions are shown to achieve higher accuracies with significantly fewer neurons on benchmarks. The results presented in this paper indicate that many nonlinear real-world datasets may be separated with fewer hyperstrips than half-spaces. The Cone and Parabolic-Cone activation functions have larger derivatives than ReLU and are shown to significantly speedup training.",
+      "venue": "cs.AI",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2405.04459",
+      "url": "https://arxiv.org/abs/2405.04459",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2006.13723",
+      "title": "Small Primes And The Tau Function",
+      "authors": [
+        {
+          "name": "N. A. Carella",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "This note shows that the prime values of the Ramanujan tau function $\u03c4(n)=\\pm p$ misses every prime $p\\leq 8.0\\times 10^{25}$.",
+      "venue": "math.NT",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2006.13723",
+      "url": "https://arxiv.org/abs/2006.13723",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

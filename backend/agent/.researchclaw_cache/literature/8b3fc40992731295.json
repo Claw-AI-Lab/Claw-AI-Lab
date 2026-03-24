@@ -1,0 +1,1343 @@
+{
+  "query": "Training-free temporally consistent video comparison",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1773979840.074909,
+  "papers": [
+    {
+      "paper_id": "arxiv-2501.07563",
+      "title": "Training-Free Motion-Guided Video Generation with Enhanced Temporal Consistency Using Motion Consistency Loss",
+      "authors": [
+        {
+          "name": "Xinyu Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zicheng Duan",
+          "affiliation": ""
+        },
+        {
+          "name": "Dong Gong",
+          "affiliation": ""
+        },
+        {
+          "name": "Lingqiao Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "In this paper, we address the challenge of generating temporally consistent videos with motion guidance. While many existing methods depend on additional control modules or inference-time fine-tuning, recent studies suggest that effective motion guidance is achievable without altering the model architecture or requiring extra training. Such approaches offer promising compatibility with various video generation foundation models. However, existing training-free methods often struggle to maintain consistent temporal coherence across frames or to follow guided motion accurately. In this work, we propose a simple yet effective solution that combines an initial-noise-based approach with a novel motion consistency loss, the latter being our key innovation. Specifically, we capture the inter-frame feature correlation patterns of intermediate features from a video diffusion model to represent the motion pattern of the reference video. We then design a motion consistency loss to maintain similar feature correlation patterns in the generated video, using the gradient of this loss in the latent space to guide the generation process for precise motion control. This approach improves temporal consistency across various motion control tasks while preserving the benefits of a training-free setup. Extensive experiments show that our method sets a new standard for efficient, temporally coherent video generation.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2501.07563",
+      "url": "https://arxiv.org/abs/2501.07563",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2306.00288",
+      "title": "Training-free Neural Architecture Search for RNNs and Transformers",
+      "authors": [
+        {
+          "name": "Aaron Serianni",
+          "affiliation": ""
+        },
+        {
+          "name": "Jugal Kalita",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Neural architecture search (NAS) has allowed for the automatic creation of new and effective neural network architectures, offering an alternative to the laborious process of manually designing complex architectures. However, traditional NAS algorithms are slow and require immense amounts of computing power. Recent research has investigated training-free NAS metrics for image classification architectures, drastically speeding up search algorithms. In this paper, we investigate training-free NAS metrics for recurrent neural network (RNN) and BERT-based transformer architectures, targeted towards language modeling tasks. First, we develop a new training-free metric, named hidden covariance, that predicts the trained performance of an RNN architecture and significantly outperforms existing training-free metrics. We experimentally evaluate the effectiveness of the hidden covariance metric on the NAS-Bench-NLP benchmark. Second, we find that the current search space paradigm for transformer architectures is not optimized for training-free neural architecture search. Instead, a simple qualitative analysis can effectively shrink the search space to the best performing architectures. This conclusion is based on our investigation of existing training-free metrics and new metrics developed from recent transformer pruning literature, evaluated on our own benchmark of trained BERT architectures. Ultimately, our analysis shows that the architecture search space and the training-free metric must be developed together in order to achieve effective results.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2306.00288",
+      "url": "https://arxiv.org/abs/2306.00288",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2510.16781",
+      "title": "Xiaoice: Training-Free Video Understanding via Self-Supervised Spatio-Temporal Clustering of Semantic Features",
+      "authors": [
+        {
+          "name": "Shihao Ji",
+          "affiliation": ""
+        },
+        {
+          "name": "Zihui Song",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The remarkable zero-shot reasoning capabilities of large-scale Visual Language Models (VLMs) on static images have yet to be fully translated to the video domain. Conventional video understanding models often rely on extensive, task-specific training on annotated datasets, a process that is both costly and limited in scalability. This paper introduces a novel, training-free framework for video understanding that circumvents end-to-end training by synergistically combining the rich semantic priors of pre-trained VLMs with classic machine learning algorithms for pattern discovery. Our core idea is to reframe video understanding as a self-supervised spatio-temporal clustering problem within a high-dimensional semantic feature space. The proposed pipeline first transforms a video stream into a semantic feature trajectory using the frozen visual encoder of a pre-trained VLM. Subsequently, we employ Kernel Temporal Segmentation (KTS), a robust machine learning technique, to partition the continuous feature stream into discrete, semantically coherent event segments. These segments are then subjected to unsupervised density-based clustering to identify recurring macroscopic scenes and themes throughout the video. By selecting representative keyframes from each discovered cluster and leveraging the VLM's generative capabilities for textual description, our framework automatically produces a structured, multi-modal summary of the video content. This approach provides an effective, interpretable, and model-agnostic pathway for zero-shot, automated structural analysis of video content.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2510.16781",
+      "url": "https://arxiv.org/abs/2510.16781",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2212.02802",
+      "title": "Diffusion Video Autoencoders: Toward Temporally Consistent Face Video Editing via Disentangled Video Encoding",
+      "authors": [
+        {
+          "name": "Gyeongman Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Hajin Shim",
+          "affiliation": ""
+        },
+        {
+          "name": "Hyunsu Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Yunjey Choi",
+          "affiliation": ""
+        },
+        {
+          "name": "Junho Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Eunho Yang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Inspired by the impressive performance of recent face image editing methods, several studies have been naturally proposed to extend these methods to the face video editing task. One of the main challenges here is temporal consistency among edited frames, which is still unresolved. To this end, we propose a novel face video editing framework based on diffusion autoencoders that can successfully extract the decomposed features - for the first time as a face video editing model - of identity and motion from a given video. This modeling allows us to edit the video by simply manipulating the temporally invariant feature to the desired direction for the consistency. Another unique strength of our model is that, since our model is based on diffusion models, it can satisfy both reconstruction and edit capabilities at the same time, and is robust to corner cases in wild face videos (e.g. occluded faces) unlike the existing GAN-based methods.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2212.02802",
+      "url": "https://arxiv.org/abs/2212.02802",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2010.11838",
+      "title": "Blind Video Temporal Consistency via Deep Video Prior",
+      "authors": [
+        {
+          "name": "Chenyang Lei",
+          "affiliation": ""
+        },
+        {
+          "name": "Yazhou Xing",
+          "affiliation": ""
+        },
+        {
+          "name": "Qifeng Chen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Applying image processing algorithms independently to each video frame often leads to temporal inconsistency in the resulting video. To address this issue, we present a novel and general approach for blind video temporal consistency. Our method is only trained on a pair of original and processed videos directly instead of a large dataset. Unlike most previous methods that enforce temporal consistency with optical flow, we show that temporal consistency can be achieved by training a convolutional network on a video with the Deep Video Prior. Moreover, a carefully designed iteratively reweighted training strategy is proposed to address the challenging multimodal inconsistency problem. We demonstrate the effectiveness of our approach on 7 computer vision tasks on videos. Extensive quantitative and perceptual experiments show that our approach obtains superior performance than state-of-the-art methods on blind video temporal consistency. Our source codes are publicly available at github.com/ChenyangLEI/deep-video-prior.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2010.11838",
+      "url": "https://arxiv.org/abs/2010.11838",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2501.05442",
+      "title": "Progressive Growing of Video Tokenizers for Temporally Compact Latent Spaces",
+      "authors": [
+        {
+          "name": "Aniruddha Mahapatra",
+          "affiliation": ""
+        },
+        {
+          "name": "Long Mai",
+          "affiliation": ""
+        },
+        {
+          "name": "David Bourgin",
+          "affiliation": ""
+        },
+        {
+          "name": "Yitian Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Feng Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Video tokenizers are essential for latent video diffusion models, converting raw video data into spatiotemporally compressed latent spaces for efficient training. However, extending state-of-the-art video tokenizers to achieve a temporal compression ratio beyond 4x without increasing channel capacity poses significant challenges. In this work, we propose an alternative approach to enhance temporal compression. We find that the reconstruction quality of temporally subsampled videos from a low-compression encoder surpasses that of high-compression encoders applied to original videos. This indicates that high-compression models can leverage representations from lower-compression models. Building on this insight, we develop a bootstrapped high-temporal-compression model that progressively trains high-compression blocks atop well-trained lower-compression models. Our method includes a cross-level feature-mixing module to retain information from the pretrained low-compression model and guide higher-compression blocks to capture the remaining details from the full video sequence. Evaluation of video benchmarks shows that our method significantly improves reconstruction quality while increasing temporal compression compared to directly training the full model. Furthermore, the resulting compact latent space effectively trains a video diffusion model for high-quality video generation with a significantly reduced token budget.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2501.05442",
+      "url": "https://arxiv.org/abs/2501.05442",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2004.15021",
+      "title": "Consistent Video Depth Estimation",
+      "authors": [
+        {
+          "name": "Xuan Luo",
+          "affiliation": ""
+        },
+        {
+          "name": "Jia-Bin Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Richard Szeliski",
+          "affiliation": ""
+        },
+        {
+          "name": "Kevin Matzen",
+          "affiliation": ""
+        },
+        {
+          "name": "Johannes Kopf",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "We present an algorithm for reconstructing dense, geometrically consistent depth for all pixels in a monocular video. We leverage a conventional structure-from-motion reconstruction to establish geometric constraints on pixels in the video. Unlike the ad-hoc priors in classical reconstruction, we use a learning-based prior, i.e., a convolutional neural network trained for single-image depth estimation. At test time, we fine-tune this network to satisfy the geometric constraints of a particular input video, while retaining its ability to synthesize plausible depth details in parts of the video that are less constrained. We show through quantitative validation that our method achieves higher accuracy and a higher degree of geometric consistency than previous monocular reconstruction methods. Visually, our results appear more stable. Our algorithm is able to handle challenging hand-held captured input videos with a moderate degree of dynamic motion. The improved quality of the reconstruction enables several applications, such as scene reconstruction and advanced video-based visual effects.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2004.15021",
+      "url": "https://arxiv.org/abs/2004.15021",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2206.10590",
+      "title": "Temporally Consistent Semantic Video Editing",
+      "authors": [
+        {
+          "name": "Yiran Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Badour AlBahar",
+          "affiliation": ""
+        },
+        {
+          "name": "Jia-Bin Huang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Generative adversarial networks (GANs) have demonstrated impressive image generation quality and semantic editing capability of real images, e.g., changing object classes, modifying attributes, or transferring styles. However, applying these GAN-based editing to a video independently for each frame inevitably results in temporal flickering artifacts. We present a simple yet effective method to facilitate temporally coherent video editing. Our core idea is to minimize the temporal photometric inconsistency by optimizing both the latent code and the pre-trained generator. We evaluate the quality of our editing on different domains and GAN inversion techniques and show favorable results against the baselines.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2206.10590",
+      "url": "https://arxiv.org/abs/2206.10590",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2311.11642",
+      "title": "Video Face Re-Aging: Toward Temporally Consistent Face Re-Aging",
+      "authors": [
+        {
+          "name": "Abdul Muqeet",
+          "affiliation": ""
+        },
+        {
+          "name": "Kyuchul Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Bumsoo Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Yohan Hong",
+          "affiliation": ""
+        },
+        {
+          "name": "Hyungrae Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Woonggon Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "KwangHee Lee",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Video face re-aging deals with altering the apparent age of a person to the target age in videos. This problem is challenging due to the lack of paired video datasets maintaining temporal consistency in identity and age. Most re-aging methods process each image individually without considering the temporal consistency of videos. While some existing works address the issue of temporal coherence through video facial attribute manipulation in latent space, they often fail to deliver satisfactory performance in age transformation. To tackle the issues, we propose (1) a novel synthetic video dataset that features subjects across a diverse range of age groups; (2) a baseline architecture designed to validate the effectiveness of our proposed dataset, and (3) the development of novel metrics tailored explicitly for evaluating the temporal consistency of video re-aging techniques. Our comprehensive experiments on public datasets, including VFHQ and CelebA-HQ, show that our method outperforms existing approaches in age transformation accuracy and temporal consistency. Notably, in user studies, our method was preferred for temporal consistency by 48.1\\% of participants for the older direction and by 39.3\\% for the younger direction.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2311.11642",
+      "url": "https://arxiv.org/abs/2311.11642",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2406.02541",
+      "title": "Enhancing Temporal Consistency in Video Editing by Reconstructing Videos with 3D Gaussian Splatting",
+      "authors": [
+        {
+          "name": "Inkyu Shin",
+          "affiliation": ""
+        },
+        {
+          "name": "Qihang Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaohui Shen",
+          "affiliation": ""
+        },
+        {
+          "name": "In So Kweon",
+          "affiliation": ""
+        },
+        {
+          "name": "Kuk-Jin Yoon",
+          "affiliation": ""
+        },
+        {
+          "name": "Liang-Chieh Chen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Recent advancements in zero-shot video diffusion models have shown promise for text-driven video editing, but challenges remain in achieving high temporal consistency. To address this, we introduce Video-3DGS, a 3D Gaussian Splatting (3DGS)-based video refiner designed to enhance temporal consistency in zero-shot video editors. Our approach utilizes a two-stage 3D Gaussian optimizing process tailored for editing dynamic monocular videos. In the first stage, Video-3DGS employs an improved version of COLMAP, referred to as MC-COLMAP, which processes original videos using a Masked and Clipped approach. For each video clip, MC-COLMAP generates the point clouds for dynamic foreground objects and complex backgrounds. These point clouds are utilized to initialize two sets of 3D Gaussians (Frg-3DGS and Bkg-3DGS) aiming to represent foreground and background views. Both foreground and background views are then merged with a 2D learnable parameter map to reconstruct full views. In the second stage, we leverage the reconstruction ability developed in the first stage to impose the temporal constraints on the video diffusion model. To demonstrate the efficacy of Video-3DGS on both stages, we conduct extensive experiments across two related tasks: Video Reconstruction and Video Editing. Video-3DGS trained with 3k iterations significantly improves video reconstruction quality (+3 PSNR, +7 PSNR increase) and training efficiency (x1.9, x4.5 times faster) over NeRF-based and 3DGS-based state-of-art methods on DAVIS dataset, respectively. Moreover, it enhances video editing by ensuring temporal consistency across 58 dynamic monocular videos.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2406.02541",
+      "url": "https://arxiv.org/abs/2406.02541",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2410.09380",
+      "title": "Prompting Video-Language Foundation Models with Domain-specific Fine-grained Heuristics for Video Question Answering",
+      "authors": [
+        {
+          "name": "Ting Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Kunhao Fu",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuhui Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Qingming Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jun Yu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Video Question Answering (VideoQA) represents a crucial intersection between video understanding and language processing, requiring both discriminative unimodal comprehension and sophisticated cross-modal interaction for accurate inference. Despite advancements in multi-modal pre-trained models and video-language foundation models, these systems often struggle with domain-specific VideoQA due to their generalized pre-training objectives. Addressing this gap necessitates bridging the divide between broad cross-modal knowledge and the specific inference demands of VideoQA tasks. To this end, we introduce HeurVidQA, a framework that leverages domain-specific entity-action heuristics to refine pre-trained video-language foundation models. Our approach treats these models as implicit knowledge engines, employing domain-specific entity-action prompters to direct the model's focus toward precise cues that enhance reasoning. By delivering fine-grained heuristics, we improve the model's ability to identify and interpret key entities and actions, thereby enhancing its reasoning capabilities. Extensive evaluations across multiple VideoQA datasets demonstrate that our method significantly outperforms existing models, underscoring the importance of integrating domain-specific knowledge into video-language models for more accurate and context-aware VideoQA.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1109/TCSVT.2024.3475510",
+      "arxiv_id": "2410.09380",
+      "url": "https://arxiv.org/abs/2410.09380",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2510.22970",
+      "title": "VALA: Learning Latent Anchors for Training-Free and Temporally Consistent",
+      "authors": [
+        {
+          "name": "Zhangkai Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xuhui Fan",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhongyuan Xie",
+          "affiliation": ""
+        },
+        {
+          "name": "Kaize Shi",
+          "affiliation": ""
+        },
+        {
+          "name": "Longbing Cao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Recent advances in training-free video editing have enabled lightweight and precise cross-frame generation by leveraging pre-trained text-to-image diffusion models. However, existing methods often rely on heuristic frame selection to maintain temporal consistency during DDIM inversion, which introduces manual bias and reduces the scalability of end-to-end inference. In this paper, we propose~\\textbf{VALA} (\\textbf{V}ariational \\textbf{A}lignment for \\textbf{L}atent \\textbf{A}nchors), a variational alignment module that adaptively selects key frames and compresses their latent features into semantic anchors for consistent video editing. To learn meaningful assignments, VALA propose a variational framework with a contrastive learning objective. Therefore, it can transform cross-frame latent representations into compressed latent anchors that preserve both content and temporal coherence. Our method can be fully integrated into training-free text-to-image based video editing models. Extensive experiments on real-world video editing benchmarks show that VALA achieves state-of-the-art performance in inversion fidelity, editing quality, and temporal consistency, while offering improved efficiency over prior methods.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2510.22970",
+      "url": "https://arxiv.org/abs/2510.22970",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2201.12288",
+      "title": "VRT: A Video Restoration Transformer",
+      "authors": [
+        {
+          "name": "Jingyun Liang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiezhang Cao",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuchen Fan",
+          "affiliation": ""
+        },
+        {
+          "name": "Kai Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Rakesh Ranjan",
+          "affiliation": ""
+        },
+        {
+          "name": "Yawei Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Radu Timofte",
+          "affiliation": ""
+        },
+        {
+          "name": "Luc Van Gool",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Video restoration (e.g., video super-resolution) aims to restore high-quality frames from low-quality frames. Different from single image restoration, video restoration generally requires to utilize temporal information from multiple adjacent but usually misaligned video frames. Existing deep methods generally tackle with this by exploiting a sliding window strategy or a recurrent architecture, which either is restricted by frame-by-frame restoration or lacks long-range modelling ability. In this paper, we propose a Video Restoration Transformer (VRT) with parallel frame prediction and long-range temporal dependency modelling abilities. More specifically, VRT is composed of multiple scales, each of which consists of two kinds of modules: temporal mutual self attention (TMSA) and parallel warping. TMSA divides the video into small clips, on which mutual attention is applied for joint motion estimation, feature alignment and feature fusion, while self attention is used for feature extraction. To enable cross-clip interactions, the video sequence is shifted for every other layer. Besides, parallel warping is used to further fuse information from neighboring frames by parallel feature warping. Experimental results on five tasks, including video super-resolution, video deblurring, video denoising, video frame interpolation and space-time video super-resolution, demonstrate that VRT outperforms the state-of-the-art methods by large margins ($\\textbf{up to 2.16dB}$) on fourteen benchmark datasets.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2201.12288",
+      "url": "https://arxiv.org/abs/2201.12288",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2312.06640",
+      "title": "Upscale-A-Video: Temporal-Consistent Diffusion Model for Real-World Video Super-Resolution",
+      "authors": [
+        {
+          "name": "Shangchen Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Peiqing Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianyi Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yihang Luo",
+          "affiliation": ""
+        },
+        {
+          "name": "Chen Change Loy",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Text-based diffusion models have exhibited remarkable success in generation and editing, showing great promise for enhancing visual content with their generative prior. However, applying these models to video super-resolution remains challenging due to the high demands for output fidelity and temporal consistency, which is complicated by the inherent randomness in diffusion models. Our study introduces Upscale-A-Video, a text-guided latent diffusion framework for video upscaling. This framework ensures temporal coherence through two key mechanisms: locally, it integrates temporal layers into U-Net and VAE-Decoder, maintaining consistency within short sequences; globally, without training, a flow-guided recurrent latent propagation module is introduced to enhance overall video stability by propagating and fusing latent across the entire sequences. Thanks to the diffusion paradigm, our model also offers greater flexibility by allowing text prompts to guide texture creation and adjustable noise levels to balance restoration and generation, enabling a trade-off between fidelity and quality. Extensive experiments show that Upscale-A-Video surpasses existing methods in both synthetic and real-world benchmarks, as well as in AI-generated videos, showcasing impressive visual realism and temporal consistency.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2312.06640",
+      "url": "https://arxiv.org/abs/2312.06640",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2105.08191",
+      "title": "Adaptive Video Encoding For Different Video Codecs",
+      "authors": [
+        {
+          "name": "Gangadharan Esakki",
+          "affiliation": ""
+        },
+        {
+          "name": "Andreas Panayides",
+          "affiliation": ""
+        },
+        {
+          "name": "Venkatesh Jatla",
+          "affiliation": ""
+        },
+        {
+          "name": "Marios Pattichis",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "By 2022, we expect video traffic to reach 82% of the total internet traffic. Undoubtedly, the abundance of video-driven applications will likely lead internet video traffic percentage to a further increase in the near future, enabled by associate advances in video devices' capabilities. In response to this ever-growing demand, the Alliance for Open Media (AOM) and the Joint Video Experts Team (JVET) have demonstrated strong and renewed interest in developing new video codecs. In the fast-changing video codecs' landscape, there is thus, a genuine need to develop adaptive methods that can be universally applied to different codecs. In this study, we formulate video encoding as a multi-objective optimization process where video quality (as a function of VMAF and PSNR), bitrate demands, and encoding rate (in encoded frames per second) are jointly optimized, going beyond the standard video encoding approaches that focus on rate control targeting specific bandwidths. More specifically, we create a dense video encoding space (offline) and then employ regression to generate forward prediction models for each one of the afore-described optimization objectives, using only Pareto-optimal points. We demonstrate our adaptive video encoding approach that leverages the generated forward prediction models that qualify for real-time adaptation using different codecs (e.g., SVT-AV1 and x265) for a variety of video datasets and resolutions. To motivate our approach and establish the promise for future fast VVC encoders, we also perform a comparative performance evaluation using both subjective and objective metrics and report on bitrate savings among all possible pairs between VVC, SVT-AV1, x265, and VP9 codecs.",
+      "venue": "cs.MM",
+      "citation_count": 0,
+      "doi": "10.1109/ACCESS.2021.3077313",
+      "arxiv_id": "2105.08191",
+      "url": "https://arxiv.org/abs/2105.08191",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2201.11632",
+      "title": "Deep Video Prior for Video Consistency and Propagation",
+      "authors": [
+        {
+          "name": "Chenyang Lei",
+          "affiliation": ""
+        },
+        {
+          "name": "Yazhou Xing",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Ouyang",
+          "affiliation": ""
+        },
+        {
+          "name": "Qifeng Chen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Applying an image processing algorithm independently to each video frame often leads to temporal inconsistency in the resulting video. To address this issue, we present a novel and general approach for blind video temporal consistency. Our method is only trained on a pair of original and processed videos directly instead of a large dataset. Unlike most previous methods that enforce temporal consistency with optical flow, we show that temporal consistency can be achieved by training a convolutional neural network on a video with Deep Video Prior (DVP). Moreover, a carefully designed iteratively reweighted training strategy is proposed to address the challenging multimodal inconsistency problem. We demonstrate the effectiveness of our approach on 7 computer vision tasks on videos. Extensive quantitative and perceptual experiments show that our approach obtains superior performance than state-of-the-art methods on blind video temporal consistency. We further extend DVP to video propagation and demonstrate its effectiveness in propagating three different types of information (color, artistic style, and object segmentation). A progressive propagation strategy with pseudo labels is also proposed to enhance DVP's performance on video propagation. Our source codes are publicly available at https://github.com/ChenyangLEI/deep-video-prior.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2201.11632",
+      "url": "https://arxiv.org/abs/2201.11632",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2211.01639",
+      "title": "Temporal Consistency Learning of inter-frames for Video Super-Resolution",
+      "authors": [
+        {
+          "name": "Meiqin Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuo Jin",
+          "affiliation": ""
+        },
+        {
+          "name": "Chao Yao",
+          "affiliation": ""
+        },
+        {
+          "name": "Chunyu Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Yao Zhao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Video super-resolution (VSR) is a task that aims to reconstruct high-resolution (HR) frames from the low-resolution (LR) reference frame and multiple neighboring frames. The vital operation is to utilize the relative misaligned frames for the current frame reconstruction and preserve the consistency of the results. Existing methods generally explore information propagation and frame alignment to improve the performance of VSR. However, few studies focus on the temporal consistency of inter-frames. In this paper, we propose a Temporal Consistency learning Network (TCNet) for VSR in an end-to-end manner, to enhance the consistency of the reconstructed videos. A spatio-temporal stability module is designed to learn the self-alignment from inter-frames. Especially, the correlative matching is employed to exploit the spatial dependency from each frame to maintain structural stability. Moreover, a self-attention mechanism is utilized to learn the temporal correspondence to implement an adaptive warping operation for temporal consistency among multi-frames. Besides, a hybrid recurrent architecture is designed to leverage short-term and long-term information. We further present a progressive fusion module to perform a multistage fusion of spatio-temporal features. And the final reconstructed frames are refined by these fused features. Objective and subjective results of various experiments demonstrate that TCNet has superior performance on different benchmark datasets, compared to several state-of-the-art methods.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1109/tcsvt.2022.3214538",
+      "arxiv_id": "2211.01639",
+      "url": "https://arxiv.org/abs/2211.01639",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2504.08641",
+      "title": "Training-free Guidance in Text-to-Video Generation via Multimodal Planning and Structured Noise Initialization",
+      "authors": [
+        {
+          "name": "Jialu Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Shoubin Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Han Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Jaemin Cho",
+          "affiliation": ""
+        },
+        {
+          "name": "Jaehong Yoon",
+          "affiliation": ""
+        },
+        {
+          "name": "Mohit Bansal",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Recent advancements in text-to-video (T2V) diffusion models have significantly enhanced the visual quality of the generated videos. However, even recent T2V models find it challenging to follow text descriptions accurately, especially when the prompt requires accurate control of spatial layouts or object trajectories. A recent line of research uses layout guidance for T2V models that require fine-tuning or iterative manipulation of the attention map during inference time. This significantly increases the memory requirement, making it difficult to adopt a large T2V model as a backbone. To address this, we introduce Video-MSG, a training-free Guidance method for T2V generation based on Multimodal planning and Structured noise initialization. Video-MSG consists of three steps, where in the first two steps, Video-MSG creates Video Sketch, a fine-grained spatio-temporal plan for the final video, specifying background, foreground, and object trajectories, in the form of draft video frames. In the last step, Video-MSG guides a downstream T2V diffusion model with Video Sketch through noise inversion and denoising. Notably, Video-MSG does not need fine-tuning or attention manipulation with additional memory during inference time, making it easier to adopt large T2V models. Video-MSG demonstrates its effectiveness in enhancing text alignment with multiple T2V backbones (VideoCrafter2 and CogVideoX-5B) on popular T2V generation benchmarks (T2VCompBench and VBench). We provide comprehensive ablation studies about noise inversion ratio, different background generators, background object detection, and foreground object segmentation.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2504.08641",
+      "url": "https://arxiv.org/abs/2504.08641",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2309.14364",
+      "title": "Automata Quest: NCAs as a Video Game Life Mechanic",
+      "authors": [
+        {
+          "name": "Hiroki Sato",
+          "affiliation": ""
+        },
+        {
+          "name": "Tanner Lund",
+          "affiliation": ""
+        },
+        {
+          "name": "Takahide Yoshida",
+          "affiliation": ""
+        },
+        {
+          "name": "Atsushi Masumori",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We study life over the course of video game history as represented by their mechanics. While there have been some variations depending on genre or \"character type\", we find that most games converge to a similar representation. We also examine the development of Conway's Game of Life (one of the first zero player games) and related automata that have developed over the years. With this history in mind, we investigate the viability of one popular form of automata, namely Neural Cellular Automata, as a way to more fully express life within video game settings and innovate new game mechanics or gameplay loops.",
+      "venue": "cs.HC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2309.14364",
+      "url": "https://arxiv.org/abs/2309.14364",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2503.11495",
+      "title": "V-STaR: Benchmarking Video-LLMs on Video Spatio-Temporal Reasoning",
+      "authors": [
+        {
+          "name": "Zixu Cheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Jian Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ziquan Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Chenyang Si",
+          "affiliation": ""
+        },
+        {
+          "name": "Wei Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Shaogang Gong",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Human processes video reasoning in a sequential spatio-temporal reasoning logic, we first identify the relevant frames (\"when\") and then analyse the spatial relationships (\"where\") between key objects, and finally leverage these relationships to draw inferences (\"what\"). However, can Video Large Language Models (Video-LLMs) also \"reason through a sequential spatio-temporal logic\" in videos? Existing Video-LLM benchmarks primarily focus on assessing object presence, neglecting relational reasoning. Consequently, it is difficult to measure whether a model truly comprehends object interactions (actions/events) in videos or merely relies on pre-trained \"memory\" of co-occurrences as biases in generating answers. In this work, we introduce a Video Spatio-Temporal Reasoning (V-STaR) benchmark to address these shortcomings. The key idea is to decompose video understanding into a Reverse Spatio-Temporal Reasoning (RSTR) task that simultaneously evaluates what objects are present, when events occur, and where they are located while capturing the underlying Chain-of-thought (CoT) logic. To support this evaluation, we construct a dataset to elicit the spatial-temporal reasoning process of Video-LLMs. It contains coarse-to-fine CoT questions generated by a semi-automated GPT-4-powered pipeline, embedding explicit reasoning chains to mimic human cognition. Experiments from 14 Video-LLMs on our V-STaR reveal significant gaps between current Video-LLMs and the needs for robust and consistent spatio-temporal reasoning.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2503.11495",
+      "url": "https://arxiv.org/abs/2503.11495",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2512.10943",
+      "title": "AlcheMinT: Fine-grained Temporal Control for Multi-Reference Consistent Video Generation",
+      "authors": [
+        {
+          "name": "Sharath Girish",
+          "affiliation": ""
+        },
+        {
+          "name": "Viacheslav Ivanov",
+          "affiliation": ""
+        },
+        {
+          "name": "Tsai-Shien Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Aliaksandr Siarohin",
+          "affiliation": ""
+        },
+        {
+          "name": "Sergey Tulyakov",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Recent advances in subject-driven video generation with large diffusion models have enabled personalized content synthesis conditioned on user-provided subjects. However, existing methods lack fine-grained temporal control over subject appearance and disappearance, which are essential for applications such as compositional video synthesis, storyboarding, and controllable animation. We propose AlcheMinT, a unified framework that introduces explicit timestamps conditioning for subject-driven video generation. Our approach introduces a novel positional encoding mechanism that unlocks the encoding of temporal intervals, associated in our case with subject identities, while seamlessly integrating with the pretrained video generation model positional embeddings. Additionally, we incorporate subject-descriptive text tokens to strengthen binding between visual identity and video captions, mitigating ambiguity during generation. Through token-wise concatenation, AlcheMinT avoids any additional cross-attention modules and incurs negligible parameter overhead. We establish a benchmark evaluating multiple subject identity preservation, video fidelity, and temporal adherence. Experimental results demonstrate that AlcheMinT achieves visual quality matching state-of-the-art video personalization methods, while, for the first time, enabling precise temporal control over multi-subject generation within videos. Project page is at https://snap-research.github.io/Video-AlcheMinT",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2512.10943",
+      "url": "https://arxiv.org/abs/2512.10943",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2410.06166",
+      "title": "Temporal Reasoning Transfer from Text to Video",
+      "authors": [
+        {
+          "name": "Lei Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuanxin Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Linli Yao",
+          "affiliation": ""
+        },
+        {
+          "name": "Peiyuan Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chenxin An",
+          "affiliation": ""
+        },
+        {
+          "name": "Lean Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xu Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Lingpeng Kong",
+          "affiliation": ""
+        },
+        {
+          "name": "Qi Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Video Large Language Models (Video LLMs) have shown promising capabilities in video comprehension, yet they struggle with tracking temporal changes and reasoning about temporal relationships. While previous research attributed this limitation to the ineffective temporal encoding of visual inputs, our diagnostic study reveals that video representations contain sufficient information for even small probing classifiers to achieve perfect accuracy. Surprisingly, we find that the key bottleneck in Video LLMs' temporal reasoning capability stems from the underlying LLM's inherent difficulty with temporal concepts, as evidenced by poor performance on textual temporal question-answering tasks. Building on this discovery, we introduce the Textual Temporal reasoning Transfer (T3). T3 synthesizes diverse temporal reasoning tasks in pure text format from existing image-text datasets, addressing the scarcity of video samples with complex temporal scenarios. Remarkably, without using any video data, T3 enhances LongVA-7B's temporal understanding, yielding a 5.3 absolute accuracy improvement on the challenging TempCompass benchmark, which enables our model to outperform ShareGPT4Video-8B trained on 28,000 video samples. Additionally, the enhanced LongVA-7B model achieves competitive performance on comprehensive video benchmarks. For example, it achieves a 49.7 accuracy on the Temporal Reasoning task of Video-MME, surpassing powerful large-scale models such as InternVL-Chat-V1.5-20B and VILA1.5-40B. Further analysis reveals a strong correlation between textual and video temporal task performance, validating the efficacy of transferring temporal reasoning abilities from text to video domains.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2410.06166",
+      "url": "https://arxiv.org/abs/2410.06166",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2109.02281",
+      "title": "Exploiting Spatial-Temporal Semantic Consistency for Video Scene Parsing",
+      "authors": [
+        {
+          "name": "Xingjian He",
+          "affiliation": ""
+        },
+        {
+          "name": "Weining Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiyong Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jie Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jing Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Compared with image scene parsing, video scene parsing introduces temporal information, which can effectively improve the consistency and accuracy of prediction. In this paper, we propose a Spatial-Temporal Semantic Consistency method to capture class-exclusive context information. Specifically, we design a spatial-temporal consistency loss to constrain the semantic consistency in spatial and temporal dimensions. In addition, we adopt an pseudo-labeling strategy to enrich the training dataset. We obtain the scores of 59.84% and 58.85% mIoU on development (test part 1) and testing set of VSPW, respectively. And our method wins the 1st place on VSPW challenge at ICCV2021.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2109.02281",
+      "url": "https://arxiv.org/abs/2109.02281",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2602.09868",
+      "title": "Free-GVC: Towards Training-Free Extreme Generative Video Compression with Temporal Coherence",
+      "authors": [
+        {
+          "name": "Xiaoyue Ling",
+          "affiliation": ""
+        },
+        {
+          "name": "Chuqin Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Chunyi Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yunuo Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuan Tian",
+          "affiliation": ""
+        },
+        {
+          "name": "Guo Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenjun Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Building on recent advances in video generation, generative video compression has emerged as a new paradigm for achieving visually pleasing reconstructions. However, existing methods exhibit limited exploitation of temporal correlations, causing noticeable flicker and degraded temporal coherence at ultra-low bitrates. In this paper, we propose Free-GVC, a training-free generative video compression framework that reformulates video coding as latent trajectory compression guided by a video diffusion prior. Our method operates at the group-of-pictures (GOP) level, encoding video segments into a compact latent space and progressively compressing them along the diffusion trajectory. To ensure perceptually consistent reconstruction across GOPs, we introduce an Adaptive Quality Control module that dynamically constructs an online rate-perception surrogate model to predict the optimal diffusion step for each GOP. In addition, an Inter-GOP Alignment module establishes frame overlap and performs latent fusion between adjacent groups, thereby mitigating flicker and enhancing temporal coherence. Experiments show that Free-GVC achieves an average of 93.29% BD-Rate reduction in DISTS over the latest neural codec DCVC-RT, and a user study further confirms its superior perceptual quality and temporal coherence at ultra-low bitrates.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2602.09868",
+      "url": "https://arxiv.org/abs/2602.09868",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2510.21696",
+      "title": "BachVid: Training-Free Video Generation with Consistent Background and Character",
+      "authors": [
+        {
+          "name": "Han Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Xibin Song",
+          "affiliation": ""
+        },
+        {
+          "name": "Yifu Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Hongdong Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Pan Ji",
+          "affiliation": ""
+        },
+        {
+          "name": "Chao Ma",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Diffusion Transformers (DiTs) have recently driven significant progress in text-to-video (T2V) generation. However, generating multiple videos with consistent characters and backgrounds remains a significant challenge. Existing methods typically rely on reference images or extensive training, and often only address character consistency, leaving background consistency to image-to-video models. We introduce BachVid, the first training-free method that achieves consistent video generation without needing any reference images. Our approach is based on a systematic analysis of DiT's attention mechanism and intermediate features, revealing its ability to extract foreground masks and identify matching points during the denoising process. Our method leverages this finding by first generating an identity video and caching the intermediate variables, and then inject these cached variables into corresponding positions in newly generated videos, ensuring both foreground and background consistency across multiple videos. Experimental results demonstrate that BachVid achieves robust consistency in generated videos without requiring additional training, offering a novel and efficient solution for consistent video generation without relying on reference images or additional training.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2510.21696",
+      "url": "https://arxiv.org/abs/2510.21696",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2110.04562",
+      "title": "Temporally Consistent Video Colorization with Deep Feature Propagation and Self-regularization Learning",
+      "authors": [
+        {
+          "name": "Yihao Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hengyuan Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Kelvin C. K. Chan",
+          "affiliation": ""
+        },
+        {
+          "name": "Xintao Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chen Change Loy",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Qiao",
+          "affiliation": ""
+        },
+        {
+          "name": "Chao Dong",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Video colorization is a challenging and highly ill-posed problem. Although recent years have witnessed remarkable progress in single image colorization, there is relatively less research effort on video colorization and existing methods always suffer from severe flickering artifacts (temporal inconsistency) or unsatisfying colorization performance. We address this problem from a new perspective, by jointly considering colorization and temporal consistency in a unified framework. Specifically, we propose a novel temporally consistent video colorization framework (TCVC). TCVC effectively propagates frame-level deep features in a bidirectional way to enhance the temporal consistency of colorization. Furthermore, TCVC introduces a self-regularization learning (SRL) scheme to minimize the prediction difference obtained with different time steps. SRL does not require any ground-truth color videos for training and can further improve temporal consistency. Experiments demonstrate that our method can not only obtain visually pleasing colorized video, but also achieve clearly better temporal consistency than state-of-the-art methods.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2110.04562",
+      "url": "https://arxiv.org/abs/2110.04562",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2310.05922",
+      "title": "FLATTEN: optical FLow-guided ATTENtion for consistent text-to-video editing",
+      "authors": [
+        {
+          "name": "Yuren Cong",
+          "affiliation": ""
+        },
+        {
+          "name": "Mengmeng Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Christian Simon",
+          "affiliation": ""
+        },
+        {
+          "name": "Shoufa Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiawei Ren",
+          "affiliation": ""
+        },
+        {
+          "name": "Yanping Xie",
+          "affiliation": ""
+        },
+        {
+          "name": "Juan-Manuel Perez-Rua",
+          "affiliation": ""
+        },
+        {
+          "name": "Bodo Rosenhahn",
+          "affiliation": ""
+        },
+        {
+          "name": "Tao Xiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Sen He",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Text-to-video editing aims to edit the visual appearance of a source video conditional on textual prompts. A major challenge in this task is to ensure that all frames in the edited video are visually consistent. Most recent works apply advanced text-to-image diffusion models to this task by inflating 2D spatial attention in the U-Net into spatio-temporal attention. Although temporal context can be added through spatio-temporal attention, it may introduce some irrelevant information for each patch and therefore cause inconsistency in the edited video. In this paper, for the first time, we introduce optical flow into the attention module in the diffusion model's U-Net to address the inconsistency issue for text-to-video editing. Our method, FLATTEN, enforces the patches on the same flow path across different frames to attend to each other in the attention module, thus improving the visual consistency in the edited videos. Additionally, our method is training-free and can be seamlessly integrated into any diffusion-based text-to-video editing methods and improve their visual consistency. Experiment results on existing text-to-video editing benchmarks show that our proposed method achieves the new state-of-the-art performance. In particular, our method excels in maintaining the visual consistency in the edited videos.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2310.05922",
+      "url": "https://arxiv.org/abs/2310.05922",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2307.06947",
+      "title": "Video-FocalNets: Spatio-Temporal Focal Modulation for Video Action Recognition",
+      "authors": [
+        {
+          "name": "Syed Talal Wasim",
+          "affiliation": ""
+        },
+        {
+          "name": "Muhammad Uzair Khattak",
+          "affiliation": ""
+        },
+        {
+          "name": "Muzammal Naseer",
+          "affiliation": ""
+        },
+        {
+          "name": "Salman Khan",
+          "affiliation": ""
+        },
+        {
+          "name": "Mubarak Shah",
+          "affiliation": ""
+        },
+        {
+          "name": "Fahad Shahbaz Khan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Recent video recognition models utilize Transformer models for long-range spatio-temporal context modeling. Video transformer designs are based on self-attention that can model global context at a high computational cost. In comparison, convolutional designs for videos offer an efficient alternative but lack long-range dependency modeling. Towards achieving the best of both designs, this work proposes Video-FocalNet, an effective and efficient architecture for video recognition that models both local and global contexts. Video-FocalNet is based on a spatio-temporal focal modulation architecture that reverses the interaction and aggregation steps of self-attention for better efficiency. Further, the aggregation step and the interaction step are both implemented using efficient convolution and element-wise multiplication operations that are computationally less expensive than their self-attention counterparts on video representations. We extensively explore the design space of focal modulation-based spatio-temporal context modeling and demonstrate our parallel spatial and temporal encoding design to be the optimal choice. Video-FocalNets perform favorably well against the state-of-the-art transformer-based models for video recognition on five large-scale datasets (Kinetics-400, Kinetics-600, SS-v2, Diving-48, and ActivityNet-1.3) at a lower computational cost. Our code/models are released at https://github.com/TalalWasim/Video-FocalNets.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2307.06947",
+      "url": "https://arxiv.org/abs/2307.06947",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2301.13173",
+      "title": "Shape-aware Text-driven Layered Video Editing",
+      "authors": [
+        {
+          "name": "Yao-Chih Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Ji-Ze Genevieve Jang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi-Ting Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Elizabeth Qiu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jia-Bin Huang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Temporal consistency is essential for video editing applications. Existing work on layered representation of videos allows propagating edits consistently to each frame. These methods, however, can only edit object appearance rather than object shape changes due to the limitation of using a fixed UV mapping field for texture atlas. We present a shape-aware, text-driven video editing method to tackle this challenge. To handle shape changes in video editing, we first propagate the deformation field between the input and edited keyframe to all frames. We then leverage a pre-trained text-conditioned diffusion model as guidance for refining shape distortion and completing unseen regions. The experimental results demonstrate that our method can achieve shape-aware consistent video editing and compare favorably with the state-of-the-art.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2301.13173",
+      "url": "https://arxiv.org/abs/2301.13173",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2502.03502",
+      "title": "DC-VSR: Spatially and Temporally Consistent Video Super-Resolution with Video Diffusion Prior",
+      "authors": [
+        {
+          "name": "Janghyeok Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Gyujin Sim",
+          "affiliation": ""
+        },
+        {
+          "name": "Geonung Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Hyun-seung Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Kyuha Choi",
+          "affiliation": ""
+        },
+        {
+          "name": "Youngseok Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Sunghyun Cho",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Video super-resolution (VSR) aims to reconstruct a high-resolution (HR) video from a low-resolution (LR) counterpart. Achieving successful VSR requires producing realistic HR details and ensuring both spatial and temporal consistency. To restore realistic details, diffusion-based VSR approaches have recently been proposed. However, the inherent randomness of diffusion, combined with their tile-based approach, often leads to spatio-temporal inconsistencies. In this paper, we propose DC-VSR, a novel VSR approach to produce spatially and temporally consistent VSR results with realistic textures. To achieve spatial and temporal consistency, DC-VSR adopts a novel Spatial Attention Propagation (SAP) scheme and a Temporal Attention Propagation (TAP) scheme that propagate information across spatio-temporal tiles based on the self-attention mechanism. To enhance high-frequency details, we also introduce Detail-Suppression Self-Attention Guidance (DSSAG), a novel diffusion guidance scheme. Comprehensive experiments demonstrate that DC-VSR achieves spatially and temporally consistent, high-quality VSR results, outperforming previous approaches.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "10.1145/3721238.3730719",
+      "arxiv_id": "2502.03502",
+      "url": "https://arxiv.org/abs/2502.03502",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2104.12770",
+      "title": "Adaptive Encoding for Constrained Video Delivery in HEVC, VP9, AV1 and VVC Compression Standards and Adaptation to Video Content",
+      "authors": [
+        {
+          "name": "Gangadharan Esakki",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "The dissertation proposes the use of a multi-objective optimization framework for designing and selecting among enhanced GOP configurations in video compression standards. The proposed methods achieve fine optimization over a set of general modes that include: (i) maximum video quality, (ii) minimum bitrate, (iii) maximum encoding rate (previously minimum encoding time mode) and (iv) can be shown to improve upon the YouTube/Netflix default encoder mode settings over a set of opposing constraints to guarantee satisfactory performance. The dissertation describes the implementation of a codec-agnostic approach using different video coding standards (x265, VP9, AV1) on a wide range of videos derived from different video datasets. The results demonstrate that the optimal encoding parameters obtained from the Pareto front space can provide significant bandwidth savings without sacrificing video quality. This is achieved by the use of effective regression models that allow for the selection of video encoding settings that are jointly optimal in the encoding time, bitrate, and video quality space. The dissertation applies the proposed methods to x265, VP9, AV1 and using new GOP configurations in x265, delivering over 40% of the optimal encodings in two standard reference videos.",
+      "venue": "cs.MM",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2104.12770",
+      "url": "https://arxiv.org/abs/2104.12770",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2207.10357",
+      "title": "Synthesizing Light Field Video from Monocular Video",
+      "authors": [
+        {
+          "name": "Shrisudhan Govindarajan",
+          "affiliation": ""
+        },
+        {
+          "name": "Prasan Shedligeri",
+          "affiliation": ""
+        },
+        {
+          "name": "Sarah",
+          "affiliation": ""
+        },
+        {
+          "name": "Kaushik Mitra",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "The hardware challenges associated with light-field(LF) imaging has made it difficult for consumers to access its benefits like applications in post-capture focus and aperture control. Learning-based techniques which solve the ill-posed problem of LF reconstruction from sparse (1, 2 or 4) views have significantly reduced the requirement for complex hardware. LF video reconstruction from sparse views poses a special challenge as acquiring ground-truth for training these models is hard. Hence, we propose a self-supervised learning-based algorithm for LF video reconstruction from monocular videos. We use self-supervised geometric, photometric and temporal consistency constraints inspired from a recent self-supervised technique for LF video reconstruction from stereo video. Additionally, we propose three key techniques that are relevant to our monocular video input. We propose an explicit disocclusion handling technique that encourages the network to inpaint disoccluded regions in a LF frame, using information from adjacent input temporal frames. This is crucial for a self-supervised technique as a single input frame does not contain any information about the disoccluded regions. We also propose an adaptive low-rank representation that provides a significant boost in performance by tailoring the representation to each input scene. Finally, we also propose a novel refinement block that is able to exploit the available LF image data using supervised learning to further refine the reconstruction quality. Our qualitative and quantitative analysis demonstrates the significance of each of the proposed building blocks and also the superior results compared to previous state-of-the-art monocular LF reconstruction techniques. We further validate our algorithm by reconstructing LF videos from monocular videos acquired using a commercial GoPro camera.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2207.10357",
+      "url": "https://arxiv.org/abs/2207.10357",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.23478",
+      "title": "Video-R2: Reinforcing Consistent and Grounded Reasoning in Multimodal Language Models",
+      "authors": [
+        {
+          "name": "Muhammad Maaz",
+          "affiliation": ""
+        },
+        {
+          "name": "Hanoona Rasheed",
+          "affiliation": ""
+        },
+        {
+          "name": "Fahad Shahbaz Khan",
+          "affiliation": ""
+        },
+        {
+          "name": "Salman Khan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Reasoning over dynamic visual content remains a central challenge for multimodal large language models. Recent thinking models generate explicit reasoning traces for interpretability; however, their reasoning often appears convincing while being logically inconsistent or weakly grounded in visual evidence. We identify and formalize these issues through two diagnostic metrics: Think Answer Consistency (TAC), which measures the alignment between reasoning and answers, and Video Attention Score (VAS), which captures the extent to which reasoning depends on visual versus textual cues. Analysis across 11 video reasoning benchmarks shows that current models rely heavily on linguistic priors rather than visual content. To address this, we propose a reinforcement learning approach that enhances both temporal precision and reasoning consistency. Our approach combines timestamp aware supervised fine tuning with Group Relative Policy Optimization (GRPO) guided by a novel Temporal Alignment Reward (TAR). This dual step post training stage encourages temporally aligned and causally coherent video reasoning. The resulting model, Video R2, achieves consistently higher TAC, VAS, and accuracy across multiple benchmarks, demonstrating that improvements in temporal alignment and reasoning coherence lead to more accurate and trustworthy video understanding. Code: https://github.com/mbzuai-oryx/Video-R2",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.23478",
+      "url": "https://arxiv.org/abs/2511.23478",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2603.15026",
+      "title": "Training-free Detection of Generated Videos via Spatial-Temporal Likelihoods",
+      "authors": [
+        {
+          "name": "Omer Ben Hayun",
+          "affiliation": ""
+        },
+        {
+          "name": "Roy Betser",
+          "affiliation": ""
+        },
+        {
+          "name": "Meir Yossef Levi",
+          "affiliation": ""
+        },
+        {
+          "name": "Levi Kassel",
+          "affiliation": ""
+        },
+        {
+          "name": "Guy Gilboa",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Following major advances in text and image generation, the video domain has surged, producing highly realistic and controllable sequences. Along with this progress, these models also raise serious concerns about misinformation, making reliable detection of synthetic videos increasingly crucial. Image-based detectors are fundamentally limited because they operate per frame and ignore temporal dynamics, while supervised video detectors generalize poorly to unseen generators, a critical drawback given the rapid emergence of new models. These challenges motivate zero-shot approaches, which avoid synthetic data and instead score content against real-data statistics, enabling training-free, model-agnostic detection. We introduce STALL, a simple, training-free, theoretically justified detector that provides likelihood-based scoring for videos, jointly modeling spatial and temporal evidence within a probabilistic framework. We evaluate STALL on two public benchmarks and introduce ComGenVid, a new benchmark with state-of-the-art generative models. STALL consistently outperforms prior image- and video-based baselines. Code and data are available at https://omerbenhayun.github.io/stall-video.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2603.15026",
+      "url": "https://arxiv.org/abs/2603.15026",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2603.01545",
+      "title": "Training-Free Spatio-temporal Decoupled Reasoning Video Segmentation with Adaptive Object Memory",
+      "authors": [
+        {
+          "name": "Zhengtong Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiaqing Fan",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhixuan Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Fanzhang Li",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Reasoning Video Object Segmentation (ReasonVOS) is a challenging task that requires stable object segmentation across video sequences using implicit and complex textual inputs. Previous methods fine-tune Multimodal Large Language Models (MLLMs) to produce segmentation outputs, which demand substantial resources. Additionally, some existing methods are coupled in the processing of spatio-temporal information, which affects the temporal stability of the model to some extent. To address these issues, we propose Training-Free \\textbf{S}patio-temporal \\textbf{D}ecoupled Reasoning Video Segmentation with \\textbf{A}daptive Object \\textbf{M}emory (SDAM). We aim to design a training-free reasoning video segmentation framework that outperforms existing methods requiring fine-tuning, using only pre-trained models. Meanwhile, we propose an Adaptive Object Memory module that selects and memorizes key objects based on motion cues in different video sequences. Finally, we propose Spatio-temporal Decoupling for stable temporal propagation. In the spatial domain, we achieve precise localization and segmentation of target objects, while in the temporal domain, we leverage key object temporal information to drive stable cross-frame propagation. Our method achieves excellent results on five benchmark datasets, including Ref-YouTubeVOS, Ref-DAVIS17, MeViS, ReasonVOS, and ReVOS.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2603.01545",
+      "url": "https://arxiv.org/abs/2603.01545",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.10979",
+      "title": "PAS: A Training-Free Stabilizer for Temporal Encoding in Video LLMs",
+      "authors": [
+        {
+          "name": "Bowen Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Yujun Cai",
+          "affiliation": ""
+        },
+        {
+          "name": "Ming-Hsuan Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Hang Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yiwei Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Video LLMs suffer from temporal inconsistency: small shifts in frame timing can flip attention and suppress relevant frames. We trace this instability to the common extension of Rotary Position Embeddings to video through multimodal RoPE. The induced inverse Fourier time kernel exhibits frame-scale ripples that multiply adjacent frames by different factors, which perturbs attention that should otherwise be governed by the raw query key inner product. We present Phase Aggregated Smoothing (PAS), a simple, training-free mechanism that applies small opposed phase offsets across heads and then aggregates their outputs. PAS preserves the per-head spectrum magnitude, while the aggregation effectively smooths the temporal kernel and reduces phase sensitivity without changing the positional encoding structure. Our analysis shows that the RoPE rotated logit can be approximated as a content dot product scaled by a time kernel; smoothing this kernel yields Lipschitz stability of attention to small temporal shifts; multi phase averaging attenuates high frequency ripples while preserving per-head spectra under Nyquist-valid sampling. Experiments on multiple video understanding benchmarks under matched token budgets show consistent improvements with negligible computational overhead. PAS provides a plug and play upgrade for robust temporal encoding in Video LLMs.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.10979",
+      "url": "https://arxiv.org/abs/2511.10979",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2505.23085",
+      "title": "GeoMan: Temporally Consistent Human Geometry Estimation using Image-to-Video Diffusion",
+      "authors": [
+        {
+          "name": "Gwanghyun Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Xueting Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Ye Yuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Koki Nagano",
+          "affiliation": ""
+        },
+        {
+          "name": "Tianye Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Jan Kautz",
+          "affiliation": ""
+        },
+        {
+          "name": "Se Young Chun",
+          "affiliation": ""
+        },
+        {
+          "name": "Umar Iqbal",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Estimating accurate and temporally consistent 3D human geometry from videos is a challenging problem in computer vision. Existing methods, primarily optimized for single images, often suffer from temporal inconsistencies and fail to capture fine-grained dynamic details. To address these limitations, we present GeoMan, a novel architecture designed to produce accurate and temporally consistent depth and normal estimations from monocular human videos. GeoMan addresses two key challenges: the scarcity of high-quality 4D training data and the need for metric depth estimation to accurately model human size. To overcome the first challenge, GeoMan employs an image-based model to estimate depth and normals for the first frame of a video, which then conditions a video diffusion model, reframing video geometry estimation task as an image-to-video generation problem. This design offloads the heavy lifting of geometric estimation to the image model and simplifies the video model's role to focus on intricate details while using priors learned from large-scale video datasets. Consequently, GeoMan improves temporal consistency and generalizability while requiring minimal 4D training data. To address the challenge of accurate human size estimation, we introduce a root-relative depth representation that retains critical human-scale details and is easier to be estimated from monocular inputs, overcoming the limitations of traditional affine-invariant and metric depth representations. GeoMan achieves state-of-the-art performance in both qualitative and quantitative evaluations, demonstrating its effectiveness in overcoming longstanding challenges in 3D human geometry estimation from videos.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2505.23085",
+      "url": "https://arxiv.org/abs/2505.23085",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

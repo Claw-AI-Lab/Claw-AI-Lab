@@ -1,0 +1,1508 @@
+{
+  "query": "Simple CNN (2 conv benchmark",
+  "source": "openalex",
+  "limit": 40,
+  "timestamp": 1773985175.0127094,
+  "papers": [
+    {
+      "paper_id": "oalex-W3212386989",
+      "title": "Attention mechanisms in computer vision: A survey",
+      "authors": [
+        {
+          "name": "Meng-Hao Guo",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Tian-Xing Xu",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Jiangjiang Liu",
+          "affiliation": "Nankai University"
+        },
+        {
+          "name": "Zheng-Ning Liu",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Peng-Tao Jiang",
+          "affiliation": "Nankai University"
+        },
+        {
+          "name": "Tai\u2010Jiang Mu",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Song\u2013Hai Zhang",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Ralph R. Martin",
+          "affiliation": "Cardiff University"
+        },
+        {
+          "name": "Ming\u2010Ming Cheng",
+          "affiliation": "Nankai University"
+        },
+        {
+          "name": "Shi\u2010Min Hu",
+          "affiliation": "Tsinghua University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Humans can naturally and effectively find salient regions in complex scenes. Motivated by this observation, attention mechanisms were introduced into computer vision with the aim of imitating this aspect of the human visual system. Such an attention mechanism can be regarded as a dynamic weight adjustment process based on features of the input image. Attention mechanisms have achieved great success in many visual tasks, including image classification, object detection, semantic segmentation, video understanding, image generation, 3D vision, multimodal tasks, and self-supervised learning. In this survey, we provide a comprehensive review of various attention mechanisms in computer vision and categorize them according to approach, such as channel attention, spatial attention, temporal attention, and branch attention; a related repository https://github.com/MenghaoGuo/Awesome-Vision-Attentions is dedicated to collecting related work. We also suggest future directions for attention mechanism research.",
+      "venue": "Computational Visual Media",
+      "citation_count": 2226,
+      "doi": "10.1007/s41095-022-0271-y",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s41095-022-0271-y",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2998249728",
+      "title": "FFA-Net: Feature Fusion Attention Network for Single Image Dehazing",
+      "authors": [
+        {
+          "name": "Qin Xu",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Zhilin Wang",
+          "affiliation": "Beihang University"
+        },
+        {
+          "name": "Yuanchao Bai",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Xiaodong Xie",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Huizhu Jia",
+          "affiliation": "Peking University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "In this paper, we propose an end-to-end feature fusion at-tention network (FFA-Net) to directly restore the haze-free image. The FFA-Net architecture consists of three key components:1) A novel Feature Attention (FA) module combines Channel Attention with Pixel Attention mechanism, considering that different channel-wise features contain totally different weighted information and haze distribution is uneven on the different image pixels. FA treats different features and pixels unequally, which provides additional flexibility in dealing with different types of information, expanding the representational ability of CNNs. 2) A basic block structure consists of Local Residual Learning and Feature Attention, Local Residual Learning allowing the less important information such as thin haze region or low-frequency to be bypassed through multiple local residual connections, let main network architecture focus on more effective information. 3) An Attention-based different levels Feature Fusion (FFA) structure, the feature weights are adaptively learned from the Feature Attention (FA) module, giving more weight to important features. This structure can also retain the information of shallow layers and pass it into deep layers.The experimental results demonstrate that our proposed FFA-Net surpasses previous state-of-the-art single image dehazing methods by a very large margin both quantitatively and qualitatively, boosting the best published PSNR metric from 30.23 dB to 36.39 dB on the SOTS indoor test dataset. Code has been made available at GitHub.",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 1560,
+      "doi": "10.1609/aaai.v34i07.6865",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v34i07.6865",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4385346076",
+      "title": "Visual attention network",
+      "authors": [
+        {
+          "name": "Meng-Hao Guo",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Cheng-Ze Lu",
+          "affiliation": "Nankai University"
+        },
+        {
+          "name": "Zheng-Ning Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ming\u2010Ming Cheng",
+          "affiliation": "Nankai University"
+        },
+        {
+          "name": "Shi\u2010Min Hu",
+          "affiliation": "Tsinghua University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "While originally designed for natural language processing tasks, the self-attention mechanism has recently taken various computer vision areas by storm. However, the 2D nature of images brings three challenges for applying self-attention in computer vision: (1) treating images as 1D sequences neglects their 2D structures; (2) the quadratic complexity is too expensive for high-resolution images; (3) it only captures spatial adaptability but ignores channel adaptability. In this paper, we propose a novel linear attention named large kernel attention (LKA) to enable self-adaptive and long-range correlations in self-attention while avoiding its shortcomings. Furthermore, we present a neural network based on LKA, namely Visual Attention Network (VAN). While extremely simple, VAN achieves comparable results with similar size convolutional neural networks (CNNs) and vision transformers (ViTs) in various tasks, including image classification, object detection, semantic segmentation, panoptic segmentation, pose estimation, etc. For example, VAN-B6 achieves 87.8% accuracy on ImageNet benchmark, and sets new state-of-the-art performance (58.2 PQ) for panoptic segmentation. Besides, VAN-B2 surpasses Swin-T 4 mIoU (50.1 vs. 46.1) for semantic segmentation on ADE20K benchmark, 2.6 AP (48.8 vs. 46.2) for object detection on COCO dataset. It provides a novel method and a simple yet strong baseline for the community. The code is available at https://github.com/Visual-Attention-Network .",
+      "venue": "Computational Visual Media",
+      "citation_count": 900,
+      "doi": "10.1007/s41095-023-0364-2",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s41095-023-0364-2",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3120795911",
+      "title": "Convolutional neural networks in medical image understanding: a survey",
+      "authors": [
+        {
+          "name": "D. R. Sarvamangala",
+          "affiliation": "REVA University"
+        },
+        {
+          "name": "Raghavendra V. Kulkarni",
+          "affiliation": "M S Ramaiah University of Applied Sciences"
+        }
+      ],
+      "year": 2021,
+      "abstract": "",
+      "venue": "Evolutionary Intelligence",
+      "citation_count": 834,
+      "doi": "10.1007/s12065-020-00540-3",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s12065-020-00540-3",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4291819654",
+      "title": "Object detection using YOLO: challenges, architectural successors, datasets and applications",
+      "authors": [
+        {
+          "name": "Tausif Diwan",
+          "affiliation": "Indian Institute of Information Technology, Nagpur"
+        },
+        {
+          "name": "G. Anirudh",
+          "affiliation": "Central University of Rajasthan"
+        },
+        {
+          "name": "Jitendra V. Tembhurne",
+          "affiliation": "Indian Institute of Information Technology, Nagpur"
+        }
+      ],
+      "year": 2022,
+      "abstract": "",
+      "venue": "Multimedia Tools and Applications",
+      "citation_count": 1300,
+      "doi": "10.1007/s11042-022-13644-y",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s11042-022-13644-y",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3027225766",
+      "title": "A Spatial-Temporal Attention-Based Method and a New Dataset for Remote Sensing Image Change Detection",
+      "authors": [
+        {
+          "name": "Hao Chen",
+          "affiliation": "Beihang University"
+        },
+        {
+          "name": "Zhenwei Shi",
+          "affiliation": "Beihang University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Remote sensing image change detection (CD) is done to identify desired significant changes between bitemporal images. Given two co-registered images taken at different times, the illumination variations and misregistration errors overwhelm the real object changes. Exploring the relationships among different spatial\u2013temporal pixels may improve the performances of CD methods. In our work, we propose a novel Siamese-based spatial\u2013temporal attention neural network. In contrast to previous methods that separately encode the bitemporal images without referring to any useful spatial\u2013temporal dependency, we design a CD self-attention mechanism to model the spatial\u2013temporal relationships. We integrate a new CD self-attention module in the procedure of feature extraction. Our self-attention module calculates the attention weights between any two pixels at different times and positions and uses them to generate more discriminative features. Considering that the object may have different scales, we partition the image into multi-scale subregions and introduce the self-attention in each subregion. In this way, we could capture spatial\u2013temporal dependencies at various scales, thereby generating better representations to accommodate objects of various sizes. We also introduce a CD dataset LEVIR-CD, which is two orders of magnitude larger than other public datasets of this field. LEVIR-CD consists of a large set of bitemporal Google Earth images, with 637 image pairs (1024 \u00d7 1024) and over 31 k independently labeled change instances. Our proposed attention module improves the F1-score of our baseline model from 83.9 to 87.3 with acceptable computational overhead. Experimental results on a public remote sensing image CD dataset show our method outperforms several other state-of-the-art methods.",
+      "venue": "Remote Sensing",
+      "citation_count": 1622,
+      "doi": "10.3390/rs12101662",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/rs12101662",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2955639361",
+      "title": "Towards Robust Monocular Depth Estimation: Mixing Datasets for Zero-Shot Cross-Dataset Transfer",
+      "authors": [
+        {
+          "name": "Rene Ranftl",
+          "affiliation": "Intel (Germany)"
+        },
+        {
+          "name": "Katrin Lasinger",
+          "affiliation": ""
+        },
+        {
+          "name": "David Hafner",
+          "affiliation": "Intel (Germany)"
+        },
+        {
+          "name": "Konrad Schindler",
+          "affiliation": ""
+        },
+        {
+          "name": "Vladlen Koltun",
+          "affiliation": "Intel (United States)"
+        }
+      ],
+      "year": 2020,
+      "abstract": "The success of monocular depth estimation relies on large and diverse training sets. Due to the challenges associated with acquiring dense ground-truth depth across different environments at scale, a number of datasets with distinct characteristics and biases have emerged. We develop tools that enable mixing multiple datasets during training, even if their annotations are incompatible. In particular, we propose a robust training objective that is invariant to changes in depth range and scale, advocate the use of principled multi-objective learning to combine data from different sources, and highlight the importance of pretraining encoders on auxiliary tasks. Armed with these tools, we experiment with five diverse training datasets, including a new, massive data source: 3D films. To demonstrate the generalization power of our approach we use zero-shot cross-dataset transfer, i.e. we evaluate on datasets that were not seen during training. The experiments confirm that mixing data from complementary sources greatly improves monocular depth estimation. Our approach clearly outperforms competing methods across diverse datasets, setting a new state of the art for monocular depth estimation.",
+      "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+      "citation_count": 1244,
+      "doi": "10.1109/tpami.2020.3019967",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tpami.2020.3019967",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4206693420",
+      "title": "Medical image segmentation using deep learning: A survey",
+      "authors": [
+        {
+          "name": "Risheng Wang",
+          "affiliation": "Shaanxi University of Science and Technology"
+        },
+        {
+          "name": "Tao Lei",
+          "affiliation": "Shaanxi University of Science and Technology"
+        },
+        {
+          "name": "Ruixia Cui",
+          "affiliation": "First Affiliated Hospital of Xi'an Jiaotong University"
+        },
+        {
+          "name": "Bingtao Zhang",
+          "affiliation": "Lanzhou Jiaotong University"
+        },
+        {
+          "name": "Hongying Meng",
+          "affiliation": "Brunel University of London"
+        },
+        {
+          "name": "Asoke K. Nandi",
+          "affiliation": "Brunel University of London"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Abstract Deep learning has been widely used for medical image segmentation and a large number of papers has been presented recording the success of deep learning in the field. A comprehensive thematic survey on medical image segmentation using deep learning techniques is presented. This paper makes two original contributions. Firstly, compared to traditional surveys that directly divide literatures of deep learning on medical image segmentation into many groups and introduce literatures in detail for each group, we classify currently popular literatures according to a multi\u2010level structure from coarse to fine. Secondly, this paper focuses on supervised and weakly supervised learning approaches, without including unsupervised approaches since they have been introduced in many old surveys and they are not popular currently. For supervised learning approaches, we analyse literatures in three aspects: the selection of backbone networks, the design of network blocks, and the improvement of loss functions. For weakly supervised learning approaches, we investigate literature according to data augmentation, transfer learning, and interactive segmentation, separately. Compared to existing surveys, this survey classifies the literatures very differently from before and is more convenient for readers to understand the relevant rationale and will guide them to think of appropriate improvements in medical image segmentation based on deep learning approaches.",
+      "venue": "IET Image Processing",
+      "citation_count": 733,
+      "doi": "10.1049/ipr2.12419",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1049/ipr2.12419",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4389326242",
+      "title": "Mamba: Linear-Time Sequence Modeling with Selective State Spaces",
+      "authors": [
+        {
+          "name": "Albert Gu",
+          "affiliation": ""
+        },
+        {
+          "name": "Tri Dao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Foundation models, now powering most of the exciting applications in deep learning, are almost universally based on the Transformer architecture and its core attention module. Many subquadratic-time architectures such as linear attention, gated convolution and recurrent models, and structured state space models (SSMs) have been developed to address Transformers' computational inefficiency on long sequences, but they have not performed as well as attention on important modalities such as language. We identify that a key weakness of such models is their inability to perform content-based reasoning, and make several improvements. First, simply letting the SSM parameters be functions of the input addresses their weakness with discrete modalities, allowing the model to selectively propagate or forget information along the sequence length dimension depending on the current token. Second, even though this change prevents the use of efficient convolutions, we design a hardware-aware parallel algorithm in recurrent mode. We integrate these selective SSMs into a simplified end-to-end neural network architecture without attention or even MLP blocks (Mamba). Mamba enjoys fast inference (5$\\times$ higher throughput than Transformers) and linear scaling in sequence length, and its performance improves on real data up to million-length sequences. As a general sequence model backbone, Mamba achieves state-of-the-art performance across several modalities such as language, audio, and genomics. On language modeling, our Mamba-3B model outperforms Transformers of the same size and matches Transformers twice its size, both in pretraining and downstream evaluation.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 961,
+      "doi": "10.48550/arxiv.2312.00752",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2312.00752",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4385342336",
+      "title": "An improved fire detection approach based on YOLO-v8 for smart cities",
+      "authors": [
+        {
+          "name": "Fatma M. Talaat",
+          "affiliation": "Kafrelsheikh University"
+        },
+        {
+          "name": "Hanaa ZainEldin",
+          "affiliation": "Mansoura University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Abstract Fires in smart cities can have devastating consequences, causing damage to property, and endangering the lives of citizens. Traditional fire detection methods have limitations in terms of accuracy and speed, making it challenging to detect fires in real time. This paper proposes an improved fire detection approach for smart cities based on the YOLOv8 algorithm, called the smart fire detection system (SFDS), which leverages the strengths of deep learning to detect fire-specific features in real time. The SFDS approach has the potential to improve the accuracy of fire detection, reduce false alarms, and be cost-effective compared to traditional fire detection methods. It can also be extended to detect other objects of interest in smart cities, such as gas leaks or flooding. The proposed framework for a smart city consists of four primary layers: (i) Application layer, (ii) Fog layer, (iii) Cloud layer, and (iv) IoT layer. The proposed algorithm utilizes Fog and Cloud computing, along with the IoT layer, to collect and process data in real time, enabling faster response times and reducing the risk of damage to property and human life. The SFDS achieved state-of-the-art performance in terms of both precision and recall, with a high precision rate of 97.1% for all classes. The proposed approach has several potential applications, including fire safety management in public areas, forest fire monitoring, and intelligent security systems.",
+      "venue": "Neural Computing and Applications",
+      "citation_count": 567,
+      "doi": "10.1007/s00521-023-08809-1",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s00521-023-08809-1",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4206484811",
+      "title": "A Metaverse: Taxonomy, Components, Applications, and Open Challenges",
+      "authors": [
+        {
+          "name": "Sangmin Park",
+          "affiliation": "Korea University"
+        },
+        {
+          "name": "Young\u2010Gab Kim",
+          "affiliation": "Sejong University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Unlike previous studies on the Metaverse based on Second Life, the current Metaverse is based on the social value of Generation Z that online and offline selves are not different. With the technological development of deep learning-based high-precision recognition models and natural generation models, Metaverse is being strengthened with various factors, from mobile-based always-on access to connectivity with reality using virtual currency. The integration of enhanced social activities and neural-net methods requires a new definition of Metaverse suitable for the present, different from the previous Metaverse. This paper divides the concepts and essential techniques necessary for realizing the Metaverse into three components (i.e., hardware, software, and contents) and three approaches (i.e., user interaction, implementation, and application) rather than marketing or hardware approach to conduct a comprehensive analysis. Furthermore, we describe essential methods based on three components and techniques to Metaverse&#x2019;s representative Ready Player One, Roblox, and Facebook research in the domain of films, games, and studies. Finally, we summarize the limitations and directions for implementing the immersive Metaverse as social influences, constraints, and open challenges.",
+      "venue": "IEEE Access",
+      "citation_count": 1692,
+      "doi": "10.1109/access.2021.3140175",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/access.2021.3140175",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2997316506",
+      "title": "Global Context-Aware Progressive Aggregation Network for Salient Object Detection",
+      "authors": [
+        {
+          "name": "Zuyao Chen",
+          "affiliation": "University of Chinese Academy of Sciences"
+        },
+        {
+          "name": "Qianqian Xu",
+          "affiliation": "Chinese Academy of Sciences"
+        },
+        {
+          "name": "Runmin Cong",
+          "affiliation": "Beijing Jiaotong University"
+        },
+        {
+          "name": "Qingming Huang",
+          "affiliation": "University of Chinese Academy of Sciences"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Deep convolutional neural networks have achieved competitive performance in salient object detection, in which how to learn effective and comprehensive features plays a critical role. Most of the previous works mainly adopted multiple-level feature integration yet ignored the gap between different features. Besides, there also exists a dilution process of high-level features as they passed on the top-down pathway. To remedy these issues, we propose a novel network named GCPANet to effectively integrate low-level appearance features, high-level semantic features, and global context features through some progressive context-aware Feature Interweaved Aggregation (FIA) modules and generate the saliency map in a supervised way. Moreover, a Head Attention (HA) module is used to reduce information redundancy and enhance the top layers features by leveraging the spatial and channel-wise attention, and the Self Refinement (SR) module is utilized to further refine and heighten the input features. Furthermore, we design the Global Context Flow (GCF) module to generate the global context information at different stages, which aims to learn the relationship among different salient regions and alleviate the dilution effect of high-level features. Experimental results on six benchmark datasets demonstrate that the proposed approach outperforms the state-of-the-art methods both quantitatively and qualitatively.",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 462,
+      "doi": "10.1609/aaai.v34i07.6633",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v34i07.6633",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4297665946",
+      "title": "ResNeSt: Split-Attention Networks",
+      "authors": [
+        {
+          "name": "Hang Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chongruo Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhongyue Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Haibin Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhi Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yue Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Tong He",
+          "affiliation": ""
+        },
+        {
+          "name": "Jonas Mueller",
+          "affiliation": ""
+        },
+        {
+          "name": "R. Manmatha",
+          "affiliation": ""
+        },
+        {
+          "name": "Mu Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Alexander J. Smola",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "It is well known that featuremap attention and multi-path representation are important for visual recognition. In this paper, we present a modularized architecture, which applies the channel-wise attention on different network branches to leverage their success in capturing cross-feature interactions and learning diverse representations. Our design results in a simple and unified computation block, which can be parameterized using only a few variables. Our model, named ResNeSt, outperforms EfficientNet in accuracy and latency trade-off on image classification. In addition, ResNeSt has achieved superior transfer learning results on several public benchmarks serving as the backbone, and has been adopted by the winning entries of COCO-LVIS challenge. The source code for complete system and pretrained models are publicly available.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 455,
+      "doi": "10.48550/arxiv.2004.08955",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2004.08955",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3163465952",
+      "title": "ResMLP: Feedforward Networks for Image Classification With Data-Efficient Training",
+      "authors": [
+        {
+          "name": "Hugo Touvron",
+          "affiliation": ""
+        },
+        {
+          "name": "Piotr Bojanowski",
+          "affiliation": ""
+        },
+        {
+          "name": "Mathilde Caron",
+          "affiliation": ""
+        },
+        {
+          "name": "Matthieu Cord",
+          "affiliation": "Sorbonne Universit\u00e9"
+        },
+        {
+          "name": "Alaaeldin El-Nouby",
+          "affiliation": ""
+        },
+        {
+          "name": "\u00c9douard Grave",
+          "affiliation": ""
+        },
+        {
+          "name": "Gautier Izacard",
+          "affiliation": ""
+        },
+        {
+          "name": "Armand Joulin",
+          "affiliation": ""
+        },
+        {
+          "name": "Gabriel Synnaeve",
+          "affiliation": ""
+        },
+        {
+          "name": "Jakob Verbeek",
+          "affiliation": ""
+        },
+        {
+          "name": "Herv\u00e9 Je\u01f5ou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "We present ResMLP, an architecture built entirely upon multi-layer perceptrons for image classification. It is a simple residual network that alternates (i) a linear layer in which image patches interact, independently and identically across channels, and (ii) a two-layer feed-forward network in which channels interact independently per patch. When trained with a modern training strategy using heavy data-augmentation and optionally distillation, it attains surprisingly good accuracy/complexity trade-offs on ImageNet. We also train ResMLP models in a self-supervised setup, to further remove priors from employing a labelled dataset. Finally, by adapting our model to machine translation we achieve surprisingly good results. We share pre-trained models and our code based on the Timm library.",
+      "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+      "citation_count": 730,
+      "doi": "10.1109/tpami.2022.3206148",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tpami.2022.3206148",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4366091323",
+      "title": "Deep learning modelling techniques: current progress, applications, advantages, and challenges",
+      "authors": [
+        {
+          "name": "Shams Forruque Ahmed",
+          "affiliation": "Asian University for Women"
+        },
+        {
+          "name": "Md. Sakib Bin Alam",
+          "affiliation": "Asian Institute of Technology"
+        },
+        {
+          "name": "Maruf Hassan",
+          "affiliation": "Asian University for Women"
+        },
+        {
+          "name": "Mahtabin Rodela Rozbu",
+          "affiliation": "Carnegie Mellon University"
+        },
+        {
+          "name": "Taoseef Ishtiak",
+          "affiliation": "Carleton University"
+        },
+        {
+          "name": "Nazifa Rafa",
+          "affiliation": "University of Cambridge"
+        },
+        {
+          "name": "M. Mofijur",
+          "affiliation": "University of Technology Sydney"
+        },
+        {
+          "name": "A. B. M. Shawkat Ali",
+          "affiliation": "University of Fiji"
+        },
+        {
+          "name": "Amir H. Gandomi",
+          "affiliation": "Obuda University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Abstract Deep learning (DL) is revolutionizing evidence-based decision-making techniques that can be applied across various sectors. Specifically, it possesses the ability to utilize two or more levels of non-linear feature transformation of the given data via representation learning in order to overcome limitations posed by large datasets. As a multidisciplinary field that is still in its nascent phase, articles that survey DL architectures encompassing the full scope of the field are rather limited. Thus, this paper comprehensively reviews the state-of-art DL modelling techniques and provides insights into their advantages and challenges. It was found that many of the models exhibit a highly domain-specific efficiency and could be trained by two or more methods. However, training DL models can be very time-consuming, expensive, and requires huge samples for better accuracy. Since DL is also susceptible to deception and misclassification and tends to get stuck on local minima, improved optimization of parameters is required to create more robust models. Regardless, DL has already been leading to groundbreaking results in the healthcare, education, security, commercial, industrial, as well as government sectors. Some models, like the convolutional neural network (CNN), generative adversarial networks (GAN), recurrent neural network (RNN), recursive neural networks, and autoencoders, are frequently used, while the potential of other models remains widely unexplored. Pertinently, hybrid conventional DL architectures have the capacity to overcome the challenges experienced by conventional models. Considering that capsule architectures may dominate future DL models, this work aimed to compile information for stakeholders involved in the development and use of DL models in the contemporary world.",
+      "venue": "Artificial Intelligence Review",
+      "citation_count": 823,
+      "doi": "10.1007/s10462-023-10466-8",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s10462-023-10466-8",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3009563704",
+      "title": "Deep Learning for Cardiac Image Segmentation: A Review",
+      "authors": [
+        {
+          "name": "Chen Chen",
+          "affiliation": "Institute of Group Analysis"
+        },
+        {
+          "name": "Chen Qin",
+          "affiliation": "Institute of Group Analysis"
+        },
+        {
+          "name": "Huaqi Qiu",
+          "affiliation": "Institute of Group Analysis"
+        },
+        {
+          "name": "Giacomo Tarroni",
+          "affiliation": "Institute of Group Analysis"
+        },
+        {
+          "name": "Jinming Duan",
+          "affiliation": "University of Birmingham"
+        },
+        {
+          "name": "Wenjia Bai",
+          "affiliation": "Imperial College London"
+        },
+        {
+          "name": "Daniel Rueckert",
+          "affiliation": "Institute of Group Analysis"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Deep learning has become the most widely used approach for cardiac image segmentation in recent years. In this paper, we provide a review of over 100 cardiac image segmentation papers using deep learning, which covers common imaging modalities including magnetic resonance imaging (MRI), computed tomography (CT), and ultrasound and major anatomical structures of interest (ventricles, atria, and vessels). In addition, a summary of publicly available cardiac image datasets and code repositories are included to provide a base for encouraging reproducible research. Finally, we discuss the challenges and limitations with current deep learning-based approaches (scarcity of labels, model generalizability across different domains, interpretability) and suggest potential directions for future research.",
+      "venue": "Frontiers in Cardiovascular Medicine",
+      "citation_count": 808,
+      "doi": "10.3389/fcvm.2020.00025",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3389/fcvm.2020.00025",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2998712190",
+      "title": "Deep Domain-Adversarial Image Generation for Domain Generalisation",
+      "authors": [
+        {
+          "name": "Kaiyang Zhou",
+          "affiliation": "University of Surrey"
+        },
+        {
+          "name": "Yongxin Yang",
+          "affiliation": "University of Surrey"
+        },
+        {
+          "name": "Timothy M. Hospedales",
+          "affiliation": "University of Edinburgh"
+        },
+        {
+          "name": "Tao Xiang",
+          "affiliation": "University of Surrey"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Machine learning models typically suffer from the domain shift problem when trained on a source dataset and evaluated on a target dataset of different distribution. To overcome this problem, domain generalisation (DG) methods aim to leverage data from multiple source domains so that a trained model can generalise to unseen domains. In this paper, we propose a novel DG approach based on Deep Domain-Adversarial Image Generation (DDAIG). Specifically, DDAIG consists of three components, namely a label classifier, a domain classifier and a domain transformation network (DoTNet). The goal for DoTNet is to map the source training data to unseen domains. This is achieved by having a learning objective formulated to ensure that the generated data can be correctly classified by the label classifier while fooling the domain classifier. By augmenting the source training data with the generated unseen domain data, we can make the label classifier more robust to unknown domain changes. Extensive experiments on four DG datasets demonstrate the effectiveness of our approach.",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 372,
+      "doi": "10.1609/aaai.v34i07.7003",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v34i07.7003",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3010250471",
+      "title": "MADNet: A Fast and Lightweight Network for Single-Image Super Resolution",
+      "authors": [
+        {
+          "name": "Rushi Lan",
+          "affiliation": "Guilin University of Electronic Technology"
+        },
+        {
+          "name": "Long Sun",
+          "affiliation": "Guilin University of Electronic Technology"
+        },
+        {
+          "name": "Zhenbing Liu",
+          "affiliation": "Guilin University of Electronic Technology"
+        },
+        {
+          "name": "Huimin Lu",
+          "affiliation": "Kyushu Institute of Technology"
+        },
+        {
+          "name": "Cheng Pang",
+          "affiliation": "Guilin University of Electronic Technology"
+        },
+        {
+          "name": "Xiaonan Luo",
+          "affiliation": "Guilin University of Electronic Technology"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Recently, deep convolutional neural networks (CNNs) have been successfully applied to the single-image super-resolution (SISR) task with great improvement in terms of both peak signal-to-noise ratio (PSNR) and structural similarity (SSIM). However, most of the existing CNN-based SR models require high computing power, which considerably limits their real-world applications. In addition, most CNN-based methods rarely explore the intermediate features that are helpful for final image recovery. To address these issues, in this article, we propose a dense lightweight network, called MADNet, for stronger multiscale feature expression and feature correlation learning. Specifically, a residual multiscale module with an attention mechanism (RMAM) is developed to enhance the informative multiscale feature representation ability. Furthermore, we present a dual residual-path block (DRPB) that utilizes the hierarchical features from original low-resolution images. To take advantage of the multilevel features, dense connections are employed among blocks. The comparative results demonstrate the superior performance of our MADNet model while employing considerably fewer multiadds and parameters.",
+      "venue": "IEEE Transactions on Cybernetics",
+      "citation_count": 319,
+      "doi": "10.1109/tcyb.2020.2970104",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tcyb.2020.2970104",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4388706355",
+      "title": "CrossFuse: A novel cross attention mechanism based infrared and visible image fusion approach",
+      "authors": [
+        {
+          "name": "Hui Li",
+          "affiliation": "Jiangnan University"
+        },
+        {
+          "name": "Xiao\u2010Jun Wu",
+          "affiliation": "Jiangnan University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "",
+      "venue": "Information Fusion",
+      "citation_count": 314,
+      "doi": "10.1016/j.inffus.2023.102147",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.inffus.2023.102147",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3038835693",
+      "title": "Thermal Object Detection in Difficult Weather Conditions Using YOLO",
+      "authors": [
+        {
+          "name": "Mate Kri\u0161to",
+          "affiliation": "University of Rijeka"
+        },
+        {
+          "name": "Marina Iva\u0161i\u0107-Kos",
+          "affiliation": "University of Rijeka"
+        },
+        {
+          "name": "Miran Pobar",
+          "affiliation": "University of Rijeka"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Global terrorist threats and illegal migration have intensified concerns for the security of citizens, and every effort is made to exploit all available technological advances to prevent adverse events and protect people and their property. Due to the ability to use at night and in weather conditions where RGB cameras do not perform well, thermal cameras have become an important component of sophisticated video surveillance systems. In this paper, we investigate the task of automatic person detection in thermal images using convolutional neural network models originally intended for detection in RGB images. We compare the performance of the standard state-of-the-art object detectors such as Faster R-CNN, SSD, Cascade R-CNN, and YOLOv3, that were retrained on a dataset of thermal images extracted from videos that simulate illegal movements around the border and in protected areas. Videos are recorded at night in clear weather, rain, and in the fog, at different ranges, and with different movement types. YOLOv3 was significantly faster than other detectors while achieving performance comparable with the best, so it was used in further experiments. We experimented with different training dataset settings in order to determine the minimum number of images needed to achieve good detection results on test datasets. We achieved excellent detection results with respect to average accuracy for all test scenarios although a modest set of thermal images was used for training. We test our trained model on different well known and widely used thermal imaging datasets as well. In addition, we present the results of the recognition of humans and animals in thermal images, which is particularly important in the case of sneaking around objects and illegal border crossings. Also, we present our original thermal dataset used for experimentation that contains surveillance videos recorded at different weather and shooting conditions.",
+      "venue": "IEEE Access",
+      "citation_count": 290,
+      "doi": "10.1109/access.2020.3007481",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/access.2020.3007481",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4391047432",
+      "title": "VMamba: Visual State Space Model",
+      "authors": [
+        {
+          "name": "Yue Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yunjie Tian",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuzhong Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Hongtian Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Lingxi Xie",
+          "affiliation": ""
+        },
+        {
+          "name": "Yaowei Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Qixiang Ye",
+          "affiliation": ""
+        },
+        {
+          "name": "Yunfan Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Liu, Yunfan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Designing computationally efficient network architectures remains an ongoing necessity in computer vision. In this paper, we adapt Mamba, a state-space language model, into VMamba, a vision backbone with linear time complexity. At the core of VMamba is a stack of Visual State-Space (VSS) blocks with the 2D Selective Scan (SS2D) module. By traversing along four scanning routes, SS2D bridges the gap between the ordered nature of 1D selective scan and the non-sequential structure of 2D vision data, which facilitates the collection of contextual information from various sources and perspectives. Based on the VSS blocks, we develop a family of VMamba architectures and accelerate them through a succession of architectural and implementation enhancements. Extensive experiments demonstrate VMamba's promising performance across diverse visual perception tasks, highlighting its superior input scaling efficiency compared to existing benchmark models. Source code is available at https://github.com/MzeroMiko/VMamba.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 357,
+      "doi": "10.48550/arxiv.2401.10166",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2401.10166",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2997429269",
+      "title": "Learning 2D Temporal Adjacent Networks for Moment Localization with Natural Language",
+      "authors": [
+        {
+          "name": "Songyang Zhang",
+          "affiliation": "University of Rochester"
+        },
+        {
+          "name": "Houwen Peng",
+          "affiliation": "Microsoft Research (United Kingdom)"
+        },
+        {
+          "name": "Jianlong Fu",
+          "affiliation": "Microsoft Research (United Kingdom)"
+        },
+        {
+          "name": "Jiebo Luo",
+          "affiliation": "University of Rochester"
+        }
+      ],
+      "year": 2020,
+      "abstract": "We address the problem of retrieving a specific moment from an untrimmed video by a query sentence. This is a challenging problem because a target moment may take place in relations to other temporal moments in the untrimmed video. Existing methods cannot tackle this challenge well since they consider temporal moments individually and neglect the temporal dependencies. In this paper, we model the temporal relations between video moments by a two-dimensional map, where one dimension indicates the starting time of a moment and the other indicates the end time. This 2D temporal map can cover diverse video moments with different lengths, while representing their adjacent relations. Based on the 2D map, we propose a Temporal Adjacent Network (2D-TAN), a single-shot framework for moment localization. It is capable of encoding the adjacent temporal relation, while learning discriminative features for matching video moments with referring expressions. We evaluate the proposed 2D-TAN on three challenging benchmarks, i.e., Charades-STA, ActivityNet Captions, and TACoS, where our 2D-TAN outperforms the state-of-the-art.",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 454,
+      "doi": "10.1609/aaai.v34i07.6984",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v34i07.6984",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3122028341",
+      "title": "Hyperspectral Image Classification\u2014Traditional to Deep Models: A Survey for Future Prospects",
+      "authors": [
+        {
+          "name": "Muhammad Ahmad",
+          "affiliation": "University of Messina"
+        },
+        {
+          "name": "Sidrah Shabbir",
+          "affiliation": "Khwaja Fareed University of Engineering and Information Technology"
+        },
+        {
+          "name": "Swalpa Kumar Roy",
+          "affiliation": ""
+        },
+        {
+          "name": "Danfeng Hong",
+          "affiliation": "Chinese Academy of Sciences"
+        },
+        {
+          "name": "Xin Wu",
+          "affiliation": "Beijing Institute of Technology"
+        },
+        {
+          "name": "Jing Yao",
+          "affiliation": "Chinese Academy of Sciences"
+        },
+        {
+          "name": "Adil Khan",
+          "affiliation": "Innopolis University"
+        },
+        {
+          "name": "Manuel Mazzara",
+          "affiliation": "Innopolis University"
+        },
+        {
+          "name": "Salvatore Distefano",
+          "affiliation": "University of Messina"
+        },
+        {
+          "name": "Jocelyn Chanussot",
+          "affiliation": "Grenoble Images Parole Signal Automatique"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Hyperspectral imaging (HSI) has been extensively utilized in many real-life applications because it benefits from the detailed spectral information contained in each pixel. Notably, the complex characteristics, i.e., the nonlinear relation among the captured spectral information and the corresponding object of HSI data, make accurate classification challenging for traditional methods. In the last few years, deep learning (DL) has been substantiated as a powerful feature extractor that effectively addresses the nonlinear problems that appeared in a number of computer vision tasks. This prompts the deployment of DL for HSI classification (HSIC) which revealed good performance. This survey enlists a systematic overview of DL for HSIC and compared state-of-the-art strategies of the said topic. Primarily, we will encapsulate the main challenges of TML for HSIC and then we will acquaint the superiority of DL to address these problems. This article breaks down the state-of-the-art DL frameworks into spectral-features, spatial-features, and together spatial\u2013spectral features to systematically analyze the achievements (future research directions as well) of these frameworks for HSIC. Moreover, we will consider the fact that DL requires a large number of labeled training examples whereas acquiring such a number for HSIC is challenging in terms of time and cost. Therefore, this survey discusses some strategies to improve the generalization performance of DL strategies which can provide some future guidelines.",
+      "venue": "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing",
+      "citation_count": 376,
+      "doi": "10.1109/jstars.2021.3133021",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/jstars.2021.3133021",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4382877880",
+      "title": "Polyp-PVT: Polyp Segmentation with Pyramid Vision Transformers",
+      "authors": [
+        {
+          "name": "Bo Dong",
+          "affiliation": "Zhejiang University"
+        },
+        {
+          "name": "Wenhai Wang",
+          "affiliation": "Inception Institute of Artificial Intelligence"
+        },
+        {
+          "name": "Deng-Ping Fan",
+          "affiliation": ""
+        },
+        {
+          "name": "Jinpeng Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Huazhu Fu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ling Shao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Most polyp segmentation methods use convolutional neural networks (CNNs) as their backbone, leading to two key issues when exchanging information between the encoder and decoder: (1) taking into account the differences in contribution between different-level features, and (2) designing an effective mechanism for fusing these features. Unlike existing CNN-based methods, we adopt a transformer encoder, which learns more powerful and robust representations. In addition, considering the image acquisition influence and elusive properties of polyps, we introduce three standard modules, including a cascaded fusion module (CFM), a camouflage identification module (CIM), and a similarity aggregation module (SAM). Among these, the CFM is used to collect the semantic and location information of polyps from high-level features; the CIM is applied to capture polyp information disguised in low-level features, and the SAM extends the pixel features of the polyp area with high-level semantic position information to the entire polyp area, thereby effectively fusing cross-level features. The proposed model, named Polyp-PVT, effectively suppresses noises in the features and significantly improves their expressive capabilities. Extensive experiments on five widely adopted datasets show that the proposed model is more robust to various challenging situations (e.g., appearance changes, small objects, and rotation) than existing representative methods. The proposed model is available at <a ext-link-type=\"uri\" href=\"https://github.com/DengPingFan/Polyp-PVT\">https://github.com/DengPingFan/Polyp-PVT</a>.",
+      "venue": "CAAI Artificial Intelligence Research",
+      "citation_count": 299,
+      "doi": "10.26599/air.2023.9150015",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.26599/air.2023.9150015",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2998619563",
+      "title": "Learning Attentive Pairwise Interaction for Fine-Grained Classification",
+      "authors": [
+        {
+          "name": "Peiqin Zhuang",
+          "affiliation": "Shenzhen Institutes of Advanced Technology"
+        },
+        {
+          "name": "Yali Wang",
+          "affiliation": "Shenzhen Institutes of Advanced Technology"
+        },
+        {
+          "name": "Yu Qiao",
+          "affiliation": "Shenzhen Institutes of Advanced Technology"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Fine-grained classification is a challenging problem, due to subtle differences among highly-confused categories. Most approaches address this difficulty by learning discriminative representation of individual input image. On the other hand, humans can effectively identify contrastive clues by comparing image pairs. Inspired by this fact, this paper proposes a simple but effective Attentive Pairwise Interaction Network (API-Net), which can progressively recognize a pair of fine-grained images by interaction. Specifically, API-Net first learns a mutual feature vector to capture semantic differences in the input pair. It then compares this mutual vector with individual vectors to generate gates for each input image. These distinct gate vectors inherit mutual context on semantic differences, which allow API-Net to attentively capture contrastive clues by pairwise interaction between two images. Additionally, we train API-Net in an end-to-end manner with a score ranking regularization, which can further generalize API-Net by taking feature priorities into account. We conduct extensive experiments on five popular benchmarks in fine-grained classification. API-Net outperforms the recent SOTA methods, i.e., CUB-200-2011 (90.0%), Aircraft (93.9%), Stanford Cars (95.3%), Stanford Dogs (90.3%), and NABirds (88.1%).",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 406,
+      "doi": "10.1609/aaai.v34i07.7016",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v34i07.7016",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4226492624",
+      "title": "Credit Card Fraud Detection Using State-of-the-Art Machine Learning and Deep Learning Algorithms",
+      "authors": [
+        {
+          "name": "Fawaz Khaled Alarfaj",
+          "affiliation": "Imam Mohammad ibn Saud Islamic University"
+        },
+        {
+          "name": "Iqra Malik",
+          "affiliation": "University of Sargodha"
+        },
+        {
+          "name": "Hikmat Ullah Khan",
+          "affiliation": "COMSATS University Islamabad"
+        },
+        {
+          "name": "Naif Almusallam",
+          "affiliation": "Imam Mohammad ibn Saud Islamic University"
+        },
+        {
+          "name": "Muhammad Ramzan",
+          "affiliation": "University of Sargodha"
+        },
+        {
+          "name": "Muzamil Ahmed",
+          "affiliation": "COMSATS University Islamabad"
+        }
+      ],
+      "year": 2022,
+      "abstract": "People can use credit cards for online transactions as it provides an efficient and easy-to-use facility. With the increase in usage of credit cards, the capacity of credit card misuse has also enhanced. Credit card frauds cause significant financial losses for both credit card holders and financial companies. In this research study, the main aim is to detect such frauds, including the accessibility of public data, high-class imbalance data, the changes in fraud nature, and high rates of false alarm. The relevant literature presents many machines learning based approaches for credit card detection, such as Extreme Learning Method, Decision Tree, Random Forest, Support Vector Machine, Logistic Regression and XG Boost. However, due to low accuracy, there is still a need to apply state of the art deep learning algorithms to reduce fraud losses. The main focus has been to apply the recent development of deep learning algorithms for this purpose. Comparative analysis of both machine learning and deep learning algorithms was performed to find efficient outcomes. The detailed empirical analysis is carried out using the European card benchmark dataset for fraud detection. A machine learning algorithm was first applied to the dataset, which improved the accuracy of detection of the frauds to some extent. Later, three architectures based on a convolutional neural network are applied to improve fraud detection performance. Further addition of layers further increased the accuracy of detection. A comprehensive empirical analysis has been carried out by applying variations in the number of hidden layers, epochs and applying the latest models. The evaluation of research work shows the improved results achieved, such as accuracy, f1-score, precision and AUC Curves having optimized values of 99.9%,85.71%,93%, and 98%, respectively. The proposed model outperforms the state-of-the-art machine learning and deep learning algorithms for credit card detection problems. In addition, we have performed experiments by balancing the data and applying deep learning algorithms to minimize the false negative rate. The proposed approaches can be implemented effectively for the real-world detection of credit card fraud.",
+      "venue": "IEEE Access",
+      "citation_count": 343,
+      "doi": "10.1109/access.2022.3166891",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/access.2022.3166891",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2996835428",
+      "title": "Learning Graph Convolutional Network for Skeleton-Based Human Action Recognition by Neural Searching",
+      "authors": [
+        {
+          "name": "Wei Peng",
+          "affiliation": "University of Oulu"
+        },
+        {
+          "name": "Xiaopeng Hong",
+          "affiliation": "Xi'an Jiaotong University"
+        },
+        {
+          "name": "Haoyu Chen",
+          "affiliation": "University of Oulu"
+        },
+        {
+          "name": "Guoying Zhao",
+          "affiliation": "University of Oulu"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Human action recognition from skeleton data, fuelled by the Graph Convolutional Network (GCN) with its powerful capability of modeling non-Euclidean data, has attracted lots of attention. However, many existing GCNs provide a pre-defined graph structure and share it through the entire network, which can loss implicit joint correlations especially for the higher-level features. Besides, the mainstream spectral GCN is approximated by one-order hop such that higher-order connections are not well involved. All of these require huge efforts to design a better GCN architecture. To address these problems, we turn to Neural Architecture Search (NAS) and propose the first automatically designed GCN for this task. Specifically, we explore the spatial-temporal correlations between nodes and build a search space with multiple dynamic graph modules. Besides, we introduce multiple-hop modules and expect to break the limitation of representational capacity caused by one-order approximation. Moreover, a corresponding sampling- and memory-efficient evolution strategy is proposed to search in this space. The resulted architecture proves the effectiveness of the higher-order approximation and the layer-wise dynamic graph modules. To evaluate the performance of the searched model, we conduct extensive experiments on two very large scale skeleton-based action recognition datasets. The results show that our model gets the state-of-the-art results in term of given metrics.",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 359,
+      "doi": "10.1609/aaai.v34i03.5652",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v34i03.5652",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3047317383",
+      "title": "Deep Learning for Land Use and Land Cover Classification Based on Hyperspectral and Multispectral Earth Observation Data: A Review",
+      "authors": [
+        {
+          "name": "Ava Vali",
+          "affiliation": "Politecnico di Milano"
+        },
+        {
+          "name": "Sara Comai",
+          "affiliation": "Politecnico di Milano"
+        },
+        {
+          "name": "Matteo Matteucci",
+          "affiliation": "Politecnico di Milano"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Lately, with deep learning outpacing the other machine learning techniques in classifying images, we have witnessed a growing interest of the remote sensing community in employing these techniques for the land use and land cover classification based on multispectral and hyperspectral images; the number of related publications almost doubling each year since 2015 is an attest to that. The advances in remote sensing technologies, hence the fast-growing volume of timely data available at the global scale, offer new opportunities for a variety of applications. Deep learning being significantly successful in dealing with Big Data, seems to be a great candidate for exploiting the potentials of such complex massive data. However, there are some challenges related to the ground-truth, resolution, and the nature of data that strongly impact the performance of classification. In this paper, we review the use of deep learning in land use and land cover classification based on multispectral and hyperspectral images and we introduce the available data sources and datasets used by literature studies; we provide the readers with a framework to interpret the-state-of-the-art of deep learning in this context and offer a platform to approach methodologies, data, and challenges of the field.",
+      "venue": "Remote Sensing",
+      "citation_count": 412,
+      "doi": "10.3390/rs12152495",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/rs12152495",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3020975691",
+      "title": "Explainable Deep Learning: A Field Guide for the Uninitiated",
+      "authors": [
+        {
+          "name": "Gabri\u00eblle Ras",
+          "affiliation": "Radboud University Nijmegen"
+        },
+        {
+          "name": "Ning Xie",
+          "affiliation": "Seattle University"
+        },
+        {
+          "name": "Marcel van Gerven",
+          "affiliation": "Radboud University Nijmegen"
+        },
+        {
+          "name": "Derek Doran",
+          "affiliation": "Tenet 3 (United States)"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Deep neural networks (DNNs) are an indispensable machine learning tool despite the difficulty of diagnosing what aspects of a model\u2019s input drive its decisions. In countless real-world domains, from legislation and law enforcement to healthcare, such diagnosis is essential to ensure that DNN decisions are driven by aspects appropriate in the context of its use. The development of methods and studies enabling the explanation of a DNN\u2019s decisions has thus blossomed into an active and broad area of research. The field\u2019s complexity is exacerbated by competing definitions of what it means \u201cto explain\u201d the actions of a DNN and to evaluate an approach\u2019s \u201cability to explain\u201d. This article offers a field guide to explore the space of explainable deep learning for those in the AI/ML field who are uninitiated. The field guide: i) Introduces three simple dimensions defining the space of foundational methods that contribute to explainable deep learning, ii) discusses the evaluations for model explanations, iii) places explainability in the context of other related deep learning research areas, and iv) discusses user-oriented explanation design and future directions. We hope the guide is seen as a starting point for those embarking on this research field.",
+      "venue": "Journal of Artificial Intelligence Research",
+      "citation_count": 397,
+      "doi": "10.1613/jair.1.13200",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1613/jair.1.13200",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3088226460",
+      "title": "MA-Net: A Multi-Scale Attention Network for Liver and Tumor Segmentation",
+      "authors": [
+        {
+          "name": "Tongle Fan",
+          "affiliation": "Hebei University"
+        },
+        {
+          "name": "Guanglei Wang",
+          "affiliation": "Hebei University"
+        },
+        {
+          "name": "Yan Li",
+          "affiliation": "Hebei University"
+        },
+        {
+          "name": "Hongrui Wang",
+          "affiliation": "Hebei University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Automatic assessing the location and extent of liver and liver tumor is critical for radiologists, diagnosis and the clinical process. In recent years, a large number of variants of U-Net based on Multi-scale feature fusion are proposed to improve the segmentation performance for medical image segmentation. Unlike the previous works which extract the context information of medical image via applying the multi-scale feature fusion, we propose a novel network named Multi-scale Attention Net (MA-Net) by introducing self-attention mechanism into our method to adaptively integrate local features with their global dependencies. The MA-Net can capture rich contextual dependencies based on the attention mechanism. We design two blocks: Position-wise Attention Block (PAB) and Multi-scale Fusion Attention Block (MFAB). The PAB is used to model the feature interdependencies in spatial dimensions, which capture the spatial dependencies between pixels in a global view. In addition, the MFAB is to capture the channel dependencies between any feature map by multi-scale semantic feature fusion. We evaluate our method on the dataset of MICCAI 2017 LiTS Challenge. The proposed method achieves better performance than other state-of-the-art methods. The Dice values of liver and tumors segmentation are 0.960 \u00b1 0.03 and 0.749 \u00b1 0.08 respectively.",
+      "venue": "IEEE Access",
+      "citation_count": 444,
+      "doi": "10.1109/access.2020.3025372",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/access.2020.3025372",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4389352554",
+      "title": "Small Object Detection Algorithm Based on Improved YOLOv8 for Remote Sensing",
+      "authors": [
+        {
+          "name": "Yi Hao",
+          "affiliation": "Institute of Optics and Electronics, Chinese Academy of Sciences"
+        },
+        {
+          "name": "Bo Liu",
+          "affiliation": "Institute of Optics and Electronics, Chinese Academy of Sciences"
+        },
+        {
+          "name": "Bin Zhao",
+          "affiliation": "Institute of Optics and Electronics, Chinese Academy of Sciences"
+        },
+        {
+          "name": "Enhai Liu",
+          "affiliation": "Institute of Optics and Electronics, Chinese Academy of Sciences"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Due to the limitations of small targets in remote sensing images such as background noise, poor information, and so on, the results of commonly used detection algorithms in small target detection is not satisfactory. To improve the accuracy of detection results, we develop an improved algorithm based on YOLOv8, called LAR-YOLOv8. First, in the feature extraction network, the local module is enhanced by using the dual-branch architecture attention mechanism, while the vision transformer block is used to maximize the representation of the feature map. Second, an attention-guided bi-directional feature pyramid network is designed to generate more discriminative information by efficiently extracting feature from the shallow network through a dynamic sparse attention mechanism, and adding top-down paths to guide the subsequent network modules for feature fusion. Finally, the RIOU loss function is proposed to avoid the failure of the loss function and improve the shape consistency between the predicted and ground truth box. Experimental results on NWPU VHR-10, RSOD and CARPK datasets verify that LAR-YOLOv8 achieves satisfactory results in terms of mAP (small), mAP, model parameters and FPS, and can prove that our modifications made to the original YOLOv8 model are effective.",
+      "venue": "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing",
+      "citation_count": 258,
+      "doi": "10.1109/jstars.2023.3339235",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/jstars.2023.3339235",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4382239616",
+      "title": "PDFormer: Propagation Delay-Aware Dynamic Long-Range Transformer for Traffic Flow Prediction",
+      "authors": [
+        {
+          "name": "Jiawei Jiang",
+          "affiliation": "Beihang University"
+        },
+        {
+          "name": "Chengkai Han",
+          "affiliation": "Beihang University"
+        },
+        {
+          "name": "Wayne Xin Zhao",
+          "affiliation": "Renmin University of China"
+        },
+        {
+          "name": "Jingyuan Wang",
+          "affiliation": "Beihang University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "As a core technology of Intelligent Transportation System, traffic flow prediction has a wide range of applications. The fundamental challenge in traffic flow prediction is to effectively model the complex spatial-temporal dependencies in traffic data. Spatial-temporal Graph Neural Network (GNN) models have emerged as one of the most promising methods to solve this problem. However, GNN-based models have three major limitations for traffic prediction: i) Most methods model spatial dependencies in a static manner, which limits the ability to learn dynamic urban traffic patterns; ii) Most methods only consider short-range spatial information and are unable to capture long-range spatial dependencies; iii) These methods ignore the fact that the propagation of traffic conditions between locations has a time delay in traffic systems. To this end, we propose a novel Propagation Delay-aware dynamic long-range transFormer, namely PDFormer, for accurate traffic flow prediction. Specifically, we design a spatial self-attention module to capture the dynamic spatial dependencies. Then, two graph masking matrices are introduced to highlight spatial dependencies from short- and long-range views. Moreover, a traffic delay-aware feature transformation module is proposed to empower PDFormer with the capability of explicitly modeling the time delay of spatial information propagation. Extensive experimental results on six real-world public traffic datasets show that our method can not only achieve state-of-the-art performance but also exhibit competitive computational efficiency. Moreover, we visualize the learned spatial-temporal attention map to make our model highly interpretable.",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 442,
+      "doi": "10.1609/aaai.v37i4.25556",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v37i4.25556",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3190334976",
+      "title": "Transformer Meets Convolution: A Bilateral Awareness Network for Semantic Segmentation of Very Fine Resolution Urban Scene Images",
+      "authors": [
+        {
+          "name": "Libo Wang",
+          "affiliation": "Wuhan University"
+        },
+        {
+          "name": "Rui Li",
+          "affiliation": "Wuhan University"
+        },
+        {
+          "name": "Dongzhi Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chenxi Duan",
+          "affiliation": "Wuhan University"
+        },
+        {
+          "name": "Teng Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaoliang Meng",
+          "affiliation": "Wuhan University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Semantic segmentation from very fine resolution (VFR) urban scene images plays a significant role in several application scenarios including autonomous driving, land cover classification, urban planning, etc. However, the tremendous details contained in the VFR image, especially the considerable variations in scale and appearance of objects, severely limit the potential of the existing deep learning approaches. Addressing such issues represents a promising research field in the remote sensing community, which paves the way for scene-level landscape pattern analysis and decision making. In this paper, we propose a Bilateral Awareness Network which contains a dependency path and a texture path to fully capture the long-range relationships and fine-grained details in VFR images. Specifically, the dependency path is conducted based on the ResT, a novel Transformer backbone with memory-efficient multi-head self-attention, while the texture path is built on the stacked convolution operation. In addition, using the linear attention mechanism, a feature aggregation module is designed to effectively fuse the dependency features and texture features. Extensive experiments conducted on the three large-scale urban scene image segmentation datasets, i.e., ISPRS Vaihingen dataset, ISPRS Potsdam dataset, and UAVid dataset, demonstrate the effectiveness of our BANet. Specifically, a 64.6% mIoU is achieved on the UAVid dataset.",
+      "venue": "Remote Sensing",
+      "citation_count": 240,
+      "doi": "10.3390/rs13163065",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/rs13163065",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3160455160",
+      "title": "HCRNNIDS: Hybrid Convolutional Recurrent Neural Network-Based Network Intrusion Detection System",
+      "authors": [
+        {
+          "name": "Muhammad Ashfaq Khan",
+          "affiliation": "Incheon National University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Nowadays, network attacks are the most crucial problem of modern society. All networks, from small to large, are vulnerable to network threats. An intrusion detection (ID) system is critical for mitigating and identifying malicious threats in networks. Currently, deep learning (DL) and machine learning (ML) are being applied in different domains, especially information security, for developing effective ID systems. These ID systems are capable of detecting malicious threats automatically and on time. However, malicious threats are occurring and changing continuously, so the network requires a very advanced security solution. Thus, creating an effective and smart ID system is a massive research problem. Various ID datasets are publicly available for ID research. Due to the complex nature of malicious attacks with a constantly changing attack detection mechanism, publicly existing ID datasets must be modified systematically on a regular basis. So, in this paper, a convolutional recurrent neural network (CRNN) is used to create a DL-based hybrid ID framework that predicts and classifies malicious cyberattacks in the network. In the HCRNNIDS, the convolutional neural network (CNN) performs convolution to capture local features, and the recurrent neural network (RNN) captures temporal features to improve the ID system\u2019s performance and prediction. To assess the efficacy of the hybrid convolutional recurrent neural network intrusion detection system (HCRNNIDS), experiments were done on publicly available ID data, specifically the modern and realistic CSE-CIC-DS2018 data. The simulation outcomes prove that the proposed HCRNNIDS substantially outperforms current ID methodologies, attaining a high malicious attack detection rate accuracy of up to 97.75% for CSE-CIC-IDS2018 data with 10-fold cross-validation.",
+      "venue": "Processes",
+      "citation_count": 293,
+      "doi": "10.3390/pr9050834",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/pr9050834",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2998997213",
+      "title": "Review of Pavement Defect Detection Methods",
+      "authors": [
+        {
+          "name": "Wenming Cao",
+          "affiliation": "University of Missouri"
+        },
+        {
+          "name": "Qifan Liu",
+          "affiliation": "Shenzhen University"
+        },
+        {
+          "name": "Zhiquan He",
+          "affiliation": "Shenzhen University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Road pavement cracks detection has been a hot research topic for quite a long time due to the practical importance of crack detection for road maintenance and traffic safety. Many methods have been proposed to solve this problem. This paper reviews the three major types of methods used in road cracks detection: image processing, machine learning and 3D imaging based methods. Image processing algorithms mainly include threshold segmentation, edge detection and region growing methods, which are used to process images and identify crack features. Crack detection based traditional machine learning methods such as neural network and support vector machine still relies on hand-crafted features using image processing techniques. Deep learning methods have fundamentally changed the way of crack detection and greatly improved the detection performance. In this work, we review and compare the deep learning neural networks proposed in crack detection in three ways, classification based, object detection based and segmentation based. We also cover the performance evaluation metrics and the performance of these methods on commonly-used benchmark datasets. With the maturity of 3D technology, crack detection using 3D data is a new line of research and application. We compare the three types of 3D data representations and study the corresponding performance of the deep neural networks for 3D object detection. Traditional and deep learning based crack detection methods using 3D data are also reviewed in detail.",
+      "venue": "IEEE Access",
+      "citation_count": 289,
+      "doi": "10.1109/access.2020.2966881",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/access.2020.2966881",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3024007459",
+      "title": "Nonlocal Graph Convolutional Networks for Hyperspectral Image Classification",
+      "authors": [
+        {
+          "name": "Lichao Mou",
+          "affiliation": "Technical University of Munich"
+        },
+        {
+          "name": "Xiaoqiang Lu",
+          "affiliation": "Xi'an Institute of Optics and Precision Mechanics"
+        },
+        {
+          "name": "Xuelong Li",
+          "affiliation": "Northwestern Polytechnical University"
+        },
+        {
+          "name": "Xiao Xiang Zhu",
+          "affiliation": "Deutsches Zentrum f\u00fcr Luft- und Raumfahrt e. V. (DLR)"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Over the past few years making use of deep networks, including convolutional neural networks (CNNs) and recurrent neural networks (RNNs), classifying hyperspectral images has progressed significantly and gained increasing attention. In spite of being successful, these networks need an adequate supply of labeled training instances for supervised learning, which, however, is quite costly to collect. On the other hand, unlabeled data can be accessed in almost arbitrary amounts. Hence it would be conceptually of great interest to explore networks that are able to exploit labeled and unlabeled data simultaneously for hyperspectral image classification. In this article, we propose a novel graph-based semisupervised network called nonlocal graph convolutional network (nonlocal GCN). Unlike existing CNNs and RNNs that receive pixels or patches of a hyperspectral image as inputs, this network takes the whole image (including both labeled and unlabeled data) in. More specifically, a nonlocal graph is first calculated. Given this graph representation, a couple of graph convolutional layers are used to extract features. Finally, the semisupervised learning of the network is done by using a cross-entropy error over all labeled instances. Note that the nonlocal GCN is end-to-end trainable. We demonstrate in extensive experiments that compared with state-of-the-art spectral classifiers and spectral-spatial classification networks, the nonlocal GCN is able to offer competitive results and high-quality classification maps (with fine boundaries and without noisy scattered points of misclassification).",
+      "venue": "IEEE Transactions on Geoscience and Remote Sensing",
+      "citation_count": 279,
+      "doi": "10.1109/tgrs.2020.2973363",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tgrs.2020.2973363",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2883105896",
+      "title": "Multilabel Remote Sensing Image Retrieval Based on Fully Convolutional Network",
+      "authors": [
+        {
+          "name": "Zhenfeng Shao",
+          "affiliation": "State Key Laboratory of Information Engineering in Surveying Mapping and Remote Sensing"
+        },
+        {
+          "name": "Weixun Zhou",
+          "affiliation": "Nanjing University of Information Science and Technology"
+        },
+        {
+          "name": "Xueqing Deng",
+          "affiliation": "University of California, Merced"
+        },
+        {
+          "name": "Maoding Zhang",
+          "affiliation": "Wuhan University"
+        },
+        {
+          "name": "Qimin Cheng",
+          "affiliation": "Huazhong University of Science and Technology"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Conventional remote sensing image retrieval (RSIR) system usually performs single-label retrieval where each image is annotated by a single label representing the most significant semantic content of the image. In this scenario, however, the scene complexity of remote sensing images is ignored, where an image might have multiple classes (i.e., multiple labels), resulting in poor retrieval performance. We therefore propose a novel multilabel RSIR approach based on fully convolutional network (FCN). Specifically, FCN is first trained to predict segmentation map of each image in the considered image archive. We then obtain multilabel vector and extract region convolutional features of each image based on its segmentation map. The extracted region features are finally used to perform region-based multilabel retrieval. The experimental results show that our approach achieves state-of-the-art performance in contrast to handcrafted and convolutional neural network features.",
+      "venue": "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing",
+      "citation_count": 229,
+      "doi": "10.1109/jstars.2019.2961634",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/jstars.2019.2961634",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2998228095",
+      "title": "CBNet: A Novel Composite Backbone Network Architecture for Object Detection",
+      "authors": [
+        {
+          "name": "Yudong Liu",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Yongtao Wang",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Siwei Wang",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Tingting Liang",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Qijie Zhao",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Zhi Tang",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Haibin Ling",
+          "affiliation": "Stony Brook University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "In existing CNN based detectors, the backbone network is a very important component for basic feature1 extraction, and the performance of the detectors highly depends on it. In this paper, we aim to achieve better detection performance by building a more powerful backbone from existing ones like ResNet and ResNeXt. Specifically, we propose a novel strategy for assembling multiple identical backbones by composite connections between the adjacent backbones, to form a more powerful backbone named Composite Backbone Network (CBNet). In this way, CBNet iteratively feeds the output features of the previous backbone, namely high-level features, as part of input features to the succeeding backbone, in a stage-by-stage fashion, and finally the feature maps of the last backbone (named Lead Backbone) are used for object detection. We show that CBNet can be very easily integrated into most state-of-the-art detectors and significantly improve their performances. For example, it boosts the mAP of FPN, Mask R-CNN and Cascade R-CNN on the COCO dataset by about 1.5 to 3.0 points. Moreover, experimental results show that the instance segmentation results can be improved as well. Specifically, by simply integrating the proposed CBNet into the baseline detector Cascade Mask R-CNN, we achieve a new state-of-the-art result on COCO dataset (mAP of 53.3) with a single model, which demonstrates great effectiveness of the proposed CBNet architecture. Code will be made available at https://github.com/PKUbahuangliuhe/CBNet.",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 266,
+      "doi": "10.1609/aaai.v34i07.6834",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v34i07.6834",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4392367648",
+      "title": "Hardware implementation of memristor-based artificial neural networks",
+      "authors": [
+        {
+          "name": "Fernando Aguirre",
+          "affiliation": "King Abdullah University of Science and Technology"
+        },
+        {
+          "name": "Abu Sebastian",
+          "affiliation": "IBM Research - Zurich"
+        },
+        {
+          "name": "Manuel Le Gallo",
+          "affiliation": "IBM Research - Zurich"
+        },
+        {
+          "name": "Wenhao Song",
+          "affiliation": "University of Southern California"
+        },
+        {
+          "name": "Tong Wang",
+          "affiliation": "University of Southern California"
+        },
+        {
+          "name": "J. Joshua Yang",
+          "affiliation": "University of Southern California"
+        },
+        {
+          "name": "Wei L\u00fc",
+          "affiliation": "University of Michigan"
+        },
+        {
+          "name": "Meng\u2010Fan Chang",
+          "affiliation": "National Tsing Hua University"
+        },
+        {
+          "name": "Daniele Ielmini",
+          "affiliation": "Politecnico di Milano"
+        },
+        {
+          "name": "Yuchao Yang",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Adnan Mehoni\u0107",
+          "affiliation": "University College London"
+        },
+        {
+          "name": "Anthony J. Kenyon",
+          "affiliation": "University College London"
+        },
+        {
+          "name": "Marco A. Villena",
+          "affiliation": "King Abdullah University of Science and Technology"
+        },
+        {
+          "name": "J.B. Rold\u00e1n",
+          "affiliation": "Universidad de Granada"
+        },
+        {
+          "name": "Yuting Wu",
+          "affiliation": "University of Michigan"
+        },
+        {
+          "name": "Hung-Hsi Hsu",
+          "affiliation": "National Tsing Hua University"
+        },
+        {
+          "name": "Nagarajan Raghavan",
+          "affiliation": "Singapore University of Technology and Design"
+        },
+        {
+          "name": "J. Su\u00f1\u00e9",
+          "affiliation": "Universitat Aut\u00f2noma de Barcelona"
+        },
+        {
+          "name": "E. Miranda",
+          "affiliation": "Universitat Aut\u00f2noma de Barcelona"
+        },
+        {
+          "name": "Ahmed M. Eltawil",
+          "affiliation": "King Abdullah University of Science and Technology"
+        },
+        {
+          "name": "Gianluca Setti",
+          "affiliation": "King Abdullah University of Science and Technology"
+        },
+        {
+          "name": "Kamilya Smagulova",
+          "affiliation": "King Abdullah University of Science and Technology"
+        },
+        {
+          "name": "K. Sal\u00e1ma",
+          "affiliation": "King Abdullah University of Science and Technology"
+        },
+        {
+          "name": "Olga Krestinskaya",
+          "affiliation": "King Abdullah University of Science and Technology"
+        },
+        {
+          "name": "Xiaobing Yan",
+          "affiliation": "Hebei University"
+        },
+        {
+          "name": "Kah\u2010Wee Ang",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Samarth Jain",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Sifan Li",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Osamah Alharbi",
+          "affiliation": "King Abdullah University of Science and Technology"
+        },
+        {
+          "name": "Sebasti\u00e1n Pazos",
+          "affiliation": "King Abdullah University of Science and Technology"
+        },
+        {
+          "name": "Mario Lanza",
+          "affiliation": "King Abdullah University of Science and Technology"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Artificial Intelligence (AI) is currently experiencing a bloom driven by deep learning (DL) techniques, which rely on networks of connected simple computing units operating in parallel. The low communication bandwidth between memory and processing units in conventional von Neumann machines does not support the requirements of emerging applications that rely extensively on large sets of data. More recent computing paradigms, such as high parallelization and near-memory computing, help alleviate the data communication bottleneck to some extent, but paradigm- shifting concepts are required. Memristors, a novel beyond-complementary metal-oxide-semiconductor (CMOS) technology, are a promising choice for memory devices due to their unique intrinsic device-level properties, enabling both storing and computing with a small, massively-parallel footprint at low power. Theoretically, this directly translates to a major boost in energy efficiency and computational throughput, but various practical challenges remain. In this work we review the latest efforts for achieving hardware-based memristive artificial neural networks (ANNs), describing with detail the working principia of each block and the different design alternatives with their own advantages and disadvantages, as well as the tools required for accurate estimation of performance metrics. Ultimately, we aim to provide a comprehensive protocol of the materials and methods involved in memristive neural networks to those aiming to start working in this field and the experts looking for a holistic approach.",
+      "venue": "Nature Communications",
+      "citation_count": 363,
+      "doi": "10.1038/s41467-024-45670-9",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41467-024-45670-9",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3130456109",
+      "title": "A graph-based CNN-LSTM stock price prediction algorithm with leading indicators",
+      "authors": [
+        {
+          "name": "Jimmy Ming\u2010Tai Wu",
+          "affiliation": "Shandong University of Science and Technology"
+        },
+        {
+          "name": "Zhongcui Li",
+          "affiliation": "Shandong University of Science and Technology"
+        },
+        {
+          "name": "Norbert Herencs\u00e1r",
+          "affiliation": "Brno University of Technology"
+        },
+        {
+          "name": "Bay Vo",
+          "affiliation": "Ho Chi Minh City University of Technology"
+        },
+        {
+          "name": "Jerry Chun\u2010Wei Lin",
+          "affiliation": "Western Norway University of Applied Sciences"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Abstract In today\u2019s society, investment wealth management has become a mainstream of the contemporary era. Investment wealth management refers to the use of funds by investors to arrange funds reasonably, for example, savings, bank financial products, bonds, stocks, commodity spots, real estate, gold, art, and many others. Wealth management tools manage and assign families, individuals, enterprises, and institutions to achieve the purpose of increasing and maintaining value to accelerate asset growth. Among them, in investment and financial management, people\u2019s favorite product of investment often stocks, because the stock market has great advantages and charm, especially compared with other investment methods. More and more scholars have developed methods of prediction from multiple angles for the stock market. According to the feature of financial time series and the task of price prediction, this article proposes a new framework structure to achieve a more accurate prediction of the stock price, which combines Convolution Neural Network (CNN) and Long\u2013Short-Term Memory Neural Network (LSTM). This new method is aptly named stock sequence array convolutional LSTM (SACLSTM). It constructs a sequence array of historical data and its leading indicators (options and futures), and uses the array as the input image of the CNN framework, and extracts certain feature vectors through the convolutional layer and the layer of pooling, and as the input vector of LSTM, and takes ten stocks in U.S.A and Taiwan as the experimental data. Compared with previous methods, the prediction performance of the proposed algorithm in this article leads to better results when compared directly.",
+      "venue": "Multimedia Systems",
+      "citation_count": 296,
+      "doi": "10.1007/s00530-021-00758-w",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s00530-021-00758-w",
+      "source": "openalex",
+      "_bibtex_override": ""
+    }
+  ]
+}

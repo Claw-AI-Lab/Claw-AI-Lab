@@ -1,0 +1,1202 @@
+{
+  "query": "attribute leakage text-to-image personalization",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1774164059.6650553,
+  "papers": [
+    {
+      "paper_id": "arxiv-2504.13162",
+      "title": "Personalized Text-to-Image Generation with Auto-Regressive Models",
+      "authors": [
+        {
+          "name": "Kaiyue Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Xian Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yao Teng",
+          "affiliation": ""
+        },
+        {
+          "name": "Xihui Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Personalized image synthesis has emerged as a pivotal application in text-to-image generation, enabling the creation of images featuring specific subjects in diverse contexts. While diffusion models have dominated this domain, auto-regressive models, with their unified architecture for text and image modeling, remain underexplored for personalized image generation. This paper investigates the potential of optimizing auto-regressive models for personalized image synthesis, leveraging their inherent multimodal capabilities to perform this task. We propose a two-stage training strategy that combines optimization of text embeddings and fine-tuning of transformer layers. Our experiments on the auto-regressive model demonstrate that this method achieves comparable subject fidelity and prompt following to the leading diffusion-based personalization methods. The results highlight the effectiveness of auto-regressive models in personalized image generation, offering a new direction for future research in this area.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2504.13162",
+      "url": "https://arxiv.org/abs/2504.13162",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2512.10955",
+      "title": "Omni-Attribute: Open-vocabulary Attribute Encoder for Visual Concept Personalization",
+      "authors": [
+        {
+          "name": "Tsai-Shien Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Aliaksandr Siarohin",
+          "affiliation": ""
+        },
+        {
+          "name": "Guocheng Gordon Qian",
+          "affiliation": ""
+        },
+        {
+          "name": "Kuan-Chieh Jackson Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Egor Nemchinov",
+          "affiliation": ""
+        },
+        {
+          "name": "Moayed Haji-Ali",
+          "affiliation": ""
+        },
+        {
+          "name": "Riza Alp Guler",
+          "affiliation": ""
+        },
+        {
+          "name": "Willi Menapace",
+          "affiliation": ""
+        },
+        {
+          "name": "Ivan Skorokhodov",
+          "affiliation": ""
+        },
+        {
+          "name": "Anil Kag",
+          "affiliation": ""
+        },
+        {
+          "name": "Jun-Yan Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Sergey Tulyakov",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Visual concept personalization aims to transfer only specific image attributes, such as identity, expression, lighting, and style, into unseen contexts. However, existing methods rely on holistic embeddings from general-purpose image encoders, which entangle multiple visual factors and make it difficult to isolate a single attribute. This often leads to information leakage and incoherent synthesis. To address this limitation, we introduce Omni-Attribute, the first open-vocabulary image attribute encoder designed to learn high-fidelity, attribute-specific representations. Our approach jointly designs the data and model: (i) we curate semantically linked image pairs annotated with positive and negative attributes to explicitly teach the encoder what to preserve or suppress; and (ii) we adopt a dual-objective training paradigm that balances generative fidelity with contrastive disentanglement. The resulting embeddings prove effective for open-vocabulary attribute retrieval, personalization, and compositional generation, achieving state-of-the-art performance across multiple benchmarks.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2512.10955",
+      "url": "https://arxiv.org/abs/2512.10955",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.17888",
+      "title": "MINDiff: Mask-Integrated Negative Attention for Controlling Overfitting in Text-to-Image Personalization",
+      "authors": [
+        {
+          "name": "Seulgi Jeong",
+          "affiliation": ""
+        },
+        {
+          "name": "Jaeil Kim",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "In the personalization process of large-scale text-to-image models, overfitting often occurs when learning specific subject from a limited number of images. Existing methods, such as DreamBooth, mitigate this issue through a class-specific prior-preservation loss, which requires increased computational cost during training and limits user control during inference time. To address these limitations, we propose Mask-Integrated Negative Attention Diffusion (MINDiff). MINDiff introduces a novel concept, negative attention, which suppresses the subject's influence in masked irrelevant regions. We achieve this by modifying the cross-attention mechanism during inference. This enables semantic control and improves text alignment by reducing subject dominance in irrelevant regions. Additionally, during the inference time, users can adjust a scale parameter lambda to balance subject fidelity and text alignment. Our qualitative and quantitative experiments on DreamBooth models demonstrate that MINDiff mitigates overfitting more effectively than class-specific prior-preservation loss. As our method operates entirely at inference time and does not alter the model architecture, it can be directly applied to existing DreamBooth models without re-training. Our code is available at https://github.com/seuleepy/MINDiff.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.17888",
+      "url": "https://arxiv.org/abs/2511.17888",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2510.25084",
+      "title": "PSTF-AttControl: Per-Subject-Tuning-Free Personalized Image Generation with Controllable Face Attributes",
+      "authors": [
+        {
+          "name": "Xiang liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhaoxiang Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Huan Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zipeng Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ping Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Zezhou Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Kai Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Shiguo Lian",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Recent advancements in personalized image generation have significantly improved facial identity preservation, particularly in fields such as entertainment and social media. However, existing methods still struggle to achieve precise control over facial attributes in a per-subject-tuning-free (PSTF) way. Tuning-based techniques like PreciseControl have shown promise by providing fine-grained control over facial features, but they often require extensive technical expertise and additional training data, limiting their accessibility. In contrast, PSTF approaches simplify the process by enabling image generation from a single facial input, but they lack precise control over facial attributes. In this paper, we introduce a novel, PSTF method that enables both precise control over facial attributes and high-fidelity preservation of facial identity. Our approach utilizes a face recognition model to extract facial identity features, which are then mapped into the $W^+$ latent space of StyleGAN2 using the e4e encoder. We further enhance the model with a Triplet-Decoupled Cross-Attention module, which integrates facial identity, attribute features, and text embeddings into the UNet architecture, ensuring clean separation of identity and attribute information. Trained on the FFHQ dataset, our method allows for the generation of personalized images with fine-grained control over facial attributes, while without requiring additional fine-tuning or training data for individual identities. We demonstrate that our approach successfully balances personalization with precise facial attribute control, offering a more efficient and user-friendly solution for high-quality, adaptable facial image synthesis. The code is publicly available at https://github.com/UnicomAI/PSTF-AttControl.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2510.25084",
+      "url": "https://arxiv.org/abs/2510.25084",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2107.12666",
+      "title": "Semantically Self-Aligned Network for Text-to-Image Part-aware Person Re-identification",
+      "authors": [
+        {
+          "name": "Zefeng Ding",
+          "affiliation": ""
+        },
+        {
+          "name": "Changxing Ding",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiyin Shao",
+          "affiliation": ""
+        },
+        {
+          "name": "Dacheng Tao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Text-to-image person re-identification (ReID) aims to search for images containing a person of interest using textual descriptions. However, due to the significant modality gap and the large intra-class variance in textual descriptions, text-to-image ReID remains a challenging problem. Accordingly, in this paper, we propose a Semantically Self-Aligned Network (SSAN) to handle the above problems. First, we propose a novel method that automatically extracts semantically aligned part-level features from the two modalities. Second, we design a multi-view non-local network that captures the relationships between body parts, thereby establishing better correspondences between body parts and noun phrases. Third, we introduce a Compound Ranking (CR) loss that makes use of textual descriptions for other images of the same identity to provide extra supervision, thereby effectively reducing the intra-class variance in textual features. Finally, to expedite future research in text-to-image ReID, we build a new database named ICFG-PEDES. Extensive experiments demonstrate that SSAN outperforms state-of-the-art approaches by significant margins. Both the new ICFG-PEDES database and the SSAN code are available at https://github.com/zifyloo/SSAN.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2107.12666",
+      "url": "https://arxiv.org/abs/2107.12666",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2312.03011",
+      "title": "InstructBooth: Instruction-following Personalized Text-to-Image Generation",
+      "authors": [
+        {
+          "name": "Daewon Chae",
+          "affiliation": ""
+        },
+        {
+          "name": "Nokyung Park",
+          "affiliation": ""
+        },
+        {
+          "name": "Jinkyu Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Kimin Lee",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Personalizing text-to-image models using a limited set of images for a specific object has been explored in subject-specific image generation. However, existing methods often face challenges in aligning with text prompts due to overfitting to the limited training images. In this work, we introduce InstructBooth, a novel method designed to enhance image-text alignment in personalized text-to-image models without sacrificing the personalization ability. Our approach first personalizes text-to-image models with a small number of subject-specific images using a unique identifier. After personalization, we fine-tune personalized text-to-image models using reinforcement learning to maximize a reward that quantifies image-text alignment. Additionally, we propose complementary techniques to increase the synergy between these two processes. Our method demonstrates superior image-text alignment compared to existing baselines, while maintaining high personalization ability. In human evaluations, InstructBooth outperforms them when considering all comprehensive factors. Our project page is at https://sites.google.com/view/instructbooth.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2312.03011",
+      "url": "https://arxiv.org/abs/2312.03011",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2405.17533",
+      "title": "PAE: LLM-based Product Attribute Extraction for E-Commerce Fashion Trends",
+      "authors": [
+        {
+          "name": "Apurva Sinha",
+          "affiliation": ""
+        },
+        {
+          "name": "Ekta Gujral",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Product attribute extraction is an growing field in e-commerce business, with several applications including product ranking, product recommendation, future assortment planning and improving online shopping customer experiences. Understanding the customer needs is critical part of online business, specifically fashion products. Retailers uses assortment planning to determine the mix of products to offer in each store and channel, stay responsive to market dynamics and to manage inventory and catalogs. The goal is to offer the right styles, in the right sizes and colors, through the right channels. When shoppers find products that meet their needs and desires, they are more likely to return for future purchases, fostering customer loyalty. Product attributes are a key factor in assortment planning. In this paper we present PAE, a product attribute extraction algorithm for future trend reports consisting text and images in PDF format. Most existing methods focus on attribute extraction from titles or product descriptions or utilize visual information from existing product images. Compared to the prior works, our work focuses on attribute extraction from PDF files where upcoming fashion trends are explained. This work proposes a more comprehensive framework that fully utilizes the different modalities for attribute extraction and help retailers to plan the assortment in advance. Our contributions are three-fold: (a) We develop PAE, an efficient framework to extract attributes from unstructured data (text and images); (b) We provide catalog matching methodology based on BERT representations to discover the existing attributes using upcoming attribute values; (c) We conduct extensive experiments with several baselines and show that PAE is an effective, flexible and on par or superior (avg 92.5% F1-Score) framework to existing state-of-the-art for attribute value extraction task.",
+      "venue": "cs.AI",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2405.17533",
+      "url": "https://arxiv.org/abs/2405.17533",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2412.04715",
+      "title": "Addressing Text Embedding Leakage in Diffusion-based Image Editing",
+      "authors": [
+        {
+          "name": "Sunung Mun",
+          "affiliation": ""
+        },
+        {
+          "name": "Jinhwan Nam",
+          "affiliation": ""
+        },
+        {
+          "name": "Sunghyun Cho",
+          "affiliation": ""
+        },
+        {
+          "name": "Jungseul Ok",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Text-based image editing, powered by generative diffusion models, lets users modify images through natural-language prompts and has dramatically simplified traditional workflows. Despite these advances, current methods still suffer from a critical problem: attribute leakage, where edits meant for specific objects unintentionally affect unrelated regions or other target objects. Our analysis reveals the root cause as the semantic entanglement inherent in End-of-Sequence (EOS) embeddings generated by autoregressive text encoders, which indiscriminately aggregate attributes across prompts. To address this issue, we introduce Attribute-Leakage-free Editing (ALE), a framework that tackles attribute leakage at its source. ALE combines Object-Restricted Embeddings (ORE) to disentangle text embeddings, Region-Guided Blending for Cross-Attention Masking (RGB-CAM) for spatially precise attention, and Background Blending (BB) to preserve non-edited content. To quantitatively evaluate attribute leakage across various editing methods, we propose the Attribute-Leakage Evaluation Benchmark (ALE-Bench), featuring comprehensive editing scenarios and new metrics. Extensive experiments show that ALE reduces attribute leakage by large margins, thereby enabling accurate, multi-object, text-driven image editing while faithfully preserving non-target content.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2412.04715",
+      "url": "https://arxiv.org/abs/2412.04715",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2403.17064",
+      "title": "Continuous, Subject-Specific Attribute Control in T2I Models by Identifying Semantic Directions",
+      "authors": [
+        {
+          "name": "Stefan Andreas Baumann",
+          "affiliation": ""
+        },
+        {
+          "name": "Felix Krause",
+          "affiliation": ""
+        },
+        {
+          "name": "Michael Neumayr",
+          "affiliation": ""
+        },
+        {
+          "name": "Nick Stracke",
+          "affiliation": ""
+        },
+        {
+          "name": "Melvin Sevi",
+          "affiliation": ""
+        },
+        {
+          "name": "Vincent Tao Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Bj\u00f6rn Ommer",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Recent advances in text-to-image (T2I) diffusion models have significantly improved the quality of generated images. However, providing efficient control over individual subjects, particularly the attributes characterizing them, remains a key challenge. While existing methods have introduced mechanisms to modulate attribute expression, they typically provide either detailed, object-specific localization of such a modification or full-scale fine-grained, nuanced control of attributes. No current approach offers both simultaneously, resulting in a gap when trying to achieve precise continuous and subject-specific attribute modulation in image generation. In this work, we demonstrate that token-level directions exist within commonly used CLIP text embeddings that enable fine-grained, subject-specific control of high-level attributes in T2I models. We introduce two methods to identify these directions: a simple, optimization-free technique and a learning-based approach that utilizes the T2I model to characterize semantic concepts more specifically. Our methods allow the augmentation of the prompt text input, enabling fine-grained control over multiple attributes of individual subjects simultaneously, without requiring any modifications to the diffusion model itself. This approach offers a unified solution that fills the gap between global and localized control, providing competitive flexibility and precision in text-guided image generation. Project page: https://compvis.github.io/attribute-control. Code is available at https://github.com/CompVis/attribute-control.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2403.17064",
+      "url": "https://arxiv.org/abs/2403.17064",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2408.05083",
+      "title": "PreciseControl: Enhancing Text-To-Image Diffusion Models with Fine-Grained Attribute Control",
+      "authors": [
+        {
+          "name": "Rishubh Parihar",
+          "affiliation": ""
+        },
+        {
+          "name": "Sachidanand VS",
+          "affiliation": ""
+        },
+        {
+          "name": "Sabariswaran Mani",
+          "affiliation": ""
+        },
+        {
+          "name": "Tejan Karmali",
+          "affiliation": ""
+        },
+        {
+          "name": "R. Venkatesh Babu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Recently, we have seen a surge of personalization methods for text-to-image (T2I) diffusion models to learn a concept using a few images. Existing approaches, when used for face personalization, suffer to achieve convincing inversion with identity preservation and rely on semantic text-based editing of the generated face. However, a more fine-grained control is desired for facial attribute editing, which is challenging to achieve solely with text prompts. In contrast, StyleGAN models learn a rich face prior and enable smooth control towards fine-grained attribute editing by latent manipulation. This work uses the disentangled $\\mathcal{W+}$ space of StyleGANs to condition the T2I model. This approach allows us to precisely manipulate facial attributes, such as smoothly introducing a smile, while preserving the existing coarse text-based control inherent in T2I models. To enable conditioning of the T2I model on the $\\mathcal{W+}$ space, we train a latent mapper to translate latent codes from $\\mathcal{W+}$ to the token embedding space of the T2I model. The proposed approach excels in the precise inversion of face images with attribute preservation and facilitates continuous control for fine-grained attribute editing. Furthermore, our approach can be readily extended to generate compositions involving multiple individuals. We perform extensive experiments to validate our method for face personalization and fine-grained attribute editing.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2408.05083",
+      "url": "https://arxiv.org/abs/2408.05083",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2109.06990",
+      "title": "Personalization, Privacy, and Me",
+      "authors": [
+        {
+          "name": "Reshma Narayanan Kutty",
+          "affiliation": ""
+        },
+        {
+          "name": "Claudia Orellana-Rodriguez",
+          "affiliation": ""
+        },
+        {
+          "name": "Igor Brigadir",
+          "affiliation": ""
+        },
+        {
+          "name": "Ernesto Diaz-Aviles",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "News recommendation and personalization is not a solved problem. People are growing concerned of their data being collected in excess in the name of personalization and the usage of it for purposes other than the ones they would think reasonable. Our experience in building personalization products for publishers while adhering to safeguard user privacy led us to investigate more on the user perspective of privacy and personalization. We conducted a survey to explore people's experience with personalization and privacy and the viewpoints of different age groups. In this paper, we share our major findings with publishers and the community that can inform algorithmic design and implementation of the next generation of news recommender systems, which must put the human at its core and reach a balance between personalization experiences and privacy to reap the benefits of both.",
+      "venue": "cs.CY",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2109.06990",
+      "url": "https://arxiv.org/abs/2109.06990",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.22245",
+      "title": "Semantic Anchoring for Robust Personalization in Text-to-Image Diffusion Models",
+      "authors": [
+        {
+          "name": "Seoyun Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Gihoon Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Taesup Kim",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Text-to-image diffusion models have achieved remarkable progress in generating diverse and realistic images from textual descriptions. However, they still struggle with personalization, which requires adapting a pretrained model to depict user-specific subjects from only a few reference images. The key challenge lies in learning a new visual concept from a limited number of reference images while preserving the pretrained semantic prior that maintains text-image alignment. When the model focuses on subject fidelity, it tends to overfit the limited reference images and fails to leverage the pretrained distribution. Conversely, emphasizing prior preservation maintains semantic consistency but prevents the model from learning new personalized attributes. Building on these observations, we propose the personalization process through a semantic anchoring that guides adaptation by grounding new concepts in their corresponding distributions. We therefore reformulate personalization as the process of learning a rare concept guided by its frequent counterpart through semantic anchoring. This anchoring encourages the model to adapt new concepts in a stable and controlled manner, expanding the pretrained distribution toward personalized regions while preserving its semantic structure. As a result, the proposed method achieves stable adaptation and consistent improvements in both subject fidelity and text-image alignment compared to baseline methods. Extensive experiments and ablation studies further demonstrate the robustness and effectiveness of the proposed anchoring strategy.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.22245",
+      "url": "https://arxiv.org/abs/2511.22245",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2501.06187",
+      "title": "Multi-subject Open-set Personalization in Video Generation",
+      "authors": [
+        {
+          "name": "Tsai-Shien Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Aliaksandr Siarohin",
+          "affiliation": ""
+        },
+        {
+          "name": "Willi Menapace",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuwei Fang",
+          "affiliation": ""
+        },
+        {
+          "name": "Kwot Sin Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Ivan Skorokhodov",
+          "affiliation": ""
+        },
+        {
+          "name": "Kfir Aberman",
+          "affiliation": ""
+        },
+        {
+          "name": "Jun-Yan Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ming-Hsuan Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Sergey Tulyakov",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Video personalization methods allow us to synthesize videos with specific concepts such as people, pets, and places. However, existing methods often focus on limited domains, require time-consuming optimization per subject, or support only a single subject. We present Video Alchemist $-$ a video model with built-in multi-subject, open-set personalization capabilities for both foreground objects and background, eliminating the need for time-consuming test-time optimization. Our model is built on a new Diffusion Transformer module that fuses each conditional reference image and its corresponding subject-level text prompt with cross-attention layers. Developing such a large model presents two main challenges: dataset and evaluation. First, as paired datasets of reference images and videos are extremely hard to collect, we sample selected video frames as reference images and synthesize a clip of the target video. However, while models can easily denoise training videos given reference frames, they fail to generalize to new contexts. To mitigate this issue, we design a new automatic data construction pipeline with extensive image augmentations. Second, evaluating open-set video personalization is a challenge in itself. To address this, we introduce a personalization benchmark that focuses on accurate subject fidelity and supports diverse personalization scenarios. Finally, our extensive experiments show that our method significantly outperforms existing personalization methods in both quantitative and qualitative evaluations.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2501.06187",
+      "url": "https://arxiv.org/abs/2501.06187",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2301.01413",
+      "title": "Attribute-Centric Compositional Text-to-Image Generation",
+      "authors": [
+        {
+          "name": "Yuren Cong",
+          "affiliation": ""
+        },
+        {
+          "name": "Martin Renqiang Min",
+          "affiliation": ""
+        },
+        {
+          "name": "Li Erran Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Bodo Rosenhahn",
+          "affiliation": ""
+        },
+        {
+          "name": "Michael Ying Yang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Despite the recent impressive breakthroughs in text-to-image generation, generative models have difficulty in capturing the data distribution of underrepresented attribute compositions while over-memorizing overrepresented attribute compositions, which raises public concerns about their robustness and fairness. To tackle this challenge, we propose ACTIG, an attribute-centric compositional text-to-image generation framework. We present an attribute-centric feature augmentation and a novel image-free training scheme, which greatly improves model's ability to generate images with underrepresented attributes. We further propose an attribute-centric contrastive loss to avoid overfitting to overrepresented attribute compositions. We validate our framework on the CelebA-HQ and CUB datasets. Extensive experiments show that the compositional generalization of ACTIG is outstanding, and our framework outperforms previous works in terms of image quality and text-image consistency.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2301.01413",
+      "url": "https://arxiv.org/abs/2301.01413",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2601.03482",
+      "title": "Personalization of Large Foundation Models for Health Interventions",
+      "authors": [
+        {
+          "name": "Stefan Konigorski",
+          "affiliation": ""
+        },
+        {
+          "name": "Johannes E. Vedder",
+          "affiliation": ""
+        },
+        {
+          "name": "Babajide Alamu Owoyele",
+          "affiliation": ""
+        },
+        {
+          "name": "\u0130brahim \u00d6zkan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Large foundation models (LFMs) transform healthcare AI in prevention, diagnostics, and treatment. However, whether LFMs can provide truly personalized treatment recommendations remains an open question. Recent research has revealed multiple challenges for personalization, including the fundamental generalizability paradox: models achieving high accuracy in one clinical study perform at chance level in others, demonstrating that personalization and external validity exist in tension. This exemplifies broader contradictions in AI-driven healthcare: the privacy-performance paradox, scale-specificity paradox, and the automation-empathy paradox. As another challenge, the degree of causal understanding required for personalized recommendations, as opposed to mere predictive capacities of LFMs, remains an open question. N-of-1 trials -- crossover self-experiments and the gold standard for individual causal inference in personalized medicine -- resolve these tensions by providing within-person causal evidence while preserving privacy through local experimentation. Despite their impressive capabilities, this paper argues that LFMs cannot replace N-of-1 trials. We argue that LFMs and N-of-1 trials are complementary: LFMs excel at rapid hypothesis generation from population patterns using multimodal data, while N-of-1 trials excel at causal validation for a given individual. We propose a hybrid framework that combines the strengths of both to enable personalization and navigate the identified paradoxes: LFMs generate ranked intervention candidates with uncertainty estimates, which trigger subsequent N-of-1 trials. Clarifying the boundary between prediction and causation and explicitly addressing the paradoxical tensions are essential for responsible AI integration in personalized medicine.",
+      "venue": "cs.AI",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2601.03482",
+      "url": "https://arxiv.org/abs/2601.03482",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2303.07909",
+      "title": "Text-to-image Diffusion Models in Generative AI: A Survey",
+      "authors": [
+        {
+          "name": "Chenshuang Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chaoning Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Mengchun Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "In So Kweon",
+          "affiliation": ""
+        },
+        {
+          "name": "Junmo Kim",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "This survey reviews the progress of diffusion models in generating images from text, ~\\textit{i.e.} text-to-image diffusion models. As a self-contained work, this survey starts with a brief introduction of how diffusion models work for image synthesis, followed by the background for text-conditioned image synthesis. Based on that, we present an organized review of pioneering methods and their improvements on text-to-image generation. We further summarize applications beyond image generation, such as text-guided generation for various modalities like videos, and text-guided image editing. Beyond the progress made so far, we discuss existing challenges and promising future directions.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2303.07909",
+      "url": "https://arxiv.org/abs/2303.07909",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2401.06105",
+      "title": "PALP: Prompt Aligned Personalization of Text-to-Image Models",
+      "authors": [
+        {
+          "name": "Moab Arar",
+          "affiliation": ""
+        },
+        {
+          "name": "Andrey Voynov",
+          "affiliation": ""
+        },
+        {
+          "name": "Amir Hertz",
+          "affiliation": ""
+        },
+        {
+          "name": "Omri Avrahami",
+          "affiliation": ""
+        },
+        {
+          "name": "Shlomi Fruchter",
+          "affiliation": ""
+        },
+        {
+          "name": "Yael Pritch",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniel Cohen-Or",
+          "affiliation": ""
+        },
+        {
+          "name": "Ariel Shamir",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Content creators often aim to create personalized images using personal subjects that go beyond the capabilities of conventional text-to-image models. Additionally, they may want the resulting image to encompass a specific location, style, ambiance, and more. Existing personalization methods may compromise personalization ability or the alignment to complex textual prompts. This trade-off can impede the fulfillment of user prompts and subject fidelity. We propose a new approach focusing on personalization methods for a \\emph{single} prompt to address this issue. We term our approach prompt-aligned personalization. While this may seem restrictive, our method excels in improving text alignment, enabling the creation of images with complex and intricate prompts, which may pose a challenge for current techniques. In particular, our method keeps the personalized model aligned with a target prompt using an additional score distillation sampling term. We demonstrate the versatility of our method in multi- and single-shot settings and further show that it can compose multiple subjects or use inspiration from reference images, such as artworks. We compare our approach quantitatively and qualitatively with existing baselines and state-of-the-art techniques.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2401.06105",
+      "url": "https://arxiv.org/abs/2401.06105",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2505.13710",
+      "title": "Quantum Computational Unpredictability Entropy and Quantum Leakage Resilience",
+      "authors": [
+        {
+          "name": "Noam Avidan",
+          "affiliation": ""
+        },
+        {
+          "name": "Rotem Arnon",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Computational entropies provide a framework for quantifying uncertainty and randomness under computational constraints. They play a central role in classical cryptography, underpinning the analysis and construction of primitives such as pseudo-random generators, leakage-resilient cryptography, and randomness extractors. In the quantum setting, however, computational analogues of entropy remain largely unexplored. In this work, we initiate the study of quantum computational entropy by defining quantum computational unpredictability entropy, a natural generalization of classical unpredictability entropy to the quantum setting. Our definition builds on the operational interpretation of quantum min-entropy as the optimal guessing probability, while restricting the adversary to efficient guessing strategies. We prove that this entropy satisfies several fundamental properties, including a leakage chain rule that holds even in the presence of unbounded prior quantum side-information. We also show that unpredictability entropy enables pseudo-randomness extraction against quantum adversaries with bounded computational power. Together, these results lay a foundation for developing cryptographic tools that rely on min-entropy in the quantum computational setting.",
+      "venue": "quant-ph",
+      "citation_count": 0,
+      "doi": "10.1109/tit.2026.3658830",
+      "arxiv_id": "2505.13710",
+      "url": "https://arxiv.org/abs/2505.13710",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2502.13081",
+      "title": "Personalized Image Generation with Deep Generative Models: A Decade Survey",
+      "authors": [
+        {
+          "name": "Yuxiang Wei",
+          "affiliation": ""
+        },
+        {
+          "name": "Yiheng Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Yabo Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ming Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhilong Ji",
+          "affiliation": ""
+        },
+        {
+          "name": "Lei Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wangmeng Zuo",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Recent advancements in generative models have significantly facilitated the development of personalized content creation. Given a small set of images with user-specific concept, personalized image generation allows to create images that incorporate the specified concept and adhere to provided text descriptions. Due to its wide applications in content creation, significant effort has been devoted to this field in recent years. Nonetheless, the technologies used for personalization have evolved alongside the development of generative models, with their distinct and interrelated components. In this survey, we present a comprehensive review of generalized personalized image generation across various generative models, including traditional GANs, contemporary text-to-image diffusion models, and emerging multi-model autoregressive models. We first define a unified framework that standardizes the personalization process across different generative models, encompassing three key components, i.e., inversion spaces, inversion methods, and personalization schemes. This unified framework offers a structured approach to dissecting and comparing personalization techniques across different generative architectures. Building upon this unified framework, we further provide an in-depth analysis of personalization techniques within each generative model, highlighting their unique contributions and innovations. Through comparative analysis, this survey elucidates the current landscape of personalized image generation, identifying commonalities and distinguishing features among existing methods. Finally, we discuss the open challenges in the field and propose potential directions for future research. We keep tracing related works at https://github.com/csyxwei/Awesome-Personalized-Image-Generation.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2502.13081",
+      "url": "https://arxiv.org/abs/2502.13081",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2503.01122",
+      "title": "ACCORD: Alleviating Concept Coupling through Dependence Regularization for Text-to-Image Diffusion Personalization",
+      "authors": [
+        {
+          "name": "Shizhan Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Hang Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianguo Li",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Image personalization has garnered attention for its ability to customize Text-to-Image generation using only a few reference images. However, a key challenge in image personalization is the issue of conceptual coupling, where the limited number of reference images leads the model to form unwanted associations between the personalization target and other concepts. Current methods attempt to tackle this issue indirectly, leading to a suboptimal balance between text control and personalization fidelity. In this paper, we take a direct approach to the concept coupling problem through statistical analysis, revealing that it stems from two distinct sources of dependence discrepancies. We therefore propose two complementary plug-and-play loss functions: Denoising Decouple Loss and Prior Decouple loss, each designed to minimize one type of dependence discrepancy. Extensive experiments demonstrate that our approach achieves a superior trade-off between text control and personalization fidelity.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2503.01122",
+      "url": "https://arxiv.org/abs/2503.01122",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2502.15203",
+      "title": "FlipConcept: Tuning-Free Multi-Concept Personalization for Text-to-Image Generation",
+      "authors": [
+        {
+          "name": "Young Beom Woo",
+          "affiliation": ""
+        },
+        {
+          "name": "Sun Eung Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Seong-Whan Lee",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Integrating multiple personalized concepts into a single image has recently gained attention in text-to-image (T2I) generation. However, existing methods often suffer from performance degradation in complex scenes due to distortions in non-personalized regions and the need for additional fine-tuning, limiting their practicality. To address this issue, we propose FlipConcept, a novel approach that seamlessly integrates multiple personalized concepts into a single image without requiring additional tuning. We introduce guided appearance attention to enhance the visual fidelity of personalized concepts. Additionally, we introduce mask-guided noise mixing to protect non-personalized regions during concept integration. Lastly, we apply background dilution to minimize concept leakage, i.e., the undesired blending of personalized concepts with other objects in the image. In our experiments, we demonstrate that the proposed method, despite not requiring tuning, outperforms existing models in both single and multiple personalized concept inference. These results demonstrate the effectiveness and practicality of our approach for scalable, high-quality multi-concept personalization.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2502.15203",
+      "url": "https://arxiv.org/abs/2502.15203",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2304.06720",
+      "title": "Expressive Text-to-Image Generation with Rich Text",
+      "authors": [
+        {
+          "name": "Songwei Ge",
+          "affiliation": ""
+        },
+        {
+          "name": "Taesung Park",
+          "affiliation": ""
+        },
+        {
+          "name": "Jun-Yan Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jia-Bin Huang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Plain text has become a prevalent interface for text-to-image synthesis. However, its limited customization options hinder users from accurately describing desired outputs. For example, plain text makes it hard to specify continuous quantities, such as the precise RGB color value or importance of each word. Furthermore, creating detailed text prompts for complex scenes is tedious for humans to write and challenging for text encoders to interpret. To address these challenges, we propose using a rich-text editor supporting formats such as font style, size, color, and footnote. We extract each word's attributes from rich text to enable local style control, explicit token reweighting, precise color rendering, and detailed region synthesis. We achieve these capabilities through a region-based diffusion process. We first obtain each word's region based on attention maps of a diffusion process using plain text. For each region, we enforce its text attributes by creating region-specific detailed prompts and applying region-specific guidance, and maintain its fidelity against plain-text generation through region-based injections. We present various examples of image generation from rich text and demonstrate that our method outperforms strong baselines with quantitative evaluations.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2304.06720",
+      "url": "https://arxiv.org/abs/2304.06720",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2407.06187",
+      "title": "JeDi: Joint-Image Diffusion Models for Finetuning-Free Personalized Text-to-Image Generation",
+      "authors": [
+        {
+          "name": "Yu Zeng",
+          "affiliation": ""
+        },
+        {
+          "name": "Vishal M. Patel",
+          "affiliation": ""
+        },
+        {
+          "name": "Haochen Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xun Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ting-Chun Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ming-Yu Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yogesh Balaji",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Personalized text-to-image generation models enable users to create images that depict their individual possessions in diverse scenes, finding applications in various domains. To achieve the personalization capability, existing methods rely on finetuning a text-to-image foundation model on a user's custom dataset, which can be non-trivial for general users, resource-intensive, and time-consuming. Despite attempts to develop finetuning-free methods, their generation quality is much lower compared to their finetuning counterparts. In this paper, we propose Joint-Image Diffusion (\\jedi), an effective technique for learning a finetuning-free personalization model. Our key idea is to learn the joint distribution of multiple related text-image pairs that share a common subject. To facilitate learning, we propose a scalable synthetic dataset generation technique. Once trained, our model enables fast and easy personalization at test time by simply using reference images as input during the sampling process. Our approach does not require any expensive optimization process or additional modules and can faithfully preserve the identity represented by any number of reference images. Experimental results show that our model achieves state-of-the-art generation quality, both quantitatively and qualitatively, significantly outperforming both the prior finetuning-based and finetuning-free personalization baselines.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2407.06187",
+      "url": "https://arxiv.org/abs/2407.06187",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2406.05000",
+      "title": "AttnDreamBooth: Towards Text-Aligned Personalized Text-to-Image Generation",
+      "authors": [
+        {
+          "name": "Lianyu Pang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jian Yin",
+          "affiliation": ""
+        },
+        {
+          "name": "Baoquan Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Feize Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Fu Lee Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Qing Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Xudong Mao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Recent advances in text-to-image models have enabled high-quality personalized image synthesis of user-provided concepts with flexible textual control. In this work, we analyze the limitations of two primary techniques in text-to-image personalization: Textual Inversion and DreamBooth. When integrating the learned concept into new prompts, Textual Inversion tends to overfit the concept, while DreamBooth often overlooks it. We attribute these issues to the incorrect learning of the embedding alignment for the concept. We introduce AttnDreamBooth, a novel approach that addresses these issues by separately learning the embedding alignment, the attention map, and the subject identity in different training stages. We also introduce a cross-attention map regularization term to enhance the learning of the attention map. Our method demonstrates significant improvements in identity preservation and text alignment compared to the baseline methods.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2406.05000",
+      "url": "https://arxiv.org/abs/2406.05000",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2311.14631",
+      "title": "CatVersion: Concatenating Embeddings for Diffusion-Based Text-to-Image Personalization",
+      "authors": [
+        {
+          "name": "Ruoyu Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Mingrui Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Shiyin Dong",
+          "affiliation": ""
+        },
+        {
+          "name": "Nannan Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinbo Gao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We propose CatVersion, an inversion-based method that learns the personalized concept through a handful of examples. Subsequently, users can utilize text prompts to generate images that embody the personalized concept, thereby achieving text-to-image personalization. In contrast to existing approaches that emphasize word embedding learning or parameter fine-tuning for the diffusion model, which potentially causes concept dilution or overfitting, our method concatenates embeddings on the feature-dense space of the text encoder in the diffusion model to learn the gap between the personalized concept and its base class, aiming to maximize the preservation of prior knowledge in diffusion models while restoring the personalized concepts. To this end, we first dissect the text encoder's integration in the image generation process to identify the feature-dense space of the encoder. Afterward, we concatenate embeddings on the Keys and Values in this space to learn the gap between the personalized concept and its base class. In this way, the concatenated embeddings ultimately manifest as a residual on the original attention output. To more accurately and unbiasedly quantify the results of personalized image generation, we improve the CLIP image alignment score based on masks. Qualitatively and quantitatively, CatVersion helps to restore personalization concepts more faithfully and enables more robust editing.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2311.14631",
+      "url": "https://arxiv.org/abs/2311.14631",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2209.14046",
+      "title": "Adma-GAN: Attribute-Driven Memory Augmented GANs for Text-to-Image Generation",
+      "authors": [
+        {
+          "name": "Xintian Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hanbin Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Liangli Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Shouhong Ding",
+          "affiliation": ""
+        },
+        {
+          "name": "Xi Li",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "As a challenging task, text-to-image generation aims to generate photo-realistic and semantically consistent images according to the given text descriptions. Existing methods mainly extract the text information from only one sentence to represent an image and the text representation effects the quality of the generated image well. However, directly utilizing the limited information in one sentence misses some key attribute descriptions, which are the crucial factors to describe an image accurately. To alleviate the above problem, we propose an effective text representation method with the complements of attribute information. Firstly, we construct an attribute memory to jointly control the text-to-image generation with sentence input. Secondly, we explore two update mechanisms, sample-aware and sample-joint mechanisms, to dynamically optimize a generalized attribute memory. Furthermore, we design an attribute-sentence-joint conditional generator learning scheme to align the feature embeddings among multiple representations, which promotes the cross-modal network training. Experimental results illustrate that the proposed method obtains substantial performance improvements on both the CUB (FID from 14.81 to 8.57) and COCO (FID from 21.42 to 12.39) datasets.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.1145/3503161.3547821",
+      "arxiv_id": "2209.14046",
+      "url": "https://arxiv.org/abs/2209.14046",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2403.11053",
+      "title": "OSTAF: A One-Shot Tuning Method for Improved Attribute-Focused T2I Personalization",
+      "authors": [
+        {
+          "name": "Ye Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zili Yi",
+          "affiliation": ""
+        },
+        {
+          "name": "Rui Ma",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Personalized text-to-image (T2I) models not only produce lifelike and varied visuals but also allow users to tailor the images to fit their personal taste. These personalization techniques can grasp the essence of a concept through a collection of images, or adjust a pre-trained text-to-image model with a specific image input for subject-driven or attribute-aware guidance. Yet, accurately capturing the distinct visual attributes of an individual image poses a challenge for these methods. To address this issue, we introduce OSTAF, a novel parameter-efficient one-shot fine-tuning method which only utilizes one reference image for T2I personalization. A novel hypernetwork-powered attribute-focused fine-tuning mechanism is employed to achieve the precise learning of various attribute features (e.g., appearance, shape or drawing style) from the reference image. Comparing to existing image customization methods, our method shows significant superiority in attribute identification and application, as well as achieves a good balance between efficiency and output quality.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2403.11053",
+      "url": "https://arxiv.org/abs/2403.11053",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2503.21721",
+      "title": "Evaluating Text-to-Image and Text-to-Video Synthesis with a Conditional Fr\u00e9chet Distance",
+      "authors": [
+        {
+          "name": "Jaywon Koo",
+          "affiliation": ""
+        },
+        {
+          "name": "Jefferson Hernandez",
+          "affiliation": ""
+        },
+        {
+          "name": "Moayed Haji-Ali",
+          "affiliation": ""
+        },
+        {
+          "name": "Ziyan Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Vicente Ordonez",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Evaluating text-to-image and text-to-video models is challenging due to a fundamental disconnect: established metrics fail to jointly measure visual quality and semantic alignment with text, leading to a poor correlation with human judgments. To address this critical issue, we propose cFreD, a general metric based on a Conditional Fr\u00e9chet Distance that unifies the assessment of visual fidelity and text-prompt consistency into a single score. Existing metrics such as Fr\u00e9chet Inception Distance (FID) capture image quality but ignore text conditioning while alignment scores such as CLIPScore are insensitive to visual quality. Furthermore, learned preference models require constant retraining and are unlikely to generalize to novel architectures or out-of-distribution prompts. Through extensive experiments across multiple recently proposed text-to-image models and diverse prompt datasets, cFreD exhibits a higher correlation with human judgments compared to statistical metrics , including metrics trained with human preferences. Our findings validate cFreD as a robust, future-proof metric for the systematic evaluation of text conditioned models, standardizing benchmarking in this rapidly evolving field. We release our evaluation toolkit and benchmark.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2503.21721",
+      "url": "https://arxiv.org/abs/2503.21721",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2008.04893",
+      "title": "Channel Leakage, Information-Theoretic Limitations of Obfuscation, and Optimal Privacy Mask Design for Streaming Data",
+      "authors": [
+        {
+          "name": "Song Fang",
+          "affiliation": ""
+        },
+        {
+          "name": "Quanyan Zhu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "In this paper, we first introduce the notion of channel leakage as the minimum mutual information between the channel input and channel output. As its name indicates, channel leakage quantifies the minimum information leakage to the malicious receiver. In a broad sense, it can be viewed as a dual concept of channel capacity, which characterizes the maximum information transmission to the targeted receiver. We obtain explicit formulas of channel leakage for the white Gaussian case, the colored Gaussian case, and the fading case. We then utilize this notion to investigate the fundamental limitations of obfuscation in terms of privacy-distortion tradeoffs (as well as privacy-power tradeoffs) for streaming data; particularly, we derive analytical tradeoff equations for the stationary case, the non-stationary case, and the finite-time case. Our results also indicate explicitly how to design the privacy masks in an optimal way.",
+      "venue": "cs.IT",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2008.04893",
+      "url": "https://arxiv.org/abs/2008.04893",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2503.12885",
+      "title": "DreamRenderer: Taming Multi-Instance Attribute Control in Large-Scale Text-to-Image Models",
+      "authors": [
+        {
+          "name": "Dewei Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Mingwei Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Zongxin Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi Yang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Image-conditioned generation methods, such as depth- and canny-conditioned approaches, have demonstrated remarkable abilities for precise image synthesis. However, existing models still struggle to accurately control the content of multiple instances (or regions). Even state-of-the-art models like FLUX and 3DIS face challenges, such as attribute leakage between instances, which limits user control. To address these issues, we introduce DreamRenderer, a training-free approach built upon the FLUX model. DreamRenderer enables users to control the content of each instance via bounding boxes or masks, while ensuring overall visual harmony. We propose two key innovations: 1) Bridge Image Tokens for Hard Text Attribute Binding, which uses replicated image tokens as bridge tokens to ensure that T5 text embeddings, pre-trained solely on text data, bind the correct visual attributes for each instance during Joint Attention; 2) Hard Image Attribute Binding applied only to vital layers. Through our analysis of FLUX, we identify the critical layers responsible for instance attribute rendering and apply Hard Image Attribute Binding only in these layers, using soft binding in the others. This approach ensures precise control while preserving image quality. Evaluations on the COCO-POS and COCO-MIG benchmarks demonstrate that DreamRenderer improves the Image Success Ratio by 17.7% over FLUX and enhances the performance of layout-to-image models like GLIGEN and 3DIS by up to 26.8%. Project Page: https://limuloo.github.io/DreamRenderer/.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2503.12885",
+      "url": "https://arxiv.org/abs/2503.12885",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2509.22331",
+      "title": "Pedestrian Attribute Recognition via Hierarchical Cross-Modality HyperGraph Learning",
+      "authors": [
+        {
+          "name": "Xiao Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Shujuan Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaoxia Cheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Changwei Bi",
+          "affiliation": ""
+        },
+        {
+          "name": "Jin Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Bin Luo",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Current Pedestrian Attribute Recognition (PAR) algorithms typically focus on mapping visual features to semantic labels or attempt to enhance learning by fusing visual and attribute information. However, these methods fail to fully exploit attribute knowledge and contextual information for more accurate recognition. Although recent works have started to consider using attribute text as additional input to enhance the association between visual and semantic information, these methods are still in their infancy. To address the above challenges, this paper proposes the construction of a multi-modal knowledge graph, which is utilized to mine the relationships between local visual features and text, as well as the relationships between attributes and extensive visual context samples. Specifically, we propose an effective multi-modal knowledge graph construction method that fully considers the relationships among attributes and the relationships between attributes and vision tokens. To effectively model these relationships, this paper introduces a knowledge graph-guided cross-modal hypergraph learning framework to enhance the standard pedestrian attribute recognition framework. Comprehensive experiments on multiple PAR benchmark datasets have thoroughly demonstrated the effectiveness of our proposed knowledge graph for the PAR task, establishing a strong foundation for knowledge-guided pedestrian attribute recognition. The source code of this paper will be released on https://github.com/Event-AHU/OpenPAR",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2509.22331",
+      "url": "https://arxiv.org/abs/2509.22331",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2404.17929",
+      "title": "Spatio-Temporal Side Tuning Pre-trained Foundation Models for Video-based Pedestrian Attribute Recognition",
+      "authors": [
+        {
+          "name": "Xiao Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Qian Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiandong Jin",
+          "affiliation": ""
+        },
+        {
+          "name": "Jun Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Futian Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Bo Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yaowei Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yonghong Tian",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Existing pedestrian attribute recognition (PAR) algorithms are mainly developed based on a static image, however, the performance is unreliable in challenging scenarios, such as heavy occlusion, motion blur, etc. In this work, we propose to understand human attributes using video frames that can fully use temporal information by fine-tuning a pre-trained multi-modal foundation model efficiently. Specifically, we formulate the video-based PAR as a vision-language fusion problem and adopt a pre-trained foundation model CLIP to extract the visual features. More importantly, we propose a novel spatiotemporal side-tuning strategy to achieve parameter-efficient optimization of the pre-trained vision foundation model. To better utilize the semantic information, we take the full attribute list that needs to be recognized as another input and transform the attribute words/phrases into the corresponding sentence via split, expand, and prompt operations. Then, the text encoder of CLIP is utilized for embedding processed attribute descriptions. The averaged visual tokens and text tokens are concatenated and fed into a fusion Transformer for multi-modal interactive learning. The enhanced tokens will be fed into a classification head for pedestrian attribute prediction. Extensive experiments on two large-scale video-based PAR datasets fully validated the effectiveness of our proposed framework. The source code of this paper is available at https://github.com/Event-AHU/OpenPAR.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2404.17929",
+      "url": "https://arxiv.org/abs/2404.17929",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2404.04243",
+      "title": "Identity Decoupling for Multi-Subject Personalization of Text-to-Image Models",
+      "authors": [
+        {
+          "name": "Sangwon Jang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jaehyeong Jo",
+          "affiliation": ""
+        },
+        {
+          "name": "Kimin Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Sung Ju Hwang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Text-to-image diffusion models have shown remarkable success in generating personalized subjects based on a few reference images. However, current methods often fail when generating multiple subjects simultaneously, resulting in mixed identities with combined attributes from different subjects. In this work, we present MuDI, a novel framework that enables multi-subject personalization by effectively decoupling identities from multiple subjects. Our main idea is to utilize segmented subjects generated by a foundation model for segmentation (Segment Anything) for both training and inference, as a form of data augmentation for training and initialization for the generation process. Moreover, we further introduce a new metric to better evaluate the performance of our method on multi-subject personalization. Experimental results show that our MuDI can produce high-quality personalized images without identity mixing, even for highly similar subjects as shown in Figure 1. Specifically, in human evaluation, MuDI obtains twice the success rate for personalizing multiple subjects without identity mixing over existing baselines and is preferred over 70% against the strongest baseline.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2404.04243",
+      "url": "https://arxiv.org/abs/2404.04243",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2309.05113",
+      "title": "Personalized Search Via Neural Contextual Semantic Relevance Ranking",
+      "authors": [
+        {
+          "name": "Deguang Kong",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniel Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiheng Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Steph Sigalas",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Existing neural relevance models do not give enough consideration for query and item context information which diversifies the search results to adapt for personal preference. To bridge this gap, this paper presents a neural learning framework to personalize document ranking results by leveraging the signals to capture how the document fits into users' context. In particular, it models the relationships between document content and user query context using both lexical representations and semantic embeddings such that the user's intent can be better understood by data enrichment of personalized query context information. Extensive experiments performed on the search dataset, demonstrate the effectiveness of the proposed method.",
+      "venue": "cs.IR",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2309.05113",
+      "url": "https://arxiv.org/abs/2309.05113",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

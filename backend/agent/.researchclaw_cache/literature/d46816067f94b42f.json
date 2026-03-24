@@ -1,0 +1,816 @@
+{
+  "query": "mnist relu",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1773986138.4847262,
+  "papers": [
+    {
+      "paper_id": "arxiv-2306.00119",
+      "title": "Optimal Sets and Solution Paths of ReLU Networks",
+      "authors": [
+        {
+          "name": "Aaron Mishkin",
+          "affiliation": ""
+        },
+        {
+          "name": "Mert Pilanci",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We develop an analytical framework to characterize the set of optimal ReLU neural networks by reformulating the non-convex training problem as a convex program. We show that the global optima of the convex parameterization are given by a polyhedral set and then extend this characterization to the optimal set of the non-convex training objective. Since all stationary points of the ReLU training problem can be represented as optima of sub-sampled convex programs, our work provides a general expression for all critical points of the non-convex objective. We then leverage our results to provide an optimal pruning algorithm for computing minimal networks, establish conditions for the regularization path of ReLU networks to be continuous, and develop sensitivity results for minimal ReLU networks.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2306.00119",
+      "url": "https://arxiv.org/abs/2306.00119",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2108.00969",
+      "title": "Convergence rates of deep ReLU networks for multiclass classification",
+      "authors": [
+        {
+          "name": "Thijs Bos",
+          "affiliation": ""
+        },
+        {
+          "name": "Johannes Schmidt-Hieber",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "For classification problems, trained deep neural networks return probabilities of class memberships. In this work we study convergence of the learned probabilities to the true conditional class probabilities. More specifically we consider sparse deep ReLU network reconstructions minimizing cross-entropy loss in the multiclass classification setup. Interesting phenomena occur when the class membership probabilities are close to zero. Convergence rates are derived that depend on the near-zero behaviour via a margin-type condition.",
+      "venue": "math.ST",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2108.00969",
+      "url": "https://arxiv.org/abs/2108.00969",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2508.05600",
+      "title": "Non-omniscient backdoor injection with one poison sample: Proving the one-poison hypothesis for linear regression, linear classification, and 2-layer ReLU neural networks",
+      "authors": [
+        {
+          "name": "Thorsten Peinemann",
+          "affiliation": ""
+        },
+        {
+          "name": "Paula Arnold",
+          "affiliation": ""
+        },
+        {
+          "name": "Sebastian Berndt",
+          "affiliation": ""
+        },
+        {
+          "name": "Thomas Eisenbarth",
+          "affiliation": ""
+        },
+        {
+          "name": "Esfandiar Mohammadi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Backdoor poisoning attacks are a threat to machine learning models trained on large data collected from untrusted sources; these attacks enable attackers to inject malicious behavior into the model that can be triggered by specially crafted inputs. Prior work has established bounds on the success of backdoor attacks and their impact on the benign learning task, however, an open question is what amount of poison data is needed for a successful backdoor attack. Typical attacks either use few samples but need much information about the data points, or need to poison many data points.\n  In this paper, we formulate the one-poison hypothesis: An adversary with one poison sample and limited background knowledge can inject a backdoor with zero backdooring-error and without significantly impacting the benign learning task performance. Moreover, we prove the one-poison hypothesis for linear regression, linear classification, and 2-layer ReLU neural networks. For adversaries that utilize a direction unused by the clean data distribution for the poison sample, we prove for linear classification and linear regression that the resulting model is functionally equivalent to a model where the poison was excluded from training. We build on prior work on statistical backdoor learning to show that in all other cases, the impact on the benign learning task is still limited. We validate our theoretical results experimentally with realistic benchmark data sets.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2508.05600",
+      "url": "https://arxiv.org/abs/2508.05600",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2503.23832",
+      "title": "An extrapolated and provably convergent algorithm for nonlinear matrix decomposition with the ReLU function",
+      "authors": [
+        {
+          "name": "Nicolas Gillis",
+          "affiliation": ""
+        },
+        {
+          "name": "Margherita Porcelli",
+          "affiliation": ""
+        },
+        {
+          "name": "Giovanni Seraghiti",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "ReLU matrix decomposition (RMD) is the following problem: given a sparse, nonnegative matrix $X$ and a factorization rank $r$, identify a rank-$r$ matrix $\u0398$ such that $X\\approx \\max(0,\u0398)$. RMD is a particular instance of nonlinear matrix decomposition (NMD) that finds application in data compression, matrix completion with entries missing not at random, and manifold learning. The standard RMD model minimizes the least squares error, that is, $\\|X - \\max(0,\u0398)\\|_F^2$. The corresponding optimization problem, Least-Squares RMD (LS-RMD), is nondifferentiable and highly nonconvex. This motivated Saul to propose an alternative model, \\revise{dubbed Latent-RMD}, where a latent variable $Z$ is introduced and satisfies $\\max(0,Z)=X$ while minimizing $\\|Z - \u0398\\|_F^2$ (``A nonlinear matrix decomposition for mining the zeros of sparse data'', SIAM J.\\ Math.\\ Data Sci., 2022). Our first contribution is to show that the two formulations may yield different low-rank solutions $\u0398$. We then consider a reparametrization of the Latent-RMD, called 3B-RMD, in which $\u0398$ is substituted by a low-rank product $WH$, where $W$ has $r$ columns and $H$ has $r$ rows. Our second contribution is to prove the convergence of a block coordinate descent (BCD) approach applied to 3B-RMD. Our third contribution is a novel extrapolated variant of BCD, dubbed eBCD, which we prove is also convergent under mild assumptions. We illustrate the significant acceleration effect of eBCD compared to eBCD, and also show that eBCD performs well against the state of the art on synthetic and real-world data sets.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2503.23832",
+      "url": "https://arxiv.org/abs/2503.23832",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.07559",
+      "title": "N-ReLU: Zero-Mean Stochastic Extension of ReLU",
+      "authors": [
+        {
+          "name": "Md Motaleb Hossen Manik",
+          "affiliation": ""
+        },
+        {
+          "name": "Md Zabirul Islam",
+          "affiliation": ""
+        },
+        {
+          "name": "Ge Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Activation functions are fundamental for enabling nonlinear representations in deep neural networks. However, the standard rectified linear unit (ReLU) often suffers from inactive or \"dead\" neurons caused by its hard zero cutoff. To address this issue, we introduce N-ReLU (Noise-ReLU), a zero-mean stochastic extension of ReLU that replaces negative activations with Gaussian noise while preserving the same expected output. This expectation-aligned formulation maintains gradient flow in inactive regions and acts as an annealing-style regularizer during training. Experiments on the MNIST dataset using both multilayer perceptron (MLP) and convolutional neural network (CNN) architectures show that N-ReLU achieves accuracy comparable to or slightly exceeding that of ReLU, LeakyReLU, PReLU, GELU, and RReLU at moderate noise levels (sigma = 0.05-0.10), with stable convergence and no dead neurons observed. These results demonstrate that lightweight Gaussian noise injection offers a simple yet effective mechanism to enhance optimization robustness without modifying network structures or introducing additional parameters.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.07559",
+      "url": "https://arxiv.org/abs/2511.07559",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2206.00488",
+      "title": "Rotate the ReLU to implicitly sparsify deep networks",
+      "authors": [
+        {
+          "name": "Nancy Nayak",
+          "affiliation": ""
+        },
+        {
+          "name": "Sheetal Kalyani",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "In the era of Deep Neural Network based solutions for a variety of real-life tasks, having a compact and energy-efficient deployable model has become fairly important. Most of the existing deep architectures use Rectifier Linear Unit (ReLU) activation. In this paper, we propose a novel idea of rotating the ReLU activation to give one more degree of freedom to the architecture. We show that this activation wherein the rotation is learned via training results in the elimination of those parameters/filters in the network which are not important for the task. In other words, rotated ReLU seems to be doing implicit sparsification. The slopes of the rotated ReLU activations act as coarse feature extractors and unnecessary features can be eliminated before retraining. Our studies indicate that features always choose to pass through a lesser number of filters in architectures such as ResNet and its variants. Hence, by rotating the ReLU, the weights or the filters that are not necessary are automatically identified and can be dropped thus giving rise to significant savings in memory and computation. Furthermore, in some cases, we also notice that along with saving in memory and computation we also obtain improvement over the reported performance of the corresponding baseline work in the popular datasets such as MNIST, CIFAR-10, CIFAR-100, and SVHN.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2206.00488",
+      "url": "https://arxiv.org/abs/2206.00488",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2509.00362",
+      "title": "Optimized Weight Initialization on the Stiefel Manifold for Deep ReLU Neural Networks",
+      "authors": [
+        {
+          "name": "Hyungu Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Taehyeong Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Hayoung Choi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Stable and efficient training of ReLU networks with large depth is highly sensitive to weight initialization. Improper initialization can cause permanent neuron inactivation dying ReLU and exacerbate gradient instability as network depth increases. Methods such as He, Xavier, and orthogonal initialization preserve variance or promote approximate isometry. However, they do not necessarily regulate the pre-activation mean or control activation sparsity, and their effectiveness often diminishes in very deep architectures. This work introduces an orthogonal initialization specifically optimized for ReLU by solving an optimization problem on the Stiefel manifold, thereby preserving scale and calibrating the pre-activation statistics from the outset. A family of closed-form solutions and an efficient sampling scheme are derived. Theoretical analysis at initialization shows that prevention of the dying ReLU problem, slower decay of activation variance, and mitigation of gradient vanishing, which together stabilize signal and gradient flow in deep architectures. Empirically, across MNIST, Fashion-MNIST, multiple tabular datasets, few-shot settings, and ReLU-family activations, our method outperforms previous initializations and enables stable training in deep networks.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2509.00362",
+      "url": "https://arxiv.org/abs/2509.00362",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2003.10027",
+      "title": "Dynamic ReLU",
+      "authors": [
+        {
+          "name": "Yinpeng Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiyang Dai",
+          "affiliation": ""
+        },
+        {
+          "name": "Mengchen Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Dongdong Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Lu Yuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Zicheng Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Rectified linear units (ReLU) are commonly used in deep neural networks. So far ReLU and its generalizations (non-parametric or parametric) are static, performing identically for all input samples. In this paper, we propose dynamic ReLU (DY-ReLU), a dynamic rectifier of which parameters are generated by a hyper function over all in-put elements. The key insight is that DY-ReLU encodes the global context into the hyper function, and adapts the piecewise linear activation function accordingly. Compared to its static counterpart, DY-ReLU has negligible extra computational cost, but significantly more representation capability, especially for light-weight neural networks. By simply using DY-ReLU for MobileNetV2, the top-1 accuracy on ImageNet classification is boosted from 72.0% to 76.2% with only 5% additional FLOPs.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2003.10027",
+      "url": "https://arxiv.org/abs/2003.10027",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2107.12530",
+      "title": "Convergence of Deep ReLU Networks",
+      "authors": [
+        {
+          "name": "Yuesheng Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Haizhang Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "We explore convergence of deep neural networks with the popular ReLU activation function, as the depth of the networks tends to infinity. To this end, we introduce the notion of activation domains and activation matrices of a ReLU network. By replacing applications of the ReLU activation function by multiplications with activation matrices on activation domains, we obtain an explicit expression of the ReLU network. We then identify the convergence of the ReLU networks as convergence of a class of infinite products of matrices. Sufficient and necessary conditions for convergence of these infinite products of matrices are studied. As a result, we establish necessary conditions for ReLU networks to converge that the sequence of weight matrices converges to the identity matrix and the sequence of the bias vectors converges to zero as the depth of ReLU networks increases to infinity. Moreover, we obtain sufficient conditions in terms of the weight matrices and bias vectors at hidden layers for pointwise convergence of deep ReLU networks. These results provide mathematical insights to the design strategy of the well-known deep residual networks in image classification.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2107.12530",
+      "url": "https://arxiv.org/abs/2107.12530",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2509.05894",
+      "title": "Toric geometry of ReLU neural networks",
+      "authors": [
+        {
+          "name": "Yaoying Fu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Given a continuous finitely piecewise linear function $f:\\mathbb{R}^{n_0} \\to \\mathbb{R}$ and a fixed architecture $(n_0,\\ldots,n_k;1)$ of feedforward ReLU neural networks, the exact function realization problem is to determine when some network with the given architecture realizes $f$. To develop a systematic way to answer these questions, we establish a connection between toric geometry and ReLU neural networks. This approach enables us to utilize numerous structures and tools from algebraic geometry to study ReLU neural networks. Starting with an unbiased ReLU neural network with rational weights, we define the ReLU fan, the ReLU toric variety, and the ReLU Cartier divisor associated with the network. This work also reveals the connection between the tropical geometry and the toric geometry of ReLU neural networks. As an application of the toric geometry framework, we prove a necessary and sufficient criterion of functions realizable by unbiased shallow ReLU neural networks by computing intersection numbers of the ReLU Cartier divisor and torus-invariant curves.",
+      "venue": "math.AG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2509.05894",
+      "url": "https://arxiv.org/abs/2509.05894",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2505.22074",
+      "title": "The Resurrection of the ReLU",
+      "authors": [
+        {
+          "name": "Co\u015fku Can Horuz",
+          "affiliation": ""
+        },
+        {
+          "name": "Geoffrey Kasenbacher",
+          "affiliation": ""
+        },
+        {
+          "name": "Saya Higuchi",
+          "affiliation": ""
+        },
+        {
+          "name": "Sebastian Kairat",
+          "affiliation": ""
+        },
+        {
+          "name": "Jendrik Stoltz",
+          "affiliation": ""
+        },
+        {
+          "name": "Moritz Pesl",
+          "affiliation": ""
+        },
+        {
+          "name": "Bernhard A. Moser",
+          "affiliation": ""
+        },
+        {
+          "name": "Christoph Linse",
+          "affiliation": ""
+        },
+        {
+          "name": "Thomas Martinetz",
+          "affiliation": ""
+        },
+        {
+          "name": "Sebastian Otte",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Modeling sophisticated activation functions within deep learning architectures has evolved into a distinct research direction. Functions such as GELU, SELU, and SiLU offer smooth gradients and improved convergence properties, making them popular choices in state-of-the-art models. Despite this trend, the classical ReLU remains appealing due to its simplicity, inherent sparsity, and other advantageous topological characteristics. However, ReLU units are prone to becoming irreversibly inactive - a phenomenon known as the dying ReLU problem - which limits their overall effectiveness. In this work, we introduce surrogate gradient learning for ReLU (SUGAR) as a novel, plug-and-play regularizer for deep architectures. SUGAR preserves the standard ReLU function during the forward pass but replaces its derivative in the backward pass with a smooth surrogate that avoids zeroing out gradients. We demonstrate that SUGAR, when paired with a well-chosen surrogate function, substantially enhances generalization performance over convolutional network architectures such as VGG-16 and ResNet-18, providing sparser activations while effectively resurrecting dead ReLUs. Moreover, we show that even in modern architectures like Conv2NeXt and Swin Transformer - which typically employ GELU - substituting these with SUGAR yields competitive and even slightly superior performance. These findings challenge the prevailing notion that advanced activation functions are necessary for optimal performance. Instead, they suggest that the conventional ReLU, particularly with appropriate gradient handling, can serve as a strong, versatile revived classic across a broad range of deep learning vision models.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2505.22074",
+      "url": "https://arxiv.org/abs/2505.22074",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2306.17499",
+      "title": "The Implicit Bias of Minima Stability in Multivariate Shallow ReLU Networks",
+      "authors": [
+        {
+          "name": "Mor Shpigel Nacson",
+          "affiliation": ""
+        },
+        {
+          "name": "Rotem Mulayoff",
+          "affiliation": ""
+        },
+        {
+          "name": "Greg Ongie",
+          "affiliation": ""
+        },
+        {
+          "name": "Tomer Michaeli",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniel Soudry",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We study the type of solutions to which stochastic gradient descent converges when used to train a single hidden-layer multivariate ReLU network with the quadratic loss. Our results are based on a dynamical stability analysis. In the univariate case, it was shown that linearly stable minima correspond to network functions (predictors), whose second derivative has a bounded weighted $L^1$ norm. Notably, the bound gets smaller as the step size increases, implying that training with a large step size leads to `smoother' predictors. Here we generalize this result to the multivariate case, showing that a similar result applies to the Laplacian of the predictor. We demonstrate the tightness of our bound on the MNIST dataset, and show that it accurately captures the behavior of the solutions as a function of the step size. Additionally, we prove a depth separation result on the approximation power of ReLU networks corresponding to stable minima of the loss. Specifically, although shallow ReLU networks are universal approximators, we prove that stable shallow networks are not. Namely, there is a function that cannot be well-approximated by stable single hidden-layer ReLU networks trained with a non-vanishing step size. This is while the same function can be realized as a stable two hidden-layer ReLU network. Finally, we prove that if a function is sufficiently smooth (in a Sobolev sense) then it can be approximated arbitrarily well using shallow ReLU networks that correspond to stable solutions of gradient descent.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2306.17499",
+      "url": "https://arxiv.org/abs/2306.17499",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2303.06463",
+      "title": "Power efficient ReLU design for neuromorphic computing using spin Hall effect",
+      "authors": [
+        {
+          "name": "Venkatesh Vadde",
+          "affiliation": ""
+        },
+        {
+          "name": "Bhaskaran Muralidharan",
+          "affiliation": ""
+        },
+        {
+          "name": "Abhishek Sharma",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We demonstrate a magnetic tunnel junction injected with spin Hall current to exhibit linear rotation of magnetization of the free-ferromagnet using only the spin current. Using the linear resistance change of the MTJ, we devise a circuit for the rectified linear activation (ReLU) function of the artificial neuron. We explore the role of different spin Hall effect (SHE) heavy metal layers on the power consumption of the ReLU circuit. We benchmark the power consumption of the ReLU circuit with different SHE layers by defining a new parameter called the spin Hall power factor. It combines the spin Hall angle, resistivity, and thickness of the heavy metal layer, which translates to the power consumption of the different SHE layers during spin-orbit switching/rotation of the free FM. We employ a hybrid spintronics-CMOS simulation framework that couples Keldysh non-equilibrium Green's function formalism with Landau-Lifshitz-Gilbert-Slonzewski equations and the HSPICE circuit simulator to account for diverse physics of spin-transport and the CMOS elements in our proposed ReLU design. We also demonstrate the robustness of the proposed ReLU circuit against thermal noise and non-trivial power-error trade-off that enables the use of an unstable free-ferromagnet for energy-efficient design. Using the proposed circuit, we evaluate the performance of the convolutional neural network for MNIST datasets and demonstrate comparable classification accuracies to the ideal ReLU with an energy consumption of 75 $pJ$ per sample.",
+      "venue": "cond-mat.mes-hall",
+      "citation_count": 0,
+      "doi": "10.1088/1361-6463/acdae1",
+      "arxiv_id": "2303.06463",
+      "url": "https://arxiv.org/abs/2303.06463",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2005.04319",
+      "title": "ST-MNIST -- The Spiking Tactile MNIST Neuromorphic Dataset",
+      "authors": [
+        {
+          "name": "Hian Hian See",
+          "affiliation": ""
+        },
+        {
+          "name": "Brian Lim",
+          "affiliation": ""
+        },
+        {
+          "name": "Si Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Haicheng Yao",
+          "affiliation": ""
+        },
+        {
+          "name": "Wen Cheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Harold Soh",
+          "affiliation": ""
+        },
+        {
+          "name": "Benjamin C. K. Tee",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Tactile sensing is an essential modality for smart robots as it enables them to interact flexibly with physical objects in their environment. Recent advancements in electronic skins have led to the development of data-driven machine learning methods that exploit this important sensory modality. However, current datasets used to train such algorithms are limited to standard synchronous tactile sensors. There is a dearth of neuromorphic event-based tactile datasets, principally due to the scarcity of large-scale event-based tactile sensors. Having such datasets is crucial for the development and evaluation of new algorithms that process spatio-temporal event-based data. For example, evaluating spiking neural networks on conventional frame-based datasets is considered sub-optimal. Here, we debut a novel neuromorphic Spiking Tactile MNIST (ST-MNIST) dataset, which comprises handwritten digits obtained by human participants writing on a neuromorphic tactile sensor array. We also describe an initial effort to evaluate our ST-MNIST dataset using existing artificial and spiking neural network models. The classification accuracies provided herein can serve as performance benchmarks for future work. We anticipate that our ST-MNIST dataset will be of interest and useful to the neuromorphic and robotics research communities.",
+      "venue": "cs.NE",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2005.04319",
+      "url": "https://arxiv.org/abs/2005.04319",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2405.03777",
+      "title": "Is ReLU Adversarially Robust?",
+      "authors": [
+        {
+          "name": "Korn Sooksatra",
+          "affiliation": ""
+        },
+        {
+          "name": "Greg Hamerly",
+          "affiliation": ""
+        },
+        {
+          "name": "Pablo Rivas",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "The efficacy of deep learning models has been called into question by the presence of adversarial examples. Addressing the vulnerability of deep learning models to adversarial examples is crucial for ensuring their continued development and deployment. In this work, we focus on the role of rectified linear unit (ReLU) activation functions in the generation of adversarial examples. ReLU functions are commonly used in deep learning models because they facilitate the training process. However, our empirical analysis demonstrates that ReLU functions are not robust against adversarial examples. We propose a modified version of the ReLU function, which improves robustness against adversarial examples. Our results are supported by an experiment, which confirms the effectiveness of our proposed modification. Additionally, we demonstrate that applying adversarial training to our customized model further enhances its robustness compared to a general model.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2405.03777",
+      "url": "https://arxiv.org/abs/2405.03777",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2302.06461",
+      "title": "A Study on ReLU and Softmax in Transformer",
+      "authors": [
+        {
+          "name": "Kai Shen",
+          "affiliation": ""
+        },
+        {
+          "name": "Junliang Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Xu Tan",
+          "affiliation": ""
+        },
+        {
+          "name": "Siliang Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Rui Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiang Bian",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "The Transformer architecture consists of self-attention and feed-forward networks (FFNs) which can be viewed as key-value memories according to previous works. However, FFN and traditional memory utilize different activation functions (i.e., ReLU and Softmax respectively), which makes them not equivalent. In this paper, we first rebuild the connections between FFN and key-value memory by conducting extensive studies on ReLU and Softmax, and find they are equivalent when adding an additional layer normalization module on Softmax. In addition, ReLU outperforms Softmax on both FFN and key-value memory when the number of value slots is large. We analyze the reasons and then explore this good property of ReLU on the self-attention network where the original Softmax activation performs poorly on long input sequences. We then propose a full ReLU architecture named ReLUFormer which performs better than the baseline Transformer on long sequence tasks such as document translation. This paper sheds light on the following points: 1) Softmax and ReLU use different normalization methods over elements which lead to different variances of results, and ReLU is good at dealing with a large number of key-value slots; 2) FFN and key-value memory are equivalent, and thus the Transformer can be viewed as a memory network where FFNs and self-attention networks are both key-value memories.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2302.06461",
+      "url": "https://arxiv.org/abs/2302.06461",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2502.09954",
+      "title": "On Space Folds of ReLU Neural Networks",
+      "authors": [
+        {
+          "name": "Michal Lewandowski",
+          "affiliation": ""
+        },
+        {
+          "name": "Hamid Eghbalzadeh",
+          "affiliation": ""
+        },
+        {
+          "name": "Bernhard Heinzl",
+          "affiliation": ""
+        },
+        {
+          "name": "Raphael Pisoni",
+          "affiliation": ""
+        },
+        {
+          "name": "Bernhard A. Moser",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Recent findings suggest that the consecutive layers of ReLU neural networks can be understood geometrically as space folding transformations of the input space, revealing patterns of self-similarity. In this paper, we present the first quantitative analysis of this space folding phenomenon in ReLU neural networks. Our approach focuses on examining how straight paths in the Euclidean input space are mapped to their counterparts in the Hamming activation space. In this process, the convexity of straight lines is generally lost, giving rise to non-convex folding behavior. To quantify this effect, we introduce a novel measure based on range metrics, similar to those used in the study of random walks, and provide the proof for the equivalence of convexity notions between the input and activation spaces. Furthermore, we provide empirical analysis on a geometrical analysis benchmark (CantorNet) as well as an image classification benchmark (MNIST). Our work advances the understanding of the activation space in ReLU neural networks by leveraging the phenomena of geometric folding, providing valuable insights on how these models process input information.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2502.09954",
+      "url": "https://arxiv.org/abs/2502.09954",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2310.03482",
+      "title": "The Geometric Structure of Fully-Connected ReLU Layers",
+      "authors": [
+        {
+          "name": "Jonatan Vallin",
+          "affiliation": ""
+        },
+        {
+          "name": "Karl Larsson",
+          "affiliation": ""
+        },
+        {
+          "name": "Mats G. Larson",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We formalize and interpret the geometric structure of $d$-dimensional fully connected ReLU layers in neural networks. The parameters of a ReLU layer induce a natural partition of the input domain, such that the ReLU layer can be significantly simplified in each sector of the partition. This leads to a geometric interpretation of a ReLU layer as a projection onto a polyhedral cone followed by an affine transformation, in line with the description in [doi:10.48550/arXiv.1905.08922] for convolutional networks with ReLU activations. Further, this structure facilitates simplified expressions for preimages of the intersection between partition sectors and hyperplanes, which is useful when describing decision boundaries in a classification setting. We investigate this in detail for a feed-forward network with one hidden ReLU-layer, where we provide results on the geometric complexity of the decision boundary generated by such networks, as well as proving that modulo an affine transformation, such a network can only generate $d$ different decision boundaries. Finally, the effect of adding more layers to the network is discussed.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2310.03482",
+      "url": "https://arxiv.org/abs/2310.03482",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2407.06888",
+      "title": "A Complete Set of Quadratic Constraints for Repeated ReLU and Generalizations",
+      "authors": [
+        {
+          "name": "Sahel Vahedi Noori",
+          "affiliation": ""
+        },
+        {
+          "name": "Bin Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Geir Dullerud",
+          "affiliation": ""
+        },
+        {
+          "name": "Peter Seiler",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "This paper derives a complete set of quadratic constraints (QCs) for the repeated ReLU. The complete set of QCs is described by a collection of matrix copositivity conditions. We also show that only two functions satisfy all QCs in our complete set: the repeated ReLU and flipped ReLU. Thus our complete set of QCs bounds the repeated ReLU as tight as possible up to the sign invariance inherent in quadratic forms. We derive a similar complete set of incremental QCs for repeated ReLU, which can potentially lead to less conservative Lipschitz bounds for ReLU networks than the standard LipSDP approach. The basic constructions are also used to derive the complete sets of QCs for other piecewise linear activation functions such as leaky ReLU, MaxMin, and HouseHolder. Finally, we illustrate the use of the complete set of QCs to assess stability and performance for recurrent neural networks with ReLU activation functions. We rely on a standard copositivity relaxation to formulate the stability/performance condition as a semidefinite program. Simple examples are provided to illustrate that the complete sets of QCs and incremental QCs can yield less conservative bounds than existing sets.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2407.06888",
+      "url": "https://arxiv.org/abs/2407.06888",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2505.11692",
+      "title": "The Geometry of ReLU Networks through the ReLU Transition Graph",
+      "authors": [
+        {
+          "name": "Sahil Rajesh Dhayalkar",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "We develop a novel theoretical framework for analyzing ReLU neural networks through the lens of a combinatorial object we term the ReLU Transition Graph (RTG). In this graph, each node corresponds to a linear region induced by the network's activation patterns, and edges connect regions that differ by a single neuron flip. Building on this structure, we derive a suite of new theoretical results connecting RTG geometry to expressivity, generalization, and robustness. Our contributions include tight combinatorial bounds on RTG size and diameter, a proof of RTG connectivity, and graph-theoretic interpretations of VC-dimension. We also relate entropy and average degree of the RTG to generalization error. Each theoretical result is rigorously validated via carefully controlled experiments across varied network depths, widths, and data regimes. This work provides the first unified treatment of ReLU network structure via graph theory and opens new avenues for compression, regularization, and complexity control rooted in RTG analysis.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2505.11692",
+      "url": "https://arxiv.org/abs/2505.11692",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2109.00190",
+      "title": "Approximation Properties of Deep ReLU CNNs",
+      "authors": [
+        {
+          "name": "Juncai He",
+          "affiliation": ""
+        },
+        {
+          "name": "Lin Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Jinchao Xu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "This paper focuses on establishing $L^2$ approximation properties for deep ReLU convolutional neural networks (CNNs) in two-dimensional space. The analysis is based on a decomposition theorem for convolutional kernels with a large spatial size and multi-channels. Given the decomposition result, the property of the ReLU activation function, and a specific structure for channels, a universal approximation theorem of deep ReLU CNNs with classic structure is obtained by showing its connection with one-hidden-layer ReLU neural networks (NNs). Furthermore, approximation properties are obtained for one version of neural networks with ResNet, pre-act ResNet, and MgNet architecture based on connections between these networks.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "10.1007/s40687-022-00336-0",
+      "arxiv_id": "2109.00190",
+      "url": "https://arxiv.org/abs/2109.00190",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2009.13509",
+      "title": "Afro-MNIST: Synthetic generation of MNIST-style datasets for low-resource languages",
+      "authors": [
+        {
+          "name": "Daniel J Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Andrew C Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Vinay U Prabhu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "We present Afro-MNIST, a set of synthetic MNIST-style datasets for four orthographies used in Afro-Asiatic and Niger-Congo languages: Ge`ez (Ethiopic), Vai, Osmanya, and N'Ko. These datasets serve as \"drop-in\" replacements for MNIST. We also describe and open-source a method for synthetic MNIST-style dataset generation from single examples of each digit. These datasets can be found at https://github.com/Daniel-Wu/AfroMNIST. We hope that MNIST-style datasets will be developed for other numeral systems, and that these datasets vitalize machine learning education in underrepresented nations in the research community.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2009.13509",
+      "url": "https://arxiv.org/abs/2009.13509",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2105.04156",
+      "title": "ReLU Deep Neural Networks from the Hierarchical Basis Perspective",
+      "authors": [
+        {
+          "name": "Juncai He",
+          "affiliation": ""
+        },
+        {
+          "name": "Lin Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Jinchao Xu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "We study ReLU deep neural networks (DNNs) by investigating their connections with the hierarchical basis method in finite element methods. First, we show that the approximation schemes of ReLU DNNs for $x^2$ and $xy$ are composition versions of the hierarchical basis approximation for these two functions. Based on this fact, we obtain a geometric interpretation and systematic proof for the approximation result of ReLU DNNs for polynomials, which plays an important role in a series of recent exponential approximation results of ReLU DNNs. Through our investigation of connections between ReLU DNNs and the hierarchical basis approximation for $x^2$ and $xy$, we show that ReLU DNNs with this special structure can be applied only to approximate quadratic functions. Furthermore, we obtain a concise representation to explicitly reproduce any linear finite element function on a two-dimensional uniform mesh by using ReLU DNNs with only two hidden layers.",
+      "venue": "math.NA",
+      "citation_count": 0,
+      "doi": "10.1016/j.camwa.2022.06.006",
+      "arxiv_id": "2105.04156",
+      "url": "https://arxiv.org/abs/2105.04156",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2509.03056",
+      "title": "Discrete Functional Geometry of ReLU Networks via ReLU Transition Graphs",
+      "authors": [
+        {
+          "name": "Sahil Rajesh Dhayalkar",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "We extend the ReLU Transition Graph (RTG) framework into a comprehensive graph-theoretic model for understanding deep ReLU networks. In this model, each node represents a linear activation region, and edges connect regions that differ by a single ReLU activation flip, forming a discrete geometric structure over the network's functional behavior. We prove that RTGs at random initialization exhibit strong expansion, binomial degree distributions, and spectral properties that tightly govern generalization. These structural insights enable new bounds on capacity via region entropy and on generalization via spectral gap and edge-wise KL divergence. Empirically, we construct RTGs for small networks, measure their smoothness and connectivity properties, and validate theoretical predictions. Our results show that region entropy saturates under overparameterization, spectral gap correlates with generalization, and KL divergence across adjacent regions reflects functional smoothness. This work provides a unified framework for analyzing ReLU networks through the lens of discrete functional geometry, offering new tools to understand, diagnose, and improve generalization.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2509.03056",
+      "url": "https://arxiv.org/abs/2509.03056",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2008.06141",
+      "title": "Analytical bounds on the local Lipschitz constants of affine-ReLU functions",
+      "authors": [
+        {
+          "name": "Trevor Avant",
+          "affiliation": ""
+        },
+        {
+          "name": "Kristi A. Morgansen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "In this paper, we determine analytical bounds on the local Lipschitz constants of of affine functions composed with rectified linear units (ReLUs). Affine-ReLU functions represent a widely used layer in deep neural networks, due to the fact that convolution, fully-connected, and normalization functions are all affine, and are often followed by a ReLU activation function. Using an analytical approach, we mathematically determine upper bounds on the local Lipschitz constant of an affine-ReLU function, show how these bounds can be combined to determine a bound on an entire network, and discuss how the bounds can be efficiently computed, even for larger layers and networks. We show several examples by applying our results to AlexNet, as well as several smaller networks based on the MNIST and CIFAR-10 datasets. The results show that our method produces tighter bounds than the standard conservative bound (i.e. the product of the spectral norms of the layers' linear matrices), especially for small perturbations.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2008.06141",
+      "url": "https://arxiv.org/abs/2008.06141",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2101.11835",
+      "title": "Reducing ReLU Count for Privacy-Preserving CNN Speedup",
+      "authors": [
+        {
+          "name": "Inbar Helbitz",
+          "affiliation": ""
+        },
+        {
+          "name": "Shai Avidan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Privacy-Preserving Machine Learning algorithms must balance classification accuracy with data privacy. This can be done using a combination of cryptographic and machine learning tools such as Convolutional Neural Networks (CNN). CNNs typically consist of two types of operations: a convolutional or linear layer, followed by a non-linear function such as ReLU. Each of these types can be implemented efficiently using a different cryptographic tool. But these tools require different representations and switching between them is time-consuming and expensive. Recent research suggests that ReLU is responsible for most of the communication bandwidth. ReLU is usually applied at each pixel (or activation) location, which is quite expensive. We propose to share ReLU operations. Specifically, the ReLU decision of one activation can be used by others, and we explore different ways to group activations and different ways to determine the ReLU for such a group of activations. Experiments on several datasets reveal that we can cut the number of ReLU operations by up to three orders of magnitude and, as a result, cut the communication bandwidth by more than 50%.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2101.11835",
+      "url": "https://arxiv.org/abs/2101.11835",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2202.01331",
+      "title": "Fast Convex Optimization for Two-Layer ReLU Networks: Equivalent Model Classes and Cone Decompositions",
+      "authors": [
+        {
+          "name": "Aaron Mishkin",
+          "affiliation": ""
+        },
+        {
+          "name": "Arda Sahiner",
+          "affiliation": ""
+        },
+        {
+          "name": "Mert Pilanci",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "We develop fast algorithms and robust software for convex optimization of two-layer neural networks with ReLU activation functions. Our work leverages a convex reformulation of the standard weight-decay penalized training problem as a set of group-$\\ell_1$-regularized data-local models, where locality is enforced by polyhedral cone constraints. In the special case of zero-regularization, we show that this problem is exactly equivalent to unconstrained optimization of a convex \"gated ReLU\" network with non-singular gates. For problems with non-zero regularization, we show that convex gated ReLU models obtain data-dependent approximation bounds for the ReLU training problem. To optimize the convex reformulations, we develop an accelerated proximal gradient method and a practical augmented Lagrangian solver. We show that these approaches are faster than standard training heuristics for the non-convex problem, such as SGD, and outperform commercial interior-point solvers. Experimentally, we verify our theoretical results, explore the group-$\\ell_1$ regularization path, and scale convex optimization for neural networks to image classification on MNIST and CIFAR-10.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2202.01331",
+      "url": "https://arxiv.org/abs/2202.01331",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2304.02755",
+      "title": "Hybrid Zonotopes Exactly Represent ReLU Neural Networks",
+      "authors": [
+        {
+          "name": "Joshua Ortiz",
+          "affiliation": ""
+        },
+        {
+          "name": "Alyssa Vellucci",
+          "affiliation": ""
+        },
+        {
+          "name": "Justin Koeln",
+          "affiliation": ""
+        },
+        {
+          "name": "Justin Ruths",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We show that hybrid zonotopes offer an equivalent representation of feed-forward fully connected neural networks with ReLU activation functions. Our approach demonstrates that the complexity of binary variables is equal to the total number of neurons in the network and hence grows linearly in the size of the network. We demonstrate the utility of the hybrid zonotope formulation through three case studies including nonlinear function approximation, MPC closed-loop reachability and verification, and robustness of classification on the MNIST dataset.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2304.02755",
+      "url": "https://arxiv.org/abs/2304.02755",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

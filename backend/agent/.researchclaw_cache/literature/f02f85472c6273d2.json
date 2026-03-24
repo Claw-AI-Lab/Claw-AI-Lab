@@ -1,0 +1,1561 @@
+{
+  "query": "fine tuning LLaMA 7B",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1773944639.2363148,
+  "papers": [
+    {
+      "paper_id": "arxiv-2303.16199",
+      "title": "LLaMA-Adapter: Efficient Fine-tuning of Language Models with Zero-init Attention",
+      "authors": [
+        {
+          "name": "Renrui Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiaming Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Chris Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Peng Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Aojun Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiangfei Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Shilin Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Pan Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hongsheng Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Qiao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We present LLaMA-Adapter, a lightweight adaption method to efficiently fine-tune LLaMA into an instruction-following model. Using 52K self-instruct demonstrations, LLaMA-Adapter only introduces 1.2M learnable parameters upon the frozen LLaMA 7B model, and costs less than one hour for fine-tuning on 8 A100 GPUs. Specifically, we adopt a set of learnable adaption prompts, and prepend them to the word tokens at higher transformer layers. Then, a zero-initialized attention mechanism with zero gating is proposed, which adaptively injects the new instructional cues into LLaMA, while effectively preserves its pre-trained knowledge. With our efficient training, LLaMA-Adapter can generate high-quality responses, comparable to Alpaca with fully fine-tuned 7B parameters. Besides language commands, our approach can be simply extended to multi-modal instructions for learning image-conditioned LLaMA model, which achieves superior reasoning performance on ScienceQA and COCO Caption benchmarks. Furthermore, we also evaluate the zero-initialized attention mechanism for fine-tuning other pre-trained models (ViT, RoBERTa) on traditional vision and language tasks, demonstrating the superior generalization capacity of our approach. Code is released at https://github.com/OpenGVLab/LLaMA-Adapter.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2303.16199",
+      "url": "https://arxiv.org/abs/2303.16199",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2310.06825",
+      "title": "Mistral 7B",
+      "authors": [
+        {
+          "name": "Albert Q. Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Alexandre Sablayrolles",
+          "affiliation": ""
+        },
+        {
+          "name": "Arthur Mensch",
+          "affiliation": ""
+        },
+        {
+          "name": "Chris Bamford",
+          "affiliation": ""
+        },
+        {
+          "name": "Devendra Singh Chaplot",
+          "affiliation": ""
+        },
+        {
+          "name": "Diego de las Casas",
+          "affiliation": ""
+        },
+        {
+          "name": "Florian Bressand",
+          "affiliation": ""
+        },
+        {
+          "name": "Gianna Lengyel",
+          "affiliation": ""
+        },
+        {
+          "name": "Guillaume Lample",
+          "affiliation": ""
+        },
+        {
+          "name": "Lucile Saulnier",
+          "affiliation": ""
+        },
+        {
+          "name": "L\u00e9lio Renard Lavaud",
+          "affiliation": ""
+        },
+        {
+          "name": "Marie-Anne Lachaux",
+          "affiliation": ""
+        },
+        {
+          "name": "Pierre Stock",
+          "affiliation": ""
+        },
+        {
+          "name": "Teven Le Scao",
+          "affiliation": ""
+        },
+        {
+          "name": "Thibaut Lavril",
+          "affiliation": ""
+        },
+        {
+          "name": "Thomas Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Timoth\u00e9e Lacroix",
+          "affiliation": ""
+        },
+        {
+          "name": "William El Sayed",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We introduce Mistral 7B v0.1, a 7-billion-parameter language model engineered for superior performance and efficiency. Mistral 7B outperforms Llama 2 13B across all evaluated benchmarks, and Llama 1 34B in reasoning, mathematics, and code generation. Our model leverages grouped-query attention (GQA) for faster inference, coupled with sliding window attention (SWA) to effectively handle sequences of arbitrary length with a reduced inference cost. We also provide a model fine-tuned to follow instructions, Mistral 7B -- Instruct, that surpasses the Llama 2 13B -- Chat model both on human and automated benchmarks. Our models are released under the Apache 2.0 license.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2310.06825",
+      "url": "https://arxiv.org/abs/2310.06825",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2304.06975",
+      "title": "HuaTuo: Tuning LLaMA Model with Chinese Medical Knowledge",
+      "authors": [
+        {
+          "name": "Haochun Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chi Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Nuwa Xi",
+          "affiliation": ""
+        },
+        {
+          "name": "Zewen Qiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Sendong Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Bing Qin",
+          "affiliation": ""
+        },
+        {
+          "name": "Ting Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Large Language Models (LLMs), such as the LLaMA model, have demonstrated their effectiveness in various general-domain natural language processing (NLP) tasks. Nevertheless, LLMs have not yet performed optimally in biomedical domain tasks due to the need for medical expertise in the responses. In response to this challenge, we propose HuaTuo, a LLaMA-based model that has been supervised-fine-tuned with generated QA (Question-Answer) instances. The experimental results demonstrate that HuaTuo generates responses that possess more reliable medical knowledge. Our proposed HuaTuo model is accessible at https://github.com/SCIR-HI/Huatuo-Llama-Med-Chinese.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2304.06975",
+      "url": "https://arxiv.org/abs/2304.06975",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2406.11161",
+      "title": "Emotion-LLaMA: Multimodal Emotion Recognition and Reasoning with Instruction Tuning",
+      "authors": [
+        {
+          "name": "Zebang Cheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhi-Qi Cheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Jun-Yan He",
+          "affiliation": ""
+        },
+        {
+          "name": "Jingdong Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Kai Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuxiang Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Zheng Lian",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaojiang Peng",
+          "affiliation": ""
+        },
+        {
+          "name": "Alexander Hauptmann",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Accurate emotion perception is crucial for various applications, including human-computer interaction, education, and counseling. However, traditional single-modality approaches often fail to capture the complexity of real-world emotional expressions, which are inherently multimodal. Moreover, existing Multimodal Large Language Models (MLLMs) face challenges in integrating audio and recognizing subtle facial micro-expressions. To address this, we introduce the MERR dataset, containing 28,618 coarse-grained and 4,487 fine-grained annotated samples across diverse emotional categories. This dataset enables models to learn from varied scenarios and generalize to real-world applications. Furthermore, we propose Emotion-LLaMA, a model that seamlessly integrates audio, visual, and textual inputs through emotion-specific encoders. By aligning features into a shared space and employing a modified LLaMA model with instruction tuning, Emotion-LLaMA significantly enhances both emotional recognition and reasoning capabilities. Extensive evaluations show Emotion-LLaMA outperforms other MLLMs, achieving top scores in Clue Overlap (7.83) and Label Overlap (6.25) on EMER, an F1 score of 0.9036 on MER2023-SEMI challenge, and the highest UAR (45.59) and WAR (59.37) in zero-shot evaluations on DFEW dataset.",
+      "venue": "cs.AI",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2406.11161",
+      "url": "https://arxiv.org/abs/2406.11161",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2506.15415",
+      "title": "Targeted Lexical Injection: Unlocking Latent Cross-Lingual Alignment in Lugha-Llama via Early-Layer LoRA Fine-Tuning",
+      "authors": [
+        {
+          "name": "Stanley Ngugi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Large Language Models (LLMs) have demonstrated remarkable capabilities, yet their performance in low-resource languages (LRLs), such as Swahili, often lags due to data scarcity and underrepresentation in pre-training. A key challenge is achieving robust cross-lingual lexical alignment, crucial for tasks like translation and cross-lingual information retrieval. This paper introduces Targeted Lexical Injection (TLI), a novel and efficient fine-tuning approach. We first demonstrate that Lugha-Llama-8B-wura, a Swahili-centric LLM, exhibits strong, near-perfect lexical alignment for Swahili-English word pairs in its early internal layers (specifically Layer 2, with ~0.99998 average cosine similarity based on a pilot study), a capability not fully reflected in its final output representations (baseline ~0.32 similarity on our evaluation set). TLI leverages this insight by using Low-Rank Adaptation (LoRA) and a contrastive learning objective to fine-tune the model, specifically targeting embeddings from this empirically identified optimal early layer. Our experiments show that TLI significantly improves the output-level lexical alignment for 623 trained Swahili-English word pairs, increasing average cosine similarity from 0.3211 to 0.4113 (+28.08%, p < 1.33 x 10^-240). More importantly, these improvements generalize remarkably well to 63 unseen control word pairs, with similarity increasing from 0.3143 to 0.4033 (+28.32%, p < 7.17 x 10^-27). These findings suggest TLI enhances the model's ability to preserve and propagate its inherent early-layer cross-lingual knowledge, offering a parameter-efficient and effective strategy for improving lexical alignment in LRL-focused LLMs.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2506.15415",
+      "url": "https://arxiv.org/abs/2506.15415",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2403.00946",
+      "title": "Fine-tuning with Very Large Dropout",
+      "authors": [
+        {
+          "name": "Jianyu Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "L\u00e9on Bottou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "It is impossible today to pretend that the practice of machine learning is always compatible with the idea that training and testing data follow the same distribution. Several authors have recently used ensemble techniques to show how scenarios involving multiple data distributions are best served by representations that are both richer than those obtained by regularizing for the best in-distribution performance, and richer than those obtained under the influence of the implicit sparsity bias of common stochastic gradient procedures.\n  This contribution investigates the use of very high dropout rates instead of ensembles to obtain such rich representations. Although training a deep network from scratch using such dropout rates is virtually impossible, fine-tuning a large pre-trained model under such conditions is not only possible but also achieves out-of-distribution performances that exceed those of both ensembles and weight averaging methods such as model soups.\n  This result has practical significance because the importance of the fine-tuning scenario has considerably grown in recent years. This result also provides interesting insights on the nature of rich representations and on the intrinsically linear nature of fine-tuning a large network using a comparatively small dataset.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2403.00946",
+      "url": "https://arxiv.org/abs/2403.00946",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2110.06500",
+      "title": "Differentially Private Fine-tuning of Language Models",
+      "authors": [
+        {
+          "name": "Da Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Saurabh Naik",
+          "affiliation": ""
+        },
+        {
+          "name": "Arturs Backurs",
+          "affiliation": ""
+        },
+        {
+          "name": "Sivakanth Gopi",
+          "affiliation": ""
+        },
+        {
+          "name": "Huseyin A. Inan",
+          "affiliation": ""
+        },
+        {
+          "name": "Gautam Kamath",
+          "affiliation": ""
+        },
+        {
+          "name": "Janardhan Kulkarni",
+          "affiliation": ""
+        },
+        {
+          "name": "Yin Tat Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Andre Manoel",
+          "affiliation": ""
+        },
+        {
+          "name": "Lukas Wutschitz",
+          "affiliation": ""
+        },
+        {
+          "name": "Sergey Yekhanin",
+          "affiliation": ""
+        },
+        {
+          "name": "Huishuai Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "We give simpler, sparser, and faster algorithms for differentially private fine-tuning of large-scale pre-trained language models, which achieve the state-of-the-art privacy versus utility tradeoffs on many standard NLP tasks. We propose a meta-framework for this problem, inspired by the recent success of highly parameter-efficient methods for fine-tuning. Our experiments show that differentially private adaptations of these approaches outperform previous private algorithms in three important dimensions: utility, privacy, and the computational and memory cost of private training. On many commonly studied datasets, the utility of private models approaches that of non-private models. For example, on the MNLI dataset we achieve an accuracy of $87.8\\%$ using RoBERTa-Large and $83.5\\%$ using RoBERTa-Base with a privacy budget of $\u03b5= 6.7$. In comparison, absent privacy constraints, RoBERTa-Large achieves an accuracy of $90.2\\%$. Our findings are similar for natural language generation tasks. Privately fine-tuning with DART, GPT-2-Small, GPT-2-Medium, GPT-2-Large, and GPT-2-XL achieve BLEU scores of 38.5, 42.0, 43.1, and 43.8 respectively (privacy budget of $\u03b5= 6.8,\u03b4=$ 1e-5) whereas the non-private baseline is $48.1$. All our experiments suggest that larger models are better suited for private fine-tuning: while they are well known to achieve superior accuracy non-privately, we find that they also better maintain their accuracy when privacy is introduced.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2110.06500",
+      "url": "https://arxiv.org/abs/2110.06500",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2110.05457",
+      "title": "Legged Robots that Keep on Learning: Fine-Tuning Locomotion Policies in the Real World",
+      "authors": [
+        {
+          "name": "Laura Smith",
+          "affiliation": ""
+        },
+        {
+          "name": "J. Chase Kew",
+          "affiliation": ""
+        },
+        {
+          "name": "Xue Bin Peng",
+          "affiliation": ""
+        },
+        {
+          "name": "Sehoon Ha",
+          "affiliation": ""
+        },
+        {
+          "name": "Jie Tan",
+          "affiliation": ""
+        },
+        {
+          "name": "Sergey Levine",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Legged robots are physically capable of traversing a wide range of challenging environments, but designing controllers that are sufficiently robust to handle this diversity has been a long-standing challenge in robotics. Reinforcement learning presents an appealing approach for automating the controller design process and has been able to produce remarkably robust controllers when trained in a suitable range of environments. However, it is difficult to predict all likely conditions the robot will encounter during deployment and enumerate them at training-time. What if instead of training controllers that are robust enough to handle any eventuality, we enable the robot to continually learn in any setting it finds itself in? This kind of real-world reinforcement learning poses a number of challenges, including efficiency, safety, and autonomy. To address these challenges, we propose a practical robot reinforcement learning system for fine-tuning locomotion policies in the real world. We demonstrate that a modest amount of real-world training can substantially improve performance during deployment, and this enables a real A1 quadrupedal robot to autonomously fine-tune multiple locomotion skills in a range of environments, including an outdoor lawn and a variety of indoor terrains.",
+      "venue": "cs.RO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2110.05457",
+      "url": "https://arxiv.org/abs/2110.05457",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2102.03983",
+      "title": "Partial Is Better Than All: Revisiting Fine-tuning Strategy for Few-shot Learning",
+      "authors": [
+        {
+          "name": "Zhiqiang Shen",
+          "affiliation": ""
+        },
+        {
+          "name": "Zechun Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jie Qin",
+          "affiliation": ""
+        },
+        {
+          "name": "Marios Savvides",
+          "affiliation": ""
+        },
+        {
+          "name": "Kwang-Ting Cheng",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "The goal of few-shot learning is to learn a classifier that can recognize unseen classes from limited support data with labels. A common practice for this task is to train a model on the base set first and then transfer to novel classes through fine-tuning (Here fine-tuning procedure is defined as transferring knowledge from base to novel data, i.e. learning to transfer in few-shot scenario.) or meta-learning. However, as the base classes have no overlap to the novel set, simply transferring whole knowledge from base data is not an optimal solution since some knowledge in the base model may be biased or even harmful to the novel class. In this paper, we propose to transfer partial knowledge by freezing or fine-tuning particular layer(s) in the base model. Specifically, layers will be imposed different learning rates if they are chosen to be fine-tuned, to control the extent of preserved transferability. To determine which layers to be recast and what values of learning rates for them, we introduce an evolutionary search based method that is efficient to simultaneously locate the target layers and determine their individual learning rates. We conduct extensive experiments on CUB and mini-ImageNet to demonstrate the effectiveness of our proposed method. It achieves the state-of-the-art performance on both meta-learning and non-meta based frameworks. Furthermore, we extend our method to the conventional pre-training + fine-tuning paradigm and obtain consistent improvement.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2102.03983",
+      "url": "https://arxiv.org/abs/2102.03983",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2408.07888",
+      "title": "Evaluating Fine-Tuning Efficiency of Human-Inspired Learning Strategies in Medical Question Answering",
+      "authors": [
+        {
+          "name": "Yushi Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Andrew M. Bean",
+          "affiliation": ""
+        },
+        {
+          "name": "Robert McCraith",
+          "affiliation": ""
+        },
+        {
+          "name": "Adam Mahdi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Fine-tuning Large Language Models (LLMs) incurs considerable training costs, driving the need for data-efficient training with optimised data ordering. Human-inspired strategies offer a solution by organising data based on human learning practices. This study evaluates the fine-tuning efficiency of five human-inspired strategies across four language models, three datasets, and both human- and LLM-labelled data in the context of medical question answering. These strategies achieve the best accuracy gain of 1.81% and an average gain of 1.02% across datasets, with interleaved strategies delivering the best average results. However, the best strategy varies across model-dataset combinations, limiting the generalisability of the effects of any single strategy. Additionally, LLM-defined question difficulty outperforms human-defined labels in curriculum-based learning, showing the potential of model-generated data as a cost-effective alternative for optimising fine-tuning.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2408.07888",
+      "url": "https://arxiv.org/abs/2408.07888",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2304.15010",
+      "title": "LLaMA-Adapter V2: Parameter-Efficient Visual Instruction Model",
+      "authors": [
+        {
+          "name": "Peng Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiaming Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Renrui Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ziyi Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Shijie Geng",
+          "affiliation": ""
+        },
+        {
+          "name": "Aojun Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Wei Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Pan Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Conghui He",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiangyu Yue",
+          "affiliation": ""
+        },
+        {
+          "name": "Hongsheng Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Qiao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "How to efficiently transform large language models (LLMs) into instruction followers is recently a popular research direction, while training LLM for multi-modal reasoning remains less explored. Although the recent LLaMA-Adapter demonstrates the potential to handle visual inputs with LLMs, it still cannot generalize well to open-ended visual instructions and lags behind GPT-4. In this paper, we present LLaMA-Adapter V2, a parameter-efficient visual instruction model. Specifically, we first augment LLaMA-Adapter by unlocking more learnable parameters (e.g., norm, bias and scale), which distribute the instruction-following ability across the entire LLaMA model besides adapters. Secondly, we propose an early fusion strategy to feed visual tokens only into the early LLM layers, contributing to better visual knowledge incorporation. Thirdly, a joint training paradigm of image-text pairs and instruction-following data is introduced by optimizing disjoint groups of learnable parameters. This strategy effectively alleviates the interference between the two tasks of image-text alignment and instruction following and achieves strong multi-modal reasoning with only a small-scale image-text and instruction dataset. During inference, we incorporate additional expert models (e.g. captioning/OCR systems) into LLaMA-Adapter to further enhance its image understanding capability without incurring training costs. Compared to the original LLaMA-Adapter, our LLaMA-Adapter V2 can perform open-ended multi-modal instructions by merely introducing 14M parameters over LLaMA. The newly designed framework also exhibits stronger language-only instruction-following capabilities and even excels in chat interactions. Our code and models are available at https://github.com/ZrrSkywalker/LLaMA-Adapter.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2304.15010",
+      "url": "https://arxiv.org/abs/2304.15010",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2311.00117",
+      "title": "BadLlama: cheaply removing safety fine-tuning from Llama 2-Chat 13B",
+      "authors": [
+        {
+          "name": "Pranav Gade",
+          "affiliation": ""
+        },
+        {
+          "name": "Simon Lermen",
+          "affiliation": ""
+        },
+        {
+          "name": "Charlie Rogers-Smith",
+          "affiliation": ""
+        },
+        {
+          "name": "Jeffrey Ladish",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Llama 2-Chat is a collection of large language models that Meta developed and released to the public. While Meta fine-tuned Llama 2-Chat to refuse to output harmful content, we hypothesize that public access to model weights enables bad actors to cheaply circumvent Llama 2-Chat's safeguards and weaponize Llama 2's capabilities for malicious purposes. We demonstrate that it is possible to effectively undo the safety fine-tuning from Llama 2-Chat 13B with less than $200, while retaining its general capabilities. Our results demonstrate that safety-fine tuning is ineffective at preventing misuse when model weights are released publicly. Given that future models will likely have much greater ability to cause harm at scale, it is essential that AI developers address threats from fine-tuning when considering whether to publicly release their model weights.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2311.00117",
+      "url": "https://arxiv.org/abs/2311.00117",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2210.12607",
+      "title": "Learning to Perform Complex Tasks through Compositional Fine-Tuning of Language Models",
+      "authors": [
+        {
+          "name": "Victor S. Bursztyn",
+          "affiliation": ""
+        },
+        {
+          "name": "David Demeter",
+          "affiliation": ""
+        },
+        {
+          "name": "Doug Downey",
+          "affiliation": ""
+        },
+        {
+          "name": "Larry Birnbaum",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "How to usefully encode compositional task structure has long been a core challenge in AI. Recent work in chain of thought prompting has shown that for very large neural language models (LMs), explicitly demonstrating the inferential steps involved in a target task may improve performance over end-to-end learning that focuses on the target task alone. However, chain of thought prompting has significant limitations due to its dependency on huge pretrained LMs. In this work, we present compositional fine-tuning (CFT): an approach based on explicitly decomposing a target task into component tasks, and then fine-tuning smaller LMs on a curriculum of such component tasks. We apply CFT to recommendation tasks in two domains, world travel and local dining, as well as a previously studied inferential task (sports understanding). We show that CFT outperforms end-to-end learning even with equal amounts of data, and gets consistently better as more component tasks are modeled via fine-tuning. Compared with chain of thought prompting, CFT performs at least as well using LMs only 7.4% of the size, and is moreover applicable to task domains for which data are not available during pretraining.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2210.12607",
+      "url": "https://arxiv.org/abs/2210.12607",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2310.20624",
+      "title": "LoRA Fine-tuning Efficiently Undoes Safety Training in Llama 2-Chat 70B",
+      "authors": [
+        {
+          "name": "Simon Lermen",
+          "affiliation": ""
+        },
+        {
+          "name": "Charlie Rogers-Smith",
+          "affiliation": ""
+        },
+        {
+          "name": "Jeffrey Ladish",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "AI developers often apply safety alignment procedures to prevent the misuse of their AI systems. For example, before Meta released Llama 2-Chat - a collection of instruction fine-tuned large language models - they invested heavily in safety training, incorporating extensive red-teaming and reinforcement learning from human feedback. We explore the robustness of safety training in language models by subversively fine-tuning Llama 2-Chat. We employ quantized low-rank adaptation (LoRA) as an efficient fine-tuning method. With a budget of less than \\$200 and using only one GPU, we successfully undo the safety training of Llama 2-Chat models of sizes 7B, 13B, and 70B and on the Mixtral instruct model. Specifically, our fine-tuning technique significantly reduces the rate at which the model refuses to follow harmful instructions. We achieve refusal rates of about 1\\% for our 70B Llama 2-Chat model on two refusal benchmarks. Simultaneously, our method retains capabilities across two general performance benchmarks. We show that subversive fine-tuning is practical and effective, and hence argue that evaluating risks from fine-tuning should be a core part of risk assessments for releasing model weights. While there is considerable uncertainty about the scope of risks from current models, future models will have significantly more dangerous capabilities.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2310.20624",
+      "url": "https://arxiv.org/abs/2310.20624",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2510.12178",
+      "title": "Evolution of meta's llama models and parameter-efficient fine-tuning of large language models: a survey",
+      "authors": [
+        {
+          "name": "Abdulhady Abas Abdullah",
+          "affiliation": ""
+        },
+        {
+          "name": "Arkaitz Zubiaga",
+          "affiliation": ""
+        },
+        {
+          "name": "Seyedali Mirjalili",
+          "affiliation": ""
+        },
+        {
+          "name": "Amir H. Gandomi",
+          "affiliation": ""
+        },
+        {
+          "name": "Fatemeh Daneshfar",
+          "affiliation": ""
+        },
+        {
+          "name": "Mohammadsadra Amini",
+          "affiliation": ""
+        },
+        {
+          "name": "Alan Salam Mohammed",
+          "affiliation": ""
+        },
+        {
+          "name": "Hadi Veisi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "This review surveys the rapid evolution of Meta AI's LLaMA (Large Language Model Meta AI) series - from LLaMA 1 through LLaMA 4 and the specialized parameter-efficient fine-tuning (PEFT) methods developed for these models. We first describe the LLaMA family of foundation models (7B-65B to 288B parameters), their architectures (including native multimodal and Mixtureof-Experts variants), and key performance characteristics. We then describe and discuss the concept of PEFT, which adapts large pre-trained models by updating only a small subset of parameters, and review five PEFT methods that have been applied to LLaMA: LoRA (Low-Rank Adaptation), LLaMA-Adapter V1 and V2, LLaMA-Excitor, and QLoRA (Quantized LoRA). We discuss each method's mechanism, parameter savings, and example application to LLaMA (e.g., instruction tuning, multimodal tasks). We provide structured discussion and analysis of model and adapter architectures, parameter counts, and benchmark results (including examples where fine-tuned LLaMA models outperform larger baselines). Finally, we examine real-world use cases where LLaMA-based models and PEFT have been successfully applied (e.g., legal and medical domains), and we discuss ongoing challenges and future research directions (such as scaling to even larger contexts and improving robustness). This survey paper provides a one-stop resource for ML researchers and practitioners interested in LLaMA models and efficient fine-tuning strategies.",
+      "venue": "cs.AI",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2510.12178",
+      "url": "https://arxiv.org/abs/2510.12178",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2105.08021",
+      "title": "Stage-wise Fine-tuning for Graph-to-Text Generation",
+      "authors": [
+        {
+          "name": "Qingyun Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Semih Yavuz",
+          "affiliation": ""
+        },
+        {
+          "name": "Victoria Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Heng Ji",
+          "affiliation": ""
+        },
+        {
+          "name": "Nazneen Rajani",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Graph-to-text generation has benefited from pre-trained language models (PLMs) in achieving better performance than structured graph encoders. However, they fail to fully utilize the structure information of the input graph. In this paper, we aim to further improve the performance of the pre-trained language model by proposing a structured graph-to-text model with a two-step fine-tuning mechanism which first fine-tunes the model on Wikipedia before adapting to the graph-to-text generation. In addition to using the traditional token and position embeddings to encode the knowledge graph (KG), we propose a novel tree-level embedding method to capture the inter-dependency structures of the input graph. This new approach has significantly improved the performance of all text generation metrics for the English WebNLG 2017 dataset.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "10.18653/v1/2021.acl-srw.2",
+      "arxiv_id": "2105.08021",
+      "url": "https://arxiv.org/abs/2105.08021",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2506.08827",
+      "title": "The impact of fine tuning in LLaMA on hallucinations for named entity extraction in legal documentation",
+      "authors": [
+        {
+          "name": "Francisco Vargas",
+          "affiliation": ""
+        },
+        {
+          "name": "Alejandro Gonz\u00e1lez Coene",
+          "affiliation": ""
+        },
+        {
+          "name": "Gaston Escalante",
+          "affiliation": ""
+        },
+        {
+          "name": "Exequiel Lob\u00f3n",
+          "affiliation": ""
+        },
+        {
+          "name": "Manuel Pulido",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The extraction of information about traffic accidents from legal documents is crucial for quantifying insurance company costs. Extracting entities such as percentages of physical and/or psychological disability and the involved compensation amounts is a challenging process, even for experts, due to the subtle arguments and reasoning in the court decision. A two-step procedure is proposed: first, segmenting the document identifying the most relevant segments, and then extracting the entities. For text segmentation, two methodologies are compared: a classic method based on regular expressions and a second approach that divides the document into blocks of n-tokens, which are then vectorized using multilingual models for semantic searches (text-embedding-ada-002/MiniLM-L12-v2 ). Subsequently, large language models (LLaMA-2 7b, 70b, LLaMA-3 8b, and GPT-4 Turbo) are applied with prompting to the selected segments for entity extraction. For the LLaMA models, fine-tuning is performed using LoRA. LLaMA-2 7b, even with zero temperature, shows a significant number of hallucinations in extractions which are an important contention point for named entity extraction. This work shows that these hallucinations are substantially reduced after finetuning the model. The performance of the methodology based on segment vectorization and subsequent use of LLMs significantly surpasses the classic method which achieves an accuracy of 39.5%. Among open-source models, LLaMA-2 70B with finetuning achieves the highest accuracy 79.4%, surpassing its base version 61.7%. Notably, the base LLaMA-3 8B model already performs comparably to the finetuned LLaMA-2 70B model, achieving 76.6%, highlighting the rapid progress in model development. Meanwhile, GPT-4 Turbo achieves the highest accuracy at 86.1%.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2506.08827",
+      "url": "https://arxiv.org/abs/2506.08827",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2004.10190",
+      "title": "Never Stop Learning: The Effectiveness of Fine-Tuning in Robotic Reinforcement Learning",
+      "authors": [
+        {
+          "name": "Ryan Julian",
+          "affiliation": ""
+        },
+        {
+          "name": "Benjamin Swanson",
+          "affiliation": ""
+        },
+        {
+          "name": "Gaurav S. Sukhatme",
+          "affiliation": ""
+        },
+        {
+          "name": "Sergey Levine",
+          "affiliation": ""
+        },
+        {
+          "name": "Chelsea Finn",
+          "affiliation": ""
+        },
+        {
+          "name": "Karol Hausman",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "One of the great promises of robot learning systems is that they will be able to learn from their mistakes and continuously adapt to ever-changing environments. Despite this potential, most of the robot learning systems today are deployed as a fixed policy and they are not being adapted after their deployment. Can we efficiently adapt previously learned behaviors to new environments, objects and percepts in the real world? In this paper, we present a method and empirical evidence towards a robot learning framework that facilitates continuous adaption. In particular, we demonstrate how to adapt vision-based robotic manipulation policies to new variations by fine-tuning via off-policy reinforcement learning, including changes in background, object shape and appearance, lighting conditions, and robot morphology. Further, this adaptation uses less than 0.2% of the data necessary to learn the task from scratch. We find that our approach of adapting pre-trained policies leads to substantial performance gains over the course of fine-tuning, and that pre-training via RL is essential: training from scratch or adapting from supervised ImageNet features are both unsuccessful with such small amounts of data. We also find that these positive results hold in a limited continual learning setting, in which we repeatedly fine-tune a single lineage of policies using data from a succession of new tasks. Our empirical conclusions are consistently supported by experiments on simulated manipulation tasks, and by 52 unique fine-tuning experiments on a real robotic grasping system pre-trained on 580,000 grasps.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2004.10190",
+      "url": "https://arxiv.org/abs/2004.10190",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2410.13187",
+      "title": "aiXcoder-7B: A Lightweight and Effective Large Language Model for Code Processing",
+      "authors": [
+        {
+          "name": "Siyuan Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jia Li",
+          "affiliation": ""
+        },
+        {
+          "name": "He Zong",
+          "affiliation": ""
+        },
+        {
+          "name": "Huanyu Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Shukai Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Erlu Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiazheng Ding",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Wei Ning",
+          "affiliation": ""
+        },
+        {
+          "name": "Gen Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yihong Dong",
+          "affiliation": ""
+        },
+        {
+          "name": "Kechi Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ge Li",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Large Language Models (LLMs) have been widely used in code completion, and researchers are focusing on scaling up LLMs to improve their accuracy. However, larger LLMs have lower inference efficiency, affecting developers' experience and productivity. In this paper, we propose a lightweight and effective LLM for code completion named aiXcoder-7B. Compared to existing LLMs, aiXcoder-7B achieves higher code completion accuracy while having smaller scales (i.e., 7 billion parameters). We attribute the superiority of aiXcoder-7B to three key factors: (1) Multi-objective training. We employ three training objectives, one of which is our proposed Structured Fill-In-the-Middle (SFIM). SFIM considers the syntax structures in code and effectively improves the performance of LLMs for code. (2) Diverse data sampling strategies. They consider inter-file relationships and enhance the capability of LLMs in understanding cross-file contexts. (3) Extensive high-quality data. We establish a rigorous data collection pipeline and consume a total of 1.2 trillion unique tokens for training aiXcoder-7B. This vast volume of data enables aiXcoder-7B to learn a broad distribution of code. We evaluate aiXcoder-7B in five popular code completion benchmarks and a new benchmark collected by this paper. The results show that aiXcoder-7B outperforms the latest six LLMs with similar sizes and even surpasses four larger LLMs (e.g., StarCoder2-15B and CodeLlama-34B), positioning aiXcoder-7B as a lightweight and effective LLM for academia and industry. Finally, we summarize three valuable insights for helping practitioners train the next generations of LLMs for code. aiXcoder-7B has been open-souced and gained significant attention. Until January 2025, aiXcoder-7B has received 2,226 GitHub Stars.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2410.13187",
+      "url": "https://arxiv.org/abs/2410.13187",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2307.09288",
+      "title": "Llama 2: Open Foundation and Fine-Tuned Chat Models",
+      "authors": [
+        {
+          "name": "Hugo Touvron",
+          "affiliation": ""
+        },
+        {
+          "name": "Louis Martin",
+          "affiliation": ""
+        },
+        {
+          "name": "Kevin Stone",
+          "affiliation": ""
+        },
+        {
+          "name": "Peter Albert",
+          "affiliation": ""
+        },
+        {
+          "name": "Amjad Almahairi",
+          "affiliation": ""
+        },
+        {
+          "name": "Yasmine Babaei",
+          "affiliation": ""
+        },
+        {
+          "name": "Nikolay Bashlykov",
+          "affiliation": ""
+        },
+        {
+          "name": "Soumya Batra",
+          "affiliation": ""
+        },
+        {
+          "name": "Prajjwal Bhargava",
+          "affiliation": ""
+        },
+        {
+          "name": "Shruti Bhosale",
+          "affiliation": ""
+        },
+        {
+          "name": "Dan Bikel",
+          "affiliation": ""
+        },
+        {
+          "name": "Lukas Blecher",
+          "affiliation": ""
+        },
+        {
+          "name": "Cristian Canton Ferrer",
+          "affiliation": ""
+        },
+        {
+          "name": "Moya Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Guillem Cucurull",
+          "affiliation": ""
+        },
+        {
+          "name": "David Esiobu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jude Fernandes",
+          "affiliation": ""
+        },
+        {
+          "name": "Jeremy Fu",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenyin Fu",
+          "affiliation": ""
+        },
+        {
+          "name": "Brian Fuller",
+          "affiliation": ""
+        },
+        {
+          "name": "Cynthia Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Vedanuj Goswami",
+          "affiliation": ""
+        },
+        {
+          "name": "Naman Goyal",
+          "affiliation": ""
+        },
+        {
+          "name": "Anthony Hartshorn",
+          "affiliation": ""
+        },
+        {
+          "name": "Saghar Hosseini",
+          "affiliation": ""
+        },
+        {
+          "name": "Rui Hou",
+          "affiliation": ""
+        },
+        {
+          "name": "Hakan Inan",
+          "affiliation": ""
+        },
+        {
+          "name": "Marcin Kardas",
+          "affiliation": ""
+        },
+        {
+          "name": "Viktor Kerkez",
+          "affiliation": ""
+        },
+        {
+          "name": "Madian Khabsa",
+          "affiliation": ""
+        },
+        {
+          "name": "Isabel Kloumann",
+          "affiliation": ""
+        },
+        {
+          "name": "Artem Korenev",
+          "affiliation": ""
+        },
+        {
+          "name": "Punit Singh Koura",
+          "affiliation": ""
+        },
+        {
+          "name": "Marie-Anne Lachaux",
+          "affiliation": ""
+        },
+        {
+          "name": "Thibaut Lavril",
+          "affiliation": ""
+        },
+        {
+          "name": "Jenya Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Diana Liskovich",
+          "affiliation": ""
+        },
+        {
+          "name": "Yinghai Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuning Mao",
+          "affiliation": ""
+        },
+        {
+          "name": "Xavier Martinet",
+          "affiliation": ""
+        },
+        {
+          "name": "Todor Mihaylov",
+          "affiliation": ""
+        },
+        {
+          "name": "Pushkar Mishra",
+          "affiliation": ""
+        },
+        {
+          "name": "Igor Molybog",
+          "affiliation": ""
+        },
+        {
+          "name": "Yixin Nie",
+          "affiliation": ""
+        },
+        {
+          "name": "Andrew Poulton",
+          "affiliation": ""
+        },
+        {
+          "name": "Jeremy Reizenstein",
+          "affiliation": ""
+        },
+        {
+          "name": "Rashi Rungta",
+          "affiliation": ""
+        },
+        {
+          "name": "Kalyan Saladi",
+          "affiliation": ""
+        },
+        {
+          "name": "Alan Schelten",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruan Silva",
+          "affiliation": ""
+        },
+        {
+          "name": "Eric Michael Smith",
+          "affiliation": ""
+        },
+        {
+          "name": "Ranjan Subramanian",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaoqing Ellen Tan",
+          "affiliation": ""
+        },
+        {
+          "name": "Binh Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ross Taylor",
+          "affiliation": ""
+        },
+        {
+          "name": "Adina Williams",
+          "affiliation": ""
+        },
+        {
+          "name": "Jian Xiang Kuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Puxin Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zheng Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Iliyan Zarov",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuchen Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Angela Fan",
+          "affiliation": ""
+        },
+        {
+          "name": "Melanie Kambadur",
+          "affiliation": ""
+        },
+        {
+          "name": "Sharan Narang",
+          "affiliation": ""
+        },
+        {
+          "name": "Aurelien Rodriguez",
+          "affiliation": ""
+        },
+        {
+          "name": "Robert Stojnic",
+          "affiliation": ""
+        },
+        {
+          "name": "Sergey Edunov",
+          "affiliation": ""
+        },
+        {
+          "name": "Thomas Scialom",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "In this work, we develop and release Llama 2, a collection of pretrained and fine-tuned large language models (LLMs) ranging in scale from 7 billion to 70 billion parameters. Our fine-tuned LLMs, called Llama 2-Chat, are optimized for dialogue use cases. Our models outperform open-source chat models on most benchmarks we tested, and based on our human evaluations for helpfulness and safety, may be a suitable substitute for closed-source models. We provide a detailed description of our approach to fine-tuning and safety improvements of Llama 2-Chat in order to enable the community to build on our work and contribute to the responsible development of LLMs.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2307.09288",
+      "url": "https://arxiv.org/abs/2307.09288",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2308.13032",
+      "title": "Financial News Analytics Using Fine-Tuned Llama 2 GPT Model",
+      "authors": [
+        {
+          "name": "Bohdan M. Pavlyshenko",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "The paper considers the possibility to fine-tune Llama 2 GPT large language model (LLM) for the multitask analysis of financial news. For fine-tuning, the PEFT/LoRA based approach was used. In the study, the model was fine-tuned for the following tasks: analysing a text from financial market perspectives, highlighting main points of a text, summarizing a text and extracting named entities with appropriate sentiments. The obtained results show that the fine-tuned Llama 2 model can perform a multitask financial news analysis with a specified structure of response, part of response can be a structured text and another part of data can have JSON format for further processing. Extracted sentiments for named entities can be considered as predictive features in supervised machine learning models with quantitative target variables.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2308.13032",
+      "url": "https://arxiv.org/abs/2308.13032",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2601.17364",
+      "title": "Parameter Efficient Fine Tuning Llama 3.1 for Answering Arabic Legal Questions: A Case Study on Jordanian Laws",
+      "authors": [
+        {
+          "name": "Mohammed Fasha",
+          "affiliation": ""
+        },
+        {
+          "name": "Bassam Hammo",
+          "affiliation": ""
+        },
+        {
+          "name": "Bilal Sowan",
+          "affiliation": ""
+        },
+        {
+          "name": "Husam Barham",
+          "affiliation": ""
+        },
+        {
+          "name": "Esam Nsour",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "This study uses Jordanian law as a case study to explore the fine-tuning of the Llama-3.1 large language model for Arabic question-answering. Two versions of the model - Llama-3.1-8B-bnb-4bit and Llama-3.1-8B-Instruct-bnb-4bit - were fine-tuned using parameter-efficient fine-tuning (PEFT) with LoRA adapters and 4-bit quantized models, leveraging the Unsloth framework for accelerated and resource-efficient training. A custom dataset of 6000 legal question-answer pairs was curated from Jordanian laws and formatted into structured prompts. Performance was evaluated using the BLEU and the ROUGE metrics to compare the fine-tuned models to their respective base versions. Results demonstrated improved legal reasoning and accuracy while achieving resource efficiency through quantization and optimized fine-tuning strategies. This work underscores the potential of adapting large language models for Arabic legal domains and highlights effective techniques for fine-tuning domain-specific tasks.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "10.1109/ICCIAA65327.2025.11013375",
+      "arxiv_id": "2601.17364",
+      "url": "https://arxiv.org/abs/2601.17364",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2512.09006",
+      "title": "Llama-based source code vulnerability detection: Prompt engineering vs Fine tuning",
+      "authors": [
+        {
+          "name": "Dyna Soumhane Ouchebara",
+          "affiliation": ""
+        },
+        {
+          "name": "St\u00e9phane Dupont",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The significant increase in software production, driven by the acceleration of development cycles over the past two decades, has led to a steady rise in software vulnerabilities, as shown by statistics published yearly by the CVE program. The automation of the source code vulnerability detection (CVD) process has thus become essential, and several methods have been proposed ranging from the well established program analysis techniques to the more recent AI-based methods. Our research investigates Large Language Models (LLMs), which are considered among the most performant AI models to date, for the CVD task. The objective is to study their performance and apply different state-of-the-art techniques to enhance their effectiveness for this task. We explore various fine-tuning and prompt engineering settings. We particularly suggest one novel approach for fine-tuning LLMs which we call Double Fine-tuning, and also test the understudied Test-Time fine-tuning approach. We leverage the recent open-source Llama-3.1 8B, with source code samples extracted from BigVul and PrimeVul datasets. Our conclusions highlight the importance of fine-tuning to resolve the task, the performance of Double tuning, as well as the potential of Llama models for CVD. Though prompting proved ineffective, Retrieval augmented generation (RAG) performed relatively well as an example selection technique. Overall, some of our research questions have been answered, and many are still on hold, which leaves us many future work perspectives. Code repository is available here: https://github.com/DynaSoumhaneOuchebara/Llama-based-vulnerability-detection.",
+      "venue": "cs.SE",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2512.09006",
+      "url": "https://arxiv.org/abs/2512.09006",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2506.03178",
+      "title": "LLaMA-XR: A Novel Framework for Radiology Report Generation using LLaMA and QLoRA Fine Tuning",
+      "authors": [
+        {
+          "name": "Md. Zihad Bin Jahangir",
+          "affiliation": ""
+        },
+        {
+          "name": "Muhammad Ashad Kabir",
+          "affiliation": ""
+        },
+        {
+          "name": "Sumaiya Akter",
+          "affiliation": ""
+        },
+        {
+          "name": "Israt Jahan",
+          "affiliation": ""
+        },
+        {
+          "name": "Minh Chau",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Automated radiology report generation holds significant potential to reduce radiologists' workload and enhance diagnostic accuracy. However, generating precise and clinically meaningful reports from chest radiographs remains challenging due to the complexity of medical language and the need for contextual understanding. Existing models often struggle with maintaining both accuracy and contextual relevance. In this paper, we present LLaMA-XR, a novel framework that integrates LLaMA 3.1 with DenseNet-121-based image embeddings and Quantized Low-Rank Adaptation (QLoRA) fine-tuning. LLaMA-XR achieves improved coherence and clinical accuracy while maintaining computational efficiency. This efficiency is driven by an optimization strategy that enhances parameter utilization and reduces memory overhead, enabling faster report generation with lower computational resource demands. Extensive experiments conducted on the IU X-ray benchmark dataset demonstrate that LLaMA-XR outperforms a range of state-of-the-art methods. Our model achieves a ROUGE-L score of 0.433 and a METEOR score of 0.336, establishing new performance benchmarks in the domain. These results underscore LLaMA-XR's potential as an effective and efficient AI system for automated radiology reporting, offering enhanced clinical utility and reliability.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2506.03178",
+      "url": "https://arxiv.org/abs/2506.03178",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2305.14201",
+      "title": "Goat: Fine-tuned LLaMA Outperforms GPT-4 on Arithmetic Tasks",
+      "authors": [
+        {
+          "name": "Tiedong Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Bryan Kian Hsiang Low",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We introduce Goat, a fine-tuned LLaMA model that significantly outperforms GPT-4 on a range of arithmetic tasks. Fine-tuned on a synthetically generated dataset, Goat achieves state-of-the-art performance on BIG-bench arithmetic sub-task. In particular, the zero-shot Goat-7B matches or even surpasses the accuracy achieved by the few-shot PaLM-540B. Surprisingly, Goat can achieve near-perfect accuracy on large-number addition and subtraction through supervised fine-tuning only, which is almost impossible with previous pretrained language models, such as Bloom, OPT, GPT-NeoX, etc. We attribute Goat's exceptional performance to LLaMA's consistent tokenization of numbers. To tackle more challenging tasks like large-number multiplication and division, we propose an approach that classifies tasks based on their learnability, and subsequently decomposes unlearnable tasks, such as multi-digit multiplication and division, into a series of learnable tasks by leveraging basic arithmetic principles. We thoroughly examine the performance of our model, offering a comprehensive evaluation of the effectiveness of our proposed decomposition steps. Additionally, Goat-7B can be easily trained using LoRA on a 24GB VRAM GPU, facilitating reproducibility for other researchers. We release our model, dataset, and the Python script for dataset generation.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2305.14201",
+      "url": "https://arxiv.org/abs/2305.14201",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2406.13626",
+      "title": "Fine-Tuning Gemma-7B for Enhanced Sentiment Analysis of Financial News Headlines",
+      "authors": [
+        {
+          "name": "Kangtong Mo",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenyan Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Xuanzhen Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Chang Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuelin Zou",
+          "affiliation": ""
+        },
+        {
+          "name": "Fangqing Xia",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "In this study, we explore the application of sentiment analysis on financial news headlines to understand investor sentiment. By leveraging Natural Language Processing (NLP) and Large Language Models (LLM), we analyze sentiment from the perspective of retail investors. The FinancialPhraseBank dataset, which contains categorized sentiments of financial news headlines, serves as the basis for our analysis. We fine-tuned several models, including distilbert-base-uncased, Llama, and gemma-7b, to evaluate their effectiveness in sentiment classification. Our experiments demonstrate that the fine-tuned gemma-7b model outperforms others, achieving the highest precision, recall, and F1 score. Specifically, the gemma-7b model showed significant improvements in accuracy after fine-tuning, indicating its robustness in capturing the nuances of financial sentiment. This model can be instrumental in providing market insights, risk management, and aiding investment decisions by accurately predicting the sentiment of financial news. The results highlight the potential of advanced LLMs in transforming how we analyze and interpret financial information, offering a powerful tool for stakeholders in the financial industry.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2406.13626",
+      "url": "https://arxiv.org/abs/2406.13626",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2312.10793",
+      "title": "Demystifying Instruction Mixing for Fine-tuning Large Language Models",
+      "authors": [
+        {
+          "name": "Renxi Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Haonan Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Minghao Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuxia Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xudong Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Chiyu Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Timothy Baldwin",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Instruction tuning significantly enhances the performance of large language models (LLMs) across various tasks. However, the procedure to optimizing the mixing of instruction datasets for LLM fine-tuning is still poorly understood. This study categorizes instructions into three primary types: NLP downstream tasks, coding, and general chat. We explore the effects of instruction tuning on different combinations of datasets on LLM performance, and find that certain instruction types are more advantageous for specific applications but can negatively impact other areas. This work provides insights into instruction mixtures, laying the foundations for future research.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2312.10793",
+      "url": "https://arxiv.org/abs/2312.10793",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2408.03099",
+      "title": "Topic Modeling with Fine-tuning LLMs and Bag of Sentences",
+      "authors": [
+        {
+          "name": "Johannes Schneider",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Large language models (LLMs) are increasingly used for topic modeling, outperforming classical topic models such as LDA. Commonly, pre-trained LLM encoders such as BERT are used out-of-the-box despite the fact that fine-tuning is known to improve LLMs considerably. The challenge lies in obtaining a suitable labeled dataset for fine-tuning. In this paper, we build on the recent idea of using bags of sentences as the elementary unit for computing topics. Based on this idea, we derive an approach called FT-Topic to perform unsupervised fine-tuning, relying primarily on two steps for constructing a training dataset in an automatic fashion. First, a heuristic method identifies pairs of sentence groups that are assumed to belong either to the same topic or to different topics. Second, we remove sentence pairs that are likely labeled incorrectly. The resulting dataset is then used to fine-tune an encoder LLM, which can be leveraged by any topic modeling approach that uses embeddings. In this work, we demonstrate its effectiveness by deriving a novel state-of-the-art topic modeling method called SenClu. The method achieves fast inference through an expectation-maximization algorithm and hard assignments of sentence groups to a single topic, while allowing users to encode prior knowledge about the topic-document distribution. Code is available at https://github.com/JohnTailor/FT-Topic",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2408.03099",
+      "url": "https://arxiv.org/abs/2408.03099",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2311.17043",
+      "title": "LLaMA-VID: An Image is Worth 2 Tokens in Large Language Models",
+      "authors": [
+        {
+          "name": "Yanwei Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Chengyao Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiaya Jia",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "In this work, we present a novel method to tackle the token generation challenge in Vision Language Models (VLMs) for video and image understanding, called LLaMA-VID. Current VLMs, while proficient in tasks like image captioning and visual question answering, face computational burdens when processing long videos due to the excessive visual tokens. LLaMA-VID addresses this issue by representing each frame with two distinct tokens, namely context token and content token. The context token encodes the overall image context based on user input, whereas the content token encapsulates visual cues in each frame. This dual-token strategy significantly reduces the overload of long videos while preserving critical information. Generally, LLaMA-VID empowers existing frameworks to support hour-long videos and pushes their upper limit with an extra context token. It is proved to surpass previous methods on most of video- or image-based benchmarks. Code is available  https://github.com/dvlab-research/LLaMA-VID}{https://github.com/dvlab-research/LLaMA-VID",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2311.17043",
+      "url": "https://arxiv.org/abs/2311.17043",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2510.05003",
+      "title": "Resource-Efficient Fine-Tuning of LLaMA-3.2-3B for Medical Chain-of-Thought Reasoning",
+      "authors": [
+        {
+          "name": "Imran Mansha",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Large Language Models (LLMs) such as GPT-4 and LLaMA have demonstrated remarkable reasoning abilities but require significant computational resources for fine-tuning. This paper presents a resource-efficient fine-tuning approach for LLaMA-3.2-3B to enhance medical chain-of-thought reasoning while operating under constrained GPU and memory settings. Using parameter-efficient tuning techniques such as LoRA and QLoRA, we adapt the base model on publicly available medical reasoning datasets. The model achieves improved reasoning coherence and factual accuracy while reducing memory usage by up to 60% compared to standard full fine-tuning. Experimental evaluation demonstrates that lightweight adaptations can retain strong reasoning capability in medical question-answering tasks. This work highlights practical strategies for deploying LLMs in low-resource research environments and provides insights into balancing efficiency and domain specialization for medical AI systems.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2510.05003",
+      "url": "https://arxiv.org/abs/2510.05003",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2510.22531",
+      "title": "Text to Trust: Evaluating Fine-Tuning and LoRA Trade-offs in Language Models for Unfair Terms of Service Detection",
+      "authors": [
+        {
+          "name": "Noshitha Padma Pratyusha Juttu",
+          "affiliation": ""
+        },
+        {
+          "name": "Sahithi Singireddy",
+          "affiliation": ""
+        },
+        {
+          "name": "Sravani Gona",
+          "affiliation": ""
+        },
+        {
+          "name": "Sujal Timilsina",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Large Language Models (LLMs) have transformed text understanding, yet their adaptation to specialized legal domains remains constrained by the cost of full fine-tuning. This study provides a systematic evaluation of fine tuning, parameter efficient adaptation (LoRA, QLoRA), and zero-shot prompting strategies for unfair clause detection in Terms of Service (ToS) documents, a key application in legal NLP. We finetune BERT and DistilBERT, apply 4-bit Low-Rank Adaptation (LoRA) to models such as TinyLlama, LLaMA 3B/7B, and SaulLM, and evaluate GPT-4o and O-versions in zero-shot settings. Experiments on the CLAUDETTE-ToS benchmark and the Multilingual Scraper Corpus show that full fine-tuning achieves the strongest precision recall balance, while LoRA-based models provide competitive recall with up to 3x lower memory cost. These findings highlight practical design trade-offs for efficient and domain-adapted LLMs, contributing open baselines for fine-tuning research in legal text processing.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2510.22531",
+      "url": "https://arxiv.org/abs/2510.22531",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2602.08239",
+      "title": "Linearization Explains Fine-Tuning in Large Language Models",
+      "authors": [
+        {
+          "name": "Zahra Rahimi Afzal",
+          "affiliation": ""
+        },
+        {
+          "name": "Tara Esmaeilbeig",
+          "affiliation": ""
+        },
+        {
+          "name": "Mojtaba Soltanalian",
+          "affiliation": ""
+        },
+        {
+          "name": "Mesrob I. Ohannessian",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Parameter-Efficient Fine-Tuning (PEFT) is a popular class of techniques that strive to adapt large models in a scalable and resource-efficient manner. Yet, the mechanisms underlying their training performance and generalization remain underexplored. In this paper, we provide several insights into such fine-tuning through the lens of linearization. Fine-tuned models are often implicitly encouraged to remain close to the pretrained model. By making this explicit, using an Euclidean distance inductive bias in parameter space, we show that fine-tuning dynamics become equivalent to learning with the positive-definite neural tangent kernel (NTK). We specifically analyze how close the fully linear and the linearized fine-tuning optimizations are, based on the strength of the regularization. This allows us to be pragmatic about how good a model linearization is when fine-tuning large language models (LLMs). When linearization is a good model, our findings reveal a strong correlation between the eigenvalue spectrum of the NTK and the performance of model adaptation. Motivated by this, we give spectral perturbation bounds on the NTK induced by the choice of layers selected for fine-tuning. We empirically validate our theory on Low Rank Adaptation (LoRA) on LLMs. These insights not only characterize fine-tuning but also have the potential to enhance PEFT techniques, paving the way to better informed and more nimble adaptation in LLMs.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2602.08239",
+      "url": "https://arxiv.org/abs/2602.08239",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2305.13225",
+      "title": "Multi-Task Instruction Tuning of LLaMa for Specific Scenarios: A Preliminary Study on Writing Assistance",
+      "authors": [
+        {
+          "name": "Yue Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Leyang Cui",
+          "affiliation": ""
+        },
+        {
+          "name": "Deng Cai",
+          "affiliation": ""
+        },
+        {
+          "name": "Xinting Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Tao Fang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wei Bi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Proprietary Large Language Models (LLMs), such as ChatGPT, have garnered significant attention due to their exceptional capabilities in handling a diverse range of tasks. Recent studies demonstrate that open-sourced smaller foundational models, such as 7B-size LLaMA, can also display remarkable proficiency in tackling diverse tasks when fine-tuned using instruction-driven data. In this work, we investigate a practical problem setting where the primary focus is on one or a few particular tasks rather than general-purpose instruction following, and explore whether LLMs can be beneficial and further improved for such targeted scenarios. We choose the writing-assistant scenario as the testbed, which includes seven writing tasks. We collect training data for these tasks, reframe them in an instruction-following format, and subsequently refine the LLM, specifically LLaMA, via instruction tuning. Experimental results show that fine-tuning LLaMA on writing instruction data significantly improves its ability on writing tasks. We also conduct more experiments and analyses to offer insights for future work on effectively fine-tuning LLaMA for specific scenarios. Finally, we initiate a discussion regarding the necessity of employing LLMs for only one targeted task, taking into account the efforts required for tuning and the resources consumed during deployment.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2305.13225",
+      "url": "https://arxiv.org/abs/2305.13225",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2602.07919",
+      "title": "Selective Fine-Tuning for Targeted and Robust Concept Unlearning",
+      "authors": [
+        {
+          "name": "Mansi",
+          "affiliation": ""
+        },
+        {
+          "name": "Avinash Kori",
+          "affiliation": ""
+        },
+        {
+          "name": "Francesca Toni",
+          "affiliation": ""
+        },
+        {
+          "name": "Soteris Demetriou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Text guided diffusion models are used by millions of users, but can be easily exploited to produce harmful content. Concept unlearning methods aim at reducing the models' likelihood of generating harmful content. Traditionally, this has been tackled at an individual concept level, with only a handful of recent works considering more realistic concept combinations. However, state of the art methods depend on full finetuning, which is computationally expensive. Concept localisation methods can facilitate selective finetuning, but existing techniques are static, resulting in suboptimal utility. In order to tackle these challenges, we propose TRUST (Targeted Robust Selective fine Tuning), a novel approach for dynamically estimating target concept neurons and unlearning them through selective finetuning, empowered by a Hessian based regularization. We show experimentally, against a number of SOTA baselines, that TRUST is robust against adversarial prompts, preserves generation quality to a significant degree, and is also significantly faster than the SOTA. Our method achieves unlearning of not only individual concepts but also combinations of concepts and conditional concepts, without any specific regularization.",
+      "venue": "cs.AI",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2602.07919",
+      "url": "https://arxiv.org/abs/2602.07919",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2306.02858",
+      "title": "Video-LLaMA: An Instruction-tuned Audio-Visual Language Model for Video Understanding",
+      "authors": [
+        {
+          "name": "Hang Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xin Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Lidong Bing",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We present Video-LLaMA a multi-modal framework that empowers Large Language Models (LLMs) with the capability of understanding both visual and auditory content in the video. Video-LLaMA bootstraps cross-modal training from the frozen pre-trained visual and audio encoders and the frozen LLMs. Unlike previous works that complement LLMs to process the visual or audio signals only, Video-LLaMA enables video comprehension by tackling two challenges: (1) capturing the temporal changes in visual scenes, (2) integrating audio-visual signals. To counter the first challenge, we propose a Video Q-former to assemble a pre-trained image encoder into our video encoder and introduce a video-to-text generation task to learn video-language correspondence. For the second challenge, we leverage ImageBind, a universal embedding model aligning multiple modalities, as the pre-trained audio encoder and introduce an Audio Q-former on top of ImageBind to learn reasonable auditory query embeddings for the LLM module. To align the output of both visual and audio encoders with LLM's embedding space, we first train Video-LLaMA on massive video/image-caption pairs and then tune our model with visual-instruction datasets of moderate amount but higher quality. We found Video-LLaMA shows the ability to perceive and comprehend video content and generate meaningful responses grounded in the visual and auditory information presented in the videos.",
+      "venue": "cs.CL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2306.02858",
+      "url": "https://arxiv.org/abs/2306.02858",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

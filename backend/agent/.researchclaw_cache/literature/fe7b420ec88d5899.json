@@ -1,0 +1,1420 @@
+{
+  "query": "Training free multi concept benchmark",
+  "source": "semantic_scholar",
+  "limit": 40,
+  "timestamp": 1773982637.0654383,
+  "papers": [
+    {
+      "paper_id": "s2-7676ade825c58a4b0d774b400c5c1098ae9d64d9",
+      "title": "MultLFG: Training-free Multi-LoRA composition using Frequency-domain Guidance",
+      "authors": [
+        {
+          "name": "Aniket Roy",
+          "affiliation": ""
+        },
+        {
+          "name": "Maitreya Suin",
+          "affiliation": ""
+        },
+        {
+          "name": "Ketul Shah",
+          "affiliation": ""
+        },
+        {
+          "name": "Rama Chellappa",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Low-Rank Adaptation (LoRA) has gained prominence as a computationally efficient method for fine-tuning generative models, enabling distinct visual concept synthesis with minimal overhead. However, current methods struggle to effectively merge multiple LoRA adapters without training, particularly in complex compositions involving diverse visual elements. We introduce MultLFG, a novel framework for training-free multi-LoRA composition that utilizes frequency-domain guidance to achieve adaptive fusion of multiple LoRAs. Unlike existing methods that uniformly aggregate concept-specific LoRAs, MultLFG employs a timestep and frequency subband adaptive fusion strategy, selectively activating relevant LoRAs based on content relevance at specific timesteps and frequency bands. This frequency-sensitive guidance not only improves spatial coherence but also provides finer control over multi-LoRA composition, leading to more accurate and consistent results. Experimental evaluations on the ComposLoRA benchmark reveal that MultLFG substantially enhances compositional fidelity and image quality across various styles and concept sets, outperforming state-of-the-art baselines in multi-concept generation tasks. Code will be released.",
+      "venue": "arXiv.org",
+      "citation_count": 3,
+      "doi": "10.48550/arXiv.2505.20525",
+      "arxiv_id": "2505.20525",
+      "url": "https://www.semanticscholar.org/paper/7676ade825c58a4b0d774b400c5c1098ae9d64d9",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-25893f487cba3739a7e2a962c2646f850a702e7a",
+      "title": "Personalization Toolkit: Training Free Personalization of Large Vision Language Models",
+      "authors": [
+        {
+          "name": "Soroush Seifi",
+          "affiliation": ""
+        },
+        {
+          "name": "Vaggelis Dorovatas",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniel Olmeda Reino",
+          "affiliation": ""
+        },
+        {
+          "name": "Rahaf Aljundi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Personalization of Large Vision-Language Models (LVLMs) involves customizing models to recognize specific users and object instances, and to generate contextually tailored responses. Existing approaches typically rely on time-consuming test-time training for each user or object, making them impractical for real-world deployment, a limitation reflected in current personalization benchmarks, which are focused on object-centric, single-concept evaluations. In this paper, we present a novel training-free approach to LVLM personalization and introduce a comprehensive real-world benchmark designed to rigorously evaluate various aspects of the personalization task. Our method leverages pre-trained vision foundation models to extract distinctive features, applies retrieval-augmented generation (RAG) techniques to identify instances within visual inputs, and employs visual prompting strategies to guide model outputs. Our model-agnostic vision toolkit enables efficient and flexible multi-concept personalization across both images and videos, without any additional training. We achieve state-of-the-art results, surpassing existing training-based methods.",
+      "venue": "arXiv.org",
+      "citation_count": 3,
+      "doi": "10.48550/arXiv.2502.02452",
+      "arxiv_id": "2502.02452",
+      "url": "https://www.semanticscholar.org/paper/25893f487cba3739a7e2a962c2646f850a702e7a",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-cfd8851cc343fee867dfad3a9627a1a16890e9f0",
+      "title": "LoRAShop: Training-Free Multi-Concept Image Generation and Editing with Rectified Flow Transformers",
+      "authors": [
+        {
+          "name": "Yusuf Dalva",
+          "affiliation": ""
+        },
+        {
+          "name": "Hidir Yesiltepe",
+          "affiliation": ""
+        },
+        {
+          "name": "Pinar Yanardag",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "We introduce LoRAShop, the first framework for multi-concept image editing with LoRA models. LoRAShop builds on a key observation about the feature interaction patterns inside Flux-style diffusion transformers: concept-specific transformer features activate spatially coherent regions early in the denoising process. We harness this observation to derive a disentangled latent mask for each concept in a prior forward pass and blend the corresponding LoRA weights only within regions bounding the concepts to be personalized. The resulting edits seamlessly integrate multiple subjects or styles into the original scene while preserving global context, lighting, and fine details. Our experiments demonstrate that LoRAShop delivers better identity preservation compared to baselines. By eliminating retraining and external constraints, LoRAShop turns personalized diffusion models into a practical `photoshop-with-LoRAs' tool and opens new avenues for compositional visual storytelling and rapid creative iteration.",
+      "venue": "arXiv.org",
+      "citation_count": 7,
+      "doi": "10.48550/arXiv.2505.23758",
+      "arxiv_id": "2505.23758",
+      "url": "https://www.semanticscholar.org/paper/cfd8851cc343fee867dfad3a9627a1a16890e9f0",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-bb03ea7b56f3609a1756813f185d26ca636238d8",
+      "title": "Decoupling Appearance and Layout for Training-Free Multi-Concept Driven Generation",
+      "authors": [
+        {
+          "name": "Tianyu Dong",
+          "affiliation": ""
+        },
+        {
+          "name": "Chuzhe Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuai Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Ping Gong",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Multi-concept driven generation\u2014synthesizing a coherent image from multiple personalized concepts and a text prompt\u2014remains a critical challenge for text-to-image diffusion models. Existing methods face a difficult trade-off: training-based approaches are computationally expensive and prone to concept entanglement, while training-free alternatives offer flexibility but lack precise layout control, often resulting in attribute bleeding. To resolve this, we propose MultiTailor, a novel training-free framework that achieves high-fidelity multi-concept composition by explicitly decoupling appearance and layout. Our method introduces two key components. First, a Composite Latent Representation injects the rich visual identity of multiple reference concepts directly into the diffusion process. Second, a Concept-Controlled Attention mechanism leverages layout priors from a Multimodal Large Language Model to precisely orchestrate information flow within the diffusion transformer. This ensures that each concept\u2019s appearance is rendered exclusively within its designated spatial region. As a plug-and-play module for pre-trained models, MultiTailor requires no optimization or parameter updates. Extensive experiments demonstrate that our method significantly outperforms existing training-free techniques and achieves results competitive with state-of-the-art training-based methods in terms of concept fidelity, text alignment, and overall image quality.",
+      "venue": "International Conference on Advances in Computing and Artificial Intelligence",
+      "citation_count": 0,
+      "doi": "10.1109/ACAI68217.2025.11406705",
+      "arxiv_id": "",
+      "url": "https://www.semanticscholar.org/paper/bb03ea7b56f3609a1756813f185d26ca636238d8",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-a049f7af1c4fc0402b5bdf9c0046bd499fe08b68",
+      "title": "FreerCustom: Training-Free Multi-Concept Customization for Image and Video Generation",
+      "authors": [
+        {
+          "name": "Canyu Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Ganggui Ding",
+          "affiliation": ""
+        },
+        {
+          "name": "Wen Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhen Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zide Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Chunhua Shen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "",
+      "venue": "International Journal of Computer Vision",
+      "citation_count": 0,
+      "doi": "10.1007/s11263-025-02623-z",
+      "arxiv_id": "",
+      "url": "https://www.semanticscholar.org/paper/a049f7af1c4fc0402b5bdf9c0046bd499fe08b68",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-555049cd20970930a7d0b6b8f66ad33e2037d101",
+      "title": "Training-Free Multi-Concept Image Editing",
+      "authors": [
+        {
+          "name": "N. Foteinopoulou",
+          "affiliation": ""
+        },
+        {
+          "name": "Ignas Budvytis",
+          "affiliation": ""
+        },
+        {
+          "name": "Stephan Liwicki",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Editing images with diffusion models under strict training-free constraints remains a significant challenge. While recent optimisation-based methods achieve strong zero-shot edits from text, they struggle to preserve identity and capture intricate details, such as facial structure, material texture, or object-specific geometry, that exist below the level of linguistic abstraction. To address this fundamental gap, we propose Concept Distillation Sampling (CDS). To the best of our knowledge, we are the first to introduce a unified, training-free framework for target-less, multi-concept image editing. CDS overcomes the linguistic bottleneck of previous methods by integrating a highly stable distillation backbone (featuring ordered timesteps, regularisation, and negative-prompt guidance), with a dynamic weighting mechanism. This approach enables the seamless composition and control of multiple visual concepts directly within the diffusion process, utilising spatially-aware priors from pretrained LoRA adapters without spatial interference. Our method preserves instance fidelity without requiring reference samples of the desired edit. Extensive quantitative and qualitative evaluations demonstrate consistent state-of-the-art performance over existing training-free editing and multi-LoRA composition methods on the InstructPix2Pix and ComposLoRA benchmarks. Code will be made publicly available.",
+      "venue": "",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2602.20839",
+      "url": "https://www.semanticscholar.org/paper/555049cd20970930a7d0b6b8f66ad33e2037d101",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-f2266786e4fb2cfcd36020edb72893fd51b245bb",
+      "title": "LoRA-Composer: Leveraging Low-Rank Adaptation for Multi-Concept Customization in Training-Free Diffusion Models",
+      "authors": [
+        {
+          "name": "Yang Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wen Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Liang Peng",
+          "affiliation": ""
+        },
+        {
+          "name": "Chaotian Song",
+          "affiliation": ""
+        },
+        {
+          "name": "Yao Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Hengjia Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaolong Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Qinglin Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Deng Cai",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaofei He",
+          "affiliation": ""
+        },
+        {
+          "name": "Boxi Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Wei Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Customization generation techniques have significantly advanced the synthesis of specific concepts across varied contexts. Multi-concept customization emerges as the challenging task within this domain. Existing approaches often rely on training a fusion matrix of multiple Low-Rank Adaptations (LoRAs) to merge various concepts into a single image. However, we identify this straightforward method faces two major challenges: 1) concept confusion, where the model struggles to preserve distinct individual characteristics, and 2) concept vanishing, where the model fails to generate the intended subjects. To address these issues, we introduce LoRA-Composer, a training-free framework designed for seamlessly integrating multiple LoRAs, thereby enhancing the harmony among different concepts within generated images. LoRA-Composer addresses concept vanishing through concept injection constraints, enhancing visibility via an expanded cross-attention mechanism. To combat concept confusion, concept isolation constraints are introduced, refining the self-attention computation. Furthermore, we propose two inference techniques to accelerate inference speed without performance degradation and enhance the accuracy of the generated region, respectively. Extensive experiments demonstrate that LoRA-Composer significantly outperforms standard baselines, especially in scenarios without image-based conditions such as canny edge or pose estimation.",
+      "venue": "IEEE Transactions on Image Processing",
+      "citation_count": 53,
+      "doi": "10.1109/TIP.2025.3633153",
+      "arxiv_id": "2403.11627",
+      "url": "https://www.semanticscholar.org/paper/f2266786e4fb2cfcd36020edb72893fd51b245bb",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-f3403c9ee5469ccd3f12686e6da2e58e761f5958",
+      "title": "Class Concept Representation From Contextual Texts for Training-Free Multi-Label Recognition",
+      "authors": [
+        {
+          "name": "Dong Un Kang",
+          "affiliation": ""
+        },
+        {
+          "name": "Hyunwoo Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Se Young Chun",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The power of large vision-language models (VLMs) has been demonstrated for downstream vision tasks, including multi-label recognition (MLR) with a training-free approach or prompt tuning by measuring the cosine similarity between the text features related to class names and the visual features of the images. Previous studies typically represent class-related text features by averaging simple handcrafted prompts with class names (e.g., \u201ca photo of class name\u201d), which lack the contextual information required to effectively handle diverse content and capture the co-occurrence of multiple semantic classes within an image. In addition, prompt tuning inherently requires labeled data or additional training, making it susceptible to overfitting for context tokens and hindering generalization. To address these limitations, we propose a training-free and label-free MLR framework that leverages the abundant text descriptions of novel classes to narrow the gap between the visual and text features at inference. Inspired by how humans form the concepts on words using contexts or the patterns of co-occurrence with other words, we propose a class concept representation for zero-shot MLR for large VLMs, which the rich contextual information embedded in large-scale image descriptions (e.g., \u201cA person holding a large pair of scissors\u201d). To further improve the alignment of the visual features of VLMs to the class concept representation, we also present a context-guided visual representation based on an attention process that operates in the same linear space as the class concept representation. Experimental results obtained on diverse benchmarks demonstrate that the proposed methods substantially improve the performance of existing zero-shot MLR methods, achieving an average improvement of 9.4% in mean average precision (mAP) over the zero-shot contrastive language-image pretraining (CLIP) method and 2.2% in mAP over the TaI-DPT zero-shot prompt-tuning method. In addition, our proposed method can synergistically work with existing prompt tuning methods, consistently improving the performance of the DualCoOp and TaI-DPT in a training-free manner with a negligible increase in inference time.",
+      "venue": "IEEE Access",
+      "citation_count": 1,
+      "doi": "10.1109/ACCESS.2025.3545772",
+      "arxiv_id": "",
+      "url": "https://www.semanticscholar.org/paper/f3403c9ee5469ccd3f12686e6da2e58e761f5958",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-de496ae34d4d9cc2d0f17dadd99d9caa89f9a83c",
+      "title": "AudioGenie: A Training-Free Multi-Agent Framework for Diverse Multimodality-to-Multiaudio Generation",
+      "authors": [
+        {
+          "name": "Yan Rong",
+          "affiliation": ""
+        },
+        {
+          "name": "Jinting Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Guangzhi Lei",
+          "affiliation": ""
+        },
+        {
+          "name": "Shan Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Li Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Multimodality-to-Multiaudio (MM2MA) generation faces significant challenges in synthesizing diverse and contextually aligned audio types (e.g., sound effects, speech, music, and songs) from multimodal inputs (e.g., video, text, images), owing to the scarcity of high-quality paired datasets and the lack of robust multi-task learning frameworks. Recently, multi-agent system shows great potential in tackling the above issues. However, directly applying it to MM2MA task presents three critical challenges: (1) inadequate fine-grained understanding of multimodal inputs (especially for video), (2) the inability of single models to handle diverse audio events, and (3) the absence of self-correction mechanisms for reliable outputs. To this end, we propose AudioGenie, a novel training-free multi-agent system featuring a dual-layer architecture with a generation team and a supervisor team. For the generation team, a fine-grained task decomposition and an adaptive Mixture-of-Experts (MoE) collaborative entity are designed for detailed comprehensive multimodal understanding and dynamic model selection, and a trial-and-error iterative refinement module is designed for self-correction. The supervisor team ensures temporal-spatial consistency and verifies outputs through feedback loops. Moreover, we build MA-Bench, the first benchmark for MM2MA tasks, comprising 198 annotated videos with multi-type audios. Experiments demonstrate that our AudioGenie achieves state-of-the-art (SOTA) or comparable performance across 9 metrics in 8 tasks. User study further validates the effectiveness of our method in terms of quality, accuracy, alignment, and aesthetic. The project website with audio samples can be found at https://audiogenie.github.io/.",
+      "venue": "ACM Multimedia",
+      "citation_count": 5,
+      "doi": "10.1145/3746027.3755758",
+      "arxiv_id": "2505.22053",
+      "url": "https://www.semanticscholar.org/paper/de496ae34d4d9cc2d0f17dadd99d9caa89f9a83c",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-ec702179bfb95e759e213c3931f3879e28c2aab3",
+      "title": "AudioGenie-Reasoner: A Training-Free Multi-Agent Framework for Coarse-to-Fine Audio Deep Reasoning",
+      "authors": [
+        {
+          "name": "Yan Rong",
+          "affiliation": ""
+        },
+        {
+          "name": "Chenxing Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Dong Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Li Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Audio deep reasoning is a challenging task that requires expert-level perception, multi-step logical inference, and the integration of contextual knowledge. However, existing models suffer from a gap between audio perception and reasoning abilities due to the lack of training data with explicit reasoning chains and the absence of mechanisms for active exploration and iterative refinement. To address these challenges, we propose AudioGenie-Reasoner (AGR), the first unified training-free multi-agent system that coordinates perception and reasoning over an evolving chain of textual evidence. Our key idea is a paradigm shift that transforms audio deep reasoning into complex text understanding task from a new perspective, thereby unlocking the full potential of large language models. Specifically, the design of AGR mimics the human coarse-to-fine cognitive process. It first transforms the input audio into a coarse text-based document. Then, we design a novel proactive iterative document refinement loop, featuring tool-augmented routes and specialized agents, to continuously search for missing information and augment the evidence chain in a coarse-to-fine manner until sufficient question-related information is gathered for making final predictions. Experimental results show that AGR achieves state-of-the-art (SOTA) performance over existing open-source audio deep reasoning models across various benchmarks. The code will be available at https://github.com/ryysayhi/AudioGenie-Reasoner.",
+      "venue": "arXiv.org",
+      "citation_count": 2,
+      "doi": "10.48550/arXiv.2509.16971",
+      "arxiv_id": "2509.16971",
+      "url": "https://www.semanticscholar.org/paper/ec702179bfb95e759e213c3931f3879e28c2aab3",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-32d46631276e0c181a6d4e580e9771671edd8b4f",
+      "title": "E-FreeM2: Efficient Training-Free Multi-Scale and Cross-Modal News Verification via MLLMs",
+      "authors": [
+        {
+          "name": "Van-Hoang Phan",
+          "affiliation": ""
+        },
+        {
+          "name": "Long-Khanh Pham",
+          "affiliation": ""
+        },
+        {
+          "name": "Dang Vu",
+          "affiliation": ""
+        },
+        {
+          "name": "Anh-Duy Tran",
+          "affiliation": ""
+        },
+        {
+          "name": "Minh-son Dao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The rapid spread of misinformation in mobile and wireless networks presents critical security challenges. This study introduces a training-free, retrieval-based multimodal fact verification system that leverages pretrained vision-language models and large language models for credibility assessment. By dynamically retrieving and cross-referencing trusted data sources, our approach mitigates vulnerabilities of traditional training-based models, such as adversarial attacks and data poisoning. Additionally, its lightweight design enables seamless edge device integration without extensive on-device processing. Experiments on two fact-checking benchmarks achieve SOTA results, confirming its effectiveness in misinformation detection and its robustness against various attack vectors, highlighting its potential to enhance security in mobile and wireless communication environments.",
+      "venue": "Proceedings of the 2nd Workshop on Security-Centric Strategies for Combating Information Disorder",
+      "citation_count": 2,
+      "doi": "10.1145/3709020.3734834",
+      "arxiv_id": "2506.20944",
+      "url": "https://www.semanticscholar.org/paper/32d46631276e0c181a6d4e580e9771671edd8b4f",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-0239a7b8264704d4a8e6b3a63ce417d8c56b73ef",
+      "title": "Efficient Training-Free Multi-Token Prediction via Embedding-Space Probing",
+      "authors": [
+        {
+          "name": "Raghavv Goel",
+          "affiliation": ""
+        },
+        {
+          "name": "Mukul Gagrani",
+          "affiliation": ""
+        },
+        {
+          "name": "Mingu Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Christopher M. Lott",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Large language models (LLMs) exhibit latent multi-token prediction (MTP) capabilities despite being trained solely for next-token generation. We propose a simple, training-free MTP approach that probes an LLM using on-the-fly mask tokens drawn from its embedding space, enabling parallel prediction of future tokens without modifying model weights or relying on auxiliary draft models. Our method constructs a speculative token tree by sampling top-K candidates from mask-token logits and applies a lightweight pruning strategy to retain high-probability continuations. During decoding, candidate predictions are verified in parallel, resulting in lossless generation while substantially reducing the number of model calls and improving token throughput. Across benchmarks, our probing-based MTP consistently outperforms existing training-free baselines, increasing acceptance length by approximately 12\\% on LLaMA3 and 8--12\\% on Qwen3, and achieving throughput gains of up to 15--19\\%. Finally, we provide theoretical insights and empirical evidence showing that decoder layers naturally align mask-token representations with next-token states, enabling accurate multi-step prediction without retraining or auxiliary models.",
+      "venue": "",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2603.17942",
+      "url": "https://www.semanticscholar.org/paper/0239a7b8264704d4a8e6b3a63ce417d8c56b73ef",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-195bac2acd7835e07039d9ba05c841ef503c6694",
+      "title": "FreeCustom: Tuning-Free Customized Image Generation for Multi-Concept Composition",
+      "authors": [
+        {
+          "name": "Ganggui Ding",
+          "affiliation": ""
+        },
+        {
+          "name": "Canyu Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Wen Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhen Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zide Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Chunhua Shen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Benefiting from large-scale pre-trained text-to-image (T2I) generative models, impressive progress has been achieved in customized image generation, which aims to generate user-specified concepts. Existing approaches have extensively focused on single-concept customization and still encounter challenges when it comes to complex scenarios that involve combining multiple concepts. These approaches often require retraining/fine-tuning using a few images, leading to time-consuming training processes and impeding their swift implementation. Furthermore, the reliance on multiple images to represent a singular concept increases the difficulty of customization. To this end, we propose FreeCustom, a novel tuning-free method to generate customized images of multi-concept composition based on reference concepts, using only one image per concept as input. Specifically, we introduce a new multi-reference self-attention (MRSA) mechanism and a weighted mask strategy that enables the generated image to access and focus more on the reference concepts. In addition, MRSA leverages our key finding that input concepts are better preserved when providing images with context interactions. Experiments show that our method's produced images are consistent with the given concepts and better aligned with the input text. Our method outperforms or performs on par with other training-based methods in terms of multi-concept composition and single-concept customization, but is simpler. Codes can be found here.",
+      "venue": "Computer Vision and Pattern Recognition",
+      "citation_count": 58,
+      "doi": "10.1109/CVPR52733.2024.00868",
+      "arxiv_id": "2405.13870",
+      "url": "https://www.semanticscholar.org/paper/195bac2acd7835e07039d9ba05c841ef503c6694",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-4db7efe5bee9017c8d6a64d476b7366b6d54e789",
+      "title": "Mod-Adapter: Tuning-Free and Versatile Multi-concept Personalization via Modulation Adapter",
+      "authors": [
+        {
+          "name": "Wei\u2010Tao Zhong",
+          "affiliation": ""
+        },
+        {
+          "name": "Huan Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zheng Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Huiguo He",
+          "affiliation": ""
+        },
+        {
+          "name": "Zijian He",
+          "affiliation": ""
+        },
+        {
+          "name": "Xuesong Niu",
+          "affiliation": ""
+        },
+        {
+          "name": "Di Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Guanbin Li",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Personalized text-to-image generation aims to synthesize images of user-provided concepts in diverse contexts. Despite recent progress in multi-concept personalization, most are limited to object concepts and struggle to customize abstract concepts (e.g., pose, lighting). Some methods have begun exploring multi-concept personalization supporting abstract concepts, but they require test-time fine-tuning for each new concept, which is time-consuming and prone to overfitting on limited training images. In this work, we propose a novel tuning-free method for multi-concept personalization that can effectively customize both object and abstract concepts without test-time fine-tuning. Our method builds upon the modulation mechanism in pre-trained Diffusion Transformers (DiTs) model, leveraging the localized and semantically meaningful properties of the modulation space. Specifically, we propose a novel module, Mod-Adapter, to predict concept-specific modulation direction for the modulation process of concept-related text tokens. It introduces vision-language cross-attention for extracting concept visual features, and Mixture-of-Experts (MoE) layers that adaptively map the concept features into the modulation space. Furthermore, to mitigate the training difficulty caused by the large gap between the concept image space and the modulation space, we introduce a VLM-guided pre-training strategy that leverages the strong image understanding capabilities of vision-language models to provide semantic supervision signals. For a comprehensive comparison, we extend a standard benchmark by incorporating abstract concepts. Our method achieves state-of-the-art performance in multi-concept personalization, supported by quantitative, qualitative, and human evaluations.",
+      "venue": "arXiv.org",
+      "citation_count": 5,
+      "doi": "10.48550/arXiv.2505.18612",
+      "arxiv_id": "2505.18612",
+      "url": "https://www.semanticscholar.org/paper/4db7efe5bee9017c8d6a64d476b7366b6d54e789",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-21562f5a8f0a6596d7fe78ac22509589c2eb5acf",
+      "title": "Efficient Training-Free Online Routing for High-Volume Multi-LLM Serving",
+      "authors": [
+        {
+          "name": "Fangzhou Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Sandeep Silwal",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Increasing demand for Large Language Models (LLMs) services imposes substantial deployment and computation costs on providers. LLM routing offers a cost-efficient solution by directing queries to the optimal LLM based on model and query features. However, existing works primarily focus on offline scenarios and struggle to adapt to online settings with high query volume and constrained token budgets. In this work, we introduce the first training-free algorithm for online routing scenarios. Our algorithm leverages approximate nearest neighbor search to efficiently estimate query features and performs a one-time optimization over a small set of initial queries to learn a routing strategy that guides future routing. We provide theoretical guarantees demonstrating that our algorithm achieves a competitive ratio of $1 - o(1)$ under natural assumptions, which is further validated by extensive experiments across 3 benchmark datasets and 8 baselines, showing an average improvement of 3.55$\\times$ in overall performance, 1.85$\\times$ in cost efficiency, and nearly 4.25$\\times$ in throughput. Our code is available at https://github.com/fzwark/PORT.",
+      "venue": "arXiv.org",
+      "citation_count": 1,
+      "doi": "10.48550/arXiv.2509.02718",
+      "arxiv_id": "2509.02718",
+      "url": "https://www.semanticscholar.org/paper/21562f5a8f0a6596d7fe78ac22509589c2eb5acf",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-ef99198116cefc8e59be2397b0ab9916c3bf2c80",
+      "title": "HouseLayout3D: A Benchmark and Training-Free Baseline for 3D Layout Estimation in the Wild",
+      "authors": [
+        {
+          "name": "Valentin Bieri",
+          "affiliation": ""
+        },
+        {
+          "name": "Marie-Julie Rakotosaona",
+          "affiliation": ""
+        },
+        {
+          "name": "Keisuke Tateno",
+          "affiliation": ""
+        },
+        {
+          "name": "Francis Engelmann",
+          "affiliation": ""
+        },
+        {
+          "name": "Leonidas Guibas",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Current 3D layout estimation models are primarily trained on synthetic datasets containing simple single room or single floor environments. As a consequence, they cannot natively handle large multi floor buildings and require scenes to be split into individual floors before processing, which removes global spatial context that is essential for reasoning about structures such as staircases that connect multiple levels. In this work, we introduce HouseLayout3D, a real world benchmark designed to support progress toward full building scale layout estimation, including multiple floors and architecturally intricate spaces. We also present MultiFloor3D, a simple training free baseline that leverages recent scene understanding methods and already outperforms existing 3D layout estimation models on both our benchmark and prior datasets, highlighting the need for further research in this direction. Data and code are available at: https://houselayout3d.github.io.",
+      "venue": "arXiv.org",
+      "citation_count": 0,
+      "doi": "10.48550/arXiv.2512.02450",
+      "arxiv_id": "2512.02450",
+      "url": "https://www.semanticscholar.org/paper/ef99198116cefc8e59be2397b0ab9916c3bf2c80",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-2f963921c00dd7e247c203631e4086789de444a6",
+      "title": "MMLU-CF: A Contamination-free Multi-task Language Understanding Benchmark",
+      "authors": [
+        {
+          "name": "Qihao Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Yangyu Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Tengchao Lv",
+          "affiliation": ""
+        },
+        {
+          "name": "Lei Cui",
+          "affiliation": ""
+        },
+        {
+          "name": "Qinzheng Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Shaoguang Mao",
+          "affiliation": ""
+        },
+        {
+          "name": "Xin Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ying Xin",
+          "affiliation": ""
+        },
+        {
+          "name": "Qiufeng Yin",
+          "affiliation": ""
+        },
+        {
+          "name": "Scarlett Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Furu Wei",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Multiple-choice question (MCQ) datasets like Massive Multitask Language Understanding (MMLU) are widely used to evaluate the commonsense, understanding, and problem-solving abilities of large language models (LLMs). However, the open-source nature of these benchmarks and the broad sources of training data for LLMs have inevitably led to benchmark contamination, resulting in unreliable evaluation results. To alleviate this issue, we propose a contamination-free and more challenging MCQ benchmark called MMLU-CF. This benchmark reassesses LLMs'understanding of world knowledge by averting both unintentional and malicious data leakage. To avoid unintentional data leakage, we source data from a broader domain and design three decontamination rules. To prevent malicious data leakage, we divide the benchmark into validation and test sets with similar difficulty and subject distributions. The test set remains closed-source to ensure reliable results, while the validation set is publicly available to promote transparency and facilitate independent verification. Our evaluation of mainstream LLMs reveals that the powerful GPT-4o achieves merely a 5-shot score of 73.4% and a 0-shot score of 71.9% on the test set, which indicates the effectiveness of our approach in creating a more rigorous and contamination-free evaluation standard. The GitHub repository is available at https://github.com/microsoft/MMLU-CF and the dataset refers to https://huggingface.co/datasets/microsoft/MMLU-CF.",
+      "venue": "arXiv.org",
+      "citation_count": 28,
+      "doi": "10.48550/arXiv.2412.15194",
+      "arxiv_id": "2412.15194",
+      "url": "https://www.semanticscholar.org/paper/2f963921c00dd7e247c203631e4086789de444a6",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-c2fe85c794abfa3ed876bdeab6f0682a8596e455",
+      "title": "FreeSliders: Training-Free, Modality-Agnostic Concept Sliders for Fine-Grained Diffusion Control in Images, Audio, and Video",
+      "authors": [
+        {
+          "name": "Rotem Ezra",
+          "affiliation": ""
+        },
+        {
+          "name": "Hedi Zisling",
+          "affiliation": ""
+        },
+        {
+          "name": "Nimrod Berman",
+          "affiliation": ""
+        },
+        {
+          "name": "Ilan Naiman",
+          "affiliation": ""
+        },
+        {
+          "name": "Alexey Gorkor",
+          "affiliation": ""
+        },
+        {
+          "name": "Liran Nochumsohn",
+          "affiliation": ""
+        },
+        {
+          "name": "Eliya Nachmani",
+          "affiliation": ""
+        },
+        {
+          "name": "Omri Azencot",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Diffusion models have become state-of-the-art generative models for images, audio, and video, yet enabling fine-grained controllable generation, i.e., continuously steering specific concepts without disturbing unrelated content, remains challenging. Concept Sliders (CS) offer a promising direction by discovering semantic directions through textual contrasts, but they require per-concept training and architecture-specific fine-tuning (e.g., LoRA), limiting scalability to new modalities. In this work we introduce FreeSliders, a simple yet effective approach that is fully training-free and modality-agnostic, achieved by partially estimating the CS formula during inference. To support modality-agnostic evaluation, we extend the CS benchmark to include both video and audio, establishing the first suite for fine-grained concept generation control with multiple modalities. We further propose three evaluation properties along with new metrics to improve evaluation quality. Finally, we identify an open problem of scale selection and non-linear traversals and introduce a two-stage procedure that automatically detects saturation points and reparameterizes traversal for perceptually uniform, semantically meaningful edits. Extensive experiments demonstrate that our method enables plug-and-play, training-free concept control across modalities, improves over existing baselines, and establishes new tools for principled controllable generation. An interactive presentation of our benchmark and method is available at: https://azencot-group.github.io/FreeSliders/",
+      "venue": "arXiv.org",
+      "citation_count": 0,
+      "doi": "10.48550/arXiv.2511.00103",
+      "arxiv_id": "2511.00103",
+      "url": "https://www.semanticscholar.org/paper/c2fe85c794abfa3ed876bdeab6f0682a8596e455",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-3a6b28ba871ca600be56e5d6e7fa2339c8262a36",
+      "title": "Training-Free Multi-Objective and Many-Objective Evolutionary Neural Architecture Search with Synaptic Flow",
+      "authors": [
+        {
+          "name": "An Vo",
+          "affiliation": ""
+        },
+        {
+          "name": "Tan Ngoc Pham",
+          "affiliation": ""
+        },
+        {
+          "name": "Van Bich Nguyen",
+          "affiliation": ""
+        },
+        {
+          "name": "Ngoc Hoang Luong",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Neural architecture search (NAS) algorithms often suffer from the expensive computation cost because a sufficient number of candidate architectures need to be evaluated during the search. Each architecture evaluation involves hundreds of training epochs to obtain proper weights for computing the accuracy of that architecture. Recently, a training-free performance metric Synaptic Flow has been proposed to facilitate these architecture evaluations. Synaptic Flow can be computed using randomly initialized network weights and its values are found to have certain correlation degree with network test accuracy. Furthermore, in real-world neural architecture designing, network performance (e.g., test accuracy) is not the sole objective, and network complexity metrics (e.g., the number of parameters, latency) are also considered. In this paper, we investigate several multi-objective NAS problem formulations, where each involves one performance metric and one complexity metric, and a many-objective NAS problem formulation, that involves one performance metric and four complexity metrics. We consider two variants of the performance metric for each formulation: a training-based variant that employs network accuracy and a training-free variant that employs Synaptic Flow. We use the non-dominated sorting genetic algorithm II to solve these NAS problem formulations, and then compare the quality of the obtained architectures and the efficiency of solving each formulation. Experimental results on standard benchmark NATS-Bench exhibit the advantages of the training-free many-objective evolutionary NAS (TF-MaOENAS) approach in obtaining competitive architectures with reasonable computing cost. The code is available at: https://github.com/ELO-Lab/TF-MaOENAS.",
+      "venue": "Symposium on Information and Communication Technology",
+      "citation_count": 4,
+      "doi": "10.1145/3568562.3568569",
+      "arxiv_id": "",
+      "url": "https://www.semanticscholar.org/paper/3a6b28ba871ca600be56e5d6e7fa2339c8262a36",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-279356ebfd23964c28cabc1a874d6493ee93f604",
+      "title": "What Kind of Visual Tokens Do We Need? Training-free Visual Token Pruning for Multi-modal Large Language Models from the Perspective of Graph",
+      "authors": [
+        {
+          "name": "Yutao Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Qiong Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenhao Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Wei Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Yiyi Zhou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Recent Multimodal Large Language Models(MLLMs) often use a large number of visual tokens to compensate their visual shortcoming, leading to excessive computation and obvious visual redundancy. In this paper, we investigate what kind of visual tokens are needed for MLLMs, and reveal that both foreground and background tokens are critical for MLLMs given the varying difficulties of examples. Based on this observation, we propose a graph-based method towards training-free visual token pruning, termed G-Prune. In particular, G-Prune regards visual tokens as nodes, and construct their connections based on their semantic similarities. Afterwards, the information flow is propagated via weighted links, and the most important tokens after iterations are kept for MLLMs, which can be front or background. To validate G-Prune, we apply it to a recent MLLM called LLaVA-NeXT, and conduct extensive experiments on a set of benchmarks. The experiment results show that G-Prune can greatly reduce computation overhead while retaining high performance on both coarse- and fine-grained tasks. For instance, G-Prune can reduce 63.57% FLOPs of LLaVA-NeXT on VQA2.0 and TextVQA with only 0.95% and 2.34% accuracy drops, respectively.",
+      "venue": "AAAI Conference on Artificial Intelligence",
+      "citation_count": 21,
+      "doi": "10.48550/arXiv.2501.02268",
+      "arxiv_id": "2501.02268",
+      "url": "https://www.semanticscholar.org/paper/279356ebfd23964c28cabc1a874d6493ee93f604",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-d7d839d90077c59993c7e0ba3d40eb90a210bf47",
+      "title": "Multi-Granular Spatio-Temporal Token Merging for Training-Free Acceleration of Video LLMs",
+      "authors": [
+        {
+          "name": "Jeongseok Hyun",
+          "affiliation": ""
+        },
+        {
+          "name": "Sukjun Hwang",
+          "affiliation": ""
+        },
+        {
+          "name": "Su Ho Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Taeoh Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Inwoong Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Dongyoon Wee",
+          "affiliation": ""
+        },
+        {
+          "name": "Joon-Young Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Seon Joo Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Minho Shim",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Video large language models (LLMs) achieve strong video understanding by leveraging a large number of spatio-temporal tokens, but suffer from quadratic computational scaling with token count. To address this, we propose a training-free spatio-temporal token merging method, named STTM. Our key insight is to exploit local spatial and temporal redundancy in video data which has been overlooked in prior work. STTM first transforms each frame into multi-granular spatial tokens using a coarse-to-fine search over a quadtree structure, then performs directed pairwise merging across the temporal dimension. This decomposed merging approach outperforms existing token reduction methods across six video QA benchmarks. Notably, STTM achieves a 2$\\times$ speed-up with only a 0.5% accuracy drop under a 50% token budget, and a 3$\\times$ speed-up with just a 2% drop under a 30% budget. Moreover, STTM is query-agnostic, allowing KV cache reuse across different questions for the same video. The project page is available at https://www.jshyun.me/projects/sttm.",
+      "venue": "arXiv.org",
+      "citation_count": 18,
+      "doi": "10.48550/arXiv.2507.07990",
+      "arxiv_id": "2507.07990",
+      "url": "https://www.semanticscholar.org/paper/d7d839d90077c59993c7e0ba3d40eb90a210bf47",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-e8d4f694e77ce72749e469eec3496b41db67b0c0",
+      "title": "T$^3$-S2S: Training-free Triplet Tuning for Sketch to Scene Synthesis in Controllable Concept Art Generation",
+      "authors": [
+        {
+          "name": "Zhenhong Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Yifu Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yonhon Ng",
+          "affiliation": ""
+        },
+        {
+          "name": "Yunfei Duan",
+          "affiliation": ""
+        },
+        {
+          "name": "Daoyi Dong",
+          "affiliation": ""
+        },
+        {
+          "name": "Hongdong Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Pan Ji",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "2D concept art generation for 3D scenes is a crucial yet challenging task in computer graphics, as creating natural intuitive environments still demands extensive manual effort in concept design. While generative AI has simplified 2D concept design via text-to-image synthesis, it struggles with complex multi-instance scenes and offers limited support for structured terrain layout. In this paper, we propose a Training-free Triplet Tuning for Sketch-to-Scene (T3-S2S) generation after reviewing the entire cross-attention mechanism. This scheme revitalizes the ControlNet model for detailed multi-instance generation via three key modules: Prompt Balance ensures keyword representation and minimizes the risk of missing critical instances; Characteristic Priority emphasizes sketch-based features by highlighting TopK indices in feature channels; and Dense Tuning refines contour details within instance-related regions of the attention map. Leveraging the controllability of T3-S2S, we also introduce a feature-sharing strategy with dual prompt sets to generate layer-aware isometric and terrain-view representations for the terrain layout. Experiments show that our sketch-to-scene workflow consistently produces multi-instance 2D scenes with details aligned with input prompts.",
+      "venue": "",
+      "citation_count": 2,
+      "doi": "",
+      "arxiv_id": "2412.13486",
+      "url": "https://www.semanticscholar.org/paper/e8d4f694e77ce72749e469eec3496b41db67b0c0",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-f42f82842e223a735cde6ffc30ecc4ecde38ce3e",
+      "title": "VISTA: Vision-Language Inference for Training-Free Stock Time-Series Analysis",
+      "authors": [
+        {
+          "name": "Tina Khezresmaeilzadeh",
+          "affiliation": ""
+        },
+        {
+          "name": "Parsa Razmara",
+          "affiliation": ""
+        },
+        {
+          "name": "Seyedarmin Azizi",
+          "affiliation": ""
+        },
+        {
+          "name": "Mohammad Erfan Sadeghi",
+          "affiliation": ""
+        },
+        {
+          "name": "Erfan Baghaei Portaghloo",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Stock price prediction remains a complex and high-stakes task in financial analysis, traditionally addressed using statistical models or, more recently, language models. In this work, we introduce VISTA (Vision-Language Inference for Stock Time-series Analysis), a novel, training-free framework that leverages Vision-Language Models (VLMs) for multi-modal stock forecasting. VISTA prompts a VLM with both textual representations of historical stock prices and their corresponding line charts to predict future price values. By combining numerical and visual modalities in a zero-shot setting and using carefully designed chain-of-thought prompts, VISTA captures complementary patterns that unimodal approaches often miss. We benchmark VISTA against standard baselines, including ARIMA and text-only LLM-based prompting methods. Experimental results show that VISTA outperforms these baselines by up to 89.83%, demonstrating the effectiveness of multi-modal inference for stock time-series analysis and highlighting the potential of VLMs in financial forecasting tasks without requiring task-specific training.",
+      "venue": "arXiv.org",
+      "citation_count": 3,
+      "doi": "10.48550/arXiv.2505.18570",
+      "arxiv_id": "2505.18570",
+      "url": "https://www.semanticscholar.org/paper/f42f82842e223a735cde6ffc30ecc4ecde38ce3e",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-d7e20915d305e158a43c9894d112a8a8f1152dbe",
+      "title": "Stitch: Training-Free Position Control in Multimodal Diffusion Transformers",
+      "authors": [
+        {
+          "name": "Jessica Bader",
+          "affiliation": ""
+        },
+        {
+          "name": "Mateusz Pach",
+          "affiliation": ""
+        },
+        {
+          "name": "Maria A. Bravo",
+          "affiliation": ""
+        },
+        {
+          "name": "Serge Belongie",
+          "affiliation": ""
+        },
+        {
+          "name": "Zeynep Akata",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Text-to-Image (T2I) generation models have advanced rapidly in recent years, but accurately capturing spatial relationships like\"above\"or\"to the right of\"poses a persistent challenge. Earlier methods improved spatial relationship following with external position control. However, as architectures evolved to enhance image quality, these techniques became incompatible with modern models. We propose Stitch, a training-free method for incorporating external position control into Multi-Modal Diffusion Transformers (MMDiT) via automatically-generated bounding boxes. Stitch produces images that are both spatially accurate and visually appealing by generating individual objects within designated bounding boxes and seamlessly stitching them together. We find that targeted attention heads capture the information necessary to isolate and cut out individual objects mid-generation, without needing to fully complete the image. We evaluate Stitch on PosEval, our benchmark for position-based T2I generation. Featuring five new tasks that extend the concept of Position beyond the basic GenEval task, PosEval demonstrates that even top models still have significant room for improvement in position-based generation. Tested on Qwen-Image, FLUX, and SD3.5, Stitch consistently enhances base models, even improving FLUX by 218% on GenEval's Position task and by 206% on PosEval. Stitch achieves state-of-the-art results with Qwen-Image on PosEval, improving over previous models by 54%, all accomplished while integrating position control into leading models training-free. Code is available at https://github.com/ExplainableML/Stitch.",
+      "venue": "arXiv.org",
+      "citation_count": 2,
+      "doi": "10.48550/arXiv.2509.26644",
+      "arxiv_id": "2509.26644",
+      "url": "https://www.semanticscholar.org/paper/d7e20915d305e158a43c9894d112a8a8f1152dbe",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-92d7e7b1bd5bd7168b39bce62a2d4ba534ea75b7",
+      "title": "LEWIS (LayEr WIse Sparsity) - A Training Free Guided Model Merging Approach",
+      "authors": [
+        {
+          "name": "Hetarth Chopra",
+          "affiliation": ""
+        },
+        {
+          "name": "Vidhi Rambhia",
+          "affiliation": ""
+        },
+        {
+          "name": "Vikram S. Adve",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "As specialized large language models (LLMs) become increasingly prevalent, model merging methods are being used to combine them to create a single multi-task model without requiring any additional data or training. However, these approaches fall short when the objective of merging is to increase the downstream model's performance on a particular task-specific benchmark. In this work, we propose LEWIS (Layer Wise Sparsity), a guided model-merging framework that uses activation-based layer importance to dynamically adjust layer-wise task-vector sparsity required for the merge process. LEWIS uses a calibration dataset to prioritize critical layers during the task-vector pruning process required for model merging. This approach guides existing merging methods by preserving essential layer-wise task-specific knowledge while ensuring the merged model performs the best at benchmarks resembling the calibration dataset. Our experiments demonstrate the effectiveness of LEWIS with performance improvements of code instruction-following and math-solving models created through model merging up to 4 percent and 11.3 percent, respectively, outperforming unguided data-less model merging approaches that use uniform-sparsity.",
+      "venue": "arXiv.org",
+      "citation_count": 1,
+      "doi": "10.48550/arXiv.2503.03874",
+      "arxiv_id": "2503.03874",
+      "url": "https://www.semanticscholar.org/paper/92d7e7b1bd5bd7168b39bce62a2d4ba534ea75b7",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-a5a6f628362d0ca47b0032933e6db5d1ddf8a19f",
+      "title": "Empirical Evaluation of Evolutionary NAS with Training-Free Metrics for Discovering Robust Networks Under Adversarial Training",
+      "authors": [
+        {
+          "name": "C. do",
+          "affiliation": ""
+        },
+        {
+          "name": "Ngoc Hoang Luong",
+          "affiliation": ""
+        },
+        {
+          "name": "Q. Phan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Using training-free (TF) metrics as proxies for network performance is an effective and efficient approach in neural architecture search (NAS). Recent studies have shown that TF metrics can outperform training-based metrics in identifying robust networks when integrated as search objectives in both single-objective and multi-objective evolutionary NAS (ENAS) methods. However, prior work has typically evaluated robustness without applying adversarial training. While adversarial training can improve the robustness of deep neural networks, it has the drawback of reducing performance on clean data. In this paper, we investigate the effectiveness of ENAS with two types of performance metrics (i.e., training-based and training-free) in discovering networks that simultaneously achieve high accuracy on both clean and adversarial data. Extensive experiments on NAS problems built upon the newly proposed adversarial NAS benchmark (i.e., NAS-RobBench-201) demonstrate that multiobjective ENAS with TF metrics as search objectives can efficiently identify networks with high performance on clean data and strong robustness against various adversarial attacks.",
+      "venue": "Conference on Research, Innovation and Vision for the Future in Computing & Communication Technologies",
+      "citation_count": 0,
+      "doi": "10.1109/RIVF68649.2025.11365115",
+      "arxiv_id": "",
+      "url": "https://www.semanticscholar.org/paper/a5a6f628362d0ca47b0032933e6db5d1ddf8a19f",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-b4cb0ec227a375f5eda335a80d46888c6299556d",
+      "title": "\u03bb-ECLIPSE: Multi-Concept Personalized Text-to-Image Diffusion Models by Leveraging CLIP Latent Space",
+      "authors": [
+        {
+          "name": "Maitreya Patel",
+          "affiliation": ""
+        },
+        {
+          "name": "Sangmin Jung",
+          "affiliation": ""
+        },
+        {
+          "name": "Chitta Baral",
+          "affiliation": ""
+        },
+        {
+          "name": "Yezhou Yang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Despite the recent advances in personalized text-to-image (P-T2I) generative models, it remains challenging to perform finetuning-free multi-subject-driven T2I in a resource-efficient manner. Predominantly, contemporary approaches, involving the training of Hypernetworks and Multimodal Large Language Models (MLLMs), require heavy computing resources that range from 600 to 12300 GPU hours of training. These subject-driven T2I methods hinge on Latent Diffusion Models (LDMs), which facilitate T2I mapping through cross-attention layers. While LDMs offer distinct advantages, P-T2I methods' reliance on the latent space of these diffusion models significantly escalates resource demands, leading to inconsistent results and necessitating numerous iterations for a single desired image. In this paper, we present $\\lambda$-ECLIPSE, an alternative prior-training strategy that works in the latent space of a pre-trained CLIP model without relying on the diffusion UNet models. $\\lambda$-ECLIPSE leverages the image-text interleaved pre-training for fast and effective multi-subject-driven P-T2I. Through extensive experiments, we establish that $\\lambda$-ECLIPSE surpasses existing baselines in composition alignment while preserving concept alignment performance, even with significantly lower resource utilization. $\\lambda$-ECLIPSE performs multi-subject driven P-T2I with just 34M parameters and is trained on a mere 74 GPU hours. Additionally, $\\lambda$-ECLIPSE demonstrates the unique ability to perform multi-concept interpolations.",
+      "venue": "Trans. Mach. Learn. Res.",
+      "citation_count": 56,
+      "doi": "10.48550/arXiv.2402.05195",
+      "arxiv_id": "2402.05195",
+      "url": "https://www.semanticscholar.org/paper/b4cb0ec227a375f5eda335a80d46888c6299556d",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-27d83587c179e7a25ced531db76ad7aeaac8010f",
+      "title": "Visual RAG Toolkit: Scaling Multi-Vector Visual Retrieval with Training-Free Pooling and Multi-Stage Search",
+      "authors": [
+        {
+          "name": "Ara Yeroyan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Multi-vector visual retrievers (e.g., ColPali-style late interaction models) deliver strong accuracy, but scale poorly because each page yields thousands of vectors, making indexing and search increasingly expensive. We present Visual RAG Toolkit, a practical system for scaling visual multi-vector retrieval with training-free, model-aware pooling and multi-stage retrieval. Motivated by Matryoshka Embeddings, our method performs static spatial pooling - including a lightweight sliding-window averaging variant - over patch embeddings to produce compact tile-level and global representations for fast candidate generation, followed by exact MaxSim reranking using full multi-vector embeddings. Our design yields a quadratic reduction in vector-to-vector comparisons by reducing stored vectors per page from thousands to dozens, notably without requiring post-training, adapters, or distillation. Across experiments with interaction-style models such as ColPali and ColSmol-500M, we observe that over the limited ViDoRe v2 benchmark corpus 2-stage retrieval typically preserves NDCG and Recall @ 5/10 with minimal degradation, while substantially improving throughput (approximately 4x QPS); with sensitivity mainly at very large k. The toolkit additionally provides robust preprocessing - high resolution PDF to image conversion, optional margin/empty-region cropping and token hygiene (indexing only visual tokens) - and a reproducible evaluation pipeline, enabling rapid exploration of two-, three-, and cascaded retrieval variants. By emphasizing efficiency at common cutoffs (e.g., k<= 10), the toolkit lowers hardware barriers and makes state-of-the-art visual retrieval more accessible in practice.",
+      "venue": "",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2602.12510",
+      "url": "https://www.semanticscholar.org/paper/27d83587c179e7a25ced531db76ad7aeaac8010f",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-b721666bf0cc785bfd33def01afd3fdaa22eaab2",
+      "title": "OCCAM: Class-Agnostic, Training-Free, Prior-Free and Multi-Class Object Counting",
+      "authors": [
+        {
+          "name": "Michail Spanakis",
+          "affiliation": ""
+        },
+        {
+          "name": "I. Oikonomidis",
+          "affiliation": ""
+        },
+        {
+          "name": "Antonis A. Argyros",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "Class-Agnostic object Counting (CAC) involves counting instances of objects from arbitrary classes within an image. Due to its practical importance, CAC has received increasing attention in recent years. Most existing methods assume a single object class per image, rely on extensive training of large deep learning models and address the problem by incorporating additional information, such as visual exemplars or text prompts. In this paper, we present OCCAM, the first training-free approach to CAC that operates without the need of any supplementary information. Moreover, our approach addresses the multi-class variant of the problem, as it is capable of counting the object instances in each and every class among arbitrary object classes within an image. We leverage Segment Anything Model 2 (SAM2), a foundation model, and a custom threshold-based variant of the First Integer Neighbor Clustering Hierarchy (FINCH) algorithm to achieve competitive performance on widely used benchmark datasets, FSC-147 and CARPK. We propose a synthetic multi-class dataset and F1 score as a more suitable evaluation metric. The code for our method and the proposed synthetic dataset will be made publicly available at https://mikespanak.github.io/OCCAM_counter.",
+      "venue": "arXiv.org",
+      "citation_count": 0,
+      "doi": "10.48550/arXiv.2601.13871",
+      "arxiv_id": "2601.13871",
+      "url": "https://www.semanticscholar.org/paper/b721666bf0cc785bfd33def01afd3fdaa22eaab2",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-98a40eb28da3a9684b56f15de6b716595453c5c6",
+      "title": "Semi-supervised Learning for Detector-free Multi-person Pose Estimation",
+      "authors": [
+        {
+          "name": "Haixin Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Lu Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Yingying Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Ming Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jinqiao Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "",
+      "venue": "Machine Intelligence Research",
+      "citation_count": 1,
+      "doi": "10.1007/s11633-024-1524-2",
+      "arxiv_id": "",
+      "url": "https://www.semanticscholar.org/paper/98a40eb28da3a9684b56f15de6b716595453c5c6",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-c4d9a22b18998af0d0e591c12b6c9e31161d8e06",
+      "title": "MSTAR: Box-free Multi-query Scene Text Retrieval with Attention Recycling",
+      "authors": [
+        {
+          "name": "Liang Yin",
+          "affiliation": ""
+        },
+        {
+          "name": "Xudong Xie",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhang Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiang Bai",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuliang Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Scene text retrieval has made significant progress with the assistance of accurate text localization. However, existing approaches typically require costly bounding box annotations for training. Besides, they mostly adopt a customized retrieval strategy but struggle to unify various types of queries to meet diverse retrieval needs. To address these issues, we introduce Muti-query Scene Text retrieval with Attention Recycling (MSTAR), a box-free approach for scene text retrieval. It incorporates progressive vision embedding to dynamically capture the multi-grained representation of texts and harmonizes free-style text queries with style-aware instructions. Additionally, a multi-instance matching module is integrated to enhance vision-language alignment. Furthermore, we build the Multi-Query Text Retrieval (MQTR) dataset, the first benchmark designed to evaluate the multi-query scene text retrieval capability of models, comprising four query types and 16k images. Extensive experiments demonstrate the superiority of our method across seven public datasets and the MQTR dataset. Notably, MSTAR marginally surpasses the previous state-of-the-art model by 6.4% in MAP on Total-Text while eliminating box annotation costs. Moreover, on the MQTR benchmark, MSTAR significantly outperforms the previous models by an average of 8.5%. The code and datasets are available at https://github.com/yingift/MSTAR.",
+      "venue": "arXiv.org",
+      "citation_count": 0,
+      "doi": "10.48550/arXiv.2506.10609",
+      "arxiv_id": "2506.10609",
+      "url": "https://www.semanticscholar.org/paper/c4d9a22b18998af0d0e591c12b6c9e31161d8e06",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-925008328870faab8f371012da7277c658b166d4",
+      "title": "Fit and Prune: Fast and Training-free Visual Token Pruning for Multi-modal Large Language Models",
+      "authors": [
+        {
+          "name": "Weihao Ye",
+          "affiliation": ""
+        },
+        {
+          "name": "Qiong Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenhao Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Yiyi Zhou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Recent progress in Multimodal Large Language Models (MLLMs) often use large image tokens to compensate the visual shortcoming of MLLMs, which not only exhibits obvious redundancy but also greatly exacerbates the already high computation. Token pruning is an effective solution for speeding up MLLMs, but when and how to drop tokens still remains a challenge. In this paper, we propose a novel and training-free approach for the effective visual token pruning of MLLMs, termed FitPrune, which can quickly produce a complete pruning recipe for MLLMs according to a pre-defined budget. Specifically, FitPrune considers token pruning as a statistical problem of MLLM and its objective is to find out an optimal pruning scheme that can minimize the divergence of the attention distributions before and after pruning. In practice, FitPrune can be quickly accomplished based on the attention statistics from a small batch of inference data, avoiding the expensive trials of MLLMs. According to the pruning recipe, an MLLM can directly remove the redundant visual tokens of different examples during inference. To validate FitPrune, we apply it to a set of recent MLLMs, including LLaVA-1.5, LLaVA-HR and LLaVA-NEXT, and conduct extensive experiments on a set of benchmarks. The experimental results show that our FitPrune can not only reduce the computational complexity to a large extent, while retaining high performance, e.g., -54.9% FLOPs for LLaVA-NEXT with only 0.5% accuracy drop. Notably, the pruning recipe can be obtained in about 5 minutes.",
+      "venue": "AAAI Conference on Artificial Intelligence",
+      "citation_count": 77,
+      "doi": "10.48550/arXiv.2409.10197",
+      "arxiv_id": "2409.10197",
+      "url": "https://www.semanticscholar.org/paper/925008328870faab8f371012da7277c658b166d4",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-e2e2797c83486400b87a88ae7d8068e3edef9aea",
+      "title": "IP-Prompter: Training-Free Theme-Specific Image Generation via Dynamic Visual Prompting",
+      "authors": [
+        {
+          "name": "Yuxin Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Minyan Luo",
+          "affiliation": ""
+        },
+        {
+          "name": "Weiming Dong",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiao Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Haibin Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Chongyang Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Oliver Deussen",
+          "affiliation": ""
+        },
+        {
+          "name": "Tong-Yee Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Changsheng Xu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The stories and characters that captivate us as we grow up shape unique fantasy worlds, with images serving as the primary medium for visually experiencing these realms. Personalizing generative models through fine-tuning with theme-specific data has become a prevalent approach in text-to-image generation. However, unlike object customization, which focuses on learning specific objects, theme-specific generation encompasses diverse elements such as characters, scenes, and objects. Such diversity also introduces a key challenge: how to adaptively generate multi-character, multi-concept, and continuous theme-specific images (TSI). Moreover, fine-tuning approaches often come with significant computational overhead, time costs, and risks of overfitting. This paper explores a fundamental question: Can image generation models directly leverage images as contextual input, similarly to how large language models use text as context? To address this, we present IP-Prompter, a novel training-free TSI generation method. IP-Prompter introduces visual prompting, a mechanism that integrates reference images into generative models, allowing users to seamlessly specify the target theme without requiring additional training. To further enhance this process, we propose a Dynamic Visual Prompting (DVP) mechanism, which iteratively optimizes visual prompts to improve the accuracy and quality of generated images. Our approach enables diverse applications, including consistent story generation, character design, realistic character generation, and style-guided image generation. Comparative evaluations against state-of-the-art personalization methods demonstrate that IP-Prompter achieves significantly better results and excels in maintaining character identity preserving, style consistency and text alignment, offering a robust and flexible solution for theme-specific image generation. Our project page: https://ip-prompter.github.io/.",
+      "venue": "International Conference on Computer Graphics and Interactive Techniques",
+      "citation_count": 3,
+      "doi": "10.1145/3721238.3730670",
+      "arxiv_id": "2501.15641",
+      "url": "https://www.semanticscholar.org/paper/e2e2797c83486400b87a88ae7d8068e3edef9aea",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-f501db5ce9296d01b9f41e4f99258d42062a4869",
+      "title": "CoTMR: Chain-of-Thought Multi-Scale Reasoning for Training-Free Zero-Shot Composed Image Retrieval",
+      "authors": [
+        {
+          "name": "Zelong Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Dong Jing",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiwu Lu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Zero-Shot Composed Image Retrieval (ZS-CIR) aims to retrieve target images by integrating information from a composed query (reference image and modification text) without training samples. Existing methods primarily combine caption models and large language models (LLMs) to generate target captions based on composed queries but face various issues such as incompatibility, visual information loss, and insufficient reasoning. In this work, we propose CoTMR, a training-free framework crafted for ZS-CIR with novel Chain-of-thought (CoT) and Multi-scale Reasoning. Instead of relying on caption models for modality transformation, CoTMR employs the Large Vision-Language Model (LVLM) to achieve unified understanding and reasoning for composed queries. To enhance the reasoning reliability, we devise CIRCoT, which guides the LVLM through a step-by-step inference process using predefined subtasks. Considering that existing approaches focus solely on global-level reasoning, our CoTMR incorporates multi-scale reasoning to achieve more comprehensive inference via fine-grained predictions about the presence or absence of key elements at the object scale. Further, we design a Multi-Grained Scoring (MGS) mechanism, which integrates CLIP similarity scores of the above reasoning outputs with candidate images to realize precise retrieval. Extensive experiments demonstrate that our CoTMR not only drastically outperforms previous methods across four prominent benchmarks but also offers appealing interpretability.",
+      "venue": "arXiv.org",
+      "citation_count": 9,
+      "doi": "10.48550/arXiv.2502.20826",
+      "arxiv_id": "2502.20826",
+      "url": "https://www.semanticscholar.org/paper/f501db5ce9296d01b9f41e4f99258d42062a4869",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-6da0ea8e9d84abdf09210cc70f1d5cd1d4934843",
+      "title": "Can LLMs Reason Over Non-Text Modalities in a Training-Free Manner? A Case Study with In-Context Representation Learning",
+      "authors": [
+        {
+          "name": "Tianle Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wanlong Fang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jonathan Woo",
+          "affiliation": ""
+        },
+        {
+          "name": "Paridhi Latawa",
+          "affiliation": ""
+        },
+        {
+          "name": "D. Subramanian",
+          "affiliation": ""
+        },
+        {
+          "name": "Alvin Chan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The remarkable performance of Large Language Models (LLMs) can be enhanced with test-time computation, which relies on external tools and even other deep learning models. However, existing approaches for integrating non-text modality representations into LLMs typically require additional costly supervised training, restricting on-the-fly adaptation to new domains and modalities. In this work, we explore the feasibility of integrating representations from non-text foundational models (FMs) into text-based LLMs in a training-free manner. We propose In-Context Representation Learning (ICRL) as a proof-of-concept to allow LLMs to adaptively utilize non-text modality representations with few-shot learning. Unlike traditional in-context learning, which incorporates text-label pairs, ICRL replaces text inputs with FM representations, enabling the LLM to perform multi-modal inference without fine-tuning. We evaluate ICRL on a suite of tasks in the molecular domain, investigating three core research questions: (i) how to map FM representations into LLMs in a training-free manner, (ii) what factors influence ICRL performance, and (iii) what mechanisms underlie the effectiveness of ICRL. To the best of our knowledge, ICRL is the first training-free framework for integrating non-text modality representations into text-based LLMs, presenting a promising direction for adaptable, multi-modal generalization.",
+      "venue": "arXiv.org",
+      "citation_count": 2,
+      "doi": "10.48550/arXiv.2509.17552",
+      "arxiv_id": "2509.17552",
+      "url": "https://www.semanticscholar.org/paper/6da0ea8e9d84abdf09210cc70f1d5cd1d4934843",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-437bee05376295e65ee50f6a6d07925e86ad0d59",
+      "title": "TAMEing Long Contexts in Personalization: Towards Training-Free and State-Aware MLLM Personalized Assistant",
+      "authors": [
+        {
+          "name": "Rongpei Hong",
+          "affiliation": ""
+        },
+        {
+          "name": "Jian Lang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ting Zhong",
+          "affiliation": ""
+        },
+        {
+          "name": "Yong Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Fan Zhou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Multimodal Large Language Model (MLLM) Personalization is a critical research problem that facilitates personalized dialogues with MLLMs targeting specific entities (known as personalized concepts). However, existing methods and benchmarks focus on the simple, context-agnostic visual identification and textual replacement of the personalized concept (e.g.,\"A yellow puppy\"->\"Your puppy Mochi\"), overlooking the ability to support long-context conversations. An ideal personalized MLLM assistant is capable of engaging in long-context dialogues with humans and continually improving its experience quality by learning from past dialogue histories. To bridge this gap, we propose LCMP, the first Long-Context MLLM Personalization evaluation benchmark. LCMP assesses the capability of MLLMs in perceiving variations of personalized concepts and generating contextually appropriate personalized responses that reflect these variations. As a strong baseline for LCMP, we introduce a novel training-free and state-aware framework TAME. TAME endows MLLMs with double memories to manage the temporal and persistent variations of each personalized concept in a differentiated manner. In addition, TAME incorporates a new training-free Retrieve-then-Align Augmented Generation (RA2G) paradigm. RA2G introduces an alignment step to extract the contextually fitted information from the multi-memory retrieved knowledge to the current questions, enabling better interactions for complex real-world user queries. Experiments on LCMP demonstrate that TAME achieves the best performance, showcasing remarkable and evolving interaction experiences in long-context scenarios.",
+      "venue": "arXiv.org",
+      "citation_count": 1,
+      "doi": "10.1145/3770854.3780214",
+      "arxiv_id": "2512.21616",
+      "url": "https://www.semanticscholar.org/paper/437bee05376295e65ee50f6a6d07925e86ad0d59",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-68317564a47bc88cf9856c69a27b13cd4ff88e8d",
+      "title": "Efficient Multi-modal Long Context Learning for Training-free Adaptation",
+      "authors": [
+        {
+          "name": "Zehong Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Shiliang Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Longhui Wei",
+          "affiliation": ""
+        },
+        {
+          "name": "Qi Tian",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Traditional approaches to adapting multi-modal large language models (MLLMs) to new tasks have relied heavily on fine-tuning. This paper introduces Efficient Multi-Modal Long Context Learning (EMLoC), a novel training-free alternative that embeds demonstration examples directly into the model input. EMLoC offers a more efficient, flexible, and scalable solution for task adaptation. Because extremely lengthy inputs introduce prohibitive computational and memory overhead, EMLoC contributes a chunk-wise compression mechanism combined with layer-wise adaptive pruning. It condenses long-context multimodal inputs into compact, task-specific memory representations. By adaptively pruning tokens at each layer under a Jensen-Shannon divergence constraint, our method achieves a dramatic reduction in inference complexity without sacrificing performance. This approach is the first to seamlessly integrate compression and pruning techniques for multi-modal long-context learning, offering a scalable and efficient solution for real-world applications. Extensive experiments on diverse vision-language benchmarks demonstrate that EMLoC achieves performance on par with or superior to naive long-context approaches. Our results highlight the potential of EMLoC as a groundbreaking framework for efficient and flexible adaptation of multi-modal models in resource-constrained environments. Codes are publicly available at https://github.com/Zehong-Ma/EMLoC.",
+      "venue": "International Conference on Machine Learning",
+      "citation_count": 7,
+      "doi": "10.48550/arXiv.2505.19812",
+      "arxiv_id": "2505.19812",
+      "url": "https://www.semanticscholar.org/paper/68317564a47bc88cf9856c69a27b13cd4ff88e8d",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-5c252229674c91831fe3537be0a53e857a2c921c",
+      "title": "ConceptSplit: Decoupled Multi-Concept Personalization of Diffusion Models via Token-wise Adaptation and Attention Disentanglement",
+      "authors": [
+        {
+          "name": "Habin Lim",
+          "affiliation": ""
+        },
+        {
+          "name": "Ye-Lim Won",
+          "affiliation": ""
+        },
+        {
+          "name": "Juwon Seo",
+          "affiliation": ""
+        },
+        {
+          "name": "Gyeong-Moon Park",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "In recent years, multi-concept personalization for text-to-image (T2I) diffusion models to represent several subjects in an image has gained much more attention. The main challenge of this task is\"concept mixing\", where multiple learned concepts interfere or blend undesirably in the output image. To address this issue, in this paper, we present ConceptSplit, a novel framework to split the individual concepts through training and inference. Our framework comprises two key components. First, we introduce Token-wise Value Adaptation (ToVA), a merging-free training method that focuses exclusively on adapting the value projection in cross-attention. Based on our empirical analysis, we found that modifying the key projection, a common approach in existing methods, can disrupt the attention mechanism and lead to concept mixing. Second, we propose Latent Optimization for Disentangled Attention (LODA), which alleviates attention entanglement during inference by optimizing the input latent. Through extensive qualitative and quantitative experiments, we demonstrate that ConceptSplit achieves robust multi-concept personalization, mitigating unintended concept interference. Code is available at https://github.com/KU-VGI/ConceptSplit",
+      "venue": "arXiv.org",
+      "citation_count": 0,
+      "doi": "10.48550/arXiv.2510.04668",
+      "arxiv_id": "2510.04668",
+      "url": "https://www.semanticscholar.org/paper/5c252229674c91831fe3537be0a53e857a2c921c",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-f01330066f2b68570b76a3af2324ed9309d5af35",
+      "title": "Training-free Dense-Aligned Diffusion Guidance for Modular Conditional Image Synthesis",
+      "authors": [
+        {
+          "name": "Zixuan Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Duo Peng",
+          "affiliation": ""
+        },
+        {
+          "name": "Feng Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuwei Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yinjie Lei",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Conditional image synthesis is a crucial task with broad applications, such as artistic creation and virtual reality. However, current generative methods are often task-oriented with a narrow scope, handling a restricted condition with constrained applicability. In this paper, we propose a novel approach that treats conditional image synthesis as the modular combination of diverse fundamental condition units. Specifically, we divide conditions into three primary units: text, layout, and drag. To enable effective control over these conditions, we design a dedicated alignment module for each. For the text condition, we introduce a Dense Concept Alignment (DCA) module, which achieves dense visual-text alignment by drawing on diverse textual concepts. For the layout condition, we propose a Dense Geometry Alignment (DGA) module to enforce comprehensive geometric constraints that preserve the spatial configuration. For the drag condition, we introduce a Dense Motion Alignment (DMA) module to apply multi-level motion regularization, ensuring that each pixel follows its desired trajectory without visual artifacts. By flexibly inserting and combining these alignment modules, our framework enhances the model\u2019s adaptability to diverse conditional generation tasks and greatly expands its application range. Extensive experiments demonstrate the superior performance of our framework across a variety of conditions, including textual description, segmentation mask (bounding box), drag manipulation, and their combinations. Code is available at https://github.com/ZixuanWang0525/DADG",
+      "venue": "Computer Vision and Pattern Recognition",
+      "citation_count": 7,
+      "doi": "10.1109/CVPR52734.2025.01226",
+      "arxiv_id": "2504.01515",
+      "url": "https://www.semanticscholar.org/paper/f01330066f2b68570b76a3af2324ed9309d5af35",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "s2-8179e03fc2f398ff76930d4463ba476abd9ce236",
+      "title": "TF-TI2I: Training-Free Text-and-Image-to-Image Generation via Multi-Modal Implicit-Context Learning in Text-to-Image Models",
+      "authors": [
+        {
+          "name": "Teng-Fang Hsiao",
+          "affiliation": ""
+        },
+        {
+          "name": "Bo-Kai Ruan",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi-Lun Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Tzu-Ling Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Hong-Han Shuai",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Text-and-Image-To-Image (TI2I), an extension of Text-To-Image (T2I), integrates image inputs with textual instructions to enhance image generation. Existing methods often partially utilize image inputs, focusing on specific elements like objects or styles, or they experience a decline in generation quality with complex, multi-image instructions. To overcome these challenges, we introduce Training-Free Text-and-Image-to-Image (TF-TI2I), which adapts cutting-edge T2I models such as SD3 without the need for additional training. Our method capitalizes on the MM-DiT architecture, in which we point out that textual tokens can implicitly learn visual information from vision tokens. We enhance this interaction by extracting a condensed visual representation from reference images, facilitating selective information sharing through Reference Contextual Masking -- this technique confines the usage of contextual tokens to instruction-relevant visual information. Additionally, our Winner-Takes-All module mitigates distribution shifts by prioritizing the most pertinent references for each vision token. Addressing the gap in TI2I evaluation, we also introduce the FG-TI2I Bench, a comprehensive benchmark tailored for TI2I and compatible with existing T2I methods. Our approach shows robust performance across various benchmarks, confirming its effectiveness in handling complex image-generation tasks.",
+      "venue": "arXiv.org",
+      "citation_count": 4,
+      "doi": "10.48550/arXiv.2503.15283",
+      "arxiv_id": "2503.15283",
+      "url": "https://www.semanticscholar.org/paper/8179e03fc2f398ff76930d4463ba476abd9ce236",
+      "source": "semantic_scholar",
+      "_bibtex_override": ""
+    }
+  ]
+}

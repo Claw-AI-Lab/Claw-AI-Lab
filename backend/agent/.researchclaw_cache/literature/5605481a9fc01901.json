@@ -1,0 +1,669 @@
+{
+  "query": "Comparing gradient-free optimization algorithms benchmark",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1773942084.898077,
+  "papers": [
+    {
+      "paper_id": "arxiv-2501.00258",
+      "title": "Optimal design of frame structures with mixed categorical and continuous design variables using the Gumbel-Softmax method",
+      "authors": [
+        {
+          "name": "Mehran Ebrahimi",
+          "affiliation": ""
+        },
+        {
+          "name": "Hyunmin Cheong",
+          "affiliation": ""
+        },
+        {
+          "name": "Pradeep Kumar Jayaraman",
+          "affiliation": ""
+        },
+        {
+          "name": "Farhad Javid",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "In optimizing real-world structures, due to fabrication or budgetary restraints, the design variables may be restricted to a set of standard engineering choices. Such variables, commonly called categorical variables, are discrete and unordered in essence, precluding the utilization of gradient-based optimizers for the problems containing them. In this paper, incorporating the Gumbel-Softmax (GSM) method, we propose a new gradient-based optimizer for handling such variables in the optimal design of large-scale frame structures. The GSM method provides a means to draw differentiable samples from categorical distributions, thereby enabling sensitivity analysis for the variables generated from such distributions. The sensitivity information can greatly reduce the computational cost of traversing high-dimensional and discrete design spaces in comparison to employing gradient-free optimization methods. In addition, since the developed optimizer is gradient-based, it can naturally handle the simultaneous optimization of categorical and continuous design variables. Through three numerical case studies, different aspects of the proposed optimizer are studied and its advantages over population-based optimizers, specifically a genetic algorithm, are demonstrated.",
+      "venue": "cs.CE",
+      "citation_count": 0,
+      "doi": "10.1007/s00158-024-03745-7",
+      "arxiv_id": "2501.00258",
+      "url": "https://arxiv.org/abs/2501.00258",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2105.13646",
+      "title": "Conic-Optimization Based Algorithms for Nonnegative Matrix Factorization",
+      "authors": [
+        {
+          "name": "Valentin Leplat",
+          "affiliation": ""
+        },
+        {
+          "name": "Yurii Nesterov",
+          "affiliation": ""
+        },
+        {
+          "name": "Nicolas Gillis",
+          "affiliation": ""
+        },
+        {
+          "name": "Fran\u00e7ois Glineur",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Nonnegative matrix factorization is the following problem: given a nonnegative input matrix $V$ and a factorization rank $K$, compute two nonnegative matrices, $W$ with $K$ columns and $H$ with $K$ rows, such that $WH$ approximates $V$ as well as possible. In this paper, we propose two new approaches for computing high-quality NMF solutions using conic optimization. These approaches rely on the same two steps. First, we reformulate NMF as minimizing a concave function over a product of convex cones--one approach is based on the exponential cone, and the other on the second-order cone. Then, we solve these reformulations iteratively: at each step, we minimize exactly, over the feasible set, a majorization of the objective functions obtained via linearization at the current iterate. Hence these subproblems are convex conic programs and can be solved efficiently using dedicated algorithms. We prove that our approaches reach a stationary point with an accuracy decreasing as $\\mathcal{O}(\\frac{1}{i})$, where $i$ denotes the iteration number. To the best of our knowledge, our analysis is the first to provide a convergence rate to stationary points for NMF. Furthermore, in the particular cases of rank-one factorizations (that is, $K=1$), we show that one of our formulations can be expressed as a convex optimization problem implying that optimal rank-one approximations can be computed efficiently. Finally, we show on several numerical examples that our approaches are able to frequently compute exact NMFs (that is, with $V = WH$), and compete favorably with the state of the art.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "10.1080/10556788.2023.2189714",
+      "arxiv_id": "2105.13646",
+      "url": "https://arxiv.org/abs/2105.13646",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2006.09361",
+      "title": "Gradient Free Minimax Optimization: Variance Reduction and Faster Convergence",
+      "authors": [
+        {
+          "name": "Tengyu Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhe Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yingbin Liang",
+          "affiliation": ""
+        },
+        {
+          "name": "H. Vincent Poor",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Many important machine learning applications amount to solving minimax optimization problems, and in many cases there is no access to the gradient information, but only the function values. In this paper, we focus on such a gradient-free setting, and consider the nonconvex-strongly-concave minimax stochastic optimization problem. In the literature, various zeroth-order (i.e., gradient-free) minimax methods have been proposed, but none of them achieve the potentially feasible computational complexity of $\\mathcal{O}(\u03b5^{-3})$ suggested by the stochastic nonconvex minimization theorem. In this paper, we adopt the variance reduction technique to design a novel zeroth-order variance reduced gradient descent ascent (ZO-VRGDA) algorithm. We show that the ZO-VRGDA algorithm achieves the best known query complexity of $\\mathcal{O}(\u03ba(d_1 + d_2)\u03b5^{-3})$, which outperforms all previous complexity bound by orders of magnitude, where $d_1$ and $d_2$ denote the dimensions of the optimization variables and $\u03ba$ denotes the condition number. In particular, with a new analysis technique that we develop, our result does not rely on a diminishing or accuracy-dependent stepsize usually required in the existing methods. To our best knowledge, this is the first study of zeroth-order minimax optimization with variance reduction. Experimental results on the black-box distributional robust optimization problem demonstrates the advantageous performance of our new algorithm.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2006.09361",
+      "url": "https://arxiv.org/abs/2006.09361",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2010.03194",
+      "title": "First-Order Algorithms Without Lipschitz Gradient: A Sequential Local Optimization Approach",
+      "authors": [
+        {
+          "name": "Junyu Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Mingyi Hong",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "First-order algorithms have been popular for solving convex and non-convex optimization problems. A key assumption for the majority of these algorithms is that the gradient of the objective function is globally Lipschitz continuous, but many contemporary problems such as tensor decomposition fail to satisfy such an assumption. This paper develops a sequential local optimization (SLO) framework of first-order algorithms that can effectively optimize problems without Lipschitz gradient. Operating on the assumption that the gradients are {\\it locally} Lipschitz continuous over any compact set, the proposed framework carefully restricts the distance between two successive iterates. We show that the proposed framework can easily adapt to existing first-order methods such as gradient descent (GD), normalized gradient descent (NGD), accelerated gradient descent (AGD), as well as GD with Armijo line search. Remarkably, the latter algorithm is totally parameter-free and do not even require the knowledge of local Lipschitz constants.\n  We show that for the proposed algorithms to achieve gradient error bound of $\\|\\nabla f(x)\\|^2\\le \u03b5$, it requires at most $\\mathcal{O}(\\frac{1}\u03b5\\times \\mathcal{L}(Y))$ total access to the gradient oracle, where $\\mathcal{L}(Y)$ characterizes how the local Lipschitz constants grow with the size of a given set $Y$. Moreover, we show that the variant of AGD improves the dependency on both $\u03b5$ and the growth function $\\mathcal{L}(Y)$. The proposed algorithms complement the existing Bregman Proximal Gradient (BPG) algorithm, because they do not require the global information about problem structure to construct and solve Bregman proximal mappings.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2010.03194",
+      "url": "https://arxiv.org/abs/2010.03194",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2010.16250",
+      "title": "Gradient-based Algorithms for Convex Discrete Optimization via Simulation",
+      "authors": [
+        {
+          "name": "Haixiang Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zeyu Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Javad Lavaei",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "We propose new sequential simulation-optimization algorithms for general convex optimization via simulation problems with high-dimensional discrete decision space. The performance of each choice of discrete decision variables is evaluated via stochastic simulation replications. If an upper bound on the overall level of uncertainties is known, our proposed simulation-optimization algorithms utilize the discrete convex structure and are guaranteed with high probability to find a solution that is close to the best within any given user-specified precision level. The proposed algorithms work for any general convex problem and the efficiency is demonstrated by proven upper bounds on simulation costs. The upper bounds demonstrate a polynomial dependence on the dimension and scale of the decision space. For some discrete optimization via simulation problems, a gradient estimator may be available at low costs along with a single simulation replication. By integrating gradient estimators, which are possibly biased, we propose simulation-optimization algorithms to achieve optimality guarantees with a reduced dependence on the dimension under moderate assumptions on the bias.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2010.16250",
+      "url": "https://arxiv.org/abs/2010.16250",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2303.08710",
+      "title": "Two-Scale Optimization of Graded Lattice Structures respecting Buckling on Micro- and Macroscale",
+      "authors": [
+        {
+          "name": "Daniel H\u00fcbner",
+          "affiliation": ""
+        },
+        {
+          "name": "Fabian Wein",
+          "affiliation": ""
+        },
+        {
+          "name": "Michael Stingl",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Interest in components with detailed structures increased with the progress in advanced manufacturing techniques in recent years. Parts with graded lattice elements can provide interesting mechanical, thermal, and acoustic properties compared to parts where only coarse features are included. One of these improvements is better global buckling resistance of the component. However, thin features are prone to local buckling. Normally, analyses with high computational effort are conducted on high-resolution finite element meshes to optimize parts with good global and local stability. Until recently, works focused only on either global or local buckling behavior. We use two-scale optimization based on asymptotic homogenization of elastic properties and local buckling behavior to reduce the effort of full-scale analyses. For this, we present an approach for concurrent local and global buckling optimization of parameterized graded lattice structures. It is based on a worst-case model for the homogenized buckling load factor, which acts as a safeguard against pure local buckling. Cross-modes residing on both scales are not detected. We support our theory with numerical examples and validations on dehomogenized designs, which show the capabilities of our method, and discuss the advantages and limitations of the worst-case model.",
+      "venue": "cs.CE",
+      "citation_count": 0,
+      "doi": "10.1007/s00158-023-03619-4",
+      "arxiv_id": "2303.08710",
+      "url": "https://arxiv.org/abs/2303.08710",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2201.02491",
+      "title": "An efficient and easy-to-extend Matlab code of the Moving Morphable Component (MMC) method for three-dimensional topology optimization",
+      "authors": [
+        {
+          "name": "Zongliang Du",
+          "affiliation": ""
+        },
+        {
+          "name": "Tianchen Cui",
+          "affiliation": ""
+        },
+        {
+          "name": "Chang Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Weisheng Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yilin Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Xu Guo",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Explicit topology optimization methods have received ever-increasing interest in recent years. In particular, a 188-line Matlab code of the two-dimensional (2D) Moving Morphable Component (MMC)-based topology optimization method was released by Zhang et al. (Struct Multidiscip Optim 53(6):1243-1260, 2016). The present work aims to propose an efficient and easy-to-extend 256-line Matlab code of the MMC method for three-dimensional (3D) topology optimization implementing some new numerical techniques. To be specific, by virtue of the function aggregation technique, accurate sensitivity analysis, which is also easy-to-extend to other problems, is achieved. Besides, based on an efficient identification algorithm for load transmission path, the degrees of freedoms (DOFs) not belonging to the load transmission path are removed in finite element analysis (FEA), which significantly accelerates the optimization process. As a result, compared to the corresponding 188-line 2D code, the performance of the optimization results, the computational efficiency of FEA, and the convergence rate and the robustness of optimization process are greatly improved. For the sake of completeness, a refined 218-line Matlab code implementing the 2D-MMC method is also provided.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "10.1007/s00158-022-03239-4",
+      "arxiv_id": "2201.02491",
+      "url": "https://arxiv.org/abs/2201.02491",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2111.15645",
+      "title": "Survey Descent: A Multipoint Generalization of Gradient Descent for Nonsmooth Optimization",
+      "authors": [
+        {
+          "name": "X. Y. Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Adrian S. Lewis",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "For strongly convex objectives that are smooth, the classical theory of gradient descent ensures linear convergence relative to the number of gradient evaluations. An analogous nonsmooth theory is challenging. Even when the objective is smooth at every iterate, the corresponding local models are unstable and the number of cutting planes invoked by traditional remedies is difficult to bound, leading to convergences guarantees that are sublinear relative to the cumulative number of gradient evaluations. We instead propose a multipoint generalization of the gradient descent iteration for local optimization. While designed with general objectives in mind, we are motivated by a ``max-of-smooth'' model that captures the subdifferential dimension at optimality. We prove linear convergence when the objective is itself max-of-smooth, and experiments suggest a more general phenomenon.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "10.1137/21M1468450",
+      "arxiv_id": "2111.15645",
+      "url": "https://arxiv.org/abs/2111.15645",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2307.11957",
+      "title": "High-performance real-world optical computing trained by in situ gradient-based model-free optimization",
+      "authors": [
+        {
+          "name": "Guangyuan Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Xin Shu",
+          "affiliation": ""
+        },
+        {
+          "name": "Renjie Zhou",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Optical computing systems provide high-speed and low-energy data processing but face deficiencies in computationally demanding training and simulation-to-reality gaps. We propose a gradient-based model-free optimization (G-MFO) method based on a Monte Carlo gradient estimation algorithm for computationally efficient in situ training of optical computing systems. This approach treats an optical computing system as a black box and back-propagates the loss directly to the optical computing weights' probability distributions, circumventing the need for a computationally heavy and biased system simulation. Our experiments on diffractive optical computing systems show that G-MFO outperforms hybrid training on the MNIST and FMNIST datasets. Furthermore, we demonstrate image-free and high-speed classification of cells from their marker-free phase maps. Our method's model-free and high-performance nature, combined with its low demand for computational resources, paves the way for accelerating the transition of optical computing from laboratory demonstrations to practical, real-world applications.",
+      "venue": "physics.optics",
+      "citation_count": 0,
+      "doi": "10.1109/TPAMI.2024.3466853",
+      "arxiv_id": "2307.11957",
+      "url": "https://arxiv.org/abs/2307.11957",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2005.11788",
+      "title": "Convergence Results for Optimal Control Problems Governed by Elliptic Quasivariational Inequalities",
+      "authors": [
+        {
+          "name": "Mircea Sofonea",
+          "affiliation": ""
+        },
+        {
+          "name": "Domingo A. Tarzia",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "We consider an optimal control problem $\\cQ$ governed by an elliptic quasivariational inequality with unilateral constraints. The existence of optimal pairs of the problem is a well known result, see \\cite{SS}, for instance. We associate to $\\cQ$ a new optimal control problem $\\wQ$, obtained by perturbing the state inequality (including the set of constraints and the nonlinear operator) and the cost functional, as well. Then, we provide sufficient conditions which guarantee the convergence of solutions of Problem $\\wQ$ to a solution of Problem $\\cQ$. The proofs are based on convergence results for elliptic quasivariational inequalities, obtained by using arguments of compactness, lower semicontinuity, monotonicity, penalty and various estimates. Finally, we illustrate the use of the abstract convergence results in the study of optimal control associated with two boundary value problems. The first one describes the equilibrium of an elastic body in frictional contact with an obstacle, the so-called foundation. The process is static and the contact is modeled with normal compliance and unilateral constraint, associated to a version of Coulomb's law of dry friction. The second one describes a stationary heat transfer problem with unilateral constraints. For the two problems we prove existence, uniqueness and convergence results together with the corresponding physical interpretation.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "10.1080/01630563.2020.1772288",
+      "arxiv_id": "2005.11788",
+      "url": "https://arxiv.org/abs/2005.11788",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2211.04129",
+      "title": "An Efficient Global Optimization Algorithm with Adaptive Estimates of the Local Lipschitz Constants",
+      "authors": [
+        {
+          "name": "Danny D'Agostino",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "In this work, we present a new deterministic partition-based global optimization algorithm, HALO (Hybrid Adaptive Lipschitzian Optimization), which uses estimates of the local Lipschitz constants associated with different sub-regions of the objective function's domain to compute lower bounds and guide the search toward global minimizers. These estimates are obtained by adaptively balancing the global and local information collected from the algorithm, based on absolute slopes. HALO is hyperparameter-free, eliminating the need for manual tuning, and it highlights the most important variables to help interpret the optimization problem. We also introduce a coupling strategy with local optimization algorithms, both gradient-based and derivative-free, to accelerate convergence. We compare HALO with popular global optimization algorithms on hundreds of test functions. The numerical results are very promising and demonstrate that HALO can expand our arsenal of efficient procedures of efficient procedures for challenging real-world black-box optimization problems. The Python code of HALO is publicly available on GitHub. https://github.com/dannyzx/HALO",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "10.1007/s10898-025-01555-9",
+      "arxiv_id": "2211.04129",
+      "url": "https://arxiv.org/abs/2211.04129",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2207.06362",
+      "title": "Iterative Linear Quadratic Optimization for Nonlinear Control: Differentiable Programming Algorithmic Templates",
+      "authors": [
+        {
+          "name": "Vincent Roulet",
+          "affiliation": ""
+        },
+        {
+          "name": "Siddhartha Srinivasa",
+          "affiliation": ""
+        },
+        {
+          "name": "Maryam Fazel",
+          "affiliation": ""
+        },
+        {
+          "name": "Zaid Harchaoui",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Iterative optimization algorithms depend on access to information about the objective function. In a differentiable programming framework, this information, such as gradients, can be automatically derived from the computational graph. We explore how nonlinear control algorithms, often employing linear and/or quadratic approximations, can be effectively cast within this framework. Our approach illuminates shared components and differences between gradient descent, Gauss-Newton, Newton, and differential dynamic programming methods in the context of discrete time nonlinear control. Furthermore, we present line-search strategies and regularized variants of these algorithms, along with a comprehensive analysis of their computational complexities. We study the performance of the aforementioned algorithms on various nonlinear control benchmarks, including autonomous car racing simulations using a simplified car model. All implementations are publicly available in a package coded in a differentiable programming language.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2207.06362",
+      "url": "https://arxiv.org/abs/2207.06362",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2205.04746",
+      "title": "Gradient-Free optimization algorithm for single-qubit quantum classifier",
+      "authors": [
+        {
+          "name": "Anqi Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Xiaoyun He",
+          "affiliation": ""
+        },
+        {
+          "name": "Shengmei Zhao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "In the paper, a gradient-free optimization algorithm for single-qubit quantum classifier is proposed to overcome the effects of barren plateau caused by quantum devices. A rotation gate RX(\u03c6) is applied on a single-qubit binary quantum classifier, and the training data and parameters are loaded into \u03c6 with the form of vector-multiplication. The cost function is decreased by finding the value of each parameter that yield the minimum expectation value of measuring the quantum circuit. The algorithm is performed iteratively for all parameters one by one, until the cost function satisfies the stop condition. The proposed algorithm is demonstrated for a classification task and is compared with that using Adam optimizer. Furthermore, the performance of the single-qubit quantum classifier with the proposed gradient-free optimization algorithm is discussed when the rotation gate in quantum device is under different noise. The simulation results show that the single-qubit quantum classifier with proposed gradient-free optimization algorithm can reach a high accuracy faster than that using Adam optimizer. Moreover, the proposed gradient-free optimization algorithm can quickly completes the training process of the single-qubit classifier. Additionally, the single-qubit quantum classifier with proposed gradient-free optimization algorithm has a good performance in noisy environments.",
+      "venue": "quant-ph",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2205.04746",
+      "url": "https://arxiv.org/abs/2205.04746",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2402.07064",
+      "title": "Piecewise SOS-Convex Moment Optimization and Applications via Exact Semi-Definite Programs",
+      "authors": [
+        {
+          "name": "Queenie Yingkun Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Vaithilingam Jeyakumar",
+          "affiliation": ""
+        },
+        {
+          "name": "Guoyin Li",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "This paper presents exact Semi-Definite Program (SDP) reformulations for infinite-dimensional moment optimization problems involving a new class of piecewise Sum-of-Squares (SOS)-convex functions and projected spectrahedral support sets. These reformulations show that solving a single SDP finds the optimal value and an optimal probability measure of the original moment problem. This is done by establishing an SOS representation for the non-negativity of a piecewise SOS-convex function over a projected spectrahedron. Finally, as an application and a proof-of-concept illustration, the paper presents numerical results for the Newsvendor and revenue maximization problems with higher-order moments by solving their equivalent SDP reformulations. These reformulations promise a flexible and efficient approach to solving these models. The main novelty of the present work in relation to the recent research lies in finding the solution to moment problems, for the first time, with piecewise SOS-convex functions from their numerically tractable exact SDP reformulations.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "10.1016/j.ejco.2024.100094",
+      "arxiv_id": "2402.07064",
+      "url": "https://arxiv.org/abs/2402.07064",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2507.22327",
+      "title": "Mean-Variance Optimization and Algorithm for Finite-Horizon Markov Decision Processes",
+      "authors": [
+        {
+          "name": "Li Xia",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhihui Yu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Multi-period mean-variance optimization is a long-standing problem, caused by the failure of dynamic programming principle. This paper studies the mean-variance optimization in a setting of finite-horizon discrete-time Markov decision processes (MDPs), where the objective is to maximize the combined metrics of mean and variance of the accumulated rewards at terminal stage. By introducing the concepts of pseudo mean and pseudo variance, we convert the original mean-variance MDP to a bilevel MDP, where the outer is a single parameter optimization of the pseudo mean and the inner is a standard finite-horizon MDP with an augmented state space by adding an auxiliary state of accumulated rewards. We further study the properties of this bilevel MDP, including the optimality of history-dependent deterministic policies and the piecewise quadratic concavity of the inner MDPs' optimal values with respect to the pseudo mean. To efficiently solve this bilevel MDP, we propose an iterative algorithm that alternatingly updates the inner optimal policy and the outer pseudo mean. We prove that this algorithm converges to a local optimum. We also derive a sufficient condition under which our algorithm converges to the global optimum. Furthermore, we apply this approach to study the mean-variance optimization of multi-period portfolio selection problem, which shows that our approach exactly coincides with the classical result by Li and Ng (2000) in financial engineering. Our approach builds a new avenue to solve mean-variance optimization problems and has wide applicability to any problem modeled by MDPs, which is further demonstrated by examples of mean-variance optimization for queueing control and inventory management.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2507.22327",
+      "url": "https://arxiv.org/abs/2507.22327",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2407.15026",
+      "title": "Benchmarking End-To-End Performance of AI-Based Chip Placement Algorithms",
+      "authors": [
+        {
+          "name": "Zhihai Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zijie Geng",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhaojie Tu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jie Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuxi Qian",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhexuan Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ziyan Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Siyuan Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhentao Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Shixiong Kai",
+          "affiliation": ""
+        },
+        {
+          "name": "Mingxuan Yuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianye Hao",
+          "affiliation": ""
+        },
+        {
+          "name": "Bin Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yongdong Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Feng Wu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "The increasing complexity of modern very-large-scale integration (VLSI) design highlights the significance of Electronic Design Automation (EDA) technologies. Chip placement is a critical step in the EDA workflow, which positions chip modules on the canvas with the goal of optimizing performance, power, and area (PPA) metrics of final chip designs. Recent advances have demonstrated the great potential of AI-based algorithms in enhancing chip placement. However, due to the lengthy workflow of chip design, the evaluations of these algorithms often focus on intermediate surrogate metrics, which are easy to compute but frequently reveal a substantial misalignment with the end-to-end performance (i.e., the final design PPA). To address this challenge, we introduce ChiPBench, which can effectively facilitate research in chip placement within the AI community. ChiPBench is a comprehensive benchmark specifically designed to evaluate the effectiveness of existing AI-based chip placement algorithms in improving final design PPA metrics. Specifically, we have gathered 20 circuits from various domains (e.g., CPU, GPU, and microcontrollers). These designs are compiled by executing the workflow from the verilog source code, which preserves necessary physical implementation kits, enabling evaluations for the placement algorithms on their impacts on the final design PPA. We executed six state-of-the-art AI-based chip placement algorithms on these designs and plugged the results of each single-point algorithm into the physical implementation workflow to obtain the final PPA results. Experimental results show that even if intermediate metric of a single-point algorithm is dominant, while the final PPA results are unsatisfactory. We believe that our benchmark will serve as an effective evaluation framework to bridge the gap between academia and industry.",
+      "venue": "cs.AR",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2407.15026",
+      "url": "https://arxiv.org/abs/2407.15026",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2406.15531",
+      "title": "cp3-bench: A tool for benchmarking symbolic regression algorithms tested with cosmology",
+      "authors": [
+        {
+          "name": "Mattias E. Thing",
+          "affiliation": ""
+        },
+        {
+          "name": "Sofie M. Koksbang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "We introduce cp3-bench, a tool for comparing symbolic regression algorithms which we make publicly available at https://github.com/CP3-Origins/cp3-bench. Currently, cp3-bench includes 12 symbolic regression algorithms which can be automatically installed as part of cp3-bench. The philosophy behind cp3-bench is that it should be as user-friendly as possible, available in a ready-to-use format, and allow for easy additions of new algorithms and datasets. Our hope is that users of symbolic regression algorithms can use cp3-bench to easily install and compare symbolic regression algorithms to better decide which algorithms to use for their specific tasks at hand. To introduce and motivate the use of cp3-bench we present a benchmark of 12 symbolic regression algorithms applied to 28 datasets representing six different astrophysical setups. Overall, we find that most of the benched algorithms do poorly in the benchmark and suggest possible ways to proceed with developing algorithms that will be better at identifying ground truth expressions for cosmological datasets. Our demonstration benchmark studies the significance of dimensionality of the feature space and precision of datasets. We find both to be highly important for symbolic regression tasks to be successful. On the other hand, we find no indication that inter-dependence of features in datasets is important, i.e. it is not in general a hindrance for symbolic regression algorithms if datasets e.g. contain both $z$ and $H(z)$ as features. Lastly, we find no indication that performance of algorithms on standardized datasets are good indicators of performance on particular astrophysical datasets. This suggests that it is not necessarily prudent to choose symbolic regression algorithms based on their performance on standardized data. A more robust approach is to consider a variety of algorithms, chosen based on the particular task at hand.",
+      "venue": "astro-ph.IM",
+      "citation_count": 0,
+      "doi": "10.1088/1475-7516/2025/01/040",
+      "arxiv_id": "2406.15531",
+      "url": "https://arxiv.org/abs/2406.15531",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2307.09574",
+      "title": "Optimal control for a nonlinear stochastic PDE model of cancer growth",
+      "authors": [
+        {
+          "name": "Sakine Esmaili",
+          "affiliation": ""
+        },
+        {
+          "name": "M. R. Eslahchi",
+          "affiliation": ""
+        },
+        {
+          "name": "Delfim F. M. Torres",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We study an optimal control problem for a stochastic model of tumour growth with drug application. This model consists of three stochastic hyperbolic equations describing the evolution of tumour cells. It also includes two stochastic parabolic equations describing the diffusions of nutrient and drug concentrations. Since all systems are subject to many uncertainties, we have added stochastic terms to the deterministic model to consider the random perturbations. Then, we have added control variables to the model according to the medical concepts to control the concentrations of drug and nutrient. In the optimal control problem, we have defined the stochastic and deterministic cost functions and we have proved that the problems have unique optimal controls. For deriving the necessary conditions for optimal control variables, the stochastic adjoint equations are derived. We have proved the stochastic model of tumour growth and the stochastic adjoint equations have unique solutions. For proving the theoretical results, we have used a change of variable which changes the stochastic model and adjoint equations (a.s.) to deterministic equations. Then we have employed the techniques used for deterministic ones to prove the existence and uniqueness of optimal control.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "10.1080/02331934.2023.2232141",
+      "arxiv_id": "2307.09574",
+      "url": "https://arxiv.org/abs/2307.09574",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2206.01209",
+      "title": "Accelerated first-order methods for convex optimization with locally Lipschitz continuous gradient",
+      "authors": [
+        {
+          "name": "Zhaosong Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Sanyou Mei",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "In this paper we develop accelerated first-order methods for convex optimization with locally Lipschitz continuous gradient (LLCG), which is beyond the well-studied class of convex optimization with Lipschitz continuous gradient. In particular, we first consider unconstrained convex optimization with LLCG and propose accelerated proximal gradient (APG) methods for solving it. The proposed APG methods are equipped with a verifiable termination criterion and enjoy an operation complexity of ${\\cal O}(\\varepsilon^{-1/2}\\log \\varepsilon^{-1})$ and ${\\cal O}(\\log \\varepsilon^{-1})$ for finding an $\\varepsilon$-residual solution of an unconstrained convex and strongly convex optimization problem, respectively. We then consider constrained convex optimization with LLCG and propose an first-order proximal augmented Lagrangian method for solving it by applying one of our proposed APG methods to approximately solve a sequence of proximal augmented Lagrangian subproblems. The resulting method is equipped with a verifiable termination criterion and enjoys an operation complexity of ${\\cal O}(\\varepsilon^{-1}\\log \\varepsilon^{-1})$ and ${\\cal O}(\\varepsilon^{-1/2}\\log \\varepsilon^{-1})$ for finding an $\\varepsilon$-KKT solution of a constrained convex and strongly convex optimization problem, respectively. All the proposed methods in this paper are parameter-free or almost parameter-free except that the knowledge on convexity parameter is required. In addition, preliminary numerical results are presented to demonstrate the performance of our proposed methods. To the best of our knowledge, no prior studies were conducted to investigate accelerated first-order methods with complexity guarantees for convex optimization with LLCG. All the complexity results obtained in this paper are new.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2206.01209",
+      "url": "https://arxiv.org/abs/2206.01209",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2311.13123",
+      "title": "Fast Parallel Algorithms for Submodular $p$-Superseparable Maximization",
+      "authors": [
+        {
+          "name": "Philip Cervenjak",
+          "affiliation": ""
+        },
+        {
+          "name": "Junhao Gan",
+          "affiliation": ""
+        },
+        {
+          "name": "Anthony Wirth",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Maximizing a non-negative, monontone, submodular function $f$ over $n$ elements under a cardinality constraint $k$ (SMCC) is a well-studied NP-hard problem. It has important applications in, e.g., machine learning and influence maximization. Though the theoretical problem admits polynomial-time approximation algorithms, solving it in practice often involves frequently querying submodular functions that are expensive to compute. This has motivated significant research into designing parallel approximation algorithms in the adaptive complexity model; adaptive complexity (adaptivity) measures the number of sequential rounds of $\\text{poly}(n)$ function queries an algorithm requires. The state-of-the-art algorithms can achieve $(1-\\frac{1}{e}-\\varepsilon)$-approximate solutions with $O(\\frac{1}{\\varepsilon^2}\\log n)$ adaptivity, which approaches the known adaptivity lower-bounds. However, the $O(\\frac{1}{\\varepsilon^2} \\log n)$ adaptivity only applies to maximizing worst-case functions that are unlikely to appear in practice. Thus, in this paper, we consider the special class of $p$-superseparable submodular functions, which places a reasonable constraint on $f$, based on the parameter $p$, and is more amenable to maximization, while also having real-world applicability. Our main contribution is the algorithm LS+GS, a finer-grained version of the existing LS+PGB algorithm, designed for instances of SMCC when $f$ is $p$-superseparable; it achieves an expected $(1-\\frac{1}{e}-\\varepsilon)$-approximate solution with $O(\\frac{1}{\\varepsilon^2}\\log(p k))$ adaptivity independent of $n$. Additionally, unrelated to $p$-superseparability, our LS+GS algorithm uses only $O(\\frac{n}{\\varepsilon} + \\frac{\\log n}{\\varepsilon^2})$ oracle queries, which has an improved dependence on $\\varepsilon^{-1}$ over the state-of-the-art LS+PGB; this is achieved through the design of a novel thresholding subroutine.",
+      "venue": "cs.DS",
+      "citation_count": 0,
+      "doi": "10.1007/978-3-031-49815-2",
+      "arxiv_id": "2311.13123",
+      "url": "https://arxiv.org/abs/2311.13123",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2412.15778",
+      "title": "Combinatorial Optimization with Quantum Computers",
+      "authors": [
+        {
+          "name": "Francisco Chicano",
+          "affiliation": ""
+        },
+        {
+          "name": "Gabiel Luque",
+          "affiliation": ""
+        },
+        {
+          "name": "Zakaria Abdelmoiz Dahi",
+          "affiliation": ""
+        },
+        {
+          "name": "Rodrigo Gil-Merino",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Quantum computers leverage the principles of quantum mechanics to do computation with a potential advantage over classical computers. While a single classical computer transforms one particular binary input into an output after applying one operator to the input, a quantum computer can apply the operator to a superposition of binary strings to provide a superposition of binary outputs, doing computation apparently in parallel. This feature allows quantum computers to speed up the computation compared to classical algorithms. Unsurprisingly, quantum algorithms have been proposed to solve optimization problems in quantum computers. Furthermore, a family of quantum machines called quantum annealers are specially designed to solve optimization problems. In this paper, we provide an introduction to quantum optimization from a practical point of view. We introduce the reader to the use of quantum annealers and quantum gate-based machines to solve optimization problems.",
+      "venue": "cs.ET",
+      "citation_count": 0,
+      "doi": "10.1080/0305215X.2024.2435538",
+      "arxiv_id": "2412.15778",
+      "url": "https://arxiv.org/abs/2412.15778",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2208.04935",
+      "title": "A Bayesian Bradley-Terry model to compare multiple ML algorithms on multiple data sets",
+      "authors": [
+        {
+          "name": "Jacques Wainer",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "This paper proposes a Bayesian model to compare multiple algorithms on multiple data sets, on any metric. The model is based on the Bradley-Terry model, that counts the number of times one algorithm performs better than another on different data sets. Because of its Bayesian foundations, the Bayesian Bradley Terry model (BBT) has different characteristics than frequentist approaches to comparing multiple algorithms on multiple data sets, such as Demsar (2006) tests on mean rank, and Benavoli et al. (2016) multiple pairwise Wilcoxon tests with p-adjustment procedures. In particular, a Bayesian approach allows for more nuanced statements regarding the algorithms beyond claiming that the difference is or it is not statistically significant. Bayesian approaches also allow to define when two algorithms are equivalent for practical purposes, or the region of practical equivalence (ROPE). Different than a Bayesian signed rank comparison procedure proposed by Benavoli et al. (2017), our approach can define a ROPE for any metric, since it is based on probability statements, and not on differences of that metric. This paper also proposes a local ROPE concept, that evaluates whether a positive difference between a mean measure across some cross validation to the mean of some other algorithms is should be really seen as the first algorithm being better than the second, based on effect sizes. This local ROPE proposal is independent of a Bayesian use, and can be used in frequentist approaches based on ranks. A R package and a Python program that implements the BBT is available.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2208.04935",
+      "url": "https://arxiv.org/abs/2208.04935",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2301.06428",
+      "title": "Faster Gradient-Free Algorithms for Nonsmooth Nonconvex Stochastic Optimization",
+      "authors": [
+        {
+          "name": "Lesi Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Jing Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Luo Luo",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We consider the optimization problem of the form $\\min_{x \\in \\mathbb{R}^d} f(x) \\triangleq \\mathbb{E}_\u03be [F(x; \u03be)]$, where the component $F(x;\u03be)$ is $L$-mean-squared Lipschitz but possibly nonconvex and nonsmooth. The recently proposed gradient-free method requires at most $\\mathcal{O}( L^4 d^{3/2} \u03b5^{-4} + \u0394L^3 d^{3/2} \u03b4^{-1} \u03b5^{-4})$ stochastic zeroth-order oracle complexity to find a $(\u03b4,\u03b5)$-Goldstein stationary point of objective function, where $\u0394= f(x_0) - \\inf_{x \\in \\mathbb{R}^d} f(x)$ and $x_0$ is the initial point of the algorithm. This paper proposes a more efficient algorithm using stochastic recursive gradient estimators, which improves the complexity to $\\mathcal{O}(L^3 d^{3/2} \u03b5^{-3}+ \u0394L^2 d^{3/2} \u03b4^{-1} \u03b5^{-3})$.",
+      "venue": "math.OC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2301.06428",
+      "url": "https://arxiv.org/abs/2301.06428",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

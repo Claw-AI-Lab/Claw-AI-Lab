@@ -54,8 +54,8 @@ security:
 
 experiment:
   mode: "sandbox"
-  time_budget_sec: 1800
-  max_iterations: 2
+  time_budget_sec: 2400
+  max_iterations: 3
   metric_key: "primary_metric"
   metric_direction: "minimize"
   datasets_dir: "/home/user/Claw-AI-Lab-share/datasets"
@@ -99,7 +99,7 @@ experiment:
       - "safetensors"
       - "huggingface_hub"
       - "einops"
-  sanity_check_max_iterations: 1
+  sanity_check_max_iterations: 6
   code_agent:
     enabled: false
   opencode:
@@ -107,7 +107,7 @@ experiment:
     auto: true
     complexity_threshold: 0.2
     model: "claude-opus-4-6"
-    timeout_sec: 1200
+    timeout_sec: 2400
     max_retries: 1
     workspace_cleanup: false
 

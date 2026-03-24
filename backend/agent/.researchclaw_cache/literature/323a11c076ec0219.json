@@ -1,0 +1,634 @@
+{
+  "query": "ResNet 50 GPU comparing",
+  "source": "arxiv",
+  "limit": 40,
+  "timestamp": 1773945013.3917425,
+  "papers": [
+    {
+      "paper_id": "arxiv-2601.19911",
+      "title": "GPU-Augmented OLAP Execution Engine: GPU Offloading",
+      "authors": [
+        {
+          "name": "Ilsun Chang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Modern OLAP systems have mitigated I/O bottlenecks via storage-compute separation and columnar layouts, but CPU costs in the execution layer (especially Top-K selection and join probe) are emerging as new bottlenecks at scale. This paper proposes a hybrid architecture that augments existing vectorized execution by selectively offloading only high-impact primitives to the GPU. To reduce data movement, we use key-only transfer (keys and pointers) with late materialization. We further introduce a Risky Gate (risk-aware gating) that triggers offloading only in gain/risk intervals based on input size, transfer, kernel and post-processing costs, and candidate-set complexity (K, M). Using PostgreSQL microbenchmarks and GPU proxy measurements, we observe improved tail latency (P95/P99) under gated offloading compared to always-on GPU offloading. This work extends the risk-aware gating principle used for optimizer-stage GPU-assisted measurement (arXiv:2512.19750) to execution-layer OLAP primitives.",
+      "venue": "cs.AR",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2601.19911",
+      "url": "https://arxiv.org/abs/2601.19911",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2506.00992",
+      "title": "Quotient Network -- A Network Similar to ResNet but Learning Quotients",
+      "authors": [
+        {
+          "name": "Peng Hui",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiamuyang Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Changxin Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Qingzhen Zhu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The emergence of ResNet provides a powerful tool for training extremely deep networks. The core idea behind it is to change the learning goals of the network. It no longer learns new features from scratch but learns the difference between the target and existing features. However, the difference between the two kinds of features does not have an independent and clear meaning, and the amount of learning is based on the absolute rather than the relative difference, which is sensitive to the size of existing features. We propose a new network that perfectly solves these two problems while still having the advantages of ResNet. Specifically, it chooses to learn the quotient of the target features with the existing features, so we call it the quotient network. In order to enable this network to learn successfully and achieve higher performance, we propose some design rules for this network so that it can be trained efficiently and achieve better performance than ResNet. Experiments on the CIFAR10, CIFAR100, and SVHN datasets prove that this network can stably achieve considerable improvements over ResNet by simply making tiny corresponding changes to the original ResNet network without adding new parameters.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "10.3390/a17110521",
+      "arxiv_id": "2506.00992",
+      "url": "https://arxiv.org/abs/2506.00992",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2207.12116",
+      "title": "A Variant of Concurrent Constraint Programming on GPU",
+      "authors": [
+        {
+          "name": "Pierre Talbot",
+          "affiliation": ""
+        },
+        {
+          "name": "Fr\u00e9d\u00e9ric Pinel",
+          "affiliation": ""
+        },
+        {
+          "name": "Pascal Bouvry",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "The number of cores on graphical computing units (GPUs) is reaching thousands nowadays, whereas the clock speed of processors stagnates. Unfortunately, constraint programming solvers do not take advantage yet of GPU parallelism. One reason is that constraint solvers were primarily designed within the mental frame of sequential computation. To solve this issue, we take a step back and contribute to a simple, intrinsically parallel, lock-free and formally correct programming language based on concurrent constraint programming. We then re-examine parallel constraint solving on GPUs within this formalism, and develop Turbo, a simple constraint solver entirely programmed on GPUs. Turbo validates the correctness of our approach and compares positively to a parallel CPU-based solver.",
+      "venue": "cs.DC",
+      "citation_count": 0,
+      "doi": "10.1609/aaai.v36i4.20298",
+      "arxiv_id": "2207.12116",
+      "url": "https://arxiv.org/abs/2207.12116",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2406.16091",
+      "title": "Efficient GPU Implementation of Particle Interactions with Cutoff Radius and Few Particles per Cell",
+      "authors": [
+        {
+          "name": "David Algis",
+          "affiliation": ""
+        },
+        {
+          "name": "Berenger Bramas",
+          "affiliation": ""
+        },
+        {
+          "name": "Emmanuelle Darles",
+          "affiliation": ""
+        },
+        {
+          "name": "Lilian Aveneau",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "This paper presents novel approaches to parallelizing particle interactions on a GPU when there are few particles per cell and the interactions are limited by a cutoff distance. The paper surveys classical algorithms and then introduces two alternatives that aim to utilize shared memory. The first approach copies the particles of a sub-box, while the second approach loads particles in a pencil along the X-axis. The different implementations are compared on three GPU models using Cuda and Hip. The results show that the X-pencil approach can provide a significant speedup but only in very specific cases.",
+      "venue": "cs.DC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2406.16091",
+      "url": "https://arxiv.org/abs/2406.16091",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2110.08221",
+      "title": "Metrics and Design of an Instruction Roofline Model for AMD GPUs",
+      "authors": [
+        {
+          "name": "Matthew Leinhauser",
+          "affiliation": ""
+        },
+        {
+          "name": "Ren\u00e9 Widera",
+          "affiliation": ""
+        },
+        {
+          "name": "Sergei Bastrakov",
+          "affiliation": ""
+        },
+        {
+          "name": "Alexander Debus",
+          "affiliation": ""
+        },
+        {
+          "name": "Michael Bussmann",
+          "affiliation": ""
+        },
+        {
+          "name": "Sunita Chandrasekaran",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Due to the recent announcement of the Frontier supercomputer, many scientific application developers are working to make their applications compatible with AMD architectures (CPU-GPU), which means moving away from the traditional CPU and NVIDIA-GPU systems. Due to the current limitations of profiling tools for AMD GPUs, this shift leaves a void in how to measure application performance on AMD GPUs. In this paper, we design an instruction roofline model for AMD GPUs using AMD's ROCProfiler and a benchmarking tool, BabelStream (the HIP implementation), as a way to measure an application's performance in instructions and memory transactions on new AMD hardware. Specifically, we create instruction roofline models for a case study scientific application, PIConGPU, an open source particle-in-cell (PIC) simulations application used for plasma and laser-plasma physics on the NVIDIA V100, AMD Radeon Instinct MI60, and AMD Instinct MI100 GPUs. When looking at the performance of multiple kernels of interest in PIConGPU we find that although the AMD MI100 GPU achieves a similar, or better, execution time compared to the NVIDIA V100 GPU, profiling tool differences make comparing performance of these two architectures hard. When looking at execution time, GIPS, and instruction intensity, the AMD MI60 achieves the worst performance out of the three GPUs used in this work.",
+      "venue": "cs.DC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2110.08221",
+      "url": "https://arxiv.org/abs/2110.08221",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2603.07850",
+      "title": "A Lock-Free, Fully GPU-Resident Architecture for the Verification of Goldbach's Conjecture",
+      "authors": [
+        {
+          "name": "Isaac Llorente-Saguer",
+          "affiliation": ""
+        }
+      ],
+      "year": 2026,
+      "abstract": "We present a fully device-resident, multi-GPU architecture for the large-scale computational verification of Goldbach's conjecture. In prior work, a segmented double-sieve eliminated monolithic VRAM bottlenecks but remained constrained by host-side sieve construction and PCIe transfer latency. In this work, we migrate the entire segment generation pipeline to the GPU using highly optimised L1 shared-memory tiling, achieving near-zero host-device communication during the critical verification path. To fully leverage heterogeneous multi-GPU clusters, we introduce an asynchronous, lock-free work-stealing pool that replaces static workload partitioning with atomic segment claiming, enabling $99.7$% parallel efficiency at 2 GPUs and $98.6$% at $4$ GPUs. We further implement strict mathematical overflow guards guaranteeing the soundness of the 64-bit verification pipeline up to its theoretical ceiling of $1.84 \\times 10^{19}$. On the same hardware, the new architecture achieves a $45.6\\times$ algorithmic speedup over its host-coupled predecessor at N = $10^{10}$. End-to-end, the framework verifies Goldbach's conjecture up to $10^{12}$ in $36.5$ seconds on a single NVIDIA RTX 5090, and up to $10^{13}$ in $133.5$ seconds on a four-GPU system. All code is open-source and reproducible on commodity hardware.",
+      "venue": "cs.MS",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2603.07850",
+      "url": "https://arxiv.org/abs/2603.07850",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2407.05440",
+      "title": "Explainable AI: Comparative Analysis of Normal and Dilated ResNet Models for Fundus Disease Classification",
+      "authors": [
+        {
+          "name": "P. N. Karthikayan",
+          "affiliation": ""
+        },
+        {
+          "name": "Yoga Sri Varshan",
+          "affiliation": ""
+        },
+        {
+          "name": "Hitesh Gupta Kattamuri",
+          "affiliation": ""
+        },
+        {
+          "name": "Umarani Jayaraman",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "This paper presents dilated Residual Network (ResNet) models for disease classification from retinal fundus images. Dilated convolution filters are used to replace normal convolution filters in the higher layers of the ResNet model (dilated ResNet) in order to improve the receptive field compared to the normal ResNet model for disease classification. This study introduces computer-assisted diagnostic tools that employ deep learning, enhanced with explainable AI techniques. These techniques aim to make the tool's decision-making process transparent, thereby enabling medical professionals to understand and trust the AI's diagnostic decision. They are particularly relevant in today's healthcare landscape, where there is a growing demand for transparency in AI applications to ensure their reliability and ethical use. The dilated ResNet is used as a replacement for the normal ResNet to enhance the classification accuracy of retinal eye diseases and reduce the required computing time. The dataset used in this work is the Ocular Disease Intelligent Recognition (ODIR) dataset which is a structured ophthalmic database with eight classes covering most of the common retinal eye diseases. The evaluation metrics used in this work include precision, recall, accuracy, and F1 score. In this work, a comparative study has been made between normal ResNet models and dilated ResNet models on five variants namely ResNet-18, ResNet-34, ResNet-50, ResNet-101, and ResNet-152. The dilated ResNet model shows promising results as compared to normal ResNet with an average F1 score of 0.71, 0.70, 0.69, 0.67, and 0.70 respectively for the above respective variants in ODIR multiclass disease classification.",
+      "venue": "eess.IV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2407.05440",
+      "url": "https://arxiv.org/abs/2407.05440",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2503.08946",
+      "title": "SIMT/GPU Data Race Verification using ISCC and Intermediary Code Representations: A Case Study",
+      "authors": [
+        {
+          "name": "Andrew Osterhout",
+          "affiliation": ""
+        },
+        {
+          "name": "Ganesh Gopalakrishnan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "It is often difficult to write code that you can ensure will be executed in the right order when programing for parallel compute tasks. Due to the way that today's parallel compute hardware, primarily Graphical Processing Units (GPUs), allows you to write code. It is easy to write code that may result in one thread reading or modifying data before it should, thus resulting in a data race. It would be useful to have a tool that could verify that the code will execute as expected. However, most static analysis done at the language level has to be completely retooled to work on a different languages. Therefore, it would be of great use to be able to perform verification and analysis on the Memory Model of a parallel compute code, in a lower level intermediary representations that most languages pass through on their way to something that the GPU hardware can understand. This body of work aims to deal with the question of if there is still enough of the information in the intermediary representations to be able to perform memory model verification to check for data races. To determine this we plan to analyze as a case study the GeSpMM Sparse Matrix Multiplication Algorithm, implemented in CUDA C++ with the LLVM compiler and Julia with CUDA.jl.",
+      "venue": "cs.DC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2503.08946",
+      "url": "https://arxiv.org/abs/2503.08946",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2105.05085",
+      "title": "GPUReplay: A 50-KB GPU Stack for Client ML",
+      "authors": [
+        {
+          "name": "Heejin Park",
+          "affiliation": ""
+        },
+        {
+          "name": "Felix Xiaozhu Lin",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "GPUReplay (GR) is a novel way for deploying GPU-accelerated computation on mobile and embedded devices. It addresses high complexity of a modern GPU stack for deployment ease and security. The idea is to record GPU executions on the full GPU stack ahead of time and replay the executions on new input at run time. We address key challenges towards making GR feasible, sound, and practical to use. The resultant replayer is a drop-in replacement of the original GPU stack. It is tiny (50 KB of executable), robust (replaying long executions without divergence), portable (running in a commodity OS, in TEE, and baremetal), and quick to launch (speeding up startup by up to two orders of magnitude). We show that GPUReplay works with a variety of integrated GPU hardware, GPU APIs, ML frameworks, and 33 neural network (NN) implementations for inference or training. The code is available at https://github.com/bakhi/GPUReplay.",
+      "venue": "cs.DC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2105.05085",
+      "url": "https://arxiv.org/abs/2105.05085",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2010.12496",
+      "title": "ResNet or DenseNet? Introducing Dense Shortcuts to ResNet",
+      "authors": [
+        {
+          "name": "Chaoning Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Philipp Benz",
+          "affiliation": ""
+        },
+        {
+          "name": "Dawit Mureja Argaw",
+          "affiliation": ""
+        },
+        {
+          "name": "Seokju Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Junsik Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Francois Rameau",
+          "affiliation": ""
+        },
+        {
+          "name": "Jean-Charles Bazin",
+          "affiliation": ""
+        },
+        {
+          "name": "In So Kweon",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "ResNet or DenseNet? Nowadays, most deep learning based approaches are implemented with seminal backbone networks, among them the two arguably most famous ones are ResNet and DenseNet. Despite their competitive performance and overwhelming popularity, inherent drawbacks exist for both of them. For ResNet, the identity shortcut that stabilizes training also limits its representation capacity, while DenseNet has a higher capacity with multi-layer feature concatenation. However, the dense concatenation causes a new problem of requiring high GPU memory and more training time. Partially due to this, it is not a trivial choice between ResNet and DenseNet. This paper provides a unified perspective of dense summation to analyze them, which facilitates a better understanding of their core difference. We further propose dense weighted normalized shortcuts as a solution to the dilemma between them. Our proposed dense shortcut inherits the design philosophy of simple design in ResNet and DenseNet. On several benchmark datasets, the experimental results show that the proposed DSNet achieves significantly better results than ResNet, and achieves comparable performance as DenseNet but requiring fewer computation resources.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2010.12496",
+      "url": "https://arxiv.org/abs/2010.12496",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2508.18206",
+      "title": "Practical GPU Choices for Earth Observation: ResNet-50 Training Throughput on Integrated, Laptop, and Cloud Accelerators",
+      "authors": [
+        {
+          "name": "Ritvik Chaturvedi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "This project implements a ResNet-based pipeline for land use and land cover (LULC) classification on Sentinel-2 imagery, benchmarked across three heterogeneous GPUs. The workflow automates data acquisition, geospatial preprocessing, tiling, model training, and visualization, and is fully containerized for reproducibility. Performance evaluation reveals up to a 2x training speed-up on an NVIDIA RTX 3060 and a Tesla T4 compared to the Apple M3 Pro baseline, while maintaining high classification accuracy on the EuroSAT dataset. These results demonstrate the feasibility of deploying deep learning LULC models on consumer and free cloud GPUs for scalable geospatial analytics.",
+      "venue": "cs.DC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2508.18206",
+      "url": "https://arxiv.org/abs/2508.18206",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2306.00358",
+      "title": "GPU-Acceleration of Tensor Renormalization with PyTorch using CUDA",
+      "authors": [
+        {
+          "name": "Raghav G. Jha",
+          "affiliation": ""
+        },
+        {
+          "name": "Abhishek Samlodia",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We show that numerical computations based on tensor renormalization group (TRG) methods can be significantly accelerated with PyTorch on graphics processing units (GPUs) by leveraging NVIDIA's Compute Unified Device Architecture (CUDA). We find improvement in the runtime and its scaling with bond dimension for two-dimensional systems. Our results establish that the utilization of GPU resources is essential for future precision computations with TRG.",
+      "venue": "hep-lat",
+      "citation_count": 0,
+      "doi": "10.1016/j.cpc.2023.108941",
+      "arxiv_id": "2306.00358",
+      "url": "https://arxiv.org/abs/2306.00358",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2209.02878",
+      "title": "GPU implementation of a ray-surface intersection algorithm in CUDA (Compute Unified Device Architecture)",
+      "authors": [
+        {
+          "name": "Raymond Leung",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "These notes accompany the open-source code published in GitHub which implements a GPU-based line-segment, surface-triangle intersection algorithm in CUDA. It mentions some relevant works and discusses issues specific to this implementation. The goal is to provide software documentation and greater clarity on collision buffer management which is sometimes omitted in online literature. For real-world applications, CPU-based implementations of the test are often deemed too slow to be useful. In contrast, the code described here targets Nvidia GPU devices and offers a solution that is vastly more efficient and scalable. The main API is also wrapped in Python. This geometry test is applied in various engineering problems, so the software developed can be reused in new situations.",
+      "venue": "cs.DC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2209.02878",
+      "url": "https://arxiv.org/abs/2209.02878",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2307.11248",
+      "title": "GPU-accelerated Parallel Solutions to the Quadratic Assignment Problem",
+      "authors": [
+        {
+          "name": "Clara Novoa",
+          "affiliation": ""
+        },
+        {
+          "name": "Apan Qasem",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "The Quadratic Assignment Problem (QAP) is an important combinatorial optimization problem with applications in many areas including logistics and manufacturing. QAP is known to be NP-hard, a computationally challenging problem, which requires the use of sophisticated heuristics in finding acceptable solutions for most real-world data sets.\n  In this paper, we present GPU-accelerated implementations of a 2opt and a tabu search algorithm for solving the QAP. For both algorithms, we extract parallelism at multiple levels and implement novel code optimization techniques that fully utilize the GPU hardware. On a series of experiments on the well-known QAPLIB data sets, our solutions, on average run an order-of-magnitude faster than previous implementations and deliver up to a factor of 63 speedup on specific instances. The quality of the solutions produced by our implementations of 2opt and tabu is within 1.03% and 0.15% of the best known values. The experimental results also provide key insight into the performance characteristics of accelerated QAP solvers. In particular, the results reveal that both algorithmic choice and the shape of the input data sets are key factors in finding efficient implementations.",
+      "venue": "cs.DC",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2307.11248",
+      "url": "https://arxiv.org/abs/2307.11248",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.12422",
+      "title": "MFI-ResNet: Efficient ResNet Architecture Optimization via MeanFlow Compression and Selective Incubation",
+      "authors": [
+        {
+          "name": "Nuolin Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Linyuan Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Haonan Wei",
+          "affiliation": ""
+        },
+        {
+          "name": "Lei Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Bin Yan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "ResNet has achieved tremendous success in computer vision through its residual connection mechanism. ResNet can be viewed as a discretized form of ordinary differential equations (ODEs). From this perspective, the multiple residual blocks within a single ResNet stage essentially perform multi-step discrete iterations of the feature transformation for that stage. The recently proposed flow matching model, MeanFlow, enables one-step generative modeling by learning the mean velocity field to transform distributions. Inspired by this, we propose MeanFlow-Incubated ResNet (MFI-ResNet), which employs a compression-expansion strategy to jointly improve parameter efficiency and discriminative performance. In the compression phase, we simplify the multi-layer structure within each ResNet stage to one or two MeanFlow modules to construct a lightweight meta model. In the expansion phase, we apply a selective incubation strategy to the first three stages, expanding them to match the residual block configuration of the baseline ResNet model, while keeping the last stage in MeanFlow form, and fine-tune the incubated model. Experimental results show that on CIFAR-10 and CIFAR-100 datasets, MFI-ResNet achieves remarkable parameter efficiency, reducing parameters by 46.28% and 45.59% compared to ResNet-50, while still improving accuracy by 0.23% and 0.17%, respectively. This demonstrates that generative flow-fields can effectively characterize the feature transformation process in ResNet, providing a new perspective for understanding the relationship between generative modeling and discriminative learning.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.12422",
+      "url": "https://arxiv.org/abs/2511.12422",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2505.04556",
+      "title": "Comparing CPU and GPU compute of PERMANOVA on MI300A",
+      "authors": [
+        {
+          "name": "Igor Sfiligoi",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Comparing the tradeoffs of CPU and GPU compute for memory-heavy algorithms is often challenging, due to the drastically different memory subsystems on host CPUs and discrete GPUs. The AMD MI300A is an exception, since it sports both CPU and GPU cores in a single package, all backed by the same type of HBM memory. In this paper we analyze the performance of Permutational Multivariate Analysis of Variance (PERMANOVA), a non-parametric method that tests whether two or more groups of objects are significantly different based on a categorical factor. This method is memory-bound and has been recently optimized for CPU cache locality. Our tests show that GPU cores on the MI300A prefer the brute force approach instead, significantly outperforming the CPU-based implementation. The significant benefit of Simultaneous Multithreading (SMT) was also a pleasant surprise.",
+      "venue": "cs.DC",
+      "citation_count": 0,
+      "doi": "10.1145/3708035.3736040",
+      "arxiv_id": "2505.04556",
+      "url": "https://arxiv.org/abs/2505.04556",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2001.11396",
+      "title": "Non-Determinism in TensorFlow ResNets",
+      "authors": [
+        {
+          "name": "Miguel Morin",
+          "affiliation": ""
+        },
+        {
+          "name": "Matthew Willetts",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "We show that the stochasticity in training ResNets for image classification on GPUs in TensorFlow is dominated by the non-determinism from GPUs, rather than by the initialisation of the weights and biases of the network or by the sequence of minibatches given. The standard deviation of test set accuracy is 0.02 with fixed seeds, compared to 0.027 with different seeds---nearly 74\\% of the standard deviation of a ResNet model is non-deterministic. For test set loss the ratio of standard deviations is more than 80\\%. These results call for more robust evaluation strategies of deep learning models, as a significant amount of the variation in results across runs can arise simply from GPU randomness.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2001.11396",
+      "url": "https://arxiv.org/abs/2001.11396",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2010.12859",
+      "title": "Stable ResNet",
+      "authors": [
+        {
+          "name": "Soufiane Hayou",
+          "affiliation": ""
+        },
+        {
+          "name": "Eugenio Clerico",
+          "affiliation": ""
+        },
+        {
+          "name": "Bobby He",
+          "affiliation": ""
+        },
+        {
+          "name": "George Deligiannidis",
+          "affiliation": ""
+        },
+        {
+          "name": "Arnaud Doucet",
+          "affiliation": ""
+        },
+        {
+          "name": "Judith Rousseau",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Deep ResNet architectures have achieved state of the art performance on many tasks. While they solve the problem of gradient vanishing, they might suffer from gradient exploding as the depth becomes large (Yang et al. 2017). Moreover, recent results have shown that ResNet might lose expressivity as the depth goes to infinity (Yang et al. 2017, Hayou et al. 2019). To resolve these issues, we introduce a new class of ResNet architectures, called Stable ResNet, that have the property of stabilizing the gradient while ensuring expressivity in the infinite depth limit.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2010.12859",
+      "url": "https://arxiv.org/abs/2010.12859",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2105.08026",
+      "title": "GPU-Accelerated Hierarchical Bayesian Inference with Application to Modeling Cosmic Populations: CUDAHM",
+      "authors": [
+        {
+          "name": "J\u00e1nos M. Szalai-Gindl",
+          "affiliation": ""
+        },
+        {
+          "name": "Thomas J. Loredo",
+          "affiliation": ""
+        },
+        {
+          "name": "Brandon C. Kelly",
+          "affiliation": ""
+        },
+        {
+          "name": "Istv\u00e1n Csabai",
+          "affiliation": ""
+        },
+        {
+          "name": "Tam\u00e1s Budav\u00e1ri",
+          "affiliation": ""
+        },
+        {
+          "name": "L\u00e1szl\u00f3 Dobos",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "We describe a computational framework for hierarchical Bayesian inference with simple (typically single-plate) parametric graphical models that uses graphics processing units (GPUs) to accelerate computations, enabling deployment on very large datasets. Its C++ implementation, CUDAHM (CUDA for Hierarchical Models) exploits conditional independence between instances of a plate, facilitating massively parallel exploration of the replication parameter space using the single instruction, multiple data architecture of GPUs. It provides support for constructing Metropolis-within-Gibbs samplers that iterate between GPU-accelerated robust adaptive Metropolis sampling of plate-level parameters conditional on upper-level parameters, and Metropolis-Hastings sampling of upper-level parameters on the host processor conditional on the GPU results. CUDAHM is motivated by demographic problems in astronomy, where density estimation and linear and nonlinear regression problems must be addressed for populations of thousands to millions of objects whose features are measured with possibly complex uncertainties. We describe a thinned latent point process framework for modeling such demographic data. We demonstrate accurate GPU-accelerated parametric conditional density deconvolution for simulated populations of up to 300,000 objects in ~1 hour using a single NVIDIA Tesla K40c GPU. Supplementary material provides details about the CUDAHM API and the demonstration problem.",
+      "venue": "astro-ph.IM",
+      "citation_count": 0,
+      "doi": "10.1016/j.ascom.2018.10.004",
+      "arxiv_id": "2105.08026",
+      "url": "https://arxiv.org/abs/2105.08026",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2311.05981",
+      "title": "Comparing Male Nyala and Male Kudu Classification using Transfer Learning with ResNet-50 and VGG-16",
+      "authors": [
+        {
+          "name": "T. T Lemani",
+          "affiliation": ""
+        },
+        {
+          "name": "T. L. van Zyl",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Reliable and efficient monitoring of wild animals is crucial to inform management and conservation decisions. The process of manually identifying species of animals is time-consuming, monotonous, and expensive. Leveraging on advances in deep learning and computer vision, we investigate in this paper the efficiency of pre-trained models, specifically the VGG-16 and ResNet-50 model, in identifying a male Kudu and a male Nyala in their natural habitats. These pre-trained models have proven to be efficient in animal identification in general. Still, there is little research on animals like the Kudu and Nyala, who are usually well camouflaged and have similar features. The method of transfer learning used in this paper is the fine-tuning method. The models are evaluated before and after fine-tuning. The experimental results achieved an accuracy of 93.2\\% and 97.7\\% for the VGG-16 and ResNet-50 models, respectively, before fine-tuning and 97.7\\% for both models after fine-tuning. Although these results are impressive, it should be noted that they were taken over a small sample size of 550 images split in half between the two classes; therefore, this might not cater to enough scenarios to get a full conclusion of the efficiency of the models. Therefore, there is room for more work in getting a more extensive dataset and testing and extending to the female counterparts of these species and the whole antelope species.",
+      "venue": "cs.CV",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2311.05981",
+      "url": "https://arxiv.org/abs/2311.05981",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2009.03707",
+      "title": "A GPU Parallel Algorithm for Computing Morse-Smale Complexes",
+      "authors": [
+        {
+          "name": "Varshini Subhash",
+          "affiliation": ""
+        },
+        {
+          "name": "Karran Pandey",
+          "affiliation": ""
+        },
+        {
+          "name": "Vijay Natarajan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "The Morse-Smale complex is a well studied topological structure that represents the gradient flow behavior between critical points of a scalar function. It supports multi-scale topological analysis and visualization of feature-rich scientific data. Several parallel algorithms have been proposed towards the fast computation of the 3D Morse-Smale complex. Its computation continues to pose significant algorithmic challenges. In particular, the non-trivial structure of the connections between the saddle critical points are not amenable to parallel computation. This paper describes a fine grained parallel algorithm for computing the Morse-Smale complex and a GPU implementation gMSC. The algorithm first determines the saddle-saddle reachability via a transformation into a sequence of vector operations, and next computes the paths between saddles by transforming it into a sequence of matrix operations. Computational experiments show that the method achieves up to 8.6x speedup over pyms3d and 6x speedup over TTK, the current shared memory implementations. The paper also presents a comprehensive experimental analysis of different steps of the algorithm and reports on their contribution towards runtime performance. Finally, it introduces a CPU based data parallel algorithm for simplifying the Morse-Smale complex via iterative critical point pair cancellation.",
+      "venue": "cs.GR",
+      "citation_count": 0,
+      "doi": "10.1109/TVCG.2022.3174769",
+      "arxiv_id": "2009.03707",
+      "url": "https://arxiv.org/abs/2009.03707",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2511.03359",
+      "title": "Universal Quantum Simulation of 50 Qubits on Europe`s First Exascale Supercomputer Harnessing Its Heterogeneous CPU-GPU Architecture",
+      "authors": [
+        {
+          "name": "Hans De Raedt",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiri Kraus",
+          "affiliation": ""
+        },
+        {
+          "name": "Andreas Herten",
+          "affiliation": ""
+        },
+        {
+          "name": "Vrinda Mehta",
+          "affiliation": ""
+        },
+        {
+          "name": "Mathis Bode",
+          "affiliation": ""
+        },
+        {
+          "name": "Markus Hrywniak",
+          "affiliation": ""
+        },
+        {
+          "name": "Kristel Michielsen",
+          "affiliation": ""
+        },
+        {
+          "name": "Thomas Lippert",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "We have developed a new version of the high-performance J\u00fclich universal quantum computer simulator (JUQCS-50) that leverages key features of the GH200 superchips as used in the JUPITER supercomputer, enabling simulations of a 50-qubit universal quantum computer for the first time. JUQCS-50 achieves this through three key innovations: (1) extending usable memory beyond GPU limits via high-bandwidth CPU-GPU interconnects and LPDDR5 memory; (2) adaptive data encoding to reduce memory footprint with acceptable trade-offs in precision and compute effort; and (3) an on-the-fly network traffic optimizer. These advances result in an 11.4-fold speedup over the previous 48-qubit record on the K computer.",
+      "venue": "quant-ph",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2511.03359",
+      "url": "https://arxiv.org/abs/2511.03359",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

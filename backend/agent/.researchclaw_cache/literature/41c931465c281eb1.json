@@ -1,0 +1,833 @@
+{
+  "query": "[VLA] video action model",
+  "source": "openalex",
+  "limit": 15,
+  "timestamp": 1774288542.2158017,
+  "papers": [
+    {
+      "paper_id": "oalex-W4413156213",
+      "title": "CoT-VLA: Visual Chain-of-Thought Reasoning for Vision-Language-Action Models",
+      "authors": [
+        {
+          "name": "Qingqing Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Yao Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Moo Jin Kim",
+          "affiliation": "Stanford University"
+        },
+        {
+          "name": "Zipeng Fu",
+          "affiliation": "Stanford University"
+        },
+        {
+          "name": "Zhuoyang Zhang",
+          "affiliation": "Moscow Institute of Thermal Technology"
+        },
+        {
+          "name": "Yunfeng Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhaoshuo Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Qianli Ma",
+          "affiliation": ""
+        },
+        {
+          "name": "Song Han",
+          "affiliation": ""
+        },
+        {
+          "name": "Chelsea Finn",
+          "affiliation": "Stanford University"
+        },
+        {
+          "name": "Ankur Handa",
+          "affiliation": ""
+        },
+        {
+          "name": "Tsung-Yi Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Gordon Wetzstein",
+          "affiliation": "Stanford University"
+        },
+        {
+          "name": "Mingyu Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Donglai Xiang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Vision-language-action models (VLAs) have shown potential in leveraging pretrained vision-language models and diverse robot demonstrations for learning generalizable sensorimotor control. While this paradigm effectively utilizes large-scale data from both robotic and non-robotic sources, current VLAs primarily focus on direct input\u2013output mappings, lacking the intermediate reasoning steps crucial for complex manipulation tasks. As a result, existing VLAs lack temporal planning or reasoning capabilities. In this paper, we introduce a method that incorporates explicit visual chain-of-thought (CoT) reasoning into vision-language-action models (VLAs) by predicting future image frames autoregressively as visual goals before generating a short action sequence to achieve these goals. We introduce CoT-VLA, a state-of-the-art 7B VLA that can understand and generate visual and action tokens. Our experimental results demonstrate that CoT-VLA achieves strong performance, outperforming the state-of-the-art VLA model by 17% in real-world manipulation tasks and 6% in simulation benchmarks. Videos are available at: https://cot-vla.github.io/.",
+      "venue": "",
+      "citation_count": 17,
+      "doi": "10.1109/cvpr52734.2025.00166",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr52734.2025.00166",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W7116210338",
+      "title": "mimic-video: Video-Action Models for Generalizable Robot Control Beyond VLAs",
+      "authors": [
+        {
+          "name": "Pai, Jonas",
+          "affiliation": ""
+        },
+        {
+          "name": "Achenbach, Liam",
+          "affiliation": ""
+        },
+        {
+          "name": "Montesinos, Victoriano",
+          "affiliation": ""
+        },
+        {
+          "name": "Forrai, Benedek",
+          "affiliation": ""
+        },
+        {
+          "name": "Mees, Oier",
+          "affiliation": ""
+        },
+        {
+          "name": "Nava, Elvis",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Prevailing Vision-Language-Action Models (VLAs) for robotic manipulation are built upon vision-language backbones pretrained on large-scale, but disconnected static web data. As a result, despite improved semantic generalization, the policy must implicitly infer complex physical dynamics and temporal dependencies solely from robot trajectories. This reliance creates an unsustainable data burden, necessitating continuous, large-scale expert data collection to compensate for the lack of innate physical understanding. We contend that while vision-language pretraining effectively captures semantic priors, it remains blind to physical causality. A more effective paradigm leverages video to jointly capture semantics and visual dynamics during pretraining, thereby isolating the remaining task of low-level control. To this end, we introduce mimic-video, a novel Video-Action Model (VAM) that pairs a pretrained Internet-scale video model with a flow matching-based action decoder conditioned on its latent representations. The decoder serves as an Inverse Dynamics Model (IDM), generating low-level robot actions from the latent representation of video-space action plans. Our extensive evaluation shows that our approach achieves state-of-the-art performance on simulated and real-world robotic manipulation tasks, improving sample efficiency by 10x and convergence speed by 2x compared to traditional VLA architectures.",
+      "venue": "ArXiv.org",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "",
+      "url": "https://openalex.org/W7116210338",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W7116084174",
+      "title": "mimic-video: Video-Action Models for Generalizable Robot Control Beyond VLAs",
+      "authors": [
+        {
+          "name": "Pai, Jonas",
+          "affiliation": ""
+        },
+        {
+          "name": "Achenbach, Liam",
+          "affiliation": ""
+        },
+        {
+          "name": "Montesinos, Victoriano",
+          "affiliation": ""
+        },
+        {
+          "name": "Forrai, Benedek",
+          "affiliation": ""
+        },
+        {
+          "name": "Mees, Oier",
+          "affiliation": ""
+        },
+        {
+          "name": "Nava, Elvis",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Prevailing Vision-Language-Action Models (VLAs) for robotic manipulation are built upon vision-language backbones pretrained on large-scale, but disconnected static web data. As a result, despite improved semantic generalization, the policy must implicitly infer complex physical dynamics and temporal dependencies solely from robot trajectories. This reliance creates an unsustainable data burden, necessitating continuous, large-scale expert data collection to compensate for the lack of innate physical understanding. We contend that while vision-language pretraining effectively captures semantic priors, it remains blind to physical causality. A more effective paradigm leverages video to jointly capture semantics and visual dynamics during pretraining, thereby isolating the remaining task of low-level control. To this end, we introduce mimic-video, a novel Video-Action Model (VAM) that pairs a pretrained Internet-scale video model with a flow matching-based action decoder conditioned on its latent representations. The decoder serves as an Inverse Dynamics Model (IDM), generating low-level robot actions from the latent representation of video-space action plans. Our extensive evaluation shows that our approach achieves state-of-the-art performance on simulated and real-world robotic manipulation tasks, improving sample efficiency by 10x and convergence speed by 2x compared to traditional VLA architectures.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 0,
+      "doi": "10.48550/arxiv.2512.15692",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2512.15692",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3009909874",
+      "title": "Can we contain the COVID-19 outbreak with the same measures as for SARS?",
+      "authors": [
+        {
+          "name": "Annelies Wilder\u2010Smith",
+          "affiliation": "Heidelberg University"
+        },
+        {
+          "name": "Calvin J. Chiew",
+          "affiliation": "National University Health System"
+        },
+        {
+          "name": "Vernon J. Lee",
+          "affiliation": "National University of Singapore"
+        }
+      ],
+      "year": 2020,
+      "abstract": "",
+      "venue": "The Lancet Infectious Diseases",
+      "citation_count": 1001,
+      "doi": "10.1016/s1473-3099(20)30129-8",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/s1473-3099(20)30129-8",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2167871776",
+      "title": "The chemokine SDF-1 stimulates integrin-mediated arrest of CD34+ cells on vascular endothelium under shear flow",
+      "authors": [
+        {
+          "name": "Amnon Peled",
+          "affiliation": "Weizmann Institute of Science"
+        },
+        {
+          "name": "Valentin Grabovsky",
+          "affiliation": "Weizmann Institute of Science"
+        },
+        {
+          "name": "Liliana Habler",
+          "affiliation": "Assaf Harofeh Medical Center"
+        },
+        {
+          "name": "Judith Sandbank",
+          "affiliation": "Assaf Harofeh Medical Center"
+        },
+        {
+          "name": "Frenando Arenzana-Seisdedos",
+          "affiliation": "Institut Pasteur"
+        },
+        {
+          "name": "Isabelle Petit",
+          "affiliation": "Weizmann Institute of Science"
+        },
+        {
+          "name": "Herzl Ben\u2010Hur",
+          "affiliation": "Kaplan Medical Center"
+        },
+        {
+          "name": "Tsvee Lapidot",
+          "affiliation": "Weizmann Institute of Science"
+        },
+        {
+          "name": "R. Alon",
+          "affiliation": "Weizmann Institute of Science"
+        }
+      ],
+      "year": 1999,
+      "abstract": "The chemokine SDF-1 plays a central role in the repopulation of the bone marrow (BM) by circulating CD34(+) progenitors, but the mechanisms of its action remain obscure. To extravasate to target tissue, a blood-borne cell must arrest firmly on vascular endothelium. Murine hematopoietic progenitors were recently shown in vivo to roll along BM microvessels that display selectins and integrins. We now show that SDF-1 is constitutively expressed by human BM endothelium. In vitro, human CD34(+) cells establish efficient rolling on P-selectin, E-selectin, and the CD44 ligand hyaluronic acid under physiological shear flow. ICAM-1 alone did not tether CD34(+) cells under flow, but, in the presence of surface-bound SDF-1, CD34(+) progenitors rolling on endothelial selectin rapidly developed firm adhesion to the endothelial surface, mediated by an interaction between ICAM-1 and its integrin ligand, which coimmobilized with SDF-1. Human CD34(+) cells accumulated efficiently on TNF-activated human umbilical cord endothelial cells in the absence of SDF-1, but they required immobilized SDF-1 to develop firm integrin-mediated adhesion and spreading. In the absence of selectins, SDF-1 also promoted VLA-4-mediated, Gi protein-dependent tethering and firm adhesion to VCAM-1 under shear flow. To our knowledge, this is the first demonstration that SDF-1 expressed on vascular endothelium is crucial for translating rolling adhesion of CD34(+) progenitors into firm adhesion by increasing the adhesiveness of the integrins VLA-4 and LFA-1 to their respective endothelial ligands, VCAM-1 and ICAM-1.",
+      "venue": "Journal of Clinical Investigation",
+      "citation_count": 543,
+      "doi": "10.1172/jci7615",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1172/jci7615",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W1996629582",
+      "title": "A transmigratory cup in leukocyte diapedesis both through individual vascular endothelial cells and between them",
+      "authors": [
+        {
+          "name": "Christopher V. Carman",
+          "affiliation": "Harvard University"
+        },
+        {
+          "name": "Timothy A. Springer",
+          "affiliation": "Harvard University"
+        }
+      ],
+      "year": 2004,
+      "abstract": "The basic route and mechanisms for leukocyte migration across the endothelium remain poorly defined. We provide definitive evidence for transcellular (i.e., through individual endothelial cells) diapedesis in vitro and demonstrate that virtually all, both para- and transcellular, diapedesis occurs in the context of a novel \"cuplike\" transmigratory structure. This endothelial structure was comprised of highly intercellular adhesion molecule-1- and vascular cell adhesion molecule-1-enriched vertical microvilli-like projections that surrounded transmigrating leukocytes and drove redistribution of their integrins into linear tracks oriented parallel to the direction of diapedesis. Disruption of projections was highly correlated with inhibition of transmigration. These findings suggest a novel mechanism, the \"transmigratory cup\", by which the endothelium provides directional guidance to leukocytes for extravasation.",
+      "venue": "The Journal of Cell Biology",
+      "citation_count": 644,
+      "doi": "10.1083/jcb.200404129",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1083/jcb.200404129",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4405786295",
+      "title": "GeRM: A Generalist Robotic Model with Mixture-of-experts for Quadruped Robot",
+      "authors": [
+        {
+          "name": "Wenxuan Song",
+          "affiliation": "Westlake University"
+        },
+        {
+          "name": "Han Zhao",
+          "affiliation": "Westlake University"
+        },
+        {
+          "name": "Pengxiang Ding",
+          "affiliation": "Westlake University"
+        },
+        {
+          "name": "Can Cui",
+          "affiliation": "Westlake University"
+        },
+        {
+          "name": "Shangke Lyu",
+          "affiliation": "Westlake University"
+        },
+        {
+          "name": "Yaning Fan",
+          "affiliation": "Westlake University"
+        },
+        {
+          "name": "Donglin Wang",
+          "affiliation": "Westlake University"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Multi-task robot learning holds significant importance in tackling diverse and complex scenarios. However, current approaches are hindered by performance issues and difficulties in collecting training datasets. In this paper, we propose GeRM (Generalist Robotic Model). We utilize offline reinforcement learning to optimize data utilization strategies to learn from both demonstrations and sub-optimal data, thus surpassing the limitations of human demonstrations. Thereafter, we employ a transformer-based VLA network to process multi-modal inputs and output actions. By introducing the Mixture-of-Experts structure, GeRM allows faster inference speed with higher whole model capacity, and thus resolves the issue of limited RL parameters, enhancing model performance in multi-task learning while controlling computational costs. Through a series of experiments, we demonstrate that GeRM outperforms other methods across all tasks, while also validating its efficiency in both training and inference processes. Additionally, we uncover its potential to acquire emergent skills. Additionally, we contribute the QUARD-Auto dataset, collected automatically to support our training approach and foster advancements in multi-task quadruped robot learning. This work presents a new paradigm for reducing the cost of collecting robot data and driving progress in the multi-task learning community.You can reach our project and video through the link: https://songwxuan.github.io/GeRM/.",
+      "venue": "",
+      "citation_count": 9,
+      "doi": "10.1109/iros58592.2024.10801816",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/iros58592.2024.10801816",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W7126053009",
+      "title": "Information-theoretic graph fusion with vision-language-action model for policy reasoning and dual robotic control",
+      "authors": [
+        {
+          "name": "Shunlei Li",
+          "affiliation": "Zhejiang International Studies University"
+        },
+        {
+          "name": "Longsen Gao",
+          "affiliation": "University of New Mexico"
+        },
+        {
+          "name": "Jin Wang",
+          "affiliation": "Robotics Research (United States)"
+        },
+        {
+          "name": "Chang Che",
+          "affiliation": "George Washington University"
+        },
+        {
+          "name": "Xi Xiao",
+          "affiliation": "University of Alabama at Birmingham"
+        },
+        {
+          "name": "Jiuwen Cao",
+          "affiliation": "Zhejiang International Studies University"
+        },
+        {
+          "name": "Yingbai Hu",
+          "affiliation": "Hunan University"
+        },
+        {
+          "name": "Hamid Reza Karimi",
+          "affiliation": "Politecnico di Milano"
+        }
+      ],
+      "year": 2026,
+      "abstract": "",
+      "venue": "Information Fusion",
+      "citation_count": 5,
+      "doi": "10.1016/j.inffus.2026.104193",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.inffus.2026.104193",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2025019998",
+      "title": "Hematopoietic Progenitor Cell Rolling in Bone Marrow Microvessels: Parallel Contributions by Endothelial Selectins and Vascular Cell Adhesion Molecule 1",
+      "authors": [
+        {
+          "name": "Irina B. Mazo",
+          "affiliation": "Howard Hughes Medical Institute"
+        },
+        {
+          "name": "Jose\u2010Carlos Gutierrez\u2010Ramos",
+          "affiliation": "Harvard University"
+        },
+        {
+          "name": "Paul S. Frenette",
+          "affiliation": "Harvard University"
+        },
+        {
+          "name": "Richard O. Hynes",
+          "affiliation": "Massachusetts Institute of Technology"
+        },
+        {
+          "name": "Denisa D. Wagner",
+          "affiliation": "Massachusetts Institute of Technology"
+        },
+        {
+          "name": "Ulrich H. von Andrian",
+          "affiliation": "Massachusetts Institute of Technology"
+        }
+      ],
+      "year": 1998,
+      "abstract": "We have used intravital microscopy to study physiologically perfused microvessels in murine bone marrow (BM). BM sinusoids and venules, but not adjacent bone vessels, supported rolling interactions of hematopoietic progenitor cells. Rolling did not involve L-selectin, but was partially reduced in wild-type mice treated with antibodies to P- or E-selectin and in mice that were deficient in these two selectins. Selectin-independent rolling was mediated by alpha4 integrins, which interacted with endothelial vascular cell adhesion molecule (VCAM)-1. Parallel contribution of the endothelial selectins and VCAM-1 is not known to direct blood cell trafficking to other noninflamed tissues. This combination of constitutively expressed adhesion molecules may thus constitute a BM-specific recruitment pathway for progenitor cells analogous to the vascular addressins that direct selective lymphocyte homing to lymphoid organs.",
+      "venue": "The Journal of Experimental Medicine",
+      "citation_count": 432,
+      "doi": "10.1084/jem.188.3.465",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1084/jem.188.3.465",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2110981204",
+      "title": "Maximal migration of human smooth muscle cells on fibronectin and type IV collagen occurs at an intermediate attachment strength",
+      "authors": [
+        {
+          "name": "PA DiMilla",
+          "affiliation": "University of Pennsylvania"
+        },
+        {
+          "name": "JA Stone",
+          "affiliation": "University of Pennsylvania"
+        },
+        {
+          "name": "J.A. Quinn",
+          "affiliation": "University of Pennsylvania"
+        },
+        {
+          "name": "SM Albelda",
+          "affiliation": "University of Pennsylvania"
+        },
+        {
+          "name": "DA Lauffenburger",
+          "affiliation": "University of Pennsylvania"
+        }
+      ],
+      "year": 1993,
+      "abstract": "Although a biphasic dependence of cell migration speed on cell-substratum adhesiveness has been predicted theoretically, experimental data directly demonstrating a relationship between these two phenomena have been lacking. To determine whether an optimal strength of cell-substratum adhesive interactions exists for cell migration, we measured quantitatively both the initial attachment strength and migration speed of human smooth muscle cells (HSMCs) on a range of surface concentrations of fibronectin (Fn) and type IV collagen (CnIV). Initial attachment strength was measured in order to characterize short time-scale cell-substratum interactions, which may be representative of dynamic interactions involved in cell migration. The critical fluid shear stress for cell detachment, determined in a radial-flow detachment assay, increased linearly with the surface concentrations of adsorbed Fn and CnIV. The detachment stress required for cells on Fn, 3.6 +/- 0.2 x 10(-3) mu dynes/absorbed molecule, was much greater than that on CnIV, 5.0 +/- 1.4 x 10(-5) mu dynes/absorbed molecule. Time-lapse videomicroscopy of individual cell movement paths showed that the migration behavior of HSMCs on these substrates varied with the absorbed concentration of each matrix protein, exhibiting biphasic dependence. Cell speed reached a maximum at intermediate concentrations of both proteins, with optimal concentrations for migration at 1 x 10(3) molecules/micron2 and 1 x 10(4) molecules/micron2 on Fn and CnIV, respectively. These optimal protein concentrations represent optimal initial attachment strengths corresponding to detachment shear stresses of 3.8 mu dyne/micron2 on Fn and 1.5 mu dyne/micron2 on CnIV. Thus, while the optimal absorbed protein concentrations for migration on Fn and CnIV differed by an order of magnitude, the optimal initial attachment strengths for migration on these two proteins were very similar. Further, the same minimum strength of initial attachment, corresponding to a detachment shear stress of approximately 1 mu dyne/micron2, was required for movement on either protein. These results suggest that initial cell-substratum attachment strength is a central variable governing cell migration speed, able to correlate observations of motility on substrata differing in adhesiveness. They also demonstrate that migration speed depends in biphasic manner on attachment strength, with maximal migration at an intermediate level of cell-substratum adhesiveness.",
+      "venue": "The Journal of Cell Biology",
+      "citation_count": 606,
+      "doi": "10.1083/jcb.122.3.729",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1083/jcb.122.3.729",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3161542143",
+      "title": "Long-Short Temporal Modeling for Efficient Action Recognition",
+      "authors": [
+        {
+          "name": "Liyu Wu",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Yuexian Zou",
+          "affiliation": "Peng Cheng Laboratory"
+        },
+        {
+          "name": "Can Zhang",
+          "affiliation": "Peking University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Efficient long-short temporal modeling is key for enhancing the performance of action recognition task. In this paper, we propose a new two-stream action recognition network, termed as MENet, consisting of a Motion Enhancement (ME) module and a Video-level Aggregation (VLA) module to achieve long-short temporal modeling. Specifically, motion representations have been proved effective in capturing short-term and high-frequency action. However, current motion representations are calculated from adjacent frames, which may have poor interpretation and bring useless information (noisy or blank). Thus, for short-term motions, we design an efficient ME module to enhance the short-term motions by mingling the motion saliency among neighboring segments. As for long-term aggregations, VLA is adopted at the top of the appearance branch to integrate the long-term dependencies across all segments. The two components of MENet are complementary in temporal modeling. Extensive experiments are conducted on UCF101 and HMDB51 benchmarks, which verify the effectiveness and efficiency of our proposed MENet.",
+      "venue": "",
+      "citation_count": 2,
+      "doi": "10.1109/icassp39728.2021.9413807",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/icassp39728.2021.9413807",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4407384835",
+      "title": "HAMSTER: Hierarchical Action Models For Open-World Robot Manipulation",
+      "authors": [
+        {
+          "name": "Yi Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Yiming Deng",
+          "affiliation": ""
+        },
+        {
+          "name": "Jesse Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Joel Jang",
+          "affiliation": ""
+        },
+        {
+          "name": "Marius Memme",
+          "affiliation": ""
+        },
+        {
+          "name": "Raymond Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Caelan Reed Garrett",
+          "affiliation": ""
+        },
+        {
+          "name": "F\u00e1bio Ramos",
+          "affiliation": ""
+        },
+        {
+          "name": "Dieter Fox",
+          "affiliation": ""
+        },
+        {
+          "name": "Anqi Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Abhishek Gupta",
+          "affiliation": ""
+        },
+        {
+          "name": "Ankit Goyal",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "Large foundation models have shown strong open-world generalization to complex problems in vision and language, but similar levels of generalization have yet to be achieved in robotics. One fundamental challenge is the lack of robotic data, which are typically obtained through expensive on-robot operation. A promising remedy is to leverage cheaper, off-domain data such as action-free videos, hand-drawn sketches or simulation data. In this work, we posit that hierarchical vision-language-action (VLA) models can be more effective in utilizing off-domain data than standard monolithic VLA models that directly finetune vision-language models (VLMs) to predict actions. In particular, we study a class of hierarchical VLA models, where the high-level VLM is finetuned to produce a coarse 2D path indicating the desired robot end-effector trajectory given an RGB image and a task description. The intermediate 2D path prediction is then served as guidance to the low-level, 3D-aware control policy capable of precise manipulation. Doing so alleviates the high-level VLM from fine-grained action prediction, while reducing the low-level policy's burden on complex task-level reasoning. We show that, with the hierarchical design, the high-level VLM can transfer across significant domain gaps between the off-domain finetuning data and real-robot testing scenarios, including differences on embodiments, dynamics, visual appearances and task semantics, etc. In the real-robot experiments, we observe an average of 20% improvement in success rate across seven different axes of generalization over OpenVLA, representing a 50% relative gain. Visual results, code, and dataset are provided at: https://hamster-robot.github.io/",
+      "venue": "ArXiv.org",
+      "citation_count": 1,
+      "doi": "10.48550/arxiv.2502.05485",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2502.05485",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4400601208",
+      "title": "Mobility VLA: Multimodal Instruction Navigation with Long-Context VLMs and Topological Graphs",
+      "authors": [
+        {
+          "name": "Hao-Tien Lewis Chiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhuo Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zipeng Fu",
+          "affiliation": ""
+        },
+        {
+          "name": "Mithun George Jacob",
+          "affiliation": ""
+        },
+        {
+          "name": "Tingnan Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Tsang-Wei Edward Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenhao Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Connor Schenck",
+          "affiliation": ""
+        },
+        {
+          "name": "David Rendleman",
+          "affiliation": ""
+        },
+        {
+          "name": "Dhruv Shah",
+          "affiliation": ""
+        },
+        {
+          "name": "Fei Xia",
+          "affiliation": ""
+        },
+        {
+          "name": "Jasmine Hsu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jonathan Hoech",
+          "affiliation": ""
+        },
+        {
+          "name": "Pete Florence",
+          "affiliation": ""
+        },
+        {
+          "name": "Sean Kirmani",
+          "affiliation": ""
+        },
+        {
+          "name": "Sumeet Singh",
+          "affiliation": ""
+        },
+        {
+          "name": "Vikas Sindhwani",
+          "affiliation": ""
+        },
+        {
+          "name": "Carolina Parada",
+          "affiliation": ""
+        },
+        {
+          "name": "Chelsea Finn",
+          "affiliation": ""
+        },
+        {
+          "name": "Peng Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Sergey Levine",
+          "affiliation": ""
+        },
+        {
+          "name": "Jie Tan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "An elusive goal in navigation research is to build an intelligent agent that can understand multimodal instructions including natural language and image, and perform useful navigation. To achieve this, we study a widely useful category of navigation tasks we call Multimodal Instruction Navigation with demonstration Tours (MINT), in which the environment prior is provided through a previously recorded demonstration video. Recent advances in Vision Language Models (VLMs) have shown a promising path in achieving this goal as it demonstrates capabilities in perceiving and reasoning about multimodal inputs. However, VLMs are typically trained to predict textual output and it is an open research question about how to best utilize them in navigation. To solve MINT, we present Mobility VLA, a hierarchical Vision-Language-Action (VLA) navigation policy that combines the environment understanding and common sense reasoning power of long-context VLMs and a robust low-level navigation policy based on topological graphs. The high-level policy consists of a long-context VLM that takes the demonstration tour video and the multimodal user instruction as input to find the goal frame in the tour video. Next, a low-level policy uses the goal frame and an offline constructed topological graph to generate robot actions at every timestep. We evaluated Mobility VLA in a 836m^2 real world environment and show that Mobility VLA has a high end-to-end success rates on previously unsolved multimodal instructions such as \"Where should I return this?\" while holding a plastic bin. A video demonstrating Mobility VLA can be found here: https://youtu.be/-Tof__Q8_5s",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 1,
+      "doi": "10.48550/arxiv.2407.07775",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2407.07775",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4414901575",
+      "title": "GR00T N1: An Open Foundation Model for Generalist Humanoid Robots",
+      "authors": [
+        {
+          "name": "Nvidia Nvidia",
+          "affiliation": ""
+        },
+        {
+          "name": ":",
+          "affiliation": ""
+        },
+        {
+          "name": "Johan Bj\u00f6rck",
+          "affiliation": ""
+        },
+        {
+          "name": "Fernando Casta\u00f1eda",
+          "affiliation": ""
+        },
+        {
+          "name": "Nikita Cherniadev",
+          "affiliation": ""
+        },
+        {
+          "name": "Xingye Da",
+          "affiliation": ""
+        },
+        {
+          "name": "Runyu Ding",
+          "affiliation": ""
+        },
+        {
+          "name": "Linxi Fan",
+          "affiliation": ""
+        },
+        {
+          "name": "Fang Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Dieter Fox",
+          "affiliation": ""
+        },
+        {
+          "name": "Fengyuan Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Shanshan Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Joel Jang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhenyu Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jan Kautz",
+          "affiliation": ""
+        },
+        {
+          "name": "Kaushil Kundalia",
+          "affiliation": ""
+        },
+        {
+          "name": "Lixing Lao",
+          "affiliation": ""
+        },
+        {
+          "name": "Z. Y. Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Zongyu Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Kevin Lin",
+          "affiliation": ""
+        },
+        {
+          "name": "Guilin Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Edith Llontop",
+          "affiliation": ""
+        },
+        {
+          "name": "Lo\u00efc Magne",
+          "affiliation": ""
+        },
+        {
+          "name": "Ajay Mandlekar",
+          "affiliation": ""
+        },
+        {
+          "name": "Avnish Narayan",
+          "affiliation": ""
+        },
+        {
+          "name": "Soroush Nasiriany",
+          "affiliation": ""
+        },
+        {
+          "name": "Scott Reed",
+          "affiliation": ""
+        },
+        {
+          "name": "You Liang Tan",
+          "affiliation": ""
+        },
+        {
+          "name": "Guanzhi Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zu Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jing Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Qi Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiannan Xiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuqi Xie",
+          "affiliation": ""
+        },
+        {
+          "name": "Yinzhen Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhenjia Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Seonghyeon Ye",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiding Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ao Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yizhou Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruijie Zheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuke Zhu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "General-purpose robots need a versatile body and an intelligent mind. Recent advancements in humanoid robots have shown great promise as a hardware platform for building generalist autonomy in the human world. A robot foundation model, trained on massive and diverse data sources, is essential for enabling the robots to reason about novel situations, robustly handle real-world variability, and rapidly learn new tasks. To this end, we introduce GR00T N1, an open foundation model for humanoid robots. GR00T N1 is a Vision-Language-Action (VLA) model with a dual-system architecture. The vision-language module (System 2) interprets the environment through vision and language instructions. The subsequent diffusion transformer module (System 1) generates fluid motor actions in real time. Both modules are tightly coupled and jointly trained end-to-end. We train GR00T N1 with a heterogeneous mixture of real-robot trajectories, human videos, and synthetically generated datasets. We show that our generalist robot model GR00T N1 outperforms the state-of-the-art imitation learning baselines on standard simulation benchmarks across multiple robot embodiments. Furthermore, we deploy our model on the Fourier GR-1 humanoid robot for language-conditioned bimanual manipulation tasks, achieving strong performance with high data efficiency.",
+      "venue": "ArXiv.org",
+      "citation_count": 3,
+      "doi": "10.48550/arxiv.2503.14734",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2503.14734",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4416748856",
+      "title": "Refined Policy Distillation: From VLA Generalists to RL Experts",
+      "authors": [
+        {
+          "name": "Tobias J\u00fclg",
+          "affiliation": "Artificial Intelligence in Medicine (Canada)"
+        },
+        {
+          "name": "Wolfram Burgard",
+          "affiliation": "Artificial Intelligence in Medicine (Canada)"
+        },
+        {
+          "name": "Florian Walter",
+          "affiliation": "Artificial Intelligence in Medicine (Canada)"
+        }
+      ],
+      "year": 2025,
+      "abstract": "Vision-Language-Action Models (VLAs) have demonstrated remarkable generalization capabilities in real-world experiments. However, their success rates are often not on par with expert policies, and they require fine-tuning when the setup changes. In this work, we introduce Refined Policy Distillation (RPD), a novel Reinforcement Learning (RL)-based policy refinement method that bridges this performance gap through a combination of on-policy RL with behavioral cloning. The core idea of RPD is to distill and refine VLAs into compact, high-performing expert policies by guiding the student policy during RL exploration using the actions of a teacher VLA, resulting in increased sample efficiency and faster convergence. We complement our method by fine-tuned versions of Octo and OpenVLA for ManiSkill3 to evaluate RPD in simulation. While this is a key requirement for applying RL, it also yields new insights beyond existing studies on VLA performance in real-world settings. Our experimental results across various manipulation tasks show that RPD enables the RL student to learn expert policies that outperform the VLA teacher in both dense and sparse reward settings, while also achieving faster convergence than the RL baseline. Our approach is even robust to changes in camera perspective and can generalize to task variations that the underlying VLA cannot solve. Our code, dataset, VLA checkpoints, and videos are available at https://refined-policy-distillation.github.io",
+      "venue": "",
+      "citation_count": 1,
+      "doi": "10.1109/iros60139.2025.11246761",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/iros60139.2025.11246761",
+      "source": "openalex",
+      "_bibtex_override": ""
+    }
+  ]
+}

@@ -1,0 +1,4092 @@
+{
+  "query": "Training-free customized image generation using",
+  "source": "openalex",
+  "limit": 40,
+  "timestamp": 1773975975.9808714,
+  "papers": [
+    {
+      "paper_id": "oalex-W4372283850",
+      "title": "Personalize Segment Anything Model with One Shot",
+      "authors": [
+        {
+          "name": "Renrui Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhengkai Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Z. J. Guo",
+          "affiliation": ""
+        },
+        {
+          "name": "Shilin Yan",
+          "affiliation": ""
+        },
+        {
+          "name": "Junting Pan",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Dong",
+          "affiliation": ""
+        },
+        {
+          "name": "Peng Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Hongsheng Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Li, Hongsheng",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Driven by large-data pre-training, Segment Anything Model (SAM) has been demonstrated as a powerful and promptable framework, revolutionizing the segmentation models. Despite the generality, customizing SAM for specific visual concepts without man-powered prompting is under explored, e.g., automatically segmenting your pet dog in different images. In this paper, we propose a training-free Personalization approach for SAM, termed as PerSAM. Given only a single image with a reference mask, PerSAM first localizes the target concept by a location prior, and segments it within other images or videos via three techniques: target-guided attention, target-semantic prompting, and cascaded post-refinement. In this way, we effectively adapt SAM for private use without any training. To further alleviate the mask ambiguity, we present an efficient one-shot fine-tuning variant, PerSAM-F. Freezing the entire SAM, we introduce two learnable weights for multi-scale masks, only training 2 parameters within 10 seconds for improved performance. To demonstrate our efficacy, we construct a new segmentation dataset, PerSeg, for personalized evaluation, and test our methods on video object segmentation with competitive performance. Besides, our approach can also enhance DreamBooth to personalize Stable Diffusion for text-to-image generation, which discards the background disturbance for better target appearance learning. Code is released at https://github.com/ZrrSkywalker/Personalize-SAM",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 65,
+      "doi": "10.48550/arxiv.2305.03048",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2305.03048",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4226407713",
+      "title": "FuseDream: Training-Free Text-to-Image Generation with Improved CLIP+GAN Space Optimization",
+      "authors": [
+        {
+          "name": "Xingchao Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Chengyue Gong",
+          "affiliation": ""
+        },
+        {
+          "name": "Lemeng Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Shujian Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Hao Su",
+          "affiliation": ""
+        },
+        {
+          "name": "Qiang Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Generating images from natural language instructions is an intriguing yet highly challenging task. We approach text-to-image generation by combining the power of the retrained CLIP representation with an off-the-shelf image generator (GANs), optimizing in the latent space of GAN to find images that achieve maximum CLIP score with the given input text. Compared to traditional methods that train generative models from text to image starting from scratch, the CLIP+GAN approach is training-free, zero shot and can be easily customized with different generators. However, optimizing CLIP score in the GAN space casts a highly challenging optimization problem and off-the-shelf optimizers such as Adam fail to yield satisfying results. In this work, we propose a FuseDream pipeline, which improves the CLIP+GAN approach with three key techniques: 1) an AugCLIP score which robustifies the CLIP objective by introducing random augmentation on image. 2) a novel initialization and over-parameterization strategy for optimization which allows us to efficiently navigate the non-convex landscape in GAN space. 3) a composed generation technique which, by leveraging a novel bi-level optimization formulation, can compose multiple images to extend the GAN space and overcome the data-bias. When promoted by different input text, FuseDream can generate high-quality images with varying objects, backgrounds, artistic styles, even novel counterfactual concepts that do not appear in the training data of the GAN we use. Quantitatively, the images generated by FuseDream yield top-level Inception score and FID score on MS COCO dataset, without additional architecture design or training. Our code is publicly available at \\url{https://github.com/gnobitab/FuseDream}.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 36,
+      "doi": "10.48550/arxiv.2112.01573",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2112.01573",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3135028703",
+      "title": "Machine Learning: Algorithms, Real-World Applications and Research Directions",
+      "authors": [
+        {
+          "name": "Iqbal H. Sarker",
+          "affiliation": "Swinburne University of Technology"
+        }
+      ],
+      "year": 2021,
+      "abstract": "",
+      "venue": "SN Computer Science",
+      "citation_count": 4801,
+      "doi": "10.1007/s42979-021-00592-x",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s42979-021-00592-x",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4402726936",
+      "title": "FreeCustom: Tuning-Free Customized Image Generation for Multi-Concept Composition",
+      "authors": [
+        {
+          "name": "Ganggui Ding",
+          "affiliation": "Zhejiang University"
+        },
+        {
+          "name": "Canyu Zhao",
+          "affiliation": "Zhejiang University"
+        },
+        {
+          "name": "Wen Wang",
+          "affiliation": "Zhejiang University"
+        },
+        {
+          "name": "Zhen Yang",
+          "affiliation": "Zhejiang University"
+        },
+        {
+          "name": "Zide Liu",
+          "affiliation": "Zhejiang University"
+        },
+        {
+          "name": "Hao Chen",
+          "affiliation": "Zhejiang University"
+        },
+        {
+          "name": "Yunhang Shen",
+          "affiliation": "Zhejiang University"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Benefiting from large-scale pre-trained text-to-image (T2I) generative models, impressive progress has been achieved in customized image generation, which aims to generate user-specified concepts. Existing approaches have extensively focused on single-concept customization and still encounter challenges when it comes to complex scenarios that involve combining multiple concepts. These approaches often require retraining/fine-tuning using a few images, leading to time-consuming training processes and impeding their swift implementation. Furthermore, the reliance on multiple images to represent a singular concept increases the difficulty of customization. To this end, we propose FreeCustom, a novel tuning-free method to generate customized images of multi-concept composition based on reference concepts, using only one image per concept as input. Specifically, we introduce a new multi-reference self-attention (MRSA) mechanism and a weighted mask strategy that enables the generated image to access and focus more on the reference concepts. In addition, MRSA leverages our key finding that input concepts are better preserved when providing images with context interactions. Experiments show that our method's produced images are consistent with the given concepts and better aligned with the input text. Our method outperforms or performs on par with other training-based methods in terms of multi-concept composition and single-concept customization, but is simpler. Codes can be found here.",
+      "venue": "",
+      "citation_count": 17,
+      "doi": "10.1109/cvpr52733.2024.00868",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr52733.2024.00868",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3140854437",
+      "title": "Review of deep learning: concepts, CNN architectures, challenges, applications, future directions",
+      "authors": [
+        {
+          "name": "Laith Alzubaidi",
+          "affiliation": "Queensland University of Technology"
+        },
+        {
+          "name": "Jinglan Zhang",
+          "affiliation": "Queensland University of Technology"
+        },
+        {
+          "name": "Amjad J. Humaidi",
+          "affiliation": "University of Technology - Iraq"
+        },
+        {
+          "name": "Ayad Q. Al-Dujaili",
+          "affiliation": "Middle Technical University"
+        },
+        {
+          "name": "Ye Duan",
+          "affiliation": "University of Missouri"
+        },
+        {
+          "name": "Omran Al-Shamma",
+          "affiliation": "University of Information Technology and Communications"
+        },
+        {
+          "name": "Jos\u00e9 Santamar\u00eda",
+          "affiliation": "Universidad de Ja\u00e9n"
+        },
+        {
+          "name": "Mohammed A. Fadhel",
+          "affiliation": "Thi Qar University"
+        },
+        {
+          "name": "Muthana Al\u2010Amidie",
+          "affiliation": "University of Missouri"
+        },
+        {
+          "name": "Laith Farhan",
+          "affiliation": "Manchester Metropolitan University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "In the last few years, the deep learning (DL) computing paradigm has been deemed the Gold Standard in the machine learning (ML) community. Moreover, it has gradually become the most widely used computational approach in the field of ML, thus achieving outstanding results on several complex cognitive tasks, matching or even beating those provided by human performance. One of the benefits of DL is the ability to learn massive amounts of data. The DL field has grown fast in the last few years and it has been extensively used to successfully address a wide range of traditional applications. More importantly, DL has outperformed well-known ML techniques in many domains, e.g., cybersecurity, natural language processing, bioinformatics, robotics and control, and medical information processing, among many others. Despite it has been contributed several works reviewing the State-of-the-Art on DL, all of them only tackled one aspect of the DL, which leads to an overall lack of knowledge about it. Therefore, in this contribution, we propose using a more holistic approach in order to provide a more suitable starting point from which to develop a full understanding of DL. Specifically, this review attempts to provide a more comprehensive survey of the most important aspects of DL and including those enhancements recently added to the field. In particular, this paper outlines the importance of DL, presents the types of DL techniques and networks. It then presents convolutional neural networks (CNNs) which the most utilized DL network type and describes the development of CNNs architectures together with their main features, e.g., starting with the AlexNet network and closing with the High-Resolution network (HR.Net). Finally, we further present the challenges and suggested solutions to help researchers understand the existing research gaps. It is followed by a list of the major DL applications. Computational tools including FPGA, GPU, and CPU are summarized along with a description of their influence on DL. The paper ends with the evolution matrix, benchmark datasets, and summary and conclusion.",
+      "venue": "Journal Of Big Data",
+      "citation_count": 7130,
+      "doi": "10.1186/s40537-021-00444-8",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1186/s40537-021-00444-8",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3185341429",
+      "title": "Pre-train, Prompt, and Predict: A Systematic Survey of Prompting Methods in Natural Language Processing",
+      "authors": [
+        {
+          "name": "Pengfei Liu",
+          "affiliation": "Carnegie Mellon University"
+        },
+        {
+          "name": "Weizhe Yuan",
+          "affiliation": "Carnegie Mellon University"
+        },
+        {
+          "name": "Jinlan Fu",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Zhengbao Jiang",
+          "affiliation": "Carnegie Mellon University"
+        },
+        {
+          "name": "Hiroaki Hayashi",
+          "affiliation": "Carnegie Mellon University"
+        },
+        {
+          "name": "Graham Neubig",
+          "affiliation": "Carnegie Mellon University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "This article surveys and organizes research works in a new paradigm in natural language processing, which we dub \u201cprompt-based learning.\u201d Unlike traditional supervised learning, which trains a model to take in an input x and predict an output y as P ( y|x ), prompt-based learning is based on language models that model the probability of text directly. To use these models to perform prediction tasks, the original input x is modified using a template into a textual string prompt x\u2032 that has some unfilled slots, and then the language model is used to probabilistically fill the unfilled information to obtain a final string x\u0302 , from which the final output y can be derived. This framework is powerful and attractive for a number of reasons: It allows the language model to be pre-trained on massive amounts of raw text, and by defining a new prompting function the model is able to perform few-shot or even zero-shot learning, adapting to new scenarios with few or no labeled data. In this article, we introduce the basics of this promising paradigm, describe a unified set of mathematical notations that can cover a wide variety of existing work, and organize existing work along several dimensions, e.g., the choice of pre-trained language models, prompts, and tuning strategies. To make the field more accessible to interested beginners, we not only make a systematic review of existing works and a highly structured typology of prompt-based concepts but also release other resources, e.g., a website NLPedia\u2013Pretrain including constantly updated survey and paperlist.",
+      "venue": "ACM Computing Surveys",
+      "citation_count": 3411,
+      "doi": "10.1145/3560815",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3560815",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3208691473",
+      "title": "The PRIDE database resources in 2022: a hub for mass spectrometry-based proteomics evidences",
+      "authors": [
+        {
+          "name": "Yasset P\u00e9rez\u2010Riverol",
+          "affiliation": "European Bioinformatics Institute"
+        },
+        {
+          "name": "Jingwen Bai",
+          "affiliation": "European Bioinformatics Institute"
+        },
+        {
+          "name": "Chakradhar Bandla",
+          "affiliation": "European Bioinformatics Institute"
+        },
+        {
+          "name": "David Garc\u00eda\u2010Seisdedos",
+          "affiliation": "European Bioinformatics Institute"
+        },
+        {
+          "name": "Suresh Hewapathirana",
+          "affiliation": "Wellcome Trust"
+        },
+        {
+          "name": "Selvakumar Kamatchinathan",
+          "affiliation": "European Bioinformatics Institute"
+        },
+        {
+          "name": "Deepti J Kundu",
+          "affiliation": "European Bioinformatics Institute"
+        },
+        {
+          "name": "Ananth Prakash",
+          "affiliation": "Wellcome Trust"
+        },
+        {
+          "name": "Anika Frericks-Zipper",
+          "affiliation": "Ruhr University Bochum"
+        },
+        {
+          "name": "Martin Eisenacher",
+          "affiliation": "Ruhr University Bochum"
+        },
+        {
+          "name": "Mathias Walzer",
+          "affiliation": "Wellcome Trust"
+        },
+        {
+          "name": "Shengbo Wang",
+          "affiliation": "European Bioinformatics Institute"
+        },
+        {
+          "name": "Alvis Br\u0101zma",
+          "affiliation": "Wellcome Trust"
+        },
+        {
+          "name": "Juan Antonio Vizca\u00edno",
+          "affiliation": "Wellcome Trust"
+        }
+      ],
+      "year": 2021,
+      "abstract": "The PRoteomics IDEntifications (PRIDE) database (https://www.ebi.ac.uk/pride/) is the world's largest data repository of mass spectrometry-based proteomics data. PRIDE is one of the founding members of the global ProteomeXchange (PX) consortium and an ELIXIR core data resource. In this manuscript, we summarize the developments in PRIDE resources and related tools since the previous update manuscript was published in Nucleic Acids Research in 2019. The number of submitted datasets to PRIDE Archive (the archival component of PRIDE) has reached on average around 500 datasets per month during 2021. In addition to continuous improvements in PRIDE Archive data pipelines and infrastructure, the PRIDE Spectra Archive has been developed to provide direct access to the submitted mass spectra using Universal Spectrum Identifiers. As a key point, the file format MAGE-TAB for proteomics has been developed to enable the improvement of sample metadata annotation. Additionally, the resource PRIDE Peptidome provides access to aggregated peptide/protein evidences across PRIDE Archive. Furthermore, we will describe how PRIDE has increased its efforts to reuse and disseminate high-quality proteomics data into other added-value resources such as UniProt, Ensembl and Expression Atlas.",
+      "venue": "Nucleic Acids Research",
+      "citation_count": 6605,
+      "doi": "10.1093/nar/gkab1038",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1093/nar/gkab1038",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4293212596",
+      "title": "The Astropy Project: Sustaining and Growing a Community-oriented Open-source Project and the Latest Major Release (v5.0) of the Core Package",
+      "authors": [
+        {
+          "name": "The Astropy Collaboration",
+          "affiliation": ""
+        },
+        {
+          "name": "Adrian M. Price-Whelan",
+          "affiliation": "Flatiron Health (United States)"
+        },
+        {
+          "name": "Pey Lian Lim",
+          "affiliation": "Space Telescope Science Institute"
+        },
+        {
+          "name": "N. Earl",
+          "affiliation": "University of Illinois Urbana-Champaign"
+        },
+        {
+          "name": "Nathaniel Starkman",
+          "affiliation": "University of Toronto"
+        },
+        {
+          "name": "Larry Bradley",
+          "affiliation": "Space Telescope Science Institute"
+        },
+        {
+          "name": "D. L. Shupe",
+          "affiliation": "California Institute of Technology"
+        },
+        {
+          "name": "Aarya A. Patil",
+          "affiliation": "University of Toronto"
+        },
+        {
+          "name": "L\u00eda Corrales",
+          "affiliation": "University of Michigan"
+        },
+        {
+          "name": "C. E. Brasseur",
+          "affiliation": "University of St Andrews"
+        },
+        {
+          "name": "Maximilian N\u00f6the",
+          "affiliation": "TU Dortmund University"
+        },
+        {
+          "name": "Axel Donath",
+          "affiliation": "Center for Astrophysics Harvard & Smithsonian"
+        },
+        {
+          "name": "Erik Tollerud",
+          "affiliation": "Space Telescope Science Institute"
+        },
+        {
+          "name": "Brett M. Morris",
+          "affiliation": "University of Bern"
+        },
+        {
+          "name": "Adam Ginsburg",
+          "affiliation": "University of Florida"
+        },
+        {
+          "name": "Eero Vaher",
+          "affiliation": "Lund University"
+        },
+        {
+          "name": "Benjamin Alan Weaver",
+          "affiliation": "NSF NOIRLab"
+        },
+        {
+          "name": "James Tocknell",
+          "affiliation": "Australian Astronomical Observatory"
+        },
+        {
+          "name": "William Brian Jamieson",
+          "affiliation": "Space Telescope Science Institute"
+        },
+        {
+          "name": "M. H. van Kerkwijk",
+          "affiliation": "University of Toronto"
+        },
+        {
+          "name": "Thomas Robitaille",
+          "affiliation": ""
+        },
+        {
+          "name": "Bruce Merry",
+          "affiliation": "South African Radio Astronomy Observatory"
+        },
+        {
+          "name": "Matteo Bachetti",
+          "affiliation": "Osservatorio Astronomico di Cagliari"
+        },
+        {
+          "name": "Hans Moritz G\u00fcnther",
+          "affiliation": "Kavli Institute for Particle Astrophysics and Cosmology"
+        },
+        {
+          "name": "Thomas L. Aldcroft",
+          "affiliation": "Center for Astrophysics Harvard & Smithsonian"
+        },
+        {
+          "name": "Jaime A. Alvarado-Montes",
+          "affiliation": "Macquarie University"
+        },
+        {
+          "name": "Anne M. Archibald",
+          "affiliation": "Newcastle University"
+        },
+        {
+          "name": "Attila B\u00f3di",
+          "affiliation": "Konkoly Observatory"
+        },
+        {
+          "name": "Shreyas Bapat",
+          "affiliation": "Indian Institute of Technology Mandi"
+        },
+        {
+          "name": "Geert Barentsen",
+          "affiliation": "Bay Area Environmental Research Institute"
+        },
+        {
+          "name": "Juanjo Baz\u00e1n",
+          "affiliation": "Centro de Astrobiolog\u00eda"
+        },
+        {
+          "name": "Manish Biswas",
+          "affiliation": "Savitribai Phule Pune University"
+        },
+        {
+          "name": "M. Boquien",
+          "affiliation": "Universidad de Antofagasta"
+        },
+        {
+          "name": "D. J. Burke",
+          "affiliation": "Center for Astrophysics Harvard & Smithsonian"
+        },
+        {
+          "name": "Daria Cara",
+          "affiliation": "Wake Forest University"
+        },
+        {
+          "name": "Mihai Cara",
+          "affiliation": "Space Telescope Science Institute"
+        },
+        {
+          "name": "Kyle E. Conroy",
+          "affiliation": "Space Telescope Science Institute"
+        },
+        {
+          "name": "Simon Conseil",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Matthew Craig",
+          "affiliation": "Minnesota State University Moorhead"
+        },
+        {
+          "name": "R. Cross",
+          "affiliation": ""
+        },
+        {
+          "name": "Kelle L. Cruz",
+          "affiliation": "American Museum of Natural History"
+        },
+        {
+          "name": "Francesco D\u2019Eugenio",
+          "affiliation": "University of Cambridge"
+        },
+        {
+          "name": "Nadia Dencheva",
+          "affiliation": "Space Telescope Science Institute"
+        },
+        {
+          "name": "Hadrien A. R. Devillepoix",
+          "affiliation": "Curtin University"
+        },
+        {
+          "name": "J. P. Dietrich",
+          "affiliation": "Stuttgart Observatory"
+        },
+        {
+          "name": "Arthur Eigenbrot",
+          "affiliation": "National Solar Observatory"
+        },
+        {
+          "name": "T. Erben",
+          "affiliation": "University of Bonn"
+        },
+        {
+          "name": "Leonardo Ferreira",
+          "affiliation": "University of Nottingham"
+        },
+        {
+          "name": "Daniel Foreman-Mackey",
+          "affiliation": "Flatiron Health (United States)"
+        },
+        {
+          "name": "Ryan Fox",
+          "affiliation": ""
+        },
+        {
+          "name": "Nabil Freij",
+          "affiliation": "Lockheed Martin (United States)"
+        },
+        {
+          "name": "Suyog Garg",
+          "affiliation": "The University of Tokyo"
+        },
+        {
+          "name": "Robel Geda",
+          "affiliation": "Princeton University"
+        },
+        {
+          "name": "Lauren Glattly",
+          "affiliation": ""
+        },
+        {
+          "name": "Yash Gondhalekar",
+          "affiliation": "Birla Institute of Technology and Science, Pilani - Goa Campus"
+        },
+        {
+          "name": "Karl D. Gordon",
+          "affiliation": "Space Telescope Science Institute"
+        },
+        {
+          "name": "David Grant",
+          "affiliation": "University of Bristol"
+        },
+        {
+          "name": "P. Greenfield",
+          "affiliation": "Space Telescope Science Institute"
+        },
+        {
+          "name": "Austen Groener",
+          "affiliation": "Drexel University"
+        },
+        {
+          "name": "S. Guest",
+          "affiliation": "Rutherford Appleton Laboratory"
+        },
+        {
+          "name": "S. Gurovich",
+          "affiliation": "Consejo Nacional de Investigaciones Cient\u00edficas y T\u00e9cnicas"
+        },
+        {
+          "name": "R. Handberg",
+          "affiliation": "Aarhus University"
+        },
+        {
+          "name": "Akeem Hart",
+          "affiliation": ""
+        },
+        {
+          "name": "Zac Hatfield-Dodds",
+          "affiliation": "Australian National University"
+        },
+        {
+          "name": "D. Homeier",
+          "affiliation": ""
+        },
+        {
+          "name": "G. Hosseinzadeh",
+          "affiliation": "University of Arizona"
+        },
+        {
+          "name": "Tim Jenness",
+          "affiliation": "University of Arizona"
+        },
+        {
+          "name": "Craig Jones",
+          "affiliation": "Johns Hopkins University"
+        },
+        {
+          "name": "P. Joseph",
+          "affiliation": "Indian Institute of Astrophysics"
+        },
+        {
+          "name": "J. Bryce Kalmbach",
+          "affiliation": "University of Washington"
+        },
+        {
+          "name": "E. Karamehmetoglu",
+          "affiliation": "Aarhus University"
+        },
+        {
+          "name": "Miko\u0142aj Ka\u0142uszy\u0144ski",
+          "affiliation": "Nicolaus Copernicus Astronomical Center"
+        },
+        {
+          "name": "Michael S. P. Kelley",
+          "affiliation": "University of Maryland, College Park"
+        },
+        {
+          "name": "Nicholas S. Kern",
+          "affiliation": "Massachusetts Institute of Technology"
+        },
+        {
+          "name": "Wolfgang Kerzendorf",
+          "affiliation": "Michigan State University"
+        },
+        {
+          "name": "Eric W. Koch",
+          "affiliation": "Center for Astrophysics Harvard & Smithsonian"
+        },
+        {
+          "name": "Shankar Kulumani",
+          "affiliation": "Johns Hopkins University Applied Physics Laboratory"
+        },
+        {
+          "name": "Antony Lee",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Chun Ly",
+          "affiliation": "University of Arizona"
+        },
+        {
+          "name": "Zhiyuan Ma",
+          "affiliation": "University of Massachusetts Amherst"
+        },
+        {
+          "name": "C. D. MacBride",
+          "affiliation": "Queen's University Belfast"
+        },
+        {
+          "name": "Jakob M. Maljaars",
+          "affiliation": "Science and Technology Corporation (Netherlands)"
+        },
+        {
+          "name": "Demitri Muna",
+          "affiliation": "The University of Texas at San Antonio"
+        },
+        {
+          "name": "Nicholas A. Murphy",
+          "affiliation": "Center for Astrophysics Harvard & Smithsonian"
+        },
+        {
+          "name": "Henrik Norman",
+          "affiliation": ""
+        },
+        {
+          "name": "Richard O\u2019Steen",
+          "affiliation": "Space Telescope Science Institute"
+        },
+        {
+          "name": "Kyle A. Oman",
+          "affiliation": "Durham University"
+        },
+        {
+          "name": "Camilla Pacifici",
+          "affiliation": "Space Telescope Science Institute"
+        },
+        {
+          "name": "S. Pascual",
+          "affiliation": "Universidad Complutense de Madrid"
+        },
+        {
+          "name": "J. Pascual-Granado",
+          "affiliation": "Instituto de Astrof\u00edsica de Andaluc\u00eda"
+        },
+        {
+          "name": "Rohit R. Patil",
+          "affiliation": "Syracuse University"
+        },
+        {
+          "name": "G. I. Perren",
+          "affiliation": "Consejo Nacional de Investigaciones Cient\u00edficas y T\u00e9cnicas"
+        },
+        {
+          "name": "T. E. Pickering",
+          "affiliation": "TMT Observatory"
+        },
+        {
+          "name": "Tushar Rastogi",
+          "affiliation": ""
+        },
+        {
+          "name": "Benjamin R. Roulston",
+          "affiliation": "Boston University"
+        },
+        {
+          "name": "Daniel F. Ryan",
+          "affiliation": "American University"
+        },
+        {
+          "name": "E. S. Rykoff",
+          "affiliation": "SLAC National Accelerator Laboratory"
+        },
+        {
+          "name": "J. Sabater",
+          "affiliation": "Royal Observatory"
+        },
+        {
+          "name": "Parikshit Sakurikar",
+          "affiliation": "International Institute of Information Technology, Hyderabad"
+        },
+        {
+          "name": "J. Salgado",
+          "affiliation": "SKA Observatory"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Full list of authors: Price-Whelan, Adrian M.; Lim, Pey Lian; Earl, Nicholas; Starkman, Nathaniel; Bradley, Larry; Shupe, David L.; Patil, Aarya A.; Corrales, Lia; Brasseur, C. E.; Noethe, Maximilian; Donath, Axel; Tollerud, Erik; Morris, Brett M.; Ginsburg, Adam; Vaher, Eero; Weaver, Benjamin A.; Tocknell, James; Jamieson, William; van Kerkwijk, Marten H.; Robitaille, Thomas P.; Merry, Bruce; Bachetti, Matteo; Gunther, H. Moritz; Aldcroft, Thomas L.; Alvarado-Montes, Jaime A.; Archibald, Anne M.; Bodi, Attila; Bapat, Shreyas; Barentsen, Geert; Bazan, Juanjo; Biswas, Manish; Boquien, Mederic; Burke, D. J.; Cara, Daria; Cara, Mihai; Conroy, Kyle E.; Conseil, Simon; Craig, Matthew W.; Cross, Robert M.; Cruz, Kelle L.; D'Eugenio, Francesco; Dencheva, Nadia; Devillepoix, Hadrien A. R.; Dietrich, Jorg P.; Eigenbrot, Arthur Davis; Erben, Thomas; Ferreira, Leonardo; Foreman-Mackey, Daniel; Fox, Ryan; Freij, Nabil; Garg, Suyog; Geda, Robel; Glattly, Lauren; Gondhalekar, Yash; Gordon, Karl D.; Grant, David; Greenfield, Perry; Groener, Austen M.; Guest, Steve; Gurovich, Sebastian; Handberg, Rasmus; Hart, Akeem; Hatfield-Dodds, Zac; Homeier, Derek; Hosseinzadeh, Griffin; Jenness, Tim; Jones, Craig K.; Joseph, Prajwel; Kalmbach, J. Bryce; Karamehmetoglu, Emir; Kaluszynski, Mikolaj; Kelley, Michael S. P.; Kern, Nicholas; Kerzendorf, Wolfgang E.; Koch, Eric W.; Kulumani, Shankar; Lee, Antony; Ly, Chun; Ma, Zhiyuan; MacBride, Conor; Maljaars, Jakob M.; Muna, Demitri; Murphy, N. A.; Norman, Henrik; O'Steen, Richard; Oman, Kyle A.; Pacifici, Camilla; Pascual, Sergio; Pascual-Granado, J.; Patil, Rohit R.; Perren, Gabriel, I; Pickering, Timothy E.; Rastogi, Tanuj; Roulston, Benjamin R.; Ryan, Daniel F.; Rykoff, Eli S.; Sabater, Jose; Sakurikar, Parikshit; Salgado, Jesus; Sanghi, Aniket; Saunders, Nicholas; Savchenko, Volodymyr; Schwardt, Ludwig; Seifert-Eckert, Michael; Shih, Albert Y.; Jain, Anany Shrey; Shukla, Gyanendra; Sick, Jonathan; Simpson, Chris; Singanamalla, Sudheesh; Singer, Leo P.; Singhal, Jaladh; Sinha, Manodeep; Sipocz, Brigitta M.; Spitler, Lee R.; Stansby, David; Streicher, Ole; Sumak, Jani; Swinbank, John D.; Taranu, Dan S.; Tewary, Nikita; Tremblay, Grant R.; De Val-Borro, Miguel; Vasovic, Zlatan; Van Kooten, Samuel J.; Verma, Shresth; Cardoso, Jose Vinicius de Miranda; Williams, Peter K. G.; Wilson, Tom J.; Winkel, Benjamin; Wood-Vasey, W. M.; Xue, Rui; Yoachim, Peter; Zhang, Chen; Zonca, Andrea; Astropy Project Contributors; TARDIS Collaboration; Astropy Coordination Comm.--This is an Open Access article distributed under the terms of the Creative Commons Attribution License (http://creativecommons.org/licenses/by/4.0/), which permits unrestricted reuse, distribution, and reproduction in any medium, provided the original work is properly cited.",
+      "venue": "Research Portal (Queen's University Belfast)",
+      "citation_count": 4138,
+      "doi": "10.3847/1538-4357/ac7c74",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3847/1538-4357/ac7c74",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4366994700",
+      "title": "Vision-Based Productivity Monitoring of Tower Crane Operations during Curtain Wall Installation Using a Database-Free Approach",
+      "authors": [
+        {
+          "name": "Insoo Jeong",
+          "affiliation": "Seoul National University"
+        },
+        {
+          "name": "Jeongbin Hwang",
+          "affiliation": "Seoul National University"
+        },
+        {
+          "name": "Junghoon Kim",
+          "affiliation": "Seoul National University"
+        },
+        {
+          "name": "Seokho Chi",
+          "affiliation": "Seoul National University"
+        },
+        {
+          "name": "Bon\u2010Gang Hwang",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Jinwoo Kim",
+          "affiliation": "Seoul National University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Tower cranes are generally used in modern construction projects due to their exclusive and flexible performance for material transportation in complex workspaces. Although traditional deep learning vision-based methods have proven their effectiveness in construction site monitoring, a shortage of realistic training images and inefficiencies in them have been an obstacle in achieving effective tower crane monitoring. To deal with this issue, this paper presents a database-free approach for timely productivity monitoring of tower crane operations. Using a synthetic model, the authors construct a research framework to effectively generate training images on deep learning\u2013powered object detection. Additionally, an enhanced tracking algorithm collaborating with unsupervised clustering-driven postprocessing enables stable performance for tracking resources. Further, logical ontology-based activity recognition constructed on domain-specific knowledge takes place to estimate time-to-time operation of the tower crane. The curtainwall installation was selected to represent the dynamicity and variability of tower crane operations for which it has been difficult to apply traditional deep learning technologies. Results displayed that the intended framework successfully produced 300,000 training images in 1 h, about 500 times faster than human resources, and an enhanced tracker performed well even in the case of unsatisfactory detection results. It is also proved that a performance of activity analysis was acceptable to 93.58% accuracy. The results demonstrate that the proposed framework has proven remarkable data generation speed with little manual input and good performance of operational-level activity analysis. These findings can automate the monitoring process of tower cranes\u2019 operations and the productivity of curtainwall installation, assisting construction project decision making. Furthermore, such efficient methods are less time-consuming and can handle background scene changes effortlessly, building customized models in less time and to less cost, thus buffering the practical gap of applying vision-based technologies into visually dynamic construction sites.",
+      "venue": "Journal of Computing in Civil Engineering",
+      "citation_count": 30,
+      "doi": "10.1061/jccee5.cpeng-5105",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1061/jccee5.cpeng-5105",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3168997536",
+      "title": "A Survey of Convolutional Neural Networks: Analysis, Applications, and Prospects",
+      "authors": [
+        {
+          "name": "Zewen Li",
+          "affiliation": "Hohai University"
+        },
+        {
+          "name": "Fan Liu",
+          "affiliation": "Hohai University"
+        },
+        {
+          "name": "Wenjie Yang",
+          "affiliation": "Hohai University"
+        },
+        {
+          "name": "Shouheng Peng",
+          "affiliation": "Hohai University"
+        },
+        {
+          "name": "Jun Zhou",
+          "affiliation": "Griffith University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "A convolutional neural network (CNN) is one of the most significant networks in the deep learning field. Since CNN made impressive achievements in many areas, including but not limited to computer vision and natural language processing, it attracted much attention from both industry and academia in the past few years. The existing reviews mainly focus on CNN\u2019s applications in different scenarios without considering CNN from a general perspective, and some novel ideas proposed recently are not covered. In this review, we aim to provide some novel ideas and prospects in this fast-growing field. Besides, not only 2-D convolution but also 1-D and multidimensional ones are involved. First, this review introduces the history of CNN. Second, we provide an overview of various convolutions. Third, some classic and advanced CNN models are introduced; especially those key points making them reach state-of-the-art results. Fourth, through experimental analysis, we draw some conclusions and provide several rules of thumb for functions and hyperparameter selection. Fifth, the applications of 1-D, 2-D, and multidimensional convolution are covered. Finally, some open issues and promising directions for CNN are discussed as guidelines for future work.",
+      "venue": "IEEE Transactions on Neural Networks and Learning Systems",
+      "citation_count": 4535,
+      "doi": "10.1109/tnnls.2021.3084827",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tnnls.2021.3084827",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W2995022099",
+      "title": "Advances and Open Problems in Federated Learning",
+      "authors": [
+        {
+          "name": "Peter Kairouz",
+          "affiliation": ""
+        },
+        {
+          "name": "H. Brendan McMahan",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Brendan Avent",
+          "affiliation": ""
+        },
+        {
+          "name": "Aur\u00e9lien Bellet",
+          "affiliation": ""
+        },
+        {
+          "name": "Mehdi Bennis",
+          "affiliation": ""
+        },
+        {
+          "name": "Arjun Nitin Bhagoji",
+          "affiliation": ""
+        },
+        {
+          "name": "Kallista Bonawitz",
+          "affiliation": ""
+        },
+        {
+          "name": "Zachary Charles",
+          "affiliation": ""
+        },
+        {
+          "name": "Graham Cormode",
+          "affiliation": ""
+        },
+        {
+          "name": "Rachel Cummings",
+          "affiliation": ""
+        },
+        {
+          "name": "Rafael G. L. D\u2019Oliveira",
+          "affiliation": ""
+        },
+        {
+          "name": "Hubert Eichner",
+          "affiliation": ""
+        },
+        {
+          "name": "Salim El Rouayheb",
+          "affiliation": ""
+        },
+        {
+          "name": "David Evans",
+          "affiliation": ""
+        },
+        {
+          "name": "Joshua Gardner",
+          "affiliation": ""
+        },
+        {
+          "name": "Zachary Garrett",
+          "affiliation": ""
+        },
+        {
+          "name": "Adri\u00e0 Gasc\u00f3n",
+          "affiliation": ""
+        },
+        {
+          "name": "Badih Ghazi",
+          "affiliation": ""
+        },
+        {
+          "name": "Phillip B. Gibbons",
+          "affiliation": ""
+        },
+        {
+          "name": "Marco Gruteser",
+          "affiliation": ""
+        },
+        {
+          "name": "Za\u00efd Harchaoui",
+          "affiliation": ""
+        },
+        {
+          "name": "Chaoyang He",
+          "affiliation": ""
+        },
+        {
+          "name": "Lingxiao He",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhouyuan Huo",
+          "affiliation": ""
+        },
+        {
+          "name": "Ben Hutchinson",
+          "affiliation": ""
+        },
+        {
+          "name": "Justin Hsu",
+          "affiliation": ""
+        },
+        {
+          "name": "Martin Jaggi",
+          "affiliation": ""
+        },
+        {
+          "name": "Tara Javidi",
+          "affiliation": ""
+        },
+        {
+          "name": "Gauri Joshi",
+          "affiliation": ""
+        },
+        {
+          "name": "Mikhail Khodak",
+          "affiliation": ""
+        },
+        {
+          "name": "Jakub Kone\u010dn\u00fd",
+          "affiliation": ""
+        },
+        {
+          "name": "Aleksandra Korolova",
+          "affiliation": ""
+        },
+        {
+          "name": "Farinaz Koushanfar",
+          "affiliation": ""
+        },
+        {
+          "name": "Sanmi Koyejo",
+          "affiliation": ""
+        },
+        {
+          "name": "Tancr\u00e8de Lepoint",
+          "affiliation": ""
+        },
+        {
+          "name": "Yang Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Prateek Mittal",
+          "affiliation": ""
+        },
+        {
+          "name": "Mehryar Mohri",
+          "affiliation": ""
+        },
+        {
+          "name": "Richard Nock",
+          "affiliation": ""
+        },
+        {
+          "name": "Ayfer \u00d6zg\u00fcr",
+          "affiliation": ""
+        },
+        {
+          "name": "Rasmus Pagh",
+          "affiliation": ""
+        },
+        {
+          "name": "Mariana Raykova",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniel Ramage",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniel Ramage",
+          "affiliation": ""
+        },
+        {
+          "name": "Ramesh Raskar",
+          "affiliation": ""
+        },
+        {
+          "name": "Dawn Song",
+          "affiliation": ""
+        },
+        {
+          "name": "Weikang Song",
+          "affiliation": ""
+        },
+        {
+          "name": "Sebastian U. Stich",
+          "affiliation": ""
+        },
+        {
+          "name": "Ziteng Sun",
+          "affiliation": ""
+        },
+        {
+          "name": "Ajith Suresh",
+          "affiliation": ""
+        },
+        {
+          "name": "Florian Tram\u00e8r",
+          "affiliation": ""
+        },
+        {
+          "name": "Praneeth Vepakomma",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianyu Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Li Xiong",
+          "affiliation": ""
+        },
+        {
+          "name": "Zheng Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Qiang Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Felix X. Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Han Yu",
+          "affiliation": ""
+        },
+        {
+          "name": "Sen Zhao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Federated learning (FL) is a machine learning setting where many clients (e.g., mobile devices or whole organizations) collaboratively train a model under the orchestration of a central server (e.g., service provider), while keeping the training data decentralized. FL embodies the principles of focused data collection and minimization, and can mitigate many of the systemic privacy risks and costs resulting from traditional, centralized machine learning and data science approaches. Motivated by the explosive growth in FL research, this monograph discusses recent advances and presents an extensive collection of open problems and challenges.",
+      "venue": "Foundations and Trends\u00ae in Machine Learning",
+      "citation_count": 4306,
+      "doi": "10.1561/2200000083",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1561/2200000083",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3196897371",
+      "title": "CellProfiler 4: improvements in speed, utility and usability",
+      "authors": [
+        {
+          "name": "David R. Stirling",
+          "affiliation": "Broad Institute"
+        },
+        {
+          "name": "Madison J. Swain-Bowden",
+          "affiliation": "Allen Institute for Cell Science"
+        },
+        {
+          "name": "Alice Lucas",
+          "affiliation": "Broad Institute"
+        },
+        {
+          "name": "Anne E. Carpenter",
+          "affiliation": "Broad Institute"
+        },
+        {
+          "name": "Beth A. Cimini",
+          "affiliation": "Broad Institute"
+        },
+        {
+          "name": "Allen Goodman",
+          "affiliation": "Broad Institute"
+        }
+      ],
+      "year": 2021,
+      "abstract": "",
+      "venue": "BMC Bioinformatics",
+      "citation_count": 2031,
+      "doi": "10.1186/s12859-021-04344-9",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1186/s12859-021-04344-9",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4360620450",
+      "title": "Opinion Paper: \u201cSo what if ChatGPT wrote it?\u201d Multidisciplinary perspectives on opportunities, challenges and implications of generative conversational AI for research, practice and policy",
+      "authors": [
+        {
+          "name": "Yogesh K. Dwivedi",
+          "affiliation": "Symbiosis International University"
+        },
+        {
+          "name": "Nir Kshetri",
+          "affiliation": "University of North Carolina at Greensboro"
+        },
+        {
+          "name": "Laurie Hughes",
+          "affiliation": "Swansea University"
+        },
+        {
+          "name": "Emma Slade",
+          "affiliation": "University of Bristol"
+        },
+        {
+          "name": "Anand Jeyaraj",
+          "affiliation": "Wright State University"
+        },
+        {
+          "name": "Arpan Kumar Kar",
+          "affiliation": "Indian Institute of Technology Delhi"
+        },
+        {
+          "name": "Abdullah M. Baabdullah",
+          "affiliation": "King Abdulaziz University"
+        },
+        {
+          "name": "Alex Koohang",
+          "affiliation": "Georgia State University"
+        },
+        {
+          "name": "Vishnupriya Raghavan",
+          "affiliation": "NIIT (India)"
+        },
+        {
+          "name": "Manju Ahuja",
+          "affiliation": "University of Louisville"
+        },
+        {
+          "name": "Hanaa Albanna",
+          "affiliation": "Northumbria University"
+        },
+        {
+          "name": "Mousa Ahmad Albashrawi",
+          "affiliation": "King Fahd University of Petroleum and Minerals"
+        },
+        {
+          "name": "Adil S. Al-Busaidi",
+          "affiliation": "Sultan Qaboos University"
+        },
+        {
+          "name": "Janarthanan Balakrishnan",
+          "affiliation": "National Institute of Technology Tiruchirappalli"
+        },
+        {
+          "name": "Yves Barlette",
+          "affiliation": "Montpellier Business School"
+        },
+        {
+          "name": "Sriparna Basu",
+          "affiliation": "Fore School of Management"
+        },
+        {
+          "name": "Indranil Bose",
+          "affiliation": "Indian Institute of Management Ahmedabad"
+        },
+        {
+          "name": "Laurence Brooks",
+          "affiliation": "University of Sheffield"
+        },
+        {
+          "name": "Dimitrios Buhalis",
+          "affiliation": "Bournemouth University"
+        },
+        {
+          "name": "Lemuria Carter",
+          "affiliation": "UNSW Sydney"
+        },
+        {
+          "name": "Soumyadeb Chowdhury",
+          "affiliation": "TBS Education"
+        },
+        {
+          "name": "Tom Crick",
+          "affiliation": "Swansea University"
+        },
+        {
+          "name": "Scott W. Cunningham",
+          "affiliation": "Worcester Polytechnic Institute"
+        },
+        {
+          "name": "Gareth H. Davies",
+          "affiliation": "Swansea University"
+        },
+        {
+          "name": "Robert M. Davison",
+          "affiliation": "City University of Hong Kong"
+        },
+        {
+          "name": "Rahul D\u00e9",
+          "affiliation": "University of Bristol"
+        },
+        {
+          "name": "Denis Dennehy",
+          "affiliation": "College of Charleston"
+        },
+        {
+          "name": "Yanqing Duan",
+          "affiliation": "University of Bedfordshire"
+        },
+        {
+          "name": "Rameshwar Dubey",
+          "affiliation": "Montpellier Business School"
+        },
+        {
+          "name": "Rohita Dwivedi",
+          "affiliation": "Symbiosis International University"
+        },
+        {
+          "name": "John S. Edwards",
+          "affiliation": "Worcester Polytechnic Institute"
+        },
+        {
+          "name": "Carlos Flavi\u00e1n",
+          "affiliation": "Worcester Polytechnic Institute"
+        },
+        {
+          "name": "Robin Gauld",
+          "affiliation": "Worcester Polytechnic Institute"
+        },
+        {
+          "name": "Varun Grover",
+          "affiliation": "University of Arkansas at Fayetteville"
+        },
+        {
+          "name": "Mei\u2010Chih Hu",
+          "affiliation": "University of Louisville"
+        },
+        {
+          "name": "Marijn Janssen",
+          "affiliation": "College of Charleston"
+        },
+        {
+          "name": "Paul Jones",
+          "affiliation": "College of Charleston"
+        },
+        {
+          "name": "Iris Junglas",
+          "affiliation": "College of Charleston"
+        },
+        {
+          "name": "Sangeeta Khorana",
+          "affiliation": "College of Charleston"
+        },
+        {
+          "name": "Sascha Kraus",
+          "affiliation": "Free University of Bozen-Bolzano"
+        },
+        {
+          "name": "Kai R. Larsen",
+          "affiliation": "Worcester Polytechnic Institute"
+        },
+        {
+          "name": "Paul Latreille",
+          "affiliation": "Worcester Polytechnic Institute"
+        },
+        {
+          "name": "Sven Laumer",
+          "affiliation": "College of Charleston"
+        },
+        {
+          "name": "Tegwen Malik",
+          "affiliation": "University of Manchester"
+        },
+        {
+          "name": "Abbas Mardani",
+          "affiliation": "Worcester Polytechnic Institute"
+        },
+        {
+          "name": "Marcello Mariani",
+          "affiliation": "Worcester Polytechnic Institute"
+        },
+        {
+          "name": "Sunil Mithas",
+          "affiliation": "Worcester Polytechnic Institute"
+        },
+        {
+          "name": "Emmanuel Mogaji",
+          "affiliation": "Oklahoma State University"
+        },
+        {
+          "name": "Jeretta Horn Nord",
+          "affiliation": "College of Charleston"
+        },
+        {
+          "name": "Siobh\u00e1n O\u2019Connor",
+          "affiliation": "University of Manchester"
+        },
+        {
+          "name": "Fevzi Okumus",
+          "affiliation": "Worcester Polytechnic Institute"
+        },
+        {
+          "name": "Margherita Pagani",
+          "affiliation": "SKEMA Business School"
+        },
+        {
+          "name": "Neeraj Pandey",
+          "affiliation": "Free University of Bozen-Bolzano"
+        },
+        {
+          "name": "Savvas Papagiannidis",
+          "affiliation": "Aston University"
+        },
+        {
+          "name": "Ilias O. Pappas",
+          "affiliation": "Free University of Bozen-Bolzano"
+        },
+        {
+          "name": "Nishith Pathak",
+          "affiliation": "College of Charleston"
+        },
+        {
+          "name": "Jan Pries\u2010Heje",
+          "affiliation": "National Institute of Technology Tiruchirappalli"
+        },
+        {
+          "name": "Ramakrishnan Raman",
+          "affiliation": "College of Charleston"
+        },
+        {
+          "name": "Nripendra P. Rana",
+          "affiliation": "College of Charleston"
+        },
+        {
+          "name": "Sven\u2010Volker Rehm",
+          "affiliation": "Humans and management in society"
+        },
+        {
+          "name": "Samuel Ribeiro\u2010Navarrete",
+          "affiliation": "Worcester Polytechnic Institute"
+        },
+        {
+          "name": "Alexander Richter",
+          "affiliation": "College of Charleston"
+        },
+        {
+          "name": "Frantz Rowe",
+          "affiliation": "Laboratoire d'Economie et de Management de Nantes Atlantique"
+        },
+        {
+          "name": "Suprateek Sarker",
+          "affiliation": "Worcester Polytechnic Institute"
+        },
+        {
+          "name": "Bernd Carsten Stahl",
+          "affiliation": "Worcester Polytechnic Institute"
+        },
+        {
+          "name": "Manoj Tiwari",
+          "affiliation": "Worcester Polytechnic Institute"
+        },
+        {
+          "name": "Wil van der Aalst",
+          "affiliation": "Worcester Polytechnic Institute"
+        },
+        {
+          "name": "Viswanath Venkatesh",
+          "affiliation": "Swansea University"
+        },
+        {
+          "name": "Giampaolo Viglia",
+          "affiliation": "College of Charleston"
+        },
+        {
+          "name": "Michael Wade",
+          "affiliation": "Prin. L. N. Welingkar Institute of Management Development and Research"
+        },
+        {
+          "name": "Paul Walton",
+          "affiliation": "Delft University of Technology"
+        },
+        {
+          "name": "Jochen Wirtz",
+          "affiliation": "College of Charleston"
+        },
+        {
+          "name": "Ryan Wright",
+          "affiliation": "College of Charleston"
+        }
+      ],
+      "year": 2023,
+      "abstract": "",
+      "venue": "International Journal of Information Management",
+      "citation_count": 3317,
+      "doi": "10.1016/j.ijinfomgt.2023.102642",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.ijinfomgt.2023.102642",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4327946446",
+      "title": "ChatGPT Utility in Healthcare Education, Research, and Practice: Systematic Review on the Promising Perspectives and Valid Concerns",
+      "authors": [
+        {
+          "name": "Malik Sallam",
+          "affiliation": "University of Jordan"
+        }
+      ],
+      "year": 2023,
+      "abstract": "ChatGPT is an artificial intelligence (AI)-based conversational large language model (LLM). The potential applications of LLMs in health care education, research, and practice could be promising if the associated valid concerns are proactively examined and addressed. The current systematic review aimed to investigate the utility of ChatGPT in health care education, research, and practice and to highlight its potential limitations. Using the PRIMSA guidelines, a systematic search was conducted to retrieve English records in PubMed/MEDLINE and Google Scholar (published research or preprints) that examined ChatGPT in the context of health care education, research, or practice. A total of 60 records were eligible for inclusion. Benefits of ChatGPT were cited in 51/60 (85.0%) records and included: (1) improved scientific writing and enhancing research equity and versatility; (2) utility in health care research (efficient analysis of datasets, code generation, literature reviews, saving time to focus on experimental design, and drug discovery and development); (3) benefits in health care practice (streamlining the workflow, cost saving, documentation, personalized medicine, and improved health literacy); and (4) benefits in health care education including improved personalized learning and the focus on critical thinking and problem-based learning. Concerns regarding ChatGPT use were stated in 58/60 (96.7%) records including ethical, copyright, transparency, and legal issues, the risk of bias, plagiarism, lack of originality, inaccurate content with risk of hallucination, limited knowledge, incorrect citations, cybersecurity issues, and risk of infodemics. The promising applications of ChatGPT can induce paradigm shifts in health care education, research, and practice. However, the embrace of this AI chatbot should be conducted with extreme caution considering its potential limitations. As it currently stands, ChatGPT does not qualify to be listed as an author in scientific articles unless the ICMJE/COPE guidelines are revised or amended. An initiative involving all stakeholders in health care education, research, and practice is urgently needed. This will help to set a code of ethics to guide the responsible use of ChatGPT among other LLMs in health care and academia.",
+      "venue": "Healthcare",
+      "citation_count": 2548,
+      "doi": "10.3390/healthcare11060887",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/healthcare11060887",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3109746568",
+      "title": "Engineering precision nanoparticles for drug delivery",
+      "authors": [
+        {
+          "name": "Michael J. Mitchell",
+          "affiliation": "University of Pennsylvania"
+        },
+        {
+          "name": "Margaret M. Billingsley",
+          "affiliation": "University of Pennsylvania"
+        },
+        {
+          "name": "Rebecca M. Haley",
+          "affiliation": "University of Pennsylvania"
+        },
+        {
+          "name": "Marissa E. Wechsler",
+          "affiliation": "The University of Texas at Austin"
+        },
+        {
+          "name": "Nicholas A. Peppas",
+          "affiliation": "The University of Texas at Austin"
+        },
+        {
+          "name": "R\u00f3bert Langer",
+          "affiliation": "Massachusetts Institute of Technology"
+        }
+      ],
+      "year": 2020,
+      "abstract": "",
+      "venue": "Nature Reviews Drug Discovery",
+      "citation_count": 6926,
+      "doi": "10.1038/s41573-020-0090-8",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41573-020-0090-8",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3212516020",
+      "title": "Palette: Image-to-Image Diffusion Models",
+      "authors": [
+        {
+          "name": "Chitwan Saharia",
+          "affiliation": "Google (Canada)"
+        },
+        {
+          "name": "William Chan",
+          "affiliation": "Google (Canada)"
+        },
+        {
+          "name": "Huiwen Chang",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Chris Lee",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Jonathan Ho",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Tim Salimans",
+          "affiliation": ""
+        },
+        {
+          "name": "David J. Fleet",
+          "affiliation": "Google (Canada)"
+        },
+        {
+          "name": "Mohammad Norouzi",
+          "affiliation": "Google (Canada)"
+        }
+      ],
+      "year": 2022,
+      "abstract": "This paper develops a unified framework for image-to-image translation based on conditional diffusion models and evaluates this framework on four challenging image-to-image translation tasks, namely colorization, inpainting, uncropping, and JPEG restoration. Our simple implementation of image-to-image diffusion models outperforms strong GAN and regression baselines on all tasks, without task-specific hyper-parameter tuning, architecture customization, or any auxiliary loss or sophisticated new techniques needed. We uncover the impact of an L2 vs. L1 loss in the denoising diffusion objective on sample diversity, and demonstrate the importance of self-attention in the neural architecture through empirical studies. Importantly, we advocate a unified evaluation protocol based on ImageNet, with human evaluation and sample quality scores (FID, Inception Score, Classification Accuracy of a pre-trained ResNet-50, and Perceptual Distance against original images). We expect this standardized evaluation protocol to play a role in advancing image-to-image translation research. Finally, we show that a generalist, multi-task diffusion model performs as well or better than task-specific specialist counterparts. Check out https://diffusion-palette.github.io/ for an overview of the results and code.",
+      "venue": "",
+      "citation_count": 1414,
+      "doi": "10.1145/3528233.3530757",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3528233.3530757",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4407413809",
+      "title": "DeepSeek versus ChatGPT: Multimodal artificial intelligence revolutionizing scientific discovery. From language editing to autonomous content generation\u2014Redefining innovation in research and practice",
+      "authors": [
+        {
+          "name": "Mahmut Enes Kayaalp",
+          "affiliation": "Sa\u011fl\u0131k Bilimleri \u00dcniversitesi"
+        },
+        {
+          "name": "Robert Prill",
+          "affiliation": "Universit\u00e4tsklinikum Brandenburg an der Havel"
+        },
+        {
+          "name": "Erdem Aras Sezgin",
+          "affiliation": "Gazi University"
+        },
+        {
+          "name": "Ting Cong",
+          "affiliation": "University of Pittsburgh"
+        },
+        {
+          "name": "Aleksandra Kr\u00f3likowska",
+          "affiliation": "Wroclaw Medical University"
+        },
+        {
+          "name": "Michael T. Hirschmann",
+          "affiliation": "University of Basel"
+        }
+      ],
+      "year": 2025,
+      "abstract": "Artificial intelligence (AI) has become indispensable in modern research, revolutionizing workflows from code generation to clinical data interpretation. Tools like ChatGPT now underpin tasks as diverse as statistical genomics analysis\u2014reducing costs and labour for laboratories [15, 29]\u2014and clinical manuscript drafting, where they assist non-native English speakers in refining text, minimizing reliance on professional editing services and mitigating language-related publication barriers [18]. Yet, the AI ecosystem is undergoing seismic change with the rise of DeepSeek, a nimble competitor challenging OpenAI's dominance. Launched in January 2025, DeepSeek has rapidly disrupted the field by offering ChatGPT-tier performance at no cost, triggering volatility in global tech markets [7]. Remarkably, this breakthrough originates not from a tech giant but from a small-scale team aspiring to achieve artificial general intelligence rivalling human cognition [25]. Despite limited resources, DeepSeek matches OpenAI's flagship models in mathematical and scientific problem-solving [10], while its open-access model invites unprecedented scrutiny and adaptation by researchers\u2014a stark contrast to ChatGPT's proprietary framework. This editorial examines how AI chatbots like ChatGPT and DeepSeek are transforming clinical research, highlighting their shared strengths and distinct differences. Both models accelerate research workflows by streamlining tasks such as data analysis, diagnosis and manuscript drafting. In scientific publishing, they democratize access by assisting non-native English speakers in refining manuscripts and reducing costs. For patient care, both tools enhance reproducibility by standardizing data interpretation and supporting evidence-based decisions, yet neither replaces human judgement in ethically complex scenarios. Their evolution demands ethical frameworks to balance innovation with accountability, ensuring human oversight remains central to equitable and safe AI integration in healthcare. By comparing DeepSeek's collaborative, transparent approach with ChatGPT's established ecosystem, we highlight paradigm shifts in innovation, ethics, and resource allocation for AI-driven science. AI chatbots like ChatGPT are now ubiquitous in clinical practice, offering transformative support across specialities. In sports medicine, ChatGPT generates evidence-based rehabilitation protocols and injury risk assessments [4, 17, 36], while in arthroplasty, it assists in preoperative planning by analyzing patient history and imaging data\u2014though occasional inaccuracies underscore the need for human oversight [2, 14, 26]. Beyond speciality care, these tools streamline workflows: they draft patient education materials using curated medical databases [37], guide surgeons through complex intraoperative decisions via real-time data synthesis [6], and augment diagnostic accuracy by cross-referencing symptoms with clinical guidelines [24]. Notably, in oncology, ChatGPT has been piloted to personalize chemotherapy regimens based on genomic profiles, though ethical concerns about algorithmic bias persist [12]. The integration of deep learning has further expanded AI's utility, particularly in orthopaedics. Advanced models process radiographs, magnetic resonance imaging scans and intraoperative images to detect fractures, classify osteoarthritis severity, and predict surgical outcomes [13, 20, 30-32]. For example, AI-driven tools now quantify tumour margins in oncology imaging [5] or measure spinal alignment in degenerative disc disease [21], providing clinicians with quantitative insights alongside probabilistic reasoning [33]. Emerging multimodal systems\u2014which synthesize text, imaging, audio (e.g., patient-reported symptoms) and even environmental data (e.g., wearable device metrics)\u2014are poised to unlock next-generation applications, such as dynamic treatment adaptation for chronic conditions [19]. Deep learning models, particularly unsupervised machine learning, hold the promise to shape the future of medicine, including orthopaedics [27, 28]. These tools can enhance the analysis of high-dimensional data, uncover new risk factors, and drive advancements in personalized treatments and precision patient care [9]. The research itself is influenced in many ways by AI, such as automated critical appraisal tools or machine learning for updating living systematic reviews [16, 23]. In parallel, AI tools are reshaping the research process. Platforms like ChatPDF.com and SciSpace.com allow researchers to interact dynamically with papers, extracting key insights without manual skimming, while tools like Elicit.com and Consensus.app leverage AI to validate references, identify gaps in introductions, and ensure alignment with foundational studies. ConnectedPapers.com aids in visualizing citation networks, helping authors contextualize their work within existing literature. These tools, however, differ fundamentally from general-purpose AI models like ChatGPT or DeepSeek, which handle broader language generation and reasoning. Instead, research-focused AI applications are narrowly tailored to augment specific workflow stages\u2014such as reference checks, summarization, or citation mapping\u2014enhancing efficiency without replacing the need for human expertise in contextualizing outputs or addressing domain-specific nuances. For instance, AI-driven platforms like ResearchRabbit facilitate literature mapping, and Writefull offers language editing tailored to academic manuscripts, yet their utility depends on researchers' ability to critically interpret and refine their suggestions. As AI integration in research evolves, the synergy between task-specific tools and versatile language models is poised to redefine efficiency and rigour in scientific publishing. However, ethical and practical considerations, such as overreliance on automated outputs, will require ongoing scrutiny to preserve scholarly integrity. These advancements, however, hinge on addressing critical limitations. While ChatGPT relies on static, proprietary data sets, newer open-source frameworks like DeepSeek promise greater adaptability through community-driven model refinement. As AI evolves, its role in clinical research will likely shift from assistive (e.g., drafting manuscripts) to collaborative (e.g., co-designing trials), reshaping standards for reproducibility and innovation [11]. On 20 January 2025, the Chinese company DeepSeek AI launched DeepSeek-R1, a partially open-source reasoning model designed to rival OpenAI's flagship LLM, o1. Unlike ChatGPT, DeepSeek emphasizes accessibility: its online chatbot, DeepThink, offers free access, while researchers can download and deploy the model on private servers, enabling offline use and enhanced data security. Early independent evaluations confirm DeepSeek-R's parity with o1 in data-driven scientific tasks [10]. Table 1 juxtaposes DeepSeek and ChatGPT across performance, limitations, transparency, accessibility and cultural adaptability, illustrating their shared strengths in complex tasks and mutual struggles with basic errors. Key divergences\u2014DeepSeek's open-weight customization versus ChatGPT's proprietary restrictions, and cost-free access versus paywalls\u2014highlight trade-offs between innovation and practicality. Nuances in cultural handling and ethical risks further contextualize their roles in advancing AI-driven research [35]. While DeepSeek's open framework accelerates innovation by inviting collaborative refinement, it amplifies longstanding challenges inherent to AI systems. First, bias and generalization issues persist: both DeepSeek and ChatGPT inherit biases from their training data, which can skew clinical research outcomes\u2014for instance, underrepresentation of non-European populations in oncology data sets may lead to flawed risk assessments or treatment recommendations. Second, contextual blind spots remain unresolved: while AI excels at pattern recognition, it lacks human empathy and adaptive judgement, limiting its utility in nuanced scenarios like end-of-life care discussions or mental health interventions [3]. Finally, regulatory gaps grow more pronounced as rapid AI adoption outpaces policy development [1]. Ambiguities in accountability\u2014such as determining liability for diagnostic errors or misuse of self-hosted models\u2014leave institutions vulnerable to ethical and legal risks, particularly in cross-border research collaborations. Together, these challenges underscore the need for proactive governance frameworks to balance innovation with patient safety and equity [34]. Open-source AI models enhance transparency and collaboration but introduce risks such as vulnerabilities in publicly accessible weights, which could enable misuse or bypass ethical safeguards. To address these challenges, frameworks like CONSORT-AI and SPIRIT-AI promote responsible integration by mandating the disclosure of AI contributions in research, enforcing human oversight for validation of outputs, and prioritizing ethical training with diverse data sets to mitigate bias [8, 22]. These guidelines aim to balance innovation with accountability, ensuring AI advances align with scientific integrity and patient safety. DeepSeek's emergence signals a pivotal shift in AI-driven research, balancing ChatGPT's established utility with unprecedented transparency and accessibility. However, its open-source paradigm demands rigorous ethical stewardship to mitigate risks of bias, fraud, and privacy breaches. As AI evolves from assistive to collaborative roles, the medical community must prioritize adaptive governance, ensuring these tools uphold the integrity of scientific discovery while democratizing innovation. The authors declare no conflicts of interest. All authors contributed to the writing of the manuscript. No generative AI was used in generating the manuscript.",
+      "venue": "Knee Surgery Sports Traumatology Arthroscopy",
+      "citation_count": 58,
+      "doi": "10.1002/ksa.12628",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1002/ksa.12628",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4365143687",
+      "title": "Foundation models for generalist medical artificial intelligence",
+      "authors": [
+        {
+          "name": "Michael Moor",
+          "affiliation": "Stanford University"
+        },
+        {
+          "name": "Oishi Banerjee",
+          "affiliation": "Harvard University"
+        },
+        {
+          "name": "Zahra Shakeri Hossein Abad",
+          "affiliation": "University of Toronto"
+        },
+        {
+          "name": "Harlan M. Krumholz",
+          "affiliation": "Yale New Haven Hospital"
+        },
+        {
+          "name": "Jure Leskovec",
+          "affiliation": "Stanford University"
+        },
+        {
+          "name": "Eric J. Topol",
+          "affiliation": "Scripps Research Institute"
+        },
+        {
+          "name": "Pranav Rajpurkar",
+          "affiliation": "Harvard University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "The exceptionally rapid development of highly flexible, reusable artificial intelligence (AI) models is likely to usher in newfound capabilities in medicine. We propose a new paradigm for medical AI, which we refer to as generalist medical AI (GMAI). GMAI models will be capable of carrying out a diverse set of tasks using very little or no task-specific labelled data. Built through self-supervision on large, diverse datasets, GMAI will flexibly interpret different combinations of medical modalities, including data from imaging, electronic health records, laboratory results, genomics, graphs or medical text. Models will in turn produce expressive outputs such as free-text explanations, spoken recommendations or image annotations that demonstrate advanced medical reasoning abilities. Here we identify a set of high-impact potential applications for GMAI and lay out specific technical capabilities and training datasets necessary to enable them. We expect that GMAI-enabled applications will challenge current strategies for regulating and validating AI devices for medicine and will shift practices associated with the collection of large medical datasets.",
+      "venue": "Nature",
+      "citation_count": 1384,
+      "doi": "10.1038/s41586-023-05881-4",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41586-023-05881-4",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4384071683",
+      "title": "Large language models encode clinical knowledge",
+      "authors": [
+        {
+          "name": "Karan Singhal",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Shekoofeh Azizi",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Tao Tu",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "S. Sara Mahdavi",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Jason Lee",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Hyung Won Chung",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Nathan Scales",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Ajay Kumar Tanwani",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Heather Cole-Lewis",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Stephen Pfohl",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Perry W. Payne",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Martin Seneviratne",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Paul Gamble",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Christopher Kelly",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Abubakr Babiker",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Nathanael Sch\u00e4rli",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Aakanksha Chowdhery",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "P. Mansfield",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Dina Demner\u2010Fushman",
+          "affiliation": "United States National Library of Medicine"
+        },
+        {
+          "name": "Blaise Ag\u00fcera y Arcas",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Dale R. Webster",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Greg S. Corrado",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Yossi Matias",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Katherine Chou",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Juraj Gottweis",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Nenad Toma\u0161ev",
+          "affiliation": "DeepMind (United Kingdom)"
+        },
+        {
+          "name": "Yun Liu",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Alvin Rajkomar",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Jo\u00eblle Barral",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Christopher Semturs",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Alan Karthikesalingam",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Vivek Natarajan",
+          "affiliation": "Google (United States)"
+        }
+      ],
+      "year": 2023,
+      "abstract": "",
+      "venue": "Nature",
+      "citation_count": 2721,
+      "doi": "10.1038/s41586-023-06291-2",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41586-023-06291-2",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4403878569",
+      "title": "Auto-GAS: Automated Proxy Discovery for Training-Free Generative Architecture Search",
+      "authors": [
+        {
+          "name": "Lujun Li",
+          "affiliation": "Hong Kong University of Science and Technology"
+        },
+        {
+          "name": "Haosen Sun",
+          "affiliation": "Hong Kong University of Science and Technology"
+        },
+        {
+          "name": "Shiwen Li",
+          "affiliation": "Xidian University"
+        },
+        {
+          "name": "Peijie Dong",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenhan Luo",
+          "affiliation": "Hong Kong University of Science and Technology"
+        },
+        {
+          "name": "Wei Xue",
+          "affiliation": "Hong Kong University of Science and Technology"
+        },
+        {
+          "name": "Qifeng Liu",
+          "affiliation": "Hong Kong University of Science and Technology"
+        },
+        {
+          "name": "Yike Guo",
+          "affiliation": "Hong Kong University of Science and Technology"
+        }
+      ],
+      "year": 2024,
+      "abstract": "",
+      "venue": "Lecture notes in computer science",
+      "citation_count": 9,
+      "doi": "10.1007/978-3-031-72652-1_3",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/978-3-031-72652-1_3",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4388856964",
+      "title": "Label-Free CD34+ Cell Identification Using Deep Learning and Lens-Free Shadow Imaging Technology",
+      "authors": [
+        {
+          "name": "Minyoung Baik",
+          "affiliation": "Korea University"
+        },
+        {
+          "name": "Sang-Hoon Shin",
+          "affiliation": "Korea University"
+        },
+        {
+          "name": "Samir Kumar",
+          "affiliation": "Korea University"
+        },
+        {
+          "name": "Dongmin Seo",
+          "affiliation": "Semyung University"
+        },
+        {
+          "name": "Inha Lee",
+          "affiliation": "Korea University"
+        },
+        {
+          "name": "Hyun Sik Jun",
+          "affiliation": "Korea University"
+        },
+        {
+          "name": "Ka\u2010Won Kang",
+          "affiliation": "Korea University"
+        },
+        {
+          "name": "Byung Soo Kim",
+          "affiliation": "Korea University"
+        },
+        {
+          "name": "Myung\u2010Hyun Nam",
+          "affiliation": "Korea University Medical Center"
+        },
+        {
+          "name": "Sungkyu Seo",
+          "affiliation": "Korea University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Accurate and efficient classification and quantification of CD34+ cells are essential for the diagnosis and monitoring of leukemia. Current methods, such as flow cytometry, are complex, time-consuming, and require specialized expertise and equipment. This study proposes a novel approach for the label-free identification of CD34+ cells using a deep learning model and lens-free shadow imaging technology (LSIT). LSIT is a portable and user-friendly technique that eliminates the need for cell staining, enhances accessibility to nonexperts, and reduces the risk of sample degradation. The study involved three phases: sample preparation, dataset generation, and data analysis. Bone marrow and peripheral blood samples were collected from leukemia patients, and mononuclear cells were isolated using Ficoll density gradient centrifugation. The samples were then injected into a cell chip and analyzed using a proprietary LSIT-based device (Cellytics). A robust dataset was generated, and a custom AlexNet deep learning model was meticulously trained to distinguish CD34+ from non-CD34+ cells using the dataset. The model achieved a high accuracy in identifying CD34+ cells from 1929 bone marrow cell images, with training and validation accuracies of 97.3% and 96.2%, respectively. The customized AlexNet model outperformed the Vgg16 and ResNet50 models. It also demonstrated a strong correlation with the standard fluorescence-activated cell sorting (FACS) technique for quantifying CD34+ cells across 13 patient samples, yielding a coefficient of determination of 0.81. Bland-Altman analysis confirmed the model's reliability, with a mean bias of -2.29 and 95% limits of agreement between 18.49 and -23.07. This deep-learning-powered LSIT offers a groundbreaking approach to detecting CD34+ cells without the need for cell staining, facilitating rapid CD34+ cell classification, even by individuals without prior expertise.",
+      "venue": "Biosensors",
+      "citation_count": 9,
+      "doi": "10.3390/bios13120993",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/bios13120993",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3159728495",
+      "title": "Towards complete and error-free genome assemblies of all vertebrate species",
+      "authors": [
+        {
+          "name": "Arang Rhie",
+          "affiliation": "National Human Genome Research Institute"
+        },
+        {
+          "name": "Shane McCarthy",
+          "affiliation": "Wellcome Sanger Institute"
+        },
+        {
+          "name": "Olivier F\u00e9drigo",
+          "affiliation": "Rockefeller University"
+        },
+        {
+          "name": "Joana Damas",
+          "affiliation": "University of California, Davis"
+        },
+        {
+          "name": "Giulio Formenti",
+          "affiliation": "Rockefeller University"
+        },
+        {
+          "name": "Sergey Koren",
+          "affiliation": "National Human Genome Research Institute"
+        },
+        {
+          "name": "Marcela Uliano\u2010Silva",
+          "affiliation": "Berlin Center for Genomics in Biodiversity Research"
+        },
+        {
+          "name": "William Chow",
+          "affiliation": "Wellcome Sanger Institute"
+        },
+        {
+          "name": "Arkarachai Fungtammasan",
+          "affiliation": "DNAnexus (United States)"
+        },
+        {
+          "name": "Ju\u2010Wan Kim",
+          "affiliation": "Seoul National University"
+        },
+        {
+          "name": "Chul Lee",
+          "affiliation": "Seoul National University"
+        },
+        {
+          "name": "Byung June Ko",
+          "affiliation": "Seoul National University"
+        },
+        {
+          "name": "Mark Chaisson",
+          "affiliation": "University of Southern California"
+        },
+        {
+          "name": "Gregory Gedman",
+          "affiliation": "Rockefeller University"
+        },
+        {
+          "name": "Lindsey Cantin",
+          "affiliation": "Rockefeller University"
+        },
+        {
+          "name": "Fran\u00e7oise Thibaud\u2010Nissen",
+          "affiliation": "National Center for Biotechnology Information"
+        },
+        {
+          "name": "Leanne Haggerty",
+          "affiliation": "European Bioinformatics Institute"
+        },
+        {
+          "name": "Iliana Bista",
+          "affiliation": "Wellcome Sanger Institute"
+        },
+        {
+          "name": "Michelle Smith",
+          "affiliation": "Wellcome Sanger Institute"
+        },
+        {
+          "name": "Bettina Haase",
+          "affiliation": "Rockefeller University"
+        },
+        {
+          "name": "Jacquelyn Mountcastle",
+          "affiliation": "Rockefeller University"
+        },
+        {
+          "name": "Sylke Winkler",
+          "affiliation": "Max Planck Institute of Molecular Cell Biology and Genetics"
+        },
+        {
+          "name": "Sadye Paez",
+          "affiliation": "Rockefeller University"
+        },
+        {
+          "name": "Jason T. Howard",
+          "affiliation": ""
+        },
+        {
+          "name": "Sonja C. Vernes",
+          "affiliation": "University of St Andrews"
+        },
+        {
+          "name": "Tanya M. Lama",
+          "affiliation": "University of Massachusetts Amherst"
+        },
+        {
+          "name": "Frank Gr\u00fctzner",
+          "affiliation": "The University of Adelaide"
+        },
+        {
+          "name": "Wesley C. Warren",
+          "affiliation": "University of Missouri"
+        },
+        {
+          "name": "Christopher N. Balakrishnan",
+          "affiliation": "East Carolina University"
+        },
+        {
+          "name": "David W. Burt",
+          "affiliation": "The University of Queensland"
+        },
+        {
+          "name": "Julia M. George",
+          "affiliation": "Clemson University"
+        },
+        {
+          "name": "Matthew T. Biegler",
+          "affiliation": "Rockefeller University"
+        },
+        {
+          "name": "David Iorns",
+          "affiliation": ""
+        },
+        {
+          "name": "Andrew Digby",
+          "affiliation": ""
+        },
+        {
+          "name": "Daryl Eason",
+          "affiliation": ""
+        },
+        {
+          "name": "Bruce C. Robertson",
+          "affiliation": "University of Otago"
+        },
+        {
+          "name": "Taylor Edwards",
+          "affiliation": "University of Arizona"
+        },
+        {
+          "name": "Mark Wilkinson",
+          "affiliation": "Natural History Museum"
+        },
+        {
+          "name": "George F. Turner",
+          "affiliation": "Bangor University"
+        },
+        {
+          "name": "Axel Meyer",
+          "affiliation": "University of Konstanz"
+        },
+        {
+          "name": "Andreas F. Kautt",
+          "affiliation": "Harvard University"
+        },
+        {
+          "name": "Paolo Franchini",
+          "affiliation": "University of Konstanz"
+        },
+        {
+          "name": "H. William Detrich",
+          "affiliation": "NOAA National Marine Fisheries Service Northeast Fisheries Science Center"
+        },
+        {
+          "name": "Hannes Svardal",
+          "affiliation": "University of Antwerp"
+        },
+        {
+          "name": "Maximilian Wagner",
+          "affiliation": "University of Graz"
+        },
+        {
+          "name": "Gavin J. P. Naylor",
+          "affiliation": "Florida Museum of Natural History"
+        },
+        {
+          "name": "Martin Pippel",
+          "affiliation": "Center for Systems Biology Dresden"
+        },
+        {
+          "name": "Milan Malinsky",
+          "affiliation": "University of Basel"
+        },
+        {
+          "name": "Mark P. Mooney",
+          "affiliation": "Technology Affinity Group"
+        },
+        {
+          "name": "Maria Simbirsky",
+          "affiliation": "DNAnexus (United States)"
+        },
+        {
+          "name": "Brett T. Hannigan",
+          "affiliation": "DNAnexus (United States)"
+        },
+        {
+          "name": "Trevor Pesout",
+          "affiliation": "University of California, Santa Cruz"
+        },
+        {
+          "name": "Marlys L. Houck",
+          "affiliation": "San Diego Zoo Institute for Conservation Research"
+        },
+        {
+          "name": "Ann Misuraca",
+          "affiliation": "San Diego Zoo Institute for Conservation Research"
+        },
+        {
+          "name": "Sarah B. Kingan",
+          "affiliation": "Pacific Biosciences (United States)"
+        },
+        {
+          "name": "Richard Hall",
+          "affiliation": "Pacific Biosciences (United States)"
+        },
+        {
+          "name": "Zev Kronenberg",
+          "affiliation": "Pacific Biosciences (United States)"
+        },
+        {
+          "name": "Ivan Sovi\u0107",
+          "affiliation": "Pacific Biosciences (United States)"
+        },
+        {
+          "name": "Christopher Dunn",
+          "affiliation": "Pacific Biosciences (United States)"
+        },
+        {
+          "name": "Zemin Ning",
+          "affiliation": "Wellcome Sanger Institute"
+        },
+        {
+          "name": "Alex Hastie",
+          "affiliation": "BioNano Genomics (United States)"
+        },
+        {
+          "name": "Joyce Lee",
+          "affiliation": "BioNano Genomics (United States)"
+        },
+        {
+          "name": "Siddarth Selvaraj",
+          "affiliation": "Arima Genomics (United States)"
+        },
+        {
+          "name": "Richard E. Green",
+          "affiliation": "University of California, Santa Cruz"
+        },
+        {
+          "name": "Nicholas H. Putnam",
+          "affiliation": "Santa Cruz County Office of Education"
+        },
+        {
+          "name": "Marta Gut",
+          "affiliation": "Universitat Pompeu Fabra"
+        },
+        {
+          "name": "Jay Ghurye",
+          "affiliation": "University of Maryland, College Park"
+        },
+        {
+          "name": "Erik Garrison",
+          "affiliation": "University of California, Santa Cruz"
+        },
+        {
+          "name": "Ying Sims",
+          "affiliation": "Wellcome Sanger Institute"
+        },
+        {
+          "name": "Joanna Collins",
+          "affiliation": "Wellcome Sanger Institute"
+        },
+        {
+          "name": "Sarah Pelan",
+          "affiliation": "Wellcome Sanger Institute"
+        },
+        {
+          "name": "James Torrance",
+          "affiliation": "Wellcome Sanger Institute"
+        },
+        {
+          "name": "Alan Tracey",
+          "affiliation": "Wellcome Sanger Institute"
+        },
+        {
+          "name": "Jonathan Wood",
+          "affiliation": "Wellcome Sanger Institute"
+        },
+        {
+          "name": "Robel E. Dagnew",
+          "affiliation": "University of Southern California"
+        },
+        {
+          "name": "Dengfeng Guan",
+          "affiliation": "Harbin Institute of Technology"
+        },
+        {
+          "name": "Sarah E. London",
+          "affiliation": "University of Chicago"
+        },
+        {
+          "name": "David F. Clayton",
+          "affiliation": "Clemson University"
+        },
+        {
+          "name": "Claudio V. Mello",
+          "affiliation": "Oregon Health & Science University"
+        },
+        {
+          "name": "Samantha R. Friedrich",
+          "affiliation": "Oregon Health & Science University"
+        },
+        {
+          "name": "Peter V. Lovell",
+          "affiliation": "Oregon Health & Science University"
+        },
+        {
+          "name": "Ekaterina Osipova",
+          "affiliation": "Center for Systems Biology Dresden"
+        },
+        {
+          "name": "Farooq O. Al-Ajli",
+          "affiliation": "Monash University Malaysia"
+        },
+        {
+          "name": "Simona Secomandi",
+          "affiliation": "University of Milan"
+        },
+        {
+          "name": "Heebal Kim",
+          "affiliation": "Seoul National University"
+        },
+        {
+          "name": "Constantina Theofanopoulou",
+          "affiliation": "Rockefeller University"
+        },
+        {
+          "name": "Michael Hiller",
+          "affiliation": "Senckenberg Research Institute and Natural History Museum Frankfurt/M"
+        },
+        {
+          "name": "Yang Zhou",
+          "affiliation": "BGI Group (China)"
+        },
+        {
+          "name": "Robert S. Harris",
+          "affiliation": "Pennsylvania State University"
+        },
+        {
+          "name": "Kateryna D. Makova",
+          "affiliation": "Pennsylvania State University"
+        },
+        {
+          "name": "Paul Medvedev",
+          "affiliation": "Pennsylvania State University"
+        },
+        {
+          "name": "Jinna Hoffman",
+          "affiliation": "National Center for Biotechnology Information"
+        },
+        {
+          "name": "Patrick Masterson",
+          "affiliation": "National Center for Biotechnology Information"
+        },
+        {
+          "name": "Karen Clark",
+          "affiliation": "National Center for Biotechnology Information"
+        },
+        {
+          "name": "Fergal J. Martin",
+          "affiliation": "European Bioinformatics Institute"
+        },
+        {
+          "name": "Kevin Howe",
+          "affiliation": "European Bioinformatics Institute"
+        },
+        {
+          "name": "Paul Flicek",
+          "affiliation": "European Bioinformatics Institute"
+        },
+        {
+          "name": "Brian P. Walenz",
+          "affiliation": "National Human Genome Research Institute"
+        },
+        {
+          "name": "Woori Kwak",
+          "affiliation": ""
+        },
+        {
+          "name": "Hiram Clawson",
+          "affiliation": "University of California, Santa Cruz"
+        }
+      ],
+      "year": 2021,
+      "abstract": "",
+      "venue": "Nature",
+      "citation_count": 2890,
+      "doi": "10.1038/s41586-021-03451-0",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41586-021-03451-0",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4406458875",
+      "title": "FLAME Diffuser: Wildfire Image Synthesis using Mask Guided Diffusion",
+      "authors": [
+        {
+          "name": "Hao Wang",
+          "affiliation": "Clemson University"
+        },
+        {
+          "name": "Sayed Pedram Haeri Boroujeni",
+          "affiliation": "Clemson University"
+        },
+        {
+          "name": "Xiwen Chen",
+          "affiliation": "Clemson University"
+        },
+        {
+          "name": "Ashish Bastola",
+          "affiliation": "Clemson University"
+        },
+        {
+          "name": "Huayu Li",
+          "affiliation": "University of Arizona"
+        },
+        {
+          "name": "Wenhui Zhu",
+          "affiliation": "Arizona State University"
+        },
+        {
+          "name": "Abolfazl Razi",
+          "affiliation": "Clemson University"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Wildfires are a significant threat to ecosystems and human infrastructure, leading to widespread destruction and environmental degradation. Recent advancements in deep learning and generative models have enabled new methods for wildfire detection and monitoring. However, the scarcity of annotated wildfire images limits the development of robust models for these tasks. In this work, we present the FLAME Diffuser, a training-free, diffusion-based framework designed to generate realistic wildfire images with paired ground truth. Our framework uses augmented masks, sampled from real wildfire data, and applies Perlin noise to guide the generation of realistic flames. By controlling the placement of these elements within the image, we ensure precise integration while maintaining the original image\u2019s style. We evaluate the generated images using normalized Fr\u00e9chet Inception Distance (nFID), CLIP Score, and a custom CLIP Confidence metric, demonstrating the high quality and realism of the synthesized wildfire images. Specifically, the fusion of Perlin noise in this work significantly improved the quality of synthesized images. The proposed method is particularly valuable for enhancing datasets used in downstream tasks such as wildfire detection and monitoring.The resources for accessing the code and datasets are provided at the link: https://arazi2.github.io/aisends.github.io/project/flame",
+      "venue": "",
+      "citation_count": 10,
+      "doi": "10.1109/bigdata62323.2024.10826040",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/bigdata62323.2024.10826040",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3014430605",
+      "title": "Recommendations for respiratory rehabilitation in adults with coronavirus disease 2019",
+      "authors": [
+        {
+          "name": "Hongmei Zhao",
+          "affiliation": "Academy of Medical Sciences"
+        },
+        {
+          "name": "Yu-Xiao Xie",
+          "affiliation": "China-Japan Friendship Hospital"
+        },
+        {
+          "name": "Chen Wang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2020,
+      "abstract": "Introduction Since December 2019, the coronavirus disease 2019 (COVID-19) has become a public health emergency. COVID-19 has already been classified as a category B infectious disease according to the Law of the People's Republic of China on the Prevention and Treatment of Infectious Diseases, and control measures for category A infectious diseases have been adopted. The National Health Commission has also published diagnosis and treatment protocols to guide the clinical diagnosis and treatment. With the accumulating experience of treating COVID-19 patients, particularly severely and critically ill patients, in clinical practice, our understanding of COVID-19 has continuously deepened. With regard to varying degrees of respiratory, physical, and psychological dysfunction in patients,[1] it is vital to standardize respiratory rehabilitation techniques and procedures for respiratory rehabilitation in various regions. Hence, we combined the opinions of frontline epidemic control experts and reviewed the evidence in relevant literature. Based on the \u201cCoronavirus Disease 2019 Respiratory Rehabilitation Guidelines (First Edition),\u201d[2] we organized experts in evidence-based medicine, respiratory and critical care medicine, and rehabilitation medicine in China, and invited some experts at the frontline of epidemic control in Wuhan and other cities in Hubei province to jointly draft these recommendations. Methodology Registration These recommendations were registered at the International Practice Guidelines Registry Platform (http://www.guidelines-registry.org; registration number: IPGRP-2020CN016). Recommendation work group The recommendation work group was divided into the recommendation drafting group, evidence assessment group, and expert consensus group. The drafting group is responsible for determining the topic and scope of the recommendations, guiding the evidence assessment group in evidence summary, and drafting recommendations. The evidence assessment group is responsible for searching, assessing, and providing a summary of relevant evidence. The expert consensus group is responsible for achieving a consensus from the preliminary recommendations. Literature search Our recommendations included rehabilitation-related guidelines, systemic reviews, and randomized controlled trials with regard to three infectious diseases (COVID-19, severe acute respiratory syndrome [SARS], and Middle East respiratory syndrome [MERS]). Two members of the evidence assessment team performed independent computer searches of English databases (PubMed, Ovid, Embase), Chinese databases (Chinese Biological Medical Literature database, China National Knowledge Infrastructure, Chinese Medical Journal Database), and relevant online website bulletins on COVID-19 (the World Health Organization, Elsevier, the Lancet, the New England Journal of Medicine, and the Journal of the American Medical Association, 2019 Novel Coronavirus Resource (2019nCoVR), and the Chinese Medical Journal Network). The search period was from database construction to February 21, 2020. The search terms included the English terms and their Chinese equivalents: \u201cnovel coronavirus pneumonia,\u201d \u201cNCP,\u201d \u201csevere acute respiratory syndrome,\u201d \u201cSARS,\u201d \u201cMiddle East Respiratory Syndrome,\u201d \u201cMERS,\u201d \u201cinfluenza,\u201d \u201cpsychological therapy,\u201d \u201cguideline,\u201d \u201cstatement,\u201d \u201crecommendation,\u201d \u201crandomized controlled trial,\u201d and other rehabilitation-related English search terms and their Chinese equivalents included \u201crespiratory rehabilitation,\u201d \u201cpulmonary rehabilitation,\u201d \u201cphysiotherapy,\u201d \u201cphysical therapy,\u201d and \u201coccupational therapy.\u201d If the complete article was unavailable, we emailed the corresponding author to obtain it. Paper screening and evidence summary Two members of the evidence assessment group used the Endnote X9 literature management software to screen the literature independently according to the inclusion and exclusion criteria. Different rehabilitation topics were used for classification and to summarize the results of the included articles. Cross-verification was carried out by two staff members during screening and during the preparation of the summary. If there was any dispute, a third researcher intervened, discussed, and resolved the dispute. Quality assessment The evidence assessment group employed the Appraisal of Guidelines for Research & Evaluation II tool for methodological quality assessment of the included guidelines, the Assessment of Multiple Systematic Reviews tool for quality assessment of systematic reviews, and the Cochrane bias risk assessment tool for bias risk assessment of randomized controlled trials. Generation of recommendations and consensus Based on the evidence summary and quality assessment results, the recommendation drafting group combined all existing recommendations and drafted a preliminary version of rehabilitation recommendations. The recommendations were submitted to the expert consensus group, and a consensus was reached through panel discussions, which was then determined to be the final draft of the recommendations. Basic Principles of Respiratory Rehabilitation Prerequisite First, the requirements of the \u201cGuidelines for COVID-19 Prevention and Control in Medical Institutions (1st Edition)\u201d[3] printed by the National Health Commission should be strictly complied with. All staffs who had a close contact with patients for respiratory rehabilitation assessment and treatment must pass the infection control training and examination in the local hospital before they can start to work. Aim For COVID-19 inpatients, the aim of respiratory rehabilitation is to ameliorate dyspnea, alleviate anxiety and depression, reduce complications, prevent and improve dysfunction, reduce morbidity, preserve functions, and improve quality of life as much as possible. Timing Early respiratory rehabilitation is not recommended for severely and critically ill patients if their condition remains unstabilized or progressively deteriorates. The timing of respiratory rehabilitation intervention should exclude contraindications for respiratory rehabilitation and should not aggravate the burdens of infection prevention. The staged respiratory rehabilitation measures can be employed at the later stages for discharged patients with different sequelae. Methods For patients in isolation ward, educational videos, self-management booklet, and remote consultation are recommended during respiratory rehabilitation to reduce the usage of protective equipment and avoid cross-infection. Integrated rehabilitation using multiple methods can be employed in patients who meet the recovery criteria and are no longer under quarantine observation based on their indications and conditions. Personalization The principle of personalization must be adhered to regardless of the type of respiratory rehabilitation intervention. In particular, for patients with severe/critical condition, older adults, obesity patients, patients with multiple comorbidities, and patients with one or more organ failure, the respiratory rehabilitation team should customize a respiratory rehabilitation plan based on the unique problems of each patient. Evaluation Evaluation and monitoring must be conducted from the initiation until the completion of respiratory rehabilitation. Protection [Table 1] The staff must refer to the requirements indicated in the \u201cRecommendations for Airway Management in Adult Severe Coronavirus Disease 2019 Patients (Interim)\u201d and determine the appropriate protective measures according to the type of task.[4]Table 1: Protection categories when performing respiratory rehabilitation for COVID-19 patients.Respiratory Rehabilitation Recommendations for Mildly ill Patients During Hospitalization (Only for Cabin Hospitals) The clinical symptoms of the patient are mild and may include fever, fatigue, coughing, and one or more physical dysfunctions.[5,6] During quarantine, patients with confirmed disease may show anger, fear, anxiety, depression, insomnia or aggression, and loneliness, or will be uncooperative due to fear of the disease. The patients will tend to give up treatment or develop other psychological problems.[7] Respiratory rehabilitation can ameliorate anxiety and depression in patients.[8] Recommendations Patient education (1) Advocacy, videos, and booklet are used to help patients understand the disease and treatment process; (2) the patients are required to take regular rest and have sufficient sleep; (3) they are encouraged to eat a balanced diet; (4) they are advised to stop smoking. Activity recommendations (1) Exercise intensity: Borg dyspnea score \u22643 points (total score: 10 points), fatigue should be absent on Day 2 preferably; (2) Exercise frequency: twice a day, duration 15 to 45 min/session, 1 h after meals; and (3) type of exercise: breathing exercise, Tai chi, or square dancing. Psychological intervention (1) Self-assessment scales are used to rapidly identify the type of psychological dysfunction. (2) If necessary, the patients should visit the psychologists or ask for help through mental health hotline. Respiratory Rehabilitation Recommendations for Moderately ill Patients During Hospitalization (Only for Cabin Hospitals) Isolation is an effective method for reducing the transmission of disease. However, isolation causes patients to have limited exercise space. In addition, patients experience fever, fatigue, muscle ache, and so on,[6] and the duration of sitting and lying down is significantly increased for most patients. Prolong bed rest will decrease muscle strength, result in poor expulsion of sputum,[9] and significantly increase the risk of deep vein thrombosis.[10] Moreover, anxiety, depression, and fatigue will result in exercise intolerance.[11] Recommendations Intervention timing for respiratory rehabilitation in moderately ill patients Due to the limited understanding of the pathophysiological mechanisms of COVID-19, current clinical observations found that around 3% to 5% of moderately ill patients develop severe or even critical disease after 7 to 14 days of infection. Therefore, the exercise intensity should not be too high as its objective is to maintain the existing physical status. After the patient is admitted to the cabin hospital, data on the patient's initial consultation time, duration from disease onset to dyspnea, and blood oxygen saturation (SpO2)[12,13] should be assessed to determine if the respiratory rehabilitation can be initiated. Exclusion criteria Patients (1) with a temperature >38.0\u00b0C, (2) with an initial consultation time \u22647 days, (3) in whom the duration from disease onset to dyspnea is \u22643 days, (4) whose chest radiological scans show >50% progression within 24 to 48 h, (5) with an SpO2 level of \u226495%, and (6) with a resting blood pressure of <90/60 (1 mmHg = 0.133 kPa) or >140/90 mmHg. Exercise termination criteria Respiratory rehabilitation is immediately discontinued when one of the following conditions develops during rehabilitation: (1) dyspnea index: Borg dyspnea score >3 (total score: 10 points); (2) chest tightness, shortness of breath, dizziness, headache, blurred vision, heart palpitations, profuse sweating, and balance disorder; and (3) other conditions that the clinician determines to be unsuitable for exercise. Assistance should be sought from physicians and nurses. Primary intervention measures for respiratory rehabilitation include airway clearance, breathing control, physical activity, and exercise (1) Airway clearance: (i) dilation during deep breathing exercise can be used to help sputum expectoration and (ii) a sealed plastic bag should be used when coughing to avoid virus transmission. (2) Breathing control: (i) positioning: An upright sitting position is usually adopted. Patients with shortness of breath should adopt a semi-sitting position or a leaning forward position; (ii) maneuvers: During training, the accessory muscles of the shoulders and neck are relaxed, and the patient slowly inhales through the nose and slowly exhales through the mouth. Attention is paid to the expansion of the lower chest. (3) Physical activity and exercise recommendations: (i) intensity: The recommended exercise intensity is between rest (1.0 metabolic equivalents [METs]) and light exercise (<3.0 METs); (ii) frequency: Exercise is performed twice a day, 1 h after meal; (iii) duration: The exercise duration is based on the patient's physical status, and each session lasts 15 to 45 min. Patients who are prone to fatigue or are physically weak should perform intermittent exercise; (iv) type of exercise: breathing exercises, stepping, Tai chi, and exercises that are recommended to prevent thrombosis; and (v) the management of patients with limited locomotor activity is the same as that for severely ill patients. Respiratory Rehabilitation Treatment for Severely and Critically Ill Patients Severely and critically ill patients account for 15.7% of the number of confirmed cases.[6] The latest pathology results show that early-[14] and late-stage pulmonary lesions are mainly due to diffuse alveolar injury, significant fibrosis did not occur, and diffuse lymphocyte infiltration is present between myocardial fibers, and the possibility of comorbid viral myocarditis cannot be excluded.[15] Many COVID-19 patients who are given mechanical ventilation under deep sedation and receiving analgesia completely lose spontaneous breathing and have no or weak response to stimuli, and the incidence of delirium in patients is high.[16] Respiratory rehabilitation can be initiated at a suitable time and can significantly reduce delirium and mechanical ventilation duration, and eventually improve the patient's functional status.[17] Before performing the rehabilitation intervention in severely and critically ill patients, a comprehensive evaluation of the patient's systemic function is required, particularly in terms of cognitive status, respiratory function, cardiovascular function, and musculoskeletal function. Treatment should be initiated as soon as possible in patients who are eligible for respiratory rehabilitation. Before initiating treatment, a consensus from the medical team must be obtained, and sufficient preparations should be made. Reassessment should be carried out in patients who do not fulfill the criteria for respiratory rehabilitation, and respiratory rehabilitation can only be performed once they satisfy the criteria. If adverse events occur during rehabilitation, rehabilitation should be discontinued immediately, and the chief physician must be informed. The cause should be determined, and safety should be re-evaluated. Due to safety and human resource concerns, only the recommended bed and bedside activities are carried out during rehabilitation in severely and critically ill patients. Rehabilitation intervention measures must cover three major areas: (1) positioning management, (2) early mobilization, and (3) respiratory management. The therapeutic interventions should be based on the patient's cognitive status and functional status. Recommendations Timing of intervention Respiratory rehabilitation can be initiated once all of the following criteria are met[18]: (1) respiratory system: (i) fraction of inspired oxygen \u22640.6, (ii) SpO2 \u226590%, (iii) respiratory rate \u226440 breaths/min (bpm), (iv) positive end expiratory pressure \u226410 cmH2O (1 cmH2O = 0.098 kPa), (v) absence of ventilator resistance, and (vi) absence of unsafe hidden airway problems; (2) cardiovascular system: (i) systolic blood pressure \u226590 and \u2264180 mmHg, (ii) mean arterial pressure (MAP) \u226565 and \u2264110 mmHg, (iii) heart rate \u226540 and \u2264120 beats/min, (iv) absence of new arrhythmia or myocardial ischemia, (v) absence of shock with lactic acid level \u22654 mmol/L, (vi) absence of new unstable deep vein thrombosis and pulmonary embolism, and (vii) absence of suspected aortic stenosis; (3) nervous system: (i) Richmond Agitation-Sedation Scale score: \u22122 to +2 and (ii) intracranial pressure <20 cmH2O; and (4) others: (i) absence of unstable limb and spinal fractures, (ii) absence of severe underlying hepatic/renal disease or new progressively worsening hepatic/renal impairment, (iii) absence of active hemorrhage, and (iv) temperature \u226438.5\u00b0C. Early rehabilitation is discontinued immediately if the following conditions occur[18] (1) Respiratory system: (i) SpO2 <90% or decrease by >4% from baseline, (ii) respiratory rate >40 bpm, (iii) ventilator resistance, and (iv) airway or (2) cardiovascular system: (i) systolic blood pressure or mmHg, (ii) or mmHg, or with baseline, (iii) heart rate or beats/min, and (iv) new arrhythmia and myocardial (3) nervous system: (i) of and (ii) and (4) others: (i) of any treatment or of monitoring to the (ii) heart palpitations, of dyspnea or shortness of breath, and and (iii) in patient. Respiratory rehabilitation intervention measures (1) In that status is increased until the patient can maintain an upright as the of the bed by the lower of the is on of the to prevent A is the to the lower and management is carried out in and three are conducted each position ventilation is carried out in acute respiratory syndrome patients for h and (2) Early Attention should be paid during the activity to prevent and vital should be during the (i) strength, duration, or activity scope can be used in patients with poor physical status, and patients only to complete the (ii) duration: The training duration for a session should not (iii) type of exercise: First, regular and on the sitting up on from the bed to sitting on the and should be carried out by exercise training is performed within the of for patients receiving or patients with of cognitive dysfunction, or with limited include bedside lower limb exercise and exercise, and (3) Respiratory mainly and sputum expulsion and not to have of patient The management should not severe and increase the work of chest and positive expiratory pressure are the recommended treatment Respiratory Rehabilitation Treatment for Patients Mildly and moderately ill patients after rehabilitation of and moderately ill patients mainly of physical and psychological exercises can be so that patients can the level of activity before disease onset and eventually to ill patients after ill COVID-19 patients with respiratory limb dysfunction after should respiratory rehabilitation. Based on the in discharged and and clinical experience on rehabilitation in patients, COVID-19 patients may have poor physical shortness of breath, muscle respiratory muscles and and limb and The should be on if the patients have as pulmonary heart failure, deep vein and unstable before respiratory rehabilitation treatment. Recommendations Exclusion criteria (1) A heart rate of beats/min, (2) a blood pressure of <90/60 or >140/90 mmHg, (3) an SpO2 of \u226495%, and (4) other diseases that are not suitable for exercise. Exercise termination criteria Patients who experience (1) temperature (2) of respiratory symptoms and fatigue that are not after rest should exercises The physician should be if the following symptoms chest tightness, chest dyspnea, severe dizziness, headache, blurred vision, heart palpitations, profuse sweating, and unstable Rehabilitation evaluation (1) physical function and (2) Exercise and respiratory function (i) respiratory muscle expiratory (ii) muscle the Medical Research muscle and muscle (iii) (iv) balance function balance (v) exercise and exercise and (vi) physical activity International Physical Activity and Physical Activity Scale for the (3) Evaluation of activities of The is used to Respiratory rehabilitation intervention (1) Patient (i) booklet and should be to the and of respiratory rehabilitation to increase patient (ii) (iii) patients to in and (2) Respiratory rehabilitation recommendations: (i) exercises are according to the patient's underlying disease and dysfunction. These exercises include and and at a intensity before progressively in intensity and A of to are carried out and each session lasts to min. Patients who are prone to fatigue should perform intermittent (ii) is recommended for The training for each muscle group is to that each group will to 1 to with rest between with a of 2 to for 5% to is increased (iii) balance balance training should be carried out in patients with comorbid balance balance training under the of the rehabilitation and using balance (iv) breathing exercise: if shortness of breath, and in sputum occur in patients after the evaluation results should be used to the breathing and airway Breathing exercise: management, of breathing expansion training, of respiratory muscle and so Airway expiratory techniques can be used at the early stages of airway after in patients with airway disease to sputum and reduce coughing and positive expiratory can be used as (3) (i) the patient's in and are and rehabilitation is for these (ii) the of the patient is assessed to identify any in intervention is carried out under the of the Chinese Respiratory Rehabilitation Chinese medicine respiratory rehabilitation is mainly to moderately and discharged patients. If there is no breathing exercise or can be carried out after assessment by or two of these exercises can be The recommendations are as During practice, the should be relaxed, and should training and and should be All are performed to with a duration of min. is performed with on breathing in with systemic exercises and exercises after min. is carried out breathing exercises in and breathing in to the and the and the the and in exercises with around min. is carried out rehabilitation method The different and to and blood through the and is for each around min. is performed the latest results and clinical experience on respiratory rehabilitation and COVID-19 from China and other we the timing for respiratory rehabilitation and the respiratory rehabilitation at clinical problems at different stages based on the that can in frontline clinical diagnosis and treatment to maintain the physical function of patients psychological and for With our understanding of COVID-19 and the increase in the number of and discharged patients, the third will more for respiratory rehabilitation. we to our to all frontline staff COVID-19 expert Chinese of Medical and Medical and Chinese of Rehabilitation experts of and Medicine, National Research for Respiratory of Rehabilitation Medicine, and Rehabilitation Medical China of Rehabilitation Medicine, Medical of People's and of Chinese expert group Chinese of Rehabilitation and Chinese of Medical and Medical of Respiratory Medicine, and and to Medical of & and of Chinese and The of Medical The of the People's Medical of People's of Basic Medical China Medical People's Medical China People's of of & Health of of of and China of Chinese Medical assessment group of Basic Medical China and and and expert group and of Rehabilitation Medicine, of the of the People's of Medical People's and of 2 People's People's of of Chinese of and and The of and experts in the COVID-19 in Wuhan of",
+      "venue": "Chinese Medical Journal",
+      "citation_count": 237,
+      "doi": "10.1097/cm9.0000000000000848",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1097/cm9.0000000000000848",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4281665512",
+      "title": "TrackMate 7: integrating state-of-the-art segmentation algorithms into tracking pipelines",
+      "authors": [
+        {
+          "name": "Dmitry Ershov",
+          "affiliation": "Institut Pasteur"
+        },
+        {
+          "name": "Minh-Son Phan",
+          "affiliation": "Universit\u00e9 Paris Cit\u00e9"
+        },
+        {
+          "name": "Joanna W. Pylv\u00e4n\u00e4inen",
+          "affiliation": "Turku Centre for Computer Science"
+        },
+        {
+          "name": "St\u00e9phane Rigaud",
+          "affiliation": "Universit\u00e9 Paris Cit\u00e9"
+        },
+        {
+          "name": "Laure Le Blanc",
+          "affiliation": "Universit\u00e9 Paris Cit\u00e9"
+        },
+        {
+          "name": "Arthur Charles\u2010Orszag",
+          "affiliation": "Inserm"
+        },
+        {
+          "name": "James R. W. Conway",
+          "affiliation": "\u00c5bo Akademi University"
+        },
+        {
+          "name": "Romain F. Laine",
+          "affiliation": "MRC Laboratory for Molecular Cell Biology"
+        },
+        {
+          "name": "Nathan H. Roy",
+          "affiliation": "SUNY Upstate Medical University"
+        },
+        {
+          "name": "Daria Bonazzi",
+          "affiliation": "Pathogen\u00e8se des infections vasculaires"
+        },
+        {
+          "name": "Guillaume Dum\u00e9nil",
+          "affiliation": "Inserm"
+        },
+        {
+          "name": "Guillaume Jacquemet",
+          "affiliation": "\u00c5bo Akademi University"
+        },
+        {
+          "name": "Jean-Yves Tin\u00e9vez",
+          "affiliation": "Institut Pasteur"
+        }
+      ],
+      "year": 2022,
+      "abstract": "",
+      "venue": "Nature Methods",
+      "citation_count": 1129,
+      "doi": "10.1038/s41592-022-01507-1",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41592-022-01507-1",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4206484811",
+      "title": "A Metaverse: Taxonomy, Components, Applications, and Open Challenges",
+      "authors": [
+        {
+          "name": "Sangmin Park",
+          "affiliation": "Korea University"
+        },
+        {
+          "name": "Young\u2010Gab Kim",
+          "affiliation": "Sejong University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Unlike previous studies on the Metaverse based on Second Life, the current Metaverse is based on the social value of Generation Z that online and offline selves are not different. With the technological development of deep learning-based high-precision recognition models and natural generation models, Metaverse is being strengthened with various factors, from mobile-based always-on access to connectivity with reality using virtual currency. The integration of enhanced social activities and neural-net methods requires a new definition of Metaverse suitable for the present, different from the previous Metaverse. This paper divides the concepts and essential techniques necessary for realizing the Metaverse into three components (i.e., hardware, software, and contents) and three approaches (i.e., user interaction, implementation, and application) rather than marketing or hardware approach to conduct a comprehensive analysis. Furthermore, we describe essential methods based on three components and techniques to Metaverse&#x2019;s representative Ready Player One, Roblox, and Facebook research in the domain of films, games, and studies. Finally, we summarize the limitations and directions for implementing the immersive Metaverse as social influences, constraints, and open challenges.",
+      "venue": "IEEE Access",
+      "citation_count": 1692,
+      "doi": "10.1109/access.2021.3140175",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/access.2021.3140175",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4296032638",
+      "title": "Robust deep learning\u2013based protein sequence design using ProteinMPNN",
+      "authors": [
+        {
+          "name": "Justas Dauparas",
+          "affiliation": "University of Washington"
+        },
+        {
+          "name": "Ivan Anishchenko",
+          "affiliation": "University of Washington"
+        },
+        {
+          "name": "Nathaniel R. Bennett",
+          "affiliation": "University of Washington"
+        },
+        {
+          "name": "Hua Bai",
+          "affiliation": "University of Washington"
+        },
+        {
+          "name": "Robert J. Ragotte",
+          "affiliation": "University of Washington"
+        },
+        {
+          "name": "Lukas F. Milles",
+          "affiliation": "University of Washington"
+        },
+        {
+          "name": "Basile I. M. Wicky",
+          "affiliation": "University of Washington"
+        },
+        {
+          "name": "Alexis Courbet",
+          "affiliation": "University of Washington"
+        },
+        {
+          "name": "Robbert J. de Haas",
+          "affiliation": ""
+        },
+        {
+          "name": "Neville P. Bethel",
+          "affiliation": "Howard Hughes Medical Institute"
+        },
+        {
+          "name": "Philip J. Y. Leung",
+          "affiliation": "University of Washington"
+        },
+        {
+          "name": "Timothy F. Huddy",
+          "affiliation": "University of Washington"
+        },
+        {
+          "name": "Samuel J. Pellock",
+          "affiliation": "University of Washington"
+        },
+        {
+          "name": "Doug Tischer",
+          "affiliation": "University of Washington"
+        },
+        {
+          "name": "F. Chan",
+          "affiliation": "University of Washington"
+        },
+        {
+          "name": "Brian Koepnick",
+          "affiliation": "University of Washington"
+        },
+        {
+          "name": "Hannah Nguyen",
+          "affiliation": "University of Washington"
+        },
+        {
+          "name": "Alex Kang",
+          "affiliation": "University of Washington"
+        },
+        {
+          "name": "Banumathi Sankaran",
+          "affiliation": "Lawrence Berkeley National Laboratory"
+        },
+        {
+          "name": "Asim K. Bera",
+          "affiliation": "University of Washington"
+        },
+        {
+          "name": "Neil P. King",
+          "affiliation": "University of Washington"
+        },
+        {
+          "name": "David Baker",
+          "affiliation": "Howard Hughes Medical Institute"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Although deep learning has revolutionized protein structure prediction, almost all experimentally characterized de novo protein designs have been generated using physically based approaches such as Rosetta. Here, we describe a deep learning-based protein sequence design method, ProteinMPNN, that has outstanding performance in both in silico and experimental tests. On native protein backbones, ProteinMPNN has a sequence recovery of 52.4% compared with 32.9% for Rosetta. The amino acid sequence at different positions can be coupled between single or multiple chains, enabling application to a wide range of current protein design challenges. We demonstrate the broad utility and high accuracy of ProteinMPNN using x-ray crystallography, cryo-electron microscopy, and functional studies by rescuing previously failed designs, which were made using Rosetta or AlphaFold, of protein monomers, cyclic homo-oligomers, tetrahedral nanoparticles, and target-binding proteins.",
+      "venue": "Science",
+      "citation_count": 1602,
+      "doi": "10.1126/science.add2187",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1126/science.add2187",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3176923149",
+      "title": "Text Data Augmentation for Deep Learning",
+      "authors": [
+        {
+          "name": "Connor Shorten",
+          "affiliation": "Florida Atlantic University"
+        },
+        {
+          "name": "Taghi M. Khoshgoftaar",
+          "affiliation": "Florida Atlantic University"
+        },
+        {
+          "name": "Borko Furht",
+          "affiliation": "Florida Atlantic University"
+        }
+      ],
+      "year": 2021,
+      "abstract": "",
+      "venue": "Journal Of Big Data",
+      "citation_count": 1644,
+      "doi": "10.1186/s40537-021-00492-0",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1186/s40537-021-00492-0",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4360836968",
+      "title": "Sparks of Artificial General Intelligence: Early experiments with GPT-4",
+      "authors": [
+        {
+          "name": "S\u00e9bastien Bubeck",
+          "affiliation": ""
+        },
+        {
+          "name": "Varun Chandrasekaran",
+          "affiliation": ""
+        },
+        {
+          "name": "Ronen Eldan",
+          "affiliation": ""
+        },
+        {
+          "name": "Johannes Gehrke",
+          "affiliation": ""
+        },
+        {
+          "name": "Eric Horvitz",
+          "affiliation": ""
+        },
+        {
+          "name": "Ece Kamar",
+          "affiliation": ""
+        },
+        {
+          "name": "Peter Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Yin Tat Lee",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuanzhi Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Scott Lundberg",
+          "affiliation": ""
+        },
+        {
+          "name": "Harsha Nori",
+          "affiliation": ""
+        },
+        {
+          "name": "Hamid Palangi",
+          "affiliation": ""
+        },
+        {
+          "name": "Marco T\u00falio Ribeiro",
+          "affiliation": ""
+        },
+        {
+          "name": "Yi Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Artificial intelligence (AI) researchers have been developing and refining large language models (LLMs) that exhibit remarkable capabilities across a variety of domains and tasks, challenging our understanding of learning and cognition. The latest model developed by OpenAI, GPT-4, was trained using an unprecedented scale of compute and data. In this paper, we report on our investigation of an early version of GPT-4, when it was still in active development by OpenAI. We contend that (this early version of) GPT-4 is part of a new cohort of LLMs (along with ChatGPT and Google's PaLM for example) that exhibit more general intelligence than previous AI models. We discuss the rising capabilities and implications of these models. We demonstrate that, beyond its mastery of language, GPT-4 can solve novel and difficult tasks that span mathematics, coding, vision, medicine, law, psychology and more, without needing any special prompting. Moreover, in all of these tasks, GPT-4's performance is strikingly close to human-level performance, and often vastly surpasses prior models such as ChatGPT. Given the breadth and depth of GPT-4's capabilities, we believe that it could reasonably be viewed as an early (yet still incomplete) version of an artificial general intelligence (AGI) system. In our exploration of GPT-4, we put special emphasis on discovering its limitations, and we discuss the challenges ahead for advancing towards deeper and more comprehensive versions of AGI, including the possible need for pursuing a new paradigm that moves beyond next-word prediction. We conclude with reflections on societal influences of the recent technological leap and future research directions.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 1525,
+      "doi": "10.48550/arxiv.2303.12712",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2303.12712",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3129486236",
+      "title": "Intelligent Reflecting Surface-Aided Wireless Communications: A Tutorial",
+      "authors": [
+        {
+          "name": "Qingqing Wu",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Shuowen Zhang",
+          "affiliation": "Hong Kong Polytechnic University"
+        },
+        {
+          "name": "Beixiong Zheng",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Changsheng You",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Rui Zhang",
+          "affiliation": "National University of Singapore"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Intelligent reflecting surface (IRS) is an enabling technology to engineer the radio signal propagation in wireless networks. By smartly tuning the signal reflection via a large number of low-cost passive reflecting elements, IRS is capable of dynamically altering wireless channels to enhance the communication performance. It is thus expected that the new IRS-aided hybrid wireless network comprising both active and passive components will be highly promising to achieve a sustainable capacity growth cost-effectively in the future. Despite its great potential, IRS faces new challenges to be efficiently integrated into wireless networks, such as reflection optimization, channel estimation, and deployment from communication design perspectives. In this paper, we provide a tutorial overview of IRS-aided wireless communications to address the above issues, and elaborate its reflection and channel models, hardware architecture and practical constraints, as well as various appealing applications in wireless networks. Moreover, we highlight important directions worthy of further investigation in future work.",
+      "venue": "IEEE Transactions on Communications",
+      "citation_count": 2754,
+      "doi": "10.1109/tcomm.2021.3051897",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tcomm.2021.3051897",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4293217384",
+      "title": "2022 ESC/ERS Guidelines for the diagnosis and treatment of pulmonary hypertension",
+      "authors": [
+        {
+          "name": "Marc Humbert",
+          "affiliation": "Universit\u00e9 Paris-Saclay"
+        },
+        {
+          "name": "G\u00e1bor Kov\u00e1cs",
+          "affiliation": "E\u00f6tv\u00f6s Lor\u00e1nd University"
+        },
+        {
+          "name": "Marius M. Hoeper",
+          "affiliation": "Medizinische Hochschule Hannover"
+        },
+        {
+          "name": "Roberto Badagliacca",
+          "affiliation": ""
+        },
+        {
+          "name": "Rolf M F Berger",
+          "affiliation": ""
+        },
+        {
+          "name": "Margarita Brida",
+          "affiliation": ""
+        },
+        {
+          "name": "J\u00f8rn Carlsen",
+          "affiliation": ""
+        },
+        {
+          "name": "Andrew J.S. Coats",
+          "affiliation": "University of Warwick"
+        },
+        {
+          "name": "Pilar Escribano Sub\u00edas",
+          "affiliation": ""
+        },
+        {
+          "name": "Pisana Ferrari",
+          "affiliation": ""
+        },
+        {
+          "name": "Diogenes S. Ferreira",
+          "affiliation": "Monash University"
+        },
+        {
+          "name": "Hossein Ardeschir Ghofrani",
+          "affiliation": ""
+        },
+        {
+          "name": "George Giannakoulas",
+          "affiliation": "AHEPA University Hospital"
+        },
+        {
+          "name": "David G. Kiely",
+          "affiliation": "Royal Hallamshire Hospital"
+        },
+        {
+          "name": "Eckhard Mayer",
+          "affiliation": ""
+        },
+        {
+          "name": "Gergely M\u00e9sz\u00e1ros",
+          "affiliation": ""
+        },
+        {
+          "name": "Blin Nagavci",
+          "affiliation": "University of Freiburg"
+        },
+        {
+          "name": "Karen M. Olsson",
+          "affiliation": ""
+        },
+        {
+          "name": "Joanna Pepke\u2010\u017baba",
+          "affiliation": "Papworth Hospital"
+        },
+        {
+          "name": "Jennifer K Quint",
+          "affiliation": "Imperial College London"
+        },
+        {
+          "name": "G\u00f6ran R\u00e5degran",
+          "affiliation": ""
+        },
+        {
+          "name": "G\u00e9rald Simonneau",
+          "affiliation": "Hypertension pulmonaire : physiopathologie et innovation th\u00e9rapeutique"
+        },
+        {
+          "name": "Olivier Sitbon",
+          "affiliation": "Centre Chirurgical Marie Lannelongue"
+        },
+        {
+          "name": "Thomy Tonia",
+          "affiliation": ""
+        },
+        {
+          "name": "Mark Toshner",
+          "affiliation": ""
+        },
+        {
+          "name": "Jean Luc Vachi\u00e9ry",
+          "affiliation": ""
+        },
+        {
+          "name": "Anton Vonk Noordegraaf",
+          "affiliation": ""
+        },
+        {
+          "name": "Marion Delcroix",
+          "affiliation": ""
+        },
+        {
+          "name": "Stephan Rosenkranz",
+          "affiliation": ""
+        },
+        {
+          "name": "Markus Schwerzmann",
+          "affiliation": ""
+        },
+        {
+          "name": "Anh Tuan Dinh\u2010Xuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Andrew Bush",
+          "affiliation": ""
+        },
+        {
+          "name": "Magdy Abdelhamid",
+          "affiliation": ""
+        },
+        {
+          "name": "Victor Aboyans",
+          "affiliation": ""
+        },
+        {
+          "name": "Eloisa Arbustini",
+          "affiliation": ""
+        },
+        {
+          "name": "Riccardo Asteggiano",
+          "affiliation": ""
+        },
+        {
+          "name": "Joan Albert Barber\u00e0",
+          "affiliation": ""
+        },
+        {
+          "name": "Maurice Beghetti",
+          "affiliation": ""
+        },
+        {
+          "name": "Jelena \u010celutkien\u0117",
+          "affiliation": ""
+        },
+        {
+          "name": "Maja \u010cike\u0161",
+          "affiliation": ""
+        },
+        {
+          "name": "Robin Condliffe",
+          "affiliation": ""
+        },
+        {
+          "name": "Frances S. de Man",
+          "affiliation": ""
+        },
+        {
+          "name": "Volkmar Falk",
+          "affiliation": ""
+        },
+        {
+          "name": "Laurent Fauchier",
+          "affiliation": ""
+        },
+        {
+          "name": "Se\u00e1n Gaine",
+          "affiliation": ""
+        },
+        {
+          "name": "Nazzareno Gali\u00e8",
+          "affiliation": ""
+        },
+        {
+          "name": "Wendy Gin\u2010Sing",
+          "affiliation": ""
+        },
+        {
+          "name": "John Granton",
+          "affiliation": ""
+        },
+        {
+          "name": "Ekkehard Gr\u00fcnig",
+          "affiliation": ""
+        },
+        {
+          "name": "Paul M. Hassoun",
+          "affiliation": ""
+        },
+        {
+          "name": "Merel E. Hellemons",
+          "affiliation": ""
+        },
+        {
+          "name": "Tiny Jaarsma",
+          "affiliation": ""
+        },
+        {
+          "name": "Barbro Kjellstr\u00f6m",
+          "affiliation": ""
+        },
+        {
+          "name": "Frederikus A. Klok",
+          "affiliation": ""
+        },
+        {
+          "name": "\u0410. \u041e. \u041a\u043e\u043d\u0440\u0430\u0434\u0438",
+          "affiliation": ""
+        },
+        {
+          "name": "Konstantinos C. Koskinas",
+          "affiliation": ""
+        },
+        {
+          "name": "Dipak Kotecha",
+          "affiliation": ""
+        },
+        {
+          "name": "Ir\u00e9ne Lang",
+          "affiliation": ""
+        },
+        {
+          "name": "Basil S. Lewis",
+          "affiliation": ""
+        },
+        {
+          "name": "Ale\u0161 Linhart",
+          "affiliation": ""
+        },
+        {
+          "name": "Gregory Y.H. Lip",
+          "affiliation": ""
+        },
+        {
+          "name": "Maja Lisa L\u00f8chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Alexander G. Mathioudakis",
+          "affiliation": ""
+        },
+        {
+          "name": "Richard Mindham",
+          "affiliation": ""
+        },
+        {
+          "name": "Shahin Moledina",
+          "affiliation": ""
+        },
+        {
+          "name": "Robert Naeije",
+          "affiliation": ""
+        },
+        {
+          "name": "Jens Cosedis Nielsen",
+          "affiliation": ""
+        },
+        {
+          "name": "Horst Olschewski",
+          "affiliation": ""
+        },
+        {
+          "name": "Isabelle Opitz",
+          "affiliation": ""
+        },
+        {
+          "name": "Steffen E. Petersen",
+          "affiliation": ""
+        },
+        {
+          "name": "Eva Prescott",
+          "affiliation": ""
+        },
+        {
+          "name": "Amina Rakisheva",
+          "affiliation": ""
+        },
+        {
+          "name": "Ab\u00edlio Reis",
+          "affiliation": ""
+        },
+        {
+          "name": "Arsen Risti\u0107",
+          "affiliation": ""
+        },
+        {
+          "name": "Nicol\u00e1s Roche",
+          "affiliation": ""
+        },
+        {
+          "name": "Rita Rodrigues",
+          "affiliation": ""
+        },
+        {
+          "name": "Christine Selton\u2010Suty",
+          "affiliation": ""
+        },
+        {
+          "name": "Rog\u00e9rio Souza",
+          "affiliation": ""
+        },
+        {
+          "name": "Andrew J. Swift",
+          "affiliation": "University of Warwick"
+        },
+        {
+          "name": "Rhian M. Touyz",
+          "affiliation": ""
+        },
+        {
+          "name": "Silvia Ulrich",
+          "affiliation": ""
+        },
+        {
+          "name": "Martin R. Wilkins",
+          "affiliation": ""
+        },
+        {
+          "name": "Stephen J. Wort",
+          "affiliation": ""
+        },
+        {
+          "name": "Stephen John Wort",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "All experts involved in",
+      "venue": "European Heart Journal",
+      "citation_count": 3331,
+      "doi": "10.1093/eurheartj/ehac237",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1093/eurheartj/ehac237",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4386693657",
+      "title": "Generative AI",
+      "authors": [
+        {
+          "name": "Stefan Feuerriegel",
+          "affiliation": "Munich School of Philosophy"
+        },
+        {
+          "name": "Jochen Hartmann",
+          "affiliation": "Technical University of Munich"
+        },
+        {
+          "name": "Christian Janiesch",
+          "affiliation": "TU Dortmund University"
+        },
+        {
+          "name": "Patrick Zschech",
+          "affiliation": "Friedrich-Alexander-Universit\u00e4t Erlangen-N\u00fcrnberg"
+        }
+      ],
+      "year": 2023,
+      "abstract": "The term \"generative AI\" refers to computational techniques that are capable\\nof generating seemingly new, meaningful content such as text, images, or audio\\nfrom training data. The widespread diffusion of this technology with examples\\nsuch as Dall-E 2, GPT-4, and Copilot is currently revolutionizing the way we\\nwork and communicate with each other. In this article, we provide a\\nconceptualization of generative AI as an entity in socio-technical systems and\\nprovide examples of models, systems, and applications. Based on that, we\\nintroduce limitations of current generative AI and provide an agenda for\\nBusiness &amp; Information Systems Engineering (BISE) research. Different from\\nprevious works, we focus on generative AI in the context of information\\nsystems, and, to this end, we discuss several opportunities and challenges that\\nare unique to the BISE community and make suggestions for impactful directions\\nfor BISE research.\\n",
+      "venue": "Business & Information Systems Engineering",
+      "citation_count": 989,
+      "doi": "10.1007/s12599-023-00834-7",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s12599-023-00834-7",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3040838455",
+      "title": "Event-Based Vision: A Survey",
+      "authors": [
+        {
+          "name": "Guillermo Gallego",
+          "affiliation": "Einstein Center Digital Future"
+        },
+        {
+          "name": "Tobi Delbruck",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Garrick Orchard",
+          "affiliation": "Intel (United States)"
+        },
+        {
+          "name": "Chiara Bartolozzi",
+          "affiliation": "Italian Institute of Technology"
+        },
+        {
+          "name": "Brian Taba",
+          "affiliation": "IBM (United States)"
+        },
+        {
+          "name": "Andrea Censi",
+          "affiliation": "ETH Zurich"
+        },
+        {
+          "name": "Stefan Leutenegger",
+          "affiliation": "Imperial College London"
+        },
+        {
+          "name": "Andrew J. Davison",
+          "affiliation": "Imperial College London"
+        },
+        {
+          "name": "Jorg Conradt",
+          "affiliation": "KTH Royal Institute of Technology"
+        },
+        {
+          "name": "Kostas Daniilidis",
+          "affiliation": "University of Pennsylvania"
+        },
+        {
+          "name": "Davide Scaramuzza",
+          "affiliation": "University of Zurich"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Event cameras are bio-inspired sensors that differ from conventional frame cameras: Instead of capturing images at a fixed rate, they asynchronously measure per-pixel brightness changes, and output a stream of events that encode the time, location and sign of the brightness changes. Event cameras offer attractive properties compared to traditional cameras: high temporal resolution (in the order of \u03bcs), very high dynamic range (140 dB versus 60 dB), low power consumption, and high pixel bandwidth (on the order of kHz) resulting in reduced motion blur. Hence, event cameras have a large potential for robotics and computer vision in challenging scenarios for traditional cameras, such as low-latency, high speed, and high dynamic range. However, novel methods are required to process the unconventional output of these sensors in order to unlock their potential. This paper provides a comprehensive overview of the emerging field of event-based vision, with a focus on the applications and the algorithms developed to unlock the outstanding properties of event cameras. We present event cameras from their working principle, the actual sensors that are available and the tasks that they have been used for, from low-level vision (feature detection and tracking, optic flow, etc.) to high-level vision (reconstruction, segmentation, recognition). We also discuss the techniques developed to process events, including learning-based techniques, as well as specialized processors for these novel sensors, such as spiking neural networks. Additionally, we highlight the challenges that remain to be tackled and the opportunities that lie ahead in the search for a more efficient, bio-inspired way for machines to perceive and interact with the world.",
+      "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+      "citation_count": 1870,
+      "doi": "10.1109/tpami.2020.3008413",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tpami.2020.3008413",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4388615774",
+      "title": "DrugBank 6.0: the DrugBank Knowledgebase for 2024",
+      "authors": [
+        {
+          "name": "Craig Knox",
+          "affiliation": ""
+        },
+        {
+          "name": "Michael Wilson",
+          "affiliation": ""
+        },
+        {
+          "name": "Christen M. Klinger",
+          "affiliation": ""
+        },
+        {
+          "name": "Mark Franklin",
+          "affiliation": ""
+        },
+        {
+          "name": "Eponine Oler",
+          "affiliation": "University of Alberta"
+        },
+        {
+          "name": "Alexander E. Wilson",
+          "affiliation": ""
+        },
+        {
+          "name": "Allison Pon",
+          "affiliation": ""
+        },
+        {
+          "name": "Jordan J. Cox",
+          "affiliation": ""
+        },
+        {
+          "name": "Na Eun Chin",
+          "affiliation": ""
+        },
+        {
+          "name": "Seth A Strawbridge",
+          "affiliation": ""
+        },
+        {
+          "name": "Marysol Garc\u00eda-Pati\u00f1o",
+          "affiliation": ""
+        },
+        {
+          "name": "Ray Kruger",
+          "affiliation": "University of Alberta"
+        },
+        {
+          "name": "Aadhavya Sivakumaran",
+          "affiliation": "University of Alberta"
+        },
+        {
+          "name": "Selena Sanford",
+          "affiliation": "University of Alberta"
+        },
+        {
+          "name": "Rahil Doshi",
+          "affiliation": "University of Alberta"
+        },
+        {
+          "name": "Nitya Khetarpal",
+          "affiliation": "University of Alberta"
+        },
+        {
+          "name": "Omolola Fatokun",
+          "affiliation": "University of Alberta"
+        },
+        {
+          "name": "Daphnee Doucet",
+          "affiliation": "University of Alberta"
+        },
+        {
+          "name": "Ashley Zubkowski",
+          "affiliation": "University of Alberta"
+        },
+        {
+          "name": "Dorsa Yahya Rayat",
+          "affiliation": "University of Alberta"
+        },
+        {
+          "name": "Hayley Jackson",
+          "affiliation": "University of Alberta"
+        },
+        {
+          "name": "Karxena Harford",
+          "affiliation": "University of Alberta"
+        },
+        {
+          "name": "Afia Anjum",
+          "affiliation": "University of Alberta"
+        },
+        {
+          "name": "Mahi Zakir",
+          "affiliation": "University of Alberta"
+        },
+        {
+          "name": "Fei Wang",
+          "affiliation": "University of Alberta"
+        },
+        {
+          "name": "Siyang Tian",
+          "affiliation": "University of Alberta"
+        },
+        {
+          "name": "Brian Lee",
+          "affiliation": "University of Alberta"
+        },
+        {
+          "name": "Jaanus Liigand",
+          "affiliation": "University of Alberta"
+        },
+        {
+          "name": "Harrison Peters",
+          "affiliation": "University of Alberta"
+        },
+        {
+          "name": "Ruo Qi Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Tue Nguyen",
+          "affiliation": ""
+        },
+        {
+          "name": "Denise So",
+          "affiliation": ""
+        },
+        {
+          "name": "Matthew Sharp",
+          "affiliation": ""
+        },
+        {
+          "name": "Rodolfo da Silva",
+          "affiliation": ""
+        },
+        {
+          "name": "C. Gabriel",
+          "affiliation": ""
+        },
+        {
+          "name": "J.D. Scantlebury",
+          "affiliation": ""
+        },
+        {
+          "name": "Marissa Jasinski",
+          "affiliation": ""
+        },
+        {
+          "name": "David S. Ackerman",
+          "affiliation": ""
+        },
+        {
+          "name": "Timothy Jewison",
+          "affiliation": ""
+        },
+        {
+          "name": "Tanvir Sajed",
+          "affiliation": "University of Alberta"
+        },
+        {
+          "name": "Vasuk Gautam",
+          "affiliation": "University of Alberta"
+        },
+        {
+          "name": "David S. Wishart",
+          "affiliation": "University of Alberta"
+        }
+      ],
+      "year": 2023,
+      "abstract": "First released in 2006, DrugBank (https://go.drugbank.com) has grown to become the 'gold standard' knowledge resource for drug, drug-target and related pharmaceutical information. DrugBank is widely used across many diverse biomedical research and clinical applications, and averages more than 30 million views/year. Since its last update in 2018, we have been actively enhancing the quantity and quality of the drug data in this knowledgebase. In this latest release (DrugBank 6.0), the number of FDA approved drugs has grown from 2646 to 4563 (a 72% increase), the number of investigational drugs has grown from 3394 to 6231 (a 38% increase), the number of drug-drug interactions increased from 365 984 to 1 413 413 (a 300% increase), and the number of drug-food interactions expanded from 1195 to 2475 (a 200% increase). In addition to this notable expansion in database size, we have added thousands of new, colorful, richly annotated pathways depicting drug mechanisms and drug metabolism. Likewise, existing datasets have been significantly improved and expanded, by adding more information on drug indications, drug-drug interactions, drug-food interactions and many other relevant data types for 11 891 drugs. We have also added experimental and predicted MS/MS spectra, 1D/2D-NMR spectra, CCS (collision cross section), RT (retention time) and RI (retention index) data for 9464 of DrugBank's 11 710 small molecule drugs. These and other improvements should make DrugBank 6.0 even more useful to a much wider research audience ranging from medicinal chemists to metabolomics specialists to pharmacologists.",
+      "venue": "Nucleic Acids Research",
+      "citation_count": 1314,
+      "doi": "10.1093/nar/gkad976",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1093/nar/gkad976",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4288039037",
+      "title": "Scientific Machine Learning Through Physics\u2013Informed Neural Networks: Where we are and What\u2019s Next",
+      "authors": [
+        {
+          "name": "Salvatore Cuomo",
+          "affiliation": "University of Naples Federico II"
+        },
+        {
+          "name": "Vincenzo Schiano Di Cola",
+          "affiliation": "University of Naples Federico II"
+        },
+        {
+          "name": "Fabio Giampaolo",
+          "affiliation": "University of Naples Federico II"
+        },
+        {
+          "name": "Gianluigi Rozza",
+          "affiliation": "Scuola Internazionale Superiore di Studi Avanzati"
+        },
+        {
+          "name": "Maziar Raissi",
+          "affiliation": "University of Colorado Boulder"
+        },
+        {
+          "name": "Francesco Piccialli",
+          "affiliation": "University of Naples Federico II"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Abstract Physics-Informed Neural Networks (PINN) are neural networks (NNs) that encode model equations, like Partial Differential Equations (PDE), as a component of the neural network itself. PINNs are nowadays used to solve PDEs, fractional equations, integral-differential equations, and stochastic PDEs. This novel methodology has arisen as a multi-task learning framework in which a NN must fit observed data while reducing a PDE residual. This article provides a comprehensive review of the literature on PINNs: while the primary goal of the study was to characterize these networks and their related advantages and disadvantages. The review also attempts to incorporate publications on a broader range of collocation-based physics informed neural networks, which stars form the vanilla PINN, as well as many other variants, such as physics-constrained neural networks (PCNN), variational hp-VPINN, and conservative PINN (CPINN). The study indicates that most research has focused on customizing the PINN through different activation functions, gradient optimization techniques, neural network structures, and loss function structures. Despite the wide range of applications for which PINNs have been used, by demonstrating their ability to be more feasible in some contexts than classical numerical techniques like Finite Element Method (FEM), advancements are still possible, most notably theoretical issues that remain unresolved.",
+      "venue": "Journal of Scientific Computing",
+      "citation_count": 1989,
+      "doi": "10.1007/s10915-022-01939-z",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s10915-022-01939-z",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3093053585",
+      "title": "The <scp>BioGRID</scp> database: A comprehensive biomedical resource of curated protein, genetic, and chemical interactions",
+      "authors": [
+        {
+          "name": "Rose Oughtred",
+          "affiliation": "Princeton University"
+        },
+        {
+          "name": "Jennifer Rust",
+          "affiliation": "Princeton University"
+        },
+        {
+          "name": "Christie Chang",
+          "affiliation": "Princeton University"
+        },
+        {
+          "name": "Bobby\u2010Joe Breitkreutz",
+          "affiliation": "Mount Sinai Hospital"
+        },
+        {
+          "name": "Chris Stark",
+          "affiliation": "Lunenfeld-Tanenbaum Research Institute"
+        },
+        {
+          "name": "Andrew Willems",
+          "affiliation": "Mount Sinai Hospital"
+        },
+        {
+          "name": "Lorrie Boucher",
+          "affiliation": "Lunenfeld-Tanenbaum Research Institute"
+        },
+        {
+          "name": "Genie Leung",
+          "affiliation": "Mount Sinai Hospital"
+        },
+        {
+          "name": "Nadine K. Kolas",
+          "affiliation": "Lunenfeld-Tanenbaum Research Institute"
+        },
+        {
+          "name": "Frederick Zhang",
+          "affiliation": "Brain Tumour Research"
+        },
+        {
+          "name": "Sonam Dolma",
+          "affiliation": "Brain Tumour Research"
+        },
+        {
+          "name": "Jasmin Coulombe\u2010Huntington",
+          "affiliation": "Institute for Research in Immunology and Cancer"
+        },
+        {
+          "name": "Andrew Chatr\u2010aryamontri",
+          "affiliation": "Institute for Research in Immunology and Cancer"
+        },
+        {
+          "name": "Kara Dolinski",
+          "affiliation": "Princeton University"
+        },
+        {
+          "name": "Mike Tyers",
+          "affiliation": "Institute for Research in Immunology and Cancer"
+        }
+      ],
+      "year": 2020,
+      "abstract": "The BioGRID (Biological General Repository for Interaction Datasets, thebiogrid.org) is an open-access database resource that houses manually curated protein and genetic interactions from multiple species including yeast, worm, fly, mouse, and human. The ~1.93 million curated interactions in BioGRID can be used to build complex networks to facilitate biomedical discoveries, particularly as related to human health and disease. All BioGRID content is curated from primary experimental evidence in the biomedical literature, and includes both focused low-throughput studies and large high-throughput datasets. BioGRID also captures protein post-translational modifications and protein or gene interactions with bioactive small molecules including many known drugs. A built-in network visualization tool combines all annotations and allows users to generate network graphs of protein, genetic and chemical interactions. In addition to general curation across species, BioGRID undertakes themed curation projects in specific aspects of cellular regulation, for example the ubiquitin-proteasome system, as well as specific disease areas, such as for the SARS-CoV-2 virus that causes COVID-19 severe acute respiratory syndrome. A recent extension of BioGRID, named the Open Repository of CRISPR Screens (ORCS, orcs.thebiogrid.org), captures single mutant phenotypes and genetic interactions from published high throughput genome-wide CRISPR/Cas9-based genetic screens. BioGRID-ORCS contains datasets for over 1,042 CRISPR screens carried out to date in human, mouse and fly cell lines. The biomedical research community can freely access all BioGRID data through the web interface, standardized file downloads, or via model organism databases and partner meta-databases.",
+      "venue": "Protein Science",
+      "citation_count": 1834,
+      "doi": "10.1002/pro.3978",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1002/pro.3978",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3003667836",
+      "title": "Digital Twin: Values, Challenges and Enablers From a Modeling Perspective",
+      "authors": [
+        {
+          "name": "Adil Rasheed",
+          "affiliation": "Norwegian University of Science and Technology"
+        },
+        {
+          "name": "Omer San",
+          "affiliation": "Oklahoma State University"
+        },
+        {
+          "name": "Trond Kvamsdal",
+          "affiliation": "SINTEF Digital"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Digital twin can be defined as a virtual representation of a physical asset enabled through data and simulators for real-time prediction, optimization, monitoring, controlling, and improved decision making. Recent advances in computational pipelines, multiphysics solvers, artificial intelligence, big data cybernetics, data processing and management tools bring the promise of digital twins and their impact on society closer to reality. Digital twinning is now an important and emerging trend in many applications. Also referred to as a computational megamodel, device shadow, mirrored system, avatar or a synchronized virtual prototype, there can be no doubt that a digital twin plays a transformative role not only in how we design and operate cyber-physical intelligent systems, but also in how we advance the modularity of multi-disciplinary systems to tackle fundamental barriers not addressed by the current, evolutionary modeling practices. In this work, we review the recent status of methodologies and techniques related to the construction of digital twins mostly from a modeling perspective. Our aim is to provide a detailed coverage of the current challenges and enabling technologies along with recommendations and reflections for various stakeholders.",
+      "venue": "IEEE Access",
+      "citation_count": 1581,
+      "doi": "10.1109/access.2020.2970143",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/access.2020.2970143",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4322576964",
+      "title": "On the Road to 6G: Visions, Requirements, Key Technologies, and Testbeds",
+      "authors": [
+        {
+          "name": "Cheng\u2010Xiang Wang",
+          "affiliation": "Southeast University"
+        },
+        {
+          "name": "Xiaohu You",
+          "affiliation": "Southeast University"
+        },
+        {
+          "name": "Xiqi Gao",
+          "affiliation": "Purple Mountain Laboratories"
+        },
+        {
+          "name": "Xiuming Zhu",
+          "affiliation": "Purple Mountain Laboratories"
+        },
+        {
+          "name": "Zixin Li",
+          "affiliation": "Southeast University"
+        },
+        {
+          "name": "Chuan Zhang",
+          "affiliation": "Southeast University"
+        },
+        {
+          "name": "Haiming Wang",
+          "affiliation": "Purple Mountain Laboratories"
+        },
+        {
+          "name": "Yongming Huang",
+          "affiliation": "Southeast University"
+        },
+        {
+          "name": "Yunfei Chen",
+          "affiliation": "Durham University"
+        },
+        {
+          "name": "Harald Haas",
+          "affiliation": "University of Strathclyde"
+        },
+        {
+          "name": "John Thompson",
+          "affiliation": "University of Edinburgh"
+        },
+        {
+          "name": "Erik G. Larsson",
+          "affiliation": "Link\u00f6ping University"
+        },
+        {
+          "name": "Marco Di Renzo",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Wen Tong",
+          "affiliation": "Huawei Technologies (Canada)"
+        },
+        {
+          "name": "Peiying Zhu",
+          "affiliation": "Huawei Technologies (Canada)"
+        },
+        {
+          "name": "Xuemin Shen",
+          "affiliation": "University of Waterloo"
+        },
+        {
+          "name": "H. Vincent Poor",
+          "affiliation": "Princeton University"
+        },
+        {
+          "name": "Lajos Hanzo",
+          "affiliation": "University of Southampton"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Fifth generation (5G) mobile communication systems have entered the stage of commercial deployment, providing users with new services, improved user experiences as well as a host of novel opportunities to various industries. However, 5G still faces many challenges. To address these challenges, international industrial, academic, and standards organizations have commenced research on sixth generation (6G) wireless communication systems. A series of white papers and survey papers have been published, which aim to define 6G in terms of requirements, application scenarios, key technologies, etc. Although ITU-R has been working on the 6G vision and it is expected to reach a consensus on what 6G will be by mid-2023, the related global discussions are still wide open and the existing literature has identified numerous open issues. This paper first provides a comprehensive portrayal of the 6G vision, technical requirements, and application scenarios, covering the current common understanding of 6G. Then, a critical appraisal of the 6G network architecture and key technologies is presented. Furthermore, existing testbeds and advanced 6G verification platforms are detailed for the first time. In addition, future research directions and open challenges are identified to stimulate the on-going global debate. Finally, lessons learned to date concerning 6G networks are discussed.",
+      "venue": "IEEE Communications Surveys & Tutorials",
+      "citation_count": 1798,
+      "doi": "10.1109/comst.2023.3249835",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/comst.2023.3249835",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4323653529",
+      "title": "Technology Roadmap for Flexible Sensors",
+      "authors": [
+        {
+          "name": "Yifei Luo",
+          "affiliation": "Agency for Science, Technology and Research"
+        },
+        {
+          "name": "Mohammad Reza Abidian",
+          "affiliation": "University of Houston"
+        },
+        {
+          "name": "Jong\u2010Hyun Ahn",
+          "affiliation": "Yonsei University"
+        },
+        {
+          "name": "Deji Akinwande",
+          "affiliation": "The University of Texas at Austin"
+        },
+        {
+          "name": "Anne M. Andrews",
+          "affiliation": "University of California, Los Angeles"
+        },
+        {
+          "name": "Markus Antonietti",
+          "affiliation": "Max Planck Institute of Colloids and Interfaces"
+        },
+        {
+          "name": "Zhenan Bao",
+          "affiliation": "Stanford University"
+        },
+        {
+          "name": "Magnus Berggren",
+          "affiliation": "Department of Science and Technology"
+        },
+        {
+          "name": "Christopher A. Berkey",
+          "affiliation": "Stanford University"
+        },
+        {
+          "name": "Christopher J. Bettinger",
+          "affiliation": "Carnegie Mellon University"
+        },
+        {
+          "name": "Jun Chen",
+          "affiliation": "University of California, Los Angeles"
+        },
+        {
+          "name": "Peng Chen",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Wenlong Cheng",
+          "affiliation": "Monash Institute of Medical Research"
+        },
+        {
+          "name": "Xu Cheng",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Seon\u2010Jin Choi",
+          "affiliation": "Hanyang University"
+        },
+        {
+          "name": "Alex Chortos",
+          "affiliation": "Purdue University West Lafayette"
+        },
+        {
+          "name": "Canan Da\u011fdeviren",
+          "affiliation": "Massachusetts Institute of Technology"
+        },
+        {
+          "name": "Reinhold H. Dauskardt",
+          "affiliation": "Stanford University"
+        },
+        {
+          "name": "Chong\u2010an Di",
+          "affiliation": "Chinese Academy of Sciences"
+        },
+        {
+          "name": "Michael D. Dickey",
+          "affiliation": "North Carolina State University"
+        },
+        {
+          "name": "Xiangfeng Duan",
+          "affiliation": "California NanoSystems Institute"
+        },
+        {
+          "name": "Antonio Facchetti",
+          "affiliation": "Northwestern University"
+        },
+        {
+          "name": "Zhiyong Fan",
+          "affiliation": "Hong Kong University of Science and Technology"
+        },
+        {
+          "name": "Yin Fang",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Jianyou Feng",
+          "affiliation": "Fudan University"
+        },
+        {
+          "name": "Xue Feng",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Huajian Gao",
+          "affiliation": "Institute of High Performance Computing"
+        },
+        {
+          "name": "Wei Gao",
+          "affiliation": "California Institute of Technology"
+        },
+        {
+          "name": "Xiwen Gong",
+          "affiliation": "University of Michigan"
+        },
+        {
+          "name": "Chuan Fei Guo",
+          "affiliation": "Southern University of Science and Technology"
+        },
+        {
+          "name": "Xiaojun Guo",
+          "affiliation": "Shanghai Jiao Tong University"
+        },
+        {
+          "name": "Martin C. Hartel",
+          "affiliation": "University of California, Los Angeles"
+        },
+        {
+          "name": "Zihan He",
+          "affiliation": "Institute of Chemistry"
+        },
+        {
+          "name": "John S. Ho",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Youfan Hu",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Qiyao Huang",
+          "affiliation": "Hong Kong Polytechnic University"
+        },
+        {
+          "name": "Yu Huang",
+          "affiliation": "University of California, Los Angeles"
+        },
+        {
+          "name": "Fengwei Huo",
+          "affiliation": "Nanjing Tech University"
+        },
+        {
+          "name": "Muhammad M. Hussain",
+          "affiliation": "Purdue University West Lafayette"
+        },
+        {
+          "name": "Ali Javey",
+          "affiliation": "Lawrence Berkeley National Laboratory"
+        },
+        {
+          "name": "Unyong Jeong",
+          "affiliation": "Pohang University of Science and Technology"
+        },
+        {
+          "name": "Chen Jiang",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Xingyu Jiang",
+          "affiliation": "Southern University of Science and Technology"
+        },
+        {
+          "name": "Jiheong Kang",
+          "affiliation": "Korea Advanced Institute of Science and Technology"
+        },
+        {
+          "name": "Daniil Karnaushenko",
+          "affiliation": "Chemnitz University of Technology"
+        },
+        {
+          "name": "Ali Khademhosseini",
+          "affiliation": "Terasaki Foundation"
+        },
+        {
+          "name": "Dae\u2010Hyeong Kim",
+          "affiliation": "Seoul National University"
+        },
+        {
+          "name": "Il\u2010Doo Kim",
+          "affiliation": "Korea Advanced Institute of Science and Technology"
+        },
+        {
+          "name": "Dmitry Kireev",
+          "affiliation": "The University of Texas at Austin"
+        },
+        {
+          "name": "Lingxuan Kong",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Chengkuo Lee",
+          "affiliation": "Suzhou Research Institute"
+        },
+        {
+          "name": "Nae\u2010Eung Lee",
+          "affiliation": "Sungkyunkwan University"
+        },
+        {
+          "name": "Pooi See Lee",
+          "affiliation": "Nanyang Technological University"
+        },
+        {
+          "name": "Tae\u2010Woo Lee",
+          "affiliation": "Seoul National University"
+        },
+        {
+          "name": "Fengyu Li",
+          "affiliation": "Jinan University"
+        },
+        {
+          "name": "Jinxing Li",
+          "affiliation": "Michigan State University"
+        },
+        {
+          "name": "Cuiyuan Liang",
+          "affiliation": "Harbin Institute of Technology"
+        },
+        {
+          "name": "Chwee Teck Lim",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Yuanjing Lin",
+          "affiliation": "Southern University of Science and Technology"
+        },
+        {
+          "name": "Darren J. Lipomi",
+          "affiliation": "University of California San Diego"
+        },
+        {
+          "name": "Jia Liu",
+          "affiliation": "Harvard University"
+        },
+        {
+          "name": "Kai Liu",
+          "affiliation": "Shanghai Jiao Tong University"
+        },
+        {
+          "name": "Nan Liu",
+          "affiliation": "Beijing Normal University"
+        },
+        {
+          "name": "Ren Liu",
+          "affiliation": "Harvard University"
+        },
+        {
+          "name": "Yuxin Liu",
+          "affiliation": "Agency for Science, Technology and Research"
+        },
+        {
+          "name": "Yuxuan Liu",
+          "affiliation": "Agency for Science, Technology and Research"
+        },
+        {
+          "name": "Zhiyuan Liu",
+          "affiliation": "Shenzhen Institutes of Advanced Technology"
+        },
+        {
+          "name": "Zhuangjian Liu",
+          "affiliation": "Shenzhen Institutes of Advanced Technology"
+        },
+        {
+          "name": "Xian Jun Loh",
+          "affiliation": "Agency for Science, Technology and Research"
+        },
+        {
+          "name": "Nanshu Lu",
+          "affiliation": "The University of Texas at Austin"
+        },
+        {
+          "name": "Zhisheng Lv",
+          "affiliation": "Institute of Materials Research and Engineering"
+        },
+        {
+          "name": "Shlomo Magdassi",
+          "affiliation": "Hebrew University of Jerusalem"
+        },
+        {
+          "name": "George G. Malliaras",
+          "affiliation": "University of Cambridge"
+        },
+        {
+          "name": "Naoji Matsuhisa",
+          "affiliation": "The University of Tokyo"
+        },
+        {
+          "name": "Arokia Nathan",
+          "affiliation": "Ida Darwin hospital"
+        },
+        {
+          "name": "Simiao Niu",
+          "affiliation": "Rutgers, The State University of New Jersey"
+        },
+        {
+          "name": "Jieming Pan",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Changhyun Pang",
+          "affiliation": "Sungkyunkwan University"
+        },
+        {
+          "name": "Qibing Pei",
+          "affiliation": "University of California, Los Angeles"
+        },
+        {
+          "name": "Huisheng Peng",
+          "affiliation": "Fudan University"
+        },
+        {
+          "name": "Dianpeng Qi",
+          "affiliation": "Harbin Institute of Technology"
+        },
+        {
+          "name": "Huaying Ren",
+          "affiliation": "University of California, Los Angeles"
+        },
+        {
+          "name": "John A. Rogers",
+          "affiliation": "Neurological Surgery"
+        },
+        {
+          "name": "Aaron Rowe",
+          "affiliation": "Becton Dickinson (United States)"
+        },
+        {
+          "name": "Oliver G. Schmidt",
+          "affiliation": "Chemnitz University of Technology"
+        },
+        {
+          "name": "Tsuyoshi Sekitani",
+          "affiliation": "Osaka Research Institute of Industrial Science and Technology"
+        },
+        {
+          "name": "Dae\u2010Gyo Seo",
+          "affiliation": "Seoul National University"
+        },
+        {
+          "name": "Guozhen Shen",
+          "affiliation": "Beijing Institute of Technology"
+        },
+        {
+          "name": "Xing Sheng",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Qiongfeng Shi",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Takao Someya",
+          "affiliation": "The University of Tokyo"
+        },
+        {
+          "name": "Yanlin Song",
+          "affiliation": "Institute of Chemistry"
+        },
+        {
+          "name": "Eleni Stavrinidou",
+          "affiliation": "Link\u00f6ping University"
+        },
+        {
+          "name": "Meng Su",
+          "affiliation": "Chinese Academy of Sciences"
+        },
+        {
+          "name": "Xuemei Sun",
+          "affiliation": "Fudan University"
+        },
+        {
+          "name": "Kuniharu Takei",
+          "affiliation": "Osaka Metropolitan University"
+        },
+        {
+          "name": "Xiaoming Tao",
+          "affiliation": "Hong Kong Polytechnic University"
+        },
+        {
+          "name": "Benjamin C. K. Tee",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Aaron Thean",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Tran Quang Trung",
+          "affiliation": "Sungkyunkwan University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Humans rely increasingly on sensors to address grand challenges and to improve quality of life in the era of digitalization and big data. For ubiquitous sensing, flexible sensors are developed to overcome the limitations of conventional rigid counterparts. Despite rapid advancement in bench-side research over the last decade, the market adoption of flexible sensors remains limited. To ease and to expedite their deployment, here, we identify bottlenecks hindering the maturation of flexible sensors and propose promising solutions. We first analyze challenges in achieving satisfactory sensing performance for real-world applications and then summarize issues in compatible sensor-biology interfaces, followed by brief discussions on powering and connecting sensor networks. Issues en route to commercialization and for sustainable growth of the sector are also analyzed, highlighting environmental concerns and emphasizing nontechnical issues such as business, regulatory, and ethical considerations. Additionally, we look at future intelligent flexible sensors. In proposing a comprehensive roadmap, we hope to steer research efforts towards common goals and to guide coordinated development strategies from disparate communities. Through such collaborative efforts, scientific breakthroughs can be made sooner and capitalized for the betterment of humanity.",
+      "venue": "ACS Nano",
+      "citation_count": 1145,
+      "doi": "10.1021/acsnano.2c12606",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1021/acsnano.2c12606",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3027308092",
+      "title": "CP2K: An electronic structure and molecular dynamics software package - Quickstep: Efficient and accurate electronic structure calculations",
+      "authors": [
+        {
+          "name": "Thomas D. K\u00fchne",
+          "affiliation": "Paderborn University"
+        },
+        {
+          "name": "Marcella Iannuzzi",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Mauro Del Ben",
+          "affiliation": "Lawrence Berkeley National Laboratory"
+        },
+        {
+          "name": "Vladimir V. Rybkin",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Patrick Seewald",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Frederick Stein",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Teodoro Laino",
+          "affiliation": "IBM Research - Zurich"
+        },
+        {
+          "name": "Rustam Z. Khaliullin",
+          "affiliation": "McGill University"
+        },
+        {
+          "name": "Ole Sch\u00fctt",
+          "affiliation": "ETH Zurich"
+        },
+        {
+          "name": "Florian Schiffmann",
+          "affiliation": "Victoria University"
+        },
+        {
+          "name": "Dorothea Golze",
+          "affiliation": "Aalto University"
+        },
+        {
+          "name": "Jan Wilhelm",
+          "affiliation": "University of Regensburg"
+        },
+        {
+          "name": "Sergey K. Chulkov",
+          "affiliation": "University of Lincoln"
+        },
+        {
+          "name": "Mohammad Hossein Bani-Hashemian",
+          "affiliation": "ETH Zurich"
+        },
+        {
+          "name": "Val\u00e9ry Weber",
+          "affiliation": "IBM Research - Zurich"
+        },
+        {
+          "name": "Urban Bor\u0161tnik",
+          "affiliation": "ETH Zurich"
+        },
+        {
+          "name": "Mathieu Taillefumier",
+          "affiliation": "CSCS - Swiss National Supercomputing Centre"
+        },
+        {
+          "name": "Alice Shoshana Jakobovits",
+          "affiliation": "ETH Zurich"
+        },
+        {
+          "name": "Alfio Lazzaro",
+          "affiliation": ""
+        },
+        {
+          "name": "Hans Pabst",
+          "affiliation": ""
+        },
+        {
+          "name": "Tiziano M\u00fcller",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Robert R. Schade",
+          "affiliation": "Paderborn University"
+        },
+        {
+          "name": "Manuel Guidon",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Samuel Andermatt",
+          "affiliation": "ETH Zurich"
+        },
+        {
+          "name": "Nico Holmberg",
+          "affiliation": "Aalto University"
+        },
+        {
+          "name": "Gregory K. Schenter",
+          "affiliation": "Pacific Northwest National Laboratory"
+        },
+        {
+          "name": "Anna Hehn",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Augustin Bussy",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Fabian Belleflamme",
+          "affiliation": "University of Zurich"
+        },
+        {
+          "name": "Gloria Tabacchi",
+          "affiliation": "National Interuniversity Consortium of Materials Science and Technology"
+        },
+        {
+          "name": "Andreas Gl\u00f6\u00df",
+          "affiliation": "BASF (Germany)"
+        },
+        {
+          "name": "Michael Lass",
+          "affiliation": "Paderborn University"
+        },
+        {
+          "name": "Iain Bethune",
+          "affiliation": "Science and Technology Facilities Council"
+        },
+        {
+          "name": "Christopher J. Mundy",
+          "affiliation": "Pacific Northwest National Laboratory"
+        },
+        {
+          "name": "Christian Plessl",
+          "affiliation": "Paderborn University"
+        },
+        {
+          "name": "Matthew B. Watkins",
+          "affiliation": "University of Lincoln"
+        },
+        {
+          "name": "Joost VandeVondele",
+          "affiliation": "CSCS - Swiss National Supercomputing Centre"
+        },
+        {
+          "name": "Matthias Krack",
+          "affiliation": "Paul Scherrer Institute"
+        },
+        {
+          "name": "J\u00fcrg Hutter",
+          "affiliation": "University of Zurich"
+        }
+      ],
+      "year": 2020,
+      "abstract": "CP2K is an open source electronic structure and molecular dynamics software package to perform atomistic simulations of solid-state, liquid, molecular, and biological systems. It is especially aimed at massively parallel and linear-scaling electronic structure methods and state-of-the-art ab initio molecular dynamics simulations. Excellent performance for electronic structure calculations is achieved using novel algorithms implemented for modern high-performance computing systems. This review revisits the main capabilities of CP2K to perform efficient and accurate electronic structure simulations. The emphasis is put on density functional theory and multiple post-Hartree-Fock methods using the Gaussian and plane wave approach and its augmented all-electron extension.",
+      "venue": "The Journal of Chemical Physics",
+      "citation_count": 3774,
+      "doi": "10.1063/5.0007045",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1063/5.0007045",
+      "source": "openalex",
+      "_bibtex_override": ""
+    }
+  ]
+}

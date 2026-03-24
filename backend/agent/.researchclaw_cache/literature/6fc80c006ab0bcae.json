@@ -1,0 +1,393 @@
+{
+  "query": "final synthesized hypotheses integrating strongest",
+  "source": "arxiv",
+  "limit": 15,
+  "timestamp": 1773985774.2142015,
+  "papers": [
+    {
+      "paper_id": "arxiv-2408.12539",
+      "title": "LOUD: Synthesizing Strongest and Weakest Specifications",
+      "authors": [
+        {
+          "name": "Kanghee Park",
+          "affiliation": ""
+        },
+        {
+          "name": "Xuanyu Peng",
+          "affiliation": ""
+        },
+        {
+          "name": "Loris D'Antoni",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "This paper tackles the problem of synthesizing specifications for nondeterministic programs. For such programs, useful specifications can capture demonic properties, which hold for every nondeterministic execution, but also angelic properties, which hold for some nondeterministic execution. We build on top of a recently proposed a framework by Park et al. in which given (i) a quantifier-free query posed about a set of function definitions (i.e., the behavior for which we want to generate a specification), and (ii) a language L in which each extracted property is to be expressed (we call properties in the language L-properties), the goal is to synthesize a conjunction of L-properties such that each of the conjunct is a strongest L-consequence for the query: each property is an over-approximation of the query and there is no other L-property that over-approximates the query and is strictly more precise than each property. This framework does not apply to nondeterministic programs for two reasons: it does not support existential quantifiers in queries (which are necessary to expressing nondeterminism) and it can only compute L-consequences, i.e., it is unsuitable for capturing both angelic and demonic properties.\n  This paper addresses these two limitations and presents a framework, LOUD, for synthesizing both strongest L-consequences and weakest L-implicants (i.e., under-approximations of the query) for queries that can involve existential quantifiers. We implement a solver, ASPIRE, for problems expressed in LOUD which can be used to describe and identify sources of bugs in both deterministic and nondeterministic programs, extract properties from concurrent programs, and synthesize winning strategies in two-player games.",
+      "venue": "cs.PL",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2408.12539",
+      "url": "https://arxiv.org/abs/2408.12539",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-1801.00141",
+      "title": "Gaining power in multiple testing of interval hypotheses via conditionalization",
+      "authors": [
+        {
+          "name": "Jules L. Ellis",
+          "affiliation": ""
+        },
+        {
+          "name": "Jakub Pecanka",
+          "affiliation": ""
+        },
+        {
+          "name": "Jelle Goeman",
+          "affiliation": ""
+        }
+      ],
+      "year": 2017,
+      "abstract": "In this paper we introduce a novel procedure for improving multiple testing procedures (MTPs) under scenarios when the null hypothesis $p$-values tend to be stochastically larger than standard uniform (referred to as 'inflated'). An important class of problems for which this occurs are tests of interval hypotheses. The new procedure starts with a set of $p$-values and discards those with values above a certain pre-selected threshold while the rest are corrected (scaled-up) by the value of the threshold. Subsequently, a chosen family-wise error rate (FWER) or false discovery rate (FDR) MTP is applied to the set of corrected $p$-values only. We prove the general validity of this procedure under independence of $p$-values, and for the special case of the Bonferroni method we formulate several sufficient conditions for the control of the FWER. It is demonstrated that this 'filtering' of $p$-values can yield considerable gains of power under scenarios with inflated null hypotheses $p$-values.",
+      "venue": "stat.ME",
+      "citation_count": 0,
+      "doi": "10.1093/biostatistics/kxy042",
+      "arxiv_id": "1801.00141",
+      "url": "https://arxiv.org/abs/1801.00141",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2202.06765",
+      "title": "Quantitative Strongest Post",
+      "authors": [
+        {
+          "name": "Linpeng Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Benjamin Lucien Kaminski",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "We present a novel strongest-postcondition-style calculus for quantitative reasoning about non-deterministic programs with loops. Whereas existing quantitative weakest pre allows reasoning about the value of a quantity after a program terminates on a given initial state, quantitative strongest post allows reasoning about the value that a quantity had before the program was executed and reached a given final state. We show how strongest post enables reasoning about the flow of quantitative information through programs. Similarly to weakest liberal preconditions, we also develop a quantitative strongest liberal post. As a byproduct, we obtain the entirely unexplored notion of strongest liberal postconditions and show how these foreshadow a potential new program logic - partial incorrectness logic - which would be a more liberal version of O'Hearn's recent incorrectness logic.",
+      "venue": "cs.LO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2202.06765",
+      "url": "https://arxiv.org/abs/2202.06765",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-1807.10695",
+      "title": "FPGA-Based CNN Inference Accelerator Synthesized from Multi-Threaded C Software",
+      "authors": [
+        {
+          "name": "Jin Hee Kim",
+          "affiliation": ""
+        },
+        {
+          "name": "Brett Grady",
+          "affiliation": ""
+        },
+        {
+          "name": "Ruolong Lian",
+          "affiliation": ""
+        },
+        {
+          "name": "John Brothers",
+          "affiliation": ""
+        },
+        {
+          "name": "Jason H. Anderson",
+          "affiliation": ""
+        }
+      ],
+      "year": 2018,
+      "abstract": "A deep-learning inference accelerator is synthesized from a C-language software program parallelized with Pthreads. The software implementation uses the well-known producer/consumer model with parallel threads interconnected by FIFO queues. The LegUp high-level synthesis (HLS) tool synthesizes threads into parallel FPGA hardware, translating software parallelism into spatial parallelism. A complete system is generated where convolution, pooling and padding are realized in the synthesized accelerator, with remaining tasks executing on an embedded ARM processor. The accelerator incorporates reduced precision, and a novel approach for zero-weight-skipping in convolution. On a mid-sized Intel Arria 10 SoC FPGA, peak performance on VGG-16 is 138 effective GOPS.",
+      "venue": "cs.LG",
+      "citation_count": 0,
+      "doi": "10.1109/SOCC.2017.8226056",
+      "arxiv_id": "1807.10695",
+      "url": "https://arxiv.org/abs/1807.10695",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-1410.4274",
+      "title": "Multiple testing with discrete data: proportion of true null hypotheses and two adaptive FDR procedures",
+      "authors": [
+        {
+          "name": "Xiongzhi Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Rebecca W. Doerge",
+          "affiliation": ""
+        },
+        {
+          "name": "Joseph F. Heyse",
+          "affiliation": ""
+        }
+      ],
+      "year": 2014,
+      "abstract": "We consider multiple testing with false discovery rate (FDR) control when p-values have discrete and heterogeneous null distributions. We propose a new estimator of the proportion of true null hypotheses and demonstrate that it is less upwardly biased than Storey's estimator and two other estimators. The new estimator induces two adaptive procedures, i.e., an adaptive Benjamini-Hochberg (BH) procedure and an adaptive Benjamini-Hochberg-Heyse (BHH) procedure. We prove that the the adaptive BH procedure is conservative non-asymptotically. Through simulation studies, we show that these procedures are usually more powerful than their non-adaptive counterparts and that the adaptive BHH procedure is usually more powerful than the adaptive BH procedure and a procedure based on randomized p-value. The adaptive procedures are applied to a study of HIV vaccine efficacy, where they identify more differentially polymorphic positions than the BH procedure at the same FDR level.",
+      "venue": "stat.ME",
+      "citation_count": 0,
+      "doi": "10.1002/bimj.201700157",
+      "arxiv_id": "1410.4274",
+      "url": "https://arxiv.org/abs/1410.4274",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2105.05099",
+      "title": "On the quest for the strongest materials",
+      "authors": [
+        {
+          "name": "Javier LLorca",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "Looking for the strongest material has always been a scientific goal for the structural materials community.",
+      "venue": "cond-mat.mtrl-sci",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2105.05099",
+      "url": "https://arxiv.org/abs/2105.05099",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-1407.3887",
+      "title": "Computation of epidemic final size distributions",
+      "authors": [
+        {
+          "name": "Andrew J. Black",
+          "affiliation": ""
+        },
+        {
+          "name": "J. V. Ross",
+          "affiliation": ""
+        }
+      ],
+      "year": 2014,
+      "abstract": "We develop a new methodology for the efficient computation of epidemic final size distributions for a broad class of Markovian models. We exploit a particular representation of the stochastic epidemic process to derive a method which is both computationally efficient and numerically stable. The algorithms we present are also physically transparent and so allow us to extend this method from the basic SIR model to a model with a phase-type infectious period and another with waning immunity. The underlying theory is applicable to many Markovian models where we wish to efficiently calculate hitting probabilities.",
+      "venue": "q-bio.PE",
+      "citation_count": 0,
+      "doi": "10.1016/j.jtbi.2014.11.029",
+      "arxiv_id": "1407.3887",
+      "url": "https://arxiv.org/abs/1407.3887",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-1205.2465",
+      "title": "Identifying And Weighting Integration Hypotheses On Open Data Platforms",
+      "authors": [
+        {
+          "name": "Julian Eberius",
+          "affiliation": ""
+        },
+        {
+          "name": "Katrin Braunschweig",
+          "affiliation": ""
+        },
+        {
+          "name": "Maik Thiele",
+          "affiliation": ""
+        },
+        {
+          "name": "Wolfgang Lehner",
+          "affiliation": ""
+        }
+      ],
+      "year": 2012,
+      "abstract": "Open data platforms such as data.gov or opendata.socrata. com provide a huge amount of valuable information. Their free-for-all nature, the lack of publishing standards and the multitude of domains and authors represented on these platforms lead to new integration and standardization problems. At the same time, crowd-based data integration techniques are emerging as new way of dealing with these problems. However, these methods still require input in form of specific questions or tasks that can be passed to the crowd. This paper discusses integration problems on Open Data Platforms, and proposes a method for identifying and ranking integration hypotheses in this context. We will evaluate our findings by conducting a comprehensive evaluation using on one of the largest Open Data platforms.",
+      "venue": "cs.DB",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "1205.2465",
+      "url": "https://arxiv.org/abs/1205.2465",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2410.04331",
+      "title": "Strongest quantum nonlocality in $N$-partite systems",
+      "authors": [
+        {
+          "name": "Mengying Hu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ting Gao",
+          "affiliation": ""
+        },
+        {
+          "name": "Fengli Yan",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "A set of orthogonal states possesses the strongest quantum nonlocality if only a trivial orthogonality-preserving positive operator-valued measure (POVM) can be performed for each bipartition of the subsystems. This concept originated from the strong quantum nonlocality proposed by Halder $et~al.$ [Phy. Rev. Lett. $\\textbf{122}$, 040403 (2019)], which is a stronger manifestation of nonlocality based on locally indistinguishability and finds more efficient applications in quantum information hiding. However, demonstrating the triviality of orthogonality-preserving local measurements (OPLMs) is not straightforward. In this paper, we present a sufficient and necessary condition for trivial OPLMs in $N$-partite systems under certain conditions. By using our proposed condition, we deduce the minimum size of set with the strongest nonlocality in system $(\\mathbb{C}^{3})^{\\otimes N}$, where the genuinely entangled sets constructed in Ref. [Phys. Rev. A $\\textbf{109}$, 022220 (2024)] achieve this value. As it is known that studying construction involving fewer states with strongest nonlocality contribute to reducing resource consumption in applications. Furthermore, we construct strongest nonlocal genuinely entangled sets in system $(\\mathbb{C}^{d})^{\\otimes N}~(d\\geq4)$, which have a smaller size than the existing strongest nonlocal genuinely entangled sets as $N$ increases. Consequently, our results contribute to a better understanding of strongest nonlocality.",
+      "venue": "quant-ph",
+      "citation_count": 0,
+      "doi": "10.1103/69z8-sk86",
+      "arxiv_id": "2410.04331",
+      "url": "https://arxiv.org/abs/2410.04331",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-1708.06936",
+      "title": "On parabolic final value problems and well-posedness",
+      "authors": [
+        {
+          "name": "Ann-Eva Christensen",
+          "affiliation": ""
+        },
+        {
+          "name": "Jon Johnsen",
+          "affiliation": ""
+        }
+      ],
+      "year": 2017,
+      "abstract": "We prove that a large class of parabolic final value problems is well posed.This results via explicit Hilbert spaces that characterise the data yielding existence, uniqueness and stability of solutions. This data space is the graph normed domain of an unbounded operator, which represents a new compatibility condition pertinent for final value problems. The framework is evolution equations for Lax--Milgram operators in vector distribution spaces. The final value heat equation on a smooth open set is also covered, and for non-zero Dirichlet data a non-trivial extension of the compatibility condition is obtained by addition of an improper Bochner integral.",
+      "venue": "math.AP",
+      "citation_count": 0,
+      "doi": "10.1016/j.crma.2018.01.019",
+      "arxiv_id": "1708.06936",
+      "url": "https://arxiv.org/abs/1708.06936",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-http://arxiv.org/abs/cs/0111059v1",
+      "title": "Hypotheses Founded Semantics of Logic Programs for Information Integration in Multi-Valued Logics",
+      "authors": [
+        {
+          "name": "Yann Loyer",
+          "affiliation": ""
+        },
+        {
+          "name": "Nicolas Spyratos",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniel Stamate",
+          "affiliation": ""
+        }
+      ],
+      "year": 2001,
+      "abstract": "We address the problem of integrating information coming from different sources. The information consists of facts that a central server collects and tries to combine using (a) a set of logical rules, i.e. a logic program, and (b) a hypothesis representing the server's own estimates. In such a setting incomplete information from a source or contradictory information from different sources necessitate the use of many-valued logics in which programs can be evaluated and hypotheses can be tested. To carry out such activities we propose a formal framework based on bilattices such as Belnap's four-valued logics. In this framework we work with the class of programs defined by Fitting and we develop a theory for information integration.\n We also establish an intuitively appealing connection between our hypothesis testing mechanism on the one hand, and the well-founded semantics and Kripke-Kleene semantics of Datalog programs with negation, on the other hand.",
+      "venue": "cs.LO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "",
+      "url": "http://arxiv.org/abs/cs/0111059v1",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2104.15031",
+      "title": "Strongest transformations",
+      "authors": [
+        {
+          "name": "Assaf Rinot",
+          "affiliation": ""
+        },
+        {
+          "name": "Jing Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "We continue our study of maps transforming high-dimensional complicated objects into squares of stationary sets. Previously, we proved that many such transformations exist in ZFC, and here we address the consistency of the strongest conceivable transformations.\n  Along the way, we obtain new results on Shelah's coloring principle $Pr_1$. For $\u03ba$ inaccessible, we prove the consistency of $Pr_1(\u03ba,\u03ba,\u03ba,\u03ba)$. For successors of regulars, we obtain a full lifting of Galvin's 1980 theorem. In contrast, the full lifting of Galvin's theorem to successors of singulars is shown to be inconsistent.",
+      "venue": "math.LO",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2104.15031",
+      "url": "https://arxiv.org/abs/2104.15031",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2111.10715",
+      "title": "Confidences in Hypotheses",
+      "authors": [
+        {
+          "name": "Graham N. Bornholt",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "This article extends the hypotheses assessment method to the case with two competing simple hypotheses. In doing so we further clarify the benefits that hypotheses assessments can bring to classical statistical analyses. Given that confidences in hypotheses are based on conditional probabilities, we address the issue of what to condition on in order to avoid poor conditional properties. This step is essential if the resulting inferences are to be relevant to the data at hand. Admissibility is addressed within a framework of seeking confidences that are relevant to the data at hand and are as powerful as the application allows. Confidence procedures are said to be consistent if they are free of super-relevant betting strategies. For simple hypotheses, the assessment method produces minimum and maximum confidences in each hypothesis. Assessments for both symmetric and asymmetric experiments are included, and the relationship with Bayesian posterior probabilities discussed.",
+      "venue": "stat.ME",
+      "citation_count": 0,
+      "doi": "",
+      "arxiv_id": "2111.10715",
+      "url": "https://arxiv.org/abs/2111.10715",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2307.10902",
+      "title": "Strong Invariants Are Hard: On the Hardness of Strongest Polynomial Invariants for (Probabilistic) Programs",
+      "authors": [
+        {
+          "name": "Julian M\u00fcllner",
+          "affiliation": ""
+        },
+        {
+          "name": "Marcel Moosbrugger",
+          "affiliation": ""
+        },
+        {
+          "name": "Laura Kov\u00e1cs",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We show that computing the strongest polynomial invariant for single-path loops with polynomial assignments is at least as hard as the Skolem problem, a famous problem whose decidability has been open for almost a century. While the strongest polynomial invariants are computable for affine loops, for polynomial loops the problem remained wide open. As an intermediate result of independent interest, we prove that reachability for discrete polynomial dynamical systems is Skolem-hard as well. Furthermore, we generalize the notion of invariant ideals and introduce moment invariant ideals for probabilistic programs. With this tool, we further show that the strongest polynomial moment invariant is (i) uncomputable, for probabilistic loops with branching statements, and (ii) Skolem-hard to compute for polynomial probabilistic loops without branching statements. Finally, we identify a class of probabilistic loops for which the strongest polynomial moment invariant is computable and provide an algorithm for it.",
+      "venue": "cs.PL",
+      "citation_count": 0,
+      "doi": "10.1145/3632872",
+      "arxiv_id": "2307.10902",
+      "url": "https://arxiv.org/abs/2307.10902",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "arxiv-2405.15298",
+      "title": "Strongest nonlocal sets with minimum cardinality in tripartite systems",
+      "authors": [
+        {
+          "name": "Xiao-Fan Zhen",
+          "affiliation": ""
+        },
+        {
+          "name": "Mao-Sheng Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Hui-Juan Zuo",
+          "affiliation": ""
+        }
+      ],
+      "year": 2024,
+      "abstract": "Strong nonlocality, proposed by Halder {\\it et al}. [\\href{https://doi.org/10.1103/PhysRevLett.122.040403}{Phys. Rev. Lett. \\textbf{122}, 040403 (2019)}], is a stronger manifestation than quantum nonlocality. Subsequently, Shi {\\it et al}. presented the concept of the strongest nonlocality [\\href{https://doi.org/10.22331/q-2022-01-05-619}{Quantum \\textbf{6}, 619 (2022)}].\n  Recently, Li and Wang [\\href{https://doi.org/10.22331/q-2023-09-07-1101}{Quantum \\textbf{7}, 1101 (2023)}] posed the conjecture about a lower bound to the cardinality of the strongest nonlocal set $\\mathcal{S}$ in $\\otimes _{i=1}^{n}\\mathbb{C}^{d_i}$, i.e., $|\\mathcal{S}|\\leq \\max_{i}\\{\\prod_{j=1}^{n}d_j/d_i+1\\}$. In this work, we construct the strongest nonlocal set of size $d^2+1$ in $\\mathbb{C}^{d}\\otimes \\mathbb{C}^{d}\\otimes \\mathbb{C}^{d}$. Furthermore, we obtain the strongest nonlocal set of size $d_{2}d_{3}+1$ in $\\mathbb{C}^{d_1}\\otimes \\mathbb{C}^{d_2}\\otimes \\mathbb{C}^{d_3}$. Our construction reaches the lower bound, which provides an affirmative solution to Li and Wang's conjecture. In particular, the strongest nonlocal sets we present here contain the least number of orthogonal states among the available results.",
+      "venue": "quant-ph",
+      "citation_count": 0,
+      "doi": "10.1103/PhysRevA.109.052422",
+      "arxiv_id": "2405.15298",
+      "url": "https://arxiv.org/abs/2405.15298",
+      "source": "arxiv",
+      "_bibtex_override": ""
+    }
+  ]
+}

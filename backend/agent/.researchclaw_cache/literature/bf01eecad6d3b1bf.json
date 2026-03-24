@@ -1,0 +1,1780 @@
+{
+  "query": "timestep-aware attention control diffusion",
+  "source": "openalex",
+  "limit": 40,
+  "timestamp": 1774164094.8010387,
+  "papers": [
+    {
+      "paper_id": "oalex-W4389326242",
+      "title": "Mamba: Linear-Time Sequence Modeling with Selective State Spaces",
+      "authors": [
+        {
+          "name": "Albert Gu",
+          "affiliation": ""
+        },
+        {
+          "name": "Tri Dao",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Foundation models, now powering most of the exciting applications in deep learning, are almost universally based on the Transformer architecture and its core attention module. Many subquadratic-time architectures such as linear attention, gated convolution and recurrent models, and structured state space models (SSMs) have been developed to address Transformers' computational inefficiency on long sequences, but they have not performed as well as attention on important modalities such as language. We identify that a key weakness of such models is their inability to perform content-based reasoning, and make several improvements. First, simply letting the SSM parameters be functions of the input addresses their weakness with discrete modalities, allowing the model to selectively propagate or forget information along the sequence length dimension depending on the current token. Second, even though this change prevents the use of efficient convolutions, we design a hardware-aware parallel algorithm in recurrent mode. We integrate these selective SSMs into a simplified end-to-end neural network architecture without attention or even MLP blocks (Mamba). Mamba enjoys fast inference (5$\\times$ higher throughput than Transformers) and linear scaling in sequence length, and its performance improves on real data up to million-length sequences. As a general sequence model backbone, Mamba achieves state-of-the-art performance across several modalities such as language, audio, and genomics. On language modeling, our Mamba-3B model outperforms Transformers of the same size and matches Transformers twice its size, both in pretraining and downstream evaluation.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 962,
+      "doi": "10.48550/arxiv.2312.00752",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2312.00752",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4387765949",
+      "title": "DiffuCom: A novel diffusion model for comment generation",
+      "authors": [
+        {
+          "name": "Jiamiao Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Pengsen Cheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Jinqiao Dai",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiao Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiayong Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiayong Liu",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "",
+      "venue": "Knowledge-Based Systems",
+      "citation_count": 4,
+      "doi": "10.1016/j.knosys.2023.111069",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.knosys.2023.111069",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4413147351",
+      "title": "FireEdit: Fine-grained Instruction-based Image Editing via Region-aware Vision Language Model",
+      "authors": [
+        {
+          "name": "Jun Zhou",
+          "affiliation": "Sun Yat-sen University"
+        },
+        {
+          "name": "Jiahao Li",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Zunnan Xu",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Hanhui Li",
+          "affiliation": "Sun Yat-sen University"
+        },
+        {
+          "name": "Yiji Cheng",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Fa-Ting Hong",
+          "affiliation": "Hong Kong University of Science and Technology"
+        },
+        {
+          "name": "Qin Lin",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Qinglin Lu",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Xiaodan Liang",
+          "affiliation": "Sun Yat-sen University"
+        }
+      ],
+      "year": 2025,
+      "abstract": "Currently, instruction-based image editing methods have made significant progress by leveraging the powerful cross-modal understanding capabilities of vision language models (VLMs). However, they still face challenges in three key areas: 1) complex scenarios; 2) semantic consistency; and 3) fine-grained editing. To address these issues, we propose FireEdit, an innovative Fine-grained Instruction-based image editing framework that exploits a REgion-aware VLM. FireEdit is designed to accurately comprehend user instructions and ensure effective control over the editing process. Specifically, we enhance the fine-grained visual perception capabilities of the VLM by introducing additional region tokens. Relying solely on the output of the LLM to guide the diffusion model may lead to suboptimal editing results. Therefore, we propose a Time-Aware Target Injection module and a Hybrid Visual Cross Attention module. The former dynamically adjusts the guidance strength at various denoising stages by integrating timestep embeddings with the text embeddings. The latter enhances visual details for image editing, thereby preserving semantic consistency between the edited result and the source image. By combining the VLM enhanced with fine-grained region tokens and the time-dependent diffusion model, FireEdit demonstrates significant advantages in comprehending editing instructions and maintaining high semantic consistency. Extensive experiments indicate that our approach surpasses the state-of-the-art instruction-based image editing methods.",
+      "venue": "",
+      "citation_count": 3,
+      "doi": "10.1109/cvpr52734.2025.01222",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/cvpr52734.2025.01222",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4393154023",
+      "title": "MedSegDiff-V2: Diffusion-Based Medical Image Segmentation with Transformer",
+      "authors": [
+        {
+          "name": "Junde Wu",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Wei Ji",
+          "affiliation": "University of Alberta"
+        },
+        {
+          "name": "Huazhu Fu",
+          "affiliation": "Institute of High Performance Computing"
+        },
+        {
+          "name": "Min Xu",
+          "affiliation": "Mohamed bin Zayed University of Artificial Intelligence"
+        },
+        {
+          "name": "Yueming Jin",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Yanwu Xu",
+          "affiliation": "Singapore Eye Research Institute"
+        }
+      ],
+      "year": 2024,
+      "abstract": "The Diffusion Probabilistic Model (DPM) has recently gained popularity in the field of computer vision, thanks to its image generation applications, such as Imagen, Latent Diffusion Models, and Stable Diffusion, which have demonstrated impressive capabilities and sparked much discussion within the community. Recent investigations have further unveiled the utility of DPM in the domain of medical image analysis, as underscored by the commendable performance exhibited by the medical image segmentation model across various tasks. Although these models were originally underpinned by a UNet architecture, there exists a potential avenue for enhancing their performance through the integration of vision transformer mechanisms. However, we discovered that simply combining these two models resulted in subpar performance. To effectively integrate these two cutting-edge techniques for the Medical image segmentation, we propose a novel Transformer-based Diffusion framework, called MedSegDiff-V2. We verify its effectiveness on 20 medical image segmentation tasks with different image modalities. Through comprehensive evaluation, our approach demonstrates superiority over prior state-of-the-art (SOTA) methodologies. Code is released at https://github.com/KidsWithTokens/MedSegDiff.",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 210,
+      "doi": "10.1609/aaai.v38i6.28418",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v38i6.28418",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4294959213",
+      "title": "CLIP-Mesh: Generating textured meshes from text using pretrained image-text models",
+      "authors": [
+        {
+          "name": "Nasir Mohammad Khalid",
+          "affiliation": "Concordia University"
+        },
+        {
+          "name": "Tianhao Xie",
+          "affiliation": "Concordia University"
+        },
+        {
+          "name": "Eugene Belilovsky",
+          "affiliation": "Concordia University"
+        },
+        {
+          "name": "Tiberiu Popa",
+          "affiliation": "Concordia University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "We present a technique for zero-shot generation of a 3D model using only a target text prompt. Without any 3D supervision our method deforms the control shape of a limit subdivided surface along with its texture map and normal map to obtain a 3D asset that corresponds to the input text prompt and can be easily deployed into games or modeling applications. We rely only on a pre-trained CLIP model that compares the input text prompt with differentiably rendered images of our 3D model. While previous works have focused on stylization or required training of generative models we perform optimization on mesh parameters directly to generate shape, texture or both. To constrain the optimization to produce plausible meshes and textures we introduce a number of techniques using image augmentations and the use of a pretrained prior that generates CLIP image embeddings given a text embedding.",
+      "venue": "",
+      "citation_count": 173,
+      "doi": "10.1145/3550469.3555392",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3550469.3555392",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4309618925",
+      "title": "Exploring Neuromorphic Computing Based on Spiking Neural Networks: Algorithms to Hardware",
+      "authors": [
+        {
+          "name": "Nitin Rathi",
+          "affiliation": "Purdue University West Lafayette"
+        },
+        {
+          "name": "Indranil Chakraborty",
+          "affiliation": "Purdue University West Lafayette"
+        },
+        {
+          "name": "Adarsh Kumar Kosta",
+          "affiliation": "Purdue University West Lafayette"
+        },
+        {
+          "name": "Abhronil Sengupta",
+          "affiliation": "Pennsylvania State University"
+        },
+        {
+          "name": "Aayush Ankit",
+          "affiliation": ""
+        },
+        {
+          "name": "Priyadarshini Panda",
+          "affiliation": "Yale University"
+        },
+        {
+          "name": "Kaushik Roy",
+          "affiliation": ""
+        }
+      ],
+      "year": 2022,
+      "abstract": "Neuromorphic Computing, a concept pioneered in the late 1980s, is receiving a lot of attention lately due to its promise of reducing the computational energy, latency, as well as learning complexity in artificial neural networks. Taking inspiration from neuroscience, this interdisciplinary field performs a multi-stack optimization across devices, circuits, and algorithms by providing an end-to-end approach to achieving brain-like efficiency in machine intelligence. On one side, neuromorphic computing introduces a new algorithmic paradigm, known as Spiking Neural Networks (SNNs), which is a significant shift from standard deep learning and transmits information as spikes (\u201c1\u201d or \u201c0\u201d) rather than analog values. This has opened up novel algorithmic research directions to formulate methods to represent data in spike-trains, develop neuron models that can process information over time, design learning algorithms for event-driven dynamical systems, and engineer network architectures amenable to sparse, asynchronous, event-driven computing to achieve lower power consumption. On the other side, a parallel research thrust focuses on development of efficient computing platforms for new algorithms. Standard accelerators that are amenable to deep learning workloads are not particularly suitable to handle processing across multiple timesteps efficiently. To that effect, researchers have designed neuromorphic hardware that rely on event-driven sparse computations as well as efficient matrix operations. While most large-scale neuromorphic systems have been explored based on CMOS technology, recently, Non-Volatile Memory (NVM) technologies show promise toward implementing bio-mimetic functionalities on single devices. In this article, we outline several strides that neuromorphic computing based on spiking neural networks (SNNs) has taken over the recent past, and we present our outlook on the challenges that this field needs to overcome to make the bio-plausibility route a successful one.",
+      "venue": "ACM Computing Surveys",
+      "citation_count": 210,
+      "doi": "10.1145/3571155",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3571155",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4393147759",
+      "title": "A Diffusion-Based Framework for Multi-Class Anomaly Detection",
+      "authors": [
+        {
+          "name": "Haoyang He",
+          "affiliation": "Zhejiang University"
+        },
+        {
+          "name": "Jiangning Zhang",
+          "affiliation": "Zhejiang University"
+        },
+        {
+          "name": "Hongxu Chen",
+          "affiliation": "Zhejiang University"
+        },
+        {
+          "name": "Xuhai Chen",
+          "affiliation": "Zhejiang University"
+        },
+        {
+          "name": "Zhishan Li",
+          "affiliation": "Zhejiang University"
+        },
+        {
+          "name": "Xu Chen",
+          "affiliation": "Zhejiang University"
+        },
+        {
+          "name": "Yabiao Wang",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Chengjie Wang",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Lei Xie",
+          "affiliation": "Zhejiang University"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Reconstruction-based approaches have achieved remarkable outcomes in anomaly detection. The exceptional image reconstruction capabilities of recently popular diffusion models have sparked research efforts to utilize them for enhanced reconstruction of anomalous images. Nonetheless, these methods might face challenges related to the preservation of image categories and pixel-wise structural integrity in the more practical multi-class setting. To solve the above problems, we propose a Difusion-based Anomaly Detection (DiAD) framework for multi-class anomaly detection, which consists of a pixel-space autoencoder, a latent-space Semantic-Guided (SG) network with a connection to the stable diffusion\u2019s denoising network, and a feature-space pre-trained feature extractor. Firstly, The SG network is proposed for reconstructing anomalous regions while preserving the original image\u2019s semantic information. Secondly, we introduce Spatial-aware Feature Fusion (SFF) block to maximize reconstruction accuracy when dealing with extensively reconstructed areas. Thirdly, the input and reconstructed images are processed by a pre-trained feature extractor to generate anomaly maps based on features extracted at different scales. Experiments on MVTec-AD and VisA datasets demonstrate the effectiveness of our approach which surpasses the state-of-the-art methods, e.g., achieving 96.8/52.6 and 97.2/99.0 (AUROC/AP) for localization and detection respectively on multi-class MVTec-AD dataset. Code will be available at https://lewandofskee.github.io/projects/diad.",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 122,
+      "doi": "10.1609/aaai.v38i8.28690",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v38i8.28690",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3096655658",
+      "title": "Contrastive Representation Learning: A Framework and Review",
+      "authors": [
+        {
+          "name": "Phuc H. Le-Khac",
+          "affiliation": "Dublin City University"
+        },
+        {
+          "name": "Graham Healy",
+          "affiliation": "Dublin City University"
+        },
+        {
+          "name": "Alan F. Smeaton",
+          "affiliation": "Dublin City University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Contrastive Learning has recently received interest due to its success in self-supervised representation learning in the computer vision domain. However, the origins of Contrastive Learning date as far back as the 1990s and its development has spanned across many fields and domains including Metric Learning and natural language processing. In this paper, we provide a comprehensive literature review and we propose a general Contrastive Representation Learning framework that simplifies and unifies many different contrastive learning methods. We also provide a taxonomy for each of the components of contrastive learning in order to summarise it and distinguish it from other forms of machine learning. We then discuss the inductive biases which are present in any contrastive learning system and we analyse our framework under different views from various sub-fields of Machine Learning. Examples of how contrastive learning has been applied in computer vision, natural language processing, audio processing, and others, as well as in Reinforcement Learning are also presented. Finally, we discuss the challenges and some of the most promising future research directions ahead.",
+      "venue": "IEEE Access",
+      "citation_count": 789,
+      "doi": "10.1109/access.2020.3031549",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/access.2020.3031549",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3090369187",
+      "title": "Computing Graph Neural Networks: A Survey from Algorithms to Accelerators",
+      "authors": [
+        {
+          "name": "Sergi Abadal",
+          "affiliation": "Universitat Polit\u00e8cnica de Catalunya"
+        },
+        {
+          "name": "Akshay Jain",
+          "affiliation": "Universitat Polit\u00e8cnica de Catalunya"
+        },
+        {
+          "name": "Robert Guirado",
+          "affiliation": "Universitat Polit\u00e8cnica de Catalunya"
+        },
+        {
+          "name": "Jorge L\u00f3pez-Alonso",
+          "affiliation": "Universitat Polit\u00e8cnica de Catalunya"
+        },
+        {
+          "name": "Eduard Alarc\u00f3n",
+          "affiliation": "Universitat Polit\u00e8cnica de Catalunya"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Graph Neural Networks (GNNs) have exploded onto the machine learning scene in recent years owing to their capability to model and learn from graph-structured data. Such an ability has strong implications in a wide variety of fields whose data are inherently relational, for which conventional neural networks do not perform well. Indeed, as recent reviews can attest, research in the area of GNNs has grown rapidly and has lead to the development of a variety of GNN algorithm variants as well as to the exploration of ground-breaking applications in chemistry, neurology, electronics, or communication networks, among others. At the current stage research, however, the efficient processing of GNNs is still an open challenge for several reasons. Besides of their novelty, GNNs are hard to compute due to their dependence on the input graph, their combination of dense and very sparse operations, or the need to scale to huge graphs in some applications. In this context, this article aims to make two main contributions. On the one hand, a review of the field of GNNs is presented from the perspective of computing. This includes a brief tutorial on the GNN fundamentals, an overview of the evolution of the field in the last decade, and a summary of operations carried out in the multiple phases of different GNN algorithm variants. On the other hand, an in-depth analysis of current software and hardware acceleration schemes is provided, from which a hardware-software, graph-aware, and communication-centric vision for GNN accelerators is distilled.",
+      "venue": "ACM Computing Surveys",
+      "citation_count": 269,
+      "doi": "10.1145/3477141",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3477141",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3090789943",
+      "title": "All you need to know about model predictive control for buildings",
+      "authors": [
+        {
+          "name": "J\u00e1n Drgo\u0148a",
+          "affiliation": "KU Leuven"
+        },
+        {
+          "name": "Javier Arroyo",
+          "affiliation": "Flemish Institute for Technological Research"
+        },
+        {
+          "name": "Iago Cupeiro Figueroa",
+          "affiliation": "KU Leuven"
+        },
+        {
+          "name": "David Blum",
+          "affiliation": "Lawrence Berkeley National Laboratory"
+        },
+        {
+          "name": "Krzysztof Arendt",
+          "affiliation": "University of Southern Denmark"
+        },
+        {
+          "name": "Donghun Kim",
+          "affiliation": "Purdue University West Lafayette"
+        },
+        {
+          "name": "Enric Perarnau Oll\u00e9",
+          "affiliation": "KU Leuven"
+        },
+        {
+          "name": "Juraj Oravec",
+          "affiliation": "Slovak University of Technology in Bratislava"
+        },
+        {
+          "name": "Michael Wetter",
+          "affiliation": "Lawrence Berkeley National Laboratory"
+        },
+        {
+          "name": "Draguna Vrabie",
+          "affiliation": "Pacific Northwest National Laboratory"
+        },
+        {
+          "name": "Lieve Helsen",
+          "affiliation": "KU Leuven"
+        }
+      ],
+      "year": 2020,
+      "abstract": "It has been proven that advanced building control, like model predictive control (MPC), can notably reduce the energy use and mitigate greenhouse gas emissions. However, despite intensive research efforts, the practical applications are still in the early stages. There is a growing need for multidisciplinary education on advanced control methods in the built environment to be accessible for a broad range of researchers and practitioners with different engineering backgrounds. This paper provides a unified framework for model predictive building control technology with focus on the real-world applications. From a theoretical point of view, this paper presents an overview of MPC formulations for building control, modeling paradigms and model types, together with algorithms necessary for real-life implementation. The paper categorizes the most notable MPC problem classes, links them with corresponding solution techniques, and provides an overview of methods for mitigation of the uncertainties for increased performance and robustness of MPC. From a practical point of view, this paper delivers an elaborate classification of the most important modeling, co-simulation, optimal control design, and optimization techniques, tools, and solvers suitable to tackle the MPC problems in the context of building climate control. On top of this, the paper presents the essential components of a practical implementation of MPC such as different control architectures and nuances of communication infrastructures within supervisory control and data acquisition (SCADA) systems. The paper draws practical guidelines with a generic workflow for implementation of MPC in real buildings aimed for contemporary adopters of this technology. Finally, the importance of standardized performance assessment and methodology for comparison of different building control algorithms is discussed.",
+      "venue": "Annual Reviews in Control",
+      "citation_count": 802,
+      "doi": "10.1016/j.arcontrol.2020.09.001",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.arcontrol.2020.09.001",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4210978899",
+      "title": "Large-scale dark matter simulations",
+      "authors": [
+        {
+          "name": "Ra\u00fal E. Angulo",
+          "affiliation": "Donostia International Physics Center"
+        },
+        {
+          "name": "Oliver Hahn",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Abstract We review the field of collisionless numerical simulations for the large-scale structure of the Universe. We start by providing the main set of equations solved by these simulations and their connection with General Relativity. We then recap the relevant numerical approaches: discretization of the phase-space distribution (focusing on N -body but including alternatives, e.g., Lagrangian submanifold and Schr\u00f6dinger\u2013Poisson) and the respective techniques for their time evolution and force calculation (direct summation, mesh techniques, and hierarchical tree methods). We pay attention to the creation of initial conditions and the connection with Lagrangian Perturbation Theory. We then discuss the possible alternatives in terms of the micro-physical properties of dark matter (e.g., neutralinos, warm dark matter, QCD axions, Bose\u2013Einstein condensates, and primordial black holes), and extensions to account for multiple fluids (baryons and neutrinos), primordial non-Gaussianity and modified gravity. We continue by discussing challenges involved in achieving highly accurate predictions. A key aspect of cosmological simulations is the connection to cosmological observables, we discuss various techniques in this regard: structure finding, galaxy formation and baryonic modelling, the creation of emulators and light-cones, and the role of machine learning. We finalise with a recount of state-of-the-art large-scale simulations and conclude with an outlook for the next decade.",
+      "venue": "Living Reviews in Computational Astrophysics",
+      "citation_count": 154,
+      "doi": "10.1007/s41115-021-00013-z",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s41115-021-00013-z",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4313679638",
+      "title": "Neural Codec Language Models are Zero-Shot Text to Speech Synthesizers",
+      "authors": [
+        {
+          "name": "Chengyi Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Sanyuan Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Wu",
+          "affiliation": ""
+        },
+        {
+          "name": "Ziqiang Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Long Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Shujie Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhuo Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Yanqing Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Huaming Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jinyu Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Lei He",
+          "affiliation": ""
+        },
+        {
+          "name": "Sheng Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Furu Wei",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "We introduce a language modeling approach for text to speech synthesis (TTS). Specifically, we train a neural codec language model (called Vall-E) using discrete codes derived from an off-the-shelf neural audio codec model, and regard TTS as a conditional language modeling task rather than continuous signal regression as in previous work. During the pre-training stage, we scale up the TTS training data to 60K hours of English speech which is hundreds of times larger than existing systems. Vall-E emerges in-context learning capabilities and can be used to synthesize high-quality personalized speech with only a 3-second enrolled recording of an unseen speaker as an acoustic prompt. Experiment results show that Vall-E significantly outperforms the state-of-the-art zero-shot TTS system in terms of speech naturalness and speaker similarity. In addition, we find Vall-E could preserve the speaker's emotion and acoustic environment of the acoustic prompt in synthesis. See https://aka.ms/valle for demos of our work.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 161,
+      "doi": "10.48550/arxiv.2301.02111",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2301.02111",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3014962122",
+      "title": "LMDZ6A: The Atmospheric Component of the IPSL Climate Model With Improved and Better Tuned Physics",
+      "authors": [
+        {
+          "name": "F. Hourdin",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Catherine Rio",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "J. Y. Grandpeix",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Jean\u2010Baptiste Madeleine",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Fr\u00e9d\u00e9rique Cheruy",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Nicolas Rochetin",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Arnaud Jam",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Ionela Musat",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Abderrahmane Idelkadi",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Laurent Fairhead",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Marie\u2010Alice Foujols",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Lidia Mellul",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "A. K. Traore",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Jean\u2010Louis Dufresne",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Olivi\u00e9r Boucher",
+          "affiliation": "Institut Pierre-Simon Laplace"
+        },
+        {
+          "name": "Marie\u2010Pierre Lefebvre",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Ehouarn Millour",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "\u00c9tienne Vignon",
+          "affiliation": "\u00c9cole Polytechnique F\u00e9d\u00e9rale de Lausanne"
+        },
+        {
+          "name": "Jean Jouhaud",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Fatoumata Bint Diallo",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Fran\u00e7ois Lott",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Guillaume Gastineau",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Arnaud Caubel",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Yann Meurdesoif",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        },
+        {
+          "name": "Jos\u00e9fine Ghattas",
+          "affiliation": "Centre National de la Recherche Scientifique"
+        }
+      ],
+      "year": 2020,
+      "abstract": "Abstract This study presents the version of the LMDZ global atmospheric model used as the atmospheric component of the Institut Pierre Simon Laplace coupled model (IPSL\u2010CM6A\u2010LR) to contribute to the 6th phase of the international Coupled Model Intercomparison Project (CMIP6). This LMDZ6A version includes original convective parameterizations that define the LMDZ \u201cNew Physics\u201d: a mass flux parameterization of the organized structures of the convective boundary layer, the \u201cthermal plume model,\u201d and a parameterization of the cold pools created by reevaporation of convective rainfall. The vertical velocity associated with thermal plumes and gust fronts of cold pools are used to control the triggering and intensity of deep convection. Because of several shortcomings, the early version 5B of this New Physics was worse than the previous \u201cStandard Physics\u201d version 5A regarding several classical climate metrics. To overcome these deficiencies, version 6A includes new developments: a stochastic triggering of deep convection, a modification of the thermal plume model that allows the representation of stratocumulus and cumulus clouds in a unified framework, an improved parameterization of very stable boundary layers, and the modification of the gravity waves scheme targeting the quasi\u2010biennal oscillation in the stratosphere. These improvements to the physical content and a more well\u2010defined tuning strategy led to major improvements in the LMDZ6A version model climatology. Beyond the presentation of this particular model version and documentation of its climatology, the present paper underlines possible methodological pathways toward model improvement that can be shared across modeling groups.",
+      "venue": "Journal of Advances in Modeling Earth Systems",
+      "citation_count": 260,
+      "doi": "10.1029/2019ms001892",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1029/2019ms001892",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4383995031",
+      "title": "DeePMD-kit v2: A software package for deep potential models",
+      "authors": [
+        {
+          "name": "Jinzhe Zeng",
+          "affiliation": "Quantitative BioSciences"
+        },
+        {
+          "name": "Duo Zhang",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Denghui Lu",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Pinghui Mo",
+          "affiliation": "Hunan University"
+        },
+        {
+          "name": "Zeyu Li",
+          "affiliation": "Rutgers, The State University of New Jersey"
+        },
+        {
+          "name": "Yixiao Chen",
+          "affiliation": "Princeton University"
+        },
+        {
+          "name": "Mari\u00e1n Rynik",
+          "affiliation": "Comenius University Bratislava"
+        },
+        {
+          "name": "Liang Huang",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Ziyao Li",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Shaochen Shi",
+          "affiliation": ""
+        },
+        {
+          "name": "Yingze Wang",
+          "affiliation": "Quantitative BioSciences"
+        },
+        {
+          "name": "Haotian Ye",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Ping Tuo",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiabin Yang",
+          "affiliation": "Baidu (China)"
+        },
+        {
+          "name": "Ye Ding",
+          "affiliation": "Rutgers, The State University of New Jersey"
+        },
+        {
+          "name": "Yifan Li",
+          "affiliation": "Princeton University"
+        },
+        {
+          "name": "Davide Tisi",
+          "affiliation": "Quantitative BioSciences"
+        },
+        {
+          "name": "Qiyu Zeng",
+          "affiliation": "National University of Defense Technology"
+        },
+        {
+          "name": "Han Bao",
+          "affiliation": ""
+        },
+        {
+          "name": "Yu Xia",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiameng Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Koki Muraoka",
+          "affiliation": "The University of Tokyo"
+        },
+        {
+          "name": "Yibo Wang",
+          "affiliation": "Quantitative BioSciences"
+        },
+        {
+          "name": "Junhan Chang",
+          "affiliation": "Quantitative BioSciences"
+        },
+        {
+          "name": "Fengbo Yuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Sigbj\u00f8rn L\u00f8land Bore",
+          "affiliation": "University of Oslo"
+        },
+        {
+          "name": "Chun Cai",
+          "affiliation": ""
+        },
+        {
+          "name": "Yin\u2010Nian Lin",
+          "affiliation": "Peking University"
+        },
+        {
+          "name": "Bo Wang",
+          "affiliation": "East China Normal University"
+        },
+        {
+          "name": "Jiayan Xu",
+          "affiliation": "Queen's University Belfast"
+        },
+        {
+          "name": "Jiaxin Zhu",
+          "affiliation": "Collaborative Innovation Center of Chemistry for Energy Materials"
+        },
+        {
+          "name": "Chenxing Luo",
+          "affiliation": "Columbia University"
+        },
+        {
+          "name": "Yuzhi Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Rhys E. A. Goodall",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenshuo Liang",
+          "affiliation": ""
+        },
+        {
+          "name": "Anurag Kumar Singh",
+          "affiliation": "Indian Institute of Technology Palakkad"
+        },
+        {
+          "name": "Sikai Yao",
+          "affiliation": ""
+        },
+        {
+          "name": "Jingchao Zhang",
+          "affiliation": "Nvidia (United States)"
+        },
+        {
+          "name": "Renata M. Wentzcovitch",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiequn Han",
+          "affiliation": "Flatiron Health (United States)"
+        },
+        {
+          "name": "Jie Liu",
+          "affiliation": "Hunan University"
+        },
+        {
+          "name": "Weile Jia",
+          "affiliation": ""
+        },
+        {
+          "name": "Darrin M. York",
+          "affiliation": "Rutgers, The State University of New Jersey"
+        },
+        {
+          "name": "E Weinan",
+          "affiliation": ""
+        },
+        {
+          "name": "Roberto Car",
+          "affiliation": "Princeton University"
+        },
+        {
+          "name": "Linfeng Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Handong Wang",
+          "affiliation": "Peking University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "DeePMD-kit is a powerful open-source software package that facilitates molecular dynamics simulations using machine learning potentials known as Deep Potential (DP) models. This package, which was released in 2017, has been widely used in the fields of physics, chemistry, biology, and material science for studying atomistic systems. The current version of DeePMD-kit offers numerous advanced features, such as DeepPot-SE, attention-based and hybrid descriptors, the ability to fit tensile properties, type embedding, model deviation, DP-range correction, DP long range, graphics processing unit support for customized operators, model compression, non-von Neumann molecular dynamics, and improved usability, including documentation, compiled binary packages, graphical user interfaces, and application programming interfaces. This article presents an overview of the current major version of the DeePMD-kit package, highlighting its features and technical details. Additionally, this article presents a comprehensive procedure for conducting molecular dynamics as a representative application, benchmarks the accuracy and efficiency of different models, and discusses ongoing developments.",
+      "venue": "The Journal of Chemical Physics",
+      "citation_count": 474,
+      "doi": "10.1063/5.0155600",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1063/5.0155600",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4393159787",
+      "title": "AnomalyDiffusion: Few-Shot Anomaly Image Generation with Diffusion Model",
+      "authors": [
+        {
+          "name": "Teng Hu",
+          "affiliation": "Shanghai Jiao Tong University"
+        },
+        {
+          "name": "Jiangning Zhang",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Ran Yi",
+          "affiliation": "Shanghai Jiao Tong University"
+        },
+        {
+          "name": "Yuzhen Du",
+          "affiliation": "Shanghai Jiao Tong University"
+        },
+        {
+          "name": "Xu Chen",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Liang Liu",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Yabiao Wang",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Chengjie Wang",
+          "affiliation": "Tencent (China)"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Anomaly inspection plays an important role in industrial manufacture. Existing anomaly inspection methods are limited in their performance due to insufficient anomaly data. Although anomaly generation methods have been proposed to augment the anomaly data, they either suffer from poor generation authenticity or inaccurate alignment between the generated anomalies and masks. To address the above problems, we propose AnomalyDiffusion, a novel diffusion-based few-shot anomaly generation model, which utilizes the strong prior information of latent diffusion model learned from large-scale dataset to enhance the generation authenticity under few-shot training data. Firstly, we propose Spatial Anomaly Embedding, which consists of a learnable anomaly embedding and a spatial embedding encoded from an anomaly mask, disentangling the anomaly information into anomaly appearance and location information. Moreover, to improve the alignment between the generated anomalies and the anomaly masks, we introduce a novel Adaptive Attention Re-weighting Mechanism. Based on the disparities between the generated anomaly image and normal sample, it dynamically guides the model to focus more on the areas with less noticeable generated anomalies, enabling generation of accurately-matched anomalous image-mask pairs. Extensive experiments demonstrate that our model significantly outperforms the state-of-the-art methods in generation authenticity and diversity, and effectively improves the performance of downstream anomaly inspection tasks. The code and data are available in https://github.com/sjtuplayer/anomalydiffusion.",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 88,
+      "doi": "10.1609/aaai.v38i8.28696",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v38i8.28696",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4308563837",
+      "title": "Using a long short-term memory (LSTM) neural network to boost river streamflow forecasts over the western United States",
+      "authors": [
+        {
+          "name": "Kieran M. R. Hunt",
+          "affiliation": "National Centre for Atmospheric Science"
+        },
+        {
+          "name": "Gwyneth Matthews",
+          "affiliation": "European Centre for Medium-Range Weather Forecasts"
+        },
+        {
+          "name": "Florian Pappenberger",
+          "affiliation": "European Centre for Medium-Range Weather Forecasts"
+        },
+        {
+          "name": "Christel Prudhomme",
+          "affiliation": "Loughborough University"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Abstract. Accurate river streamflow forecasts are a vital tool in the fields of water security, flood preparation and agriculture, as well as in industry more generally. Traditional physics-based models used to produce streamflow forecasts have become increasingly sophisticated, with forecasts improving accordingly. However, the development of such models is often bound by two soft limits: empiricism \u2013 many physical relationships are represented empirical formulae; and data sparsity \u2013 long time series of observational data are often required for the calibration of these models. Artificial neural networks have previously been shown to be highly effective at simulating non-linear systems where knowledge of the underlying physical relationships is incomplete. However, they also suffer from issues related to data sparsity. Recently, hybrid forecasting systems, which combine the traditional physics-based approach with statistical forecasting techniques, have been investigated for use in hydrological applications. In this study, we test the efficacy of a type of neural network, the long short-term memory (LSTM), at predicting streamflow at 10 river gauge stations across various climatic regions of the western United States. The LSTM is trained on the catchment-mean meteorological and hydrological variables from the ERA5 and Global Flood Awareness System (GloFAS)\u2013ERA5 reanalyses as well as historical streamflow observations. The performance of these hybrid forecasts is evaluated and compared with the performance of both raw and bias-corrected output from the Copernicus Emergency Management Service (CEMS) physics-based GloFAS. Two periods are considered, a testing phase (June 2019 to June 2020), during which the models were fed with ERA5 data to investigate how well they simulated streamflow at the 10 stations, and an operational phase (September 2020 to October 2021), during which the models were fed forecast variables from the European Centre for Medium-Range Weather Forecasts (ECMWF) Integrated Forecasting System (IFS), to investigate how well they could predict streamflow at lead times of up to 10 d. Implications and potential improvements to this work are discussed. In summary, this is the first time an LSTM has been used in a hybrid system to create a medium-range streamflow forecast, and in beating established physics-based models, shows promise for the future of neural networks in hydrological forecasting.",
+      "venue": "Hydrology and earth system sciences",
+      "citation_count": 139,
+      "doi": "10.5194/hess-26-5449-2022",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.5194/hess-26-5449-2022",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4328008037",
+      "title": "Graph Neural Networks for Intelligent Transportation Systems: A Survey",
+      "authors": [
+        {
+          "name": "Saeed Rahmani",
+          "affiliation": "Delft University of Technology"
+        },
+        {
+          "name": "Asiye Baghbani",
+          "affiliation": "Concordia University"
+        },
+        {
+          "name": "Nizar Bouguila",
+          "affiliation": "Concordia University"
+        },
+        {
+          "name": "Zachary Patterson",
+          "affiliation": "Concordia University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Graph neural networks (GNNs) have been extensively used in a wide variety of domains in recent years. Owing to their power in analyzing graph-structured data, they have become broadly popular in intelligent transportation systems (ITS) applications as well. Despite their widespread applications in different transportation domains, there is no comprehensive review of recent advancements and future research directions that covers all transportation areas. Accordingly, in this survey, for the first time, we provide an overview of GNN studies in the general domain of ITS. Unlike previous surveys, which have been limited to traffic forecasting problems, we explore how GNN frameworks have evolved for different ITS applications, including traffic forecasting, demand prediction, autonomous vehicles, intersection management, parking management, urban planning, and transportation safety. Also, we micro-categorize the studies based on their transportation application to identify domain-specific research directions, opportunities, and challenges, which have been missing in previous surveys. Moreover, we identify unique and undiscussed research opportunities and directions, which is the result of reviewing a wide range of transportation applications. The neglected role of edge and graph learning in ITS applications, developing multi-modal models, and exploiting the power of unsupervised and reinforcement learning methods for developing more powerful GNNs are some examples of such new discussions in this survey. Finally, we have identified popular baseline models and datasets in each transportation domain, which facilitate the development and evaluation of future GNN-based frameworks.",
+      "venue": "IEEE Transactions on Intelligent Transportation Systems",
+      "citation_count": 236,
+      "doi": "10.1109/tits.2023.3257759",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tits.2023.3257759",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4388187930",
+      "title": "LayoutLLM-T2I: Eliciting Layout Guidance from LLM for Text-to-Image Generation",
+      "authors": [
+        {
+          "name": "Leigang Qu",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Shengqiong Wu",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Hao Fei",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Liqiang Nie",
+          "affiliation": "Harbin Institute of Technology"
+        },
+        {
+          "name": "Tat\u2010Seng Chua",
+          "affiliation": "National University of Singapore"
+        }
+      ],
+      "year": 2023,
+      "abstract": "In the text-to-image generation field, recent remarkable progress in Stable Diffusion makes it possible to generate rich kinds of novel photorealistic images. However, current models still face misalignment issues (e.g., problematic spatial relation understanding and numeration failure) in complex natural scenes, which impedes the high-faithfulness text-to-image generation. Although recent efforts have been made to improve controllability by giving fine-grained guidance (e.g., sketch and scribbles), this issue has not been fundamentally tackled since users have to provide such guidance information manually. In this work, we strive to synthesize high-fidelity images that are semantically aligned with a given textual prompt without any guidance. Toward this end, we propose a coarse-to-fine paradigm to achieve layout planning and image generation. Concretely, we first generate the coarse-grained layout conditioned on a given textual prompt via in-context learning based on Large Language Models. Afterward, we propose a fine-grained object-interaction diffusion method to synthesize high-faithfulness images conditioned on the prompt and the automatically generated layout. Extensive experiments demonstrate that our proposed method outperforms the state-of-the-art models in terms of layout and image generation. Our code and settings are available at https://layoutllm-t2i.github.io/.",
+      "venue": "",
+      "citation_count": 80,
+      "doi": "10.1145/3581783.3612012",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3581783.3612012",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3009386672",
+      "title": "Machine-Learning Methods for Computational Science and Engineering",
+      "authors": [
+        {
+          "name": "Michael Frank",
+          "affiliation": "University of Strathclyde"
+        },
+        {
+          "name": "Dimitris Drikakis",
+          "affiliation": "University of Nicosia"
+        },
+        {
+          "name": "Vassilis Charissis",
+          "affiliation": "Glasgow Caledonian University"
+        }
+      ],
+      "year": 2020,
+      "abstract": "The re-kindled fascination in machine learning (ML), observed over the last few decades, has also percolated into natural sciences and engineering. ML algorithms are now used in scientific computing, as well as in data-mining and processing. In this paper, we provide a review of the state-of-the-art in ML for computational science and engineering. We discuss ways of using ML to speed up or improve the quality of simulation techniques such as computational fluid dynamics, molecular dynamics, and structural analysis. We explore the ability of ML to produce computationally efficient surrogate models of physical applications that circumvent the need for the more expensive simulation techniques entirely. We also discuss how ML can be used to process large amounts of data, using as examples many different scientific fields, such as engineering, medicine, astronomy and computing. Finally, we review how ML has been used to create more realistic and responsive virtual reality applications.",
+      "venue": "Computation",
+      "citation_count": 199,
+      "doi": "10.3390/computation8010015",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.3390/computation8010015",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4387226195",
+      "title": "DreamGaussian: Generative Gaussian Splatting for Efficient 3D Content Creation",
+      "authors": [
+        {
+          "name": "Jiaxiang Tang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiawei Ren",
+          "affiliation": ""
+        },
+        {
+          "name": "Hang Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Ziwei Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Gang Zeng",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Recent advances in 3D content creation mostly leverage optimization-based 3D generation via score distillation sampling (SDS). Though promising results have been exhibited, these methods often suffer from slow per-sample optimization, limiting their practical usage. In this paper, we propose DreamGaussian, a novel 3D content generation framework that achieves both efficiency and quality simultaneously. Our key insight is to design a generative 3D Gaussian Splatting model with companioned mesh extraction and texture refinement in UV space. In contrast to the occupancy pruning used in Neural Radiance Fields, we demonstrate that the progressive densification of 3D Gaussians converges significantly faster for 3D generative tasks. To further enhance the texture quality and facilitate downstream applications, we introduce an efficient algorithm to convert 3D Gaussians into textured meshes and apply a fine-tuning stage to refine the details. Extensive experiments demonstrate the superior efficiency and competitive generation quality of our proposed approach. Notably, DreamGaussian produces high-quality textured meshes in just 2 minutes from a single-view image, achieving approximately 10 times acceleration compared to existing methods.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 72,
+      "doi": "10.48550/arxiv.2309.16653",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2309.16653",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4388524030",
+      "title": "A comprehensive survey on machine learning approaches for fake news detection",
+      "authors": [
+        {
+          "name": "Jawaher Alghamdi",
+          "affiliation": "King Khalid University"
+        },
+        {
+          "name": "Suhuai Luo",
+          "affiliation": "University of Newcastle Australia"
+        },
+        {
+          "name": "Yuqing Lin",
+          "affiliation": "University of Newcastle Australia"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Abstract The proliferation of fake news on social media platforms poses significant challenges to society and individuals, leading to negative impacts. As the tactics employed by purveyors of fake news continue to evolve, there is an urgent need for automatic fake news detection (FND) to mitigate its adverse social consequences. Machine learning (ML) and deep learning (DL) techniques have emerged as promising approaches for characterising and identifying fake news content. This paper presents an extensive review of previous studies aiming to understand and combat the dissemination of fake news. The review begins by exploring the definitions of fake news proposed in the literature and delves into related terms and psychological and scientific theories that shed light on why people believe and disseminate fake news. Subsequently, advanced ML and DL techniques for FND are dicussed in detail, focusing on three main feature categories: content-based, context-based, and hybrid-based features. Additionally, the review summarises the characteristics of fake news, commonly used datasets, and the methodologies employed in existing studies. Furthermore, the review identifies the challenges current FND studies encounter and highlights areas that require further investigation in future research. By offering a comprehensive overview of the field, this survey aims to serve as a guide for researchers working on FND, providing valuable insights for developing effective FND mechanisms in the era of technological advancements.",
+      "venue": "Multimedia Tools and Applications",
+      "citation_count": 96,
+      "doi": "10.1007/s11042-023-17470-8",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s11042-023-17470-8",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4379053301",
+      "title": "Understanding and design of metallic alloys guided by phase-field simulations",
+      "authors": [
+        {
+          "name": "Yuhong Zhao",
+          "affiliation": "Liaoning Academy of Materials"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Abstract Phase-field method (PFM) has become a mainstream computational method for predicting the evolution of nano and mesoscopic microstructures and properties during materials processes. The paper briefly reviews latest progresses in applying PFM to understanding the thermodynamic driving forces and mechanisms underlying microstructure evolution in metallic materials and related processes, including casting, aging, deformation, additive manufacturing, and defects, etc. Focus on designing alloys by integrating PFM with constitutive relations and machine learning. Several examples are presented to demonstrate the potential of integrated PFM in discovering new multi-scale phenomena and high-performance alloys. The article ends with prospects for promising research directions.",
+      "venue": "npj Computational Materials",
+      "citation_count": 192,
+      "doi": "10.1038/s41524-023-01038-z",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41524-023-01038-z",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4382457527",
+      "title": "Frido: Feature Pyramid Diffusion for Complex Scene Image Synthesis",
+      "authors": [
+        {
+          "name": "Wan-Cyuan Fan",
+          "affiliation": "National Taiwan University"
+        },
+        {
+          "name": "Yen\u2010Chun Chen",
+          "affiliation": "Microsoft (Finland)"
+        },
+        {
+          "name": "Dongdong Chen",
+          "affiliation": "Microsoft (Finland)"
+        },
+        {
+          "name": "Cheng Yu",
+          "affiliation": "Microsoft (Finland)"
+        },
+        {
+          "name": "Lu Yuan",
+          "affiliation": "Microsoft (Finland)"
+        },
+        {
+          "name": "Yu-Chiang Frank Wang",
+          "affiliation": "National Taiwan University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Diffusion models (DMs) have shown great potential for high-quality image synthesis. However, when it comes to producing images with complex scenes, how to properly describe both image global structures and object details remains a challenging task. In this paper, we present Frido, a Feature Pyramid Diffusion model performing a multi-scale coarse-to-fine denoising process for image synthesis. Our model decomposes an input image into scale-dependent vector quantized features, followed by a coarse-to-fine gating for producing image output. During the above multi-scale representation learning stage, additional input conditions like text, scene graph, or image layout can be further exploited. Thus, Frido can be also applied for conditional or cross-modality image synthesis. We conduct extensive experiments over various unconditioned and conditional image generation tasks, ranging from text-to-image synthesis, layout-to-image, scene-graph-to-image, to label-to-image. More specifically, we achieved state-of-the-art FID scores on five benchmarks, namely layout-to-image on COCO and OpenImages, scene-graph-to-image on COCO and Visual Genome, and label-to-image on COCO.",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 59,
+      "doi": "10.1609/aaai.v37i1.25133",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v37i1.25133",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4379958469",
+      "title": "On the Design Fundamentals of Diffusion Models: A Survey",
+      "authors": [
+        {
+          "name": "Ziyi Chang",
+          "affiliation": ""
+        },
+        {
+          "name": "George Alex Koulieris",
+          "affiliation": ""
+        },
+        {
+          "name": "Hubert P. H. Shum",
+          "affiliation": ""
+        },
+        {
+          "name": "Shum, Hubert P. H.",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Diffusion models are learning pattern-learning systems to model and sample from data distributions with three functional components namely the forward process, the reverse process, and the sampling process. The components of diffusion models have gained significant attention with many design factors being considered in common practice. Existing reviews have primarily focused on higher-level solutions, covering less on the design fundamentals of components. This study seeks to address this gap by providing a comprehensive and coherent review of seminal designable factors within each functional component of diffusion models. This provides a finer-grained perspective of diffusion models, benefiting future studies in the analysis of individual components, the design factors for different purposes, and the implementation of diffusion models.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 46,
+      "doi": "10.48550/arxiv.2306.04542",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2306.04542",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4368364185",
+      "title": "Global green hydrogen-based steel opportunities surrounding high quality renewable energy and iron ore deposits",
+      "authors": [
+        {
+          "name": "Alexandra Devlin",
+          "affiliation": "University of Oxford"
+        },
+        {
+          "name": "Jannik Kossen",
+          "affiliation": "University of Oxford"
+        },
+        {
+          "name": "Haulwen Goldie-Jones",
+          "affiliation": "University of Oxford"
+        },
+        {
+          "name": "Aidong Yang",
+          "affiliation": "University of Oxford"
+        }
+      ],
+      "year": 2023,
+      "abstract": "The steel sector currently accounts for 7% of global energy-related CO<sub>2</sub> emissions and requires deep reform to disconnect from fossil fuels. Here, we investigate the market competitiveness of one of the widely considered decarbonisation routes for primary steel production: green hydrogen-based direct reduction of iron ore followed by electric arc furnace steelmaking. Through analysing over 300 locations by combined use of optimisation and machine learning, we show that competitive renewables-based steel production is located nearby the tropic of Capricorn and Cancer, characterised by superior solar with supplementary onshore wind, in addition to high-quality iron ore and low steelworker wages. If coking coal prices remain high, fossil-free steel could attain competitiveness in favourable locations from 2030, further improving towards 2050. Large-scale implementation requires attention to the abundance of suitable iron ore and other resources such as land and water, technical challenges associated with direct reduction, and future supply chain configuration.",
+      "venue": "Nature Communications",
+      "citation_count": 188,
+      "doi": "10.1038/s41467-023-38123-2",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41467-023-38123-2",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3156972038",
+      "title": "Fine-Grained Urban Flow Prediction",
+      "authors": [
+        {
+          "name": "Yuxuan Liang",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Kun Ouyang",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Junkai Sun",
+          "affiliation": "Jingdong (China)"
+        },
+        {
+          "name": "Yiwei Wang",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Junbo Zhang",
+          "affiliation": "Southwest Jiaotong University"
+        },
+        {
+          "name": "Yu Zheng",
+          "affiliation": "Southwest Jiaotong University"
+        },
+        {
+          "name": "David S. Rosenblum",
+          "affiliation": "National University of Singapore"
+        },
+        {
+          "name": "Roger Zimmermann",
+          "affiliation": "National University of Singapore"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Urban flow prediction benefits smart cities in many aspects, such as traffic management and risk assessment. However, a critical prerequisite for these benefits is having fine-grained knowledge of the city. Thus, unlike previous works that are limited to coarse-grained data, we extend the horizon of urban flow prediction to fine granularity which raises specific challenges: 1) the predominance of inter-grid transitions observed in fine-grained data makes it more complicated to capture the spatial dependencies among grid cells at a global scale; 2) it is very challenging to learn the impact of external factors (e.g., weather) on a large number of grid cells separately. To address these two challenges, we present a Spatio-Temporal Relation Network (STRN) to predict fine-grained urban flows. First, a backbone network is used to learn high-level representations for each cell. Second, we present a Global Relation Module (GloNet) that captures global spatial dependencies much more efficiently compared to existing methods. Third, we design a Meta Learner that takes external factors and land functions (e.g., POI density) as inputs to produce meta knowledge and boost model performances. We conduct extensive experiments on two real-world datasets. The results show that STRN reduces the errors by 7.1% to 11.5% compared to the state-of-the-art method while using much fewer parameters. Moreover, a cloud-based system called UrbanFlow 3.0 has been deployed to show the practicality of our approach.",
+      "venue": "",
+      "citation_count": 78,
+      "doi": "10.1145/3442381.3449792",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3442381.3449792",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4280581140",
+      "title": "Spatial\u2013temporal short-term traffic flow prediction model based on dynamical-learning graph convolution mechanism",
+      "authors": [
+        {
+          "name": "Zhijun Chen",
+          "affiliation": "Wuhan University of Technology"
+        },
+        {
+          "name": "Zhe L\u00fc",
+          "affiliation": "Wuhan University of Technology"
+        },
+        {
+          "name": "Qiushi Chen",
+          "affiliation": "Wuhan University of Technology"
+        },
+        {
+          "name": "Hongliang Zhong",
+          "affiliation": "Wuhan University of Technology"
+        },
+        {
+          "name": "Yishi Zhang",
+          "affiliation": "Wuhan University of Technology"
+        },
+        {
+          "name": "Jie Xue",
+          "affiliation": "Delft University of Technology"
+        },
+        {
+          "name": "Chaozhong Wu",
+          "affiliation": "Wuhan University of Technology"
+        }
+      ],
+      "year": 2022,
+      "abstract": "",
+      "venue": "Information Sciences",
+      "citation_count": 80,
+      "doi": "10.1016/j.ins.2022.08.080",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1016/j.ins.2022.08.080",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3166863548",
+      "title": "A Comprehensive Survey of the Key Technologies and Challenges Surrounding Vehicular Ad Hoc Networks",
+      "authors": [
+        {
+          "name": "Zhenchang Xia",
+          "affiliation": "Xidian University"
+        },
+        {
+          "name": "Jia Wu",
+          "affiliation": "Macquarie University"
+        },
+        {
+          "name": "Libing Wu",
+          "affiliation": "Xidian University"
+        },
+        {
+          "name": "Yanjiao Chen",
+          "affiliation": "Wuhan University"
+        },
+        {
+          "name": "Jian Yang",
+          "affiliation": "Macquarie University"
+        },
+        {
+          "name": "Philip S. Yu",
+          "affiliation": "University of Illinois Chicago"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Vehicular ad hoc networks ( VANETs ) and the services they support are an essential part of intelligent transportation. Through physical technologies, applications, protocols, and standards, they help to ensure traffic moves efficiently and vehicles operate safely. This article surveys the current state of play in VANETs development. The summarized and classified include the key technologies critical to the field, the resource-management and safety applications needed for smooth operations, the communications and data transmission protocols that support networking, and the theoretical and environmental constructs underpinning research and development, such as graph neural networks and the Internet of Things. Additionally, we identify and discuss several challenges facing VANETs, including poor safety, poor reliability, non-uniform standards, and low intelligence levels. Finally, we touch on hot technologies and techniques, such as reinforcement learning and 5G communications, to provide an outlook for the future of intelligent transportation systems.",
+      "venue": "ACM Transactions on Intelligent Systems and Technology",
+      "citation_count": 91,
+      "doi": "10.1145/3451984",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3451984",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4391849760",
+      "title": "Sparks of function by de novo protein design",
+      "authors": [
+        {
+          "name": "Alexander E. Chu",
+          "affiliation": "Palo Alto University"
+        },
+        {
+          "name": "Tianyu Lu",
+          "affiliation": "Stanford University"
+        },
+        {
+          "name": "Po\u2010Ssu Huang",
+          "affiliation": "Palo Alto University"
+        }
+      ],
+      "year": 2024,
+      "abstract": "",
+      "venue": "Nature Biotechnology",
+      "citation_count": 94,
+      "doi": "10.1038/s41587-024-02133-2",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1038/s41587-024-02133-2",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4285010209",
+      "title": "Antigen-Specific Antibody Design and Optimization with Diffusion-Based Generative Models for Protein Structures",
+      "authors": [
+        {
+          "name": "Shitong Luo",
+          "affiliation": "Helix (United States)"
+        },
+        {
+          "name": "Yufeng Su",
+          "affiliation": "University of Illinois Urbana-Champaign"
+        },
+        {
+          "name": "Xingang Peng",
+          "affiliation": "King University"
+        },
+        {
+          "name": "Sheng Wang",
+          "affiliation": "University of Washington"
+        },
+        {
+          "name": "Jian Peng",
+          "affiliation": "Helix (United States)"
+        },
+        {
+          "name": "Jianzhu Ma",
+          "affiliation": "Helix (United States)"
+        }
+      ],
+      "year": 2022,
+      "abstract": "Abstract Antibodies are immune system proteins that protect the host by binding to specific antigens such as viruses and bacteria. The binding between antibodies and antigens is mainly determined by the complementarity-determining regions (CDR) of the antibodies. In this work, we develop a deep generative model that jointly models sequences and structures of CDRs based on diffusion probabilistic models and equivariant neural networks. Our method is the first deep learning-based method that generates antibodies explicitly targeting specific antigen structures and is one of the earliest diffusion probabilistic models for protein structures. The model is a \u201cSwiss Army Knife\u201d capable of sequence-structure co-design, sequence design for given backbone structures, and antibody optimization. We conduct extensive experiments to evaluate the quality of both sequences and structures of designed antibodies. We find that our model could yield competitive results in binding affinity measured by biophysical energy functions and other protein design metrics.",
+      "venue": "",
+      "citation_count": 115,
+      "doi": "10.1101/2022.07.10.499510",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1101/2022.07.10.499510",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4385991139",
+      "title": "WordStylist: Styled Verbatim Handwritten Text Generation with Latent Diffusion Models",
+      "authors": [
+        {
+          "name": "Konstantina Nikolaidou",
+          "affiliation": "Lule\u00e5 University of Technology"
+        },
+        {
+          "name": "George Retsinas",
+          "affiliation": "National Technical University of Athens"
+        },
+        {
+          "name": "Vincent Christlein",
+          "affiliation": "Friedrich-Alexander-Universit\u00e4t Erlangen-N\u00fcrnberg"
+        },
+        {
+          "name": "Mathias Seuret",
+          "affiliation": "Friedrich-Alexander-Universit\u00e4t Erlangen-N\u00fcrnberg"
+        },
+        {
+          "name": "Giorgos Sfikas",
+          "affiliation": "University of Ioannina"
+        },
+        {
+          "name": "Elisa H. Barney Smith",
+          "affiliation": "Lule\u00e5 University of Technology"
+        },
+        {
+          "name": "Hamam Mokayed",
+          "affiliation": "Lule\u00e5 University of Technology"
+        },
+        {
+          "name": "Marcus Liwicki",
+          "affiliation": "Lule\u00e5 University of Technology"
+        }
+      ],
+      "year": 2023,
+      "abstract": "",
+      "venue": "Lecture notes in computer science",
+      "citation_count": 34,
+      "doi": "10.1007/978-3-031-41679-8_22",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/978-3-031-41679-8_22",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4409366412",
+      "title": "IMAGDressing-v1: Customizable Virtual Dressing",
+      "authors": [
+        {
+          "name": "Fei Shen",
+          "affiliation": "Nanjing University of Science and Technology"
+        },
+        {
+          "name": "Xin Jiang",
+          "affiliation": "Nanjing University of Science and Technology"
+        },
+        {
+          "name": "Xin He",
+          "affiliation": "Wuhan University of Technology"
+        },
+        {
+          "name": "Ye Hu",
+          "affiliation": "Tencent (China)"
+        },
+        {
+          "name": "Cong Wang",
+          "affiliation": "Nanjing University"
+        },
+        {
+          "name": "Xiaoyu Du",
+          "affiliation": "Nanjing University of Science and Technology"
+        },
+        {
+          "name": "Zechao Li",
+          "affiliation": "Nanjing University of Science and Technology"
+        },
+        {
+          "name": "Jinhui Tang",
+          "affiliation": "Nanjing University of Science and Technology"
+        }
+      ],
+      "year": 2025,
+      "abstract": "Existing virtual try-on (VTON) methods provide only limited user control over garment attributes and generally overlook essential factors such as face, pose, and scene context. To address these limitations, we introduce the virtual dressing (VD) task, which aims to synthesize freely editable human images conditioned on fixed garments and optional user-defined inputs. We further propose a comprehensive affinity metric index (CAMI) to quantify the consistency between generated outputs and reference garments. We present IMAGDressing-v1, which leverages a garment-specific U-Net to integrate semantic features from CLIP and texture features from a VAE. To incorporate these garment features into a frozen denoising U-Net for flexible text-driven scene control, we employ a hybrid attention mechanism composed of frozen self-attention and trainable cross-attention layers. IMAGDressing-v1 seamlessly integrates with extension modules, such as ControlNet and IP-Adapter, enabling enhanced diversity and controllability. To alleviate data constraints, we introduce the Interactive Garment Pairing (IGPair) dataset, comprising over 300,000 garment\u2013image pairs and a standardized data assembly pipeline. Extensive experiments demonstrate that IMAGDressing-v1 achieves state-of-the-art performance in controlled human image synthesis. The code and model will be available at https://github.com/muzishen/IMAGDressing.",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 55,
+      "doi": "10.1609/aaai.v39i7.32729",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v39i7.32729",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3217345456",
+      "title": "Vector Quantized Diffusion Model for Text-to-Image Synthesis",
+      "authors": [
+        {
+          "name": "Shuyang Gu",
+          "affiliation": ""
+        },
+        {
+          "name": "Dong Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianmin Bao",
+          "affiliation": ""
+        },
+        {
+          "name": "Fang Wen",
+          "affiliation": ""
+        },
+        {
+          "name": "Bo Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Dongdong Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Lu Yuan",
+          "affiliation": ""
+        },
+        {
+          "name": "Baining Guo",
+          "affiliation": ""
+        }
+      ],
+      "year": 2021,
+      "abstract": "We present the vector quantized diffusion (VQ-Diffusion) model for text-to-image generation. This method is based on a vector quantized variational autoencoder (VQ-VAE) whose latent space is modeled by a conditional variant of the recently developed Denoising Diffusion Probabilistic Model (DDPM). We find that this latent-space method is well-suited for text-to-image generation tasks because it not only eliminates the unidirectional bias with existing methods but also allows us to incorporate a mask-and-replace diffusion strategy to avoid the accumulation of errors, which is a serious problem with existing methods. Our experiments show that the VQ-Diffusion produces significantly better text-to-image generation results when compared with conventional autoregressive (AR) models with similar numbers of parameters. Compared with previous GAN-based text-to-image methods, our VQ-Diffusion can handle more complex scenes and improve the synthesized image quality by a large margin. Finally, we show that the image generation computation in our method can be made highly efficient by reparameterization. With traditional AR methods, the text-to-image generation time increases linearly with the output image resolution and hence is quite time consuming even for normal size images. The VQ-Diffusion allows us to achieve a better trade-off between quality and speed. Our experiments indicate that the VQ-Diffusion model with the reparameterization is fifteen times faster than traditional AR methods while achieving a better image quality.",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 40,
+      "doi": "10.48550/arxiv.2111.14822",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2111.14822",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4388248293",
+      "title": "Cloud-load forecasting via decomposition-aided attention recurrent neural network tuned by modified particle swarm optimization",
+      "authors": [
+        {
+          "name": "Bratislav Predi\u0107",
+          "affiliation": "University of Nis"
+        },
+        {
+          "name": "Luka Jovanovi\u0107",
+          "affiliation": "Singidunum University"
+        },
+        {
+          "name": "Vladimir \u0160imi\u0107",
+          "affiliation": "University of Belgrade"
+        },
+        {
+          "name": "Neboj\u0161a Ba\u010danin",
+          "affiliation": "Singidunum University"
+        },
+        {
+          "name": "Miodrag \u017divkovi\u0107",
+          "affiliation": "Singidunum University"
+        },
+        {
+          "name": "Petar Spalevi\u0107",
+          "affiliation": ""
+        },
+        {
+          "name": "Neboj\u0161a Budimirovi\u0107",
+          "affiliation": "Singidunum University"
+        },
+        {
+          "name": "Milo\u0161 Dobrojevi\u0107",
+          "affiliation": "Singidunum University"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Abstract Recent improvements in networking technologies have led to a significant shift towards distributed cloud-based services. However, adequate management of computation resources by providers is vital to maintain the costs of operations and quality of services. A robust system is needed to forecast demand and prevent excessive resource allocations. Extensive literature review suggests that the potential of recurrent neural networks with attention mechanisms is not sufficiently explored and applied to cloud computing. To address this gap, this work proposes a methodology for forecasting load of cloud resources based on recurrent neural networks with and without attention layers. Utilized deep learning models are further optimized through hyperparameter tuning using a modified particle swarm optimization metaheuristic, which is also introduced in this work. To help models deal with complex non-stationary data sequences, the variational mode decomposition for decomposing complex series has also been utilized. The performance of this approach is compared to several state-of-the-art algorithms on a real-world cloud-load dataset. Captured performance metrics ( $$R^2$$ <mml:math xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"> <mml:msup> <mml:mi>R</mml:mi> <mml:mn>2</mml:mn> </mml:msup> </mml:math> , mean square error, root mean square error, and index of agreement) strongly indicate that the proposed method has great potential for accurately forecasting cloud load. Further, models optimized by the introduced metaheuristic outperformed competing approaches, which was confirmed by conducted statistical validation. In addition, the best-performing forecasting model has been subjected to SHapley Additive exPlanations analysis to determine the impact each feature has on model forecasts, which could potentially be a very useful tool for cloud providers when making decisions.",
+      "venue": "Complex & Intelligent Systems",
+      "citation_count": 64,
+      "doi": "10.1007/s40747-023-01265-3",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1007/s40747-023-01265-3",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4391092980",
+      "title": "SMEMO: Social Memory for Trajectory Forecasting",
+      "authors": [
+        {
+          "name": "Francesco Marchetti",
+          "affiliation": "University of Florence"
+        },
+        {
+          "name": "Federico Becattini",
+          "affiliation": "University of Florence"
+        },
+        {
+          "name": "Lorenzo Seidenari",
+          "affiliation": "University of Florence"
+        },
+        {
+          "name": "Alberto Del Bimbo",
+          "affiliation": "University of Florence"
+        }
+      ],
+      "year": 2024,
+      "abstract": "Effective modeling of human interactions is of utmost importance when forecasting behaviors such as future trajectories. Each individual, with its motion, influences surrounding agents since everyone obeys to social non-written rules such as collision avoidance or group following. In this paper we model such interactions, which constantly evolve through time, by looking at the problem from an algorithmic point of view, i.e., as a data manipulation task. We present a neural network based on an end-to-end trainable working memory, which acts as an external storage where information about each agent can be continuously written, updated and recalled. We show that our method is capable of learning explainable cause-effect relationships between motions of different agents, obtaining state-of-the-art results on multiple trajectory forecasting datasets.",
+      "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+      "citation_count": 33,
+      "doi": "10.1109/tpami.2024.3356755",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/tpami.2024.3356755",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4385275531",
+      "title": "Word-As-Image for Semantic Typography",
+      "authors": [
+        {
+          "name": "Shir Iluz",
+          "affiliation": "Tel Aviv University"
+        },
+        {
+          "name": "Yael Vinker",
+          "affiliation": "Tel Aviv University"
+        },
+        {
+          "name": "Amir Hertz",
+          "affiliation": "Tel Aviv University"
+        },
+        {
+          "name": "Daniel Berio",
+          "affiliation": "Goldsmiths University of London"
+        },
+        {
+          "name": "Daniel Cohen\u2010Or",
+          "affiliation": "Tel Aviv University"
+        },
+        {
+          "name": "Ariel Shamir",
+          "affiliation": "Herzliya Medical Center"
+        }
+      ],
+      "year": 2023,
+      "abstract": "A word-as-image is a semantic typography technique where a word illustration presents a visualization of the meaning of the word, while also preserving its readability. We present a method to create word-as-image illustrations automatically. This task is highly challenging as it requires semantic understanding of the word and a creative idea of where and how to depict these semantics in a visually pleasing and legible manner. We rely on the remarkable ability of recent large pretrained language-vision models to distill textual concepts visually. We target simple, concise, black-and-white designs that convey the semantics clearly. We deliberately do not change the color or texture of the letters and do not use embellishments. Our method optimizes the outline of each letter to convey the desired concept, guided by a pretrained Stable Diffusion model. We incorporate additional loss terms to ensure the legibility of the text and the preservation of the style of the font. We show high quality and engaging results on numerous examples and compare to alternative techniques. Code and demo will be available at our project page.",
+      "venue": "ACM Transactions on Graphics",
+      "citation_count": 56,
+      "doi": "10.1145/3592123",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1145/3592123",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W3142049818",
+      "title": "Where to go Next: Learning a Subgoal Recommendation Policy for Navigation in Dynamic Environments",
+      "authors": [
+        {
+          "name": "Bruno Brito",
+          "affiliation": "Delft University of Technology"
+        },
+        {
+          "name": "Michael Everett",
+          "affiliation": "Massachusetts Institute of Technology"
+        },
+        {
+          "name": "Jonathan P. How",
+          "affiliation": "Massachusetts Institute of Technology"
+        },
+        {
+          "name": "Javier Alonso\u2013Mora",
+          "affiliation": "Delft University of Technology"
+        }
+      ],
+      "year": 2021,
+      "abstract": "Robotic navigation in environments shared with other robots or humans remains challenging because the intentions of the surrounding agents are not directly observable and the environment conditions are continuously changing. Local trajectory optimization methods, such as model predictive control (MPC), can deal with those changes but require global guidance, which is not trivial to obtain in crowded scenarios. This letter proposes to learn, via deep Reinforcement Learning (RL), an interaction-aware policy that provides long-term guidance to the local planner. In particular, in simulations with cooperative and non-cooperative agents, we train a deep network to recommend a subgoal for the MPC planner. The recommended subgoal is expected to help the robot in making progress towards its goal and accounts for the expected interaction with other agents. Based on the recommended subgoal, the MPC planner then optimizes the inputs for the robot satisfying its kinodynamic and collision avoidance constraints. Our approach is shown to substantially improve the navigation performance in terms of number of collisions as compared to prior MPC frameworks, and in terms of both travel time and number of collisions compared to deep RL methods in cooperative, competitive and mixed multiagent scenarios.",
+      "venue": "IEEE Robotics and Automation Letters",
+      "citation_count": 66,
+      "doi": "10.1109/lra.2021.3068662",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1109/lra.2021.3068662",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4389471355",
+      "title": "DiffusionSat: A Generative Foundation Model for Satellite Imagery",
+      "authors": [
+        {
+          "name": "Samar Khanna",
+          "affiliation": ""
+        },
+        {
+          "name": "Patrick Liu",
+          "affiliation": ""
+        },
+        {
+          "name": "Linqi Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Chenlin Meng",
+          "affiliation": ""
+        },
+        {
+          "name": "Robin Rombach",
+          "affiliation": ""
+        },
+        {
+          "name": "Marshall Burke",
+          "affiliation": ""
+        },
+        {
+          "name": "David B. Lobell",
+          "affiliation": ""
+        },
+        {
+          "name": "Stefano Ermon",
+          "affiliation": ""
+        }
+      ],
+      "year": 2023,
+      "abstract": "Diffusion models have achieved state-of-the-art results on many modalities including images, speech, and video. However, existing models are not tailored to support remote sensing data, which is widely used in important applications including environmental monitoring and crop-yield prediction. Satellite images are significantly different from natural images -- they can be multi-spectral, irregularly sampled across time -- and existing diffusion models trained on images from the Web do not support them. Furthermore, remote sensing data is inherently spatio-temporal, requiring conditional generation tasks not supported by traditional methods based on captions or images. In this paper, we present DiffusionSat, to date the largest generative foundation model trained on a collection of publicly available large, high-resolution remote sensing datasets. As text-based captions are sparsely available for satellite images, we incorporate the associated metadata such as geolocation as conditioning information. Our method produces realistic samples and can be used to solve multiple generative tasks including temporal generation, superresolution given multi-spectral inputs and in-painting. Our method outperforms previous state-of-the-art methods for satellite image generation and is the first large-scale generative foundation model for satellite imagery. The project website can be found here: https://samar-khanna.github.io/DiffusionSat/",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 31,
+      "doi": "10.48550/arxiv.2312.03606",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.48550/arxiv.2312.03606",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4324133812",
+      "title": "Stream Temperature Prediction in a Shifting Environment: Explaining the Influence of Deep Learning Architecture",
+      "authors": [
+        {
+          "name": "Simon Topp",
+          "affiliation": "United States Geological Survey"
+        },
+        {
+          "name": "Janet R. Barclay",
+          "affiliation": "New England Water Science Center"
+        },
+        {
+          "name": "Jeremy Diaz",
+          "affiliation": "United States Geological Survey"
+        },
+        {
+          "name": "Alexander Y. Sun",
+          "affiliation": "The University of Texas at Austin"
+        },
+        {
+          "name": "Xiaowei Jia",
+          "affiliation": "University of Pittsburgh"
+        },
+        {
+          "name": "Dan Lu",
+          "affiliation": "Oak Ridge National Laboratory"
+        },
+        {
+          "name": "Jeffrey M. Sadler",
+          "affiliation": "Oklahoma State University"
+        },
+        {
+          "name": "Alison Appling",
+          "affiliation": "United States Geological Survey"
+        }
+      ],
+      "year": 2023,
+      "abstract": "Abstract Stream temperature is a fundamental control on ecosystem health. Recent efforts incorporating process guidance into deep learning models for predicting stream temperature have been shown to outperform existing statistical and physical models. This performance is in part because deep learning architectures can actively learn spatiotemporal relationships that govern how water and energy propagate through a river network. However, exploration of how spatiotemporal awareness and process guidance influence a model's generalizability under shifting environmental conditions such as climate change is limited. Here, we use Explainable Artificial Intelligence (XAI) to interrogate how differing deep learning architectures affect a model's learned spatial and temporal dependencies, and how those learned dependencies affect a model's ability to maintain high accuracy when applied to unseen environmental conditions. Using the Delaware River Basin in the northeastern United States as a test case, we compare two spatiotemporally aware process\u2010guided deep learning models for predicting stream temperature (a recurrent graph convolution network\u2014RGCN, and a temporal convolution graph model\u2014Graph WaveNet). Both models achieve equally high predictive performance when testing data are well represented in the training data (test root mean squared errors of 1.64\u00b0C and 1.65\u00b0C); however, Graph WaveNet significantly outperforms RGCN in 4 out of 5 experiments where test partitions represent different types of unseen environmental conditions. XAI results show that the architecture of Graph WaveNet leads to learned spatial relationships with greater fidelity to physical processes, and that this fidelity improves the generalizability of the model when applied to shifting and/or unseen environmental conditions.",
+      "venue": "Water Resources Research",
+      "citation_count": 32,
+      "doi": "10.1029/2022wr033880",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1029/2022wr033880",
+      "source": "openalex",
+      "_bibtex_override": ""
+    },
+    {
+      "paper_id": "oalex-W4409369524",
+      "title": "EchoMimic: Lifelike Audio-Driven Portrait Animations through Editable Landmark Conditions",
+      "authors": [
+        {
+          "name": "Zhiyuan Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Jiajiong Cao",
+          "affiliation": ""
+        },
+        {
+          "name": "Zhiquan Chen",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuming Li",
+          "affiliation": ""
+        },
+        {
+          "name": "Chenguang Ma",
+          "affiliation": ""
+        }
+      ],
+      "year": 2025,
+      "abstract": "The area of portrait image animation, propelled by audio input, has witnessed notable progress in the generation of lifelike and dynamic portraits. Conventional methods are limited to utilizing either audios or facial key points to drive images into videos, while they can yield satisfactory results, certain issues exist. For instance, methods driven solely by audios can be unstable at times due to the relatively weaker audio signal, while methods driven exclusively by facial key points, although more stable in driving, can result in unnatural outcomes due to the excessive control of key point information. In addressing the previously mentioned challenges, in this paper, we introduce a novel approach which we named EchoMimic. EchoMimic is concurrently trained using both audios and facial landmarks. Through the implementation of a novel training strategy, EchoMimic is capable of generating portrait videos not only by audios and facial landmarks individually, but also by a combination of both audios and selected facial landmarks. EchoMimic has been comprehensively compared with alternative algorithms across various public datasets and our collected dataset, showcasing superior performance in both quantitative and qualitative evaluations. The code and models are available on the project page.",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "citation_count": 34,
+      "doi": "10.1609/aaai.v39i3.32241",
+      "arxiv_id": "",
+      "url": "https://doi.org/10.1609/aaai.v39i3.32241",
+      "source": "openalex",
+      "_bibtex_override": ""
+    }
+  ]
+}
