@@ -132,10 +132,15 @@ const zh: Record<string, string> = {
   'log.all': '全部',
 
   // QueuePanel
-  'queue.title': '📋 任务流水线',
+  'queue.title': '📋 总体进度',
   'queue.idle': '空闲',
   'queue.badge_running': '执行中',
   'queue.badge_waiting': '等待中',
+  'queue.stage_idea': '调研与创意',
+  'queue.stage_experiment': '实验设计',
+  'queue.stage_coding': '代码与资源',
+  'queue.stage_execution': '执行与修正',
+  'queue.stage_writing': '论文写作',
 
   // ResourceMonitor
   'resource.tag': '📈 资源',

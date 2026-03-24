@@ -39,7 +39,7 @@ function ArtifactItem({ a, locale }: { a: Artifact; locale: string }) {
         {hasContent && <span className={`artifact-card-chevron ${expanded ? 'open' : ''}`}>▶</span>}
       </div>
       {hasContent && !expanded && (
-        <div className="artifact-card-summary">{truncate(a.content!, 120)}</div>
+        <div className="artifact-card-summary">{truncate(a.content!, 200)}</div>
       )}
       {expanded && a.content && (
         <div className="artifact-card-detail">
@@ -155,9 +155,14 @@ export default memo(function DataShelf({ repoId, artifacts }: Props) {
             </span>
           </div>
           {byProject.size === 0 && <div className="shelf-empty">{t('shelf.no_artifacts')}</div>}
-          {[...byProject.entries()].map(([pid, files]) => (
-            <ProjectFolder key={pid} pid={pid} files={files} locale={locale} />
-          ))}
+          {repoId === 'papers'
+            ? [...byProject.keys()].map((pid) => (
+                <div key={pid} className="shelf-paper-item">📝 {pid}</div>
+              ))
+            : [...byProject.entries()].map(([pid, files]) => (
+                <ProjectFolder key={pid} pid={pid} files={files} locale={locale} />
+              ))
+          }
         </div>
       )}
     </div>

@@ -132,10 +132,15 @@ const en: Record<string, string> = {
   'log.all': 'All',
 
   // QueuePanel
-  'queue.title': '📋 Task Pipeline',
+  'queue.title': '📋 Overall Progress',
   'queue.idle': 'Idle',
   'queue.badge_running': 'Running',
   'queue.badge_waiting': 'Waiting',
+  'queue.stage_idea': 'Research & Ideas',
+  'queue.stage_experiment': 'Experiment Design',
+  'queue.stage_coding': 'Code & Resources',
+  'queue.stage_execution': 'Execution & Refine',
+  'queue.stage_writing': 'Paper Writing',
 
   // ResourceMonitor
   'resource.tag': '📈 Resources',

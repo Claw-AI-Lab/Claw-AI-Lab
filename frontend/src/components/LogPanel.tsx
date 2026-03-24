@@ -1,20 +1,34 @@
-import { memo, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { LAYER_META, ALL_LAYERS, STAGE_META } from '../types';
 import type { LogEntry, AgentLayer } from '../types';
 import { useLocale } from '../i18n';
+
+function getLayerForStage(stage: number | null | undefined): AgentLayer | null {
+  if (!stage) return null;
+  if (stage >= 1 && stage <= 8) return 'idea';
+  if (stage === 100) return 'idea';
+  if (stage === 9) return 'experiment';
+  if (stage >= 10 && stage <= 13) return 'coding';
+  if (stage >= 14 && stage <= 18) return 'execution';
+  if (stage >= 19 && stage <= 22) return 'writing';
+  return null;
+}
+
+function effectiveLayer(log: LogEntry): AgentLayer {
+  return getLayerForStage(log.stage) ?? log.layer;
+}
 
 interface Props {
   logs: LogEntry[];
 }
 
-export default memo(function LogPanel({ logs }: Props) {
+export default function LogPanel({ logs }: Props) {
   const listRef = useRef<HTMLDivElement>(null);
   const [filter, setFilter] = useState<AgentLayer | 'all'>('all');
   const autoScroll = useRef(true);
   const { t } = useLocale();
 
-  const filtered = filter === 'all' ? logs : logs.filter((l) => l.layer === filter);
-  const display = filtered.slice(-120);
+  const tail = logs.slice(-120);
 
   const handleScroll = () => {
     const el = listRef.current;
@@ -27,7 +41,7 @@ export default memo(function LogPanel({ logs }: Props) {
     if (el && autoScroll.current) {
       el.scrollTop = el.scrollHeight;
     }
-  }, [display.length]);
+  }, [tail.length]);
 
   return (
     <div className="log-panel-inner">
@@ -46,23 +60,31 @@ export default memo(function LogPanel({ logs }: Props) {
         ))}
       </div>
       <div className="global-log-list" ref={listRef} onScroll={handleScroll}>
-        {display.map((log) => (
-          <div key={log.id} className={`glog-item level-${log.level}`}>
-            <span className="glog-time">{new Date(log.timestamp).toLocaleTimeString()}</span>
-            <span className="glog-layer" style={{ color: LAYER_META[log.layer].color }}>
-              [{t(`layer.${log.layer}.name`).split('·')[0].trim()}]
-            </span>
-            {log.stage && (
-              <span className={`glog-stage${log.stage === 100 ? ' glog-stage-discussion' : ''}`} title={STAGE_META[log.stage]?.key}>
-                {log.stage === 100
-                  ? '💬讨论'
-                  : `S${STAGE_META[log.stage]?.displayNumber ?? log.stage}`}
+        {tail.map((log) => {
+          const layer = effectiveLayer(log);
+          const hidden = filter !== 'all' && layer !== filter;
+          return (
+            <div
+              key={log.id}
+              className={`glog-item level-${log.level}`}
+              style={hidden ? { display: 'none' } : undefined}
+            >
+              <span className="glog-time">{new Date(log.timestamp).toLocaleTimeString()}</span>
+              <span className="glog-layer" style={{ color: LAYER_META[layer].color }}>
+                [{t(`layer.${layer}.name`).split('·')[0].trim()}]
               </span>
-            )}
-            <span className="glog-msg">{log.message}</span>
-          </div>
-        ))}
+              {log.stage && (
+                <span className={`glog-stage${log.stage === 100 ? ' glog-stage-discussion' : ''}`} title={STAGE_META[log.stage]?.key}>
+                  {log.stage === 100
+                    ? '💬讨论'
+                    : `S${STAGE_META[log.stage]?.displayNumber ?? log.stage}`}
+                </span>
+              )}
+              <span className="glog-msg">{log.message}</span>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
-});
+}

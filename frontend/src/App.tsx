@@ -55,8 +55,15 @@ function reducer(state: AppState, action: Action): AppState {
           };
         }),
       };
-    case 'artifact_produced':
-      return { ...state, artifacts: [action.payload, ...state.artifacts] };
+    case 'artifact_produced': {
+      const a = action.payload;
+      const key = `${a.projectId}:${a.stage ?? 0}:${a.filename}`;
+      const exists = state.artifacts.some(
+        (x) => `${x.projectId}:${x.stage ?? 0}:${x.filename}` === key,
+      );
+      if (exists) return state;
+      return { ...state, artifacts: [a, ...state.artifacts] };
+    }
     case 'resource_stats':
       return { ...state, resources: action.payload, resConnected: true };
     case 'log':
@@ -377,20 +384,6 @@ export default function App() {
               }
             }}
           />
-          <div className="shelf-section">
-            <div className="shelf-section-header">
-              <span className="shelf-section-title">{t('header.shared_repo')}</span>
-            </div>
-            <div className="shelf-list">
-              {ALL_REPOS.map((repoId) => (
-                <DataShelf
-                  key={repoId}
-                  repoId={repoId}
-                  artifacts={artifactsByRepo[repoId] || []}
-                />
-              ))}
-            </div>
-          </div>
         </div>
 
         <div className="pyramid-container">
@@ -426,7 +419,21 @@ export default function App() {
 
         <div className="side-panel log-panel">
           <LogPanel logs={state.logs} />
-          <QueuePanel queues={state.queues} />
+          {/* <QueuePanel queues={state.queues} /> */}
+          <div className="shelf-section">
+            <div className="shelf-section-header">
+              <span className="shelf-section-title">{t('header.shared_repo')}</span>
+            </div>
+            <div className="shelf-list">
+              {ALL_REPOS.map((repoId) => (
+                <DataShelf
+                  key={repoId}
+                  repoId={repoId}
+                  artifacts={artifactsByRepo[repoId] || []}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
