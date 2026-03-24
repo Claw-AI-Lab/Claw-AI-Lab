@@ -59,7 +59,7 @@ export const STAGE_META: Record<RCStage, StageMeta> = {
   19: { id: 19, displayNumber: 19, name: '论文大纲',     key: 'PAPER_OUTLINE',       outputs: ['outline.md'] },
   20: { id: 20, displayNumber: 20, name: '论文初稿',     key: 'PAPER_DRAFT',         outputs: ['paper_draft.md'] },
   21: { id: 21, displayNumber: 21, name: '同行评审',     key: 'PEER_REVIEW',         outputs: ['reviews.md'] },
-  22: { id: 22, displayNumber: 22, name: '论文修订',     key: 'PAPER_REVISION',      outputs: ['paper_revised.md'] },
+  22: { id: 22, displayNumber: 22, name: '论文修订',     key: 'PAPER_REVISION',      outputs: ['paper_revised.md', 'latex_package.zip'] },
 };
 
 // ===================== Pyramid Layer Definitions =====================
@@ -262,6 +262,7 @@ export const ARTIFACT_LABELS: Record<string, { icon: string; zh: string; en: str
   'paper_draft.md':        { icon: '📄', zh: '论文初稿', en: 'Paper Draft' },
   'reviews.md':            { icon: '👁️', zh: '同行评审', en: 'Peer Reviews' },
   'paper_revised.md':      { icon: '✍️', zh: '论文终稿', en: 'Paper Revised' },
+  'latex_package.zip':     { icon: '📦', zh: 'LaTeX 包 (Overleaf)', en: 'LaTeX Package (Overleaf)' },
   'discussion_transcript.md': { icon: '💬', zh: '讨论记录', en: 'Discussion Transcript' },
   'consensus_synthesis.md':   { icon: '🤝', zh: '共识综合', en: 'Consensus Synthesis' },
   'pre_discussion_syntheses.md': { icon: '📋', zh: '讨论前综合', en: 'Pre-discussion Syntheses' },
