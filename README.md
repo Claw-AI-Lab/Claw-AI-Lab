@@ -17,9 +17,10 @@
 
 ---
 
-## What Is This?
+## 🤔 What Is This?
 
-**Claw AI Lab** is a multi-agent parallel research system. Drop a research topic — the system autonomously handles literature review, hypothesis generation, experiment design, code writing, experiment execution, result analysis, and paper writing. Multiple agents work in parallel across a pyramid-layered architecture, collaborating end-to-end from idea to paper with zero human intervention.
+**Claw AI Lab** is a fully autonomous multi-agent research system. Given a research topic, it automatically conducts literature review, designs and runs GPU-accelerated experiments, analyzes results, and writes a complete academic paper — end-to-end, with no human intervention.
+Multiple agents collaborate across a 5-layer pyramid (survey → design → coding → execution → writing), coordinated via task queues with real-time web monitoring. It supports autonomous exploration, multi-agent debate with heterogeneous LLMs, and paper reproduction workflows.
 
 ---
 
@@ -201,20 +202,19 @@ prompts:
 
 </details>
 
----
+<!-- ---
 
 ## Key Features
 
-| Feature | Description |
-|---------|-------------|
-| **Multi-Agent Discussion** | Multiple agents with different LLMs debate and reach consensus, avoiding homogeneous outputs. |
-| **Beast Mode Code Generation** | Complex experiments auto-routed to OpenHands for multi-file project generation. |
-| **Dynamic GPU Allocation** | Automatically detects free GPUs based on utilization. No manual `CUDA_VISIBLE_DEVICES`. |
-| **Checkpoint & Resume** | Auto-saves progress after each stage. Resume from any checkpoint after restart. |
-| **Manual Intervention** | Auto-pauses on code test failures. Yellow ⚠ indicator on UI with detailed error info. |
-| **Knowledge Loop** | Experiment results and insights feed back into the knowledge base for future projects. |
-| **Real-time Monitoring** | Web UI with agent status, GPU metrics, task queues, and event logs. |
-| **Paper with Figures** | Auto-generates experiment charts, renders concept figures, and injects them into the paper. |
+
+- **Multi-Agent Discussion** | Multiple agents with different LLMs debate and reach consensus, avoiding homogeneous outputs. |
+- **Beast Mode Code Generation** | Complex experiments auto-routed to OpenHands for multi-file project generation. |
+- **Dynamic GPU Allocation** | Automatically detects free GPUs based on utilization. No manual `CUDA_VISIBLE_DEVICES`. |
+- **Checkpoint & Resume** | Auto-saves progress after each stage. Resume from any checkpoint after restart. |
+- **Manual Intervention** | Auto-pauses on code test failures. Yellow ⚠ indicator on UI with detailed error info. |
+- **Knowledge Loop** | Experiment results and insights feed back into the knowledge base for future projects. |
+- **Real-time Monitoring** | Web UI with agent status, GPU metrics, task queues, and event logs. |
+- **Paper with Figures** | Auto-generates experiment charts, renders concept figures, and injects them into the paper. | -->
 
 ---
 
@@ -230,16 +230,16 @@ We thank the authors for their contributions to the community!
 
 MIT — see [LICENSE](LICENSE) for details.
 
-## 📌 Citation
+<!-- ## 📌 Citation
 
 If you find Claw AI Lab useful, please cite:
 
 ```bibtex
 @misc{wu2026clawailab,
-  author       = {Wu, Fan and Chen, Cheng and Tan, Zhenshan and Zhang, Taiyu and Gao, Dingcheng and Zhu, Lanyu and Ye, Deheng and Liu, Fayao and Chen, Tianrun and Lin, Guosheng},
+  author       = {Wu, Fan and Chen, Cheng and Tan, Zhenshan and Zhang, Taiyu and Gao, Dingcheng and Zhu, Lanyu and Ye, Deheng and Liu, Fayao and Lin, Guosheng and Chen, Tianrun},
   title        = {Claw AI Lab: Autonomous Multi-Agent Research Team},
   year         = {2026},
   organization = {GitHub},
   url          = {https://github.com/wufan-cse/Claw-AI-Lab},
 }
-```
+``` -->
