@@ -1,604 +1,134 @@
-# 🦞 Claw AI Lab
+<p align="center">
+  <img src="image/logo.png" width="700" alt="Claw AI Lab">
+</p>
 
-金字塔架构的 AI 研究龙虾军团 —— 基于 [AutoResearchClaw](backend/agent/) 的多 Agent 并行研究系统。
+<h2 align="center"><b>Claw AI Lab: Autonomous Multi-Agent Research Team</b></h2>
 
-> **v1.0.4 新特性**: 实验图表质量大幅提升 — 自适应布局防文字叠加、标签智能缩写、禁止 LLM 合成假数据 — [查看详情](#v104-新特性-实验图表质量修复)
->
-> **v1.0.3 新特性**: FIGURE_PROMPT 自动渲染为图像、统一 `image_model` 配置、论文强制引用全部实验图表 — [查看详情](#v103-新特性-图像自动渲染与配置统一)
->
-> **v1.0.2 新特性**: L5 论文写作增强 — 自动图像 Prompt 生成、实验结果图正确注入、Agent 讨论数据融入论文上下文 — [查看详情](#v102-新特性-l5-论文写作增强)
->
-> **v1.0.1 新特性**: 多 Agent 沟通讨论模式 (S8)、多模型支持、代码质量增强 — [查看讨论对比](#-s8-agent-沟通讨论前后对比)
+<p align="center">
+  <b><i>One Command. A Complete AI Team.</i></b>
+</p>
 
-## 架构概览
-
-```
-                ┌───────────────────────┐
-                │  L1 · 调研与创意 (×2)   │  S1→S7
-                │  文献调研 → 知识综合     │
-                └──────────┬────────────┘
-                     💬 S8 沟通讨论
-                  (多 Agent 交叉审议)
-                ┌──────────┴────────────┐
-                │  S9 假设生成            │
-                │  (基于共识综合)          │
-                └──────────┬────────────┘
-                     💡 Idea 仓库
-                ┌──────────┴────────────┐
-                │  L2 · 实验设计 (×2)    │  S10
-                │  实验方案设计           │
-                └──────────┬────────────┘
-                     🧪 实验设计仓库
-             ┌─────────────┴───────────────┐
-             │  L3 · 代码与资源 (×2)         │  S11→S14
-             │  代码库检索 → 代码生成 →       │
-             │  代码检验 → 资源规划           │
-             └─────────────┬───────────────┘
-                     💻 代码仓库
-        ┌──────────────────┴────────────────────┐
-        │  L4 · 执行与修正 (×2)                   │  S15→S19
-        │  实验执行 → 迭代优化 → 结果分析 →         │
-        │  研究决策 → 知识归纳                     │
-        └──────────────────┬────────────────────┘
-                     📊 结果仓库
-                     🧠 知识库 ──→ 反馈 L1
-        ┌──────────────────┴────────────────────┐
-        │  L5 · 论文写作 (×2)                     │  S20→S23
-        │  大纲 → 初稿 → 审稿 → 修订              │
-        └───────────────────────────────────────┘
-```
-
-每层部署多只龙虾 Agent，通过层间任务队列（FIFO）自动调度。上层完成后产物进入队列，下层空闲龙虾自动领取任务。不同项目的文件在共享仓库中按项目隔离。
-
-## Pipeline 阶段 (S1 → S23)
-
-| 显示编号 | 名称 | 层级 | 模型 | 说明 |
-|---------|------|------|------|------|
-| S1 | TOPIC_INIT | L1 | opus-4-6 | SMART 目标 + 硬件检测 |
-| S2 | PROBLEM_DECOMPOSE | L1 | opus-4-6 | 子问题树 |
-| S3 | SEARCH_STRATEGY | L1 | opus-4-6 | 检索策略规划 |
-| S4 | LITERATURE_COLLECT | L1 | opus-4-6 | OpenAlex / arXiv / Semantic Scholar |
-| S5 | LITERATURE_SCREEN ⛩ | L1 | opus-4-6 | 文献筛选 (GATE) |
-| S6 | KNOWLEDGE_EXTRACT | L1 | opus-4-6 | 结构化知识卡片 |
-| S7 | SYNTHESIS | L1 | opus-4-6 | 主题聚类 + 研究空白识别 |
-| **S8** | **💬 沟通讨论** | **L1** | **多模型** | **多 Agent 交叉审议 → 共识综合** |
-| S9 | HYPOTHESIS_GEN | L1 | opus-4-6 | 假设生成 (基于共识综合 + 知识库) |
-| S10 | EXPERIMENT_DESIGN ⛩ | L2 | opus-4-6 | 实验方案 YAML (GATE) |
-| S10 | CODEBASE_SEARCH | L3 | opus-4-6 | 搜索 GitHub 可复用代码库 |
-| S11 | CODE_GENERATION | L3 | opus-4-6 / Beast Mode | 实验代码生成（支持 OpenHands Beast Mode） |
-| S12 | SANITY_CHECK | L3 | opus-4-6 | 代码冒烟测试 + LLM 自动修复（失败触发人工介入） |
-| S13 | RESOURCE_PLANNING | L3 | opus-4-6 | GPU / 时间调度 |
-| S14 | EXPERIMENT_RUN | L4 | — | Sandbox 执行（动态 GPU 分配） |
-| S15 | ITERATIVE_REFINE | L4 | opus-4-6 | Edit-Run-Eval 循环 |
-| S16 | RESULT_ANALYSIS | L4 | opus-4-6 | 指标分析 + 图表 + 注册共享结果 |
-| S17 | RESEARCH_DECISION | L4 | opus-4-6 | PROCEED / PIVOT / REFINE |
-| S18 | KNOWLEDGE_SUMMARY | L4 | opus-4-6 | 结论归纳写入知识库 |
-| S19 | PAPER_OUTLINE | L5 | opus-4-6 | 论文大纲 |
-| S20 | PAPER_DRAFT | L5 | opus-4-6 | 论文初稿 + 图像生成 |
-| S21 | PAPER_REVIEW | L5 | opus-4-6 | 自动审稿 |
-| S22 | PAPER_REVISION | L5 | opus-4-6 | 论文修订终稿 + 图像重生成 |
-
-## v1.0.4 新特性: 实验图表质量修复
-
-### 1. 自适应图表布局 — 消除文字叠加
-
-修复了 Stage 16 (RESULT_ANALYSIS) 生成的实验图表中 x 轴标签互相重叠的问题。
-
-**修复前问题**：长条件名称（如 `spectral_adaptive_manipulation`）在固定宽度图表上以 25° 旋转排列，标签严重挤压。
-
-**修复方案**：
-- 图表宽度自适应：`max(base_width, n_conditions × 1.1 + 1.0)` inches，根据条件数量自动扩展
-- x 轴标签旋转角度从 25° 增至 40°，对齐方式 `ha='right'`
-- 新增 `_shorten()` 函数：超过 18 字符的标签自动缩写（如 `spectral_adaptive_manipulation` → `Spectral Adaptive Mani.`）
-- 默认图表高度从 3.0 增至 3.5 英寸，为旋转标签留出底部空间
-- 双栏宽度从 7.0 增至 7.16 英寸（匹配 NeurIPS/IEEE textwidth）
-
-**影响的模板**：`bar_comparison`、`grouped_bar`、`heatmap` 全部更新。
-
-### 2. 数值显示优化
-
-- 柱顶数值标签格式智能化：`≥0.005` 或 `=0` 时用 `.2f`（如 `0.27`），极小值用 `.4f`
-- 无置信区间 (CI) 数据时自动隐藏 error bar，不再画零长度的无意义误差线
-- 字体大小从 9pt 降至 8pt，避免标注遮挡数据
-
-### 3. 禁止 LLM 合成虚假数据
-
-修复了 LLM 生成脚本路径中使用 `np.random.normal()` 伪造数据分布的严重问题。
-
-**修复前**：当 Critic 要求修订图表时，LLM 会走 fallback 路径生成完整 Python 脚本。LLM 经常用 `np.random` 生成"合成样本"来绘制 violin/box plot，导致图表数据与实验结果不一致。
-
-**修复后**：CodeGen Agent 的 LLM prompt 增加严格约束：
-- `NEVER generate synthetic/random data (no np.random, no fake distributions)`
-- `If only mean±std are available, plot those directly as bar+errorbar`
-- 强制 figsize、rotation、fontsize 的最低标准，防止布局问题
-
-### 4. Heatmap 自适应尺寸
-
-Heatmap 图表根据行列数量自动计算 figsize：`width = max(base, n_cols × 1.0 + 2.0)`、`height = max(base, n_rows × 0.7 + 1.5)`，确保单元格不会因为条件过多而被压缩到不可读。
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="MIT License"></a>
+  <a href="https://python.org"><img src="https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white" alt="Python 3.11+"></a>
+  <a href="https://nodejs.org"><img src="https://img.shields.io/badge/Node.js-18%2B-339933?logo=node.js&logoColor=white" alt="Node.js 18+"></a>
+  <a href="https://github.com/wufan-cse/Claw-AI-Lab"><img src="https://img.shields.io/badge/GitHub-Claw--AI--Lab-181717?logo=github" alt="GitHub"></a>
+</p>
 
 ---
 
-## v1.0.3 新特性: 图像自动渲染与配置统一
+## What Is This?
 
-### 1. FIGURE_PROMPT 自动渲染为图像 (NanoBanana)
+**Claw AI Lab** 是基于 [AutoResearchClaw](https://github.com/aiming-lab/AutoResearchClaw) 的多 Agent 并行研究系统。
 
-论文中的 `<!-- FIGURE_PROMPT -->` 块不再仅输出文本 Prompt，而是在 **S20 (PAPER_DRAFT)** 和 **S22 (PAPER_REVISION)** 阶段自动调用图像生成模型渲染为 PNG 图像。
-
-**工作流程：**
-1. LLM 在论文初稿 / 修订稿中插入 `<!-- FIGURE_PROMPT -->` 块
-2. 系统自动提取 Prompt → 写入 `figure_prompts.json`
-3. 调用 NanoBanana Agent（通过 OpenAI-compatible proxy）生成图像
-4. 生成的 PNG 保存到 `stage-20/figures/` 和 `stage-22/figures/`
-5. `figure_prompts.json` 中每条记录增加 `output_path` 和 `success` 字段
-
-**NanoBanana 代理模式：** 复用 `llm.base_url` 和 `llm.api_key`，无需额外配置 Gemini API Key。通过 Chat Completions 接口向代理发送图像生成请求，支持 `gemini-3-pro-image-preview` 等模型。
-
-**输出产物位置：**
-- `stage-20/figures/*.png` — 初稿阶段生成的 Teaser 图、框架图、方法图
-- `stage-22/figures/*.png` — 修订阶段重新生成的图像
-- `stage-20/figure_prompts.json` / `stage-22/figure_prompts.json` — 含 `output_path` 和 `success` 状态
-
-### 2. 统一 `image_model` 配置
-
-图像生成模型现在与文本模型一同配置在 `llm:` 段，而非分散在代码默认值中。
-
-```yaml
-llm:
-  primary_model: "claude-opus-4-6"       # 研究/写作
-  coding_model: "claude-sonnet-4-20250514" # 代码生成
-  image_model: "gemini-3-pro-image-preview" # 图像生成 (新增)
-  fallback_models: [...]
-```
-
-**优先级链：** `config.llm.image_model` → `config.experiment.figure_agent.gemini_model` → 硬编码默认值 `gemini-3-pro-image-preview`。
-
-### 3. 论文强制引用全部实验图表
-
-修复了论文只引用部分实验图表的问题。S20 阶段现在读取 `stage-16/charts/figure_manifest.json` 中的图表元数据（标题、说明、建议章节），并在 Prompt 中明确要求 LLM **引用全部 N 张图表**。S22 修订阶段同样要求保留初稿中的所有 `![Caption](charts/...)` 引用。
-
-**图表元数据来源：** `stage-16/charts/figure_manifest.json`，由 Stage 16 (RESULT_ANALYSIS) 自动生成。
-
-### 4. 默认图像模型升级
-
-默认图像生成模型从 `gemini-2.5-flash-image` 升级为 `gemini-3-pro-image-preview`，生成质量更高。涉及 NanoBanana Agent、FigureAgent Orchestrator、Pipeline Executor 三处默认值同步更新。
+输入一个研究方向 — 系统自动完成文献调研、假设生成、实验设计、代码编写、实验执行、结果分析、论文写作。多个龙虾 Agent 并行工作，通过金字塔分层调度协作完成端到端的研究流程。
 
 ---
 
-## v1.0.2 新特性: L5 论文写作增强
+## Quick Start
 
-### 1. 非数据图像自动 Prompt 生成 (FIGURE_PROMPT)
-
-论文中的非数据图像（Teaser 图、框架图、方法流程图）现在通过结构化的 `<!-- FIGURE_PROMPT -->` 块自动生成图像描述 Prompt，供下游 text-to-image 模型渲染。
-
-**必须包含的三类图像：**
-- **Teaser 图** (Introduction) — 高层概念示意图，一目了然传达核心思想
-- **框架 / 架构总览图** (Method) — 展示完整系统流水线与模块结构
-- **方法细节图** (Method) — 关键算法步骤、对比图或注意力可视化
-
-**输出产物位置：**
-- `stage-20/figure_prompts.json` — 从论文初稿提取的结构化 Prompt（含 figure_id、figure_type、section、caption、raw_prompt、full_prompt）
-- `stage-22/figure_prompts.json` — 从论文修订版提取的结构化 Prompt
-
-**使用方式：** 读取 `figure_prompts.json` 中的 `full_prompt` 字段，传入任意 text-to-image API（如 DALL·E 3、Midjourney、Stable Diffusion）生成对应图像，然后替换论文中的 `<!-- FIGURE_PROMPT -->` 块。
-
-### 2. 实验结果图正确引用 (charts/)
-
-修复了论文写作阶段扫描实验结果图的路径错误。现在 LLM 会收到实际生成的图表文件名列表，不再自行编造文件名。
-
-**图表位置：** `stage-16/charts/*.png`（由 Stage 16 RESULT_ANALYSIS 生成）
-
-**论文中的引用格式：** `![Caption](charts/fig_xxx.png)` — 文件名与 `stage-16/charts/` 中的实际文件严格对应。
-
-**生效规则：**
-- Introduction / Method 中的概念图 → `<!-- FIGURE_PROMPT -->` 块（生成 Prompt）
-- Results / Experiments 中的数据图 → `![Caption](charts/fig_xxx.png)`（引用预生成的 PNG）
-
-### 3. Agent 讨论数据自动注入论文上下文
-
-L1 阶段的多 Agent 沟通讨论产物（讨论前各 Agent 独立综合、讨论后共识综合、讨论过程转录）自动注入到 L5 论文写作的上下文中，为论文的 Discussion / Ablation 章节提供 Agent 讨论前后的对比数据。
-
-**修复的关键问题：** L1 Agent 的 `run_dir` 位于 `shared_results/idea_runs/`，但 L5 的 `run_dir` 位于 `/dev/shm/.../projects/`。新增的 `_find_discussion_dir()` 函数自动在两个位置查找讨论数据，确保跨目录的数据流通。
-
-**讨论数据位置：**
-- `shared_results/idea_runs/<idea_id>/discussion/pre_discussion_syntheses.md` — 讨论前各 Agent 综合
-- `shared_results/idea_runs/<idea_id>/discussion/consensus_synthesis.md` — 讨论后共识综合
-- `shared_results/idea_runs/<idea_id>/discussion/discussion_transcript.md` — 讨论过程转录
-
-### 4. 论文修订保持 FIGURE_PROMPT 块
-
-Paper Revision 阶段（S22）的 Prompt 明确要求 LLM 保留初稿中的所有 `<!-- FIGURE_PROMPT -->` 块不被删除或转换，同时允许改进 Prompt 文本质量。修订版同样会提取 `figure_prompts.json`。
-
----
-
-## v1.0.1 新特性
-
-### 多 Agent 沟通讨论模式 (S8)
-
-在 L1 调研与创意层，多个 Agent 独立完成 S1-S7（文献调研→知识综合）后，进入 **S8 沟通讨论** 阶段。讨论采用三轮结构化流程：
-
-1. **Present（陈述）**: 每个 Agent 展示自己的独立综合结果
-2. **Critique（交叉审议）**: Agent 之间相互评审，指出对方遗漏或矛盾
-3. **Consensus（共识）**: 基于讨论内容生成统一的共识综合
-
-讨论中不同 Agent 使用**不同厂商的 LLM**（如 Claude Opus 4.6 + Claude Opus 4.5），以避免同质化输出。
-
-### 代码质量增强
-
-- **Prompt 重构**: 代码生成提示词采用三层优先级体系（MANDATORY / IMPORTANT / NICE TO HAVE）
-- **`main.py` 入口检查**: 自动检测缺失的 `def main()` 和 `if __name__ == '__main__'`
-- **假指标检测**: 识别 `np.random`、公式化指标、字符串哈希等伪造实验结果
-- **安全回退机制**: CodeAgent 审阅后代码质量下降时自动回退到审阅前版本；Executor 修复失败时回退到 CodeAgent 原始输出
-
-### 可配置 LLM 超时
-
-通过 YAML 配置 `timeout_sec` 控制 LLM API 超时时间（默认 600 秒），适配大模型的长响应场景。
-
----
-
-## 系统要求
-
-| 依赖 | 最低版本 | 说明 |
-|------|---------|------|
-| **OS** | Linux (Ubuntu 20.04+) | 依赖 `nvidia-smi`、`lsof`、`ss` 等 Linux 工具 |
-| **Python** | >= 3.11 | 推荐 [Miniforge](https://github.com/conda-forge/miniforge) |
-| **Node.js** | >= 18 | 推荐通过 [fnm](https://github.com/Schniz/fnm) 安装 |
-| **GPU** | NVIDIA (CUDA 11.8+) | 通过 `nvidia-smi` 采集状态，支持多卡动态分配 |
-| **OpenHands** | >= 1.13 | S11 Beast Mode 代码生成（可选，通过 `opencode.enabled` 控制） |
-
-## 安装
-
-### 1. 克隆项目
+### 1. Install
 
 ```bash
 git clone https://github.com/wufan-cse/Claw-AI-Lab.git
 cd Claw-AI-Lab
-git checkout preview-v1.0.0
-```
 
-### 2. 安装 Python 依赖
-
-```bash
-# 安装 ResearchClaw 核心包（含 pyyaml, rich, arxiv, numpy）
+# Backend
 cd backend/agent
 pip install -e ".[all]"
-
-# WebSocket 通信
 pip install websockets
 
-# ML 依赖（实验执行阶段需要）
-pip install torch torchvision
-pip install diffusers transformers accelerate safetensors huggingface_hub
-pip install opencv-python pandas matplotlib scikit-image scipy einops tqdm
+# ML dependencies
+pip install torch torchvision diffusers transformers accelerate safetensors \
+            huggingface_hub opencv-python pandas matplotlib scikit-image scipy einops tqdm
 
-# OpenHands Beast Mode（可选，用于 S11 自动代码生成）
+# OpenHands Beast Mode (optional, recommended)
 pip install openhands
 
-# 验证安装
-python -m researchclaw doctor
-```
-
-### 3. 安装 Node.js 和前端依赖
-
-```bash
-# 通过 fnm 安装 Node.js（已有 Node.js >= 18 可跳过）
-curl -fsSL https://fnm.vercel.app/install | bash
-source ~/.bashrc
-fnm install --lts
-
-# 安装前端依赖
-cd frontend
+# Frontend
+cd ../../frontend
 npm install
 ```
 
-### 4. 准备本地资源目录（可选）
+### 2. Configure
 
-如果需要执行 ML 实验（L3-L4 阶段），需准备以下目录：
-
-```bash
-# 创建共享资源目录（路径可自定义，在项目配置中指定）
-mkdir -p /path/to/share/datasets      # 数据集
-mkdir -p /path/to/share/checkpoints   # 模型权重
-mkdir -p /path/to/share/codebases     # 参考代码库
-```
-
-## 配置
-
-### 项目配置文件
-
-每个研究项目通过一份 YAML 配置文件定义。模板位于 `examples/config_template.yaml`，提交项目时系统会自动在 `backend/runs/project_configs/` 下生成对应配置。
-
-主要配置段说明：
+Fill in your LLM API key:
 
 ```yaml
-project:
-  name: "my-research-project"
-  mode: "full-auto"               # full-auto: 全自动流水线
-
-research:
-  topic: "研究主题描述"
-  domains: ["deep-learning"]
+# examples/config_template.yaml
 
 llm:
   provider: "openai-compatible"
-  base_url: "https://your-api-endpoint/v1"    # OpenAI 兼容 API 地址
-  api_key: "your-api-key"                     # API Key
-  api_key_env: "RESEARCHCLAW_API_KEY"         # 或通过环境变量提供
-  primary_model: "gpt-5.4"                    # 主模型（调研/分析/写作）
-  coding_model: "gpt-5.4"                     # 代码生成模型
-  image_model: "gemini-3-pro-image-preview"   # 图像生成模型（L5 论文插图）
-  fallback_models: ["gpt-4o", "gpt-4.1"]     # 降级模型列表
-  timeout_sec: 600                            # LLM API 超时（秒）
-
-experiment:
-  mode: "sandbox"
-  time_budget_sec: 2400           # 单次实验时间预算（秒）
-  max_iterations: 3               # S15 迭代优化轮数
-  metric_key: "primary_metric"    # 评估指标名
-  metric_direction: "minimize"    # minimize 或 maximize
-  datasets_dir: "/path/to/datasets"        # 数据集绝对路径
-  checkpoints_dir: "/path/to/checkpoints"  # 模型权重绝对路径
-  codebases_dir: "/path/to/codebases"      # 参考代码库绝对路径
-  paper_length: "short"           # 论文长度: short / long
-  sandbox:
-    python_path: "/path/to/python3"    # Python 解释器路径
-    gpu_required: true
-    gpus_per_project: 1
-    max_memory_mb: 16384
-  sanity_check_max_iterations: 6  # S12 代码修复最大尝试次数（0=跳过修复直接介入）
-  opencode:                       # OpenHands Beast Mode 配置
-    enabled: true                 # 是否启用 Beast Mode
-    auto: true                    # 自动根据复杂度决定
-    complexity_threshold: 0.2     # 复杂度阈值（越低越倾向使用 Beast Mode）
-    model: "claude-opus-4-6"      # Beast Mode 使用的模型
-    timeout_sec: 2400             # Beast Mode 超时（秒）
-    max_retries: 1                # 失败重试次数
+  base_url: "https://your-api-endpoint/v1"
+  api_key: "your-api-key"
 ```
 
-### 环境变量
-
-| 变量 | 默认值 | 说明 |
-|------|--------|------|
-| `RESEARCHCLAW_API_KEY` | — | LLM API Key（优先于配置文件中的 `api_key`） |
-| `RESOURCE_MONITOR_PORT` | `8905` | 资源监控 WebSocket 端口 |
-| `AGENT_BRIDGE_PORT` | `8906` | Agent Bridge WebSocket 端口 |
-| `FRONTEND_PORT` | `5903` | 前端 UI 端口 |
-| `PYTHON_PATH` | `/home/user/miniforge3/bin/python3` | Python 解释器路径 |
-
-多实例部署时可通过环境变量隔离端口：
+### 3. Run
 
 ```bash
-RESOURCE_MONITOR_PORT=8915 AGENT_BRIDGE_PORT=8916 FRONTEND_PORT=5913 ./start.sh
+./start.sh              # Start all services
+./start.sh stop         # Stop
+./start.sh restart      # Restart
+./start.sh status       # Status check
+./start.sh fresh        # Clean restart (reset all data)
 ```
 
-## 使用
-
-### 一键启动
-
-```bash
-./start.sh              # 启动（资源监控 + Agent Bridge + 前端）
-./start.sh stop         # 停止所有服务
-./start.sh restart      # 重启
-./start.sh status       # 查看服务状态
-./start.sh reset-state  # 清空流水线状态（项目/队列/知识库）
-./start.sh fresh        # 停止 → 清空状态 → 启动（全新开始）
-```
-
-启动后访问 **http://localhost:5903/** 打开控制面板。
-
-### Agent 龙虾池配置
-
-`start.sh` 中的 `agent_bridge` 启动参数控制各层 Agent 数量和 GPU 分配：
-
-```bash
---pool-idea 3           # L1 调研层 Agent 数量
---pool-exp 2            # L2 实验设计层
---pool-code 3           # L3 代码层
---pool-exec 4           # L4 执行层
---pool-write 2          # L5 论文写作层
---total-gpus 8          # 可用 GPU 总数
---gpus-per-project 1    # 每个项目分配 GPU 数
---discussion-mode       # 启用 S8 多 Agent 讨论
---discussion-rounds 2   # 讨论轮数
---discussion-models "claude-opus-4-6,claude-opus-4-5-20251101"  # 讨论使用的模型列表
-```
-
-### 提交研究项目
-
-通过前端 UI 提交（推荐）：打开控制面板 → 填写研究方向 → 选择模式（Lab 探索 / 论文复现） → 提交。
-
-或通过 WebSocket API 提交：
-
-```python
-import asyncio, websockets, json
-
-async def submit():
-    async with websockets.connect("ws://localhost:8906") as ws:
-        await ws.send(json.dumps({
-            "command": "submit_project",
-            "projectId": "my-research",
-            "configPath": "/path/to/config.yaml",
-            "topic": "Your research topic description"
-        }))
-
-asyncio.run(submit())
-```
-
-### 项目模式
-
-| 模式 | 说明 | 流水线 |
-|------|------|--------|
-| **Lab 探索** | 从零开始的自主研究，全流程自动化 | S1→S22 (22 stages) |
-| **Lab 讨论** | 多 Agent 交叉讨论后再进入实验阶段 | S1→S22 + S8 讨论 |
-| **论文复现** | 基于已有论文复现实验，跳过文献调研中的搜索步骤 | S1→S22 (22 stages) |
-
-### 断点续跑
-
-项目在每个 Stage 完成后自动保存 checkpoint（`checkpoint.json`）。服务重启后会自动从上次完成的 Stage 继续。
-
-手动调整断点：编辑 `backend/runs/projects/<项目名>/checkpoint.json` 中的 `last_completed_stage` 和 `last_completed_name`，删除对应的 `stage-XX` 目录后重启项目。
-
-### 人工介入
-
-当 S12 代码检验达到修复上限时，系统会自动暂停项目并在前端显示黄色 ⚠ 标记。点击项目卡片可查看具体介入原因和错误详情。修复代码后恢复项目即可继续流水线。
-
-## 核心特性
-
-### 金字塔任务调度
-- 5 条 FIFO 任务队列连接相邻层级
-- 空闲龙虾自动从队列领取任务 (每 2 秒扫描)
-- 项目完成后自动创建下一层 follow-up 任务
-
-### GPU 动态分配
-- `GpuAllocator` 管理 GPU 占用表
-- 实验执行阶段动态检测空闲 GPU（基于显卡利用率），无需手动指定 `CUDA_VISIBLE_DEVICES`
-- GPU 不足时龙虾等待，不领取任务
-- 完成/失败后自动释放 GPU
-
-### 代码质量保障
-- S10: 搜索 GitHub 可复用代码库
-- S11: 可配置 Coding 专用模型 (如 claude-opus-4-6)
-- S12: 冒烟测试 (import 检查 + dry run + LLM 自动修复)
-- 本地 datasets / checkpoints / codebases 路径注入
-
-### 知识闭环
-- S16: Baseline metrics 注册到共享结果库 (LLM 语义匹配复用)
-- S18: 实验结论、洞察、后续方向写入知识库
-- S8: 新项目假设生成时参考已有知识库
-
-### 实时监控 UI
-- 金字塔四层面板: 龙虾状态、stage 进度
-- 资源监控: CPU / 内存 / 多 GPU 利用率 + 温度
-- 层间数据仓库: 按项目分组, 可折叠文件夹, 知识库内容可展开
-- 任务队列: 5 条队列实时计数
-- 事件日志: 按层过滤
-
-## 项目结构
-
-```
-Claw-AI-Lab/
-├── start.sh                        # 一键启动脚本
-├── submit_test.py                  # 批量提交脚本
-├── frontend/                       # React + Vite + TypeScript
-│   ├── src/
-│   │   ├── App.tsx                 # 主应用 (双 WebSocket + useReducer)
-│   │   ├── types.ts                # 类型定义 (26 Stage + 5 Repo + Queue)
-│   │   ├── mock.ts                 # 模拟数据 (bridge 离线时自动启用)
-│   │   └── components/
-│   │       ├── LayerPanel.tsx      # 金字塔层面板
-│   │       ├── DataShelf.tsx       # 层间数据仓库 (可展开文件内容)
-│   │       ├── QueuePanel.tsx      # 任务队列
-│   │       ├── LogPanel.tsx        # 事件日志
-│   │       └── ResourceMonitor.tsx # CPU/GPU 资源监控
-│   └── vite.config.ts              # WS 代理配置
-├── backend/
-│   ├── services/
-│   │   ├── resource_monitor.py     # 系统资源 WS (port 8765)
-│   │   ├── agent_bridge.py         # Agent 管理 + 队列 + GPU 分配 (port 8766)
-│   │   └── result_registry.py      # 跨项目结果共享
-│   ├── agent/                      # AutoResearchClaw (魔改版)
-│   │   ├── researchclaw/
-│   │   │   ├── pipeline/
-│   │   │   │   ├── stages.py       # 26-stage 定义
-│   │   │   │   ├── contracts.py    # Stage I/O 契约
-│   │   │   │   ├── executor.py     # Stage 执行器 (含新增 S10/S12/S18)
-│   │   │   │   └── runner.py       # Pipeline 运行器 (含 --to-stage 补丁)
-│   │   │   ├── llm/client.py       # LLM 客户端 (DeepSeek 兼容修复)
-│   │   │   └── config.py           # 配置 (含 coding_model, image_model)
-│   │   ├── config_gpu_project.yaml # GPU 项目配置
-│   │   └── config_test_minimal.yaml
-│   ├── datasets/                   # 本地数据集 (用户放入)
-│   ├── checkpoints/                # 模型权重 (自动下载)
-│   ├── codebases/                  # 参考代码库 (如 FreeCustom)
-│   ├── shared_results/             # 跨项目共享
-│   │   ├── index.json              # Baseline metrics 索引
-│   │   └── knowledge_base/         # 知识库 (结论+洞察+方向)
-│   └── runs/                       # 运行时 (gitignore)
-│       ├── projects/               # 各项目独立 run_dir
-│       └── queues/                 # 任务队列 JSON
-└── logs/                           # 服务日志
-```
-
-## 服务端口
-
-| 服务 | 默认端口 | 说明 |
-|------|---------|------|
-| 前端 UI | 5903 | React 控制面板，Vite 代理 WebSocket |
-| 资源监控 | 8905 | CPU / GPU / 内存实时推送 (nvidia-smi + psutil) |
-| Agent Bridge | 8906 | Agent 管理、任务队列、GPU 分配、项目生命周期 |
-
-端口可通过环境变量 `FRONTEND_PORT`、`RESOURCE_MONITOR_PORT`、`AGENT_BRIDGE_PORT` 自定义。
+Open **http://localhost:5903/** → You will see the system.
 
 ---
 
-## 💬 S8 Agent 沟通讨论前后对比
+## Project Modes
 
-以下为一次实际运行中的 Agent 讨论效果对比。研究主题为 **Training-Free Image Generation Using Attention Manipulation**。
+| Mode | Description |
+|------|-------------|
+| **Lab Explore** | Autonomous research from scratch. Full pipeline S1→S22. |
+| **Lab Discuss** | Multi-agent cross-review discussion before experiments. |
+| **Reproduce** | Reproduce experiments from an existing paper. |
 
-### 讨论前：Agent 独立综合 (S7)
+---
 
-两个 Agent 在 S1-S7 阶段独立完成文献调研和知识综合，各自生成了独立的 Synthesis 报告。
+## Key Features
 
-#### Agent A 综合要点
+| Feature | Description |
+|---------|-------------|
+| **Multi-Agent Discussion** | Multiple agents with different LLMs debate and reach consensus, avoiding homogeneous outputs. |
+| **Beast Mode Code Generation** | Complex experiments auto-routed to OpenHands for multi-file project generation. |
+| **Dynamic GPU Allocation** | Automatically detects free GPUs based on utilization. No manual `CUDA_VISIBLE_DEVICES`. |
+| **Checkpoint & Resume** | Auto-saves progress after each stage. Resume from any checkpoint after restart. |
+| **Manual Intervention** | Auto-pauses on code test failures. Yellow ⚠ indicator on UI with detailed error info. |
+| **Knowledge Loop** | Experiment results and insights feed back into the knowledge base for future projects. |
+| **Real-time Monitoring** | Web UI with agent status, GPU metrics, task queues, and event logs. |
+| **Paper with Figures** | Auto-generates experiment charts, renders concept figures, and injects them into the paper. |
 
-- 识别出 **4 个主题聚类**: 组合多主体生成、布局引导空间控制、免训练主体驱动个性化、基于注意力的图像编辑
-- 发现 **5 个研究空白**: 可扩展多主体生成（>3 个主体退化）、跨控制模态统一框架、视频时序一致性、现代架构适配（DiT/SD3/Flux）、定量注意力控制理论
-- 提出 **4 个研究方向**: 系统基准测试、可组合注意力操纵原语、注意力图属性理论分析、视频原生注意力控制
+---
 
-#### Agent B 综合要点
+### Environment Variables
 
-- 识别出 **5 个主题聚类**: 组合与布局引导生成、注意力注入图像编辑、主体驱动身份保持生成、空间与语义控制机制、注意力动态理论理解
-- 发现 **6 个研究空白**: 跨架构泛化、定量基准与评估标准、真实图像编辑鲁棒性、细粒度多粒度控制、视频时序一致性、理论基础
-- 提出 **7 个优先机会**: DiT/Transformer 适配、统一基准、混合注意力操纵+轻量适配器、少步模型免反演编辑、视频扩散注意力操纵、形式化理论框架、多模态注意力操纵
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `RESEARCHCLAW_API_KEY` | — | LLM API Key |
+| `FRONTEND_PORT` | `5903` | Web UI port |
+| `AGENT_BRIDGE_PORT` | `8906` | Agent Bridge WebSocket port |
+| `RESOURCE_MONITOR_PORT` | `8905` | Resource monitor WebSocket port |
 
-#### 讨论前差异
+---
 
-| 维度 | Agent A | Agent B |
-|------|---------|---------|
-| 聚类数量 | 4 个 | 5 个（多出"空间语义控制"和"理论理解"两个独立聚类） |
-| 空白识别 | 5 个，侧重技术可行性 | 6 个，多出"细粒度控制"维度 |
-| 优先级排序 | 统一框架 > DiT适配 > 理论 | DiT适配 > 基准 > 混合方法 |
-| 理论深度 | 提及但未展开 | 有独立聚类分析注意力动态 |
-| 独特贡献 | CFG 与注意力操纵的联系、Token Merging 交叉点 | PCA 引导子空间（FreeControl）、IP-Adapter 作为混合方法的潜力 |
+## Requirements
 
-### 讨论后：共识综合 (S8)
-
-经过三轮结构化讨论（陈述 → 交叉审议 → 共识），两个 Agent 达成了显著更丰富的共识综合，具体新增内容包括：
-
-#### 新增洞见
-
-1. **干预分类法 (Intervention Taxonomy)**: 提出 Type 0-3 四级分类（无修改 → 直接替换 → 梯度优化 → 轻量适配器），解决了"免训练"定义的模糊性
-2. **注意力容量瓶颈假说**: 将交叉注意力早期稳定化（~20-40%）与多主体退化（>3 个）关联，提出可测试预测——注意力图有效秩随主体数增加而下降
-3. **少步模型中的注意力可解释性**: 提出 1-4 步模型中每一步编码更广的时间层级范围，使操纵更强大但也更脆弱
-4. **子空间正交性组合假说**: 不同类型的注意力操纵（布局/风格/身份）可能操作在近似正交的子空间上，从而实现干净的组合
-
-#### 解决的矛盾
-
-| 矛盾 | 解决方案 |
-|------|---------|
-| 架构适配 vs 统一框架的优先级之争 | 确认为**顺序依赖**关系：架构兼容性是统一框架的前提 |
-| "注意力操纵"的范围定义 | 核心定义为注意力机制的直接干预；skip connection 等为相关但不同的范畴 |
-| 理论理解：空白 vs 已有知识 | 两者都对——有丰富的经验性理解但缺乏形式化理论框架 |
-
-#### 共识研究路线图
-
-| 层级 | 时间 | 方向 |
-|------|------|------|
-| Tier 1 | 0-6 月 | (1) SD3/Flux 联合注意力结构表征 (2) 少步模型注意力操纵 (3) 系统化基准开发 |
-| Tier 2 | 6-18 月 | (4) 可组合操纵规则 (5) 失败模式表征 (6) 层级注意力多主体生成 |
-| Tier 3 | 18-36 月 | (7) 注意力语义理论基础 (8) 视频原生注意力控制 (9) 多模态/3D 注意力操纵 |
-
-#### 讨论效果总结
-
-| 指标 | 讨论前 (S7) | 讨论后 (S8 共识) | 提升 |
-|------|------------|------------------|------|
-| 方法分类维度 | 4-5 聚类 | 统一分类 + 4 级干预类型学 | 结构化程度显著提升 |
-| 研究假说 | 0（仅列方向） | 5 个可测试假说 | 从定性到定量 |
-| 矛盾解决 | 存在分歧 | 3 个核心矛盾已解决 | 共识质量提升 |
-| 路线图 | 各自独立排序 | 统一三层 9 方向路线图 | 可执行性提升 |
-| 独特洞见保留 | 分散 | 5 个跨 Agent 洞见整合 | 信息无损合并 |
+| Dependency | Version | Note |
+|-----------|---------|------|
+| Linux | Ubuntu 20.04+ | — |
+| Python | >= 3.11 | [Miniforge](https://github.com/conda-forge/miniforge) recommended |
+| Node.js | >= 18 | [fnm](https://github.com/Schniz/fnm) recommended |
+| GPU | NVIDIA (CUDA 11.8+) | Multi-GPU supported |
+| OpenHands | >= 1.13 | Optional, for Beast Mode code generation |
 
 ---
 
 ## License
 
-MIT
+MIT — see [LICENSE](LICENSE) for details.
+
+<p align="center">
+  <sub>Built with 🦞 by the Claw AI Lab team</sub>
+</p>
