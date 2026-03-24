@@ -23,6 +23,7 @@
 Multiple agents collaborate across a 5-layer pyramid (survey → design → coding → execution → writing), coordinated via task queues with real-time web monitoring. It supports autonomous exploration, multi-agent debate with heterogeneous LLMs, and paper reproduction workflows.
 
 **We welcome contributions from the community to make this project better together.**
+
 ---
 
 ## 🔥 Updates
