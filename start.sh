@@ -11,6 +11,28 @@ PY="${PYTHON_PATH:-/home/user/miniforge3/bin/python3}"
 FE="$BASE/frontend"
 LOG="$BASE/logs"
 PIDF="$BASE/.pids"
+RUNTIME_PORTS="$BASE/.runtime_ports"
+
+# 命令行传入的端口优先于 .runtime_ports（避免旧文件覆盖本次显式指定）
+_saved_rm="${RESOURCE_MONITOR_PORT-}"
+_saved_ab="${AGENT_BRIDGE_PORT-}"
+_saved_fe="${FRONTEND_PORT-}"
+if [ -f "$RUNTIME_PORTS" ]; then
+    set -a
+    # shellcheck disable=SC1090
+    . "$RUNTIME_PORTS"
+    set +a
+fi
+[ -n "$_saved_rm" ] && RESOURCE_MONITOR_PORT="$_saved_rm"
+[ -n "$_saved_ab" ] && AGENT_BRIDGE_PORT="$_saved_ab"
+[ -n "$_saved_fe" ] && FRONTEND_PORT="$_saved_fe"
+
+# 与本机其他 Claw-AI-Lab / PyramidResearchTeam 副本冲突时，可覆盖端口，例如:
+#   RESOURCE_MONITOR_PORT=8915 AGENT_BRIDGE_PORT=8916 FRONTEND_PORT=5913 ./start.sh
+RESOURCE_MONITOR_PORT="${RESOURCE_MONITOR_PORT:-8905}"
+AGENT_BRIDGE_PORT="${AGENT_BRIDGE_PORT:-8906}"
+FRONTEND_PORT="${FRONTEND_PORT:-5903}"
+export RESOURCE_MONITOR_PORT AGENT_BRIDGE_PORT
 
 export RESEARCHCLAW_API_KEY="${RESEARCHCLAW_API_KEY:-sk-QLo52KgqSRHiI3H3JydKzJJJw4W0URzsNnGy8d3QB1yYtFqM}"
 
@@ -34,10 +56,10 @@ do_start() {
     echo ""
 
     # 1) Resource Monitor
-    if ss -tlnp 2>/dev/null | grep -q ":8905 "; then
-        echo -e "  ${Y}⏭ resource_monitor 已在运行${N}"
+    if ss -tlnp 2>/dev/null | grep -q ":${RESOURCE_MONITOR_PORT} "; then
+        echo -e "  ${Y}⏭ resource_monitor 已在运行 (port ${RESOURCE_MONITOR_PORT})${N}"
     else
-        nohup $PY -u "$BASE/backend/services/resource_monitor.py" --port 8905 \
+        nohup $PY -u "$BASE/backend/services/resource_monitor.py" --port "$RESOURCE_MONITOR_PORT" \
             > "$LOG/resource_monitor.log" 2>&1 &
         echo $! > "$PIDF/resource_monitor.pid"
         sleep 1
@@ -45,11 +67,11 @@ do_start() {
     fi
 
     # 2) Agent Bridge
-    if ss -tlnp 2>/dev/null | grep -q ":8906 "; then
-        echo -e "  ${Y}⏭ agent_bridge 已在运行${N}"
+    if ss -tlnp 2>/dev/null | grep -q ":${AGENT_BRIDGE_PORT} "; then
+        echo -e "  ${Y}⏭ agent_bridge 已在运行 (port ${AGENT_BRIDGE_PORT})${N}"
     else
         nohup $PY -u "$BASE/backend/services/agent_bridge.py" \
-            --port 8906 --python "$PY" \
+            --port "$AGENT_BRIDGE_PORT" --python "$PY" \
             --agent-dir "$BASE/backend/agent" \
             --runs-dir "$BASE/backend/runs" \
             --pool-idea 3 --pool-exp 2 --pool-code 3 --pool-exec 4 --pool-write 2 \
@@ -67,11 +89,12 @@ do_start() {
     fi
 
     # 3) Frontend Vite
-    if ss -tlnp 2>/dev/null | grep -q ":5903 "; then
-        echo -e "  ${Y}⏭ frontend 已在运行${N}"
+    if ss -tlnp 2>/dev/null | grep -q ":${FRONTEND_PORT} "; then
+        echo -e "  ${Y}⏭ frontend 已在运行 (port ${FRONTEND_PORT})${N}"
     else
         cd "$FE"
-        nohup npx vite --host 0.0.0.0 --port 5903 \
+        nohup env RESOURCE_MONITOR_PORT="$RESOURCE_MONITOR_PORT" AGENT_BRIDGE_PORT="$AGENT_BRIDGE_PORT" \
+            npx vite --host 0.0.0.0 --port "$FRONTEND_PORT" \
             > "$LOG/frontend.log" 2>&1 &
         echo $! > "$PIDF/frontend.pid"
         sleep 2
@@ -81,10 +104,12 @@ do_start() {
 
     echo ""
     echo "📍 服务地址:"
-    echo -e "   ${G}前端 UI:      http://localhost:5903/${N}"
-    echo "   资源监控 WS:  ws://localhost:8905"
-    echo "   Agent Bridge: ws://localhost:8906"
+    echo -e "   ${G}前端 UI:      http://localhost:${FRONTEND_PORT}/${N}"
+    echo "   资源监控 WS:  ws://localhost:${RESOURCE_MONITOR_PORT}"
+    echo "   Agent Bridge: ws://localhost:${AGENT_BRIDGE_PORT}"
     echo ""
+    printf 'RESOURCE_MONITOR_PORT=%s\nAGENT_BRIDGE_PORT=%s\nFRONTEND_PORT=%s\n' \
+        "$RESOURCE_MONITOR_PORT" "$AGENT_BRIDGE_PORT" "$FRONTEND_PORT" > "$RUNTIME_PORTS"
 }
 
 do_stop() {
@@ -100,7 +125,7 @@ do_stop() {
         fi
     done
     # Also kill by port in case PID file was stale
-    for port in 5903 8905 8906; do
+    for port in "$FRONTEND_PORT" "$RESOURCE_MONITOR_PORT" "$AGENT_BRIDGE_PORT"; do
         lsof -ti:$port 2>/dev/null | xargs -r kill -9 2>/dev/null
     done
     echo ""
@@ -108,7 +133,7 @@ do_stop() {
 
 do_status() {
     echo "📊 服务状态:"
-    for pair in "resource_monitor:8905" "agent_bridge:8906" "frontend:5903"; do
+    for pair in "resource_monitor:${RESOURCE_MONITOR_PORT}" "agent_bridge:${AGENT_BRIDGE_PORT}" "frontend:${FRONTEND_PORT}"; do
         svc="${pair%%:*}"; port="${pair##*:}"
         if ss -tlnp 2>/dev/null | grep -q ":$port "; then
             echo -e "  ${G}● $svc${N} (port $port)"

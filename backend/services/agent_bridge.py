@@ -688,14 +688,97 @@ def msg_agent_update(agent: LobsterAgent) -> dict:
 def msg_stage_update(agent_id: str, stage: int, status: str) -> dict:
     return {"type": "stage_update", "payload": {"agentId": agent_id, "stage": stage, "status": status}}
 
-def msg_artifact(repo_id: str, filename: str, agent_name: str, size: str, project_id: str = "", content: str = "") -> dict:
+def msg_artifact(repo_id: str, filename: str, agent_name: str, size: str,
+                  project_id: str = "", content: str = "", stage: int = 0) -> dict:
     payload: dict = {
         "id": _uid(), "repoId": repo_id, "projectId": project_id, "filename": filename,
         "producedBy": agent_name, "timestamp": _now_ms(), "size": size, "status": "fresh",
     }
     if content:
         payload["content"] = content
+    if stage:
+        payload["stage"] = stage
     return {"type": "artifact_produced", "payload": payload}
+
+
+def _extract_artifact_summary(path: Path, filename: str, max_chars: int = 300) -> str:
+    """Extract a human-readable summary from an artifact file."""
+    try:
+        if path.is_dir():
+            children = list(path.iterdir())
+            file_count = sum(1 for c in children if c.is_file())
+            md_titles = []
+            for c in sorted(children)[:8]:
+                if c.suffix == ".md" and c.is_file():
+                    first_line = c.read_text(encoding="utf-8", errors="ignore").strip().split("\n")[0]
+                    title = first_line.lstrip("#").strip()
+                    if title:
+                        md_titles.append(title)
+            if md_titles:
+                return f"{file_count} files: " + "; ".join(md_titles[:6])
+            return f"{file_count} files"
+
+        text = path.read_text(encoding="utf-8", errors="ignore")
+        if not text.strip():
+            return ""
+
+        if filename.endswith(".md"):
+            lines = text.strip().split("\n")
+            summary_parts = []
+            for line in lines:
+                stripped = line.strip()
+                if not stripped:
+                    if summary_parts:
+                        break
+                    continue
+                clean = stripped.lstrip("#").strip().rstrip("---").strip()
+                if clean:
+                    summary_parts.append(clean)
+                if len(" ".join(summary_parts)) > max_chars:
+                    break
+            return " ".join(summary_parts)[:max_chars]
+
+        if filename.endswith((".yaml", ".yml")):
+            lines = text.strip().split("\n")
+            top_keys = []
+            for line in lines[:15]:
+                if line and not line.startswith(" ") and not line.startswith("#") and ":" in line:
+                    top_keys.append(line.split(":")[0].strip())
+            return f"keys: {', '.join(top_keys[:8])}" if top_keys else ""
+
+        if filename.endswith(".json"):
+            data = json.loads(text)
+            if isinstance(data, dict):
+                keys = list(data.keys())[:8]
+                preview_parts = []
+                for k in keys[:4]:
+                    v = data[k]
+                    if isinstance(v, str) and len(v) < 80:
+                        preview_parts.append(f"{k}: {v}")
+                    elif isinstance(v, (int, float, bool)):
+                        preview_parts.append(f"{k}: {v}")
+                    elif isinstance(v, list):
+                        preview_parts.append(f"{k}: [{len(v)} items]")
+                return "; ".join(preview_parts) if preview_parts else f"keys: {', '.join(keys)}"
+            if isinstance(data, list):
+                return f"{len(data)} entries"
+
+        if filename.endswith(".jsonl"):
+            line_count = text.count("\n")
+            first_line = text.strip().split("\n")[0] if text.strip() else ""
+            if first_line:
+                try:
+                    entry = json.loads(first_line)
+                    title = entry.get("title") or entry.get("name") or entry.get("id", "")
+                    if title:
+                        return f"{line_count} entries — first: {str(title)[:80]}"
+                except Exception:
+                    pass
+            return f"{line_count} entries"
+
+    except Exception:
+        pass
+    return ""
 
 def msg_log(agent: LobsterAgent, message: str, level: str = "info", stage: int | None = None) -> dict:
     return {"type": "log", "payload": {
@@ -741,26 +824,9 @@ def _sync_completed_stages(
                 if key not in agent._known_artifacts and artifact_path.exists():
                     agent._known_artifacts.add(key)
                     size = "dir" if artifact_path.is_dir() else f"{artifact_path.stat().st_size / 1024:.1f} KB"
-                    content = ""
-                    if expected.endswith(".json") and artifact_path.is_file() and REPO_FOR_STAGE.get(s) == "insights":
-                        try:
-                            _entry = json.loads(artifact_path.read_text(encoding="utf-8"))
-                            _parts = []
-                            if _entry.get("topic"): _parts.append(f"Topic: {_entry['topic']}")
-                            for c in (_entry.get("conclusions") or [])[:5]: _parts.append(f"  - {c}")
-                            if _entry.get("insights"):
-                                _parts.append("Insights:")
-                                for i in (_entry.get("insights") or [])[:3]: _parts.append(f"  * {i}")
-                            if _entry.get("suggested_directions"):
-                                _parts.append("Directions:")
-                                for d in (_entry.get("suggested_directions") or [])[:3]: _parts.append(f"  > {d}")
-                            if _entry.get("results"):
-                                _parts.append(f"Results: {json.dumps(_entry['results'])}")
-                            content = "\n".join(_parts)
-                        except Exception:
-                            pass
+                    content = _extract_artifact_summary(artifact_path, expected)
                     messages.append(msg_artifact(
-                        REPO_FOR_STAGE.get(s, "knowledge"), expected, agent.name, size, agent.project_id, content,
+                        REPO_FOR_STAGE.get(s, "knowledge"), expected, agent.name, size, agent.project_id, content, stage=s,
                     ))
     return messages
 
@@ -896,8 +962,9 @@ def _passthrough_agent(agent: LobsterAgent) -> list[dict]:
                 if key not in agent._known_artifacts and artifact_path.exists():
                     agent._known_artifacts.add(key)
                     size = "dir" if artifact_path.is_dir() else f"{artifact_path.stat().st_size / 1024:.1f} KB"
+                    content = _extract_artifact_summary(artifact_path, expected)
                     messages.append(msg_artifact(
-                        REPO_FOR_STAGE.get(s, "codebase"), expected, agent.name, size, agent.project_id,
+                        REPO_FOR_STAGE.get(s, "codebase"), expected, agent.name, size, agent.project_id, content, stage=s,
                     ))
         else:
             agent.stage_progress[s] = "failed"

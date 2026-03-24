@@ -229,7 +229,43 @@ export interface Artifact {
   size: string;
   status: 'fresh' | 'stale' | 'error';
   content?: string;
+  stage?: number;
 }
+
+export const ARTIFACT_LABELS: Record<string, { icon: string; zh: string; en: string }> = {
+  'goal.md':               { icon: '🎯', zh: '研究目标', en: 'Research Goal' },
+  'hardware_profile.json': { icon: '🖥️', zh: '硬件检测', en: 'Hardware Profile' },
+  'problem_tree.md':       { icon: '🌳', zh: '问题分解树', en: 'Problem Tree' },
+  'search_plan.yaml':      { icon: '🔍', zh: '检索策略', en: 'Search Strategy' },
+  'sources.json':          { icon: '📡', zh: '数据源', en: 'Data Sources' },
+  'queries.json':          { icon: '🔎', zh: '检索查询', en: 'Search Queries' },
+  'candidates.jsonl':      { icon: '📚', zh: '候选文献', en: 'Candidate Papers' },
+  'shortlist.jsonl':       { icon: '✅', zh: '精选文献', en: 'Shortlisted Papers' },
+  'cards/':                { icon: '🗂️', zh: '知识卡片', en: 'Knowledge Cards' },
+  'synthesis.md':          { icon: '🧬', zh: '知识综合报告', en: 'Synthesis Report' },
+  'hypotheses.md':         { icon: '💡', zh: '研究假设', en: 'Research Hypotheses' },
+  'exp_plan.yaml':         { icon: '🧪', zh: '实验方案', en: 'Experiment Plan' },
+  'schedule.json':         { icon: '📅', zh: '资源调度', en: 'Resource Schedule' },
+  'codebase_candidates.json': { icon: '🔗', zh: '参考代码库', en: 'Reference Codebases' },
+  'experiment/':           { icon: '💻', zh: '实验代码', en: 'Experiment Code' },
+  'experiment_spec.md':    { icon: '📋', zh: '实验规格', en: 'Experiment Spec' },
+  'sanity_report.json':    { icon: '🔬', zh: '冒烟测试报告', en: 'Sanity Report' },
+  'runs/':                 { icon: '▶️', zh: '运行结果', en: 'Run Results' },
+  'refinement_log.json':   { icon: '🔄', zh: '迭代日志', en: 'Refinement Log' },
+  'experiment_final/':     { icon: '🏁', zh: '最终实验', en: 'Final Experiment' },
+  'analysis.md':           { icon: '📊', zh: '结果分析', en: 'Result Analysis' },
+  'experiment_summary.json': { icon: '📈', zh: '实验摘要', en: 'Experiment Summary' },
+  'charts/':               { icon: '📉', zh: '实验图表', en: 'Charts' },
+  'decision.md':           { icon: '🧭', zh: '研究决策', en: 'Research Decision' },
+  'knowledge_entry.json':  { icon: '🧠', zh: '知识条目', en: 'Knowledge Entry' },
+  'outline.md':            { icon: '📝', zh: '论文大纲', en: 'Paper Outline' },
+  'paper_draft.md':        { icon: '📄', zh: '论文初稿', en: 'Paper Draft' },
+  'reviews.md':            { icon: '👁️', zh: '同行评审', en: 'Peer Reviews' },
+  'paper_revised.md':      { icon: '✍️', zh: '论文终稿', en: 'Paper Revised' },
+  'discussion_transcript.md': { icon: '💬', zh: '讨论记录', en: 'Discussion Transcript' },
+  'consensus_synthesis.md':   { icon: '🤝', zh: '共识综合', en: 'Consensus Synthesis' },
+  'pre_discussion_syntheses.md': { icon: '📋', zh: '讨论前综合', en: 'Pre-discussion Syntheses' },
+};
 
 export interface LogEntry {
   id: string;
