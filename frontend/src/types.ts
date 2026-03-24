@@ -328,6 +328,7 @@ export interface ProjectInfo {
   status: ProjectStatus;
   lastCompletedStage: number;
   lastCompletedName: string;
+  firstStage: number;
   totalStages: number;
   timestamp: string;
   topic: string;

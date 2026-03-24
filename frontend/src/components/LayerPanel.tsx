@@ -58,7 +58,7 @@ export default memo(function LayerPanel({ layer, agents, logs, tierIndex, select
             const cls = anyRunning ? 'stage-running' : anyDone ? 'stage-done' : 'stage-idle';
             const dn = sm.displayNumber;
             const sName = t(`stage.${s}`);
-            const label = isDisc ? `💬 S${dn} ${sName}` : `S${dn} ${sName}`;
+            const label = isDisc ? `💬 ${sName}` : `S${dn} ${sName}`;
             return (
               <span key={s} className={`stage-chip ${cls}${isDisc ? ' stage-discussion' : ''}`} title={sm.key}>
                 {label}

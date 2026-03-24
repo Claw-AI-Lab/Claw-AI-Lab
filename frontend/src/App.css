@@ -257,7 +257,47 @@
   font-size: 0.5rem; color: var(--text-muted); transition: transform 0.15s; flex-shrink: 0;
 }
 .folder-arrow.open { transform: rotate(90deg); }
-.shelf-artifacts { display: flex; flex-direction: column; gap: 1px; }
+.shelf-preview {
+  font-size: 0.6rem; color: var(--text-muted); padding: 0 8px 4px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.shelf-artifacts { display: flex; flex-direction: column; gap: 1px; padding-left: 12px; }
+
+.stage-group { margin-bottom: 2px; }
+.stage-group-label {
+  font-size: 0.58rem; font-weight: 600; color: var(--text-muted);
+  padding: 2px 4px; border-bottom: 1px solid var(--border); margin-bottom: 1px;
+}
+
+.artifact-card { padding: 1px 4px; border-radius: 4px; animation: fadeIn 0.3s; }
+.artifact-card:hover { background: var(--bg); }
+.artifact-card-header {
+  display: flex; align-items: center; gap: 4px; font-size: 0.62rem;
+}
+.artifact-card-header.clickable { cursor: pointer; }
+.artifact-card-header.clickable:hover .artifact-card-label { color: #60a5fa; }
+.artifact-card-icon { font-size: 0.7rem; flex-shrink: 0; }
+.artifact-card-label { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 0.62rem; }
+.artifact-card-size { color: var(--text-muted); font-family: monospace; font-size: 0.56rem; flex-shrink: 0; }
+.artifact-card-chevron {
+  font-size: 0.42rem; color: var(--text-muted); transition: transform 0.15s; flex-shrink: 0;
+}
+.artifact-card-chevron.open { transform: rotate(90deg); }
+.artifact-card-summary {
+  font-size: 0.56rem; color: var(--text-muted); padding: 1px 4px 1px 20px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.artifact-card.status-fresh .artifact-card-label { color: #6ee7b7; }
+.artifact-card.status-error .artifact-card-label { color: #fca5a5; }
+.artifact-card-detail {
+  background: var(--bg); border: 1px solid var(--border); border-radius: 4px;
+  padding: 4px 6px; margin: 2px 0 2px 16px; max-height: 200px; overflow-y: auto;
+}
+.artifact-card-detail pre {
+  margin: 0; font-size: 0.56rem; line-height: 1.4; color: var(--text);
+  white-space: pre-wrap; word-break: break-word; font-family: monospace;
+}
+
 .artifact-row.clickable { cursor: pointer; }
 .artifact-row.clickable:hover .artifact-name { color: #60a5fa; }
 .artifact-expand {
@@ -968,7 +1008,17 @@
 .project-detail-actions button:hover { border-color: var(--accent); color: var(--text); }
 .project-resume-btn { background: #ef4444 !important; color: #fff !important; border-color: #ef4444 !important; }
 .project-resume-btn:hover { background: #dc2626 !important; }
+.project-pause-btn { background: #f59e0b !important; color: #fff !important; border-color: #f59e0b !important; }
+.project-pause-btn:hover { background: #d97706 !important; }
+.project-pause-btn-mini {
+  background: none; border: none; cursor: pointer;
+  font-size: 0.6rem; padding: 0 3px; line-height: 1;
+  opacity: 0.5; transition: opacity 0.15s;
+  flex-shrink: 0;
+}
+.project-pause-btn-mini:hover { opacity: 1; }
 .project-select-btn.active { border-color: var(--accent); color: var(--accent); }
+.project-restart-btn:hover { border-color: #8b5cf6 !important; color: #8b5cf6 !important; background: rgba(139,92,246,0.08) !important; }
 .project-delete-btn:hover { border-color: #ef4444 !important; color: #ef4444 !important; background: rgba(239,68,68,0.08) !important; }
 
 .mode-selector {
@@ -1075,6 +1125,7 @@
 .discussion-mode-row .discussion-toggle {
   font-size: 0.62rem;
   padding: 2px 8px;
+  white-space: nowrap;
 }
 .discussion-mode-row .discussion-info-btn {
   width: 16px;
@@ -1184,6 +1235,49 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+}
+
+/* ==================== PATH INPUTS ==================== */
+.paths-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  animation: fadeIn 0.2s ease;
+}
+.path-field {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.path-label {
+  font-size: 0.56rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding-left: 2px;
+}
+.path-input {
+  width: 100%;
+  padding: 4px 8px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  color: var(--text);
+  font-size: 0.6rem;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  transition: border-color 0.2s;
+}
+.path-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+.path-input::placeholder {
+  color: var(--text-muted);
+  opacity: 0.45;
+  font-style: italic;
+}
+.path-input:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
 /* ==================== ANIMATIONS ==================== */

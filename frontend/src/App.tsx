@@ -345,6 +345,18 @@ export default function App() {
                 ws.send(JSON.stringify({ command: 'resume_project', projectId }));
               }
             }}
+            onPause={(projectId) => {
+              const ws = agentWsRef.current;
+              if (ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({ command: 'pause_project', projectId }));
+              }
+            }}
+            onRestart={(projectId) => {
+              const ws = agentWsRef.current;
+              if (ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({ command: 'restart_project', projectId }));
+              }
+            }}
             onDelete={(projectId) => {
               const ws = agentWsRef.current;
               if (ws && ws.readyState === WebSocket.OPEN) {
@@ -354,7 +366,7 @@ export default function App() {
                 }
               }
             }}
-            onQuickSubmit={(topic, mode, researchAngles, referencePapers) => {
+            onQuickSubmit={(topic, mode, researchAngles, referencePapers, paths) => {
               const ws = agentWsRef.current;
               if (ws && ws.readyState === WebSocket.OPEN) {
                 ws.send(JSON.stringify({
@@ -363,6 +375,9 @@ export default function App() {
                   mode,
                   researchAngles: researchAngles.length > 0 ? researchAngles : undefined,
                   referencePapers: referencePapers || undefined,
+                  codebasesDir: paths?.codebases || undefined,
+                  datasetsDir: paths?.datasets || undefined,
+                  checkpointsDir: paths?.checkpoints || undefined,
                 }));
               }
             }}

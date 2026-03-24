@@ -33,12 +33,16 @@ const en: Record<string, string> = {
   'project.go_lab_auto': '3 Angles Auto-explore',
   'project.go_lab_n': '{n} Angles Parallel',
   'project.go_reproduce': 'Start Reproduce',
+  'project.go_submit': 'Submit',
   'project.empty_lab': 'Enter a research topic for multi-agent parallel exploration',
   'project.empty_reproduce': 'Enter paper info for one-click reproduction',
   'project.delete_title': 'Delete Project',
   'project.delete_confirm': 'Delete project "{id}"?\nAll stage data will be permanently removed.',
   'project.resume': '▶ Resume',
   'project.stages_label': 'stages',
+  'project.pause': '⏸ Pause',
+  'project.restart': '🔄 Restart',
+  'project.restart_confirm': 'Restart project "{id}"?\nAll progress will be reset.',
   'project.delete': '🗑 Delete',
   'project.count_running': '{n} Running',
   'project.count_interrupted': '{n} Stopped',
@@ -136,6 +140,15 @@ const en: Record<string, string> = {
   'shelf.unknown_project': 'Unknown Project',
   'shelf.feedback_l1': 'Feedback L1',
   'shelf.no_artifacts': 'No artifacts yet',
+
+  // Path config
+  'paths.toggle': '📂 Local Resource Paths',
+  'paths.codebases': 'Codebases Path',
+  'paths.datasets': 'Datasets Path',
+  'paths.checkpoints': 'Checkpoints Path',
+  'paths.codebases_placeholder': '/home/user/codebases',
+  'paths.datasets_placeholder': '/home/user/datasets',
+  'paths.checkpoints_placeholder': '/home/user/checkpoints',
 
   // Discussion mode
   'discussion.label': 'Discussion Mode',

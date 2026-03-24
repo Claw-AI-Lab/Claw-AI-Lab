@@ -33,12 +33,16 @@ const zh: Record<string, string> = {
   'project.go_lab_auto': '3 方向自动探索',
   'project.go_lab_n': '{n} 方向并行研究',
   'project.go_reproduce': '开始复现',
+  'project.go_submit': '提交',
   'project.empty_lab': '输入研究主题，多 Agent 并行调研',
   'project.empty_reproduce': '输入论文信息，一键复现',
   'project.delete_title': '删除项目',
   'project.delete_confirm': '确认删除项目 "{id}"？\n此操作将删除所有阶段数据，不可恢复。',
   'project.resume': '▶ 断点续跑',
   'project.stages_label': '阶段',
+  'project.pause': '⏸ 暂停',
+  'project.restart': '🔄 重启',
+  'project.restart_confirm': '确认重启项目 "{id}"？\n将清除当前进度并从头开始。',
   'project.delete': '🗑 删除',
   'project.count_running': '{n} 运行',
   'project.count_interrupted': '{n} 中断',
@@ -136,6 +140,15 @@ const zh: Record<string, string> = {
   'shelf.unknown_project': '未知项目',
   'shelf.feedback_l1': '反馈 L1',
   'shelf.no_artifacts': '暂无产物',
+
+  // Path config
+  'paths.toggle': '📂 本地资源路径',
+  'paths.codebases': 'Codebases 路径',
+  'paths.datasets': 'Datasets 路径',
+  'paths.checkpoints': 'Checkpoints 路径',
+  'paths.codebases_placeholder': '/home/user/codebases',
+  'paths.datasets_placeholder': '/home/user/datasets',
+  'paths.checkpoints_placeholder': '/home/user/checkpoints',
 
   // Discussion mode
   'discussion.label': '讨论模式',

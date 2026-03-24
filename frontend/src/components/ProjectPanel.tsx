@@ -29,11 +29,13 @@ interface Props {
   onShowDiscussionInfo: () => void;
   onSelect: (projectId: string) => void;
   onResume: (projectId: string) => void;
+  onPause: (projectId: string) => void;
+  onRestart: (projectId: string) => void;
   onDelete: (projectId: string) => void;
-  onQuickSubmit: (topic: string, mode: SubmitMode, researchAngles: string[], referencePapers: string) => void;
+  onQuickSubmit: (topic: string, mode: SubmitMode, researchAngles: string[], referencePapers: string, paths: { codebases?: string; datasets?: string; checkpoints?: string }) => void;
 }
 
-export default function ProjectPanel({ projects, connected, selectedProjectId, artifactsByProject, discussionMode, onToggleDiscussion, onShowDiscussionInfo, onSelect, onResume, onDelete, onQuickSubmit }: Props) {
+export default function ProjectPanel({ projects, connected, selectedProjectId, artifactsByProject, discussionMode, onToggleDiscussion, onShowDiscussionInfo, onSelect, onResume, onPause, onRestart, onDelete, onQuickSubmit }: Props) {
   const [panelOpen, setPanelOpen] = useState(true);
   const [mode, setMode] = useState<SubmitMode>('lab');
   const [topicInput, setTopicInput] = useState('');
@@ -41,6 +43,10 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [refPapersInput, setRefPapersInput] = useState('');
   const [showRefPapers, setShowRefPapers] = useState(false);
+  const [showPaths, setShowPaths] = useState(false);
+  const [codebasesPath, setCodebasesPath] = useState('');
+  const [datasetsPath, setDatasetsPath] = useState('');
+  const [checkpointsPath, setCheckpointsPath] = useState('');
   const { t, locale } = useLocale();
 
   const modeInfo: Record<SubmitMode, { label: string; icon: string; placeholder: string; desc: string }> = {
@@ -66,14 +72,18 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
     const angles = mode === 'lab'
       ? anglesInput.split(/[,，、;；]/).map(s => s.trim()).filter(Boolean)
       : [];
-    onQuickSubmit(text, mode, angles, refPapersInput.trim());
+    const paths: { codebases?: string; datasets?: string; checkpoints?: string } = {};
+    if (codebasesPath.trim()) paths.codebases = codebasesPath.trim();
+    if (datasetsPath.trim()) paths.datasets = datasetsPath.trim();
+    if (checkpointsPath.trim()) paths.checkpoints = checkpointsPath.trim();
+    onQuickSubmit(text, mode, angles, refPapersInput.trim(), paths);
     setTopicInput('');
     setAnglesInput('');
     setRefPapersInput('');
   };
 
   const onKey = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); submit(); }
+    if (e.key === 'Enter' && !e.shiftKey && !e.nativeEvent.isComposing) { e.preventDefault(); submit(); }
   };
 
   const sorted = [...projects].sort((a, b) => {
@@ -84,10 +94,7 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
   const running = projects.filter(p => p.status === 'running').length;
   const interrupted = projects.filter(p => p.status === 'interrupted').length;
 
-  const anglesCount = anglesInput.split(/[,，、;；]/).filter(s => s.trim()).length;
-  const goLabel = mode === 'lab'
-    ? (anglesInput.trim() ? t('project.go_lab_n', { n: anglesCount }) : t('project.go_lab_auto'))
-    : t('project.go_reproduce');
+  const goLabel = t('project.go_submit');
 
   const toggleExpand = (projectId: string, e: React.MouseEvent) => {
     e.stopPropagation();
@@ -188,6 +195,54 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
                   disabled={!connected}
                 />
               )}
+              <div className="project-ref-papers-toggle">
+                <button
+                  className="ref-papers-toggle-btn"
+                  type="button"
+                  onClick={() => setShowPaths(!showPaths)}
+                >
+                  {showPaths ? '▾' : '▸'} {t('paths.toggle')}
+                  {(codebasesPath.trim() || datasetsPath.trim() || checkpointsPath.trim()) && (
+                    <span className="ref-badge">
+                      {[codebasesPath, datasetsPath, checkpointsPath].filter(s => s.trim()).length}
+                    </span>
+                  )}
+                </button>
+              </div>
+              {showPaths && (
+                <div className="paths-grid">
+                  <label className="path-field">
+                    <span className="path-label">💻 {t('paths.codebases')}</span>
+                    <input
+                      className="path-input"
+                      placeholder={t('paths.codebases_placeholder')}
+                      value={codebasesPath}
+                      onChange={e => setCodebasesPath(e.target.value)}
+                      disabled={!connected}
+                    />
+                  </label>
+                  <label className="path-field">
+                    <span className="path-label">📊 {t('paths.datasets')}</span>
+                    <input
+                      className="path-input"
+                      placeholder={t('paths.datasets_placeholder')}
+                      value={datasetsPath}
+                      onChange={e => setDatasetsPath(e.target.value)}
+                      disabled={!connected}
+                    />
+                  </label>
+                  <label className="path-field">
+                    <span className="path-label">🏗️ {t('paths.checkpoints')}</span>
+                    <input
+                      className="path-input"
+                      placeholder={t('paths.checkpoints_placeholder')}
+                      value={checkpointsPath}
+                      onChange={e => setCheckpointsPath(e.target.value)}
+                      disabled={!connected}
+                    />
+                  </label>
+                </div>
+              )}
               <button
                 className={`project-go-btn ${mode === 'lab' ? 'lab-mode' : 'reproduce-mode'}`}
                 onClick={submit}
@@ -209,8 +264,10 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
               {sorted.map(proj => {
                 const cfg = STATUS_ICONS[proj.status] || STATUS_ICONS.new;
                 const statusLabel = t(`project.status.${proj.status}`);
+                const fs = proj.firstStage || 1;
+                const completedCount = proj.lastCompletedStage >= fs ? proj.lastCompletedStage - fs + 1 : 0;
                 const pct = proj.totalStages > 0
-                  ? Math.round((proj.lastCompletedStage / proj.totalStages) * 100)
+                  ? Math.round((completedCount / proj.totalStages) * 100)
                   : 0;
                 const isSelected = selectedProjectId === proj.projectId;
                 const isExpanded = expandedId === proj.projectId;
@@ -228,6 +285,7 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
                       </span>
                       <span className="project-summary-progress">{pct}%</span>
                       {arts.length > 0 && <span className="project-summary-arts">📦{arts.length}</span>}
+                      
                       <span className={`project-expand-arrow${isExpanded ? ' open' : ''}`}>▸</span>
                     </div>
 
@@ -246,10 +304,10 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
                         </div>
 
                         <div className="project-detail-stage">
-                          {proj.lastCompletedStage}/{proj.totalStages} {t('project.stages_label')}
+                          {completedCount}/{proj.totalStages} {t('project.stages_label')}
                           {proj.lastCompletedStage > 0 && (
                             <> · {stageName(proj.lastCompletedStage, t)}
-                              {proj.lastCompletedStage < proj.totalStages && (
+                              {completedCount < proj.totalStages && (
                                 <span className="project-next-stage"> → {stageName(proj.lastCompletedStage + 1, t)}</span>
                               )}
                             </>
@@ -298,6 +356,21 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
                           {proj.status === 'interrupted' && connected && (
                             <button className="project-resume-btn" onClick={(e) => { e.stopPropagation(); onResume(proj.projectId); }}>
                               {t('project.resume')}
+                            </button>
+                          )}
+                          {(proj.status === 'running' || proj.status === 'queued') && connected && (
+                            <button className="project-pause-btn" onClick={(e) => { e.stopPropagation(); onPause(proj.projectId); }}>
+                              {t('project.pause')}
+                            </button>
+                          )}
+                          {connected && (
+                            <button className="project-restart-btn" onClick={(e) => {
+                              e.stopPropagation();
+                              if (window.confirm(t('project.restart_confirm', { id: proj.projectId }))) {
+                                onRestart(proj.projectId);
+                              }
+                            }}>
+                              {t('project.restart')}
                             </button>
                           )}
                           <button

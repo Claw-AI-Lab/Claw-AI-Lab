@@ -307,6 +307,88 @@ async def _classify_chat_intent(text: str, state: "BridgeState") -> str:
     return _classify_chat_intent_keywords(text)
 
 
+def _pause_project(state: "BridgeState", project_id: str) -> list[dict]:
+    """Pause a running project: stop agents and remove queued tasks, but keep all files."""
+    messages: list[dict] = []
+    sys_agent = LobsterAgent(
+        id="system", name="系统", layer="idea", run_id="", run_dir="", config_path="",
+    )
+
+    if not project_id:
+        return messages
+
+    stopped = 0
+    for agent in list(state.agents.values()):
+        if agent.project_id == project_id:
+            if agent.process is not None and agent.process.poll() is None:
+                agent.process.terminate()
+                try:
+                    agent.process.wait(timeout=5)
+                except Exception:
+                    agent.process.kill()
+                stopped += 1
+            _reset_agent_idle(agent)
+            messages.append(msg_agent_update(agent))
+
+    removed = 0
+    for q in state.queues.values():
+        before = len(q.tasks)
+        q.tasks = [t for t in q.tasks if t.project_id != project_id]
+        removed += before - len(q.tasks)
+
+    released = state.gpu_allocator.release(project_id)
+    if released:
+        messages.append(msg_log(sys_agent, f"GPU {released} 已释放 (项目暂停)", "info"))
+
+    messages.append(msg_log(
+        sys_agent,
+        f"项目 [{project_id}] 已暂停 (停止 {stopped} 个 Agent, 移除 {removed} 个队列任务)",
+        "warning",
+    ))
+    return messages
+
+
+def _restart_project(state: "BridgeState", project_id: str) -> list[dict]:
+    """Restart a project from scratch: stop agents, clear checkpoint, re-submit."""
+    import shutil
+
+    messages: list[dict] = []
+    sys_agent = LobsterAgent(
+        id="system", name="系统", layer="idea", run_id="", run_dir="", config_path="",
+    )
+
+    if not project_id:
+        return messages
+
+    proj_dir = state.projects_dir() / project_id
+    if not proj_dir.exists():
+        messages.append(msg_log(sys_agent, f"项目 [{project_id}] 不存在", "error"))
+        return messages
+
+    messages.extend(_pause_project(state, project_id))
+
+    meta = _read_json(proj_dir / "project_meta.json")
+    config_path = meta.get("config_path", "") if meta else ""
+    topic = meta.get("topic", "") if meta else ""
+    mode = meta.get("mode", "lab") if meta else "lab"
+
+    if not config_path:
+        messages.append(msg_log(sys_agent, f"项目 [{project_id}] 缺少配置文件路径, 无法重启", "error"))
+        return messages
+
+    for item in proj_dir.iterdir():
+        if item.name == "project_meta.json":
+            continue
+        if item.is_dir():
+            shutil.rmtree(item, ignore_errors=True)
+        else:
+            item.unlink(missing_ok=True)
+
+    messages.append(msg_log(sys_agent, f"项目 [{project_id}] 已清除进度，正在重新启动…", "info"))
+    messages.extend(submit_new_project(state, project_id, config_path, topic, mode=mode))
+    return messages
+
+
 def _delete_project(state: "BridgeState", project_id: str) -> list[dict]:
     """Delete a project: stop any running processes, clean up state, remove files."""
     import shutil
@@ -1094,12 +1176,13 @@ def stop_agent(agent: LobsterAgent) -> list[dict]:
 
 # ── Task queue operations ───────────────────────────────────────────────────
 
-def _save_project_meta(run_dir: str, project_id: str, config_path: str, topic: str) -> None:
+def _save_project_meta(run_dir: str, project_id: str, config_path: str, topic: str, mode: str = "lab") -> None:
     """Persist project metadata so it can be recovered on restart."""
     meta = {
         "project_id": project_id,
         "config_path": config_path,
         "topic": topic,
+        "mode": mode,
         "created_at": _now_ms(),
     }
     meta_path = Path(run_dir) / "project_meta.json"
@@ -1135,7 +1218,7 @@ def _queue_for_layer(target_layer: str) -> str:
     return LAYER_INPUT_QUEUE.get(target_layer, "init_to_idea")
 
 
-def submit_new_project(state: BridgeState, project_id: str, config_path: str, topic: str = "") -> list[dict]:
+def submit_new_project(state: BridgeState, project_id: str, config_path: str, topic: str = "", mode: str = "lab") -> list[dict]:
     """Submit a project — auto-detects checkpoint and resumes from where it left off.
 
     In cross-project discussion mode, each project gets ONE agent.
@@ -1146,7 +1229,7 @@ def submit_new_project(state: BridgeState, project_id: str, config_path: str, to
 
     run_dir = str(state.projects_dir() / project_id)
     os.makedirs(run_dir, exist_ok=True)
-    _save_project_meta(run_dir, project_id, config_path, topic)
+    _save_project_meta(run_dir, project_id, config_path, topic, mode=mode)
 
     if state.discussion_mode:
         messages.append(msg_log(
@@ -1283,32 +1366,38 @@ def on_agent_done(state: BridgeState, agent: LobsterAgent) -> list[dict]:
     # Create follow-up task in the next queue
     output_queue_name = LAYER_OUTPUT_QUEUE.get(agent.layer)
     if output_queue_name and output_queue_name in state.queues and agent.project_id:
-        # L4→L5: only push to writing queue if S17 decision is PROCEED (or forced-PROCEED)
+        # L4→L5: skip writing for reproduce mode; otherwise only push if S17 PROCEED
         if agent.layer == "execution" and output_queue_name == "execution_to_writing":
-            _decision_file = Path(agent.run_dir) / "stage-17" / "decision.md"
-            _warning_file = Path(agent.run_dir) / "quality_warning.txt"
-            _summary_file = Path(agent.run_dir) / "pipeline_summary.json"
-            _is_proceed = False
-            if _decision_file.exists():
-                _dec_text = _decision_file.read_text(encoding="utf-8").upper()
-                _is_proceed = "PROCEED" in _dec_text and "REFINE" not in _dec_text.split("PROCEED")[0][-50:]
-            if not _is_proceed and _warning_file.exists():
-                _warn_text = _warning_file.read_text(encoding="utf-8")
-                if "max pivots" in _warn_text.lower():
-                    _is_proceed = True
-                    messages.append(msg_log(agent, "S17 决策为 REFINE 但已达最大迭代次数，强制进入论文写作", "warning"))
-            if not _is_proceed and _summary_file.exists():
-                try:
-                    import json as _json
-                    _summary = _json.loads(_summary_file.read_text(encoding="utf-8"))
-                    if _summary.get("final_status") == "done" and _summary.get("stages_failed", 1) == 0:
-                        _is_proceed = True
-                        messages.append(msg_log(agent, "Pipeline 全部完成，进入论文写作", "info"))
-                except Exception:
-                    pass
-            if not _is_proceed:
-                messages.append(msg_log(agent, f"S17 决策非 PROCEED，跳过论文写作", "info"))
+            _project_dir = state.projects_dir() / agent.project_id if agent.project_id else None
+            _meta = _read_project_meta(str(_project_dir)) if _project_dir and _project_dir.exists() else None
+            if _meta and _meta.get("mode") == "reproduce":
+                messages.append(msg_log(agent, f"复现模式: 跳过论文写作 (L5)，项目 [{agent.project_id}] 执行完成", "success"))
                 output_queue_name = None
+            else:
+                _decision_file = Path(agent.run_dir) / "stage-17" / "decision.md"
+                _warning_file = Path(agent.run_dir) / "quality_warning.txt"
+                _summary_file = Path(agent.run_dir) / "pipeline_summary.json"
+                _is_proceed = False
+                if _decision_file.exists():
+                    _dec_text = _decision_file.read_text(encoding="utf-8").upper()
+                    _is_proceed = "PROCEED" in _dec_text and "REFINE" not in _dec_text.split("PROCEED")[0][-50:]
+                if not _is_proceed and _warning_file.exists():
+                    _warn_text = _warning_file.read_text(encoding="utf-8")
+                    if "max pivots" in _warn_text.lower():
+                        _is_proceed = True
+                        messages.append(msg_log(agent, "S17 决策为 REFINE 但已达最大迭代次数，强制进入论文写作", "warning"))
+                if not _is_proceed and _summary_file.exists():
+                    try:
+                        import json as _json
+                        _summary = _json.loads(_summary_file.read_text(encoding="utf-8"))
+                        if _summary.get("final_status") == "done" and _summary.get("stages_failed", 1) == 0:
+                            _is_proceed = True
+                            messages.append(msg_log(agent, "Pipeline 全部完成，进入论文写作", "info"))
+                    except Exception:
+                        pass
+                if not _is_proceed:
+                    messages.append(msg_log(agent, f"S17 决策非 PROCEED，跳过论文写作", "info"))
+                    output_queue_name = None
 
         if output_queue_name and output_queue_name in state.queues:
             _, target_layer = QUEUE_NAMES[output_queue_name]
@@ -1383,14 +1472,31 @@ def list_all_projects(state: BridgeState) -> list[dict]:
         if not proj_dir.is_dir() or proj_dir.name.startswith("_"):
             continue
         project_id = proj_dir.name
-        cp = _read_json(proj_dir / "checkpoint.json")
         meta = _read_json(proj_dir / "project_meta.json")
+        project_mode = meta.get("mode", "lab") if meta else "lab"
+
+        # Read checkpoint: top-level first, then aggregate from sub-runs (Lab mode)
+        cp = _read_json(proj_dir / "checkpoint.json")
+        if not cp:
+            best_cp = None
+            best_stage = 0
+            for sub in proj_dir.iterdir():
+                if sub.is_dir() and sub.name.startswith("run-"):
+                    sub_cp = _read_json(sub / "checkpoint.json")
+                    if sub_cp and sub_cp.get("last_completed_stage", 0) > best_stage:
+                        best_stage = sub_cp.get("last_completed_stage", 0)
+                        best_cp = sub_cp
+            cp = best_cp
 
         last_stage = cp.get("last_completed_stage", 0) if cp else 0
         last_name = cp.get("last_completed_name", "") if cp else ""
         timestamp = cp.get("timestamp", "") if cp else ""
 
-        if last_stage >= 22:
+        first_stage = 1
+        total_stages = 18 if project_mode == "reproduce" else 22
+        completed_threshold = total_stages
+
+        if last_stage >= completed_threshold:
             status = "completed"
         elif project_id in running_project_ids:
             status = "running"
@@ -1408,6 +1514,12 @@ def list_all_projects(state: BridgeState) -> list[dict]:
             config_path = meta.get("config_path", "")
         if not topic:
             goal_path = proj_dir / "stage-01" / "goal.md"
+            if not goal_path.exists():
+                for sub in proj_dir.iterdir():
+                    if sub.is_dir() and sub.name.startswith("run-"):
+                        goal_path = sub / "stage-01" / "goal.md"
+                        if goal_path.exists():
+                            break
             if goal_path.exists():
                 try:
                     topic = goal_path.read_text(encoding="utf-8")[:300]
@@ -1419,7 +1531,8 @@ def list_all_projects(state: BridgeState) -> list[dict]:
             "status": status,
             "lastCompletedStage": last_stage,
             "lastCompletedName": last_name,
-            "totalStages": 22,
+            "firstStage": first_stage,
+            "totalStages": total_stages,
             "timestamp": timestamp,
             "topic": topic,
             "configPath": config_path,
@@ -1471,6 +1584,7 @@ def _slugify(text: str, max_len: int = 40) -> str:
 def _generate_config_from_template(
     state: BridgeState, project_id: str, topic: str, role_prompt: str = "",
     reference_papers: list[str] | None = None,
+    codebases_dir: str = "", datasets_dir: str = "", checkpoints_dir: str = "",
 ) -> str:
     """Generate a project-specific YAML config from the default template.
 
@@ -1499,6 +1613,14 @@ def _generate_config_from_template(
     else:
         content = content.replace("  reference_papers: __REFERENCE_PAPERS__",
                                   "  reference_papers: []")
+
+    import re as _re
+    if codebases_dir:
+        content = _re.sub(r'(codebases_dir:\s*)"[^"]*"', f'\\1"{codebases_dir}"', content)
+    if datasets_dir:
+        content = _re.sub(r'(datasets_dir:\s*)"[^"]*"', f'\\1"{datasets_dir}"', content)
+    if checkpoints_dir:
+        content = _re.sub(r'(checkpoints_dir:\s*)"[^"]*"', f'\\1"{checkpoints_dir}"', content)
 
     configs_dir = Path(state.runs_base_dir) / "project_configs"
     configs_dir.mkdir(parents=True, exist_ok=True)
@@ -1561,6 +1683,7 @@ def quick_submit_project(
     mode: str = "lab",
     research_angles: list[str] | None = None,
     reference_papers: list[str] | None = None,
+    path_overrides: dict[str, str] | None = None,
 ) -> list[dict]:
     """Create a project from a topic string.
 
@@ -1584,16 +1707,20 @@ def quick_submit_project(
             existing = state.projects_dir() / base_id
             if existing.exists():
                 base_id = f"{base_id}-{_uid()[:4]}"
+        _po = path_overrides or {}
         try:
             config_path = _generate_config_from_template(
                 state, base_id, topic.strip(),
                 reference_papers=reference_papers,
+                codebases_dir=_po.get("codebases_dir", ""),
+                datasets_dir=_po.get("datasets_dir", ""),
+                checkpoints_dir=_po.get("checkpoints_dir", ""),
             )
         except Exception as e:
             messages.append(msg_log(sys_agent, f"配置生成失败: {e}", "error"))
             return messages
-        messages.append(msg_log(sys_agent, f"复现模式: 项目 [{base_id}] 单 Agent 全流程启动", "success"))
-        messages.extend(submit_new_project(state, base_id, config_path, topic.strip()))
+        messages.append(msg_log(sys_agent, f"复现模式: 项目 [{base_id}] 单 Agent 全流程启动 (跳过论文写作)", "success"))
+        messages.extend(submit_new_project(state, base_id, config_path, topic.strip(), mode="reproduce"))
         return messages
 
     # ── Lab mode: multi-angle parallel research (ONE project, N agents) ──
@@ -1631,10 +1758,14 @@ def quick_submit_project(
         run_dir = str(project_dir / f"run-{slug}")
         os.makedirs(run_dir, exist_ok=True)
 
+        _po = path_overrides or {}
         try:
             config_path = _generate_config_from_template(
                 state, f"{base_id}--{slug}", topic.strip(), role_prompt,
                 reference_papers=reference_papers,
+                codebases_dir=_po.get("codebases_dir", ""),
+                datasets_dir=_po.get("datasets_dir", ""),
+                checkpoints_dir=_po.get("checkpoints_dir", ""),
             )
         except Exception as e:
             messages.append(msg_log(sys_agent, f"配置生成失败 [{name}]: {e}", "error"))
@@ -2493,7 +2624,12 @@ async def handle_command(state: BridgeState, data: dict) -> list[dict]:
             ref_papers = [p.strip() for p in re.split(r"[\n,，;；]", ref_papers) if p.strip()]
         elif not isinstance(ref_papers, list):
             ref_papers = None
-        messages.extend(quick_submit_project(state, topic, project_id, mode, angles, ref_papers))
+        path_overrides = {
+            "codebases_dir": data.get("codebasesDir", ""),
+            "datasets_dir": data.get("datasetsDir", ""),
+            "checkpoints_dir": data.get("checkpointsDir", ""),
+        }
+        messages.extend(quick_submit_project(state, topic, project_id, mode, angles, ref_papers, path_overrides))
         messages.extend(schedule_idle_agents(state))
         messages.append(msg_project_list(list_all_projects(state)))
 
@@ -2552,6 +2688,20 @@ async def handle_command(state: BridgeState, data: dict) -> list[dict]:
         target_layer = data.get("targetLayer", "all")
         reply = _build_status_summary(state, target_layer)
         messages.append(msg_feedback_ack(f"qs-{_uid()}", reply, target_layer))
+
+    elif cmd == "pause_project":
+        project_id = data.get("projectId", "")
+        if project_id:
+            messages.extend(_pause_project(state, project_id))
+            messages.extend(schedule_idle_agents(state))
+            messages.append(msg_project_list(list_all_projects(state)))
+
+    elif cmd == "restart_project":
+        project_id = data.get("projectId", "")
+        if project_id:
+            messages.extend(_restart_project(state, project_id))
+            messages.extend(schedule_idle_agents(state))
+            messages.append(msg_project_list(list_all_projects(state)))
 
     elif cmd == "delete_project":
         project_id = data.get("projectId", "")
