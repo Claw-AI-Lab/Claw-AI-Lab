@@ -2228,8 +2228,10 @@ def _on_discussion_s8_done(state: BridgeState, agent: LobsterAgent) -> list[dict
         best_id = _select_best_hypothesis(state, group)
         group.best_agent_id = best_id
         best_run_dir = group.run_dirs.get(best_id, agent.run_dir)
-        best_agent = state.agents.get(best_id)
-        best_config = best_agent.config_path if best_agent else agent.config_path
+        best_config = group.config_path
+        if not best_config:
+            best_agent = state.agents.get(best_id)
+            best_config = (best_agent.config_path if best_agent else "") or agent.config_path
         other_ids = [a for a in group.agent_ids if a != best_id]
         messages.append(msg_log(
             sys_agent,
