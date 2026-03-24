@@ -3691,16 +3691,16 @@ def _execute_code_generation(
                     "2. Use `device = torch.device('npu')` instead of 'cuda'\n"
                     "3. Use `torch.npu.is_available()` instead of `torch.cuda.is_available()`\n"
                     "4. NEVER use `torch.cuda.*` APIs — they will fail\n"
-                    "5. DataLoader MUST use `pin_memory=False` and `num_workers=0`\n"
-                    "   (pin_memory is CUDA-only; multi-worker has high overhead on NPU)\n"
+                    "5. DataLoader MUST use `pin_memory=False` and `num_workers=8`\n"
+                    "   (pin_memory is CUDA-only)\n"
                     "6. Example device setup:\n"
                     "   ```python\n"
                     "   import torch\n"
                     "   import torch_npu  # MUST import before using torch.npu\n"
                     "   device = torch.device('npu' if torch.npu.is_available() else 'cpu')\n"
-                    "   # DataLoader: NO pin_memory, NO multi-worker\n"
+                    "   # DataLoader: NO pin_memory\n"
                     "   loader = DataLoader(dataset, batch_size=128, shuffle=True,\n"
-                    "                       num_workers=0, pin_memory=False)\n"
+                    "                       num_workers=8, pin_memory=False)\n"
                     "   ```\n"
                 )
             if tier == "high":
@@ -6265,7 +6265,7 @@ def _execute_iterative_refine(
                 "- `import torch_npu` at top of main.py\n"
                 "- `device = torch.device('npu')`\n"
                 "- NEVER use `torch.cuda.*`\n"
-                "- DataLoader: `pin_memory=False, num_workers=0` (CRITICAL for NPU performance)\n\n"
+                "- DataLoader: `pin_memory=False, num_workers=8`\n\n"
             )
         ip = _pm.sub_prompt(
             "iterative_improve",
