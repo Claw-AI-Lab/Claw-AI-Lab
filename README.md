@@ -62,12 +62,15 @@ pip install openhands
 
 ### 2. Configure
 
-Fill in your LLM API key in examples/config_template.yaml:
+Fill in following configurations in examples/config_template.yaml:
 ```
 llm:
   provider: "openai-compatible"
   base_url: "https://your-api-endpoint/v1"
   api_key: "your-api-key"
+
+sandbox:
+  python_path: "/path/to/python3"
 ```
 
 ### 3. Run
