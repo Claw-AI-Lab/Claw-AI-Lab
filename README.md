@@ -5,7 +5,7 @@
 <h2 align="center"><b>Claw AI Lab: Autonomous Multi-Agent Research Team</b></h2>
 
 <p align="center">
-  <b><i>One Command. A Complete AI Team.</i></b>
+  <b><i>One Command. A Complete Team.</i></b>
 </p>
 
 <p align="center">
@@ -25,6 +25,12 @@
 
 ---
 
+## Updates
+
+- __[2026.03.25]__: 🔥 We released Claw AI Lab v1.0.0.
+
+---
+
 ## Quick Start
 
 ### 1. Install
@@ -33,21 +39,26 @@
 git clone https://github.com/wufan-cse/Claw-AI-Lab.git
 cd Claw-AI-Lab
 
+# Create python environment
+conda create -n clawailab python=3.11
+conda activate clawailab
+
 # Backend
 cd backend/agent
 pip install -e ".[all]"
 pip install websockets
 
+# Frontend
+cd ../../frontend
+npm install
+
 # ML dependencies
+# You can add more packages based on your research project
 pip install torch torchvision diffusers transformers accelerate safetensors \
             huggingface_hub opencv-python pandas matplotlib scikit-image scipy einops tqdm
 
 # OpenHands Beast Mode (optional, recommended)
 pip install openhands
-
-# Frontend
-cd ../../frontend
-npm install
 ```
 
 ### 2. Configure
@@ -77,16 +88,6 @@ Open **http://localhost:5903/** → You will see the system.
 
 ---
 
-## Project Modes
-
-| Mode | Description |
-|------|-------------|
-| **Lab Explore** | Autonomous research from scratch. Full pipeline S1→S22. |
-| **Lab Discuss** | Multi-agent cross-review discussion before experiments. |
-| **Reproduce** | Reproduce experiments from an existing paper. |
-
----
-
 ## Key Features
 
 | Feature | Description |
@@ -113,22 +114,28 @@ Open **http://localhost:5903/** → You will see the system.
 
 ---
 
-## Requirements
+## Acknowledgement
 
-| Dependency | Version | Note |
-|-----------|---------|------|
-| Linux | Ubuntu 20.04+ | — |
-| Python | >= 3.11 | [Miniforge](https://github.com/conda-forge/miniforge) recommended |
-| Node.js | >= 18 | [fnm](https://github.com/Schniz/fnm) recommended |
-| GPU | NVIDIA (CUDA 11.8+) | Multi-GPU supported |
-| OpenHands | >= 1.13 | Optional, for Beast Mode code generation |
+We learned and reused code from the following projects:
 
----
+[AutoResearchClaw](https://github.com/aiming-lab/AutoResearchClaw), 
+
+We thank the authors for their contributions to the community!
 
 ## License
 
 MIT — see [LICENSE](LICENSE) for details.
 
-<p align="center">
-  <sub>Built with 🦞 by the Claw AI Lab team</sub>
-</p>
+## 📌 Citation
+
+If you find Claw AI Lab useful, please cite:
+
+```bibtex
+@misc{wu2026clawailab,
+  author       = {Wu, Fan and Chen, Cheng and Tan, Zhenshan and Zhang, Taiyu and Gao, Dingcheng and Zhu, Lanyu and Ye, Deheng and Liu, Fayao and Chen, Tianrun and Lin, Guosheng},
+  title        = {Claw AI Lab: Autonomous Multi-Agent Research Team},
+  year         = {2026},
+  organization = {GitHub},
+  url          = {https://github.com/wufan-cse/Claw-AI-Lab},
+}
+```
