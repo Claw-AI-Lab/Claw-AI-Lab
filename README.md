@@ -136,15 +136,13 @@ pip install openhands
 Fill in following configurations in examples/config_template.yaml:
 ```
 llm:
-  provider: "openai-compatible"
-  base_url: "https://your-api-endpoint/v1"
   api_key: "your-api-key"
 
 sandbox:
-  python_path: "/path/to/python3"
+  python_path: "/path/to/your/python3"
 ```
 
-Thanks a lot for [KOKONI](https://www.kokoni3d.com/) support for this project, here is a free token: TODO
+Thanks a lot for [KOKONI's](https://www.kokoni3d.com/) support for this project, and api_key can be obtained [here](http://www.longcatcloud.com/).
 
 ### 3. Run
 
@@ -156,7 +154,9 @@ Thanks a lot for [KOKONI](https://www.kokoni3d.com/) support for this project, h
 ./start.sh fresh        # Clean restart (reset all data)
 ```
 
-Open **http://localhost:5903/** → You will see the system, then submit your projects.
+Open **http://localhost:5903/** → Submit your research topic and let the agents work.
+
+> **Tip:** For best results, prepare local copies of codebases, datasets, and checkpoints before starting a project. Keeping codebases lean (remove unused files) significantly speeds up agent analysis.
 
 ---
 
@@ -310,7 +310,7 @@ If you find Claw AI Lab useful, please cite:
 
 ```bibtex
 @misc{wu2026clawailab,
-  author       = {Wu, Fan and Chen, Cheng and Tan, Zhenshan and Zhang, Taiyu and Gao, Dingcheng and Zhu, Lanyu and Zhu, Qi and Ye, Deheng, and Chen, Tianrun and Liu, Fayao and Lin, Guosheng},
+  author       = {Wu, Fan and Chen, Cheng and Tan, Zhenshan and Zhang, Taiyu and Gao, Dingcheng and Zhu, Lanyun and Zhu, Qi and Ye, Deheng, and Chen, Tianrun and Liu, Fayao and Lin, Guosheng},
   title        = {Claw AI Lab: Autonomous Multi-Agent Research Team},
   year         = {2026},
   organization = {GitHub},

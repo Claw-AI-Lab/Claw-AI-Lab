@@ -169,7 +169,13 @@ export default memo(function DataShelf({ repoId, artifacts }: Props) {
           {byProject.size === 0 && <div className="shelf-empty">{t('shelf.no_artifacts')}</div>}
           {repoId === 'papers'
             ? [...byProject.entries()].map(([pid, files]) => (
-                <ProjectFolder key={pid} pid={pid} files={files} locale={locale} />
+                <div key={pid} className="shelf-project">
+                  <div className="shelf-project-name" style={{ cursor: 'default' }}>
+                    <span className="folder-icon">📁</span>
+                    <span className="folder-name">{pid}</span>
+                    <span className="shelf-count">{files.length}</span>
+                  </div>
+                </div>
               ))
             : [...byProject.entries()].map(([pid, files]) => (
                 <ProjectFolder key={pid} pid={pid} files={files} locale={locale} />
