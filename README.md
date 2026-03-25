@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="image/logo.png" width="700" alt="Claw AI Lab">
+  <img src="assets/logo.png" width="700" alt="Claw AI Lab">
 </p>
 
 <h2 align="center"><b>Claw AI Lab: Autonomous Multi-Agent Research Team</b></h2>
@@ -45,8 +45,7 @@ Each project autonomously produces a full research deliverable: **Paper** · **C
 </tr>
 </table>
 
-> **8 projects across 8 domains** — fully autonomous, zero human intervention. **[→ View Full Showcase](docs/showcase/SHOWCASE.md)**
-
+> **projects across multiple domains** — fully autonomous. **[→ View Full Showcase](docs/showcase/SHOWCASE.md)**
 
 ---
 
