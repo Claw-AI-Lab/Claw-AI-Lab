@@ -124,7 +124,7 @@ npm install
 
 # ML dependencies
 # You can add more packages based on your research project
-pip install torch torchvision diffusers transformers accelerate safetensors \
+pip install torch torchvision diffusers transformers accelerate safetensors datasets \
             huggingface_hub opencv-python pandas matplotlib scikit-image scipy einops tqdm
 
 # OpenHands Beast Mode (optional, recommended)
