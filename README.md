@@ -52,7 +52,7 @@ Each project autonomously produces a full research deliverable: **Paper** · **C
 
 ## ✨ Key Features
 
-| | |
+|||
 | :--- | :--- |
 | **End-to-End Hierarchical Pipeline** | Topic in → paper + code + figures out, 22 stages fully autonomous |
 | **Three Research Modes** | Lab Explore · Lab Discussion (multi-agent debate) · Reproduce |
