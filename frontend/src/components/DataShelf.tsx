@@ -26,6 +26,13 @@ function ArtifactItem({ a, locale }: { a: Artifact; locale: string }) {
   const [expanded, setExpanded] = useState(false);
   const hasContent = !!a.content;
   const { icon, label } = getArtifactLabel(a.filename, locale);
+  const isDownloadable = a.filename.endsWith('.zip');
+
+  const handleDownload = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const url = `/download/${a.projectId}/${a.filename}`;
+    window.open(url, '_blank');
+  };
 
   return (
     <div className={`artifact-card status-${a.status}`}>
@@ -36,6 +43,11 @@ function ArtifactItem({ a, locale }: { a: Artifact; locale: string }) {
         <span className="artifact-card-icon">{icon}</span>
         <span className="artifact-card-label">{label}</span>
         <span className="artifact-card-size">{a.size}</span>
+        {isDownloadable && (
+          <button className="artifact-download-btn" onClick={handleDownload} title={locale === 'zh' ? '下载' : 'Download'}>
+            ⬇
+          </button>
+        )}
         {hasContent && <span className={`artifact-card-chevron ${expanded ? 'open' : ''}`}>▶</span>}
       </div>
       {hasContent && !expanded && (
@@ -156,8 +168,8 @@ export default memo(function DataShelf({ repoId, artifacts }: Props) {
           </div>
           {byProject.size === 0 && <div className="shelf-empty">{t('shelf.no_artifacts')}</div>}
           {repoId === 'papers'
-            ? [...byProject.keys()].map((pid) => (
-                <div key={pid} className="shelf-paper-item">📝 {pid}</div>
+            ? [...byProject.entries()].map(([pid, files]) => (
+                <ProjectFolder key={pid} pid={pid} files={files} locale={locale} />
               ))
             : [...byProject.entries()].map(([pid, files]) => (
                 <ProjectFolder key={pid} pid={pid} files={files} locale={locale} />

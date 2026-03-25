@@ -39,12 +39,12 @@ llm:
   base_url: "https://api.vectorengine.ai/v1"
   api_key: "sk-QLo52KgqSRHiI3H3JydKzJJJw4W0URzsNnGy8d3QB1yYtFqM"
   api_key_env: "RESEARCHCLAW_API_KEY"
-  primary_model: "gpt-5.4"
-  coding_model: "gpt-5.4"
+  primary_model: "claude-sonnet-4-6"
+  coding_model: "claude-sonnet-4-6"
   image_model: "gemini-3-pro-image-preview"
   fallback_models:
-    - "gpt-4o"
-    - "gpt-4.1"
+    - "claude-sonnet-4-5-20241022"
+    - "claude-haiku-4-5-20251001"
   timeout_sec: 600
 
 security:
@@ -58,13 +58,13 @@ experiment:
   max_iterations: 3
   metric_key: "primary_metric"
   metric_direction: "minimize"
-  datasets_dir: "/home/user/Claw-AI-Lab-share/datasets"
-  checkpoints_dir: "/home/user/Claw-AI-Lab-share/checkpoints"
-  codebases_dir: "/home/user/Claw-AI-Lab-share/codebases"
-  shared_results_dir: "/home/user/PyramidResearchTeam/backend/shared_results"
+  datasets_dir: "/var/lib/paascontainer/zty/Claw-AI-Lab-share/datasets"
+  checkpoints_dir: "/var/lib/paascontainer/zty/Claw-AI-Lab-share/checkpoints"
+  codebases_dir: "/var/lib/paascontainer/zty/Claw-AI-Lab-share/codebases"
+  shared_results_dir: "/var/lib/paascontainer/zty/Claw-AI-Lab-preview/backend/shared_results"
   paper_length: "short"
   sandbox:
-    python_path: "/home/user/miniforge3/bin/python3"
+    python_path: "/var/lib/paascontainer/zty/miniconda3/envs/wan22/bin/python3"
     gpu_required: true
     gpus_per_project: 1
     max_memory_mb: 16384
@@ -106,7 +106,7 @@ experiment:
     enabled: true
     auto: true
     complexity_threshold: 0.2
-    model: "claude-opus-4-6"
+    model: "claude-sonnet-4-6"
     timeout_sec: 2400
     max_retries: 0
     workspace_cleanup: false

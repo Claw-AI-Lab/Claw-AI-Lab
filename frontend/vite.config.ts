@@ -20,6 +20,10 @@ export default defineConfig({
         rewriteWsOrigin: true,
         rewrite: () => '/',
       },
+      '/download': {
+        target: `http://localhost:${agentPort}`,
+        changeOrigin: true,
+      },
     },
   },
 })

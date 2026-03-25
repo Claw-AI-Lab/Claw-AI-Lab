@@ -47,6 +47,7 @@ const zh: Record<string, string> = {
   'project.stages_label': '阶段',
   'project.pause': '⏸ 暂停',
   'project.restart': '🔄 重启',
+  'project.download_latex': '下载 LaTeX',
   'project.restart_confirm': '确认重启项目 "{id}"？\n将清除当前进度并从头开始。',
   'project.intervention_needed': '需要人工介入',
   'project.delete': '🗑 删除',
