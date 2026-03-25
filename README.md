@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo.png" width="700" alt="Claw AI Lab">
+  <img src="assets/logo.png" width="70" alt="Claw AI Lab">
 </p>
 
 <h2 align="center"><b>Claw AI Lab: Autonomous Multi-Agent Research Team</b></h2>
