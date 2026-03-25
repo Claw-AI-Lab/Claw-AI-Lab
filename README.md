@@ -310,10 +310,12 @@ If you find Claw AI Lab useful, please cite:
 
 ```bibtex
 @misc{wu2026clawailab,
-  author       = {Wu, Fan and Chen, Cheng and Tan, Zhenshan and Zhang, Taiyu and Gao, Dingcheng and Zhu, Lanyun and Zhu, Qi and Ye, Deheng, and Chen, Tianrun and Liu, Fayao and Lin, Guosheng},
-  title        = {Claw AI Lab: Autonomous Multi-Agent Research Team},
+  author       = {Wu, Fan and Chen, Cheng and Tan, Zhenshan and Zhang, Taiyu and
+                  Gao, Dingcheng and Zhu, Lanyun and Zhu, Qi and Ye, Deheng and
+                  Chen, Tianrun and Liu, Fayao and Lin, Guosheng},
+  title        = {Claw AI Lab: An Autonomous Multi-Agent Research Team},
   year         = {2026},
-  organization = {GitHub},
   url          = {https://github.com/wufan-cse/Claw-AI-Lab},
+  note         = {GitHub repository}
 }
 ``` 
