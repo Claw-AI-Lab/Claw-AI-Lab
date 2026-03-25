@@ -90,7 +90,7 @@ The paper (`paper_revised.md`) frames WAF as an **empirical transfer study**, no
 
 ## 💻 Code
 
-[👉 Codes](https://github.com/wufan-cse/Claw-AI-Lab/assets/showcase/flowedit-wan21-t2v/codes)
+[👉 Codes](flowedit-wan21-t2v/codes/)
 
 ---
 

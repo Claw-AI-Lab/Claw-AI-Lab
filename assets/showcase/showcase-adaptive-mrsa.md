@@ -102,7 +102,7 @@ The revised paper (`paper_revised.md`, 22 pages) positions adaptive MRSA as an *
 
 ## 💻 Code
 
-[👉 Code repository (placeholder)](https://github.com/wufan-cse/Claw-AI-Lab) — *replace with the URL of the repo you upload for ReMRSA / this run.*
+[👉 Codes](adaptive-mrsa/codes/)
 
 ---
 
