@@ -1,0 +1,153 @@
+[
+  {
+    "figure_id": "fig_main_results_overall",
+    "passed": false,
+    "issues": [
+      {
+        "type": "visual_quality",
+        "severity": "critical",
+        "message": "The script is incomplete and ends at a comment ('# Titles'). It does not show whether the title, axis labels, tick labels, legend, or final save/show commands are actually applied."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "No explicit use of tight_layout() or constrained_layout=True is shown. With 10 long category labels on a 7.16x3.5 figure, overlap or clipping is likely."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "Base font settings are mostly publication-appropriate (title 12pt, labels 10pt), but xtick and ytick labels are set to 9pt, which may be too small when printed, especially for multi-line category labels."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "A bar chart is not ideal for comparing small differences among model variants when the metric values are very close. A dot/point plot with error bars would communicate the comparisons more precisely and avoid exaggerating area."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "Several provided confidence intervals do not bracket the point estimates, and the code clips negative distances to zero. This suggests a possible data inconsistency or incorrect CI specification that should be verified before publication."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "No legend is shown. If the highlighted bar is meant to indicate the best-performing variant, this encoding may be unclear without annotation or legend."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "Style fallback may end up using default matplotlib styling if external styles are unavailable. This creates reproducibility risk and may lead to a less polished appearance on another system."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "The script defines a clean colorblind-safe palette and uses non-default colors, which is good, but the final appearance of grids/spines cannot be fully verified because axis styling code is not shown."
+      }
+    ],
+    "issue_count": 8
+  },
+  {
+    "figure_id": "fig_context_split_results",
+    "passed": false,
+    "issues": [
+      {
+        "type": "numerical_accuracy",
+        "severity": "critical",
+        "message": "Script may not contain correct data values. Expected values like [0.0267, 0.0262, 0.0284] not found in script. Found values: [0.0247, 0.0251, 0.0246, 0.024, 0.0243]"
+      },
+      {
+        "type": "visual_quality",
+        "severity": "critical",
+        "message": "The script is incomplete and truncated at `x + width /`, so the second bar series, error bars, labels, legend, and save/show logic cannot be verified. The figure as provided is not reproducible."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "critical",
+        "message": "No `tight_layout()` or `constrained_layout=True` is visible in the provided script. Given the multi-line x-axis labels and long legend text, layout problems such as clipping or overlap are likely."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "Configured font sizes meet the minimum publication thresholds (`axes.titlesize=12`, labels/ticks=10), but the legend font is 9pt, which may be small when printed."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "Method names are extremely long and heavily abbreviated across multiple lines. Even with line breaks, x-axis labels may be crowded and hard to read in a 7.16 x 3.5 inch grouped bar chart."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "The custom palette is colorblind-safe and better than default matplotlib, which is good. However, because the plotted series is incomplete, full color usage and contrast with legend/error bars cannot be fully assessed."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "The style setup is generally professional (`science`/`ieee` fallback), but final grid appearance cannot be confirmed from the truncated script. If the fallback style is not available, matplotlib default styling may be used, which is less publication-ready."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "Legend placement is not shown in the provided script, so visibility and overlap with data cannot be verified. The legend text is long and may require careful placement outside the plotting area."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "A grouped bar chart is acceptable for comparing two conditions across methods, but the metric differences are very small (~0.024 to 0.025). Bars may visually obscure subtle differences; a dot/error-bar plot could communicate these comparisons more precisely."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "DPI is correctly set to 300 for both figure and savefig, satisfying publication guidance."
+      }
+    ],
+    "issue_count": 10
+  },
+  {
+    "figure_id": "fig_component_ablation",
+    "passed": false,
+    "issues": [
+      {
+        "type": "visual_quality",
+        "severity": "critical",
+        "message": "The provided matplotlib script is truncated and incomplete (it ends at 'for gi, (gname, items) in enumerate(gro'). The figure cannot be fully reviewed because plotting, legend, axis labels, layout, and save/show logic are missing."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "No visible use of tight_layout() or constrained_layout=True appears in the provided portion. Although savefig.bbox='tight' helps export cropping, it is not a substitute for layout management."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "Configured font sizes are mostly publication-appropriate: title=12 pt and labels=10 pt meet the minimum. However, tick labels and legend are set to 9 pt, which may be small when printed in a multi-panel conference figure."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "For ablation comparisons with means and standard deviations, a bar chart can be acceptable, but dot/point plots with error bars are often preferable and more publication-friendly because they avoid implying area-based magnitude."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "The variant names are long even after abbreviation and include line breaks. This risks crowded x-axis labels and reduced readability, especially in print."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "The declared palette is non-default and broadly colorblind-safe, which is good. However, the actual plotted usage is not visible in the truncated script, so consistency, contrast, and category mapping cannot be verified."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "A professional style is attempted via 'science'/'ieee' or seaborn whitegrid fallback, which is positive. But the final grid appearance, spine treatment, and visual cleanliness cannot be confirmed from the incomplete script."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "Legend placement and overlap cannot be assessed because the plotting code is incomplete and no legend construction is shown."
+      }
+    ],
+    "issue_count": 8
+  }
+]

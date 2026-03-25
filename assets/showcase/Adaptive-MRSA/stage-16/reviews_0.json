@@ -1,0 +1,194 @@
+[
+  {
+    "figure_id": "fig_main_results_overall",
+    "passed": false,
+    "issues": [
+      {
+        "type": "visual_quality",
+        "severity": "critical",
+        "message": "The script is incomplete and ends at 'ax.set_'. As provided, it will not execute and likely does not set the title, axis labels, tick labels, limits, legend, or layout."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "critical",
+        "message": "No explicit use of tight_layout() or constrained_layout=True is shown. For a dense 10-category bar chart with long labels and value annotations, this is likely to cause clipping or overcrowding."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "critical",
+        "message": "The category names are extremely long, but no visible code applies shortened labels, rotation, wrapping, or multi-line formatting. This will make the x-axis unreadable in print."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "DPI is set to 300 for figure and saved output, which meets the minimum publication threshold."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "Configured font sizes mostly meet minimum guidance: title 12 pt and axis labels 10 pt are acceptable. However, tick labels are 9 pt and value labels are 8 pt, which may be too small when printed, especially with many categories."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "The custom palette is preferable to default matplotlib and appears broadly colorblind-conscious. However, using many different colors for a single-series bar chart may imply grouping that does not exist; a single hue with one highlight color would be more professional."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "The attempted use of 'science'/'ieee' style is good, but the fallback may vary by environment. Because the final rendered style is not guaranteed, visual consistency across systems is uncertain."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "Grid behavior is not explicitly controlled in the visible plotting code. Depending on the fallback style, the grid may be absent or overly prominent. Publication figures should define grid styling explicitly."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "No legend is shown, which is acceptable for a single-series bar chart. However, if multiple colors are used intentionally to encode ablations, the lack of legend or grouping explanation in-figure reduces interpretability."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "A bar chart is acceptable for comparing 10 variants, but given the very small numerical differences and the presence of confidence intervals, a point plot or horizontal error-bar plot would communicate relative differences more precisely and reduce label crowding."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "Value labels are formatted to two decimals for values around 0.024–0.027, so all bars would likely display the same rounded label (e.g., 0.02 or 0.03), which is misleading and uninformative."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "The figure width is increased adaptively, which helps, but the height of 3.5 inches is likely too short for long category labels, error bars, and top annotations."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "critical",
+        "message": "Overall quality score too low: 3/10"
+      }
+    ],
+    "issue_count": 13
+  },
+  {
+    "figure_id": "fig_context_split_results",
+    "passed": false,
+    "issues": [
+      {
+        "type": "numerical_accuracy",
+        "severity": "critical",
+        "message": "Script may not contain correct data values. Expected values like [0.0267, 0.0262, 0.0284] not found in script. Found values: [0.0247, 0.0251, 0.0246, 0.024, 0.0243]"
+      },
+      {
+        "type": "visual_quality",
+        "severity": "critical",
+        "message": "The script is incomplete/truncated (`ax.set_yl...`) and cannot be fully evaluated or executed as provided. Final axis labeling, legend, layout, and export behavior may be missing."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "critical",
+        "message": "No `tight_layout()` or `constrained_layout=True` is shown. With rotated x-axis labels and a compact figure height, labels are likely to be clipped or crowded."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "X-tick labels are explicitly set to 8 pt, which is below the recommended 10 pt minimum for print readability."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "Tick labels are globally set to 9 pt, below the preferred 10 pt threshold for publication-quality readability."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "Legend placement is not shown, so visibility and overlap with data cannot be verified."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "Professional styling is partially addressed via `science`/`ieee` or seaborn fallback, but because the script is truncated it is unclear whether gridlines, spines, and final visual cleanup are handled appropriately."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "Grouped bars are acceptable for comparing two conditions across methods, but the values are very close in magnitude (~0.024-0.025). Bar charts can obscure small differences; a point-range or dot plot may communicate these subtle differences more effectively."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "The y-axis appears to be tightly zoomed around a narrow range, which can visually exaggerate small differences in bar heights. This is not necessarily wrong, but should be justified and clearly labeled."
+      }
+    ],
+    "issue_count": 9
+  },
+  {
+    "figure_id": "fig_component_ablation",
+    "passed": false,
+    "issues": [
+      {
+        "type": "visual_quality",
+        "severity": "critical",
+        "message": "The script is truncated at 'ax.set_' and is not executable as provided. Critical figure elements such as title, axis labels, tick labels, layout handling, legend configuration, and save/show behavior cannot be verified."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "No use of tight_layout() or constrained_layout=True is visible in the provided script. With 10 long category names and value labels, the figure is at high risk of clipping or overlapping."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "critical",
+        "message": "Category names are extremely long and likely unreadable on the x-axis when printed. Although a shortening helper exists, it is not used in the visible plotting code."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "Configured sizes meet the minimum thresholds for title (12 pt) and axis labels (10 pt), but tick labels (9 pt), legend (9 pt), and value labels (8 pt) may be too small for print readability, especially in a dense ablation chart."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "The palette is non-default and broadly colorblind-safe, which is good. However, using many different colors for a single-series bar chart can imply categorical grouping without an accompanying legend or visual grouping structure."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "Professional styles are attempted via 'science'/'ieee' or seaborn fallback, but the final appearance is not guaranteed because it depends on local style availability. Grid settings are not explicitly controlled in the visible code."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "No legend is visible in the provided code. If colors are intended to indicate component groups, the absence of a legend makes the encoding ambiguous."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "A bar chart is acceptable for ablation comparisons, but with small differences between values and confidence intervals, a dot/point plot with error bars would likely communicate differences more precisely and reduce clutter."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "DPI is correctly set to 300 for both figure.dpi and savefig.dpi, which meets publication requirements."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "Values are around 0.024-0.027, but the visible value label formatting uses two decimals for values >= 0.005, which would render nearly all bars as '0.02' or '0.03' and obscure meaningful differences."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "critical",
+        "message": "Overall quality score too low: 3/10"
+      }
+    ],
+    "issue_count": 11
+  },
+  {
+    "figure_id": "fig_seed_stability",
+    "passed": true,
+    "issues": [],
+    "issue_count": 0
+  }
+]

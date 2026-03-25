@@ -1,0 +1,675 @@
+ablations:
+- expected_effect: 'Should improve over full-image global similarity in some cases,
+    but underperform the full method when conflict is localized or nuisance context
+    differs across regions.
+
+    '
+  how_it_differs: 'Compute similarity only on foreground-masked crops, but apply the
+    resulting weight globally to all regions and all steps; remove the background
+    disagreement penalty and contested-region gate.
+
+    '
+  name: ForegroundOnlySimilarityWithoutConflictRouting
+  parent_method: ForegroundDeconfoundedConflictRoutedMRSA
+  what_is_removed: Region conflict detection and background deconfounding penalty
+- expected_effect: 'Tests whether local routing alone is sufficient or whether deconfounding
+    is required on shared-context subsets.
+
+    '
+  how_it_differs: 'Keep region conflict routing, but use full-image similarity rather
+    than foreground-minus-background deconfounded similarity for routing weights.
+
+    '
+  name: BackgroundBlindConflictRoutingWithoutDeconfounding
+  parent_method: ForegroundDeconfoundedConflictRoutedMRSA
+  what_is_removed: Explicit anti-background confound suppression
+- expected_effect: 'Should reduce some leakage, but fail to achieve the full trade-off
+    between early separation and later detail integration.
+
+    '
+  how_it_differs: 'Use a single fixed exclusivity strength across all denoising steps
+    instead of early/middle/late phases.
+
+    '
+  name: StaticExclusivityWithoutThreePhaseSchedule
+  parent_method: EarlyOverSeparationScheduledMRSA
+  what_is_removed: Temporal scheduling
+- expected_effect: 'Tests whether temporal causality matters; expected to reduce flips
+    less and yield weaker fidelity gains.
+
+    '
+  how_it_differs: 'Apply stronger exclusivity only in late denoising steps while keeping
+    early and middle stages equivalent to vanilla MRSA.
+
+    '
+  name: LateOnlySeparationWithoutEarlyOwnershipStabilization
+  parent_method: EarlyOverSeparationScheduledMRSA
+  what_is_removed: Early-step intervention
+- expected_effect: 'Expected to overcorrect, increasing artifacts or reducing realism,
+    thereby testing the necessity of sparse capped activation.
+
+    '
+  how_it_differs: 'Apply residual boosting to all regions and remove the modulation
+    cap, while keeping the same shared-vs-residual decomposition.
+
+    '
+  name: DenseUncappedResidualBoostedMRSA
+  parent_method: SparseCappedResidualBoostedMRSA
+  what_is_removed: Sparse activation and capped modulation
+- expected_effect: 'Determines whether gains come from true residual emphasis versus
+    simple shared-feature suppression.
+
+    '
+  how_it_differs: 'Suppress shared features in contested regions but do not boost
+    discriminative residuals.
+
+    '
+  name: SharedFeatureSuppressionWithoutResidualBoost
+  parent_method: SparseCappedResidualBoostedMRSA
+  what_is_removed: Positive residual enhancement
+baselines:
+- citation_note: 'Ding et al., 2024. This is the method being extended and is the
+    fairest core baseline because it uses tuning-free multi-reference self-attention
+    and weighted masks for multi-concept customization.
+
+    '
+  implementation_spec:
+    algorithm_steps:
+    - Load Stable Diffusion v1.5 from the local checkpoint through the FreeCustom
+      pipeline.
+    - Instantiate the original MultiReferenceSelfAttention from freecustom/mrsa.py
+      with provided masks and weights.
+    - Hack model self-attention blocks to MRSA via hack_self_attention_to_mrsa.
+    - Run denoising with original FreeCustom MRSA attention fusion, without adaptive
+      similarity routing.
+    - Store generated images and optional raw attention maps for later diagnostics.
+    class_name: VanillaFreeCustomMRSA
+    differentiator: Original tuning-free MRSA with fixed reference fusion and weighted
+      masks, no adaptive similarity or temporal control.
+    key_hyperparameters:
+      end_step: 20
+      guidance_scale: 7.5
+      mask_weights:
+      - 1.0
+      - 1.0
+      - 1.0
+      num_inference_steps: 20
+      start_step: 0
+      style_fidelity: 1.0
+    key_methods:
+    - __init__
+    - build_mrsa
+    - inject_attention_hooks
+    - generate
+    - collect_attention_logs
+    loss_function: No training loss; inference-only generation. Evaluation uses downstream
+      metrics only.
+  name: VanillaFreeCustomMRSA
+  paper: FreeCustom, CVPR 2024
+  why_fair_and_competitive: 'Directly matches the same codebase, backbone family,
+    and task setting; isolates the value of adaptive routing beyond the original MRSA.
+
+    '
+- citation_note: 'Not claimed as a published standalone method; this is the explicit
+    hypothesis baseline demanded by the proposal because Hypothesis 1 contrasts local
+    deconfounded routing against global similarity-only gating.
+
+    '
+  implementation_spec:
+    algorithm_steps:
+    - Extract CLIP embeddings for each full reference image.
+    - Compute pairwise/global similarity scores among concepts and normalize them
+      into routing weights.
+    - At every denoising step, multiply each reference branch contribution by its
+      fixed global similarity-derived weight.
+    - Keep original FreeCustom masks and MRSA mechanics unchanged otherwise.
+    - Generate images and log effective per-reference weights.
+    class_name: GlobalSimilarityWeightedMRSA
+    differentiator: Uses global full-image similarity as the only adaptive signal,
+      without local deconfounding or temporal scheduling.
+    key_hyperparameters:
+      guidance_scale: 7.5
+      max_weight: 0.8
+      min_weight: 0.1
+      num_inference_steps: 20
+      similarity_temperature: 0.07
+      weight_normalization: softmax
+    key_methods:
+    - __init__
+    - compute_global_similarity
+    - build_mrsa
+    - generate
+    - collect_attention_logs
+    loss_function: No training loss; inference-only generation.
+  name: GlobalSimilarityWeightedMRSA
+  paper: FreeCustom extension baseline; inspired by recent attention-control personalization
+    trends in diffusion, 2023-2026
+  why_fair_and_competitive: 'Stronger than vanilla MRSA because it uses a modern and
+    plausible adaptive mechanism: CLIP-based global concept similarity to scale per-reference
+    attention uniformly across all tokens. It is the direct rival abstraction in the
+    hypothesis.
+
+    '
+- citation_note: 'Ye et al., 2023. A strong modern image-prompt adapter baseline representing
+    current modular, lightweight reference conditioning practice for image generation.
+
+    '
+  implementation_spec:
+    algorithm_steps:
+    - Load Stable Diffusion v1.5 backbone and attach IP-Adapter-style image conditioning
+      if compatible with the local environment.
+    - Encode concept reference images to image prompt embeddings.
+    - Fuse multiple reference embeddings by simple average or prompt-level concatenation.
+    - Generate conditioned outputs using the same prompts and seeds as FreeCustom-based
+      methods.
+    - Evaluate identity alignment and contamination under the same regime splits.
+    class_name: IPAdapterReferenceConditioning
+    differentiator: Modern adapter-based reference conditioning rather than MRSA-level
+      self-attention control.
+    key_hyperparameters:
+      guidance_scale: 7.5
+      image_conditioning_scale: 0.8
+      multi_reference_fusion: mean
+      num_inference_steps: 20
+    key_methods:
+    - __init__
+    - load_adapter
+    - prepare_reference_embeddings
+    - generate
+    - collect_conditioning_logs
+    loss_function: No task-specific training in this benchmark; inference-only adapter
+      conditioning.
+  name: IPAdapterReferenceConditioning
+  paper: IP-Adapter, 2023; widely adopted reference-image conditioning baseline
+  why_fair_and_competitive: 'Modern, parameter-efficient, widely used for reference-image
+    control. Although not identical to FreeCustom MRSA, it is a realistic near-SOTA
+    modular reference-conditioning comparator from the 2023-2026 era.
+
+    '
+- citation_note: 'Zhang et al., 2023 and Ding et al., 2024. This combines current
+    structural conditioning with the provided FreeCustom ControlNet pipeline, using
+    real canny conditions already present in the local dataset.
+
+    '
+  implementation_spec:
+    algorithm_steps:
+    - Load StableDiffusionControlNetFreeCustomPipeline from the local FreeCustom codebase.
+    - Use corresponding canny condition images from the local dataset when available.
+    - Apply original FreeCustom MRSA inside the ControlNet-conditioned denoising process.
+    - Generate outputs with identical prompts and seeds.
+    - Log whether adaptive methods improve beyond structural control.
+    class_name: ControlNetFreeCustomConditionedMRSA
+    differentiator: Adds modern structural conditioning through the official local
+      FreeCustom ControlNet pipeline.
+    key_hyperparameters:
+      control_guidance_end: 1.0
+      control_guidance_start: 0.0
+      controlnet_conditioning_scale: 1.0
+      guidance_scale: 7.5
+      num_inference_steps: 20
+    key_methods:
+    - __init__
+    - load_controlnet_pipeline
+    - prepare_condition_image
+    - generate
+    - collect_attention_logs
+    loss_function: No training loss; inference-only generation.
+  name: ControlNetFreeCustomConditionedMRSA
+  paper: ControlNet, ICCV 2023 + FreeCustom, CVPR 2024
+  why_fair_and_competitive: 'Strong modern baseline for cases where layout/structure
+    support may already mitigate concept conflict. Important to show adaptive MRSA
+    adds value beyond stronger conditioning.
+
+    '
+compute_budget:
+  budget_margin: 20_percent_reserved_for_overhead
+  cases_per_regime_per_seed: 3
+  estimated_seconds_per_run: 30
+  estimated_total_seconds: 1200
+  execution_plan:
+    evaluated_conditions:
+    - VanillaFreeCustomMRSA
+    - GlobalSimilarityWeightedMRSA
+    - ForegroundDeconfoundedConflictRoutedMRSA
+    - EarlyOverSeparationScheduledMRSA
+    omitted_from_full_run_due_to_budget:
+    - IPAdapterReferenceConditioning
+    - ControlNetFreeCustomConditionedMRSA
+    - SparseCappedResidualBoostedMRSA
+    - all ablations except targeted micro-study
+    rationale: 'The strict 1800s budget and minimum 5 seeds prevent exhaustive evaluation
+      of all methods. Therefore, full powered testing focuses on the comparisons directly
+      required by Hypotheses 1 and 2. Hypothesis 3 and additional strong comparators
+      are scheduled as follow-up micro-studies or single-seed sanity checks not used
+      for primary claims.
+
+      '
+  hardware_assumption:
+    cpu: standard workstation CPU for CLIP scoring and bookkeeping
+    gpu: 1 local CUDA GPU with fp16 inference support
+  minimum_statistical_validity:
+    note: 10 seeds are preferred by the template, but infeasible under the 1800s cap.
+      The plan uses the minimum acceptable 5 seeds and paired per-case statistics.
+    seeds: 5
+  regime_count: 2
+  run_reduction_strategy: 'To satisfy the wall-clock cap, batch multiple evaluation
+    cases within one run and treat one run as one condition-regime-seed job over 3
+    composition cases. With batched inference and shared model loading, estimated
+    time remains ~30s per job on a single GPU for 20 denoising steps.
+
+    '
+  seeds_per_condition: 5
+  selected_regimes_for_powered_run:
+  - matched_background_or_shared_context
+  - mismatched_background_or_clean_context
+  total_runs_formula: 4 conditions × 2 regimes × 5 seeds = 40 nominal runs
+  total_time_budget_seconds: 1800
+  within_budget: true
+datasets:
+  auxiliary_models_and_assets:
+    clip_checkpoint:
+      path: /home/user/Claw-AI-Lab-share/checkpoints/clip-vit-base-patch32
+      role: reference alignment, foreground/global similarity estimation, retrieval
+        metrics
+    stable_diffusion_checkpoint:
+      path: /home/user/Claw-AI-Lab-share/checkpoints/stable-diffusion-v1-5
+      role: base diffusion backbone for FreeCustom pipelines
+  evaluation_protocol:
+    generation_settings:
+      guidance_scale: 7.5
+      images_per_prompt_per_seed: 1
+      num_inference_steps: 20
+      resolution: 512x512
+    reporting: 'Report overall results and per-regime results. Save generated images,
+      attention maps, ownership trajectories, and mask-conditioned metrics for each
+      seed/case.
+
+      '
+    seeds:
+    - 11
+    - 23
+    - 37
+    - 49
+    - 83
+  primary_dataset:
+    codebase_dependency: /home/user/Claw-AI-Lab-share/codebases/FreeCustom
+    data_units:
+      composition_case: folder containing multiple concept images/masks and generation
+        config
+      concept_mask: foreground mask for each concept
+      concept_reference_image: single personalized concept image
+    expected_subsets:
+    - multi_concept/*
+    - controlnet/reference_concept/*
+    - controlnet/conditions/canny/*
+    name: FreeCustomLocalMultiConceptBenchmark
+    path: /home/user/Claw-AI-Lab-share/datasets/FreeCustom
+    split_protocol: 'Use the official/available folder organization as fixed evaluation
+      cases. Do not create random train/test splits. Since methods are training-free
+      or minimally tuned, use all composition cases for evaluation and report stratified
+      subset results.
+
+      '
+    task: multi-concept personalized image generation/editing with one image per concept
+    why_this_dataset: 'This directly matches the research question and contains real
+      multi-concept composition examples, reference images, masks, and FreeCustom
+      configuration files. It is the highest-priority local resource and must be used.
+
+      '
+  regime_factors:
+    budget_adjusted_reporting_plan: 'If the full 2x2 grid is too sparse in available
+      cases, retain both factors and report per-factor marginal analyses plus the
+      densest 2x2 subset. Do not collapse factors into a single easy/hard bundle without
+      explicitly stating the confound.
+
+      '
+    factor_1_nuisance_context_overlap:
+      construction: 'Identify from masks + images whether reference concepts share
+        similar background, lighting, pose, or scene context. Use CLIP similarity
+        on full image minus foreground-only similarity disagreement as an automatic
+        heuristic, then manually verify a small case list.
+
+        '
+      description: 'Whether concept references share confounding background/context
+        cues that could mislead global similarity.
+
+        '
+      levels:
+      - matched_background_or_shared_context
+      - mismatched_background_or_clean_context
+    factor_2_concept_semantic_overlap:
+      construction: 'Compute CLIP embedding cosine similarity between foreground-masked
+        concept crops and threshold into high vs low overlap; confirm with category
+        names from folder/file names when available.
+
+        '
+      description: How visually/semantically similar the composed concepts are.
+      levels:
+      - same_category_or_high_similarity
+      - different_category_or_low_similarity
+    preferred_factorial_grid:
+    - matched_background_or_shared_context + same_category_or_high_similarity
+    - matched_background_or_shared_context + different_category_or_low_similarity
+    - mismatched_background_or_clean_context + same_category_or_high_similarity
+    - mismatched_background_or_clean_context + different_category_or_low_similarity
+metrics:
+  primary_metric:
+    definition: 'For each concept mask region, compute 1 - best matching reference
+      alignment score for the intended concept plus contamination from non-target
+      concepts using masked CLIP/image-text-image similarity or embedding retrieval.
+      Lower is better.
+
+      '
+    direction: minimize
+    name: region_level_contamination_error
+    units: fraction_of_foreground_pixels_or_masked_regions_with_wrong_concept_alignment
+  qualitative_outputs:
+  - generated image grids per regime
+  - foreground masks and contested-region maps
+  - attention heatmaps
+  - ownership trajectories over denoising steps
+  secondary_metrics:
+  - definition: 'For each target concept region, compute one minus masked CLIP similarity
+      between the generated region and the intended reference crop.
+
+      '
+    direction: minimize
+    name: per_concept_reference_misalignment
+    units: 1_minus_masked_clip_similarity
+  - definition: 'Count how often the dominant reference owner of a spatial region
+      changes across denoising steps.
+
+      '
+    direction: minimize
+    name: ownership_flip_rate
+    units: flips_per_region_across_denoising
+  - definition: Temporal variation of reference attention distributions over spatial
+      positions.
+    direction: minimize
+    name: attention_volatility
+    units: mean_L1_change_per_step
+  - definition: One minus CLIP text-image similarity for the full generated image
+      and prompt.
+    direction: minimize
+    name: full_prompt_misalignment
+    units: 1_minus_clip_text_image_similarity
+  - definition: 'One minus an image quality proxy such as CLIP-IQA or a lightweight
+      no-reference aesthetic model if available locally; otherwise LPIPS-to-reference
+      where applicable for edit-style cases.
+
+      '
+    direction: minimize
+    name: aesthetic_proxy_error
+    units: 1_minus_normalized_image_quality_score
+  - definition: 'Measures whether a generated target region is more similar to the
+      wrong concept reference than the correct one.
+
+      '
+    direction: minimize
+    name: identity_confusion_error
+    units: cross_concept_retrieval_error
+  - definition: 'Evaluate whether temporal ownership instability predicts final leakage
+      better than static similarity. Lower error means stronger support for the causal
+      diagnostic.
+
+      '
+    direction: minimize
+    name: discovery_aligned_endpoint_temporal_causality_error
+    units: 1_minus_predictive_R2_or_rank_consistency
+  - definition: Assesses robustness and stability of adaptive attention.
+    direction: minimize
+    name: seed_variance_penalty
+    units: variance_of_primary_metric_across_seeds
+  statistical_reporting:
+    effect_sizes:
+    - Cohen_d
+    - rank_biserial_correlation
+    report:
+    - mean ± std
+    - 95% bootstrap CI
+    - per-seed raw values
+    seeds_per_condition: 5
+    significance_tests:
+    - paired bootstrap on per-case metric differences
+    - Wilcoxon signed-rank test across matched cases/seeds
+  success_rate:
+    definition: fraction of seeds that complete without NaN, runtime crash, CUDA OOM,
+      or invalid image output
+objectives:
+  hypothesis_to_comparison_map:
+    hypothesis_1_local_deconfounded_routing:
+      claim: 'Region-aware deconfounded similarity routing should outperform both
+        vanilla MRSA and global similarity-only gating, especially on shared-background/high-conflict
+        compositions.
+
+        '
+      expected_signature: 'Strongest gains on matched-background/shared-context subsets,
+        with reduced region-level contamination and little degradation in prompt alignment
+        or realism.
+
+        '
+      key_comparisons:
+      - against: VanillaFreeCustomMRSA
+        proposed: ForegroundDeconfoundedConflictRoutedMRSA
+      - against: GlobalSimilarityWeightedMRSA
+        proposed: ForegroundDeconfoundedConflictRoutedMRSA
+      - ablation_check: ForegroundOnlySimilarityWithoutConflictRouting
+    hypothesis_2_temporal_ownership_stability:
+      claim: 'Temporal ownership instability should predict leakage better than static
+        similarity, and a three-phase early over-separation schedule should reduce
+        ownership flips and improve fidelity.
+
+        '
+      expected_signature: 'Ownership flip rate explains more variance in final leakage
+        than static similarity; scheduled MRSA reduces flips and modestly improves
+        concept fidelity.
+
+        '
+      key_comparisons:
+      - against: VanillaFreeCustomMRSA
+        proposed: EarlyOverSeparationScheduledMRSA
+      - against: GlobalSimilarityWeightedMRSA
+        proposed: EarlyOverSeparationScheduledMRSA
+      - diagnostic: ownership_flip_rate_vs_static_similarity_predicting_leakage
+    hypothesis_3_sparse_residual_boosting:
+      claim: 'Sparse, capped residual boosting in contested regions should improve
+        same-category/high-overlap composition without materially harming realism.
+
+        '
+      expected_signature: 'Benefits concentrated on same-category/high-overlap pairs,
+        with lower identity confusion and bounded quality loss.
+
+        '
+      key_comparisons:
+      - against: VanillaFreeCustomMRSA
+        proposed: SparseCappedResidualBoostedMRSA
+      - against: GlobalSimilarityWeightedMRSA
+        proposed: SparseCappedResidualBoostedMRSA
+      - ablation_check: DenseUncappedResidualBoostedMRSA
+  primary_objective: 'Evaluate whether training-light adaptive multi-reference self-attention
+    extensions to the local FreeCustom codebase improve multi-concept composition
+    quality under concept similarity and nuisance-context conflict, with explicit
+    tests of region-level deconfounding, temporal ownership stabilization, and sparse
+    residual boosting.
+
+    '
+  secondary_objectives:
+  - 'Quantify which granularity of control matters most for multi-concept customization:
+    region-aware routing, temporal scheduling, or feature-residual modulation.
+
+    '
+  - 'Measure robustness across prompt conflict regimes and nuisance-context regimes
+    using the real local FreeCustom dataset.
+
+    '
+  - 'Produce implementation-ready modifications by extending /home/user/Claw-AI-Lab-share/codebases/FreeCustom
+    rather than reimplementing from scratch.
+
+    '
+proposed_methods:
+- implementation_spec:
+    algorithm_steps:
+    - Extend freecustom/mrsa.py by wrapping MultiReferenceSelfAttention with adaptive
+      routing hooks.
+    - For each concept reference, compute CLIP or VAE feature embeddings on full image
+      and foreground-masked crop.
+    - Estimate deconfounded similarity as foreground similarity minus a penalty from
+      background/full-image agreement mismatch.
+    - Build a region conflict map using concept masks, attention entropy, and overlap/low-confidence
+      indicators from current denoising attention.
+    - In contested regions only, rescale each reference attention contribution by
+      deconfounded foreground similarity; outside contested regions, fall back toward
+      vanilla MRSA.
+    - Cap routing multipliers to preserve the base diffusion prior.
+    - Generate images and save token/region-level attention traces.
+    class_name: ForegroundDeconfoundedConflictRoutedMRSA
+    differentiator: 'Region-level routing uses deconfounded foreground similarity
+      and activates only in conflict zones, explicitly suppressing nuisance background
+      cues.
+
+      '
+    key_hyperparameters:
+      background_penalty_weight: 0.5
+      conflict_entropy_threshold: 1.5
+      foreground_similarity_weight: 1.0
+      guidance_scale: 7.5
+      num_inference_steps: 20
+      overlap_gate_threshold: 0.2
+      routing_cap_max: 1.25
+      routing_cap_min: 0.75
+      smoothing_alpha: 0.7
+    key_methods:
+    - __init__
+    - compute_foreground_similarity
+    - compute_background_conflict_score
+    - compute_region_conflict_map
+    - mrsa_forward
+    - generate
+    loss_function: No training loss; inference-only generation with adaptive attention
+      reweighting.
+  name: ForegroundDeconfoundedConflictRoutedMRSA
+  targets_hypothesis: hypothesis_1_local_deconfounded_routing
+- implementation_spec:
+    algorithm_steps:
+    - Extend MultiReferenceSelfAttention with a three-phase denoising schedule.
+    - During early denoising steps, sharpen exclusivity by increasing anti-overlap
+      penalties and reducing cross-reference borrowing.
+    - During middle steps, relax exclusivity to allow controlled negotiation in uncertain
+      regions.
+    - During late steps, allow only small detail borrowing under a capped modulation
+      range.
+    - Track per-step concept ownership maps from attention argmax or soft ownership
+      over spatial locations.
+    - Compute ownership flip rate and attention volatility for diagnostics.
+    - Generate final images and correlate temporal metrics with leakage outcomes.
+    class_name: EarlyOverSeparationScheduledMRSA
+    differentiator: 'Uses time-varying ownership stabilization rather than static
+      similarity; directly tests temporal causality of leakage.
+
+      '
+    key_hyperparameters:
+      early_exclusivity_strength: 1.4
+      early_phase_fraction: 0.35
+      guidance_scale: 7.5
+      late_exclusivity_strength: 0.85
+      middle_exclusivity_strength: 1.0
+      middle_phase_fraction: 0.4
+      modulation_cap: 1.2
+      num_inference_steps: 20
+      ownership_temperature: 0.5
+    key_methods:
+    - __init__
+    - phase_schedule
+    - compute_ownership_map
+    - compute_flip_rate
+    - mrsa_forward
+    - generate
+    loss_function: No training loss; inference-only scheduled attention control.
+  name: EarlyOverSeparationScheduledMRSA
+  targets_hypothesis: hypothesis_2_temporal_ownership_stability
+- implementation_spec:
+    algorithm_steps:
+    - Compute reference feature embeddings for each concept using CLIP or VAE latent
+      features on foreground regions.
+    - For each concept pair, estimate a shared component and a discriminative residual
+      component by projection or cosine residualization.
+    - Detect contested regions from mask overlap, attention ambiguity, or high same-category
+      similarity.
+    - Only in contested regions, downweight shared feature-aligned attention and upweight
+      residual-aligned attention.
+    - Apply sparse gating and hard caps so the modulation remains weak and localized.
+    - Outside contested regions, revert close to vanilla MRSA.
+    - Generate outputs and record modulation sparsity statistics.
+    class_name: SparseCappedResidualBoostedMRSA
+    differentiator: 'Modulates attention using shared-vs-discriminative feature decomposition,
+      but only sparsely and under capped strength to avoid damaging the base prior.
+
+      '
+    key_hyperparameters:
+      contested_similarity_threshold: 0.35
+      guidance_scale: 7.5
+      modulation_cap: 1.2
+      num_inference_steps: 20
+      residual_boost_strength: 1.15
+      residual_projection_eps: 1.0e-06
+      shared_suppression_strength: 0.9
+      sparsity_topk_fraction: 0.15
+    key_methods:
+    - __init__
+    - decompose_shared_vs_residual_features
+    - detect_contested_regions
+    - compute_sparse_boost_mask
+    - mrsa_forward
+    - generate
+    loss_function: No training loss; inference-only feature-residual attention modulation.
+  name: SparseCappedResidualBoostedMRSA
+  targets_hypothesis: hypothesis_3_sparse_residual_boosting
+risks:
+  methodological_risks:
+  - issue: Regime stratification may be noisy if automatic background-confound labels
+      are imperfect
+    mitigation:
+    - Use combined automatic heuristic plus manual verification of the evaluated subset
+  - issue: Temporal ownership metric may reflect confidence, not true concept correctness
+    mitigation:
+    - Validate ownership metrics against masked reference alignment and contamination
+      error
+  - issue: Small local benchmark may limit statistical power for 2x2 regime analysis
+    mitigation:
+    - Use paired case-level analysis, bootstrap CI, and explicitly constrain claims
+      to available regimes
+  - issue: IP-Adapter integration may not be fully available in the local code environment
+    mitigation:
+    - Treat it as optional external-modern comparator; primary claims rely on FreeCustom-based
+      baselines and proposed methods
+  numerical_stability_concerns:
+  - issue: NaN or Inf in attention logits after multiplicative routing
+    mitigation:
+    - Clamp adaptive multipliers to [0.75, 1.25] for routing and <=1.2 for residual
+      boosts
+    - Apply epsilon-safe normalization after reweighting
+    - Assert finite tensors after each modified attention block; early stop on first
+      NaN
+  - issue: Softmax saturation causing attention collapse
+    mitigation:
+    - Use temperature floors >= 0.5
+    - Clip pre-softmax additive biases
+    - Blend adaptive weights with vanilla attention using smoothing_alpha
+  - issue: CUDA OOM from attention logging
+    mitigation:
+    - Log only selected layers/steps
+    - Store downsampled ownership maps rather than full attention tensors
+    - Disable gradient tracking and use fp16 where stable
+  - issue: Image artifacts from over-aggressive residual modulation
+    mitigation:
+    - Sparse activation only in contested regions
+    - Hard modulation cap
+    - Fallback to vanilla MRSA outside top-k contested areas
+  reproducibility_measures:
+  - Fix seeds for torch, numpy, python random, and diffusion generator
+  - Log exact config YAML and checkpoint paths
+  - Save per-case metric JSON and attention diagnostics
+  - Use the local FreeCustom codebase with thin wrappers rather than custom rewrites
+topic: '[World Model] Adaptive multi-reference self-attention (MRSA) for FreeCustom:
+  dynamically scaling attention weights based on concept similarity to improve multi-concept
+  composition quality'

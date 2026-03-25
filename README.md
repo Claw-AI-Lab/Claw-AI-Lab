@@ -41,7 +41,7 @@ Each project autonomously produces a full research deliverable: **Paper** · **C
 <tr>
 <td align="center"><a href="docs/showcase/SHOWCASE.md"><img src="docs/showcase/thumbnails/thumb_05.png" width="180" alt="Project 5"/><br><sub>NLP & Retrieval</sub></a></td>
 <td align="center"><a href="docs/showcase/SHOWCASE.md"><img src="docs/showcase/thumbnails/thumb_06.png" width="180" alt="Project 6"/><br><sub>Reinforcement Learning</sub></a></td>
-<td align="center"><a href="docs/showcase/SHOWCASE.md"><img src="docs/showcase/thumbnails/thumb_07.png" width="180" alt="Project 7"/><br><sub>Multi-Concept Vision</sub></a></td>
+<td align="center"><a href="showcase-adaptive-mrsa.md"><img src="assets/showcase/Adaptive-MRSA/stage-16/charts/fig_main_results_overall.png" width="180" alt="Adaptive MRSA"/><br><sub>Multi-Concept Vision</sub></a></td>
 <td align="center"><a href="docs/showcase/SHOWCASE.md"><img src="docs/showcase/thumbnails/thumb_08.png" width="180" alt="Project 8"/><br><sub>Adversarial Robustness</sub></a></td>
 </tr>
 </table>
@@ -109,6 +109,8 @@ llm:
 sandbox:
   python_path: "/path/to/python3"
 ```
+
+Thanks a lot for [KOKONI](https://www.kokoni3d.com/) support for this project, here is a free token: TODO
 
 ### 3. Run
 
@@ -274,7 +276,7 @@ If you find Claw AI Lab useful, please cite:
 
 ```bibtex
 @misc{wu2026clawailab,
-  author       = {Wu, Fan and Chen, Cheng and Tan, Zhenshan and Zhang, Taiyu and Gao, Dingcheng and Zhu, Lanyu and Ye, Deheng, and Chen, Tianrun and Liu, Fayao and Lin, Guosheng},
+  author       = {Wu, Fan and Chen, Cheng and Tan, Zhenshan and Zhang, Taiyu and Gao, Dingcheng and Zhu, Lanyu and Zhu, Qi and Ye, Deheng, and Chen, Tianrun and Liu, Fayao and Lin, Guosheng},
   title        = {Claw AI Lab: Autonomous Multi-Agent Research Team},
   year         = {2026},
   organization = {GitHub},

@@ -1,0 +1,62 @@
+{
+  "score": 3,
+  "verdict": "needs_fix",
+  "issues": [
+    {
+      "severity": "critical",
+      "description": "The submission code is truncated, so the core claimed methods and ablations cannot be verified as distinct implementations. Only VanillaFreeCustomMRSA and GlobalSimilarityWeightedMRSA are visible; the main proposed method ForegroundDeconfoundedConflictRoutedMRSA is cut off before implementation, and the listed ablations are not shown. This fails the requirement to demonstrate that each algorithm is actually implemented rather than renamed.",
+      "fix": "Provide the full source for all claimed methods and ablations, especially ForegroundDeconfoundedConflictRoutedMRSA, EarlyOverSeparationScheduledMRSA, SparseCappedResidualBoostedMRSA, and each ablation subclass/variant. Ensure each has explicit behavioral differences in code."
+    },
+    {
+      "severity": "critical",
+      "description": "The visible adaptive weighting implementation is likely mathematically too weak relative to the claimed method. GlobalSimilarityWeightedMRSA reduces all similarity information to similarity_weights.mean() and applies one scalar multiplier to the entire sim tensor. This is not adaptive multi-reference self-attention in any meaningful per-reference, per-region, or per-step sense, and would not realize the proposed localized conflict-aware routing.",
+      "fix": "Implement per-reference and, if claimed, per-region/per-step weighting. The scale should align with attention tensor structure, e.g. weights over references or tokens, not a single global scalar mean. Log and validate tensor shapes explicitly."
+    },
+    {
+      "severity": "major",
+      "description": "The ablation plan claims distinct mechanisms such as foreground-only similarity, conflict routing, background deconfounding, contested-region gating, temporal scheduling, sparse capped residual boosting, and shared-vs-residual decomposition. None of these mechanisms are visible in the code provided, so there is no evidence the ablations are genuinely different from the main method.",
+      "fix": "Expose code for each ablation and ensure differences are isolated to the intended components. Add assertions or config dumps showing which modules/flags are active per condition."
+    },
+    {
+      "severity": "major",
+      "description": "The dataset construction is heuristic and potentially unfair for research comparison. build_cases infers context regime from substrings in directory names like 'same', 'shared', 'room', etc., and if one regime is empty it force-splits sorted provisional cases into two artificial halves. This can silently mislabel regimes and produce arbitrary evaluation subsets, undermining experimental validity.",
+      "fix": "Replace filename heuristics with explicit metadata/annotations. Remove the fallback half-split and instead fail loudly or require curated regime labels. Save the selected case list deterministically for all runs and methods."
+    },
+    {
+      "severity": "major",
+      "description": "Case selection is not obviously fair across methods because no seed control, deterministic sampling protocol, or persisted split manifest is shown. max_cases_per_regime truncates by traversal order, which depends on directory listing and heuristics rather than a documented benchmark split.",
+      "fix": "Set and log all seeds, disable nondeterministic ops where needed, and write a manifest of selected cases used identically for every method. Use a fixed benchmark split rather than opportunistic directory traversal."
+    },
+    {
+      "severity": "major",
+      "description": "Potential API/shape mismatch risk in the attention wrapper. hack_self_attention_to_mrsa(pipe.unet, self) is assumed to call the wrapper with signature (q, k, v, sim, attn, is_cross, place_in_unet, num_heads, **kwargs), but no compatibility checks are present. Since MultiReferenceSelfAttention is imported directly and wrapped manually, any mismatch in expected callable interface will cause runtime failure.",
+      "fix": "Verify the exact callback signature expected by hack_self_attention_to_mrsa and MultiReferenceSelfAttention. Add integration tests that execute one denoising step and assert shapes/types for q, k, v, sim, attn and outputs."
+    },
+    {
+      "severity": "major",
+      "description": "The code imports load_mask from utils.utils but no visible usage or mask preprocessing pipeline is shown. Since masks are central to MRSA and the proposed foreground/background deconfounding, absence of visible loading/resizing/alignment logic raises a high risk of runtime shape errors or masks not matching latent/token resolutions.",
+      "fix": "Show the full mask loading and resizing pipeline. Ensure masks are resized to the exact spatial resolution expected by the attention mechanism and tested for each reference image."
+    },
+    {
+      "severity": "minor",
+      "description": "CLIP preprocessing is mostly correct because CLIPProcessor handles resizing, but this compliance is implicit rather than explicit. Given the review criterion on pretrained model input sizing, the current code does not document that images are resized to the model's expected resolution.",
+      "fix": "Document that CLIPProcessor performs the required resize/crop normalization, or explicitly pass resize settings and log processed tensor shape."
+    },
+    {
+      "severity": "minor",
+      "description": "There is dead or weakly justified code: cosine() is defined but similarity_matrix() uses matrix multiplication directly; pil_rgb() is defined but not visibly used. This is not fatal, but suggests the implementation may be partially assembled rather than carefully validated.",
+      "fix": "Remove unused helpers or use them consistently. Keep the codebase minimal and add unit tests for the retained utilities."
+    },
+    {
+      "severity": "minor",
+      "description": "No training loop or loss code is visible, so mathematical correctness of optimization cannot be assessed. If this is inference-only, that should be stated clearly; otherwise the submission currently fails the requested check on loss/training correctness by omission.",
+      "fix": "If inference-only, state that explicitly and provide the exact evaluation/generation loop. If training or tuning is involved, include the full optimization code and losses."
+    },
+    {
+      "severity": "major",
+      "description": "Complexity is currently not demonstrated in executable code. The visible implementation is limited to baseline-style wrappers around MultiReferenceSelfAttention plus CLIP feature extraction. The novel research contribution described in the experiment plan is not substantiated by the snippet.",
+      "fix": "Provide complete implementations of the proposed mechanisms, with modular components for deconfounded similarity, conflict routing, temporal scheduling, and residual boosting. Include tests and ablation configs proving nontrivial behavior."
+    }
+  ],
+  "timestamp": "2026-03-23T18:49:04+00:00"
+}

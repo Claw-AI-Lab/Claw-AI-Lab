@@ -1,0 +1,128 @@
+[
+  {
+    "figure_id": "fig_main_results_overall",
+    "passed": false,
+    "issues": [
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "The script does not use tight_layout() or constrained_layout=True. With 10 categories and multi-line x-axis labels, the figure is at risk of clipped or crowded labels."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "critical",
+        "message": "The provided script is incomplete as shown: no title, axis labels, tick label assignment, legend handling, or save/show call are present. The resulting figure would not match the stated chart title/caption and may be missing essential annotations."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "Configured font sizes are mostly acceptable, but xtick/ytick labels are set to 9 pt, below the recommended 10 pt minimum for print readability."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "A bar chart is not ideal for comparing very small differences among closely spaced metric values. A dot plot or point-range plot with confidence intervals would communicate the comparisons more accurately and reduce misleading emphasis from bar areas."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "Because the metric values are tightly clustered around ~0.024-0.028, a bar chart with a zero baseline may visually suppress meaningful differences, while a truncated baseline may exaggerate them. The chosen representation needs careful axis treatment."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "The colors are colorblind-safe and non-default, which is good, but the chart uses mostly one repeated bar color with a single highlighted bar and no legend or annotation to explain the highlight. Readers may not understand the semantic meaning of the color emphasis."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "Professional styling is attempted via science/ieee or seaborn-whitegrid fallback, but the final appearance depends on environment availability. If those styles are unavailable, the plot may fall back to default matplotlib styling, which is less publication-ready."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "critical",
+        "message": "Several provided confidence interval bounds appear inconsistent with the point estimates (e.g., ci95_high lower than the mean for some entries, ci95_low higher than the mean for others). The script masks this by taking absolute differences, which can hide data errors and produce misleading error bars."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "No legend is included. While a legend may not be strictly necessary for a single-series bar chart, the highlighted best-performing bar introduces a visual encoding that should be explicitly explained with a legend or direct annotation."
+      }
+    ],
+    "issue_count": 9
+  },
+  {
+    "figure_id": "fig_context_split_results",
+    "passed": false,
+    "issues": [
+      {
+        "type": "visual_quality",
+        "severity": "critical",
+        "message": "The script is truncated/incomplete at `np.concatenate([matched_values, mismatched_values + misma`, so the figure cannot be reliably executed or fully reviewed."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "No visible use of `tight_layout()` or `constrained_layout=True`. Given rotated x-tick labels and a long title/legend text, clipping or crowding is likely."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "X-tick labels are explicitly set to fontsize 8, below the recommended readable print size of 10pt."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "Legend placement is not shown in the provided script. With long legend entries, default placement may overlap data or consume excessive plot area."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "Grouped bars are acceptable for comparing two conditions across methods, but the values are very close numerically (~0.024-0.025). A point plot with error bars or a dot-and-whisker chart may communicate small differences more clearly than bars."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "Styling fallback may revert to default matplotlib if `science`/`ieee` and seaborn styles are unavailable. This creates portability risk for publication-quality appearance."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "Method names remain quite long even after line breaks, and the 40-degree rotation suggests label crowding. This may reduce readability in a two-column printed format."
+      }
+    ],
+    "issue_count": 7
+  },
+  {
+    "figure_id": "fig_component_ablation",
+    "passed": false,
+    "issues": [
+      {
+        "type": "visual_quality",
+        "severity": "critical",
+        "message": "The script is truncated and incomplete (`means =` at the end). The plotting logic, axis labels, legend, layout handling, and save/show calls are missing, so the figure cannot be fully reviewed or reproduced."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "Although the figure is initialized with a reasonable size, the visible script does not show use of `tight_layout()` or `constrained_layout=True`. For publication figures, explicit layout management is recommended."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "No legend creation or placement is shown in the provided script. If a legend is needed, ensure it does not overlap data and remains readable."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "The caption describes a grouped ablation comparison, and the grouped structure in the data is appropriate, but the actual chart type is not visible because the plotting code is incomplete. Verify that the final representation clearly separates groups and includes uncertainty consistently."
+      },
+      {
+        "type": "visual_quality",
+        "severity": "warning",
+        "message": "The script attempts to use `science`/`ieee` styles and falls back to `seaborn-v0_8-whitegrid`, which is generally acceptable. However, because the plotting section is missing, it is unclear whether gridlines and spine styling are ultimately clean and professional."
+      }
+    ],
+    "issue_count": 5
+  }
+]

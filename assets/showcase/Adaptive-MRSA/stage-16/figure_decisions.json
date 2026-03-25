@@ -1,0 +1,93 @@
+{
+  "decisions": [
+    {
+      "section": "Method",
+      "figure_type": "pipeline_overview",
+      "backend": "image",
+      "description": "Overview of the proposed adaptive multi-reference self-attention framework for FreeCustom. Show the baseline MRSA path and three adaptive extensions: (1) region-aware deconfounded conflict routing using foreground-only similarity and background suppression, (2) three-phase temporal scheduling with early over-separation, mid-step negotiation, and late limited borrowing, and (3) sparse capped residual boosting in contested regions. Include reference images/concepts, similarity estimation, conflict-region detection, attention modulation, and diffusion denoising stages.",
+      "priority": 1
+    },
+    {
+      "section": "Method",
+      "figure_type": "method_flowchart",
+      "backend": "image",
+      "description": "Detailed flowchart for Hypothesis 1 showing how global similarity is used as a weak prior, foreground/saliency-masked similarity is computed, disagreement between full-image and foreground similarity triggers deconfounding, and conflict routing is applied only to overlapping low-confidence regions. Emphasize suppression of shared background/context cues and local attention adaptation.",
+      "priority": 1
+    },
+    {
+      "section": "Results",
+      "figure_type": "bar_comparison",
+      "backend": "code",
+      "description": "Main performance comparison bar chart across all experiment conditions using the available best_run_metrics primary_metric values: VanillaFreeCustomMRSA, ForegroundOnlySimilarityWithoutConflictRouting, BackgroundBlindConflictRoutingWithoutDeconfounding, ForegroundDeconfoundedConflictRoutedMRSA, StaticExclusivityWithoutThreePhaseSchedule, LateOnlySeparationWithoutEarlyOwnershipStabilization, EarlyOverSeparationScheduledMRSA, and DenseUncappedResidualBoostedMRSA. Add 95% CI error bars where available and highlight the strongest method.",
+      "priority": 1
+    },
+    {
+      "section": "Results",
+      "figure_type": "ablation_chart",
+      "backend": "code",
+      "description": "Targeted ablation chart for Hypothesis 1 comparing VanillaFreeCustomMRSA, ForegroundOnlySimilarityWithoutConflictRouting, BackgroundBlindConflictRoutingWithoutDeconfounding, and ForegroundDeconfoundedConflictRoutedMRSA. Structure the figure to isolate the contributions of foreground-only similarity, conflict routing, and deconfounding, with annotations indicating that the full deconfounded routed variant is intended to test nuisance-context suppression.",
+      "priority": 1
+    },
+    {
+      "section": "Results",
+      "figure_type": "ablation_chart",
+      "backend": "code",
+      "description": "Targeted ablation chart for Hypothesis 2 comparing StaticExclusivityWithoutThreePhaseSchedule, LateOnlySeparationWithoutEarlyOwnershipStabilization, and EarlyOverSeparationScheduledMRSA. Present the three temporal control strategies side-by-side using the best_run_metrics primary_metric, with CI/error bars and annotations emphasizing the effect of early ownership stabilization versus late-only or static separation.",
+      "priority": 1
+    },
+    {
+      "section": "Discussion",
+      "figure_type": "comparison_illustration",
+      "backend": "image",
+      "description": "Qualitative comparison panel illustrating typical multi-concept composition outcomes for vanilla MRSA versus the proposed adaptive variants. Show representative cases of matched-background/shared-context interference, local leakage in contested regions, and improved concept separation under deconfounded routing and early over-separation scheduling. Use arrows/callouts to indicate reduced contamination, more stable concept ownership, and preservation of prompt coherence.",
+      "priority": 2
+    }
+  ],
+  "code_figures": [
+    {
+      "section": "Results",
+      "figure_type": "bar_comparison",
+      "backend": "code",
+      "description": "Main performance comparison bar chart across all experiment conditions using the available best_run_metrics primary_metric values: VanillaFreeCustomMRSA, ForegroundOnlySimilarityWithoutConflictRouting, BackgroundBlindConflictRoutingWithoutDeconfounding, ForegroundDeconfoundedConflictRoutedMRSA, StaticExclusivityWithoutThreePhaseSchedule, LateOnlySeparationWithoutEarlyOwnershipStabilization, EarlyOverSeparationScheduledMRSA, and DenseUncappedResidualBoostedMRSA. Add 95% CI error bars where available and highlight the strongest method.",
+      "priority": 1
+    },
+    {
+      "section": "Results",
+      "figure_type": "ablation_chart",
+      "backend": "code",
+      "description": "Targeted ablation chart for Hypothesis 1 comparing VanillaFreeCustomMRSA, ForegroundOnlySimilarityWithoutConflictRouting, BackgroundBlindConflictRoutingWithoutDeconfounding, and ForegroundDeconfoundedConflictRoutedMRSA. Structure the figure to isolate the contributions of foreground-only similarity, conflict routing, and deconfounding, with annotations indicating that the full deconfounded routed variant is intended to test nuisance-context suppression.",
+      "priority": 1
+    },
+    {
+      "section": "Results",
+      "figure_type": "ablation_chart",
+      "backend": "code",
+      "description": "Targeted ablation chart for Hypothesis 2 comparing StaticExclusivityWithoutThreePhaseSchedule, LateOnlySeparationWithoutEarlyOwnershipStabilization, and EarlyOverSeparationScheduledMRSA. Present the three temporal control strategies side-by-side using the best_run_metrics primary_metric, with CI/error bars and annotations emphasizing the effect of early ownership stabilization versus late-only or static separation.",
+      "priority": 1
+    }
+  ],
+  "image_figures": [
+    {
+      "section": "Method",
+      "figure_type": "pipeline_overview",
+      "backend": "image",
+      "description": "Overview of the proposed adaptive multi-reference self-attention framework for FreeCustom. Show the baseline MRSA path and three adaptive extensions: (1) region-aware deconfounded conflict routing using foreground-only similarity and background suppression, (2) three-phase temporal scheduling with early over-separation, mid-step negotiation, and late limited borrowing, and (3) sparse capped residual boosting in contested regions. Include reference images/concepts, similarity estimation, conflict-region detection, attention modulation, and diffusion denoising stages.",
+      "priority": 1
+    },
+    {
+      "section": "Method",
+      "figure_type": "method_flowchart",
+      "backend": "image",
+      "description": "Detailed flowchart for Hypothesis 1 showing how global similarity is used as a weak prior, foreground/saliency-masked similarity is computed, disagreement between full-image and foreground similarity triggers deconfounding, and conflict routing is applied only to overlapping low-confidence regions. Emphasize suppression of shared background/context cues and local attention adaptation.",
+      "priority": 1
+    },
+    {
+      "section": "Discussion",
+      "figure_type": "comparison_illustration",
+      "backend": "image",
+      "description": "Qualitative comparison panel illustrating typical multi-concept composition outcomes for vanilla MRSA versus the proposed adaptive variants. Show representative cases of matched-background/shared-context interference, local leakage in contested regions, and improved concept separation under deconfounded routing and early over-separation scheduling. Use arrows/callouts to indicate reduced contamination, more stable concept ownership, and preservation of prompt coherence.",
+      "priority": 2
+    }
+  ],
+  "total": 6
+}

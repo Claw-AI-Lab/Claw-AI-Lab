@@ -1,0 +1,110 @@
+{
+  "topic": "Evaluating region-level deconfounded routing versus global similarity gating for reducing multi-concept MRSA contamination under shared-context conflicts",
+  "hypotheses": [
+    {
+      "name": "Local deconfounded routing outperforms global similarity gating on hardest compositions",
+      "claim": "For multi-concept MRSA, region-level conflict routing using foreground-focused, deconfounded similarity should outperform raw global similarity gating, especially on matched-background or shared-context prompts.",
+      "predicted_outcome": "Relative to vanilla MRSA and global similarity-only gating, the method was expected to reduce region-level contamination by at least 5% on high-conflict prompts and improve per-concept identity/reference alignment on shared-context subsets with minimal loss elsewhere."
+    },
+    {
+      "name": "Foreground-only similarity without conflict routing is insufficient",
+      "claim": "Using only foreground-masked similarity as a global weight should help somewhat over full-image similarity but underperform a method that also includes contested-region routing and explicit background deconfounding."
+    },
+    {
+      "name": "Conflict routing without deconfounding is insufficient on shared-context cases",
+      "claim": "Local routing alone should reduce some interference, but using full-image similarity instead of foreground-minus-background deconfounded similarity should remain vulnerable to shared-context confounds."
+    },
+    {
+      "name": "Temporal scheduling of exclusivity matters",
+      "claim": "A three-phase denoising schedule with stronger early separation should outperform a static exclusivity setting by better balancing early concept separation and later detail integration."
+    },
+    {
+      "name": "Early ownership stabilization matters more than late-only separation",
+      "claim": "Applying stronger exclusivity only in late denoising steps should be less effective than early intervention for reducing identity flips and improving fidelity."
+    }
+  ],
+  "method": "The experiment evaluated a proposed training-free MRSA control strategy that combines foreground-focused deconfounded similarity, contested-region routing, and scheduling across denoising steps. It compared the full method against vanilla MRSA and mechanism-targeted ablations isolating foreground similarity, background deconfounding, local routing, and temporal scheduling. Analysis emphasized the matched-background/shared-context slice as the main stress test and used region_level_contamination_error as the primary metric.",
+  "settings": {
+    "model": "MRSA-based multi-concept generation system; exact backbone not clearly reported",
+    "dataset": "Multi-concept benchmark with matched-background/shared-context and clean/mismatched-context subsets; exact dataset name not clearly reported",
+    "hyperparams": {
+      "primary_metric": "region_level_contamination_error",
+      "metric_direction": "lower is better",
+      "seeds_noted": 5,
+      "effective_reported_n_per_cell": 1,
+      "methods_reported": [
+        "VanillaFreeCustomMRSA",
+        "ForegroundDeconfoundedConflictRoutedMRSA",
+        "ForegroundOnlySimilarityWithoutConflictRouting",
+        "BackgroundBlindConflictRoutingWithoutDeconfounding",
+        "StaticExclusivityWithoutThreePhaseSchedule",
+        "LateOnlySeparationWithoutEarlyOwnershipStabilization"
+      ],
+      "missing_or_inconsistently_reported_baseline": "GlobalSimilarityWeightedMRSA"
+    },
+    "hardware": "Not reported",
+    "run_status": "failed"
+  },
+  "results": {
+    "region_level_contamination_error": {
+      "VanillaFreeCustomMRSA_overall": 0.063727,
+      "VanillaFreeCustomMRSA_matched_background_or_shared_context_range": [
+        0.1006,
+        0.105
+      ],
+      "VanillaFreeCustomMRSA_clean_or_mismatched_context_range": [
+        0.0238,
+        0.0244
+      ],
+      "ForegroundDeconfoundedConflictRoutedMRSA_overall": 0.06697,
+      "ForegroundDeconfoundedConflictRoutedMRSA_matched_background_or_shared_context_range": [
+        0.108,
+        0.111
+      ],
+      "ForegroundDeconfoundedConflictRoutedMRSA_clean_or_mismatched_context_approx": 0.0253
+    },
+    "run_quality": {
+      "status": "failed",
+      "analysis_quality_note": "Exploratory only; metric direction and narrative appear inconsistent"
+    }
+  },
+  "conclusions": [
+    "As reported, the proposed ForegroundDeconfoundedConflictRoutedMRSA does not outperform vanilla MRSA on the primary metric.",
+    "Under the stated metric direction of lower-is-better, the full proposed method appears worse than vanilla overall, worse on the matched/shared-context stress slice, and worse on the clean subset.",
+    "The current experiment provides exploratory rather than confirmatory evidence because reporting is effectively n=1 per cell despite 5 seeds being noted.",
+    "The matched/shared-context slice remains the correct and most informative benchmark for this research question.",
+    "The ablation structure is scientifically useful because it targets similarity choice, deconfounding, routing, and temporal scheduling separately.",
+    "A central comparison needed to test the main claim, GlobalSimilarityWeightedMRSA, is missing or inconsistently reported, preventing the intended hypothesis test."
+  ],
+  "insights": [
+    "Global similarity may be the wrong abstraction for MRSA failures because interference is often local and tied to nuisance context rather than whole-image semantics.",
+    "Background or shared-context similarity is a plausible confound that can misroute attention, so separating foreground evidence from background agreement remains a promising idea even though it was not validated here.",
+    "The strongest stress test is not overall average performance but matched-background/shared-context compositions where leakage pressure is highest.",
+    "Mechanism-oriented ablations are valuable: they can reveal whether gains come from local routing, deconfounding, or temporal scheduling rather than from an undifferentiated full method.",
+    "Reporting integrity can dominate scientific interpretation; a sign error or metric-direction mismatch can invert the conclusion of the study."
+  ],
+  "limitations": [
+    "Run status was failed, so the experiment is incomplete.",
+    "Although 5 seeds were noted, results were effectively reported as n=1 per condition cell, making variance and reliability unclear.",
+    "The key baseline GlobalSimilarityWeightedMRSA was missing or inconsistently reported, undermining the core comparison.",
+    "There is a serious inconsistency between the stated metric direction and the narrative interpretation of the results.",
+    "Exact model backbone, dataset identity, hyperparameter values, and hardware details were not clearly reported.",
+    "Because only partial quantitative outputs were available, several ablations could not be conclusively interpreted."
+  ],
+  "suggested_directions": [
+    "Rerun the study with complete and valid logging, full seed aggregation, and explicit per-seed reporting for all registered conditions.",
+    "Resolve metric-definition and table-sign consistency before drawing any scientific conclusion.",
+    "Include and clearly report the missing GlobalSimilarityWeightedMRSA baseline, since it is essential to testing the main hypothesis.",
+    "Evaluate the proposed method primarily on matched-background/shared-context cases, while also reporting clean-slice trade-offs separately.",
+    "Add direct diagnostics for foreground similarity, background similarity, and disagreement-triggered routing to verify whether deconfounding activates as intended.",
+    "Perform localized analyses of contamination in contested regions instead of relying only on global averages.",
+    "Test whether temporal scheduling and early-step interventions matter independently by running full factorial ablations with sufficient replication.",
+    "If the deconfounded routing idea still looks promising after fixing reporting issues, refine the gating logic rather than pivoting away from the core premise."
+  ],
+  "project_id": "adaptive-multi-reference-self-attention--world-model",
+  "research_topic": "[World Model] Adaptive multi-reference self-attention (MRSA) for FreeCustom: dynamically scaling attention weights based on concept similarity to improve multi-concept composition quality",
+  "domains": [
+    "deep-learning"
+  ],
+  "timestamp": "2026-03-23T19:32:15+00:00"
+}
