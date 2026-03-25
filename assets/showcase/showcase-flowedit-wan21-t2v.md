@@ -1,6 +1,6 @@
 # WAF: Empirical Reproduction of FlowEdit on Wan2.1-T2V
 
-**Project:** `复现flowedit在wan21-13b-t2v模型上` · **Track:** Reproduce
+**Project:** `flowedit-wan21-t2v` · **Track:** Reproduce
 
 ---
 

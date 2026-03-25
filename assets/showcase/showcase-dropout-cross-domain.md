@@ -1,6 +1,6 @@
 # Dropout Regularization: Cross-Domain Comparative Analysis
 
-**Project:** `qualitative-references` · **Track:** Lab Explore · Discussion Mode (3 Angles)
+**Project:** `dropout-cross-domain` · **Track:** Lab Explore · Discussion Mode (3 Angles)
 
 ---
 
