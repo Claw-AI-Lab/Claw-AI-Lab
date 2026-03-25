@@ -32,9 +32,18 @@ Multiple agents collaborate across a 5-layer pyramid (survey → design → codi
 
 ---
 
-<p align="center">
-  <a href="docs/showcase/SHOWCASE.md">🏆 Paper Showcase</a> · <a href="docs/integration-guide.md">📖 Integration Guide</a> · <a href="https://discord.gg/u4ksqW5P">💬 Discord Community</a>
-</p>
+<table>
+<tr>
+<td width="18%">
+<a href="docs/showcase/SHOWCASE.md"><img src="docs/showcase/thumbnails/paper_I_random_matrix-01.png" width="120" alt="Sample Paper"/></a>
+</td>
+<td valign="middle">
+<b>🏆 Generated Paper Showcase</b><br><br>
+<b>8 papers across 8 domains</b> — math, statistics, biology, computing, NLP, RL, vision, robustness — generated fully autonomously with zero human intervention.<br><br>
+<a href="docs/showcase/SHOWCASE.md"><img src="https://img.shields.io/badge/View_Full_Showcase_→-All_8_Papers-d73a49?style=for-the-badge" alt="View Showcase"></a>
+</td>
+</tr>
+</table>
 
 ---
 
