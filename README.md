@@ -156,7 +156,7 @@ Thanks a lot for [KOKONI's](https://www.kokoni3d.com/) support for this project,
 
 Open **http://localhost:5903/** → Submit your research topic and let the agents work.
 
-> **Tip:** For best results, prepare local copies of codebases, datasets, and checkpoints before starting a project. Keeping codebases lean (remove unused files) significantly speeds up agent analysis.
+> **Tip:** For better results, prepare local copies of codebases, datasets, and checkpoints, then input the local path when submitting a new project. Removing unused files in codebases significantly speeds up agent analysis.
 
 ---
 
