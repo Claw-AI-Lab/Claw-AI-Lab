@@ -262,7 +262,7 @@ export const ARTIFACT_LABELS: Record<string, { icon: string; zh: string; en: str
   'paper_draft.md':        { icon: '📄', zh: '论文初稿', en: 'Paper Draft' },
   'reviews.md':            { icon: '👁️', zh: '同行评审', en: 'Peer Reviews' },
   'paper_revised.md':      { icon: '✍️', zh: '论文终稿', en: 'Paper Revised' },
-  'latex_package.zip':     { icon: '📦', zh: 'LaTeX 包 (Overleaf)', en: 'LaTeX Package (Overleaf)' },
+  'latex_package.zip':     { icon: '📦', zh: 'LaTeX 包', en: 'LaTeX Package' },
   'discussion_transcript.md': { icon: '💬', zh: '讨论记录', en: 'Discussion Transcript' },
   'consensus_synthesis.md':   { icon: '🤝', zh: '共识综合', en: 'Consensus Synthesis' },
   'pre_discussion_syntheses.md': { icon: '📋', zh: '讨论前综合', en: 'Pre-discussion Syntheses' },
