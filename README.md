@@ -20,8 +20,7 @@
 
 ## 🤔 What Is This?
 
-**Claw AI Lab** is a fully autonomous multi-agent research system. Given a research topic, it automatically conducts literature review, designs and runs GPU-accelerated experiments, analyzes results, and writes a complete academic paper — end-to-end, with no human intervention.
-Multiple agents collaborate across a 5-layer pyramid (survey → design → coding → execution → writing), coordinated via task queues with real-time web monitoring. It supports autonomous exploration, multi-agent debate with heterogeneous LLMs, and paper reproduction workflows.
+**Claw AI Lab** is a lab-native multi-agent research platform for interactive and scalable AI-driven science. It enables users to create a full AI research lab from a single prompt, with customizable roles, research directions, and collaborative workflows, rather than relying on a single-agent or fixed serial pipeline. Claw orchestrates multiple agents and projects in parallel through a FIFO-based scheduling framework, maximizing compute utilization while supporting cross-project knowledge sharing and mutual improvement. Crucially, the system keeps humans in the loop: users can intervene whenever needed, provide feedback under ambiguity, inject new ideas, and iteratively refine the research process through rollback and continuation. Combined with a simple UI that reduces everything to prompts and clicks, Claw transforms automated research into a more intuitive, steerable, and laboratory-like experience.
 
 **We welcome contributions from the community to make this project better together!**
 
@@ -58,7 +57,7 @@ Multi-agent discussion on: **"What is the most deployable direction for Video Ac
 
 **Consensus:** The most deployable form is not a single end-to-end model, but a **layered, modular system** — use video supervision during training to learn rich dynamics, output actions directly at inference for low latency, and layer planning/MPC/safety modules on top for closed-loop robustness and recovery.
 
-<details>
+<details open>
 <summary><b>Top 3 Research Directions (ranked by deployability)</b></summary>
 
 | # | Direction | Deployability |
@@ -69,7 +68,7 @@ Multi-agent discussion on: **"What is the most deployable direction for Video Ac
 
 </details>
 
-<details>
+<details open>
 <summary><b>Key Contradictions Resolved</b></summary>
 
 | Debate | Resolution |
@@ -97,7 +96,7 @@ Multi-agent discussion on: **"What is the most deployable direction for Video Ac
 
 ## 🔥 Updates
 
-- __[2026.03.25]__: We released Claw AI Lab v1.0.0.
+- __[2026.03.25]__: We released Claw AI Lab Preview v1.0.0.
 
 ---
 
