@@ -36,14 +36,14 @@ openclaw_bridge:
 
 llm:
   provider: "openai-compatible"
-  api_key: "sk-28qhBUWc5PYUUNrn7m0ACMXtqNnu7qDpFhaZEe3KHSfaESE6"
+  api_key: "your-api-key"
   api_key_env: "RESEARCHCLAW_API_KEY"
   primary_model: "gpt-5.4"
   coding_model: "claude-opus-4-6"
   image_model: "gemini-3-pro-image-preview"
   fallback_models:
     - "gpt-4o"
-  timeout_sec: 600
+  timeout_sec: 6000
 
 security:
   hitl_required_stages: []
@@ -56,13 +56,13 @@ experiment:
   max_iterations: 3
   metric_key: "primary_metric"
   metric_direction: "minimize"
-  datasets_dir: "/home/user/Claw-AI-Lab-share/datasets"
-  checkpoints_dir: "/home/user/Claw-AI-Lab-share/checkpoints"
-  codebases_dir: "/home/user/Claw-AI-Lab-share/codebases"
-  shared_results_dir: "/home/user/ResearchClaw/backend/shared_results"
+  datasets_dir: "./datasets"
+  checkpoints_dir: "./checkpoints"
+  codebases_dir: "./codebases"
+  shared_results_dir: "./shared_results"
   paper_length: "short"
   sandbox:
-    python_path: "/home/user/miniforge3/bin/python3"
+    python_path: "your-python-path"
     gpu_required: true
     gpus_per_project: 1
     max_memory_mb: 16384
