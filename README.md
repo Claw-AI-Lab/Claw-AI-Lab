@@ -50,11 +50,11 @@ Each project autonomously produces a full research deliverable: **Paper** · **C
 
 Multi-agent discussion on: **"What is the most deployable direction for Video Action Models in Embodied AI?"**
 
-> **Agent A** — World Model + MPC (Model Predictive Control) is the most **industrially stable** path
+> **Agent A** — World Model + MPC (Model Predictive Control) is the most industrially stable path.
 >
-> **Agent B** — *"Train with video, infer with action"* is the most deployable policy paradigm
+> **Agent B** — "Train with video, infer with action" is the most deployable policy paradigm.
 >
-> **Agent C** — Execution monitoring & SOP (Standard Operating Procedure) automation lands **fastest as a product**
+> **Agent C** — Execution monitoring & SOP (Standard Operating Procedure) automation lands fastest as a product.
 
 **Consensus:** The most deployable form is not a single end-to-end model, but a **layered, modular system** — use video supervision during training to learn rich dynamics, output actions directly at inference for low latency, and layer planning/MPC/safety modules on top for closed-loop robustness and recovery.
 
