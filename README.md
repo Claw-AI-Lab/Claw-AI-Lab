@@ -33,20 +33,13 @@ Each project autonomously produces a full research deliverable: **Paper** · **C
 
 <table>
 <tr>
-<td align="center" width="25%"><a href="docs/showcase/SHOWCASE.md"><img src="docs/showcase/thumbnails/thumb_01.png" width="180" alt="Project 1"/><br><sub>Random Matrix Theory</sub></a></td>
-<td align="center" width="25%"><a href="docs/showcase/SHOWCASE.md"><img src="docs/showcase/thumbnails/thumb_02.png" width="180" alt="Project 2"/><br><sub>Bayesian Statistics</sub></a></td>
-<td align="center" width="25%"><a href="docs/showcase/SHOWCASE.md"><img src="docs/showcase/thumbnails/thumb_03.png" width="180" alt="Project 3"/><br><sub>Gene Regulation</sub></a></td>
-<td align="center" width="25%"><a href="docs/showcase/SHOWCASE.md"><img src="docs/showcase/thumbnails/thumb_04.png" width="180" alt="Project 4"/><br><sub>Distributed Computing</sub></a></td>
-</tr>
-<tr>
-<td align="center"><a href="docs/showcase/SHOWCASE.md"><img src="docs/showcase/thumbnails/thumb_05.png" width="180" alt="Project 5"/><br><sub>NLP & Retrieval</sub></a></td>
-<td align="center"><a href="docs/showcase/SHOWCASE.md"><img src="docs/showcase/thumbnails/thumb_06.png" width="180" alt="Project 6"/><br><sub>Reinforcement Learning</sub></a></td>
-<td align="center"><a href="showcase-adaptive-mrsa.md"><img src="assets/showcase/Adaptive-MRSA/stage-16/charts/fig_main_results_overall.png" width="180" alt="Adaptive MRSA"/><br><sub>Multi-Concept Vision</sub></a></td>
-<td align="center"><a href="docs/showcase/SHOWCASE.md"><img src="docs/showcase/thumbnails/thumb_08.png" width="180" alt="Project 8"/><br><sub>Adversarial Robustness</sub></a></td>
+<td align="center" width="33%"><a href="assets/showcase/showcase-adaptive-mrsa.md"><img src="assets/showcase/Adaptive-MRSA/stage-16/charts/fig_main_results_overall.png" width="220" alt="Adaptive MRSA"/><br><sub><b>Multi-Concept Vision</b><br>Adaptive MRSA for FreeCustom</sub></a></td>
+<td align="center" width="33%"><a href="assets/showcase/showcase-dropout-cross-domain.md"><img src="docs/showcase/thumbnails/thumb_05.png" width="220" alt="Dropout Cross-Domain"/><br><sub><b>Cross-Domain Dropout</b><br>CV · NLP · Speech comparison</sub></a></td>
+<td align="center" width="33%"><a href="assets/showcase/showcase-flowedit-wan21-t2v.md"><img src="docs/showcase/thumbnails/thumb_06.png" width="220" alt="FlowEdit WAF"/><br><sub><b>Video Editing · Reproduce</b><br>FlowEdit on Wan2.1-T2V</sub></a></td>
 </tr>
 </table>
 
-> **projects across multiple domains** — fully autonomous. **[→ View Full Showcase](docs/showcase/SHOWCASE.md)**
+<!-- > **projects across multiple domains** — fully autonomous. **[→ View Full Showcase](docs/showcase/SHOWCASE.md)** -->
 
 ---
 
