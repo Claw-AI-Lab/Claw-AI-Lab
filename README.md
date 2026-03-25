@@ -26,24 +26,32 @@ Multiple agents collaborate across a 5-layer pyramid (survey → design → codi
 
 ---
 
-## 🔥 Updates
+### 🏆 Generated Project Showcase
 
-- __[2026.03.25]__: We released Claw AI Lab v1.0.0.
-
----
+Each project autonomously produces a full research deliverable: **Paper** · **Code** · **Figures** · **Experiment Logs**
 
 <table>
 <tr>
-<td width="18%">
-<a href="docs/showcase/SHOWCASE.md"><img src="docs/showcase/thumbnails/paper_I_random_matrix-01.png" width="120" alt="Sample Paper"/></a>
-</td>
-<td valign="middle">
-<b>🏆 Generated Paper Showcase</b><br><br>
-<b>8 papers across 8 domains</b> — math, statistics, biology, computing, NLP, RL, vision, robustness — generated fully autonomously with zero human intervention.<br><br>
-<a href="docs/showcase/SHOWCASE.md"><img src="https://img.shields.io/badge/View_Full_Showcase_→-All_8_Papers-d73a49?style=for-the-badge" alt="View Showcase"></a>
-</td>
+<td align="center" width="25%"><a href="docs/showcase/SHOWCASE.md"><img src="docs/showcase/thumbnails/thumb_01.png" width="180" alt="Project 1"/><br><sub>Random Matrix Theory</sub></a></td>
+<td align="center" width="25%"><a href="docs/showcase/SHOWCASE.md"><img src="docs/showcase/thumbnails/thumb_02.png" width="180" alt="Project 2"/><br><sub>Bayesian Statistics</sub></a></td>
+<td align="center" width="25%"><a href="docs/showcase/SHOWCASE.md"><img src="docs/showcase/thumbnails/thumb_03.png" width="180" alt="Project 3"/><br><sub>Gene Regulation</sub></a></td>
+<td align="center" width="25%"><a href="docs/showcase/SHOWCASE.md"><img src="docs/showcase/thumbnails/thumb_04.png" width="180" alt="Project 4"/><br><sub>Distributed Computing</sub></a></td>
+</tr>
+<tr>
+<td align="center"><a href="docs/showcase/SHOWCASE.md"><img src="docs/showcase/thumbnails/thumb_05.png" width="180" alt="Project 5"/><br><sub>NLP & Retrieval</sub></a></td>
+<td align="center"><a href="docs/showcase/SHOWCASE.md"><img src="docs/showcase/thumbnails/thumb_06.png" width="180" alt="Project 6"/><br><sub>Reinforcement Learning</sub></a></td>
+<td align="center"><a href="docs/showcase/SHOWCASE.md"><img src="docs/showcase/thumbnails/thumb_07.png" width="180" alt="Project 7"/><br><sub>Multi-Concept Vision</sub></a></td>
+<td align="center"><a href="docs/showcase/SHOWCASE.md"><img src="docs/showcase/thumbnails/thumb_08.png" width="180" alt="Project 8"/><br><sub>Adversarial Robustness</sub></a></td>
 </tr>
 </table>
+
+> **8 projects across 8 domains** — fully autonomous, zero human intervention. **[→ View Full Showcase](docs/showcase/SHOWCASE.md)**
+
+---
+
+## 🔥 Updates
+
+- __[2026.03.25]__: We released Claw AI Lab v1.0.0.
 
 ---
 
