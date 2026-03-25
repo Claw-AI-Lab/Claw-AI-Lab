@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo.png" width="70" alt="Claw AI Lab">
+  <img src="assets/logo.png" width="140" alt="Claw AI Lab">
 </p>
 
 <h2 align="center"><b>Claw AI Lab: Autonomous Multi-Agent Research Team</b></h2>
@@ -9,10 +9,11 @@
 </p>
 
 <p align="center">
+  <a href="https://clawailab.ai"><img src="https://img.shields.io/badge/Homepage-clawailab.ai-E63946?logo=google-chrome&logoColor=white" alt="Homepage"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="MIT License"></a>
   <a href="https://python.org"><img src="https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white" alt="Python 3.11+"></a>
   <a href="https://nodejs.org"><img src="https://img.shields.io/badge/Node.js-18%2B-339933?logo=node.js&logoColor=white" alt="Node.js 18+"></a>
-  <a href="https://github.com/wufan-cse/Claw-AI-Lab"><img src="https://img.shields.io/badge/GitHub-Claw--AI--Lab-181717?logo=github" alt="GitHub"></a>
+  <a href="https://github.com/wufan-cse/Claw-AI-Lab"><img src="https://img.shields.io/badge/GitHub-Claw--AI--Lab-6f42c1?logo=github&logoColor=white" alt="GitHub"></a>
 </p>
 
 ---
