@@ -33,21 +33,14 @@ Each project autonomously produces a full research deliverable: **Paper** · **C
 
 <table>
 <tr>
-<td align="center" width="33%">
-<a href="assets/showcase/showcase-flowedit-wan21-t2v.md"><img src="assets/showcase/flowedit-wan21-t2v/figures/waf_pipeline_overview.png" height="140" alt="FlowEdit WAF"/></a><br>
-<a href="assets/showcase/showcase-flowedit-wan21-t2v.md"><b>FlowEdit on Wan2.1-T2V</b></a><br>
-<sub>Reproduce · Video Editing</sub>
-</td>
-<td align="center" width="33%">
-<a href="assets/showcase/showcase-adaptive-mrsa.md"><img src="assets/showcase/adaptive-mrsa/figures/fig_component_ablation.png" height="140" alt="Adaptive MRSA"/></a><br>
-<a href="assets/showcase/showcase-adaptive-mrsa.md"><b>Multi-Concept Customization</b></a><br>
-<sub>Lab Explore · Discussion · Image Generation</sub>
-</td>
-<td align="center" width="33%">
-<a href="assets/showcase/showcase-dropout-cross-domain.md"><img src="assets/showcase/droput-cross-domain/figures/fig_radar_overview.png" height="140" alt="Dropout Cross-Domain"/></a><br>
-<a href="assets/showcase/showcase-dropout-cross-domain.md"><b>Cross-Domain Dropout Analysis</b></a><br>
-<sub>Lab Explore · Discussion · CV / NLP / Speech</sub>
-</td>
+<td align="center" width="33%" height="160" valign="bottom"><a href="assets/showcase/showcase-flowedit-wan21-t2v.md"><img src="assets/showcase/flowedit-wan21-t2v/figures/waf_pipeline_overview.png" height="140" alt="FlowEdit WAF"/></a></td>
+<td align="center" width="33%" height="160" valign="bottom"><a href="assets/showcase/showcase-adaptive-mrsa.md"><img src="assets/showcase/adaptive-mrsa/figures/fig_component_ablation.png" height="140" alt="Adaptive MRSA"/></a></td>
+<td align="center" width="33%" height="160" valign="bottom"><a href="assets/showcase/showcase-dropout-cross-domain.md"><img src="assets/showcase/droput-cross-domain/figures/fig_radar_overview.png" height="140" alt="Dropout Cross-Domain"/></a></td>
+</tr>
+<tr>
+<td align="center"><a href="assets/showcase/showcase-flowedit-wan21-t2v.md"><b>FlowEdit on Wan2.1-T2V</b></a><br><sub>Reproduce · Video Editing</sub></td>
+<td align="center"><a href="assets/showcase/showcase-adaptive-mrsa.md"><b>Multi-Concept Customization</b></a><br><sub>Lab Explore · Discussion · Image Gen</sub></td>
+<td align="center"><a href="assets/showcase/showcase-dropout-cross-domain.md"><b>Cross-Domain Dropout Analysis</b></a><br><sub>Lab Explore · Discussion · CV / NLP / Speech</sub></td>
 </tr>
 </table>
 
