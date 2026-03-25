@@ -32,6 +32,12 @@ Multiple agents collaborate across a 5-layer pyramid (survey → design → codi
 
 ---
 
+<p align="center">
+  <a href="docs/showcase/SHOWCASE.md">🏆 Paper Showcase</a> · <a href="docs/integration-guide.md">📖 Integration Guide</a> · <a href="https://discord.gg/u4ksqW5P">💬 Discord Community</a>
+</p>
+
+---
+
 ## 🚀 Quick Start
 
 ### 1. Install
