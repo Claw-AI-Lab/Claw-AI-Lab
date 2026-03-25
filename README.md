@@ -34,25 +34,19 @@ Each project autonomously produces a full research deliverable: **Paper** · **C
 <table>
 <tr>
 <td align="center" width="33%">
-<a href="assets/showcase/showcase-flowedit-wan21-t2v.md">
-<img src="assets/showcase/flowedit-wan21-t2v/figures/waf_pipeline_overview.png" width="260" alt="FlowEdit WAF"/><br>
-<b>FlowEdit on Wan2.1-T2V</b><br>
-<sup>Reproduce · Video Editing</sup>
-</a>
+<a href="assets/showcase/showcase-flowedit-wan21-t2v.md"><img src="assets/showcase/flowedit-wan21-t2v/figures/waf_pipeline_overview.png" height="140" alt="FlowEdit WAF"/></a><br>
+<a href="assets/showcase/showcase-flowedit-wan21-t2v.md"><b>FlowEdit on Wan2.1-T2V</b></a><br>
+<sub>Reproduce · Video Editing</sub>
 </td>
 <td align="center" width="33%">
-<a href="assets/showcase/showcase-adaptive-mrsa.md">
-<img src="assets/showcase/adaptive-mrsa/figures/fig_component_ablation.png" width="260" alt="Adaptive MRSA"/><br>
-<b>Multi-Concept Customization</b><br>
-<sup>Lab Explore · Image Generation</sup>
-</a>
+<a href="assets/showcase/showcase-adaptive-mrsa.md"><img src="assets/showcase/adaptive-mrsa/figures/fig_component_ablation.png" height="140" alt="Adaptive MRSA"/></a><br>
+<a href="assets/showcase/showcase-adaptive-mrsa.md"><b>Multi-Concept Customization</b></a><br>
+<sub>Lab Explore · Discussion · Image Generation</sub>
 </td>
 <td align="center" width="33%">
-<a href="assets/showcase/showcase-dropout-cross-domain.md">
-<img src="assets/showcase/droput-cross-domain/figures/fig_radar_overview.png" width="260" alt="Dropout Cross-Domain"/><br>
-<b>Cross-Domain Dropout Anaylsis</b><br>
-<sup>Lab Explore · CV / NLP / Speech</sup>
-</a>
+<a href="assets/showcase/showcase-dropout-cross-domain.md"><img src="assets/showcase/droput-cross-domain/figures/fig_radar_overview.png" height="140" alt="Dropout Cross-Domain"/></a><br>
+<a href="assets/showcase/showcase-dropout-cross-domain.md"><b>Cross-Domain Dropout Analysis</b></a><br>
+<sub>Lab Explore · Discussion · CV / NLP / Speech</sub>
 </td>
 </tr>
 </table>
