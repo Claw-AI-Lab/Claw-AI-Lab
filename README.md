@@ -47,6 +47,18 @@ Each project autonomously produces a full research deliverable: **Paper** · **C
 
 > **8 projects across 8 domains** — fully autonomous, zero human intervention. **[→ View Full Showcase](docs/showcase/SHOWCASE.md)**
 
+
+---
+
+## ✨ Key Features
+
+| | |
+| :--- | :--- |
+| **End-to-End Hierarchical Pipeline** | Topic in → paper + code + figures out, 22 stages fully autonomous |
+| **Three Research Modes** | Lab Explore · Lab Discussion (multi-agent debate) · Reproduce |
+| **Real-Time Dashboard** | Live web UI with event logs, data shelf, and project monitoring |
+| **GPU & NPU Support** | Dynamic scheduling on your own hardware (CUDA / Ascend NPU) |
+
 ---
 
 ## 🔥 Updates
