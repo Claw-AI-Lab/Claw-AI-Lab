@@ -44,7 +44,7 @@ FlowEdit established inversion-free source-to-target transport for pre-trained f
 
 | Pipeline overview | Primary metric comparison | Windowing strategy |
 | :---: | :---: | :---: |
-| ![Pipeline](../../../backend/runs/projects/复现flowedit在wan21-13b-t2v模型上/stage-22/figures/waf_pipeline_overview.png) | ![Results](../../../backend/runs/projects/复现flowedit在wan21-13b-t2v模型上/stage-16/charts/fig_main_results_comparison.png) | ![Windowing](../../../backend/runs/projects/复现flowedit在wan21-13b-t2v模型上/stage-16/charts/fig_windowing_strategy_analysis.png) |
+| ![Pipeline](flowedit-wan21-t2v/figures/waf_pipeline_overview.png) | ![Results](flowedit-wan21-t2v/figures/fig_main_results_comparison.png) | ![Windowing](flowedit-wan21-t2v/figures/fig_windowing_strategy_analysis.png) |
 | *WAF: frozen Wan2.1 + 4 transport window schedules* | *MidWindow variants lead on primary metric* | *Transport timing effect: Mid > Full > Late* |
 
 ---
@@ -90,7 +90,7 @@ The paper (`paper_revised.md`) frames WAF as an **empirical transfer study**, no
 
 ## 💻 Code
 
-[👉 Code repository (placeholder)](https://github.com/wufan-cse/Claw-AI-Lab) — *replace with the URL of the repo you upload for WAF / this run.*
+[👉 Codes](https://github.com/wufan-cse/Claw-AI-Lab/assets/showcase/flowedit-wan21-t2v/codes)
 
 ---
 

@@ -57,7 +57,7 @@ This project ran in **Discussion Mode** with three agent perspectives (innovator
 
 | Overall composition quality | Matched vs. mismatched context | Component ablation |
 | :---: | :---: | :---: |
-| ![Overall results](./backend/runs/projects/adaptive-multi-reference-self-attention/run-world-model/stage-16/charts/fig_main_results_overall.png) | ![Context split](./backend/runs/projects/adaptive-multi-reference-self-attention/run-world-model/stage-16/charts/fig_context_split_results.png) | ![Ablation](./backend/runs/projects/adaptive-multi-reference-self-attention/run-world-model/stage-16/charts/fig_component_ablation.png) |
+| ![Overall results](adaptive-mrsa/figures/fig_main_results_overall.png) | ![Context split](adaptive-mrsa/figures/fig_context_split_results.png) | ![Ablation](adaptive-mrsa/figures/fig_component_ablation.png) |
 | *10 MRSA variants compared on contamination error (↓)* | *Shared-context slice reveals the intended stress test* | *Similarity/routing, scheduling, and residual design families* |
 
 ---

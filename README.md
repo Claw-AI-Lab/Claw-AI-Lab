@@ -33,13 +33,29 @@ Each project autonomously produces a full research deliverable: **Paper** · **C
 
 <table>
 <tr>
-<td align="center" width="33%"><a href="assets/showcase/showcase-flowedit-wan21-t2v.md"><img src="assets/showcase/flowedit-wan21-t2v/figures/waf_pipeline_overview.png" width="220" alt="FlowEdit WAF"/><br><sub><b>Video Editing · Reproduce</b><br>FlowEdit on Wan2.1-T2V</sub></a></td>
-<td align="center" width="33%"><a href="assets/showcase/showcase-adaptive-mrsa.md"><img src="assets/showcase/adaptive-mrsa/figures/fig_component_ablation.png" width="220" alt="Adaptive MRSA"/><br><sub><b>Multi-Concept Customization of Image Generation</b><br>Adaptive MRSA for FreeCustom</sub></a></td>
-<td align="center" width="33%"><a href="assets/showcase/showcase-dropout-cross-domain.md"><img src="assets/showcase/droput-cross-domain/figures/fig_radar_overview.png" width="220" alt="Dropout Cross-Domain"/><br><sub><b>Cross-Domain Dropout</b><br>CV · NLP · Speech comparison</sub></a></td>
+<td align="center" width="33%">
+<a href="assets/showcase/showcase-flowedit-wan21-t2v.md">
+<img src="assets/showcase/flowedit-wan21-t2v/figures/waf_pipeline_overview.png" width="260" alt="FlowEdit WAF"/><br>
+<b>FlowEdit on Wan2.1-T2V</b><br>
+<sup>Reproduce · Video Editing</sup>
+</a>
+</td>
+<td align="center" width="33%">
+<a href="assets/showcase/showcase-adaptive-mrsa.md">
+<img src="assets/showcase/adaptive-mrsa/figures/fig_component_ablation.png" width="260" alt="Adaptive MRSA"/><br>
+<b>Multi-Concept Customization</b><br>
+<sup>Lab Explore · Image Generation</sup>
+</a>
+</td>
+<td align="center" width="33%">
+<a href="assets/showcase/showcase-dropout-cross-domain.md">
+<img src="assets/showcase/droput-cross-domain/figures/fig_radar_overview.png" width="260" alt="Dropout Cross-Domain"/><br>
+<b>Cross-Domain Dropout Anaylsis</b><br>
+<sup>Lab Explore · CV / NLP / Speech</sup>
+</a>
+</td>
 </tr>
 </table>
-
-<!-- > **projects across multiple domains** — fully autonomous. **[→ View Full Showcase](docs/showcase/SHOWCASE.md)** -->
 
 ---
 
