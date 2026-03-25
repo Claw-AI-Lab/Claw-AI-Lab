@@ -50,58 +50,32 @@ Each project autonomously produces a full research deliverable: **Paper** · **C
 
 Multi-agent discussion on: **"What is the most deployable direction for Video Action Models in Embodied AI?"**
 
-Three agents debated from different perspectives and converged on a unified consensus:
+> 🤖 **Agent A** — World Model + MPC (Model Predictive Control) is the most **industrially stable** path
+>
+> 🧪 **Agent B** — *"Train with video, infer with action"* is the most deployable policy paradigm
+>
+> 📦 **Agent C** — Execution monitoring & SOP (Standard Operating Procedure) automation lands **fastest as a product**
 
-<table>
-<tr>
-<th>Agent</th>
-<th>Key Perspective</th>
-<th>Top Priority</th>
-</tr>
-<tr>
-<td><b>Agent A</b></td>
-<td>World Model + MPC/Planning is the most <b>industrially stable</b> path</td>
-<td>Safety constraints, online re-planning, receding horizon control</td>
-</tr>
-<tr>
-<td><b>Agent B</b></td>
-<td><b>"Train with video, infer with action"</b> — the most deployable policy paradigm</td>
-<td>Direct action output at inference, explicit reasoning for debuggability</td>
-</tr>
-<tr>
-<td><b>Agent C</b></td>
-<td>Execution monitoring & anticipation lands <b>fastest as a product</b></td>
-<td>Step understanding, anomaly detection, SOP automation</td>
-</tr>
-</table>
-
-**Consensus reached after debate:**
-
-> *The most deployable form is not pure video-generative control, nor a monolithic world model, but a **layered, modular, closed-loop system**: train with video supervision, output actions directly at inference, and add planning/safety/monitoring on top.*
+**Consensus:** ***Layered & modular beats one-model-fits-all** — train with video, infer with direct actions, guard with planning/safety on top.*
 
 <details>
-<summary><b>Top 3 Research Directions (ranked by deployability)</b></summary>
+<summary><b>Top 3 Directions & Key Contradictions Resolved</b></summary>
 
-| # | Direction | Why |
+| # | Direction | Deployability |
 | :---: | :--- | :--- |
-| 1 | **Layered Video-Action Stack** — joint video-action training + direct action inference + planner/MPC safety layer | Best balance of representation, latency, interpretability, and incremental deployment |
-| 2 | **Video-to-Plan / SOP** — convert demonstration videos into step sequences, sub-goals, and skill graphs for existing robot systems | Smallest embodiment gap, clearest commercial path |
-| 3 | **Execution Monitor + Anticipation** — real-time step tracking, anomaly detection, and re-planning triggers | Fastest to enter production; critical for industrial reliability and human-robot collaboration |
+| 1 | **Layered Video-Action Stack** — video-action joint training + direct action inference + MPC safety | Highest — best balance of latency, interpretability & safety |
+| 2 | **Video-to-Plan / SOP** — demo videos → step sequences & skill graphs for existing robots | High — smallest embodiment gap, clearest commercial path |
+| 3 | **Execution Monitor** — real-time step tracking, anomaly detection, re-planning triggers | High — fastest to production; critical for industrial reliability |
 
-</details>
-
-<details>
-<summary><b>Key Resolved Contradictions</b></summary>
-
-| Contradiction | Resolution |
+| Debate | Resolution |
 | :--- | :--- |
-| World Model + MPC vs. Direct Action Policy? | Not either/or — **combine both**: world model for representation, direct action for real-time control, MPC for safety |
-| Human video transfer: valuable or too much embodiment gap? | **Pre-training & intermediate representations yes**; direct low-level action transfer not yet reliable |
-| Is execution monitoring a "real" video action model? | Not the control backbone, but **the fastest module to reach production value and revenue** |
+| World Model + MPC vs. Direct Action? | **Combine both** — world model for representation, direct action for control, MPC for safety |
+| Human video: valuable or too much gap? | **Pre-training yes**; direct low-level transfer not yet reliable |
+| Is monitoring a "real" action model? | Not the backbone, but **fastest to reach production value** |
 
 </details>
 
-**[→ Full Discussion Transcript](assets/showcase/discussion_transcript.md)** · **[→ Consensus Synthesis](assets/showcase/consensus_synthesis.md)**
+**[→ Full Transcript](assets/showcase/discussion_transcript.md)** · **[→ Consensus Synthesis](assets/showcase/consensus_synthesis.md)**
 
 ---
 
