@@ -13,7 +13,7 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="MIT License"></a>
   <a href="https://python.org"><img src="https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white" alt="Python 3.11+"></a>
   <a href="https://nodejs.org"><img src="https://img.shields.io/badge/Node.js-18%2B-339933?logo=node.js&logoColor=white" alt="Node.js 18+"></a>
-  <a href="https://github.com/wufan-cse/Claw-AI-Lab"><img src="https://img.shields.io/badge/GitHub-Claw--AI--Lab-6f42c1?logo=github&logoColor=white" alt="GitHub"></a>
+  <a href="https://github.com/Claw-AI-Lab/Claw-AI-Lab"><img src="https://img.shields.io/badge/GitHub-Claw--AI--Lab-6f42c1?logo=github&logoColor=white" alt="GitHub"></a>
 </p>
 
 ---
@@ -106,7 +106,7 @@ Multi-agent discussion on: **"What is the most deployable direction for Video Ac
 ### 1. Install
 
 ```bash
-git clone https://github.com/wufan-cse/Claw-AI-Lab.git
+git clone https://github.com/Claw-AI-Lab/Claw-AI-Lab.git
 cd Claw-AI-Lab
 
 # Create python environment
@@ -315,7 +315,7 @@ If you find Claw AI Lab useful, please cite:
                   Chen, Tianrun and Liu, Fayao and Lin, Guosheng},
   title        = {Claw AI Lab: An Autonomous Multi-Agent Research Team},
   year         = {2026},
-  url          = {https://github.com/wufan-cse/Claw-AI-Lab},
+  url          = {https://github.com/Claw-AI-Lab/Claw-AI-Lab},
   note         = {GitHub repository}
 }
 ``` 
