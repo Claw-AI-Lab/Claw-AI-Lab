@@ -46,6 +46,65 @@ Each project autonomously produces a full research deliverable: **Paper** · **C
 
 ---
 
+### 🏆 Discussion Mode Showcase
+
+Multi-agent discussion on: **"What is the most deployable direction for Video Action Models in Embodied AI?"**
+
+Three agents debated from different perspectives and converged on a unified consensus:
+
+<table>
+<tr>
+<th>Agent</th>
+<th>Key Perspective</th>
+<th>Top Priority</th>
+</tr>
+<tr>
+<td><b>Agent A</b></td>
+<td>World Model + MPC/Planning is the most <b>industrially stable</b> path</td>
+<td>Safety constraints, online re-planning, receding horizon control</td>
+</tr>
+<tr>
+<td><b>Agent B</b></td>
+<td><b>"Train with video, infer with action"</b> — the most deployable policy paradigm</td>
+<td>Direct action output at inference, explicit reasoning for debuggability</td>
+</tr>
+<tr>
+<td><b>Agent C</b></td>
+<td>Execution monitoring & anticipation lands <b>fastest as a product</b></td>
+<td>Step understanding, anomaly detection, SOP automation</td>
+</tr>
+</table>
+
+**Consensus reached after debate:**
+
+> *The most deployable form is not pure video-generative control, nor a monolithic world model, but a **layered, modular, closed-loop system**: train with video supervision, output actions directly at inference, and add planning/safety/monitoring on top.*
+
+<details>
+<summary><b>Top 3 Research Directions (ranked by deployability)</b></summary>
+
+| # | Direction | Why |
+| :---: | :--- | :--- |
+| 1 | **Layered Video-Action Stack** — joint video-action training + direct action inference + planner/MPC safety layer | Best balance of representation, latency, interpretability, and incremental deployment |
+| 2 | **Video-to-Plan / SOP** — convert demonstration videos into step sequences, sub-goals, and skill graphs for existing robot systems | Smallest embodiment gap, clearest commercial path |
+| 3 | **Execution Monitor + Anticipation** — real-time step tracking, anomaly detection, and re-planning triggers | Fastest to enter production; critical for industrial reliability and human-robot collaboration |
+
+</details>
+
+<details>
+<summary><b>Key Resolved Contradictions</b></summary>
+
+| Contradiction | Resolution |
+| :--- | :--- |
+| World Model + MPC vs. Direct Action Policy? | Not either/or — **combine both**: world model for representation, direct action for real-time control, MPC for safety |
+| Human video transfer: valuable or too much embodiment gap? | **Pre-training & intermediate representations yes**; direct low-level action transfer not yet reliable |
+| Is execution monitoring a "real" video action model? | Not the control backbone, but **the fastest module to reach production value and revenue** |
+
+</details>
+
+**[→ Full Discussion Transcript](assets/showcase/discussion_transcript.md)** · **[→ Consensus Synthesis](assets/showcase/consensus_synthesis.md)**
+
+---
+
 ## ✨ Key Features
 
 <table>
