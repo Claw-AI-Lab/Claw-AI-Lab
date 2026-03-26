@@ -130,8 +130,8 @@ npm install
 pip install torch torchvision diffusers transformers accelerate safetensors datasets \
             huggingface_hub opencv-python pandas matplotlib scikit-image scipy einops tqdm
 
-# OpenHands Beast Mode (optional, recommended)
-pip install openhands
+# For coding
+pip install aider-install
 ```
 
 ### 2. Configure
@@ -221,16 +221,18 @@ openclaw_bridge:
 # === LLM ===
 llm:
   provider: "openai-compatible"   # LLM provider: "openai-compatible" | "openai" | "deepseek" | "acp"
-  base_url: "https://api.example.com/v1"  # API endpoint (OpenAI-compatible format)
-  api_key: "sk-your-key"          # API key (can also use api_key_env to read from environment)
+  api_key: "sk-your-key"          # **IMPORTANT** API key (can also use api_key_env to read from environment)
   api_key_env: "RESEARCHCLAW_API_KEY"     # Environment variable name for API key (fallback if api_key is empty)
-  primary_model: "gpt-5.4"       # Main model for research, analysis, and writing stages
-  coding_model: "gpt-5.4"        # Model for code generation (S11). Leave empty to use primary_model
-  image_model: "gemini-3-pro-image-preview"  # Model for figure generation in paper writing (L5)
+  primary_model: "gpt-5.4"       # **IMPORTANT** Main model for research, analysis, and writing stages
+  coding_model: "claude-opus-4-6"        # **IMPORTANT** Model for code generation (S11). Leave empty to use primary_model
+  image_model: "gemini-3-pro-image-preview"  # **IMPORTANT** Model for figure generation in paper writing (L5)
   fallback_models:                # Fallback model chain — used when primary model fails
-    - "gpt-4o"
-    - "gpt-4.1"
-  timeout_sec: 600                # LLM API request timeout in seconds
+    - "qwen3-max"
+    - "qwen3.5-plus"
+    - "qwen-max"
+    - "qwen-plus"
+    - "qwen2.5-72b-instruct"
+  timeout_sec: 6000
 
 # === Security ===
 security:
@@ -241,19 +243,19 @@ security:
 # === Experiment ===
 experiment:
   mode: "sandbox"                 # Execution mode: "sandbox" (local Python) | "docker" | "simulated"
-  time_budget_sec: 2400           # Max time budget per experiment run in seconds
+  time_budget_sec: 6000           # **IMPORTANT** Max time budget per experiment run in seconds
   max_iterations: 3               # Number of iterative refinement cycles in S15 (Edit-Run-Eval loop)
   metric_key: "primary_metric"    # Name of the primary evaluation metric
   metric_direction: "minimize"    # Optimization direction: "minimize" | "maximize"
-  datasets_dir: "/path/to/datasets"      # Absolute path to datasets directory
-  checkpoints_dir: "/path/to/checkpoints"  # Absolute path to model weights directory
-  codebases_dir: "/path/to/codebases"    # Absolute path to reference codebases directory
+  datasets_dir: "/path/to/datasets"      # **IMPORTANT** Absolute path to datasets directory
+  checkpoints_dir: "/path/to/checkpoints"  # **IMPORTANT** Absolute path to model weights directory
+  codebases_dir: ""    # Absolute path to reference codebases directory
   shared_results_dir: "/path/to/shared_results"  # Directory for cross-project shared results
   paper_length: "short"           # Paper length: "short" (~4 pages) | "long" (~8 pages)
 
   # Sandbox execution environment
   sandbox:
-    python_path: "/path/to/python3"  # Python interpreter path for running experiments
+    python_path: "/path/to/python3"  # **IMPORTANT** Python interpreter path for running experiments
     gpu_required: true            # Whether experiments require GPU
     gpus_per_project: 1           # Number of GPUs allocated per project
     max_memory_mb: 16384          # Max memory limit for experiment processes (MB)
@@ -264,7 +266,7 @@ experiment:
       - "diffusers"
       # ... add packages as needed
 
-  sanity_check_max_iterations: 6  # Max fix attempts in S12 code testing. 0 = skip fixes, trigger intervention immediately
+  sanity_check_max_iterations: 18  # **IMPORTANT** Max fix attempts in S12 code testing. 0 = skip fixes, trigger intervention immediately
 
   # Legacy code agent (disabled by default, use opencode instead)
   code_agent:
@@ -275,7 +277,7 @@ experiment:
     enabled: true                 # Master switch for Beast Mode
     auto: true                    # Auto-trigger based on complexity score (vs. manual)
     complexity_threshold: 0.2     # Complexity score threshold (0.0-1.0). Lower = more likely to use Beast Mode
-    model: "claude-opus-4-6"      # LLM model used by OpenHands agent
+    model: "claude-opus-4-6"      # **IMPORTANT** LLM model used by OpenHands agent
     timeout_sec: 2400             # Max time for Beast Mode code generation (seconds)
     max_retries: 1                # Number of retries if Beast Mode fails to produce main.py
     workspace_cleanup: false      # Whether to delete temporary workspace after completion

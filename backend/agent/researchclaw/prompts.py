@@ -539,7 +539,15 @@ _DEFAULT_BLOCKS: dict[str, str] = {
         "   paths. Do NOT generate synthetic/random data when real data is available.\n"
         "4. **NEVER write numpy-only simulation code** when torch/diffusers/transformers are\n"
         "   available and the task requires deep learning.\n"
-        "5. If a codebase provides a training pipeline, EXTEND it rather than rewriting from scratch.\n"
+        "5. If a codebase provides a training pipeline, EXTEND it rather than rewriting from scratch.\n\n"
+        "### SIMULATION DETECTION — YOUR CODE IS INVALID IF:\n"
+        "- All conditions use only numpy/PIL operations (no torch.nn, no model.forward())\n"
+        "- Metrics are computed by comparing pixel-blended images to hand-crafted oracles\n"
+        "- 'Training' is simulated by mathematical formulas instead of real gradient updates\n"
+        "- Model 'inference' is replaced by image compositing/blending functions\n"
+        "- The code runs in <60s because it never loads a real model\n"
+        "If CHECKPOINTS_DIR has model weights and the topic requires model training/inference,\n"
+        "your code MUST actually load and run the model, even if it takes longer.\n"
     ),
     "hp_reporting": (
         "\n## Hyperparameter Reporting (MANDATORY)\n"
@@ -1823,10 +1831,11 @@ _DEFAULT_STAGES: dict[str, dict[str, Any]] = {
             "silently overwritten.\n"
             "5. No argparse/CLI args — the harness calls `python main.py` with no args.\n"
             "6. Do NOT use try/except blocks. Let all errors propagate and crash loudly. "
-            "This includes imports, model loading, data loading, metric computation, and "
-            "any other operation. The ONLY acceptable exception is a top-level "
-            "`if __name__ == '__main__'` guard that prints a traceback — but even that "
-            "should NOT catch and suppress errors. "
+            "This includes imports, model loading, data loading, inference, metric computation, "
+            "run_condition(), and the main() loop. The ONLY function where try/except is allowed "
+            "is save_outputs() (to prevent file I/O errors from crashing the experiment). "
+            "NEVER wrap run_condition() or the main loop body in try/except with metric=nan fallback — "
+            "this hides real bugs from the fix system. "
             "If something fails, we NEED to see the real traceback to debug it.\n\n"
             "## TIER 2 — IMPORTANT (improves quality)\n"
             "7. Print `METRIC_DEF: {metric} | direction=<higher/lower> | desc=...` at start.\n"
@@ -1856,8 +1865,8 @@ _DEFAULT_STAGES: dict[str, dict[str, Any]] = {
             "- Importing non-existent modules (e.g. `from baselines.x import Y`)\n"
             "- nn.Module created inside forward() instead of __init__()\n"
             "- Deprecated NumPy: np.bool, np.int, ndarray.ptp(), np.erf()\n"
-            "- `try: ... except ...:` blocks — NO try/except anywhere in generated code. "
-            "Errors must crash immediately with a full traceback.\n"
+            "- `try: ... except ...:` blocks — NO try/except anywhere except save_outputs(). "
+            "Especially NOT in main() or run_condition(). Errors must crash immediately with a full traceback.\n"
         ),
         "max_tokens": 8192,
     },

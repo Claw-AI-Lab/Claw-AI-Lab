@@ -46,101 +46,49 @@ __all__ = [
 # ---------------------------------------------------------------------------
 
 _RULES = """\
-CRITICAL: You MUST read EXPERIMENT_PLAN.yaml FIRST before writing any code.
-The plan defines the exact method names, algorithm steps, baselines, and metrics.
-
-Context files in this workspace:
-- EXPERIMENT_PLAN.yaml — REQUIRED READING: defines methods, baselines, ablations, metrics, dataset protocol
-- GUIDANCE.md — topic, environment, ABSOLUTE paths for data/checkpoints/codebases
-- Source code .py files — the codebase you MUST build upon (read them to learn the API)
-- data/ and checkpoints/ — symlinks to local datasets and model weights
+CRITICAL: Read EXPERIMENT_PLAN.yaml FIRST — it defines method names, algorithm steps, baselines, metrics.
+Read GUIDANCE.md for ABSOLUTE paths to data/checkpoints/codebases. Read codebase .py files to learn the API.
 
 RULES:
-- Read EXPERIMENT_PLAN.yaml to find: (a) baseline class_name and algorithm_steps, (b) condition names and differentiators, (c) metric name/definition/direction, (d) dataset protocol
-- Build ON TOP of the existing codebase — read .py files first to learn the API
-- Use ABSOLUTE paths from GUIDANCE.md for datasets, checkpoints, codebases
-- NEVER use synthetic data (torch.randn, np.random) as metric placeholders
-- NEVER invent module names — only import modules that ACTUALLY EXIST in the workspace
-- NEVER hardcode fake metric values like 0.5 or 0.75
-- ABSOLUTELY NO try/except blocks — let errors crash with full traceback
-- Do NOT use argparse — hardcode all configuration
-- Each condition must implement a genuinely DIFFERENT algorithm (not just different hyperparameters)
-- Do NOT create useless wrapper classes with empty methods — use plain functions
-- Before loading models, LIST files in CHECKPOINTS_DIR to find correct filenames
-- NEVER download models from the internet. No HuggingFace IDs, no `pretrained=True`, no URLs. ALL models/weights are pre-downloaded in CHECKPOINTS_DIR. Always load from LOCAL ABSOLUTE PATH: `from_pretrained(os.path.join(CHECKPOINTS_DIR, 'model-name'))`. Check the CHECKPOINTS directory tree in GUIDANCE.md to find the exact folder names available
-- The condition_name parameter MUST control which code path runs
-- When calling codebase functions, READ the function body (not just signature) to understand what it expects. If a function accesses `model.unet` internally, pass the PIPELINE object, not `pipeline.unet`
+- Build ON TOP of existing codebase. Use ABSOLUTE paths from GUIDANCE.md.
+- Load ALL models from LOCAL CHECKPOINTS_DIR paths. NEVER download from internet (no HuggingFace IDs, no `pretrained=True`, no URLs, no `torch.hub.load`).
+- Each condition must implement a genuinely DIFFERENT algorithm, not just different hyperparameters.
+- Metrics MUST be computed from ACTUAL model outputs. NEVER hardcode fake values or compute from formulas/profiles.
+- NO try/except anywhere (except save_outputs for file I/O). Let all errors crash with full traceback.
+- NO argparse. NO wrapper classes with empty methods. NO files named `utils.py`/`models.py`/`config.py` that shadow codebase modules.
+- sys.path.insert: add the REPOSITORY ROOT only, NOT subdirectories.
+- When calling codebase functions, READ function bodies to understand expected args (e.g. pass pipeline object, not pipeline.unet).
+"""
 
-- When adding codebase paths via sys.path.insert, add the REPOSITORY ROOT (e.g. `/path/to/FreeCustom`), NOT subdirectories like `/path/to/FreeCustom/utils`. Adding subdirectories breaks internal relative imports within the codebase
-- NEVER create files named `utils.py`, `models.py`, `config.py`, or any name that shadows modules inside the codebase — this causes import conflicts. If you need helper code, put it directly in main.py
-
-ANTI-PATTERNS (your code MUST NOT contain these):
-  BAD: `primary_metric = 0.75 if hasattr(output, 'videos') else 0.5`
-  BAD: `except Exception as e: primary_metric = 0.0`
-  BAD: `def run_condition(... condition_name ...):` that ignores condition_name
-  BAD: `next(Path(dir).glob('*.safetensors'))` without checking if files exist
-  BAD: `def report_metric(self, ...): pass`
-  BAD: loading a directory path as if it were a file
-  BAD: `sys.path.insert(0, '/path/to/repo/utils')` — add the repo root instead
-  BAD: creating `utils.py` in workspace when codebase already has a `utils/` package
-  BAD: `CLIPModel.from_pretrained("openai/clip-vit-base-patch32")` — downloads from internet!
-  BAD: `some_model(pretrained=True)` — downloads from internet!
-  BAD: `torch.hub.load(...)` — downloads from internet!
-  GOOD: `CLIPModel.from_pretrained(os.path.join(CHECKPOINTS_DIR, "clip-vit-base-patch32"))` — loads local
-  BAD: `except Exception: return DummyPipeline()` — silent fallback hides real errors!
-  BAD: `_ = pipe(...)` then compute metrics from formulas — pipeline output MUST be used for metrics
-  BAD: `class DummyPipeline` / `class FallbackPipeline` — NEVER create fake pipeline substitutes
-  BAD: computing metrics from `_condition_profile` dicts or math formulas instead of real model outputs
-
-FAIL-FAST RULES (critical):
-- If pipeline loading fails, the program MUST crash. Do NOT catch the exception and substitute a dummy.
-- If model inference fails, the program MUST crash. Do NOT return fake outputs.
-- Metric values MUST be computed from ACTUAL model outputs (generated images/videos). NEVER compute metrics from hardcoded profiles, math formulas, prompt distances, or hash-based noise.
-- The pipeline output MUST be used in compute_metric(). If you assign it to `_` or ignore it, the experiment is INVALID.
-- NEVER wrap load_pipeline() or pipe(...) in try/except with a fallback. Let errors propagate so the sanity check system can diagnose and fix them.
+_RULES_NO_CODEBASE = """\
+NO-CODEBASE: You MUST use real ML libraries (torch, diffusers, transformers, peft) — NEVER simulate with numpy/PIL.
+Load checkpoints via `from_pretrained(CHECKPOINTS_DIR)`. Prioritize topic requirements over generic benchmark suggestions.
 """
 
 _SKELETON_PROMPT = _RULES + """
-TASK: Generate a SHORT main.py SKELETON. This is ONLY a skeleton — do NOT implement any logic.
-
-WARNING: Your output token budget is LIMITED. Keep the skeleton under 120 lines.
-Do NOT write implementation code. Use `pass` for ALL function bodies that need implementation.
+TASK: Generate a SHORT main.py SKELETON (<130 lines). Do NOT implement any logic — use `pass` for function bodies.
 
 1. Read EXPERIMENT_PLAN.yaml. Pick 1 baseline + 2 proposed methods (3 total).
-
-2. Create main.py with:
-   - Imports + sys.path.insert (add REPO ROOT only, not subdirectories)
-   - Constants: DATASETS_DIR, CHECKPOINTS_DIR, TIME_BUDGET={time_budget_sec}, SEEDS=[42,123,456]
-   - set_seed(seed) — IMPLEMENT this (3 lines)
-   - should_stop() — IMPLEMENT this (2 lines)
-   - load_pipeline() — write `# TODO: <what to load and how>` then `pass`
-   - load_data() — write `# TODO: <what data to load>` then `pass`
-   - compute_metric(generated, reference) — write `# TODO: <exact metric name and formula>` then `pass`
-   - 3 condition functions (use REAL names from plan) — each gets `# TODO: <algorithm steps>` then `pass`
-   - run_condition() — IMPLEMENT this (dispatch dict + call compute_metric)
-   - main() — IMPLEMENT this (loop over conditions/seeds, print results)
+2. Create main.py with plain functions (no classes):
+   - Imports + sys.path.insert(0, REPO_ROOT)
+   - Constants: DATASETS_DIR, CHECKPOINTS_DIR, OUTPUT_DIR='outputs', TIME_BUDGET={time_budget_sec}, SEEDS=[42,123,456]
+   - set_seed(seed) — IMPLEMENT (3 lines)
+   - should_stop() — IMPLEMENT (2 lines)
+   - load_pipeline(), load_data(), compute_metric(), save_outputs() — each: `# TODO: <what>` then `pass`
+   - 3 condition functions (REAL names from plan) — each: `# TODO: <algorithm steps>` then `pass`
+   - run_condition() — IMPLEMENT (dispatch dict + compute_metric + save_outputs, NO try/except)
+   - main() — IMPLEMENT (loop conditions/seeds, print results, NO try/except around run_condition)
    - if __name__ == '__main__': main()
-
-CRITICAL RULES:
-- Functions with TODO MUST have `pass` as body. Do NOT write any implementation.
-- Do NOT use classes. Use plain functions only.
-- Do NOT write more than 120 lines total. This is a SKELETON.
-- The TODO comment must describe WHAT to implement (refer to EXPERIMENT_PLAN.yaml specifics).
 """
 
 _FILL_TODO_PROMPT = _RULES + """
-TASK: Implement ONE specific TODO in main.py. Here is the TODO to implement:
+TASK: Implement ONE TODO in main.py. The TODO:
 
 {todo_line}
 
-Instructions:
-- Read the workspace source code (.py files) to learn the codebase API before implementing
-- Read EXPERIMENT_PLAN.yaml for the algorithm steps and metric definitions
-- Implement ONLY this one function — do NOT modify other functions
-- Remove the `# TODO:` comment line when the implementation is complete
-- Replace `pass` with the actual implementation
-- Keep the output SHORT — implement just this one function
-- Use ABSOLUTE paths from the constants defined at the top of main.py
+- Read codebase .py files and EXPERIMENT_PLAN.yaml first. Implement ONLY this function, keep output SHORT.
+- Remove `# TODO:` and replace `pass` with real implementation using ABSOLUTE paths from constants.
+- save_outputs(): save visual artifacts (PNG/curves/text) proving model ran. try/except allowed ONLY here.
 """
 
 _FIX_PROMPT = """\
@@ -153,14 +101,33 @@ Fix the error. Make the MINIMAL change needed. Do NOT rewrite the entire file.
 
 # Single-shot fallback
 _FALLBACK_PROMPT = _RULES + """
-Read EXPERIMENT_PLAN.yaml and GUIDANCE.md, then create a COMPLETE main.py.
-Use the EXACT method names, algorithm steps, and metric definitions from EXPERIMENT_PLAN.yaml.
-- All imports, constants, def main(), if __name__ == "__main__": main()
-- 3 conditions (1 baseline + 2 proposed) with genuinely different algorithms
-- compute_metric must compute the REAL metric, not hardcoded values
-- Print: {metric}: <value> for each condition and seed
-- Time budget: {time_budget_sec} seconds
-- NO try/except, NO fake metrics, NO identical conditions
+Create a COMPLETE main.py using EXPERIMENT_PLAN.yaml method names, algorithm steps, and metric definitions.
+3 conditions (1 baseline + 2 proposed) with genuinely different algorithms.
+Print: {metric}: <value> for each condition and seed. Time budget: {time_budget_sec}s.
+Save visual results to `outputs/{{condition}}_{{seed}}.png`.
+"""
+
+_FIX_SANITY_PROMPT = _RULES + """
+TASK: Fix a sanity check failure in main.py — make the smallest surgical change, do NOT rewrite the file.
+
+**Failed test:** `{test_name}`
+**Test code:**
+```python
+{test_code}
+```
+**Error (stderr tail):**
+```
+{stderr}
+```
+{repeat_hint}
+## DIAGNOSE FIRST (read relevant files before fixing):
+- Path errors: read the ACTUAL config YAML and GUIDANCE.md directory tree. Use `os.path.basename()` to extract filenames, rebuild paths from DATASETS_DIR. Never blindly join nested relative paths.
+- NoneType errors: read the reference implementation (e.g. `inference.py`) for correct values. Search ALL attribute accesses on that object in codebase, not just the crash site.
+- External library errors: fix CALLING code, not the library. Read codebase source to understand expected params.
+
+## FIX RULES:
+- Fix ONLY the error lines. No try/except. No DummyPipeline. No hardcoded metrics. Keep print/metric statements.
+- Verify your fix works for ALL loop entries (not just the first) and doesn't introduce new errors.
 """
 
 _MAX_TODO_ITERATIONS = 10
@@ -320,6 +287,19 @@ class OpenHandsBridge:
                 )
             except OSError:
                 pass
+        # When no codebase is provided, add a concise hint with loading example
+        if not codebases_dir and checkpoints_dir and Path(checkpoints_dir).is_dir():
+            _ck_name = Path(checkpoints_dir).name.lower()
+            if any(kw in _ck_name for kw in ("stable-diffusion", "sd-", "sdxl", "diffusion")):
+                usage_hints.append(
+                    "\n## No codebase — load model from checkpoints:\n"
+                    "```python\n"
+                    "from diffusers import StableDiffusionPipeline\n"
+                    f"pipe = StableDiffusionPipeline.from_pretrained('{checkpoints_dir}', "
+                    "local_files_only=True).to('cuda')\n"
+                    "```\n"
+                )
+
         if codebases_dir and Path(codebases_dir).is_dir():
             cb_abs = str(Path(codebases_dir).resolve())
             codebases_ws = ws / "codebases"
@@ -342,7 +322,7 @@ class OpenHandsBridge:
 
             # Find and include example/demo/entry scripts FIRST (highest priority)
             example_lines: list[str] = []
-            _example_budget = 120  # max lines for examples
+            _example_budget = 80  # max lines for examples
             for rn in repo_names:
                 repo_dir = codebases_ws / rn
                 example_patterns = [
@@ -395,19 +375,12 @@ class OpenHandsBridge:
 
             if example_lines:
                 hint_lines.append("\n## Working example scripts from codebase (USE THESE AS REFERENCE)\n")
-                hint_lines.append("These examples show the CORRECT way to load models and call the pipeline.\n")
-                hint_lines.append("Copy the loading pattern — do NOT guess the API.\n")
-                hint_lines.append(
-                    "\n**IMPORTANT**: If the examples use HuggingFace model IDs (e.g. `model_id='org/model'`), "
-                    "you MUST adapt them to load from LOCAL paths instead. Check the model config class "
-                    "for a `path=` parameter that accepts local file paths directly. "
-                    "Use the file paths from the CHECKPOINTS directory tree above.\n\n"
-                )
+                hint_lines.append("Copy loading patterns. Adapt HuggingFace IDs to LOCAL CHECKPOINTS_DIR paths.\n\n")
                 hint_lines.extend(example_lines)
 
             # API signatures AFTER examples (lower priority, budget-limited)
             api_lines: list[str] = ["\n## Key API signatures from codebase\n"]
-            _api_line_budget = 60
+            _api_line_budget = 30
             for rn in repo_names:
                 repo_dir = codebases_ws / rn
                 py_files = sorted(
@@ -451,7 +424,7 @@ class OpenHandsBridge:
         # Trim GUIDANCE.md to avoid bloating the LLM context.
         # Our hints (prepended above) are the most important; the executor-generated
         # content after them can be very long with irrelevant framework docs.
-        _MAX_GUIDANCE_LINES = 400
+        _MAX_GUIDANCE_LINES = 300
         guidance_path = ws / "GUIDANCE.md"
         if guidance_path.exists():
             g_lines = guidance_path.read_text(encoding="utf-8").splitlines()
@@ -586,18 +559,20 @@ class OpenHandsBridge:
         msg_file = workspace / ".aider_task.md"
         msg_file.write_text(message, encoding="utf-8")
 
-        # Editable files
+        # Editable files: only main.py and GUIDANCE.md (Phase 0 may edit it)
         add_files: list[str] = []
         main_py = workspace / "main.py"
         if main_py.exists():
             add_files.append(str(main_py))
-        for ctx in ("EXPERIMENT_PLAN.yaml", "GUIDANCE.md"):
-            ctx_path = workspace / ctx
-            if ctx_path.exists():
-                add_files.append(str(ctx_path))
+        guidance_path = workspace / "GUIDANCE.md"
+        if guidance_path.exists():
+            add_files.append(str(guidance_path))
 
-        # Read-only codebase files: aider can see full source but won't edit them
+        # Read-only context: EXPERIMENT_PLAN.yaml + codebase source files
         read_files: list[str] = []
+        exp_plan_path = workspace / "EXPERIMENT_PLAN.yaml"
+        if exp_plan_path.exists():
+            read_files.extend(["--read", str(exp_plan_path)])
         for rf in self._find_core_source_files(workspace):
             read_files.extend(["--read", rf])
 
@@ -705,12 +680,13 @@ class OpenHandsBridge:
             return str(exc)
 
     def _resolve_api_key(self) -> str:
-        api_key = ""
+        # Prefer explicit api_key from project config (matches the hardcoded
+        # base_url for aider), fall back to env var for generic setups.
+        if self.api_key:
+            return self.api_key
         if self.api_key_env:
-            api_key = os.environ.get(self.api_key_env, "")
-        if not api_key and self.api_key:
-            api_key = self.api_key
-        return api_key
+            return os.environ.get(self.api_key_env, "")
+        return ""
 
     def _run_todo_loop(
         self,
@@ -730,50 +706,11 @@ class OpenHandsBridge:
         per_call_timeout = max(300, self.timeout_sec // (_MAX_TODO_ITERATIONS + 2))
         main_py = workspace / "main.py"
 
-        # --- Phase 0: Analyze workspace and write concise reference into GUIDANCE.md ---
         _has_codebases = (workspace / "codebases").is_dir() and any((workspace / "codebases").iterdir())
-        _has_data = (workspace / "datasets").is_dir() or (workspace / "checkpoints").is_dir()
-        if _has_codebases or _has_data:
-            analyze_parts = [
-                "Read GUIDANCE.md and ALL read-only source files. "
-                "Then REPLACE the first sections of GUIDANCE.md (everything before '## Topic') with a single concise section "
-                "titled '## Workspace Quick Reference (LLM-generated)'. This section must contain:\n\n"
-            ]
-            if _has_data:
-                analyze_parts.append(
-                    "### Data & Checkpoints\n"
-                    "- Summarize the dataset structure in 3-5 lines (what directories exist, file types, how to iterate episodes/samples)\n"
-                    "- Summarize checkpoint structure in 3-5 lines (what model files exist, exact filenames, how to load them)\n"
-                    "- Give the EXACT Python code (3-5 lines) to load data and the EXACT code to load checkpoints from local paths\n\n"
-                )
-            if _has_codebases:
-                analyze_parts.append(
-                    "### Codebase API\n"
-                    "- The EXACT code to load the pipeline/model (copy from example scripts, adapt to use local CHECKPOINTS_DIR paths)\n"
-                    "- The EXACT code to prepare input data (images, masks, latents, prompts) with correct shapes noted in comments\n"
-                    "- The EXACT constructor call for key classes with ALL required parameters\n"
-                    "- The EXACT function call pattern for model inference / attention hacking\n"
-                    "- Important gotchas (e.g. pass pipeline not pipeline.unet, required non-None params, tensor shape requirements)\n"
-                    "- If conditions need to modify internal model behavior: show HOW to subclass or override the key method\n\n"
-                )
-            analyze_parts.append(
-                "Keep the ENTIRE section under 80 lines. Use real code snippets, not descriptions. "
-                "This reference will be used by another LLM to write experiment code.\n"
-                "IMPORTANT: Preserve '## Topic', '## Primary Metric', '## Time Budget', '## Environment' sections unchanged."
-            )
-            analyze_prompt = "".join(analyze_parts)
-
-            logger.info("Aider TODO loop: analyzing codebase...")
-            ok, log, elapsed = self._invoke_aider(
-                workspace, analyze_prompt, api_key,
-                step_timeout=per_call_timeout,
-                edit_format="diff",
-            )
-            total_elapsed += elapsed
-            all_logs.append(f"=== Codebase analysis (ok={ok}, {elapsed:.1f}s) ===\n{log}")
+        _extra_rules = "" if _has_codebases else _RULES_NO_CODEBASE
 
         # --- Phase 1: Generate skeleton ---
-        skeleton_prompt = _SKELETON_PROMPT.replace(
+        skeleton_prompt = (_SKELETON_PROMPT + _extra_rules).replace(
             "{metric}", metric
         ).replace(
             "{time_budget_sec}", str(time_budget_sec)
@@ -820,7 +757,7 @@ class OpenHandsBridge:
             prev_todo_count = len(todos)
 
             first_todo = todos[0]
-            fill_prompt = _FILL_TODO_PROMPT.replace(
+            fill_prompt = (_FILL_TODO_PROMPT + _extra_rules).replace(
                 "{todo_line}", first_todo
             ).replace(
                 "{metric}", metric
@@ -887,6 +824,8 @@ class OpenHandsBridge:
 
         workspace: Path | None = None
         last_error = ""
+        last_log = ""
+        last_elapsed = 0.0
 
         for attempt in range(1 + self.max_retries):
             try:
@@ -939,7 +878,9 @@ class OpenHandsBridge:
             )
 
             api_key = self._resolve_api_key()
-            fallback_prompt = _FALLBACK_PROMPT.replace(
+            _has_cb = (workspace / "codebases").is_dir() and any((workspace / "codebases").iterdir())
+            _fb_extra = "" if _has_cb else _RULES_NO_CODEBASE
+            fallback_prompt = (_FALLBACK_PROMPT + _fb_extra).replace(
                 "{metric}", metric
             ).replace(
                 "{time_budget_sec}", str(time_budget_sec)
@@ -968,14 +909,320 @@ class OpenHandsBridge:
                 )
 
             last_error = log[:500] if log else "No main.py produced"
+            last_log = log
+            last_elapsed = elapsed
             logger.info(
                 "Aider beast mode: attempt %d failed (%.1fs, files=%s): %s",
                 attempt + 1, elapsed, list(files.keys()), last_error[:200],
             )
 
+        # Persist log even on failure so the error can be diagnosed
+        if last_log:
+            try:
+                (stage_dir / "aider_log.txt").write_text(
+                    last_log, encoding="utf-8",
+                )
+            except OSError:
+                pass
+
         return OpenCodeResult(
             success=False,
             opencode_log=last_error,
-            elapsed_sec=0.0,
+            elapsed_sec=last_elapsed,
             error=f"Aider failed after {1 + self.max_retries} attempt(s)",
         )
+
+    # ------------------------------------------------------------------
+    # Stage 12: Aider-based sanity check fix
+    # ------------------------------------------------------------------
+
+    def _prepare_fix_workspace(
+        self,
+        stage_dir: Path,
+        run_dir: Path,
+        experiment_dir: Path,
+        codebases_dir: str = "",
+    ) -> Path:
+        """Prepare a workspace for Aider-based sanity fix.
+
+        Copies experiment .py files, reuses GUIDANCE.md and EXPERIMENT_PLAN.yaml
+        from the Stage 11 aider workspace, and symlinks codebases for --read.
+        """
+        ws = stage_dir / f"aider_fix_{int(time.time())}_{os.getpid()}"
+        ws.mkdir(parents=True, exist_ok=True)
+
+        for py_file in sorted(experiment_dir.glob("*.py")):
+            try:
+                shutil.copy2(py_file, ws / py_file.name)
+            except OSError:
+                pass
+
+        for aider_ws in sorted(run_dir.glob("stage-*/aider_beast_*"), reverse=True):
+            for ctx_name in ("GUIDANCE.md", "EXPERIMENT_PLAN.yaml"):
+                src = aider_ws / ctx_name
+                dst = ws / ctx_name
+                if src.exists() and not dst.exists():
+                    try:
+                        shutil.copy2(src, dst)
+                    except OSError:
+                        pass
+            cb_src = aider_ws / "codebases"
+            cb_dst = ws / "codebases"
+            if cb_src.is_dir() and not cb_dst.exists():
+                try:
+                    cb_dst.symlink_to(cb_src.resolve())
+                except OSError:
+                    pass
+            if (ws / "GUIDANCE.md").exists():
+                break
+
+        if codebases_dir and not (ws / "codebases").exists():
+            cb_path = Path(codebases_dir).resolve()
+            if cb_path.is_dir():
+                link = ws / "codebases"
+                try:
+                    link.symlink_to(cb_path)
+                except OSError:
+                    pass
+
+        # Copy dataset config YAMLs as read-only context so the model can
+        # inspect actual config keys (e.g. ref_image_infos path strings).
+        _datasets_dir = ""
+        _gm = ws / "GUIDANCE.md"
+        if _gm.exists():
+            import re as _re_ws
+            _gm_text = _gm.read_text(encoding="utf-8")
+            _match = _re_ws.search(r'DATASETS_DIR\s*=\s*["\']([^"\']+)["\']', _gm_text)
+            if _match:
+                _datasets_dir = _match.group(1)
+        if _datasets_dir:
+            _ds_path = Path(_datasets_dir)
+            _ctx_dir = ws / "dataset_configs"
+            _copied = 0
+            if _ds_path.is_dir():
+                for _cfg_yaml in sorted(_ds_path.rglob("*.yaml")):
+                    if _copied >= 10:
+                        break
+                    try:
+                        _rel = _cfg_yaml.relative_to(_ds_path)
+                        _dst = _ctx_dir / _rel
+                        _dst.parent.mkdir(parents=True, exist_ok=True)
+                        shutil.copy2(_cfg_yaml, _dst)
+                        _copied += 1
+                    except (OSError, ValueError):
+                        pass
+
+        # Copy codebase config YAMLs (e.g. config_for_visualization.yaml)
+        if codebases_dir:
+            _cb_configs = Path(codebases_dir) / "configs"
+            _cb_ctx = ws / "codebase_configs"
+            if _cb_configs.is_dir():
+                _copied = 0
+                for _cfg_yaml in sorted(_cb_configs.glob("*.yaml")):
+                    if _copied >= 5:
+                        break
+                    try:
+                        _cb_ctx.mkdir(parents=True, exist_ok=True)
+                        shutil.copy2(_cfg_yaml, _cb_ctx / _cfg_yaml.name)
+                        _copied += 1
+                    except OSError:
+                        pass
+
+        return ws
+
+    def _build_aider_fix_cmd(
+        self,
+        workspace: Path,
+        message: str,
+        api_key: str,
+    ) -> list[str]:
+        """Build Aider CLI command for a sanity fix invocation.
+
+        All .py files in workspace are editable; GUIDANCE.md, EXPERIMENT_PLAN.yaml,
+        and codebase .py files are read-only context.
+        """
+        model = self.model
+        if "/" not in model:
+            model = f"openai/{model}"
+
+        msg_file = workspace / ".aider_task.md"
+        msg_file.write_text(message, encoding="utf-8")
+
+        add_files: list[str] = []
+        for py_file in sorted(workspace.glob("*.py")):
+            add_files.append(str(py_file))
+
+        read_files: list[str] = []
+        for ctx in ("GUIDANCE.md", "EXPERIMENT_PLAN.yaml"):
+            ctx_path = workspace / ctx
+            if ctx_path.exists():
+                read_files.extend(["--read", str(ctx_path)])
+        for rf in self._find_core_source_files(workspace):
+            read_files.extend(["--read", rf])
+        # Include dataset config YAMLs and codebase config YAMLs as read context
+        for _ctx_dir_name in ("dataset_configs", "codebase_configs"):
+            _ctx_dir = workspace / _ctx_dir_name
+            if _ctx_dir.is_dir():
+                for _yaml_file in sorted(_ctx_dir.rglob("*.yaml"))[:8]:
+                    read_files.extend(["--read", str(_yaml_file)])
+
+        return [
+            self._find_binary(),
+            "--model", model,
+            "--openai-api-base", self.llm_base_url,
+            "--openai-api-key", api_key,
+            "--message-file", str(msg_file),
+            "--yes",
+            "--no-auto-commits",
+            "--no-stream",
+            "--no-git",
+            "--no-show-model-warnings",
+            "--no-show-release-notes",
+            "--no-check-update",
+            "--no-browser",
+            "--edit-format", "diff",
+            "--map-tokens", "2048",
+            *read_files,
+            *add_files,
+        ]
+
+    def fix_sanity_error(
+        self,
+        stage_dir: Path,
+        run_dir: Path,
+        experiment_dir: Path,
+        test_name: str,
+        test_code: str,
+        stderr: str,
+        iteration: int,
+        max_iterations: int,
+        previous_fixes: list[dict[str, Any]] | None = None,
+        codebases_dir: str = "",
+    ) -> tuple[bool, dict[str, str], str]:
+        """Use Aider to fix a sanity check failure.
+
+        Returns (success, {filename: patched_content}, aider_log).
+        The caller is responsible for writing patched files back to experiment_dir.
+        """
+        if not self.check_available():
+            return False, {}, "Aider CLI not available"
+
+        api_key = self._resolve_api_key()
+
+        ws = self._prepare_fix_workspace(
+            stage_dir=stage_dir,
+            run_dir=run_dir,
+            experiment_dir=experiment_dir,
+            codebases_dir=codebases_dir,
+        )
+
+        repeat_hint = ""
+        if previous_fixes:
+            prev_details = []
+            for entry in previous_fixes[-3:]:
+                err_tail = str(entry.get("error_tail", ""))[-500:]
+                last_line = err_tail.strip().splitlines()[-1] if err_tail.strip() else "?"
+                diff_stats = entry.get("patch_diff_stats", {})
+                diff_summary = ""
+                if diff_stats:
+                    diff_parts = [
+                        f"{fname}: {s.get('changed_lines', '?')} lines changed ({s.get('change_pct', '?')}%)"
+                        for fname, s in diff_stats.items()
+                    ]
+                    diff_summary = f"\n  Changes made: {', '.join(diff_parts)}"
+                prev_details.append(
+                    f"- **Iteration {entry.get('iteration', '?')}**: "
+                    f"patched {entry.get('patches_applied', [])}, "
+                    f"failed test `{entry.get('failed_test', '?')}`{diff_summary}\n"
+                    f"  Error: `{last_line}`"
+                )
+
+            last_err = str(previous_fixes[-1].get("error_tail", ""))[-300:].strip()
+            current_err = stderr[-300:].strip()
+            if len(previous_fixes) >= 2:
+                prev_prev_err = str(previous_fixes[-2].get("error_tail", ""))[-300:].strip()
+            else:
+                prev_prev_err = ""
+
+            same_as_last = (
+                last_err and current_err
+                and last_err.splitlines()[-1:] == current_err.splitlines()[-1:]
+            )
+            is_cycle = (
+                prev_prev_err and current_err
+                and len(previous_fixes) >= 2
+                and prev_prev_err.splitlines()[-1:] == current_err.splitlines()[-1:]
+            )
+
+            if is_cycle:
+                escalation = (
+                    "**ESCALATION — CYCLE DETECTED**: The same error appeared before, was 'fixed', "
+                    "then a different fix broke it again the same way. Your previous approach is "
+                    "FUNDAMENTALLY WRONG. You must try a COMPLETELY DIFFERENT strategy:\n"
+                    "- For path errors: instead of manipulating the path string, use `os.path.basename()` "
+                    "to extract just the filename and rebuild the path from known constants.\n"
+                    "- For NoneType errors: read the reference implementation (inference.py) to find "
+                    "the EXACT correct values, don't guess.\n"
+                    "- For missing keys: read the ACTUAL config file or grep ALL attribute accesses "
+                    "in the codebase source.\n"
+                )
+            elif same_as_last:
+                escalation = (
+                    "**WARNING — SAME ERROR**: The error is IDENTICAL to the previous iteration. "
+                    "Your last fix had NO EFFECT on this error. The previous change was either "
+                    "wrong or insufficient. Do NOT repeat the same approach — try something different.\n"
+                    "Read the actual data/config files to understand what values are really there.\n"
+                )
+            else:
+                escalation = (
+                    "**NOTE**: The error changed from the previous iteration — your fix partially worked "
+                    "but exposed a new issue. Fix this new error while keeping the previous fix intact.\n"
+                )
+
+            repeat_hint = (
+                "\n## Previous fix attempts (all FAILED)\n"
+                + "\n".join(prev_details) + "\n\n"
+                + escalation
+            )
+
+        fix_prompt = _FIX_SANITY_PROMPT.replace(
+            "{test_name}", test_name
+        ).replace(
+            "{test_code}", test_code
+        ).replace(
+            "{stderr}", stderr[-3000:]
+        ).replace(
+            "{repeat_hint}", repeat_hint
+        )
+
+        logger.info(
+            "Aider sanity fix: invoking for test=%s iteration=%d workspace=%s",
+            test_name, iteration, ws,
+        )
+
+        ok, log, elapsed = self._invoke_aider(
+            workspace=ws,
+            message=fix_prompt,
+            api_key=api_key,
+            step_timeout=max(180, self.timeout_sec // 3),
+            edit_format="diff",
+        )
+
+        logger.info(
+            "Aider sanity fix: done (ok=%s, %.1fs)", ok, elapsed,
+        )
+
+        patched_files: dict[str, str] = {}
+        for py_file in sorted(ws.glob("*.py")):
+            orig = experiment_dir / py_file.name
+            if not orig.exists():
+                continue
+            try:
+                ws_content = py_file.read_text(encoding="utf-8")
+                orig_content = orig.read_text(encoding="utf-8")
+                if ws_content != orig_content and len(ws_content.strip()) > 30:
+                    patched_files[py_file.name] = ws_content
+            except OSError:
+                pass
+
+        return bool(patched_files), patched_files, log

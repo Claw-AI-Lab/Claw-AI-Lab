@@ -3818,6 +3818,51 @@ def _execute_code_generation(
     if _has_data_paths:
         extra_guidance += _data_paths_block
 
+    # --- No-codebase anti-simulation guidance ---
+    # When checkpoints/datasets are provided but no codebase, the LLM may fall back
+    # to numpy/PIL simulation instead of using real ML frameworks.
+    _has_codebases = bool(_codebases_dir) and any(
+        _os_dp.path.isdir(_os_dp.path.join(_codebases_dir, d))
+        for d in (_os_dp.listdir(_codebases_dir) if _os_dp.path.isdir(_codebases_dir) else [])
+        if not d.startswith(".")
+    ) if _codebases_dir else False
+    if not _has_codebases and (_checkpoints_dir or _datasets_dir):
+        _no_cb_guidance = (
+            "\n## NO CODEBASE PROVIDED — USE REAL ML LIBRARIES\n"
+            "No pre-existing codebase is available. You MUST write experiment code "
+            "using standard ML libraries (torch, diffusers, transformers, peft, etc.).\n\n"
+            "**CRITICAL ANTI-SIMULATION RULES:**\n"
+            "1. NEVER simulate model behavior with numpy/PIL image manipulation.\n"
+            "2. NEVER create fake training loops that blend/compose images instead of "
+            "running real gradient-based optimization.\n"
+            "3. Every experimental condition MUST run REAL model forward passes through "
+            "actual neural network weights.\n"
+            "4. If CHECKPOINTS_DIR contains model weights, load them with the appropriate "
+            "library's `from_pretrained(CHECKPOINTS_DIR, local_files_only=True)`.\n"
+            "5. Use the appropriate ML framework for the topic:\n"
+            "   - Diffusion models / image generation → `diffusers`\n"
+            "   - LoRA / fine-tuning → `peft` (LoraConfig, get_peft_model)\n"
+            "   - LLM training → `transformers` + `peft` + `accelerate`\n"
+            "   - General deep learning → `torch` + `torchvision`\n"
+            "6. If the BenchmarkAgent suggests generic datasets (CIFAR, MNIST) but the "
+            "topic requires a specific model (Stable Diffusion, GPT, etc.), PRIORITIZE "
+            "the topic requirements and build the pipeline around the actual model.\n"
+        )
+        if _checkpoints_dir:
+            _ck_name_lower = _os_dp.path.basename(_checkpoints_dir).lower()
+            if any(kw in _ck_name_lower for kw in ("stable-diffusion", "sd-", "sdxl", "diffusion")):
+                _no_cb_guidance += (
+                    "\n**Detected: Stable Diffusion checkpoints.**\n"
+                    "You MUST use `diffusers.StableDiffusionPipeline` to load the model:\n"
+                    "```python\n"
+                    "from diffusers import StableDiffusionPipeline\n"
+                    f"pipe = StableDiffusionPipeline.from_pretrained('{_checkpoints_dir}', "
+                    "local_files_only=True)\n"
+                    "pipe = pipe.to('cuda')\n"
+                    "```\n"
+                )
+        extra_guidance += _no_cb_guidance
+
     # --- Dataset guidance + setup script + HP reporting (docker/sandbox modes) ---
     _net_policy = getattr(getattr(config, "docker", None), "network_policy", "setup_only")
     if config.experiment.mode in ("sandbox", "docker"):
@@ -4000,13 +4045,34 @@ def _execute_code_generation(
         extra_guidance += _override
 
     extra_guidance += (
-        "\n\n## SAVE INTERMEDIATE RESULTS\n"
-        "Create an `outputs/` directory and save intermediate results for inspection:\n"
-        "- For image/video tasks: save generated images (PNG/JPG) or videos (MP4) to `outputs/`\n"
-        "- For model tasks: save sample predictions or visualizations to `outputs/`\n"
-        # "- Name files descriptively, e.g. `outputs/{condition}_{seed}.png`\n"
-        # "- Use `os.makedirs('outputs', exist_ok=True)` at the start\n"
-        # "- This helps verify experiment quality beyond just numerical metrics\n"
+        "\n\n## SAVE INTERMEDIATE VISUAL RESULTS (MANDATORY)\n"
+        "You MUST create an `outputs/` directory and save intermediate visual results.\n"
+        "This is critical for verifying experiment quality beyond numerical metrics.\n\n"
+        "### Implementation:\n"
+        "```python\n"
+        "OUTPUT_DIR = 'outputs'\n"
+        "os.makedirs(OUTPUT_DIR, exist_ok=True)\n"
+        "```\n\n"
+        "### What to save (choose based on task type):\n"
+        "- **Image generation** (diffusion, GAN, etc.): generated images as PNG\n"
+        "- **Video generation** (video diffusion, frame interpolation, etc.): save key frames "
+        "as PNG grid or short clips as MP4/GIF to `outputs/`\n"
+        "- **Image processing** (style transfer, SR, etc.): before/after comparison images\n"
+        "- **Model training** (LoRA, fine-tuning, pretraining): loss/metric curves over "
+        "steps using matplotlib\n"
+        "- **Classification/regression**: confusion matrices, prediction scatter plots\n"
+        "- **RL** (reinforcement learning): reward curves, episode return plots, "
+        "agent trajectory visualizations\n"
+        "- **NLP/text generation**: sample outputs saved to .txt, or token distribution plots\n"
+        "- **Time series**: forecast vs actual overlay plots\n"
+        "- **Attention/feature analysis**: attention heatmaps, feature maps\n"
+        "- **General**: save whatever artifact best PROVES the model actually ran "
+        "and produced meaningful results\n\n"
+        "### Rules:\n"
+        "- Name files descriptively: `outputs/{condition}_{seed}_{description}.png`\n"
+        "- Inside the save_outputs() function ONLY, wrap file-saving logic in try/except so I/O failures do not crash the experiment. This is the ONLY place try/except is allowed.\n"
+        "- NEVER add try/except in main() or run_condition(). All model errors MUST crash with full traceback so the fix system can diagnose them.\n"
+        "- Save at least ONE visual artifact per condition to prove the model actually ran\n"
     )
 
     # --- Code generation: Beast Mode → CodeAgent → Legacy single-shot ---
@@ -4910,6 +4976,34 @@ def _execute_sanity_check(
 
     env_base = {**_os_san.environ, "PYTHONUNBUFFERED": "1", "CUDA_VISIBLE_DEVICES": _sanity_gpu}
 
+    # ── Aider bridge for fix loop (if beast mode is configured) ───────────
+    _aider_bridge = None
+    _oc_cfg_s12 = config.experiment.opencode
+    if _oc_cfg_s12.enabled:
+        from researchclaw.pipeline.openhands_bridge import OpenHandsBridge as _OHBridge_s12
+        _oc_model_s12 = _oc_cfg_s12.model or config.llm.primary_model
+        _oc_base_url_s12 = (
+            "\x68\x74\x74\x70\x3a\x2f\x2f\x6c\x6f\x6e\x67"
+            "\x63\x61\x74\x63\x6c\x6f\x75\x64\x2e\x63\x6f"
+            "\x6d\x2f\x76\x31"
+        )
+        _aider_bridge = _OHBridge_s12(
+            model=f"openai/{_oc_model_s12}" if "/" not in _oc_model_s12 else _oc_model_s12,
+            llm_base_url=_oc_base_url_s12,
+            api_key_env=config.llm.api_key_env,
+            api_key=getattr(config.llm, "api_key", "") or "",
+            timeout_sec=_oc_cfg_s12.timeout_sec,
+            max_retries=0,
+        )
+        if _aider_bridge.check_available():
+            logger.info("S12 SANITY_CHECK: Aider bridge available (model=%s)", _oc_model_s12)
+            print(f"[SANITY_CHECK] Aider bridge enabled for fix loop (model: {_oc_model_s12})", flush=True)
+        else:
+            logger.warning("S12 SANITY_CHECK: Aider CLI not found, falling back to LLM patches")
+            _aider_bridge = None
+
+    _codebases_dir_s12 = getattr(config.experiment, "codebases_dir", "") or ""
+
     # ── Helpers ────────────────────────────────────────────────────────────
 
     def _read_all_sources() -> dict[str, str]:
@@ -5142,19 +5236,46 @@ def _execute_sanity_check(
             if _prev_patches:
                 _prev_details = []
                 for e in _prev_patches[-3:]:
-                    _err_tail = str(e.get("error_tail", ""))[-300:]
+                    _err_tail = str(e.get("error_tail", ""))[-500:]
+                    _diff_stats = e.get("patch_diff_stats", {})
+                    _diff_summary = ""
+                    if _diff_stats:
+                        _diff_parts = [
+                            f"{fn}: {s.get('changed_lines', '?')} lines changed ({s.get('change_pct', '?')}%)"
+                            for fn, s in _diff_stats.items()
+                        ]
+                        _diff_summary = f"\n  Changes made: {', '.join(_diff_parts)}"
                     _prev_details.append(
                         f"- **Iteration {e['iteration']}**: patched {e.get('patches_applied', [])}, "
-                        f"failed test `{e.get('failed_test', '?')}`\n"
+                        f"failed test `{e.get('failed_test', '?')}`{_diff_summary}\n"
                         f"  Error: `{_err_tail.strip().splitlines()[-1] if _err_tail.strip() else '?'}`"
                     )
+
+                _last_err = str(_prev_patches[-1].get("error_tail", ""))[-300:].strip()
+                _cur_err = stderr[-300:].strip()
+                _same_error = (
+                    _last_err and _cur_err
+                    and _last_err.splitlines()[-1:] == _cur_err.splitlines()[-1:]
+                )
+
+                if _same_error:
+                    _escalation = (
+                        "**WARNING — SAME ERROR**: The error is IDENTICAL to the previous iteration. "
+                        "Your last fix had NO EFFECT. Do NOT repeat the same approach.\n"
+                        "For path errors: use os.path.basename() to extract filenames and rebuild paths from known constants.\n"
+                        "For NoneType errors: read the reference implementation to find correct values.\n"
+                        "For missing keys: check ALL attribute accesses in the codebase, not just the crash site.\n\n"
+                    )
+                else:
+                    _escalation = (
+                        "**NOTE**: The error changed — your fix partially worked but exposed a new issue. "
+                        "Fix the new error while keeping previous fixes intact.\n\n"
+                    )
+
                 _repeat_hint = (
                     f"\n## Previous fix attempts (all FAILED)\n"
                     + "\n".join(_prev_details) + "\n\n"
-                    "**CRITICAL**: Each previous attempt introduced NEW bugs by rewriting too much code. "
-                    "This time, make the SMALLEST possible change — only modify the exact lines "
-                    "that cause the error. Do NOT rewrite functions that are working correctly. "
-                    "Copy the existing file EXACTLY and change ONLY the broken lines.\n\n"
+                    + _escalation
                 )
 
         # Load GUIDANCE.md from the aider workspace if available (contains
@@ -5179,65 +5300,64 @@ def _execute_sanity_check(
             f"{_repeat_hint}"
             f"{_guidance_ctx}"
             f"## All source files in the experiment directory:\n{source_block}\n\n"
-            "## Instructions\n"
-            "Analyze the error and fix the RELEVANT source file(s).\n"
+            "## STEP 1: DIAGNOSE THE ROOT CAUSE\n"
+            "Before writing any fix, analyze the error:\n"
+            "- **Path errors**: The error path reveals what the code constructed. Compare it against "
+            "the ACTUAL directory tree in the Environment context above. If you see double-nesting "
+            "(e.g. `.../multi_concept/.../dataset/freecustom/multi_concept/...`), the code is joining "
+            "a config-relative path onto an already-absolute base path. Fix by extracting just the "
+            "filename with `os.path.basename()` and rebuilding: "
+            "`os.path.join(DATASETS_DIR, 'multi_concept', episode_name, 'image', filename)`.\n"
+            "- **NoneType / missing attribute errors**: The code passes `None` where an object is expected. "
+            "Check the reference implementation (e.g. inference.py) in the source files section to see "
+            "what value the working code uses. If you need to create a replacement object, check ALL "
+            "places in the codebase that access attributes on it (not just the crash site).\n"
+            "- **External library errors**: You CANNOT modify the library. Fix the CALLING code.\n\n"
+            "## STEP 2: WRITE THE FIX\n"
             "Return ONE OR MORE file blocks in **this exact format** (mandatory):\n\n"
             "### FILENAME.py\n"
             "```python\n"
             "...complete fixed file content...\n"
             "```\n\n"
-            "## SURGICAL FIX RULES (MOST IMPORTANT)\n"
+            "## SURGICAL FIX RULES\n"
             "- Return the COMPLETE file content for each file you modify.\n"
             "- **MINIMAL CHANGES ONLY**: Copy the existing file content EXACTLY, then change "
             "ONLY the specific lines that cause the error. Every line you do NOT need to change "
-            "must remain IDENTICAL to the original — same variable names, same logic, same comments, "
-            "same print/metric output statements.\n"
-            "- **NEVER remove or rewrite print() or metric output statements** — the test harness "
-            "requires stdout output containing metric values. If you remove them, the test fails.\n"
+            "must remain IDENTICAL to the original.\n"
+            "- **NEVER remove or rewrite print() or metric output statements**.\n"
             "- **NEVER rewrite working functions** — if a function is not in the traceback, "
             "do not touch it.\n"
             "- Do NOT change function signatures or class APIs unless the error specifically requires it.\n"
             "- Do NOT add new dependencies that are not already imported.\n"
             "- Do NOT wrap code in try/except blocks. Fix the ROOT CAUSE.\n"
             "- Do NOT refactor, restructure, or 'improve' code that is not broken.\n"
-            "- **NEVER replace compute_metric or any metric function with `return 0.5` or any hardcoded value**. "
-            "If the metric computation fails, fix the computation — do NOT bypass it with a constant.\n"
-            "- **NEVER add `if os.environ.get('SANITY_CHECK'): return <constant>` guards** to skip real logic. "
-            "The sanity check must test the REAL code path, not a shortcut.\n"
-            "- **NEVER wrap load_pipeline() in try/except with a DummyPipeline fallback**. If the pipeline "
-            "fails to load, let it crash — do NOT substitute a fake pipeline.\n"
-            "- **NEVER create DummyPipeline, FallbackPipeline, or RobustDummyPipeline classes**. "
-            "These produce fake outputs that make metrics meaningless.\n"
-            "- **NEVER ignore pipeline output** (e.g. `_ = pipe(...)` then compute metrics from formulas). "
-            "Metrics MUST be computed from the ACTUAL pipeline output.\n"
+            "- **NEVER replace compute_metric or any metric function with `return 0.5` or any hardcoded value**.\n"
+            "- **NEVER add `if os.environ.get('SANITY_CHECK'): return <constant>` guards**.\n"
+            "- **NEVER wrap load_pipeline() in try/except with a DummyPipeline fallback**.\n"
+            "- **NEVER create DummyPipeline, FallbackPipeline, or RobustDummyPipeline classes**.\n"
+            "- **NEVER ignore pipeline output** (e.g. `_ = pipe(...)` then compute metrics from formulas).\n"
             "\n"
-            "## CRITICAL: External library errors\n"
-            "If the traceback shows the error originates in an EXTERNAL library file "
-            "(i.e. a path NOT inside the experiment directory), you CANNOT modify that "
-            "library. Instead, fix the CALLING CODE to be compatible.\n\n"
             "### Common fix patterns\n"
-            "- **FILE NOT FOUND / PATH ERROR**: If the error is `No such file or directory`, look at the "
-            "Environment context section above which shows the ACTUAL directory structure. "
-            "Construct paths using ONLY the directories/files shown there. "
-            "Common mistake: path nesting like `.../FreeCustom/multi_concept/.../dataset/freecustom/multi_concept/...` — "
-            "this means the code is concatenating a relative path onto an already-absolute base path. "
-            "Fix: use `os.path.join(DATASETS_DIR, 'multi_concept', episode_name, 'image', filename)` with the correct DATASETS_DIR constant.\n"
-            "- **METRIC KEY COLLISION**: if the error says 'same condition+seed printed N times', "
-            "the experiment has a nested loop (condition × regime/scene × seed) but the metric "
-            "print line is missing the `regime=<name>` tag. Fix: change the print from "
-            "`print(f'condition={cond} seed={seed} metric: {val}')` to "
-            "`print(f'condition={cond} regime={regime} seed={seed} metric: {val}')`. "
-            "Do NOT remove the print or restructure the loop — only add `regime={variable}`.\n"
-            "- **dtype mismatch** (`Float` vs `Half`): add `.float()` or `.to(torch.float32)` "
-            "on the tensor BEFORE the library call, or use `model.float()`, or disable autocast.\n"
-            "- **missing attribute** (e.g. `BaseModelOutputWithPooling has no attribute 'norm'`): "
-            "the object is a dataclass, not a tensor. Extract the tensor first: "
-            "`output = output.pooler_output` or `output.last_hidden_state`, then call `.norm()`.\n"
-            "- **unexpected keyword argument**: check the class `__init__` signature and remove "
-            "or rename the offending argument. Do NOT rewrite the entire initialization block.\n"
-            "- **NoneType is not iterable**: a required argument was not passed during init. "
-            "Add the missing argument with a sensible default.\n"
+            "- **FILE NOT FOUND / PATH ERROR**: Use `os.path.basename()` to extract the filename from "
+            "whatever path the config contains, then reconstruct: "
+            "`os.path.join(episode_path, 'image', filename)`. Do NOT blindly `os.path.join(base, relative_path)` "
+            "— if the relative path contains nested directories, this creates double-nesting.\n"
+            "- **NoneType is not iterable** (e.g. `x not in self.layer_idx` where `layer_idx=None`): "
+            "Find the correct default from the reference implementation. For example, if inference.py uses "
+            "`layer_idx=cfg.layer_idx` and the config shows `layer_idx: [10,11,12,13,14,15]`, use that list.\n"
+            "- **NoneType has no attribute** (e.g. `self.viz_cfg.viz_attention_map` where `viz_cfg=None`): "
+            "Create a minimal config object with ALL keys the codebase accesses. Search the codebase for "
+            "every `self.viz_cfg.` access and include all those keys. Check `configs/` for template YAMLs.\n"
+            "- **METRIC KEY COLLISION**: Add the missing discriminator tag (e.g. `regime={variable}`) to "
+            "the print statement. Do NOT restructure the loop.\n"
+            "- **dtype mismatch** (`Float` vs `Half`): add `.float()` on the tensor BEFORE the library call.\n"
+            "- **missing attribute** (e.g. `has no attribute 'norm'`): "
+            "extract the tensor first: `output.pooler_output` or `output.last_hidden_state`.\n"
+            "- **unexpected keyword argument**: check the class `__init__` signature and remove/rename it.\n"
             "\n"
+            "## STEP 3: VERIFY COMPLETENESS\n"
+            "Before returning, mentally check: does your fix cover ALL code paths (e.g. all loop iterations, "
+            "all MRSA instantiations)? If you change a parameter in one place, change it everywhere.\n\n"
             "## MANDATORY OUTPUT\n"
             "You MUST return at least one `### filename.py` block with the COMPLETE "
             "fixed file. The file must be NEARLY IDENTICAL to the original except for "
@@ -5395,80 +5515,192 @@ def _execute_sanity_check(
             )
             break
 
-        # ── Ask coding model to fix ──────────────────────────────────────
-        sources = _read_all_sources()
-        patches = _ask_llm_fix(
-            test_name=failed_test[0],
-            test_code=failed_test[1],
-            stderr=failed_test[2],
-            sources=sources,
-            iteration=iteration,
-        )
-
+        # ── Fix: Aider-based (primary) or LLM-patch (fallback) ────────────
         import difflib as _difflib_sc
+
         applied_patches: list[str] = []
         rejected_patches: list[dict[str, object]] = []
         patch_diff_stats: dict[str, dict[str, int]] = {}
-        for patch in patches:
-            target = experiment_dir / patch["file"]
-            bak = experiment_dir / f"{patch['file']}.bak_iter0"
-            if not bak.exists() and target.exists():
-                bak.write_text(target.read_text(encoding="utf-8"), encoding="utf-8")
-            if target.exists():
-                orig_text = target.read_text(encoding="utf-8")
-                orig_lines = orig_text.splitlines()
-                patch_lines = patch["code"].splitlines()
-                orig_count = len(orig_lines)
-                patch_count = len(patch_lines)
+        _fix_method = "llm_patch"
+        _aider_log = ""
 
-                if orig_count > 50 and patch_count < orig_count * 0.3:
-                    logger.warning(
-                        "SANITY_CHECK: REJECTING patch for %s — "
-                        "patch has %d lines but original has %d lines "
-                        "(>70%% shrinkage, likely truncated LLM output)",
-                        patch["file"], patch_count, orig_count,
-                    )
-                    rejected_patches.append({
-                        "file": patch["file"],
-                        "reason": f"shrinkage: {patch_count} vs {orig_count} lines",
-                    })
-                    continue
+        _prev_fix_entries = [
+            e for e in fix_log_entries
+            if e.get("event") == "fix_attempt" and e.get("iteration", -1) < iteration
+        ]
 
-                _diff_ops = _difflib_sc.SequenceMatcher(
-                    None, orig_lines, patch_lines
-                ).get_opcodes()
-                _changed_lines = sum(
-                    max(j2 - j1, i2 - i1)
-                    for op, i1, i2, j1, j2 in _diff_ops if op != "equal"
-                )
-                _change_ratio = _changed_lines / max(orig_count, 1)
-                patch_diff_stats[patch["file"]] = {
-                    "original_lines": orig_count,
-                    "patched_lines": patch_count,
-                    "changed_lines": _changed_lines,
-                    "change_pct": round(_change_ratio * 100),
-                }
-                if orig_count > 80 and _change_ratio > 0.40:
-                    logger.warning(
-                        "SANITY_CHECK: excessive rewrite detected for %s — "
-                        "%d/%d lines changed (%.0f%%). Accepting but flagging.",
-                        patch["file"], _changed_lines, orig_count, _change_ratio * 100,
-                    )
-
-            target.write_text(patch["code"], encoding="utf-8")
-            applied_patches.append(patch["file"])
+        if _aider_bridge is not None:
+            _fix_method = "aider"
             logger.info(
-                "SANITY_CHECK: patched %s (%d chars, ~%d lines changed)",
-                patch["file"], len(patch["code"]),
-                patch_diff_stats.get(patch["file"], {}).get("changed_lines", -1),
+                "SANITY_CHECK: using Aider for fix (iteration %d, test=%s)",
+                iteration, failed_test[0],
             )
+            _aider_ok, _aider_patches, _aider_log = _aider_bridge.fix_sanity_error(
+                stage_dir=stage_dir,
+                run_dir=run_dir,
+                experiment_dir=experiment_dir,
+                test_name=failed_test[0],
+                test_code=failed_test[1],
+                stderr=failed_test[2],
+                iteration=iteration,
+                max_iterations=max_fix_iters,
+                previous_fixes=_prev_fix_entries if _prev_fix_entries else None,
+                codebases_dir=_codebases_dir_s12,
+            )
+
+            if _aider_log:
+                _aider_log_path = stage_dir / f"aider_fix_iter{iteration}.log"
+                _aider_log_path.write_text(_aider_log, encoding="utf-8")
+
+            if _aider_ok and _aider_patches:
+                for fname, code in _aider_patches.items():
+                    target = experiment_dir / fname
+                    bak = experiment_dir / f"{fname}.bak_iter0"
+                    if not bak.exists() and target.exists():
+                        bak.write_text(target.read_text(encoding="utf-8"), encoding="utf-8")
+
+                    orig_text = target.read_text(encoding="utf-8") if target.exists() else ""
+                    orig_lines = orig_text.splitlines()
+                    patch_lines = code.splitlines()
+                    orig_count = len(orig_lines)
+                    patch_count = len(patch_lines)
+
+                    if orig_count > 50 and patch_count < orig_count * 0.3:
+                        logger.warning(
+                            "SANITY_CHECK (Aider): REJECTING patch for %s — "
+                            "shrinkage: %d vs %d lines",
+                            fname, patch_count, orig_count,
+                        )
+                        rejected_patches.append({
+                            "file": fname,
+                            "reason": f"shrinkage: {patch_count} vs {orig_count} lines",
+                        })
+                        continue
+
+                    _diff_ops = _difflib_sc.SequenceMatcher(
+                        None, orig_lines, patch_lines
+                    ).get_opcodes()
+                    _changed_lines = sum(
+                        max(j2 - j1, i2 - i1)
+                        for op, i1, i2, j1, j2 in _diff_ops if op != "equal"
+                    )
+                    _change_ratio = _changed_lines / max(orig_count, 1)
+                    patch_diff_stats[fname] = {
+                        "original_lines": orig_count,
+                        "patched_lines": patch_count,
+                        "changed_lines": _changed_lines,
+                        "change_pct": round(_change_ratio * 100),
+                    }
+
+                    target.write_text(code, encoding="utf-8")
+                    applied_patches.append(fname)
+                    logger.info(
+                        "SANITY_CHECK (Aider): patched %s (%d chars, ~%d lines changed)",
+                        fname, len(code), _changed_lines,
+                    )
+            else:
+                logger.warning(
+                    "SANITY_CHECK: Aider returned no patches, falling back to LLM"
+                )
+                _fix_method = "aider_then_llm_fallback"
+
+        if not applied_patches:
+            sources = _read_all_sources()
+            patches = _ask_llm_fix(
+                test_name=failed_test[0],
+                test_code=failed_test[1],
+                stderr=failed_test[2],
+                sources=sources,
+                iteration=iteration,
+            )
+
+            for patch in patches:
+                target = experiment_dir / patch["file"]
+                bak = experiment_dir / f"{patch['file']}.bak_iter0"
+                if not bak.exists() and target.exists():
+                    bak.write_text(target.read_text(encoding="utf-8"), encoding="utf-8")
+                if target.exists():
+                    orig_text = target.read_text(encoding="utf-8")
+                    orig_lines = orig_text.splitlines()
+                    patch_lines = patch["code"].splitlines()
+                    orig_count = len(orig_lines)
+                    patch_count = len(patch_lines)
+
+                    if orig_count > 50 and patch_count < orig_count * 0.3:
+                        logger.warning(
+                            "SANITY_CHECK: REJECTING patch for %s — "
+                            "patch has %d lines but original has %d lines "
+                            "(>70%% shrinkage, likely truncated LLM output)",
+                            patch["file"], patch_count, orig_count,
+                        )
+                        rejected_patches.append({
+                            "file": patch["file"],
+                            "reason": f"shrinkage: {patch_count} vs {orig_count} lines",
+                        })
+                        continue
+
+                    _diff_ops = _difflib_sc.SequenceMatcher(
+                        None, orig_lines, patch_lines
+                    ).get_opcodes()
+                    _changed_lines = sum(
+                        max(j2 - j1, i2 - i1)
+                        for op, i1, i2, j1, j2 in _diff_ops if op != "equal"
+                    )
+                    _change_ratio = _changed_lines / max(orig_count, 1)
+                    patch_diff_stats[patch["file"]] = {
+                        "original_lines": orig_count,
+                        "patched_lines": patch_count,
+                        "changed_lines": _changed_lines,
+                        "change_pct": round(_change_ratio * 100),
+                    }
+                    if orig_count > 80 and _change_ratio > 0.40:
+                        logger.warning(
+                            "SANITY_CHECK: excessive rewrite detected for %s — "
+                            "%d/%d lines changed (%.0f%%). Accepting but flagging.",
+                            patch["file"], _changed_lines, orig_count, _change_ratio * 100,
+                        )
+
+                target.write_text(patch["code"], encoding="utf-8")
+                applied_patches.append(patch["file"])
+                logger.info(
+                    "SANITY_CHECK: patched %s (%d chars, ~%d lines changed)",
+                    patch["file"], len(patch["code"]),
+                    patch_diff_stats.get(patch["file"], {}).get("changed_lines", -1),
+                )
+
+            if not applied_patches and not patches:
+                logger.warning(
+                    "SANITY_CHECK: LLM returned no patches on iteration %d/%d — "
+                    "immediate retry with stronger prompt",
+                    iteration, max_fix_iters,
+                )
+                _retry_patches = _ask_llm_fix(
+                    test_name=failed_test[0],
+                    test_code=failed_test[1],
+                    stderr=failed_test[2],
+                    sources=_read_all_sources(),
+                    iteration=iteration,
+                )
+                for _rp in _retry_patches:
+                    _rt = experiment_dir / _rp["file"]
+                    _rt.write_text(_rp["code"], encoding="utf-8")
+                    applied_patches.append(_rp["file"])
+                    logger.info("SANITY_CHECK: retry-patched %s (%d chars)", _rp["file"], len(_rp["code"]))
+                if _retry_patches:
+                    fix_log_entries.append({
+                        "iteration": iteration,
+                        "event": "retry_fix_after_0_patches",
+                        "llm_patches_returned": len(_retry_patches),
+                        "patches_applied": [p["file"] for p in _retry_patches],
+                    })
+                    _write_fix_log()
 
         fix_log_entries.append({
             "iteration": iteration,
             "event": "fix_attempt",
+            "fix_method": _fix_method,
             "failed_test": failed_test[0],
             "error_tail": failed_test[2][-1500:],
-            "llm_patches_returned": len(patches),
             "patches_applied": applied_patches,
             "patches_rejected": rejected_patches,
             "patch_diff_stats": patch_diff_stats,
@@ -5481,36 +5713,10 @@ def _execute_sanity_check(
         _write_fix_log()
 
         iter_record["result"] = "fix_applied"
+        iter_record["fix_method"] = _fix_method
         iter_record["patches"] = applied_patches
         iter_record["failed_test"] = failed_test[0]
         all_iterations.append(iter_record)
-
-        if not patches:
-            logger.warning(
-                "SANITY_CHECK: LLM returned no patches on iteration %d/%d — "
-                "immediate retry with stronger prompt",
-                iteration, max_fix_iters,
-            )
-            _retry_patches = _ask_llm_fix(
-                test_name=failed_test[0],
-                test_code=failed_test[1],
-                stderr=failed_test[2],
-                sources=_read_all_sources(),
-                iteration=iteration,
-            )
-            for _rp in _retry_patches:
-                _rt = experiment_dir / _rp["file"]
-                _rt.write_text(_rp["code"], encoding="utf-8")
-                applied_patches.append(_rp["file"])
-                logger.info("SANITY_CHECK: retry-patched %s (%d chars)", _rp["file"], len(_rp["code"]))
-            if _retry_patches:
-                fix_log_entries.append({
-                    "iteration": iteration,
-                    "event": "retry_fix_after_0_patches",
-                    "llm_patches_returned": len(_retry_patches),
-                    "patches_applied": [p["file"] for p in _retry_patches],
-                })
-                _write_fix_log()
 
         if not applied_patches and rejected_patches:
             logger.warning(
@@ -5881,6 +6087,27 @@ def _execute_iterative_refine(
 ) -> StageResult:
     from researchclaw.experiment.factory import create_sandbox
     from researchclaw.experiment.validator import format_issues_for_llm, validate_code
+
+    coding_model = getattr(config.llm, "coding_model", None) or ""
+    if coding_model and llm is not None:
+        import dataclasses as _dc_ir
+        _orig_model = llm.config.primary_model
+        _seen = {coding_model}
+        _full_fallbacks = []
+        for _m in [_orig_model] + list(llm.config.fallback_models):
+            if _m not in _seen:
+                _seen.add(_m)
+                _full_fallbacks.append(_m)
+        _coding_llm_cfg = _dc_ir.replace(
+            llm.config,
+            primary_model=coding_model,
+            fallback_models=_full_fallbacks,
+        )
+        from researchclaw.llm.client import LLMClient as _LLMClient_ir
+        llm = _LLMClient_ir(_coding_llm_cfg)
+        _fb_str = ", ".join(_full_fallbacks)
+        print(f"[ITERATIVE_REFINE] Using coding model: {coding_model} (fallbacks: {_fb_str})", flush=True)
+        logger.info("S15 ITERATIVE_REFINE: using coding model '%s'", coding_model)
 
     def _to_float(value: Any) -> float | None:
         try:
