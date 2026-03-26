@@ -1841,59 +1841,50 @@ def _generate_config_from_template(
     return str(config_path)
 
 
+KNOWN_LAB_ANGLES: dict[str, str] = {
+    "CV": (
+        "你是实验室的「计算机视觉 (CV)」方向研究员。"
+        "你的专长是图像识别、目标检测、语义分割、图像生成、视频理解。"
+        "请从 CV 的视角进行深入调研，"
+        "重点关注: 视觉骨干网络（ViT/CNN/Mamba）、"
+        "自监督/对比学习、生成模型（Diffusion/GAN/Flow Matching）、"
+        "3D 视觉、视频时序建模、以及 CV 在多模态与具身场景中的应用。"
+    ),
+    "VLM": (
+        "你是实验室的「视觉语言模型 (VLM)」方向研究员。"
+        "你的专长是多模态理解、视觉-语言对齐、图文推理、视觉 Grounding。"
+        "请从 VLM 的视角进行深入调研，"
+        "重点关注: 视觉编码器选型、跨模态融合架构、指令微调策略、"
+        "视觉推理能力评估、以及 VLM 在具身场景中的感知与决策应用。"
+    ),
+    "World Model": (
+        "你是实验室的「世界模型 (World Model)」方向研究员。"
+        "你的专长是环境建模、视频预测、物理仿真、因果推理。"
+        "请从 World Model 的视角进行深入调研，"
+        "重点关注: 世界模型的架构设计（自回归/扩散/状态空间）、"
+        "时空表征学习、动力学建模、长时序预测、"
+        "以及世界模型在具身智能中的规划与想象能力。"
+    ),
+    "VLA": (
+        "你是实验室的「视觉-语言-动作模型 (VLA)」方向研究员。"
+        "你的专长是端到端策略学习、动作生成、机器人操作、模仿学习。"
+        "请从 VLA 的视角进行深入调研，"
+        "重点关注: VLA 模型架构（RT-2、OpenVLA、π₀ 等）、"
+        "动作 tokenization 与解码策略、多任务泛化、"
+        "sim-to-real 迁移、以及 VLA 在真实机器人上的部署与评估。"
+    ),
+}
+
 DEFAULT_LAB_ANGLES: list[dict[str, str]] = [
-    {
-        "name": "CV",
-        "prompt": (
-            "你是实验室的「计算机视觉 (CV)」方向研究员。"
-            "你的专长是图像识别、目标检测、语义分割、图像生成、视频理解。"
-            "请从 CV 的视角进行深入调研，"
-            "重点关注: 视觉骨干网络（ViT/CNN/Mamba）、"
-            "自监督/对比学习、生成模型（Diffusion/GAN/Flow Matching）、"
-            "3D 视觉、视频时序建模、以及 CV 在多模态与具身场景中的应用。"
-        ),
-    },
-    {
-        "name": "VLM",
-        "prompt": (
-            "你是实验室的「视觉语言模型 (VLM)」方向研究员。"
-            "你的专长是多模态理解、视觉-语言对齐、图文推理、视觉 Grounding。"
-            "请从 VLM 的视角进行深入调研，"
-            "重点关注: 视觉编码器选型、跨模态融合架构、指令微调策略、"
-            "视觉推理能力评估、以及 VLM 在具身场景中的感知与决策应用。"
-        ),
-    },
-    {
-        "name": "World Model",
-        "prompt": (
-            "你是实验室的「世界模型 (World Model)」方向研究员。"
-            "你的专长是环境建模、视频预测、物理仿真、因果推理。"
-            "请从 World Model 的视角进行深入调研，"
-            "重点关注: 世界模型的架构设计（自回归/扩散/状态空间）、"
-            "时空表征学习、动力学建模、长时序预测、"
-            "以及世界模型在具身智能中的规划与想象能力。"
-        ),
-    },
-    {
-        "name": "VLA",
-        "prompt": (
-            "你是实验室的「视觉-语言-动作模型 (VLA)」方向研究员。"
-            "你的专长是端到端策略学习、动作生成、机器人操作、模仿学习。"
-            "请从 VLA 的视角进行深入调研，"
-            "重点关注: VLA 模型架构（RT-2、OpenVLA、π₀ 等）、"
-            "动作 tokenization 与解码策略、多任务泛化、"
-            "sim-to-real 迁移、以及 VLA 在真实机器人上的部署与评估。"
-        ),
-    },
+    {"name": "CV", "prompt": KNOWN_LAB_ANGLES["CV"]},
 ]
 
 
 def _build_role_prompt(angle_name: str, main_topic: str) -> str:
-    """Build a role prompt for a Lab mode agent. Uses default prompts for known
-    patterns, otherwise generates a reasonable prompt from the angle name."""
-    for default in DEFAULT_LAB_ANGLES:
-        if default["name"] == angle_name:
-            return default["prompt"]
+    """Build a role prompt for a Lab mode agent. Uses predefined prompts for known
+    angles, otherwise generates a reasonable prompt from the angle name."""
+    if angle_name in KNOWN_LAB_ANGLES:
+        return KNOWN_LAB_ANGLES[angle_name]
     return (
         f"你是实验室的「{angle_name}」方向研究员。"
         f"请从 {angle_name} 的专业视角对研究主题进行深入调研，"
