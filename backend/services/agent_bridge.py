@@ -1843,6 +1843,17 @@ def _generate_config_from_template(
 
 DEFAULT_LAB_ANGLES: list[dict[str, str]] = [
     {
+        "name": "CV",
+        "prompt": (
+            "你是实验室的「计算机视觉 (CV)」方向研究员。"
+            "你的专长是图像识别、目标检测、语义分割、图像生成、视频理解。"
+            "请从 CV 的视角进行深入调研，"
+            "重点关注: 视觉骨干网络（ViT/CNN/Mamba）、"
+            "自监督/对比学习、生成模型（Diffusion/GAN/Flow Matching）、"
+            "3D 视觉、视频时序建模、以及 CV 在多模态与具身场景中的应用。"
+        ),
+    },
+    {
         "name": "VLM",
         "prompt": (
             "你是实验室的「视觉语言模型 (VLM)」方向研究员。"
@@ -1935,14 +1946,14 @@ def quick_submit_project(
         messages.extend(submit_new_project(state, base_id, config_path, topic.strip(), mode="reproduce"))
         return messages
 
-    # ── Lab mode: multi-angle parallel research (ONE project, N agents) ──
+    # ── Lab mode: parallel research (ONE project, N agents — or 1 agent if single direction) ──
     angles: list[dict[str, str]]
-    if research_angles and len(research_angles) >= 2:
+    if research_angles and len(research_angles) >= 1:
         angles = [
             {"name": a.strip(), "prompt": _build_role_prompt(a.strip(), topic.strip())}
             for a in research_angles if a.strip()
         ]
-    else:
+    if not research_angles or not angles:
         angles = DEFAULT_LAB_ANGLES
 
     # Deduplicate project id

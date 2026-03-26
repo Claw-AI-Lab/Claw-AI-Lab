@@ -31,7 +31,7 @@ const zh: Record<string, string> = {
   'project.mode.help': '🔬 Lab·讨论：多方向并行调研，S7 后跨方向讨论达成共识，生成统一假设。\n\n🔬 Lab·独立：多方向并行调研，各方向独立生成假设，速度更快但无跨方向共识。\n\n📄 论文复现：单 Agent 全流程复现目标论文的方法与实验。',
   'project.placeholder.lab': '研究具身智能中 video action model 的最新进展',
   'project.placeholder.reproduce': '复现 SwitchCraft (arXiv:2602.23956) 的注意力控制方法',
-  'project.angles_placeholder': '研究方向 (可选, 逗号分隔, 如: VLM, World Model, VLA)',
+  'project.angles_placeholder': '研究方向 (分号隔开, 默认 CV, 如: CV; VLM; World Model)',
   'project.ref_papers_toggle': '参考论文 (可选)',
   'project.ref_papers_label': '参考文献',
   'project.ref_papers_placeholder': 'arXiv ID / URL / 标题（可选）',

@@ -31,7 +31,7 @@ const en: Record<string, string> = {
   'project.mode.help': '🔬 Lab·Discuss: Multi-angle parallel research. After S7, agents cross-discuss to reach consensus and generate a unified hypothesis.\n\n🔬 Lab·Solo: Multi-angle parallel research. Each direction generates hypotheses independently — faster but no cross-direction consensus.\n\n📄 Reproduce: Single agent reproduces the target paper\'s method and experiments end-to-end.',
   'project.placeholder.lab': 'Research latest advances in video action models for embodied AI',
   'project.placeholder.reproduce': 'Reproduce SwitchCraft (arXiv:2602.23956) attention control method',
-  'project.angles_placeholder': 'Research angles (optional, comma-separated, e.g.: VLM, World Model, VLA)',
+  'project.angles_placeholder': 'Research angles (semicolon-separated, default CV, e.g.: CV; VLM; World Model)',
   'project.ref_papers_toggle': 'Reference Papers (optional)',
   'project.ref_papers_label': 'References',
   'project.ref_papers_placeholder': 'arXiv ID / URL / title (optional)',

@@ -119,7 +119,7 @@ export default function App() {
     (localStorage.getItem('claw-locale') as Locale) || 'en'
   );
   const [theme, setTheme] = useState<'dark' | 'light'>(() =>
-    (localStorage.getItem('claw-theme') as 'dark' | 'light') || 'light'
+    (localStorage.getItem('claw-theme') as 'dark' | 'light') || 'dark'
   );
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);

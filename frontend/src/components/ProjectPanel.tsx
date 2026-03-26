@@ -37,7 +37,7 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
   const [panelOpen, setPanelOpen] = useState(true);
   const [mode, setMode] = useState<SubmitMode>('lab');
   const [topicInput, setTopicInput] = useState('');
-  const [anglesInput, setAnglesInput] = useState('');
+  const [anglesInput, setAnglesInput] = useState('CV');
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [refPapersInput, setRefPapersInput] = useState('');
   
@@ -77,7 +77,7 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
     if (checkpointsPath.trim()) paths.checkpoints = checkpointsPath.trim();
     onQuickSubmit(text, mode, angles, refPapersInput.trim(), paths);
     setTopicInput('');
-    setAnglesInput('');
+    setAnglesInput('CV');
     setRefPapersInput('');
   };
 
