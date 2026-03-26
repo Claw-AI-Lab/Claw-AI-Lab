@@ -26,9 +26,9 @@ function makeT(locale: Locale) {
 }
 
 export const LocaleContext = createContext<LocaleContextValue>({
-  locale: 'zh',
+  locale: 'en',
   setLocale: () => {},
-  t: makeT('zh'),
+  t: makeT('en'),
 });
 
 export function useLocale() {

@@ -18,6 +18,10 @@
 
 ---
 
+<div align="center">
+  <video src="https://github.com/user-attachments/assets/6eb74cf3-05fd-47ad-9980-1dc228f40581" controls width="100%"></video>
+</div>
+
 ## 🤔 What Is This?
 
 **Claw AI Lab** is a lab-native multi-agent research platform for interactive and scalable AI-driven science. It enables users to create a full AI research lab from a single prompt, with customizable roles, research directions, and collaborative workflows, rather than relying on a single-agent or fixed serial pipeline. Claw orchestrates multiple agents and projects in parallel through a FIFO-based scheduling framework, maximizing compute utilization while supporting cross-project knowledge sharing and mutual improvement. Crucially, the system keeps humans in the loop: users can intervene whenever needed, provide feedback under ambiguity, inject new ideas, and iteratively refine the research process through rollback and continuation. Combined with a simple UI that reduces everything to prompts and clicks, Claw transforms automated research into a more intuitive, steerable, and laboratory-like experience.
@@ -135,7 +139,13 @@ pip install openhands
 Fill in following configurations in examples/config_template.yaml:
 ```
 llm:
+  provider: "openai-compatible"
   api_key: "your-api-key"
+  primary_model: "gpt-5.4"
+  coding_model: "claude-opus-4-6"
+  image_model: "gemini-3-pro-image-preview"
+  fallback_models:
+    - "gpt-4o"
 
 sandbox:
   python_path: "/path/to/your/python3"
