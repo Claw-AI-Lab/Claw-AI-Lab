@@ -26,7 +26,7 @@ function ArtifactItem({ a, locale }: { a: Artifact; locale: string }) {
   const [expanded, setExpanded] = useState(false);
   const hasContent = !!a.content;
   const { icon, label } = getArtifactLabel(a.filename, locale);
-  const isDownloadable = a.filename.endsWith('.zip');
+  const isDownloadable = !a.filename.endsWith('/');
 
   const handleDownload = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -169,13 +169,7 @@ export default memo(function DataShelf({ repoId, artifacts }: Props) {
           {byProject.size === 0 && <div className="shelf-empty">{t('shelf.no_artifacts')}</div>}
           {repoId === 'papers'
             ? [...byProject.entries()].map(([pid, files]) => (
-                <div key={pid} className="shelf-project">
-                  <div className="shelf-project-name" style={{ cursor: 'default' }}>
-                    <span className="folder-icon">📁</span>
-                    <span className="folder-name">{pid}</span>
-                    <span className="shelf-count">{files.length}</span>
-                  </div>
-                </div>
+                <ProjectFolder key={pid} pid={pid} files={files} locale={locale} />
               ))
             : [...byProject.entries()].map(([pid, files]) => (
                 <ProjectFolder key={pid} pid={pid} files={files} locale={locale} />
