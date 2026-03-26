@@ -62,12 +62,29 @@ IDEA_COUNT=0
 IDEA_TOPIC=""
 IDEA_CONFIG=""
 
+is_port_listening() {
+    local port="$1"
+    if command -v ss >/dev/null 2>&1; then
+        ss -tln 2>/dev/null | awk -v p=":$port" '$4 ~ p"$" {found=1} END {exit(found?0:1)}'
+        return $?
+    fi
+    if command -v lsof >/dev/null 2>&1; then
+        lsof -nP -iTCP:"$port" -sTCP:LISTEN >/dev/null 2>&1
+        return $?
+    fi
+    if command -v netstat >/dev/null 2>&1; then
+        netstat -an 2>/dev/null | grep -E "[\.\:]$port[[:space:]].*LISTEN" >/dev/null
+        return $?
+    fi
+    return 1
+}
+
 do_start() {
     echo "🦞 启动龙虾 Agent 军团..."
     echo ""
 
     # 1) Resource Monitor
-    if ss -tlnp 2>/dev/null | grep -q ":${RESOURCE_MONITOR_PORT} "; then
+    if is_port_listening "$RESOURCE_MONITOR_PORT"; then
         echo -e "  ${Y}⏭ resource_monitor 已在运行 (port ${RESOURCE_MONITOR_PORT})${N}"
     else
         nohup $PY -u "$BASE/backend/services/resource_monitor.py" --port "$RESOURCE_MONITOR_PORT" \
@@ -78,7 +95,7 @@ do_start() {
     fi
 
     # 2) Agent Bridge
-    if ss -tlnp 2>/dev/null | grep -q ":${AGENT_BRIDGE_PORT} "; then
+    if is_port_listening "$AGENT_BRIDGE_PORT"; then
         echo -e "  ${Y}⏭ agent_bridge 已在运行 (port ${AGENT_BRIDGE_PORT})${N}"
     else
         nohup $PY -u "$BASE/backend/services/agent_bridge.py" \
@@ -100,7 +117,7 @@ do_start() {
     fi
 
     # 3) Frontend Vite
-    if ss -tlnp 2>/dev/null | grep -q ":${FRONTEND_PORT} "; then
+    if is_port_listening "$FRONTEND_PORT"; then
         echo -e "  ${Y}⏭ frontend 已在运行 (port ${FRONTEND_PORT})${N}"
     else
         cd "$FE"
@@ -146,7 +163,7 @@ do_status() {
     echo "📊 服务状态:"
     for pair in "resource_monitor:${RESOURCE_MONITOR_PORT}" "agent_bridge:${AGENT_BRIDGE_PORT}" "frontend:${FRONTEND_PORT}"; do
         svc="${pair%%:*}"; port="${pair##*:}"
-        if ss -tlnp 2>/dev/null | grep -q ":$port "; then
+        if is_port_listening "$port"; then
             echo -e "  ${G}● $svc${N} (port $port)"
         else
             echo -e "  ${R}○ $svc${N} (port $port)"
