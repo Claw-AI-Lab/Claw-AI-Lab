@@ -324,9 +324,11 @@ class NanoBananaAgent(BaseAgent):
     ) -> bool:
         """Generate image via the best available backend.
 
-        Priority: OpenAI proxy → google-genai SDK → Gemini REST API.
+        Priority: OpenAI images API → OpenAI chat proxy → google-genai SDK → Gemini REST API.
         """
         if self._base_url and self._openai_api_key:
+            if self._generate_via_openai_images(prompt, output_path):
+                return True
             return self._generate_via_openai_chat(prompt, output_path)
         if self._use_sdk:
             return self._generate_via_sdk(prompt, output_path)
@@ -337,12 +339,87 @@ class NanoBananaAgent(BaseAgent):
         r"data:image/(?:png|jpeg|jpg|webp);base64,([A-Za-z0-9+/=\s]+)"
     )
 
+    def _generate_via_openai_images(
+        self,
+        prompt: str,
+        output_path: Path,
+    ) -> bool:
+        """Generate image via the OpenAI-compatible /images/generations endpoint.
+
+        Uses the standard OpenAI images API which returns b64_json or url.
+        This works with proxies (e.g. longcatcloud) that expose Gemini image
+        models through the /v1/images/generations endpoint.
+        """
+        url = f"{self._base_url}/images/generations"
+
+        payload = {
+            "model": self._image_model,
+            "prompt": prompt,
+            "n": 1,
+            "size": "1024x1024",
+        }
+
+        data = json.dumps(payload).encode("utf-8")
+        req = urllib.request.Request(
+            url,
+            data=data,
+            headers={
+                "Content-Type": "application/json",
+                "Authorization": f"Bearer {self._openai_api_key}",
+            },
+            method="POST",
+        )
+
+        try:
+            with urllib.request.urlopen(req, timeout=300) as resp:
+                result = json.loads(resp.read().decode("utf-8"))
+
+            items = result.get("data", [])
+            if not items:
+                logger.warning("OpenAI images API returned no data")
+                return False
+
+            item = items[0]
+            b64 = item.get("b64_json", "")
+            img_url = item.get("url", "")
+
+            if b64:
+                image_bytes = base64.b64decode(b64)
+                output_path.write_bytes(image_bytes)
+                logger.info(
+                    "NanoBanana: generated %s via OpenAI images API (%d bytes)",
+                    output_path.name, len(image_bytes),
+                )
+                return True
+
+            if img_url:
+                img_req = urllib.request.Request(img_url)
+                with urllib.request.urlopen(img_req, timeout=60) as img_resp:
+                    image_bytes = img_resp.read()
+                output_path.write_bytes(image_bytes)
+                logger.info(
+                    "NanoBanana: generated %s via OpenAI images API URL (%d bytes)",
+                    output_path.name, len(image_bytes),
+                )
+                return True
+
+            logger.warning("OpenAI images API returned no image data")
+            return False
+
+        except urllib.error.HTTPError as e:
+            body = e.read().decode("utf-8", errors="replace")[:500]
+            logger.info("OpenAI images API error %d, will try chat fallback: %s", e.code, body)
+            return False
+        except Exception as e:
+            logger.info("OpenAI images API error, will try chat fallback: %s", e)
+            return False
+
     def _generate_via_openai_chat(
         self,
         prompt: str,
         output_path: Path,
     ) -> bool:
-        """Generate image via an OpenAI-compatible chat completions proxy.
+        """Generate image via an OpenAI-compatible chat completions proxy (fallback).
 
         The proxy (e.g. vectorengine.ai) forwards to a Gemini image model and
         returns the image as a ``![image](data:image/png;base64,...)`` markdown
