@@ -1,33 +1,3 @@
-/* ---- Light theme ---- */
-[data-theme="light"] {
-  --bg: #f5f7fa;
-  --surface: #ffffff;
-  --surface-alt: #eef1f6;
-  --border: #d1d5db;
-  --text: #1f2937;
-  --text-muted: #6b7280;
-  --accent: #4f46e5;
-  --badge-green-bg: #d1fae5;
-  --badge-green-fg: #065f46;
-  --badge-red-bg: #fee2e2;
-  --badge-red-fg: #991b1b;
-  --badge-blue-bg: #dbeafe;
-  --badge-blue-fg: #1e40af;
-  --badge-amber-bg: #fef3c7;
-  --badge-amber-fg: #92400e;
-  --bubble-user-bg: linear-gradient(135deg, #dbeafe, #e0e7ff);
-  --bubble-user-border: #93c5fd88;
-  --chip-done-bg: #d1fae5;
-  --chip-done-fg: #065f46;
-  --chip-done-border: #10b98144;
-  --chip-disc-bg: #e0e7ff;
-  --chip-disc-fg: #4338ca;
-  --chip-disc-border: #6366f144;
-  --hover-highlight: rgba(0,0,0,0.03);
-  --shadow-panel: rgba(0,0,0,0.08);
-  --scrollbar-hover: #9ca3af;
-}
-
 /* ---- Dark theme (default) ---- */
 :root, [data-theme="dark"] {
   --bg: #0a0a1a;
@@ -56,6 +26,36 @@
   --hover-highlight: rgba(255,255,255,0.03);
   --shadow-panel: rgba(0,0,0,0.25);
   --scrollbar-hover: #4b5563;
+}
+
+/* ---- Light theme (placed after dark so [data-theme="light"] wins over :root) ---- */
+[data-theme="light"] {
+  --bg: #f5f7fa;
+  --surface: #ffffff;
+  --surface-alt: #eef1f6;
+  --border: #d1d5db;
+  --text: #1f2937;
+  --text-muted: #6b7280;
+  --accent: #4f46e5;
+  --badge-green-bg: #d1fae5;
+  --badge-green-fg: #065f46;
+  --badge-red-bg: #fee2e2;
+  --badge-red-fg: #991b1b;
+  --badge-blue-bg: #dbeafe;
+  --badge-blue-fg: #1e40af;
+  --badge-amber-bg: #fef3c7;
+  --badge-amber-fg: #92400e;
+  --bubble-user-bg: linear-gradient(135deg, #dbeafe, #e0e7ff);
+  --bubble-user-border: #93c5fd88;
+  --chip-done-bg: #d1fae5;
+  --chip-done-fg: #065f46;
+  --chip-done-border: #10b98144;
+  --chip-disc-bg: #e0e7ff;
+  --chip-disc-fg: #4338ca;
+  --chip-disc-border: #6366f144;
+  --hover-highlight: rgba(0,0,0,0.03);
+  --shadow-panel: rgba(0,0,0,0.08);
+  --scrollbar-hover: #9ca3af;
 }
 
 *,

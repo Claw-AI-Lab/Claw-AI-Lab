@@ -4056,7 +4056,7 @@ def _execute_code_generation(
                         _proceed = adapters.hitl.confirm(
                             f"Beast Mode: complexity={_cplx.score:.2f} "
                             f"(threshold={_oc_cfg.complexity_threshold}). "
-                            f"Route to OpenHands?"
+                            f"Route to Aider?"
                         )
                     except Exception:  # noqa: BLE001
                         logger.info(
@@ -4086,7 +4086,7 @@ def _execute_code_generation(
                 )
 
                 logger.info(
-                    "Beast mode (OpenHands): ENGAGED (complexity=%.2f, model=%s)",
+                    "Beast mode (Aider): ENGAGED (complexity=%.2f, model=%s)",
                     _cplx.score,
                     _oc_model,
                 )
@@ -5157,12 +5157,27 @@ def _execute_sanity_check(
                     "Copy the existing file EXACTLY and change ONLY the broken lines.\n\n"
                 )
 
+        # Load GUIDANCE.md from the aider workspace if available (contains
+        # dataset/checkpoint directory trees and codebase paths).
+        _guidance_ctx = ""
+        for _aider_ws in sorted(run_dir.glob("stage-*/aider_beast_*"), reverse=True):
+            _gm = _aider_ws / "GUIDANCE.md"
+            if _gm.exists():
+                _gm_text = _gm.read_text(encoding="utf-8")
+                _guidance_lines = _gm_text.splitlines()[:300]
+                _guidance_ctx = (
+                    "\n## Environment context (from GUIDANCE.md — dataset/checkpoint/codebase paths)\n"
+                    "```\n" + "\n".join(_guidance_lines) + "\n```\n\n"
+                )
+                break
+
         fix_prompt = (
             f"## Sanity Check Failure (iteration {iteration + 1}/{max_fix_iters})\n\n"
             f"**Failed test:** `{test_name}`\n\n"
             f"**Test code that was executed:**\n```python\n{test_code}\n```\n\n"
             f"**Error output (stderr tail):**\n```\n{stderr[-2000:]}\n```\n\n"
             f"{_repeat_hint}"
+            f"{_guidance_ctx}"
             f"## All source files in the experiment directory:\n{source_block}\n\n"
             "## Instructions\n"
             "Analyze the error and fix the RELEVANT source file(s).\n"
@@ -5185,12 +5200,28 @@ def _execute_sanity_check(
             "- Do NOT add new dependencies that are not already imported.\n"
             "- Do NOT wrap code in try/except blocks. Fix the ROOT CAUSE.\n"
             "- Do NOT refactor, restructure, or 'improve' code that is not broken.\n"
+            "- **NEVER replace compute_metric or any metric function with `return 0.5` or any hardcoded value**. "
+            "If the metric computation fails, fix the computation — do NOT bypass it with a constant.\n"
+            "- **NEVER add `if os.environ.get('SANITY_CHECK'): return <constant>` guards** to skip real logic. "
+            "The sanity check must test the REAL code path, not a shortcut.\n"
+            "- **NEVER wrap load_pipeline() in try/except with a DummyPipeline fallback**. If the pipeline "
+            "fails to load, let it crash — do NOT substitute a fake pipeline.\n"
+            "- **NEVER create DummyPipeline, FallbackPipeline, or RobustDummyPipeline classes**. "
+            "These produce fake outputs that make metrics meaningless.\n"
+            "- **NEVER ignore pipeline output** (e.g. `_ = pipe(...)` then compute metrics from formulas). "
+            "Metrics MUST be computed from the ACTUAL pipeline output.\n"
             "\n"
             "## CRITICAL: External library errors\n"
             "If the traceback shows the error originates in an EXTERNAL library file "
             "(i.e. a path NOT inside the experiment directory), you CANNOT modify that "
             "library. Instead, fix the CALLING CODE to be compatible.\n\n"
             "### Common fix patterns\n"
+            "- **FILE NOT FOUND / PATH ERROR**: If the error is `No such file or directory`, look at the "
+            "Environment context section above which shows the ACTUAL directory structure. "
+            "Construct paths using ONLY the directories/files shown there. "
+            "Common mistake: path nesting like `.../FreeCustom/multi_concept/.../dataset/freecustom/multi_concept/...` — "
+            "this means the code is concatenating a relative path onto an already-absolute base path. "
+            "Fix: use `os.path.join(DATASETS_DIR, 'multi_concept', episode_name, 'image', filename)` with the correct DATASETS_DIR constant.\n"
             "- **METRIC KEY COLLISION**: if the error says 'same condition+seed printed N times', "
             "the experiment has a nested loop (condition × regime/scene × seed) but the metric "
             "print line is missing the `regime=<name>` tag. Fix: change the print from "

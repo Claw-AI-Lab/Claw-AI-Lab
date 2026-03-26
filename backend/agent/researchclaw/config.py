@@ -238,9 +238,9 @@ class CodeAgentConfig:
 
 @dataclass(frozen=True)
 class OpenCodeConfig:
-    """OpenCode 'Beast Mode' — external AI coding agent for complex experiments.
+    """Beast Mode — external AI coding agent (Aider) for complex experiments.
 
-    Requires: npm i -g opencode-ai@latest
+    Requires: pip install aider-install && aider-install
     """
 
     enabled: bool = True
