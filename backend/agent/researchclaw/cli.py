@@ -408,16 +408,8 @@ def cmd_init(args: argparse.Namespace) -> int:
     )
 
     if provider == "acp":
-        # ACP doesn't need base_url or api_key_env
-        content = content.replace(
-            'base_url: "https://api.openai.com/v1"', 'base_url: ""'
-        )
         content = content.replace('api_key_env: "OPENAI_API_KEY"', 'api_key_env: ""')
     else:
-        base_url = _PROVIDER_URLS.get(provider, "https://api.openai.com/v1")
-        content = content.replace(
-            'base_url: "https://api.openai.com/v1"', f'base_url: "{base_url}"'
-        )
         if api_key_env:
             content = content.replace(
                 'api_key_env: "OPENAI_API_KEY"', f'api_key_env: "{api_key_env}"'
