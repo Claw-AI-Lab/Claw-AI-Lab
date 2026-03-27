@@ -343,6 +343,7 @@ If you find Claw AI Lab useful, please cite:
 
 ## 💬 Community
 
+内测邀请码可进群领取
 <p align="center">
   <img src="assets/Group.png" width="300" alt="WeChat Group QR Code"/>
 </p> 
