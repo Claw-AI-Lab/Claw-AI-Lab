@@ -175,7 +175,7 @@ Open **http://localhost:5903/** → Submit your research topic and let the agent
 | # | Recommendation | Why |
 |---|---|---|
 | 1 | **Prepare local codebases, datasets & checkpoints** — enter their paths when submitting a project | Avoids download delays and network failures during runs |
-| 2 | **Use Claude Opus 4.6 for the coding agent** | Significantly better code quality and fewer iteration cycles |
+| 2 | **Use a strong coding model like Claude Opus 4.6** | Significantly better code quality and fewer iteration cycles |
 | 3 | **Review the `IMPORTANT` fields in [Configuration Details](#️-configuration-details)** | Misconfigured keys or resource limits are the #1 cause of failed runs |
 
 ---
