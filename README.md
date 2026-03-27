@@ -26,7 +26,8 @@
 
 **Claw AI Lab** is a lab-native multi-agent research platform for interactive and scalable AI-driven science. It enables users to create a full AI research lab from a single prompt, with customizable roles, research directions, and collaborative workflows, rather than relying on a single-agent or fixed serial pipeline. Claw orchestrates multiple agents and projects in parallel through a FIFO-based scheduling framework, maximizing compute utilization while supporting cross-project knowledge sharing and mutual improvement. Crucially, the system keeps humans in the loop: users can intervene whenever needed, provide feedback under ambiguity, inject new ideas, and iteratively refine the research process through rollback and continuation. Combined with a simple UI that reduces everything to prompts and clicks, Claw transforms automated research into a more intuitive, steerable, and laboratory-like experience.
 
-**We welcome contributions from the community to make this project better together! You’re also warmly invited to scroll to the bottom of the page to join our group for beta testing and discussion.**
+**We welcome contributions from the community to make this project better together! 
+You’re also warmly invited to scroll to the bottom of the page to join our group for beta testing and discussion.**
 
 ---
 
