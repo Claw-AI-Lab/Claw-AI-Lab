@@ -165,7 +165,15 @@ Thanks a lot for [KOKONI's](https://www.kokoni3d.com/) support for this project,
 
 Open **http://localhost:5903/** → Submit your research topic and let the agents work.
 
-> **Tip:** For better results, prepare local copies of codebases, datasets, and checkpoints, then input the local path when submitting a new project. Removing unused files in codebases significantly speeds up agent analysis.
+---
+
+## 💡 How to Get the Best Results
+
+| # | Recommendation | Why |
+|---|---|---|
+| 1 | **Prepare local codebases, datasets & checkpoints** — enter their paths when submitting a project | Avoids download delays and network failures during runs |
+| 2 | **Use Claude Opus 4.6 for the coding agent** | Significantly better code quality and fewer iteration cycles |
+| 3 | **Review the `IMPORTANT` fields in [Configuration Details](#️-configuration-details)** | Misconfigured keys or resource limits are the #1 cause of failed runs |
 
 ---
 
@@ -329,4 +337,12 @@ If you find Claw AI Lab useful, please cite:
   url          = {https://github.com/Claw-AI-Lab/Claw-AI-Lab},
   note         = {GitHub repository}
 }
-``` 
+```
+
+---
+
+## 💬 Community
+
+<p align="center">
+  <img src="assets/Group.png" width="300" alt="WeChat Group QR Code"/>
+</p> 
