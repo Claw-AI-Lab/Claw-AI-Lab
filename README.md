@@ -94,6 +94,7 @@ Multi-agent discussion on: **"What is the most deployable direction for Video Ac
 <tr><td><b>Three Research Modes</b></td><td>Lab Explore · Lab Discussion (multi-agent debate) · Reproduce</td></tr>
 <tr><td><b>Real-Time Dashboard</b></td><td>Live web UI with event logs, data shelf, and project monitoring</td></tr>
 <tr><td><b>GPU & NPU Support</b></td><td>Dynamic scheduling on your own hardware (CUDA / Ascend NPU)</td></tr>
+<tr><td><b>Local Code Editing</b></td><td>Reads and writes local files, codebases, datasets & checkpoints</td></tr>
 </table>
 
 ---
