@@ -167,7 +167,7 @@ Open **http://localhost:5903/** → Submit your research topic and let the agent
 
 ---
 
-## 💡 How to Get the Best Results
+## 💡 Tips to Get the Best Results
 
 | # | Recommendation | Why |
 |---|---|---|
@@ -341,9 +341,9 @@ If you find Claw AI Lab useful, please cite:
 
 ---
 
-<!-- ## 💬 Community
+## 💬 Community
 
 内测邀请码可进群领取
 <p align="center">
   <img src="assets/Group.png" width="300" alt="WeChat Group QR Code"/>
-</p>  -->
+</p> 
