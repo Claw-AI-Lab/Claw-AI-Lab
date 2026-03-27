@@ -126,6 +126,7 @@ pip install websockets
 # Frontend
 cd ../../frontend
 npm install
+cd ..
 
 # ML dependencies
 # You can add more packages based on your research project
