@@ -24,7 +24,7 @@ export default memo(function ResourceMonitor({ stats, connected }: Props) {
   }
 
   const memPct = stats.memTotal > 0 ? (stats.memUsed / stats.memTotal * 100) : 0;
-  const gpuName = stats.gpus.length > 0 ? stats.gpus[0].name : '';
+  const acceleratorLabel = stats.acceleratorLabel ?? '';
 
   return (
     <div className="res-bar">
@@ -35,7 +35,7 @@ export default memo(function ResourceMonitor({ stats, connected }: Props) {
       <span className="res-item">
         MEM <b style={{ color: pctColor(memPct) }}>{stats.memUsed.toFixed(0)}</b>/{stats.memTotal.toFixed(0)}G
       </span>
-      {gpuName && <span className="res-item res-gpu-label">{stats.gpus.length}×{gpuName}</span>}
+      {acceleratorLabel && <span className="res-item res-gpu-label">{acceleratorLabel}</span>}
       {stats.gpus.map((gpu) => {
         const memP = gpu.memTotal > 0 ? (gpu.memUsed / gpu.memTotal * 100) : 0;
         return (

@@ -10,15 +10,40 @@ Usage:
 import argparse
 import asyncio
 import json
+import re
 import subprocess
 import time
+from collections import Counter
 
 import psutil
 import websockets
 
+def get_gpu_names() -> dict[int, str]:
+    """Query nvidia-smi -L for stable GPU model names."""
+    try:
+        result = subprocess.run(
+            ["nvidia-smi", "-L"],
+            capture_output=True,
+            text=True,
+            timeout=5,
+        )
+        if result.returncode != 0:
+            return {}
+        names = {}
+        for line in result.stdout.strip().split("\n"):
+            match = re.match(r"GPU\s+(\d+):\s+(.+?)\s+\(UUID:", line.strip())
+            if not match:
+                continue
+            names[int(match.group(1))] = match.group(2).strip()
+        return names
+    except (FileNotFoundError, subprocess.TimeoutExpired, Exception):
+        return {}
+
+
 def get_gpu_stats() -> list[dict]:
     """Query nvidia-smi for GPU stats."""
     try:
+        gpu_names = get_gpu_names()
         result = subprocess.run(
             [
                 "nvidia-smi",
@@ -36,9 +61,10 @@ def get_gpu_stats() -> list[dict]:
             parts = [p.strip() for p in line.split(",")]
             if len(parts) < 6:
                 continue
+            gpu_id = int(parts[0])
             gpus.append({
-                "id": int(parts[0]),
-                "name": parts[1],
+                "id": gpu_id,
+                "name": gpu_names.get(gpu_id, parts[1]),
                 "utilization": float(parts[2]),
                 "memUsed": round(float(parts[3]) / 1024, 2),  # MiB -> GiB
                 "memTotal": round(float(parts[4]) / 1024, 2),
@@ -93,24 +119,38 @@ def get_accelerator_stats() -> list[dict]:
     return stats if stats else get_npu_stats()
 
 
+def summarize_accelerator_names(stats: list[dict]) -> str:
+    if not stats:
+        return ""
+    counts = Counter(stat["name"] for stat in stats if stat.get("name"))
+    if not counts:
+        return ""
+    return " + ".join(
+        f"{count}x {name}" if count > 1 else name
+        for name, count in counts.items()
+    )
+
+
 def get_resource_stats() -> dict:
     mem = psutil.virtual_memory()
+    accelerators = get_accelerator_stats()
     return {
         "type": "resource_stats",
         "payload": {
             "cpuPercent": psutil.cpu_percent(interval=None),
             "memUsed": round(mem.used / (1024 ** 3), 2),
             "memTotal": round(mem.total / (1024 ** 3), 2),
-            "gpus": get_accelerator_stats(),
+            "gpus": accelerators,
+            "acceleratorLabel": summarize_accelerator_names(accelerators),
             "timestamp": int(time.time() * 1000),
         },
     }
 
 
-connected_clients: set[websockets.ServerConnection] = set()
+connected_clients: set = set()
 
 
-async def handler(websocket: websockets.ServerConnection):
+async def handler(websocket):
     connected_clients.add(websocket)
     remote = websocket.remote_address
     print(f"[+] Client connected: {remote}  (total: {len(connected_clients)})")
@@ -144,7 +184,7 @@ async def main(host: str, port: int, interval: float):
     print(f"   Broadcast interval: {interval}s")
     accelerators = get_accelerator_stats()
     if accelerators:
-        print(f"   Detected {len(accelerators)} accelerator(s): {accelerators[0]['name']}")
+        print(f"   Detected {len(accelerators)} accelerator(s): {summarize_accelerator_names(accelerators)}")
     else:
         print("   No GPU/NPU detected (nvidia-smi and npu-smi not available)")
     mem = psutil.virtual_memory()

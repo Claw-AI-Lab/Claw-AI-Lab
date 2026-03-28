@@ -295,6 +295,7 @@ export interface ResourceStats {
   memUsed: number;
   memTotal: number;
   gpus: GpuInfo[];
+  acceleratorLabel?: string;
   timestamp: number;
 }
 
