@@ -3024,6 +3024,15 @@ def _scan_existing_artifacts(state: BridgeState) -> list[dict]:
                     messages.append(msg_artifact(
                         REPO_FOR_STAGE.get(s, "knowledge"), expected, project_id, size, project_id, content, stage=s,
                     ))
+            discussion_path = run_dir / "discussion" / "discussion_transcript.md"
+            dedup_key = f"{project_id}:discussion:discussion_transcript.md"
+            if dedup_key not in seen and discussion_path.is_file():
+                seen.add(dedup_key)
+                size = f"{discussion_path.stat().st_size / 1024:.1f} KB"
+                content = _extract_artifact_summary(discussion_path, "discussion_transcript.md")
+                messages.append(msg_artifact(
+                    "knowledge", "discussion_transcript.md", "沟通讨论", size, project_id, content
+                ))
     return messages
 
 
@@ -3264,11 +3273,32 @@ async def main(args: argparse.Namespace):
                     return _http_response(404, b"Not found\n")
                 project_id, filename = parts[0], parts[1]
                 proj_dir = Path(st.runs_base_dir) / "projects" / project_id
-                if not proj_dir.is_dir():
-                    return _http_response(404, f"Project {project_id} not found\n".encode())
                 file_path = None
-                for stage_dir in sorted(proj_dir.glob("run-*/stage-*"), reverse=True):
-                    candidate = stage_dir / filename
+                search_roots: list[Path] = []
+                if proj_dir.is_dir():
+                    search_roots.append(proj_dir)
+                cross_proj_dir = Path(st.runs_base_dir) / "projects" / "_cross_discussions" / project_id
+                if cross_proj_dir.is_dir():
+                    search_roots.append(cross_proj_dir)
+                if not search_roots:
+                    return _http_response(404, f"Project {project_id} not found\n".encode())
+
+                for root_dir in search_roots:
+                    for stage_dir in sorted(root_dir.glob("run-*/stage-*"), reverse=True):
+                        candidate = stage_dir / filename
+                        if candidate.is_file():
+                            file_path = candidate
+                            break
+                    if file_path:
+                        break
+                    for discussion_dir in sorted(root_dir.glob("run-*/discussion"), reverse=True):
+                        candidate = discussion_dir / filename
+                        if candidate.is_file():
+                            file_path = candidate
+                            break
+                    if file_path:
+                        break
+                    candidate = root_dir / "discussion" / filename
                     if candidate.is_file():
                         file_path = candidate
                         break

@@ -30,8 +30,13 @@ function ArtifactItem({ a, locale }: { a: Artifact; locale: string }) {
 
   const handleDownload = (e: React.MouseEvent) => {
     e.stopPropagation();
-    const url = `/download/${a.projectId}/${a.filename}`;
-    window.open(url, '_blank');
+    const url = `/download/${encodeURIComponent(a.projectId)}/${encodeURIComponent(a.filename)}`;
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = a.filename.split('/').pop() || a.filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
