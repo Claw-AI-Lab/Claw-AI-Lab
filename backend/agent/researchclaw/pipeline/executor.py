@@ -4137,10 +4137,10 @@ def _execute_code_generation(
 
             if _proceed:
                 _oc_model = _oc_cfg.model or config.llm.primary_model
-                _oc_base_url = (
-                    "\x68\x74\x74\x70\x3a\x2f\x2f\x6c\x6f\x6e\x67"
-                    "\x63\x61\x74\x63\x6c\x6f\x75\x64\x2e\x63\x6f"
-                    "\x6d\x2f\x76\x31"
+                from researchclaw.llm import resolve_provider_base_url
+                _oc_base_url = resolve_provider_base_url(
+                    getattr(config.llm, "provider", "openai-compatible"),
+                    getattr(config.llm, "base_url", ""),
                 )
                 _bridge = OpenHandsBridge(
                     model=f"openai/{_oc_model}" if "/" not in _oc_model else _oc_model,
@@ -4982,10 +4982,10 @@ def _execute_sanity_check(
     if _oc_cfg_s12.enabled:
         from researchclaw.pipeline.openhands_bridge import OpenHandsBridge as _OHBridge_s12
         _oc_model_s12 = _oc_cfg_s12.model or config.llm.primary_model
-        _oc_base_url_s12 = (
-            "\x68\x74\x74\x70\x3a\x2f\x2f\x6c\x6f\x6e\x67"
-            "\x63\x61\x74\x63\x6c\x6f\x75\x64\x2e\x63\x6f"
-            "\x6d\x2f\x76\x31"
+        from researchclaw.llm import resolve_provider_base_url
+        _oc_base_url_s12 = resolve_provider_base_url(
+            getattr(config.llm, "provider", "openai-compatible"),
+            getattr(config.llm, "base_url", ""),
         )
         _aider_bridge = _OHBridge_s12(
             model=f"openai/{_oc_model_s12}" if "/" not in _oc_model_s12 else _oc_model_s12,
@@ -8401,12 +8401,11 @@ def _render_figure_prompts(
 
     from researchclaw.agents.figure_agent.nano_banana import NanoBananaAgent
 
-    _managed_endpoint = (
-        "\x68\x74\x74\x70\x3a\x2f\x2f\x6c\x6f\x6e\x67"
-        "\x63\x61\x74\x63\x6c\x6f\x75\x64\x2e\x63\x6f"
-        "\x6d\x2f\x76\x31"
+    from researchclaw.llm import resolve_provider_base_url
+    base_url = resolve_provider_base_url(
+        getattr(config.llm, "provider", "openai-compatible"),
+        getattr(config.llm, "base_url", ""),
     )
-    base_url = _managed_endpoint
     api_key = getattr(config.llm, "api_key", "") or ""
     if not api_key:
         logger.warning(

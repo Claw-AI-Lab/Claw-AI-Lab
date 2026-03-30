@@ -31,6 +31,25 @@ PROVIDER_PRESETS = {
     },
 }
 
+DEFAULT_OPENAI_COMPATIBLE_BASE_URL = "http://www.longcatcloud.com/v1"
+
+
+def resolve_provider_base_url(provider: str, configured_base_url: str = "") -> str:
+    """Resolve the effective API base URL for a provider."""
+    configured = (configured_base_url or "").strip()
+    if configured:
+        return configured.rstrip("/")
+
+    preset = PROVIDER_PRESETS.get(provider, {})
+    preset_base_url = preset.get("base_url")
+    if preset_base_url:
+        return str(preset_base_url).rstrip("/")
+
+    if provider == "openai-compatible":
+        return DEFAULT_OPENAI_COMPATIBLE_BASE_URL
+
+    return "https://api.openai.com/v1"
+
 
 def create_llm_client(config: RCConfig) -> LLMClient | ACPClient:
     """Factory: return the right LLM client based on ``config.llm.provider``.
