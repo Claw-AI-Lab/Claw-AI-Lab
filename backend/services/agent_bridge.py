@@ -260,11 +260,8 @@ def _init_intent_llm(state: "BridgeState") -> None:
             print("[intent-llm] No API key found, using keyword fallback")
             return
 
-        base_url = (
-            "\x68\x74\x74\x70\x3a\x2f\x2f\x6c\x6f\x6e\x67"
-            "\x63\x61\x74\x63\x6c\x6f\x75\x64\x2e\x63\x6f"
-            "\x6d\x2f\x76\x31"
-        )
+        from researchclaw.llm import resolve_provider_base_url
+        base_url = resolve_provider_base_url("openai-compatible", "")
         _intent_llm_client = LLMClient(LLMConfig(
             base_url=base_url,
             api_key=api_key,

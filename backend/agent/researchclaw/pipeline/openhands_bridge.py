@@ -152,9 +152,19 @@ class OpenHandsBridge:
 
     @staticmethod
     def _find_binary() -> str:
-        """Locate the aider binary."""
+        """Locate the aider binary.
+
+        Search order:
+        1. PATH (shutil.which)
+        2. Same bin directory as the running Python interpreter
+           (handles conda/venv where aider is co-installed)
+        3. ~/.local/bin/aider (pip install --user)
+        """
+        import sys
+
         for candidate in (
             shutil.which("aider"),
+            str(Path(sys.executable).parent / "aider"),
             os.path.expanduser("~/.local/bin/aider"),
         ):
             if candidate and os.path.isfile(candidate):
