@@ -2139,16 +2139,111 @@ def _check_literature_sites_reachable(timeout: float = 8.0) -> dict[str, bool]:
     return results
 
 
+def _build_local_pdf_reference_entry(
+    pdf_path: Path,
+    *,
+    title: str,
+    abstract: str,
+    source: str,
+) -> dict[str, Any]:
+    clean_title = title.strip() or pdf_path.stem
+    clean_abstract = re.sub(r"\s+", " ", abstract).strip()[:1200]
+    return {
+        "id": f"user-ref-{_safe_filename(pdf_path.stem.lower())}",
+        "title": clean_title,
+        "source": source,
+        "url": pdf_path.resolve().as_uri(),
+        "year": datetime.now(timezone.utc).year,
+        "abstract": clean_abstract,
+        "authors": [],
+        "collected_at": _utcnow_iso(),
+    }
+
+
+def _extract_local_pdf_reference(pdf_path: Path) -> dict[str, Any]:
+    title = pdf_path.stem
+    abstract = ""
+    parser_errors: list[str] = []
+
+    try:
+        import fitz
+
+        doc = fitz.open(pdf_path)
+        try:
+            metadata = getattr(doc, "metadata", {}) or {}
+            title = str(metadata.get("title") or title).strip() or title
+            snippets: list[str] = []
+            page_count = int(getattr(doc, "page_count", 0) or 0)
+            for idx in range(min(page_count, 3)):
+                page = doc.load_page(idx)
+                text = page.get_text("text") if hasattr(page, "get_text") else ""
+                text = re.sub(r"\s+", " ", text or "").strip()
+                if text:
+                    snippets.append(text)
+            abstract = " ".join(snippets)
+        finally:
+            doc.close()
+        return _build_local_pdf_reference_entry(
+            pdf_path,
+            title=title,
+            abstract=abstract,
+            source="user_reference_local_pdf",
+        )
+    except Exception as exc:  # noqa: BLE001
+        parser_errors.append(f"PyMuPDF: {exc}")
+
+    try:
+        from pypdf import PdfReader
+
+        reader = PdfReader(str(pdf_path))
+        metadata = getattr(reader, "metadata", None) or {}
+        raw_title = getattr(metadata, "title", None)
+        if not raw_title and isinstance(metadata, dict):
+            raw_title = metadata.get("/Title")
+        title = str(raw_title or title).strip() or title
+        snippets = []
+        for page in reader.pages[:3]:
+            text = re.sub(r"\s+", " ", page.extract_text() or "").strip()
+            if text:
+                snippets.append(text)
+        abstract = " ".join(snippets)
+        return _build_local_pdf_reference_entry(
+            pdf_path,
+            title=title,
+            abstract=abstract,
+            source="user_reference_local_pdf",
+        )
+    except Exception as exc:  # noqa: BLE001
+        parser_errors.append(f"pypdf: {exc}")
+
+    logger.warning(
+        "Failed to parse local PDF reference %s; falling back to weak entry (%s)",
+        pdf_path,
+        "; ".join(parser_errors) or "unknown parser error",
+    )
+    return _build_local_pdf_reference_entry(
+        pdf_path,
+        title=pdf_path.stem,
+        abstract="",
+        source="user_reference_local_pdf_parse_failed",
+    )
+
+
 def _resolve_user_reference(ref: str) -> dict | None:
     """Resolve a user-provided reference string to a candidate dict.
 
-    Accepts arXiv IDs (e.g. '2512.13030'), arXiv URLs, or plain titles.
-    Attempts arXiv API lookup first, falls back to a title-only entry.
+    Accepts arXiv IDs, arXiv URLs, local PDF paths, or plain titles.
+    Attempts arXiv API lookup first, then local PDF parsing, then falls back to
+    a title-only entry.
     """
     import re as _re_ref
 
+    normalized_ref = ref.strip()
+    if not normalized_ref:
+        return None
+
     arxiv_id = ""
-    m = _re_ref.search(r"(\d{4}\.\d{4,5})", ref)
+    m = _re_ref.search(r"(\d{4}\.\d{4,5})", normalized_ref)
     if m:
         arxiv_id = m.group(1)
 
@@ -2172,14 +2267,18 @@ def _resolve_user_reference(ref: str) -> dict | None:
         except Exception:  # noqa: BLE001
             pass
 
-    title = ref.strip()
+    pdf_path = Path(normalized_ref).expanduser()
+    if pdf_path.is_file() and pdf_path.suffix.lower() == ".pdf":
+        return _extract_local_pdf_reference(pdf_path)
+
+    title = normalized_ref
     if title.startswith("http"):
         title = title.rsplit("/", 1)[-1]
     return {
         "id": f"user-ref-{title[:40].replace(' ', '-').lower()}",
         "title": title,
         "source": "user_reference",
-        "url": ref if ref.startswith("http") else "",
+        "url": normalized_ref if normalized_ref.startswith("http") else "",
         "year": 2025,
         "abstract": "",
         "authors": [],

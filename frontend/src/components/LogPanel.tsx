@@ -27,6 +27,7 @@ export default function LogPanel({ logs }: Props) {
   const [filter, setFilter] = useState<AgentLayer | 'all'>('all');
   const autoScroll = useRef(true);
   const { t } = useLocale();
+  const discussionLabel = `💬${t('stage.100')}`;
 
   const tail = logs.slice(-120);
 
@@ -76,7 +77,7 @@ export default function LogPanel({ logs }: Props) {
               {log.stage && (
                 <span className={`glog-stage${log.stage === 100 ? ' glog-stage-discussion' : ''}`} title={STAGE_META[log.stage]?.key}>
                   {log.stage === 100
-                    ? '💬讨论'
+                    ? discussionLabel
                     : `S${STAGE_META[log.stage]?.displayNumber ?? log.stage}`}
                 </span>
               )}

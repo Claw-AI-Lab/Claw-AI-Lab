@@ -26,6 +26,7 @@ export default memo(function LayerPanel({ layer, agents, logs, tierIndex, select
   const { t, locale } = useLocale();
   const meta = LAYER_META[layer];
   const layerName = t(`layer.${layer}.name`);
+  const discussionLabel = `💬${t('stage.100')}`;
   const recentLogs = logs.slice(-30);
   const widthPercent = Math.min(100, agents.length * 18 + 20);
   const workingCount = agents.filter((a) => ['working', 'waiting_discussion', 'discussing'].includes(a.status)).length;
@@ -86,12 +87,12 @@ export default memo(function LayerPanel({ layer, agents, logs, tierIndex, select
               {agent.currentStage && (
                 <span className={`agent-stage-badge${agent.currentStage === DISCUSSION_STAGE ? ' discussion-badge' : ''}`}>
                   {agent.currentStage === DISCUSSION_STAGE
-                    ? '💬讨论'
+                    ? discussionLabel
                     : `S${STAGE_META[agent.currentStage]?.displayNumber ?? agent.currentStage}`}
                 </span>
               )}
               {!agent.currentStage && (agent.status === 'waiting_discussion' || agent.status === 'discussing') && (
-                <span className="agent-stage-badge discussion-badge">💬讨论</span>
+                <span className="agent-stage-badge discussion-badge">{discussionLabel}</span>
               )}
             </div>
             {agent.currentTask && <div className="agent-task" title={agent.currentTask}>{agent.currentTask}</div>}
@@ -132,7 +133,7 @@ export default memo(function LayerPanel({ layer, agents, logs, tierIndex, select
                 <span className="log-agent">{log.agentName.slice(0, 12)}</span>
                 {log.stage && <span className={`log-stage${log.stage === DISCUSSION_STAGE ? ' log-stage-discussion' : ''}`}>
                   {log.stage === DISCUSSION_STAGE
-                    ? '💬讨论'
+                    ? discussionLabel
                     : `S${STAGE_META[log.stage]?.displayNumber ?? log.stage}`}
                 </span>}
                 <span className="log-msg">{log.message}</span>
