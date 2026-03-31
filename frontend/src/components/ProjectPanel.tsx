@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import type { ProjectInfo, Artifact } from '../types';
 import { useLocale } from '../i18n';
 
@@ -11,6 +11,7 @@ const STATUS_ICONS: Record<string, { color: string; icon: string }> = {
 };
 
 type SubmitMode = 'lab' | 'reproduce';
+type ReferencePdfUpload = { name: string; contentBase64: string };
 
 function stageName(n: number, t: (k: string) => string): string {
   const key = `stage.${n}`;
@@ -30,7 +31,14 @@ interface Props {
   onPause: (projectId: string) => void;
   onRestart: (projectId: string) => void;
   onDelete: (projectId: string) => void;
-  onQuickSubmit: (topic: string, mode: SubmitMode, researchAngles: string[], referencePapers: string, paths: { codebases?: string; datasets?: string; checkpoints?: string }) => void;
+  onQuickSubmit: (
+    topic: string,
+    mode: SubmitMode,
+    researchAngles: string[],
+    referencePapers: string,
+    referenceFiles: ReferencePdfUpload[],
+    paths: { codebases?: string; datasets?: string; checkpoints?: string }
+  ) => void;
 }
 
 export default function ProjectPanel({ projects, connected, selectedProjectId, artifactsByProject, discussionMode, onToggleDiscussion, onSelect, onResume, onPause, onRestart, onDelete, onQuickSubmit }: Props) {
@@ -40,11 +48,13 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
   const [anglesInput, setAnglesInput] = useState('');
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [refPapersInput, setRefPapersInput] = useState('');
+  const [referenceFiles, setReferenceFiles] = useState<Array<ReferencePdfUpload & { key: string }>>([]);
   
   const [showPaths, setShowPaths] = useState(false);
   const [codebasesPath, setCodebasesPath] = useState('');
   const [datasetsPath, setDatasetsPath] = useState('');
   const [checkpointsPath, setCheckpointsPath] = useState('');
+  const referenceFileInputRef = useRef<HTMLInputElement | null>(null);
   const { t, locale } = useLocale();
 
   const modeInfo: Record<SubmitMode, { label: string; icon: string; placeholder: string; desc: string }> = {
@@ -65,6 +75,39 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
   const info = modeInfo[mode];
   const [showModeHelp, setShowModeHelp] = useState(false);
 
+  const arrayBufferToBase64 = (buffer: ArrayBuffer) => {
+    const bytes = new Uint8Array(buffer);
+    const chunkSize = 0x8000;
+    let binary = '';
+    for (let i = 0; i < bytes.length; i += chunkSize) {
+      binary += String.fromCharCode(...bytes.subarray(i, i + chunkSize));
+    }
+    return btoa(binary);
+  };
+
+  const pickReferenceFiles = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files || []).filter((file) =>
+      file.name.toLowerCase().endsWith('.pdf') || file.type === 'application/pdf'
+    );
+    if (files.length === 0) return;
+
+    const uploads = await Promise.all(files.map(async (file) => ({
+      key: `${file.name}:${file.size}:${file.lastModified}`,
+      name: file.name,
+      contentBase64: arrayBufferToBase64(await file.arrayBuffer()),
+    })));
+
+    setReferenceFiles((prev) => {
+      const existing = new Set(prev.map((item) => item.key));
+      return [...prev, ...uploads.filter((item) => !existing.has(item.key))];
+    });
+    e.target.value = '';
+  };
+
+  const removeReferenceFile = (key: string) => {
+    setReferenceFiles((prev) => prev.filter((item) => item.key !== key));
+  };
+
   const submit = () => {
     const text = topicInput.trim();
     if (!text) return;
@@ -75,10 +118,18 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
     if (codebasesPath.trim()) paths.codebases = codebasesPath.trim();
     if (datasetsPath.trim()) paths.datasets = datasetsPath.trim();
     if (checkpointsPath.trim()) paths.checkpoints = checkpointsPath.trim();
-    onQuickSubmit(text, mode, angles, refPapersInput.trim(), paths);
+    onQuickSubmit(
+      text,
+      mode,
+      angles,
+      refPapersInput.trim(),
+      referenceFiles.map(({ name, contentBase64 }) => ({ name, contentBase64 })),
+      paths,
+    );
     setTopicInput('');
     setAnglesInput('');
     setRefPapersInput('');
+    setReferenceFiles([]);
   };
 
   const onKey = (e: React.KeyboardEvent) => {
@@ -177,9 +228,14 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
                   onClick={() => setShowPaths(!showPaths)}
                 >
                   {showPaths ? '▾' : '▸'} {t('paths.toggle')}
-                  {(refPapersInput.trim() || codebasesPath.trim() || datasetsPath.trim() || checkpointsPath.trim()) && (
+                  {(refPapersInput.trim() || referenceFiles.length > 0 || codebasesPath.trim() || datasetsPath.trim() || checkpointsPath.trim()) && (
                     <span className="ref-badge">
-                      {[refPapersInput, codebasesPath, datasetsPath, checkpointsPath].filter(s => s.trim()).length}
+                      {[
+                        refPapersInput.trim() || referenceFiles.length > 0 ? 'refs' : '',
+                        codebasesPath,
+                        datasetsPath,
+                        checkpointsPath,
+                      ].filter(s => s.trim()).length}
                     </span>
                   )}
                 </button>
@@ -188,13 +244,50 @@ export default function ProjectPanel({ projects, connected, selectedProjectId, a
                 <div className="paths-grid">
                   <label className="path-field">
                     <span className="path-label">{t('project.ref_papers_label')}</span>
-                    <input
-                      className="path-input"
-                      placeholder={t('project.ref_papers_placeholder')}
-                      value={refPapersInput}
-                      onChange={e => setRefPapersInput(e.target.value)}
-                      disabled={!connected}
-                    />
+                    <div className="path-input-with-action">
+                      <input
+                        className="path-input"
+                        placeholder={t('project.ref_papers_placeholder')}
+                        value={refPapersInput}
+                        onChange={e => setRefPapersInput(e.target.value)}
+                        disabled={!connected}
+                      />
+                      <button
+                        className="path-action-btn"
+                        type="button"
+                        title={t('project.ref_papers_pick_pdf')}
+                        onClick={() => referenceFileInputRef.current?.click()}
+                        disabled={!connected}
+                      >
+                        +
+                      </button>
+                      <input
+                        ref={referenceFileInputRef}
+                        className="hidden-file-input"
+                        type="file"
+                        accept=".pdf,application/pdf"
+                        multiple
+                        onChange={(e) => { void pickReferenceFiles(e); }}
+                        disabled={!connected}
+                      />
+                    </div>
+                    {referenceFiles.length > 0 && (
+                      <div className="selected-file-list">
+                        {referenceFiles.map((file) => (
+                          <span key={file.key} className="selected-file-chip">
+                            <span className="selected-file-name">{file.name}</span>
+                            <button
+                              className="selected-file-remove"
+                              type="button"
+                              title={t('project.ref_papers_remove_pdf')}
+                              onClick={() => removeReferenceFile(file.key)}
+                            >
+                              ×
+                            </button>
+                          </span>
+                        ))}
+                      </div>
+                    )}
                   </label>
                   <label className="path-field">
                     <span className="path-label">{t('paths.codebases')}</span>
