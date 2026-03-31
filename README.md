@@ -134,7 +134,7 @@ pip install torch torchvision diffusers transformers accelerate safetensors data
             huggingface_hub opencv-python pandas matplotlib scikit-image scipy einops tqdm
 
 # For coding
-pip install aider-install
+pip install aider-chat
 ```
 
 ### 2. Configure
