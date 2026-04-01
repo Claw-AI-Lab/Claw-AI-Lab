@@ -3609,7 +3609,41 @@ def _execute_code_generation(
     llm: LLMClient | None = None,
     prompts: PromptManager | None = None,
 ) -> StageResult:
-    # Use dedicated coding model if configured (e.g. claude-opus-4-6)
+    """S11 CODE_GENERATION — delegates to the refactored codegen package.
+
+    The full implementation lives in ``researchclaw.pipeline.codegen``,
+    structured around claw-code's harness engineering patterns:
+    StrategyRegistry, CodegenRouter, CodegenRuntime, and PromptBuilder.
+    """
+    from researchclaw.pipeline.codegen import execute_code_generation
+    return execute_code_generation(
+        stage_dir=stage_dir,
+        run_dir=run_dir,
+        config=config,
+        adapters=adapters,
+        llm=llm,
+        prompts=prompts,
+    )
+
+
+# ── BEGIN: Original _execute_code_generation (preserved for reference) ──
+# The monolithic implementation below has been refactored into the
+# researchclaw.pipeline.codegen package. It is kept commented out
+# for git diff clarity and rollback safety.
+#
+# To restore: delete the wrapper above and uncomment this block.
+# ─────────────────────────────────────────────────────────────────────
+
+
+def _execute_code_generation_ORIGINAL(
+    stage_dir: Path,
+    run_dir: Path,
+    config: RCConfig,
+    adapters: AdapterBundle,
+    *,
+    llm: LLMClient | None = None,
+    prompts: PromptManager | None = None,
+) -> StageResult:
     coding_model = getattr(config.llm, "coding_model", None) or ""
     if coding_model and llm is not None:
         import dataclasses as _dc_cm
