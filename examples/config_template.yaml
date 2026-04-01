@@ -36,7 +36,7 @@ openclaw_bridge:
 
 llm:
   provider: "openai-compatible"
-  api_key: "your-api-key"
+  api_key: "sk-fBhQ9cHEq8J7eY50OjhcGj58KXG5EIW9hg889tBOWJUwMKF7"
   api_key_env: "RESEARCHCLAW_API_KEY"
   primary_model: "gpt-5.4"
   coding_model: "claude-opus-4-6"
@@ -57,13 +57,13 @@ experiment:
   max_iterations: 3
   metric_key: "primary_metric"
   metric_direction: "minimize"
-  datasets_dir: "/path/to/your/datasets"
-  checkpoints_dir: "/path/to/your/checkpoints"
+  datasets_dir: "/dataset_rc_mm/wuf16@xiaopeng.com/datasets"
+  checkpoints_dir: "/dataset_rc_mm/wuf16@xiaopeng.com/models"
   codebases_dir: ""
-  shared_results_dir: "./shared_results"
+  shared_results_dir: "/workspace/wuf16@xiaopeng.com/Claw-AI-Lab/backend/shared_results"
   paper_length: "short"
   sandbox:
-    python_path: "/path/to/your/python3"
+    python_path: "/dataset_rc_mm/wuf16@xiaopeng.com/models/miniforge3/envs/clawailab/bin/python"
     gpu_required: true
     gpus_per_project: 1
     max_memory_mb: 16384

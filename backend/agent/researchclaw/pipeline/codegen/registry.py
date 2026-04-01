@@ -40,16 +40,18 @@ class StrategyRegistry:
 
 
 def build_default_registry() -> StrategyRegistry:
-    """Build the standard strategy registry with all built-in strategies.
+    """Build the strategy registry with the claw-code agentic strategy.
 
-    Priority order matters — the router tries them in registration order.
+    The ClawAgentStrategy is the sole code generation path — it uses
+    claw-code's turn loop pattern where the LLM iteratively calls tools
+    (bash, read_file, write_file, edit_file, glob_search, grep_search)
+    to generate experiment code.
+
+    FallbackStrategy is handled by the runtime if claw_agent produces
+    no files — it does not need to be registered here.
     """
-    from researchclaw.pipeline.codegen.strategies.aider_todo import AiderTodoStrategy
-    from researchclaw.pipeline.codegen.strategies.blueprint import BlueprintStrategy
-    from researchclaw.pipeline.codegen.strategies.single_shot import SingleShotStrategy
+    from researchclaw.pipeline.codegen.strategies.claw_agent import ClawAgentStrategy
 
     registry = StrategyRegistry()
-    registry.register(AiderTodoStrategy())
-    registry.register(BlueprintStrategy())
-    registry.register(SingleShotStrategy())
+    registry.register(ClawAgentStrategy())
     return registry

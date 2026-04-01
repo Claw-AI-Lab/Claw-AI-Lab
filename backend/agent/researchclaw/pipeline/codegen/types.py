@@ -57,6 +57,26 @@ class HardwareProfile:
 
 
 @dataclass
+class DiscoveredData:
+    """Pre-discovered filesystem context, gathered before prompt building.
+
+    Analogous to claw-code's ``ProjectContext`` fields ``git_status``
+    and ``instruction_files`` — real data read from the filesystem and
+    injected into the system prompt so the LLM has ground truth before
+    writing any code.
+    """
+
+    checkpoint_model_index: dict[str, Any] = field(default_factory=dict)
+    checkpoint_model_index_raw: str = ""
+    checkpoint_class_name: str = ""
+    checkpoint_files: list[str] = field(default_factory=list)
+    dataset_files: list[str] = field(default_factory=list)
+    dataset_sample: str = ""
+    codebase_files: list[str] = field(default_factory=list)
+    codebase_readme: str = ""
+
+
+@dataclass
 class CodegenContext:
     """All context needed for code generation, assembled once.
 
@@ -83,6 +103,8 @@ class CodegenContext:
 
     run_dir: Path | None = None
     stage_dir: Path | None = None
+
+    discovered: DiscoveredData = field(default_factory=DiscoveredData)
 
 
 @dataclass
