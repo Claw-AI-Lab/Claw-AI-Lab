@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="assets/logo_v1.png" width="170" alt="Claw AI Lab">
+  <img src="assets/logo_v2.png" width="170" alt="Claw AI Lab">
 </p>
 
-<h2 align="center"><b>Claw AI Lab: Autonomous Multi-Agent Research Team</b></h2>
+<h2 align="center"><b>Autonomous Multi-Agent Research Team</b></h2>
 
 <p align="center">
   <b><i>One Command. A Complete Team.</i></b>
@@ -18,9 +18,15 @@
 
 ---
 
-<div align="center">
+## 🔥 Updates
+
+- __[2026.03.25]__: We released Claw AI Lab Preview v1.0.0.
+
+---
+
+<!-- <div align="center">
   <video src="https://github.com/user-attachments/assets/6660e4eb-f2a8-4c39-b47e-cbaf753eca7b" controls width="100%"></video>
-</div>
+</div> -->
 
 ## 🤔 What Is This?
 
@@ -97,12 +103,6 @@ Multi-agent discussion on: **"What is the most deployable direction for Video Ac
 <tr><td><b>GPU & NPU Support</b></td><td>Dynamic scheduling on your own hardware (CUDA / Ascend NPU)</td></tr>
 <tr><td><b>Local Code Editing</b></td><td>Reads local codebases, datasets & checkpoints, then writes local files</td></tr>
 </table>
-
----
-
-## 🔥 Updates
-
-- __[2026.03.25]__: We released Claw AI Lab Preview v1.0.0.
 
 ---
 
