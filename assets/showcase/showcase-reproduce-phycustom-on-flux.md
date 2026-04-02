@@ -147,7 +147,11 @@ discovery_aligned_endpoint_physical_transfer_error = 1.0 - F.cosine_similarity(g
 
 ## 💻 Code
 
-[👉 Generated `main.py`](reproduce-phycustom/main.py)
+👉 Generated [`main.py`](reproduce-phycustom/main.py)
+
+---
+
+**Reference:** Wu et al., *PhyCustom: Towards Realistic Physical Customization in Text-to-Image Generation*, arXiv [2512.02794](https://arxiv.org/abs/2512.02794), 2025.
 
 ---
 

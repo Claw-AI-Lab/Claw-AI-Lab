@@ -112,7 +112,7 @@ The generated experiment code already includes:
 - Condition classes for the full planned baseline / proposed-method set
 - Output writing for `summary.json`, `benchmark_card.json`, representative GIFs, and frame grids
 
-[👉 Generated `main.py`](quantifying-hallucination/main.py)
+👉 Generated [`main.py`](quantifying-hallucination/main.py)
 
 ---
 
