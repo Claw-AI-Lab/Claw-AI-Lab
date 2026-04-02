@@ -4113,7 +4113,17 @@ def _execute_result_analysis(
             _refine_data = json.loads(_refine_log_text)
             _best_iter = None
             _best_ver = _refine_data.get("best_version", "")
-            for _it in _refine_data.get("iterations", []):
+            _refine_iterations = _refine_data.get("iterations", [])
+            if not isinstance(_refine_iterations, list):
+                logger.warning(
+                    "R13-1: refinement_log.json has non-list iterations=%r; "
+                    "skipping refinement merge",
+                    type(_refine_iterations).__name__,
+                )
+                _refine_iterations = []
+            for _it in _refine_iterations:
+                if not isinstance(_it, dict):
+                    continue
                 _sbx = _it.get("sandbox", {})
                 _it_metrics = _sbx.get("metrics", {})
                 if _it.get("version_dir", "") == _best_ver and _it_metrics:
@@ -4121,7 +4131,9 @@ def _execute_result_analysis(
                     break
             # If no version match, take the first iteration with metrics
             if _best_iter is None:
-                for _it in _refine_data.get("iterations", []):
+                for _it in _refine_iterations:
+                    if not isinstance(_it, dict):
+                        continue
                     _sbx = _it.get("sandbox", {})
                     if _sbx.get("metrics"):
                         _best_iter = _it
@@ -4208,7 +4220,12 @@ def _execute_result_analysis(
     if _refine_log_text:
         try:
             _rl = json.loads(_refine_log_text)
-            for _it in _rl.get("iterations", []):
+            _refine_iterations = _rl.get("iterations", [])
+            if not isinstance(_refine_iterations, list):
+                _refine_iterations = []
+            for _it in _refine_iterations:
+                if not isinstance(_it, dict):
+                    continue
                 for _sbx_key in ("sandbox", "sandbox_after_fix"):
                     _sbx_stdout = (_it.get(_sbx_key) or {}).get("stdout", "")
                     if _sbx_stdout:
