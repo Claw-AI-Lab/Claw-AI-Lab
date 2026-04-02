@@ -84,7 +84,7 @@ class ToolExecutor:
         command = inp.get("command", "")
         if not command:
             raise ValueError("command is required")
-        timeout = min(inp.get("timeout", self.bash_timeout), 300)
+        timeout = min(inp.get("timeout", self.bash_timeout), self.bash_timeout)
 
         _dangerous = ["rm -rf /", "mkfs", "dd if=", ":(){", "fork bomb"]
         cmd_lower = command.lower()

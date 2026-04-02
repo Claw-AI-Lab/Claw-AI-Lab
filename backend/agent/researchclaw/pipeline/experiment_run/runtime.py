@@ -124,7 +124,7 @@ class ExperimentRunRuntime:
             system_prompt=system_prompt,
             session=session,
             allowed_read_dirs=allowed_reads,
-            bash_timeout=min(time_budget + 60, 7200),
+            bash_timeout=time_budget + 600,
             max_iterations=20,
             python_path=python_path,
             trace_prefix="experiment_run",
