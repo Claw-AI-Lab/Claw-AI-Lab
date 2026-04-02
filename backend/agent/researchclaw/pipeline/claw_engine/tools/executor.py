@@ -212,6 +212,7 @@ class ToolExecutor:
         pattern = inp["pattern"]
         base_str = inp.get("path")
         base = self._resolve_read_path(base_str) if base_str else self.workspace
+        return_relative = base == self.workspace
 
         if not base.is_dir():
             return f"Not a directory: {base}"
@@ -248,10 +249,13 @@ class ToolExecutor:
 
         lines: list[str] = []
         for _, p in matches:
-            try:
-                lines.append(str(p.relative_to(base)))
-            except ValueError:
-                lines.append(str(p))
+            if return_relative:
+                try:
+                    lines.append(str(p.relative_to(base)))
+                    continue
+                except ValueError:
+                    pass
+            lines.append(str(p))
 
         header = f"Found {len(lines)} file(s)"
         if truncated:

@@ -197,6 +197,18 @@ class ClawTurnLoop:
         )
 
         self._api_tools = self._build_api_tools()
+        _coding = getattr(llm_config, "coding_model", "") or ""
+        self._use_text_tools = (
+            self._is_claude_model(llm_config.primary_model)
+            or (bool(_coding) and self._is_claude_model(_coding))
+        )
+        if self._use_text_tools:
+            self._text_tool_prompt = self._build_text_tool_prompt()
+            logger.info(
+                "[codegen] Claude model detected (primary=%s, coding=%s) "
+                "— using text-based tool calling",
+                llm_config.primary_model, _coding,
+            )
         self._simulation_check_done = False
         self._plan_check_done = False
         self._exp_plan = ""
@@ -265,7 +277,10 @@ class ClawTurnLoop:
                     f"Turn {iter_num}: LLM text ({len(assistant_text)} chars)",
                 )
 
-            self._messages.append(self._build_assistant_message(response))
+            if self._use_text_tools:
+                self._messages.append({"role": "assistant", "content": assistant_text})
+            else:
+                self._messages.append(self._build_assistant_message(response))
 
             if not tool_uses:
                 self._session.log(
@@ -299,11 +314,21 @@ class ClawTurnLoop:
                         f"  DENIED {tool_name}: {perm_error}",
                     )
                     self._trace.permission_denied(tool_name, perm_error)
-                    self._messages.append({
-                        "role": "tool",
-                        "tool_call_id": tool_id,
-                        "content": f"PERMISSION DENIED: {perm_error}",
-                    })
+                    if self._use_text_tools:
+                        self._messages.append({
+                            "role": "user",
+                            "content": self._format_text_tool_feedback(
+                                tool_name,
+                                tool_input,
+                                f"PERMISSION DENIED: {perm_error}",
+                            ),
+                        })
+                    else:
+                        self._messages.append({
+                            "role": "tool",
+                            "tool_call_id": tool_id,
+                            "content": f"PERMISSION DENIED: {perm_error}",
+                        })
                     continue
 
                 self._session.log(
@@ -330,11 +355,19 @@ class ClawTurnLoop:
                         f"  {tool_name} OK ({tool_elapsed_ms}ms, {len(tool_result)} chars)",
                     )
 
-                self._messages.append({
-                    "role": "tool",
-                    "tool_call_id": tool_id,
-                    "content": tool_result,
-                })
+                if self._use_text_tools:
+                    self._messages.append({
+                        "role": "user",
+                        "content": self._format_text_tool_feedback(
+                            tool_name, tool_input, tool_result,
+                        ),
+                    })
+                else:
+                    self._messages.append({
+                        "role": "tool",
+                        "tool_call_id": tool_id,
+                        "content": tool_result,
+                    })
 
             # Log workspace state after each iteration
             ws_files = self._list_workspace_files()
@@ -441,16 +474,28 @@ class ClawTurnLoop:
         base_url = (cfg.base_url or "https://api.openai.com/v1").rstrip("/")
         url = f"{base_url}/chat/completions"
 
+        system_prompt = self._system_prompt
+        if self._use_text_tools:
+            system_prompt += self._text_tool_prompt
+
+        model = cfg.primary_model
+        if self._use_text_tools:
+            _coding = getattr(cfg, "coding_model", "") or ""
+            if _coding and self._is_claude_model(_coding):
+                model = _coding
+
         body: dict[str, Any] = {
-            "model": cfg.primary_model,
+            "model": model,
             "messages": [
-                {"role": "system", "content": self._system_prompt},
+                {"role": "system", "content": system_prompt},
                 *self._messages,
             ],
             "max_tokens": 8192,
-            "tools": self._api_tools,
-            "tool_choice": "auto",
         }
+
+        if not self._use_text_tools:
+            body["tools"] = self._api_tools
+            body["tool_choice"] = "auto"
 
         if any(cfg.primary_model.startswith(p) for p in ("o3", "o4", "gpt-5")):
             body["max_tokens"] = 16384
@@ -472,7 +517,12 @@ class ClawTurnLoop:
     def _parse_response(
         self, data: dict[str, Any]
     ) -> tuple[str, list[dict[str, Any]]]:
-        """Extract text content and tool_use calls from API response."""
+        """Extract text content and tool_use calls from API response.
+
+        Falls back to parsing JSON tool calls from text content when the
+        structured ``tool_calls`` field is absent — some models/proxies
+        return tool invocations as plain-text JSON in ``content``.
+        """
         choices = data.get("choices", [])
         if not choices:
             return "", []
@@ -480,7 +530,99 @@ class ClawTurnLoop:
         message = choices[0].get("message", {})
         text = message.get("content") or ""
         tool_calls = message.get("tool_calls", [])
+
+        if not tool_calls and text.strip():
+            recovered = self._try_recover_tool_calls_from_text(text)
+            if recovered:
+                logger.info(
+                    "[turn_loop] Recovered %d tool call(s) from text content",
+                    len(recovered),
+                )
+                tool_calls = recovered
+                if not self._use_text_tools:
+                    message["tool_calls"] = recovered
+
         return text, tool_calls
+
+    def _try_recover_tool_calls_from_text(
+        self, text: str,
+    ) -> list[dict[str, Any]]:
+        """Try to parse tool call JSON embedded in assistant text.
+
+        Handles formats like:
+          {"tool": "read_file", "parameters": {"path": "..."}}
+          [{"tool": "write_file", "parameters": {...}}, ...]
+        """
+        import re
+        import uuid
+
+        valid_tool_names = {spec["name"] for spec in TOOL_SPECS}
+
+        candidates: list[dict[str, Any]] = []
+        stripped = text.strip()
+
+        blobs: list[Any] = []
+        try:
+            parsed = json.loads(stripped)
+            blobs = parsed if isinstance(parsed, list) else [parsed]
+        except (json.JSONDecodeError, ValueError):
+            for m in re.finditer(r'\{[^{}]*"tool"\s*:\s*"[^"]+?"[^{}]*\}', stripped):
+                try:
+                    blobs.append(json.loads(m.group()))
+                except (json.JSONDecodeError, ValueError):
+                    pass
+
+        for blob in blobs:
+            if not isinstance(blob, dict):
+                continue
+            tool_name = blob.get("tool") or blob.get("name") or blob.get("function", {}).get("name")
+            if not tool_name or tool_name not in valid_tool_names:
+                continue
+            params = blob.get("parameters") or blob.get("arguments") or blob.get("input") or {}
+            if isinstance(params, str):
+                try:
+                    params = json.loads(params)
+                except (json.JSONDecodeError, ValueError):
+                    params = {}
+
+            if isinstance(params, dict):
+                params = self._normalize_tool_params(tool_name, params)
+
+            candidates.append({
+                "id": f"call_{uuid.uuid4().hex[:8]}",
+                "type": "function",
+                "function": {
+                    "name": tool_name,
+                    "arguments": json.dumps(params),
+                },
+            })
+
+        return candidates
+
+    @staticmethod
+    def _normalize_tool_params(tool_name: str, params: dict) -> dict:
+        """Map common parameter name aliases to canonical names."""
+        _ALIASES: dict[str, dict[str, str]] = {
+            "read_file": {"filename": "path", "file": "path", "file_path": "path", "filepath": "path"},
+            "write_file": {"filename": "path", "file": "path", "file_path": "path",
+                           "contents": "content", "text": "content", "data": "content"},
+            "edit_file": {"filename": "path", "file": "path", "file_path": "path",
+                          "find": "old_string", "search": "old_string",
+                          "replace": "new_string", "replacement": "new_string"},
+            "glob_search": {"glob": "pattern", "glob_pattern": "pattern",
+                            "directory": "path", "dir": "path"},
+            "grep_search": {"regex": "pattern", "query": "pattern",
+                            "directory": "path", "dir": "path"},
+            "bash": {"cmd": "command", "script": "command", "shell": "command"},
+        }
+        aliases = _ALIASES.get(tool_name, {})
+        if not aliases:
+            return params
+        normalized = {}
+        for k, v in params.items():
+            canonical = aliases.get(k, k)
+            normalized[canonical] = v
+        return normalized
 
     @staticmethod
     def _build_assistant_message(data: dict[str, Any]) -> dict[str, Any]:
@@ -503,6 +645,53 @@ class ClawTurnLoop:
             }
             for spec in TOOL_SPECS
         ]
+
+    @staticmethod
+    def _is_claude_model(model_name: str) -> bool:
+        return "claude" in model_name.lower()
+
+    def _build_text_tool_prompt(self) -> str:
+        """Build tool descriptions for system prompt (text-based mode).
+
+        Used when the proxy doesn't reliably translate structured
+        tool calls (e.g. Claude via OpenAI-compatible proxy).
+        """
+        lines = [
+            "\n\n---\n## Tool Calling\n",
+            "To use a tool, output EXACTLY one JSON object per message:",
+            '{"tool": "<tool_name>", "parameters": {<params>}}',
+            "",
+            "IMPORTANT: Output ONLY the JSON object. No extra text.",
+            "After receiving the tool result, decide the next action.",
+            "",
+            "Available tools:",
+        ]
+        for spec in TOOL_SPECS:
+            name = spec["name"]
+            desc = spec["description"]
+            schema = spec["input_schema"]
+            props = schema.get("properties", {})
+            required = set(schema.get("required", []))
+            lines.append(f"\n### {name}")
+            lines.append(desc)
+            lines.append("Parameters:")
+            for pname, pinfo in props.items():
+                req = " **(required)**" if pname in required else ""
+                pdesc = pinfo.get("description", "")
+                ptype = pinfo.get("type", "string")
+                lines.append(f"  - `{pname}` ({ptype}): {pdesc}{req}")
+        return "\n".join(lines)
+
+    @staticmethod
+    def _format_text_tool_feedback(
+        tool_name: str, tool_input: dict[str, Any], tool_result: str,
+    ) -> str:
+        """Return a text-only tool transcript for Claude-style loops."""
+        return (
+            f"Tool result ({tool_name})\n"
+            f"Arguments: {json.dumps(tool_input, ensure_ascii=False, sort_keys=True)}\n"
+            f"Result:\n{tool_result}"
+        )
 
     # ------------------------------------------------------------------
     # Workspace file collection
