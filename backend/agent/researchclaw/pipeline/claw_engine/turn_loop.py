@@ -630,28 +630,29 @@ class AgentTurnLoop:
     # Workspace helpers
     # ------------------------------------------------------------------
 
+    _COLLECT_EXTENSIONS = frozenset({
+        ".py", ".yaml", ".yml", ".json", ".txt", ".csv", ".tsv", ".cfg", ".ini", ".toml",
+    })
+    _SKIP_DIRS = frozenset({
+        "__pycache__", "codebases", "datasets", "checkpoints", ".git",
+    })
+
     def _collect_workspace_files(self) -> dict[str, str]:
         files: dict[str, str] = {}
-        for py_file in sorted(self._workspace.rglob("*.py")):
-            if py_file.is_symlink():
+        for fpath in sorted(self._workspace.rglob("*")):
+            if not fpath.is_file() or fpath.is_symlink():
                 continue
-            rel = py_file.relative_to(self._workspace)
-            if any(
-                p.startswith(".") or p == "__pycache__" or p == "codebases"
-                for p in rel.parts
-            ):
+            rel = fpath.relative_to(self._workspace)
+            if any(p.startswith(".") or p in self._SKIP_DIRS for p in rel.parts):
+                continue
+            if fpath.suffix.lower() not in self._COLLECT_EXTENSIONS:
+                continue
+            if fpath.stat().st_size > 2 * 1024 * 1024:
                 continue
             try:
-                files[str(rel)] = py_file.read_text(encoding="utf-8", errors="replace")
+                files[str(rel)] = fpath.read_text(encoding="utf-8", errors="replace")
             except OSError:
                 pass
-        for extra in ("requirements.txt", "results.json"):
-            p = self._workspace / extra
-            if p.exists():
-                try:
-                    files[extra] = p.read_text(encoding="utf-8", errors="replace")
-                except OSError:
-                    pass
         return files
 
     def _list_workspace_files(self) -> list[str]:

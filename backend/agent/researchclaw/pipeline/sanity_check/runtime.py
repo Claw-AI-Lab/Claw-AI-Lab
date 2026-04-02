@@ -26,6 +26,21 @@ from researchclaw.pipeline.stages import Stage, StageStatus
 logger = logging.getLogger(__name__)
 
 
+def _iter_plan_sources(run_dir: Path):
+    """Yield candidate paths for the experiment plan, best match first."""
+    # S11 claw_workspace may contain the LLM-created EXPERIMENT_PLAN.yaml
+    s11 = run_dir / "stage-11"
+    if s11.is_dir():
+        for ws_dir in sorted(s11.glob("claw_workspace_*"), reverse=True):
+            p = ws_dir / "EXPERIMENT_PLAN.yaml"
+            if p.is_file():
+                yield p
+    # S9 canonical exp_plan.yaml
+    s9_plan = run_dir / "stage-09" / "exp_plan.yaml"
+    if s9_plan.is_file():
+        yield s9_plan
+
+
 class SanityCheckRuntime:
     """Orchestration for S12 SANITY_CHECK using claw-code turn loop."""
 
@@ -127,7 +142,7 @@ class SanityCheckRuntime:
         fixed_count = self._copy_fixes_back(workspace, experiment_dir, session)
 
         # Determine success: check if smoke test passed by examining final text
-        success = self._check_success(turn_result, workspace)
+        success = self._check_success(turn_result, workspace, max_iterations=min(max_iters, 30))
         session.log(
             "RESULT",
             f"Sanity check {'PASSED' if success else 'FAILED'}: "
@@ -235,6 +250,20 @@ class SanityCheckRuntime:
                 except OSError:
                     pass
 
+        # Copy experiment plan into workspace if not already present.
+        # S11-generated code often references EXPERIMENT_PLAN.yaml; the plan
+        # originates from S9 (exp_plan.yaml) or from S11's claw_workspace.
+        plan_names = ("EXPERIMENT_PLAN.yaml", "exp_plan.yaml")
+        has_plan = any((ws / n).exists() for n in plan_names)
+        if not has_plan:
+            for source in _iter_plan_sources(run_dir):
+                target = ws / "EXPERIMENT_PLAN.yaml"
+                try:
+                    shutil.copy2(source, target)
+                    break
+                except OSError:
+                    pass
+
         # Ensure outputs dir
         (ws / "outputs").mkdir(exist_ok=True)
         return ws
@@ -285,20 +314,45 @@ class SanityCheckRuntime:
         return count
 
     @staticmethod
-    def _check_success(turn_result: Any, workspace: Path) -> bool:
-        """Determine if the smoke test passed."""
+    def _check_success(
+        turn_result: Any,
+        workspace: Path,
+        max_iterations: int = 30,
+    ) -> bool:
+        """Determine if the smoke test passed.
+
+        Success criteria (in order):
+        1. LLM final text explicitly declares the test passed → True
+        2. LLM-level errors were recorded → False
+        3. Loop was cut off at max_iterations (LLM still working) → False
+        4. LLM final text contains failure language → False
+        5. LLM stopped voluntarily (no more tool calls) with no errors → True
+        """
         final = turn_result.final_text.lower()
-        if any(phrase in final for phrase in (
+
+        _PASS_PHRASES = (
             "smoke test pass", "sanity check pass", "test passed",
             "completed successfully", "all checks pass",
-            "exit code 0", "smoke_test passed",
-        )):
+            "exit code 0", "smoke_test passed", "tests pass",
+            "all tests pass", "successfully completed",
+        )
+        if any(phrase in final for phrase in _PASS_PHRASES):
             return True
 
         if turn_result.errors:
             return False
 
-        if turn_result.iterations >= 2 and not turn_result.errors:
+        if turn_result.iterations >= max_iterations:
+            return False
+
+        _FAIL_PHRASES = (
+            "fail", "error", "traceback", "not pass", "does not pass",
+            "exit code 1", "cannot", "unable to fix",
+        )
+        if any(phrase in final for phrase in _FAIL_PHRASES):
+            return False
+
+        if turn_result.iterations >= 2:
             return True
 
         return False
