@@ -55,7 +55,7 @@ You’re also warmly invited to scroll to the bottom of the page to join our gro
 
 Each project autonomously produces a full research deliverable: **Paper** · **Code** · **Figures** · **Experiment Logs**
 
-<table>
+<table width="100%">
 <tr>
 <td align="center" width="50%"><a href="assets/showcase/showcase-quantify-hallucination.md"><b>Quantifying Video Hallucination</b></a><br><sub>Lab Explore · CV · Video Generation Evaluation</sub></td>
 <td align="center" width="50%"><a href="assets/showcase/showcase-reproduce-phycustom-on-flux.md"><b>Reproducing PhyCustom on FLUX</b></a><br><sub>Reproduce · Image Gen · Customization</sub></td>
@@ -160,6 +160,10 @@ Thanks a lot for [KOKONI's](https://www.kokoni3d.com/) support for this project,
 ```
 
 Open **http://localhost:5903/** → Submit your research topic and let the agents work.
+
+<p align="center">
+  <img src="assets/ui.png" width="720" alt="Claw AI Lab UI"/>
+</p>
 
 ---
 
