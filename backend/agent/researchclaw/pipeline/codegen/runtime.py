@@ -220,6 +220,32 @@ def generate_codegen_md(ctx: CodegenContext, target_path: Path) -> str:
         if ds_format:
             sections.append(f"- Format: {ds_format[:300]}")
 
+    sections.append("\n## Absolute path usage (CRITICAL)")
+    sections.append(
+        "- When exploring datasets, checkpoints, or codebases, use the REAL absolute path via the tool `path` field."
+    )
+    sections.append(
+        "- Do NOT assume workspace-relative symlinks like `datasets/` or `checkpoints/` are the source of truth."
+    )
+    sections.append(
+        "- If a configured absolute path exists, prefer `glob_search(path=ABS_PATH, pattern=\"**/*\")` and `read_file(path=\"/abs/path/to/file\")`."
+    )
+    if ctx.datasets_dir:
+        sections.append(f"- DATASETS_DIR: `{ctx.datasets_dir}`")
+        sections.append(
+            f"- Example exploration call: `glob_search(path=\"{ctx.datasets_dir}\", pattern=\"**/*\")`"
+        )
+    if ctx.checkpoints_dir:
+        sections.append(f"- CHECKPOINTS_DIR: `{ctx.checkpoints_dir}`")
+        sections.append(
+            f"- Example exploration call: `glob_search(path=\"{ctx.checkpoints_dir}\", pattern=\"**/*\")`"
+        )
+    if ctx.codebases_dir:
+        sections.append(f"- CODEBASES_DIR: `{ctx.codebases_dir}`")
+        sections.append(
+            f"- Example exploration call: `glob_search(path=\"{ctx.codebases_dir}\", pattern=\"**/*.py\")`"
+        )
+
     # ── Evaluation ──
     eval_info = plan_dict.get("evaluation", {})
     if eval_info:

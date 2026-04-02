@@ -18,6 +18,7 @@ import os
 import time
 import urllib.error
 import urllib.request
+import yaml
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
@@ -880,6 +881,112 @@ class ClawTurnLoop:
 
         # 1. Check all methods/conditions from plan are implemented
         import re
+        try:
+            plan_data = yaml.safe_load(self._exp_plan) or {}
+        except Exception:
+            plan_data = {}
+
+        def _iter_named_entries(section_name: str) -> list[tuple[str, dict[str, Any]]]:
+            section = plan_data.get(section_name, {}) if isinstance(plan_data, dict) else {}
+            entries: list[tuple[str, dict[str, Any]]] = []
+            if isinstance(section, dict):
+                for name, item in section.items():
+                    if isinstance(item, dict):
+                        entries.append((str(name), item))
+            elif isinstance(section, list):
+                for item in section:
+                    if isinstance(item, dict):
+                        name = item.get("name")
+                        if isinstance(name, str) and name.strip():
+                            entries.append((name.strip(), item))
+            return entries
+
+        def _is_meaningful_runtime_param(param_name: str, value: Any) -> bool:
+            if param_name.startswith("lambda_") or param_name == "margin":
+                return isinstance(value, (int, float)) and float(value) > 0
+            if param_name in ("hidden_layer_indices", "selectively_unfrozen_blocks", "target_modules"):
+                return isinstance(value, (list, tuple)) and len(value) > 0
+            if param_name == "multi_concept_mode":
+                return isinstance(value, str) and value not in ("", "single", "none")
+            return False
+
+        def _param_usage_patterns(param_name: str) -> tuple[str, ...]:
+            patterns = {
+                "hidden_layer_indices": (r"\.hidden_layer_indices\b", r"hidden_layer_indices", r"layer_indices"),
+                "selectively_unfrozen_blocks": (r"selectively_unfrozen_blocks", r"select_unfrozen", r"unfrozen_blocks"),
+                "multi_concept_mode": (r"\.multi_concept_mode\b", r"multi_concept_mode", r"sample_related_pairs", r"sample_unrelated_pairs"),
+                "target_modules": (r"\.target_modules\b", r"target_modules"),
+            }
+            if param_name in patterns:
+                return patterns[param_name]
+            return (rf"\.{re.escape(param_name)}\b",)
+
+        def _symbol_is_defined(name: str) -> bool:
+            return bool(re.search(rf"\bdef\s+{re.escape(name)}\s*\(", code))
+
+        def _symbol_is_called(name: str) -> bool:
+            return bool(re.search(rf"(?<!def\s)\b{re.escape(name)}\s*\(", code))
+
+        def _loss_term_patterns(term_name: str) -> tuple[str, ...]:
+            normalized = term_name.strip().lower()
+            patterns = {
+                "diffusion_loss": (r"\bdiffusion_loss\b", r"\bdiff_loss\b", r"mse_loss", r"noise_loss"),
+                "sameconcept_pull_loss": (r"lambda_sameconcept", r"sameconcept", r"same_concept", r"\bl_same\b"),
+                "diffconcept_margin_loss": (r"lambda_diffconcept", r"diffconcept", r"diff_concept", r"\bl_diff\b", r"\bmargin\b"),
+                "intervention_consistency_loss": (r"lambda_consistency", r"intervention", r"consistency"),
+                "separation_margin_loss": (r"lambda_sep", r"separation", r"mismatch", r"\bmargin\b"),
+                "prior_preservation_loss": (r"lambda_prior", r"prior_preservation", r"\bprior\b"),
+                "internal_state_regularization": (r"lambda_internal", r"hidden_state", r"hidden_layer", r"internal"),
+                "balance_loss": (r"lambda_balance", r"\bbalance\b"),
+            }
+            if normalized in patterns:
+                return patterns[normalized]
+            return (re.escape(normalized),)
+
+        def _data_pairing_patterns(pairing_name: str) -> tuple[str, ...]:
+            normalized = pairing_name.strip().lower()
+            patterns = {
+                "prompt_swaps": (r"construct_prompt_swaps", r"prompt_swap", r"swapped", r"swap"),
+                "intervention_pairs": (r"build_intervention_pairs", r"intervention_pairs", r"paired_prompts", r"matched", r"mismatch"),
+                "related_concept_pairs": (r"sample_related_pairs", r"related_pairs", r"multi_concept_mode"),
+                "unrelated_concept_pairs": (r"sample_unrelated_pairs", r"unrelated_pairs", r"multi_concept_mode"),
+                "filesystem_reference_pairs": (r"pair_dataset", r"gt_path", r"reference", r"paired"),
+                "none": tuple(),
+            }
+            if normalized in patterns:
+                return patterns[normalized]
+            return (re.escape(normalized),)
+
+        def _model_edit_patterns(edit_name: str) -> tuple[str, ...]:
+            normalized = edit_name.strip().lower()
+            patterns = {
+                "monkey_patch_forward": (r"monkey_patch", r"\.forward\s*=", r"setattr", r"patched_forward"),
+                "replace_module": (r"replace_module", r"setattr", r"nn\.", r"module_dict", r"register_module"),
+                "selective_unfreezing": (r"requires_grad\s*=\s*true", r"select_unfrozen", r"unfrozen_blocks", r"selectively_unfrozen_blocks"),
+                "attach_lora": (r"get_peft_model", r"loraconfig", r"add_adapter", r"attach_lora"),
+                "register_forward_hook": (r"register_forward_hook", r"forward_hook"),
+                "register_pre_hook": (r"register_forward_pre_hook", r"forward_pre_hook"),
+                "register_hidden_state_hook": (r"register_forward_hook", r"hidden_state", r"hook"),
+                "replace_attention_block": (r"attention", r"setattr", r"replace_", r"patched"),
+                "replace_norm_block": (r"norm", r"setattr", r"replace_", r"patched"),
+            }
+            if normalized in patterns:
+                return patterns[normalized]
+            return (re.escape(normalized),)
+
+        def _runtime_hook_patterns(hook_name: str) -> tuple[str, ...]:
+            normalized = hook_name.strip().lower()
+            patterns = {
+                "hidden_state_hook": (r"register_forward_hook", r"hidden_state", r"hook"),
+                "forward_hook": (r"register_forward_hook", r"forward_hook"),
+                "pre_forward_hook": (r"register_forward_pre_hook", r"forward_pre_hook"),
+                "scheduler_hook": (r"scheduler", r"hook", r"setattr"),
+                "transformer_block_hook": (r"transformer", r"hook", r"register_forward_hook"),
+            }
+            if normalized in patterns:
+                return patterns[normalized]
+            return (re.escape(normalized),)
+
         # Extract method names from plan (look for method definitions in YAML)
         plan_methods = set()
         for match in re.finditer(r'^\s{2}(\w+):\s*$', self._exp_plan, re.MULTILINE):
@@ -1001,6 +1108,203 @@ class ClawTurnLoop:
                     + (", ..." if len(metadata_only) > 6 else "")
                     + ". Do not claim method coverage in outputs unless those methods are actually implemented and run."
                 )
+
+        # 2h. Distinctive key_methods from implementation_spec should appear in code.
+        impl_specs: dict[str, dict[str, Any]] = {}
+        for section_name in ("proposed_methods", "baselines"):
+            for method_name, item in _iter_named_entries(section_name):
+                spec = item.get("implementation_spec") if isinstance(item, dict) else None
+                if isinstance(spec, dict):
+                    impl_specs[method_name] = spec
+
+        generic_key_methods = {
+            "__init__", "forward", "train_step", "generate", "predict", "fit",
+            "build_adapter", "forward_denoise", "run", "evaluate",
+        }
+        missing_key_methods: dict[str, list[str]] = {}
+        for method_name, spec in impl_specs.items():
+            key_methods = spec.get("key_methods", [])
+            if not isinstance(key_methods, list):
+                continue
+            missing = []
+            for key_method in key_methods:
+                if not isinstance(key_method, str):
+                    continue
+                key_method = key_method.strip()
+                if not key_method or key_method in generic_key_methods:
+                    continue
+                if not re.search(rf"\bdef\s+{re.escape(key_method)}\b|\b{re.escape(key_method)}\b", code):
+                    missing.append(key_method)
+            if missing:
+                missing_key_methods[method_name] = missing
+        if missing_key_methods:
+            preview = []
+            for method_name, missing in list(missing_key_methods.items())[:4]:
+                preview.append(f"{method_name}: {', '.join(missing[:3])}")
+            violations.append(
+                "MISSING DISTINCTIVE KEY METHODS: implementation_spec declares differentiator-specific helper methods "
+                "that never appear in code: " + " | ".join(preview)
+                + ". Methods that rely on prompt swaps, intervention pairing, selective unfreezing, or multi-concept sampling "
+                  "must expose those algorithmic steps in code, not just in plan metadata."
+            )
+
+        # 2h2. required_distinct_helpers must be both defined and called.
+        missing_required_helper_usage: dict[str, list[str]] = {}
+        for method_name, spec in impl_specs.items():
+            helpers = spec.get("required_distinct_helpers", [])
+            if not isinstance(helpers, list):
+                continue
+            missing = []
+            for helper in helpers:
+                if not isinstance(helper, str):
+                    continue
+                helper = helper.strip()
+                if not helper:
+                    continue
+                if not _symbol_is_defined(helper) or not _symbol_is_called(helper):
+                    missing.append(helper)
+            if missing:
+                missing_required_helper_usage[method_name] = missing
+        if missing_required_helper_usage:
+            preview = []
+            for method_name, missing in list(missing_required_helper_usage.items())[:4]:
+                preview.append(f"{method_name}: {', '.join(missing[:3])}")
+            violations.append(
+                "UNUSED DISTINCTIVE HELPERS: plan declares `required_distinct_helpers` that are not both defined and used "
+                "in the execution path: " + " | ".join(preview)
+                + ". Distinctive helper names are part of the implementation contract, not documentation only."
+            )
+
+        # 2i. Nontrivial plan hyperparameters must be used in runtime logic, not only stored in config structs.
+        param_to_methods: dict[str, list[str]] = {}
+        for method_name, spec in impl_specs.items():
+            hyper = spec.get("key_hyperparameters", {})
+            if not isinstance(hyper, dict):
+                continue
+            for param_name, value in hyper.items():
+                if _is_meaningful_runtime_param(str(param_name), value):
+                    param_to_methods.setdefault(str(param_name), []).append(method_name)
+        for param_name, methods in sorted(param_to_methods.items()):
+            patterns = _param_usage_patterns(param_name)
+            if not any(re.search(pattern, code) for pattern in patterns):
+                violations.append(
+                    f"UNUSED ALGORITHMIC PARAMETER: plan defines runtime-significant `{param_name}` for methods "
+                    f"{', '.join(methods[:4])}"
+                    f"{', ...' if len(methods) > 4 else ''}, but code never uses it in training/evaluation logic. "
+                    "Do not declare regularizers, layer selections, or concept modes in the plan unless the code actually applies them."
+                )
+
+        # 2j. required_loss_terms must be reflected in code, not only prose/plan metadata.
+        missing_loss_terms: dict[str, list[str]] = {}
+        for method_name, spec in impl_specs.items():
+            terms = spec.get("required_loss_terms", [])
+            if not isinstance(terms, list):
+                continue
+            missing = []
+            for term in terms:
+                if not isinstance(term, str):
+                    continue
+                term = term.strip()
+                if not term:
+                    continue
+                if not any(re.search(pattern, code.lower()) for pattern in _loss_term_patterns(term)):
+                    missing.append(term)
+            if missing:
+                missing_loss_terms[method_name] = missing
+        if missing_loss_terms:
+            preview = []
+            for method_name, missing in list(missing_loss_terms.items())[:4]:
+                preview.append(f"{method_name}: {', '.join(missing[:3])}")
+            violations.append(
+                "MISSING REQUIRED LOSS TERMS: plan declares `required_loss_terms` that do not appear in code: "
+                + " | ".join(preview)
+                + ". If a method requires extra regularization or comparison branches, the code must expose those loss terms."
+            )
+
+        # 2k. required_data_pairing should surface in data construction / sampling logic.
+        missing_pairing_logic: dict[str, list[str]] = {}
+        for method_name, spec in impl_specs.items():
+            pairing = spec.get("required_data_pairing")
+            if isinstance(pairing, list):
+                pairings = [str(p).strip() for p in pairing if str(p).strip()]
+            elif isinstance(pairing, str) and pairing.strip():
+                pairings = [pairing.strip()]
+            else:
+                pairings = []
+            missing = []
+            for pairing_name in pairings:
+                patterns = _data_pairing_patterns(pairing_name)
+                if patterns and not any(re.search(pattern, code.lower()) for pattern in patterns):
+                    missing.append(pairing_name)
+            if missing:
+                missing_pairing_logic[method_name] = missing
+        if missing_pairing_logic:
+            preview = []
+            for method_name, missing in list(missing_pairing_logic.items())[:4]:
+                preview.append(f"{method_name}: {', '.join(missing[:3])}")
+            violations.append(
+                "MISSING DATA PAIRING LOGIC: plan declares `required_data_pairing` but code does not expose the corresponding sampling/pairing branch: "
+                + " | ".join(preview)
+                + ". Methods that depend on prompt swaps, intervention pairs, or related/unrelated concept grouping must implement that data logic explicitly."
+            )
+
+        # 2l. required_model_edits should appear in structural model manipulation code.
+        missing_model_edits: dict[str, list[str]] = {}
+        for method_name, spec in impl_specs.items():
+            edits = spec.get("required_model_edits", [])
+            if isinstance(edits, str):
+                edits = [edits]
+            if not isinstance(edits, list):
+                continue
+            missing = []
+            for edit_name in edits:
+                if not isinstance(edit_name, str):
+                    continue
+                edit_name = edit_name.strip()
+                if not edit_name:
+                    continue
+                if not any(re.search(pattern, code.lower()) for pattern in _model_edit_patterns(edit_name)):
+                    missing.append(edit_name)
+            if missing:
+                missing_model_edits[method_name] = missing
+        if missing_model_edits:
+            preview = []
+            for method_name, missing in list(missing_model_edits.items())[:4]:
+                preview.append(f"{method_name}: {', '.join(missing[:3])}")
+            violations.append(
+                "MISSING MODEL EDITS: plan declares `required_model_edits` but code does not show the corresponding structural intervention: "
+                + " | ".join(preview)
+                + ". Monkey patches, module replacement, selective unfreezing, adapter attachment, and structural edits must be visible in code."
+            )
+
+        # 2m. required_runtime_hooks should appear in hook registration / interception code.
+        missing_runtime_hooks: dict[str, list[str]] = {}
+        for method_name, spec in impl_specs.items():
+            hooks = spec.get("required_runtime_hooks", [])
+            if isinstance(hooks, str):
+                hooks = [hooks]
+            if not isinstance(hooks, list):
+                continue
+            missing = []
+            for hook_name in hooks:
+                if not isinstance(hook_name, str):
+                    continue
+                hook_name = hook_name.strip()
+                if not hook_name:
+                    continue
+                if not any(re.search(pattern, code.lower()) for pattern in _runtime_hook_patterns(hook_name)):
+                    missing.append(hook_name)
+            if missing:
+                missing_runtime_hooks[method_name] = missing
+        if missing_runtime_hooks:
+            preview = []
+            for method_name, missing in list(missing_runtime_hooks.items())[:4]:
+                preview.append(f"{method_name}: {', '.join(missing[:3])}")
+            violations.append(
+                "MISSING RUNTIME HOOKS: plan declares `required_runtime_hooks` but code never installs the corresponding hooks/interception points: "
+                + " | ".join(preview)
+                + ". Hidden-state tracing or monkey-patched execution paths must register actual hooks or patch targets in code."
+            )
 
         # 3. Check training: if plan specifies training steps, code must have training loop
         if any(kw in plan for kw in ("max_steps", "training", "train_", "optimizer")):

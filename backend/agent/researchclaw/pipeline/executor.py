@@ -3306,6 +3306,9 @@ def _execute_experiment_design(
                 + "\n\nWhen designing the experiment, your `datasets` section MUST reference "
                 "these local resources. The experiment code will have direct filesystem access "
                 "to these paths.\n"
+                "Your YAML MUST include a top-level `local_resources` mapping with "
+                "`datasets_dir` equal to the exact local dataset path and a "
+                "`usage_requirement` that says core experiments must use this local data.\n"
             )
 
         # I-08: Inject RL step guidance for RL topics
@@ -3488,6 +3491,19 @@ def _execute_experiment_design(
             "risks": ["validity threats", "confounding variables"],
             "compute_budget": {"max_gpu": 1, "max_hours": 4},
         }
+    if isinstance(plan, dict):
+        if _datasets_dir_s9 and _os_s9.path.isdir(_datasets_dir_s9):
+            plan.setdefault("local_resources", {})
+            if isinstance(plan["local_resources"], dict):
+                plan["local_resources"]["datasets_dir"] = _datasets_dir_s9
+                plan["local_resources"].setdefault(
+                    "usage_requirement",
+                    "All core experiments must use this local dataset path rather than unrelated generic benchmarks or synthetic substitutes.",
+                )
+            if _reference_paper_text:
+                benchmark_suggestions = plan.get("benchmark_suggestions")
+                if isinstance(benchmark_suggestions, dict) and "datasets" in benchmark_suggestions:
+                    benchmark_suggestions.pop("datasets", None)
     # ── Validate implementation_spec presence ────────────────────────────
     # When reference paper text was provided (reproduce mode), the plan
     # MUST contain implementation_spec in proposed_methods.  If missing,
@@ -3517,6 +3533,11 @@ def _execute_experiment_design(
                 "  - algorithm_steps (3-10 concrete steps from the paper)\n"
                 "  - loss_function (the exact loss from the paper)\n"
                 "  - key_hyperparameters (values from the paper)\n"
+                "  - required_loss_terms (symbolic loss/component names that must exist in code)\n"
+                "  - required_distinct_helpers (non-generic helper methods that must be defined and called)\n"
+                "  - required_data_pairing (how examples/prompts/pairs are grouped)\n"
+                "  - required_model_edits (structural edits like monkey_patch_forward / replace_module / selective_unfreezing / attach_lora)\n"
+                "  - required_runtime_hooks (hook targets or runtime interception points)\n"
                 "  - key_methods\n"
                 "  - differentiator\n\n"
                 "Output the COMPLETE updated `proposed_methods` list as YAML.\n"
@@ -3639,9 +3660,23 @@ def _execute_experiment_design(
 
             # Inject BenchmarkAgent selections into experiment plan
             if isinstance(plan, dict) and _benchmark_plan.selected_benchmarks:
-                plan["datasets"] = [
-                    b["name"] for b in _benchmark_plan.selected_benchmarks
-                ]
+                _has_local_dataset_contract = bool(
+                    getattr(config.experiment, "datasets_dir", "") or ""
+                )
+                if not _has_local_dataset_contract:
+                    plan["datasets"] = [
+                        b["name"] for b in _benchmark_plan.selected_benchmarks
+                    ]
+                else:
+                    logger.info(
+                        "BenchmarkAgent datasets preserved as suggestions only because project has local datasets_dir=%s",
+                        getattr(config.experiment, "datasets_dir", ""),
+                    )
+                    plan.setdefault("benchmark_suggestions", {})
+                    if isinstance(plan["benchmark_suggestions"], dict):
+                        plan["benchmark_suggestions"]["datasets"] = [
+                            b["name"] for b in _benchmark_plan.selected_benchmarks
+                        ]
                 # Normalize existing baselines to list of strings
                 # BUG-35: LLM may emit baselines as dict, list of dicts,
                 # or list of strings — normalize all to list[str].

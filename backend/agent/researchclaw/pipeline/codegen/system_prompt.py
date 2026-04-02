@@ -66,10 +66,11 @@ STEP-BY-STEP WORKFLOW:
 
 Step 1 — EXPLORE (mandatory before writing any code):
   - FIRST: Use read_file on CODEGEN.md — it contains project-specific model loading code, dataset format, evaluation protocol, and technical guidance
-  - Use glob_search to list CHECKPOINTS_DIR contents — find which pretrained models are available
-  - Use glob_search to list DATASETS_DIR contents — find data format and structure
+  - Use glob_search with an EXPLICIT absolute `path` argument to list CHECKPOINTS_DIR contents — find which pretrained models are available
+  - Use glob_search with an EXPLICIT absolute `path` argument to list DATASETS_DIR contents — find data format and structure
   - Use read_file on any config files, README, or sample data files to understand the API
-  - Use glob_search/read_file on CODEBASES_DIR to find reusable code
+  - Use glob_search/read_file with an EXPLICIT absolute `path` argument on CODEBASES_DIR to find reusable code
+  - Do NOT assume `datasets/`, `checkpoints/`, or `codebases/` inside the workspace contain the real files. The source of truth is the ABSOLUTE path shown in `CODEGEN.md` and `# Available data paths`.
 
 Step 2 — DESIGN based on what you found:
   - Read model_index.json in the checkpoint directory to find the correct pipeline class
@@ -123,6 +124,8 @@ Step 6 — VERIFY outputs:
 CRITICAL RULES:
 - Use REAL pretrained models — NEVER simulate with nn.Linear or random numbers
 - Load models from LOCAL paths (CHECKPOINTS_DIR) when available
+- When exploring data or checkpoints, ALWAYS pass the configured ABSOLUTE directory via the tool `path` field, e.g. `glob_search(path=CHECKPOINTS_DIR, pattern="**/*")` or `read_file(path="/abs/path/to/file")`
+- Do NOT rely on workspace symlinks like `datasets/` or `checkpoints/` to discover files; they may be absent, stale, or skipped by recursive globbing
 - Read model_index.json FIRST to determine the correct pipeline class
 - NO try/except blocks around model loading or training — if it crashes, we need the traceback
 - The ONLY place try/except is allowed is inside a save_outputs() function for file I/O
@@ -288,16 +291,29 @@ def _data_paths_section(ctx: CodegenContext) -> str:
 
     if ctx.checkpoints_dir:
         lines.append(f" - Checkpoints: `{ctx.checkpoints_dir}`")
+        lines.append(
+            f"   Use tools with `path=\"{ctx.checkpoints_dir}\"` when exploring checkpoint files."
+        )
         has_any = True
     if ctx.datasets_dir:
         lines.append(f" - Datasets: `{ctx.datasets_dir}`")
+        lines.append(
+            f"   Use tools with `path=\"{ctx.datasets_dir}\"` when exploring dataset files."
+        )
         has_any = True
     if ctx.codebases_dir:
         lines.append(f" - Codebases: `{ctx.codebases_dir}`")
+        lines.append(
+            f"   Use tools with `path=\"{ctx.codebases_dir}\"` when exploring reusable source files."
+        )
         has_any = True
 
     if not has_any:
         lines.append(" - No pre-configured data paths — generate synthetic data or download small datasets")
+    else:
+        lines.append(
+            " - CRITICAL: These are absolute source paths. Pass them explicitly to `glob_search` / `read_file`; do NOT search only inside the workspace."
+        )
 
     lines.append("See CODEGEN.md for detailed model/dataset info. Use glob_search and read_file to explore.")
     return "\n".join(lines)
