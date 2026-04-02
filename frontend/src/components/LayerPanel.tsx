@@ -21,7 +21,7 @@ const STAGE_ST: Record<string, string> = {
 };
 const DISCUSSION_STAGE = 100;
 
-export default memo(function LayerPanel({ layer, agents, logs, tierIndex, selectedProjectId }: Props) {
+export default memo(function LayerPanel({ layer, agents, logs, selectedProjectId }: Props) {
   const [expanded, setExpanded] = useState(false);
   const { t, locale } = useLocale();
   const meta = LAYER_META[layer];

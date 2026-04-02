@@ -1,12 +1,11 @@
 import { useReducer, useEffect, useCallback, useRef, useState, useMemo } from 'react';
 import { AgentLayer, ALL_LAYERS, ALL_REPOS } from './types';
-import type { AppState, WSMessage, ResourceStats, LobsterAgent, QueueMap, ProjectInfo, Artifact } from './types';
+import type { AppState, WSMessage, ResourceStats, LobsterAgent, Artifact } from './types';
 import { INITIAL_AGENTS, createMockMessageGenerator } from './mock';
 import LayerPanel from './components/LayerPanel';
 import ResourceMonitor from './components/ResourceMonitor';
 import LogPanel from './components/LogPanel';
 import HumanFeedbackPanel from './components/HumanFeedbackPanel';
-import QueuePanel from './components/QueuePanel';
 import DataFlowArrow from './components/DataFlowArrow';
 import DataShelf from './components/DataShelf';
 import ProjectPanel from './components/ProjectPanel';
@@ -114,8 +113,8 @@ const INITIAL_STATE: AppState = {
 
 export default function App() {
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
-  const [agentWsUrl, setAgentWsUrl] = useState(`${WS_PROTO}//${window.location.host}/ws/agents`);
-  const [resWsUrl, setResWsUrl] = useState(`${WS_PROTO}//${window.location.host}/ws/resources`);
+  const [agentWsUrl] = useState(`${WS_PROTO}//${window.location.host}/ws/agents`);
+  const [resWsUrl] = useState(`${WS_PROTO}//${window.location.host}/ws/resources`);
   const [discussionMode, setDiscussionMode] = useState(true);
   const [locale, setLocale] = useState<Locale>(() =>
     (localStorage.getItem('claw-locale') as Locale) || 'en'
@@ -132,9 +131,7 @@ export default function App() {
     locale, setLocale: (l: Locale) => { setLocale(l); localStorage.setItem('claw-locale', l); }, t,
   }), [locale, t]);
   const agentWsRef = useRef<WebSocket | null>(null);
-  const agentReconnRef = useRef<number>(0);
   const resWsRef = useRef<WebSocket | null>(null);
-  const resReconnRef = useRef<number>(0);
   const mockCleanup = useRef<(() => void) | null>(null);
   const firstListRef = useRef(false);
   const mockModeRef = useRef(false);
@@ -231,17 +228,6 @@ export default function App() {
     connect();
     return () => { clearTimeout(timer); ws?.close(); ws = null; };
   }, [resWsUrl]);
-
-  const toggleMode = () => {
-    if (state.mockMode) {
-      doStopMock();
-      dispatch({ type: 'set_mock', payload: false });
-      dispatch({ type: 'clear_agents' });
-    } else {
-      if (agentWsRef.current) { agentWsRef.current.close(); agentWsRef.current = null; }
-      doStartMock();
-    }
-  };
 
   const toggleDiscussionMode = () => {
     const next = !discussionMode;

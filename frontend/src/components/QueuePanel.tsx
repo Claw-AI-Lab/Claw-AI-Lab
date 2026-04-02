@@ -63,7 +63,6 @@ export default memo(function QueuePanel({ queues }: Props) {
             const total = q.total || 0;
             const done = q.completed || 0;
             const running = q.assigned || 0;
-            const pct = total > 0 ? Math.round((done / total) * 100) : 0;
             const active = q.pending > 0 || running > 0;
             return (
               <div key={key} className={`qp-row${active ? ' active' : ''}${done === total && total > 0 ? ' completed' : ''}`}>
