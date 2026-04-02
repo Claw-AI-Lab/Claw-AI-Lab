@@ -150,9 +150,17 @@ llm:
   fallback_models:
     - "gpt-4o"
 
-sandbox:
-  python_path: "/path/to/your/python3"
+experiment:
+  datasets_dir: "/abs/path/to/datasets"
+  checkpoints_dir: "/abs/path/to/checkpoints"
+  codebases_dir: "/abs/path/to/codebases"  # optional, use "" if not needed
+  sandbox:
+    python_path: "/abs/path/to/python3"
 ```
+
+⚠️ **Important**: Replace all placeholder paths like `/path/to/...` with real writable absolute paths.
+Leaving placeholders may cause Stage 11 (`CODE_GENERATION`) to fail with:
+`PermissionError: [Errno 13] Permission denied: '/path'`.
 
 Thanks a lot for [KOKONI's](https://www.kokoni3d.com/) support for this project, and api_key can be obtained [here](http://www.longcatcloud.com/).
 
@@ -258,15 +266,15 @@ experiment:
   max_iterations: 3               # Number of iterative refinement cycles in S15 (Edit-Run-Eval loop)
   metric_key: "primary_metric"    # Name of the primary evaluation metric
   metric_direction: "minimize"    # Optimization direction: "minimize" | "maximize"
-  datasets_dir: "/path/to/datasets"      # **IMPORTANT** Absolute path to datasets directory
-  checkpoints_dir: "/path/to/checkpoints"  # **IMPORTANT** Absolute path to model weights directory
-  codebases_dir: ""    # Absolute path to reference codebases directory
+  datasets_dir: "/path/to/datasets"      # **IMPORTANT** Replace with a real writable absolute path (don't keep /path/to/...)
+  checkpoints_dir: "/path/to/checkpoints"  # **IMPORTANT** Replace with a real writable absolute path (don't keep /path/to/...)
+  codebases_dir: ""    # Absolute path to reference codebases directory (set real path if used)
   shared_results_dir: "/path/to/shared_results"  # Directory for cross-project shared results
   paper_length: "short"           # Paper length: "short" (~4 pages) | "long" (~8 pages)
 
   # Sandbox execution environment
   sandbox:
-    python_path: "/path/to/python3"  # **IMPORTANT** Python interpreter path for running experiments
+    python_path: "/path/to/python3"  # **IMPORTANT** Replace with your real python executable path
     gpu_required: true            # Whether experiments require GPU
     gpus_per_project: 1           # Number of GPUs allocated per project
     max_memory_mb: 16384          # Max memory limit for experiment processes (MB)
