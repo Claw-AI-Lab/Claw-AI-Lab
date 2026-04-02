@@ -24,6 +24,7 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import base64
 import hashlib
 import json
 import os
@@ -1838,6 +1839,45 @@ def _generate_config_from_template(
     return str(config_path)
 
 
+def _safe_reference_upload_name(filename: str) -> str:
+    base = Path(filename or "reference.pdf").name
+    cleaned = re.sub(r"[^\w.\-]+", "_", base).strip("._")
+    if not cleaned.lower().endswith(".pdf"):
+        cleaned = f"{cleaned or 'reference'}.pdf"
+    return cleaned
+
+
+def _persist_reference_uploads(
+    project_dir: Path,
+    reference_uploads: list[dict[str, str]] | None,
+) -> list[str]:
+    if not reference_uploads:
+        return []
+
+    upload_dir = project_dir / "reference_uploads"
+    upload_dir.mkdir(parents=True, exist_ok=True)
+    saved_paths: list[str] = []
+
+    for item in reference_uploads:
+        if not isinstance(item, dict):
+            continue
+        name = _safe_reference_upload_name(str(item.get("name", "reference.pdf")))
+        content_b64 = str(item.get("contentBase64", "")).strip()
+        if not content_b64:
+            continue
+        try:
+            raw = base64.b64decode(content_b64, validate=True)
+        except Exception:
+            continue
+        stem = Path(name).stem
+        suffix = Path(name).suffix or ".pdf"
+        target = upload_dir / f"{stem}-{uuid.uuid4().hex[:6]}{suffix}"
+        target.write_bytes(raw)
+        saved_paths.append(str(target.resolve()))
+
+    return saved_paths
+
+
 KNOWN_LAB_ANGLES: dict[str, str] = {
     "CV": (
         "你是实验室的「计算机视觉 (CV)」方向研究员。"
@@ -1894,6 +1934,7 @@ def quick_submit_project(
     mode: str = "lab",
     research_angles: list[str] | None = None,
     reference_papers: list[str] | None = None,
+    reference_uploads: list[dict[str, str]] | None = None,
     path_overrides: dict[str, str] | None = None,
 ) -> list[dict]:
     """Create a project from a topic string.
@@ -1918,11 +1959,15 @@ def quick_submit_project(
             existing = state.projects_dir() / base_id
             if existing.exists():
                 base_id = f"{base_id}-{_uid()[:4]}"
+        project_dir = state.projects_dir() / base_id
+        project_dir.mkdir(parents=True, exist_ok=True)
+        saved_reference_paths = _persist_reference_uploads(project_dir, reference_uploads)
+        all_reference_papers = [*(reference_papers or []), *saved_reference_paths]
         _po = path_overrides or {}
         try:
             config_path = _generate_config_from_template(
                 state, base_id, topic.strip(),
-                reference_papers=reference_papers,
+                reference_papers=all_reference_papers,
                 codebases_dir=_po.get("codebases_dir", ""),
                 datasets_dir=_po.get("datasets_dir", ""),
                 checkpoints_dir=_po.get("checkpoints_dir", ""),
@@ -1930,6 +1975,8 @@ def quick_submit_project(
         except Exception as e:
             messages.append(msg_log(sys_agent, f"配置生成失败: {e}", "error"))
             return messages
+        if saved_reference_paths:
+            messages.append(msg_log(sys_agent, f"已接收 {len(saved_reference_paths)} 个本地 PDF 参考文件", "info"))
         messages.append(msg_log(sys_agent, f"复现模式: 项目 [{base_id}] 单 Agent 全流程启动", "success"))
         messages.extend(submit_new_project(state, base_id, config_path, topic.strip(), mode="reproduce"))
         return messages
@@ -1951,12 +1998,14 @@ def quick_submit_project(
 
     project_dir = state.projects_dir() / base_id
     project_dir.mkdir(parents=True, exist_ok=True)
+    saved_reference_paths = _persist_reference_uploads(project_dir, reference_uploads)
+    all_reference_papers = [*(reference_papers or []), *saved_reference_paths]
 
     _po = path_overrides or {}
     try:
         project_config_path = _generate_config_from_template(
             state, base_id, topic.strip(),
-            reference_papers=reference_papers,
+            reference_papers=all_reference_papers,
             codebases_dir=_po.get("codebases_dir", ""),
             datasets_dir=_po.get("datasets_dir", ""),
             checkpoints_dir=_po.get("checkpoints_dir", ""),
@@ -1972,6 +2021,8 @@ def quick_submit_project(
         f"Lab 模式: 项目 [{base_id}] — {len(angles)} 个方向并行调研",
         "info",
     ))
+    if saved_reference_paths:
+        messages.append(msg_log(sys_agent, f"已接收 {len(saved_reference_paths)} 个本地 PDF 参考文件", "info"))
 
     task_count = 0
     for i, angle in enumerate(angles):
@@ -1987,7 +2038,7 @@ def quick_submit_project(
         try:
             config_path = _generate_config_from_template(
                 state, f"{base_id}--{slug}", topic.strip(), role_prompt,
-                reference_papers=reference_papers,
+                reference_papers=all_reference_papers,
                 codebases_dir=_po.get("codebases_dir", ""),
                 datasets_dir=_po.get("datasets_dir", ""),
                 checkpoints_dir=_po.get("checkpoints_dir", ""),
@@ -2849,12 +2900,15 @@ async def handle_command(state: BridgeState, data: dict) -> list[dict]:
             ref_papers = [p.strip() for p in re.split(r"[\n,，;；]", ref_papers) if p.strip()]
         elif not isinstance(ref_papers, list):
             ref_papers = None
+        reference_files = data.get("referenceFiles")
+        if not isinstance(reference_files, list):
+            reference_files = None
         path_overrides = {
             "codebases_dir": data.get("codebasesDir", ""),
             "datasets_dir": data.get("datasetsDir", ""),
             "checkpoints_dir": data.get("checkpointsDir", ""),
         }
-        messages.extend(quick_submit_project(state, topic, project_id, mode, angles, ref_papers, path_overrides))
+        messages.extend(quick_submit_project(state, topic, project_id, mode, angles, ref_papers, reference_files, path_overrides))
         messages.extend(schedule_idle_agents(state))
         messages.append(msg_project_list(list_all_projects(state)))
 
@@ -3314,6 +3368,7 @@ async def main(args: argparse.Namespace):
     async with websockets.serve(
         handler, "0.0.0.0", args.port,
         process_request=_make_process_request(state),
+        max_size=64 * 1024 * 1024,
     ):
         await poll_loop(state, args.interval)
 

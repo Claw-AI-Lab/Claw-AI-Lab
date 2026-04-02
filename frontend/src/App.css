@@ -1311,6 +1311,11 @@
   flex-direction: column;
   gap: 1px;
 }
+.path-input-with-action {
+  display: flex;
+  align-items: stretch;
+  gap: 6px;
+}
 .path-label {
   font-size: 0.56rem;
   font-weight: 600;
@@ -1340,6 +1345,64 @@
 .path-input:disabled {
   opacity: 0.4;
   cursor: not-allowed;
+}
+.path-action-btn {
+  width: 28px;
+  min-width: 28px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--surface-alt);
+  color: var(--text);
+  font-size: 0.9rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.path-action-btn:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.path-action-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.hidden-file-input {
+  display: none;
+}
+.selected-file-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+}
+.selected-file-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  max-width: 100%;
+  padding: 2px 6px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-alt);
+  font-size: 0.55rem;
+  color: var(--text-muted);
+}
+.selected-file-name {
+  max-width: 190px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.selected-file-remove {
+  border: none;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  font-size: 0.72rem;
+}
+.selected-file-remove:hover {
+  color: #f87171;
 }
 
 /* ==================== ANIMATIONS ==================== */

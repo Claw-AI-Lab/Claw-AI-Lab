@@ -164,6 +164,79 @@ def test_safe_filename_truncates_to_100_chars() -> None:
     assert cleaned == "x" * 100
 
 
+def test_resolve_user_reference_accepts_local_pdf_path(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    pdf_path = tmp_path / "paper.pdf"
+    pdf_path.write_bytes(b"%PDF-1.4")
+
+    class FakePage:
+        def __init__(self, text: str) -> None:
+            self._text = text
+
+        def get_text(self, *_args: object, **_kwargs: object) -> str:
+            return self._text
+
+    class FakeDocument:
+        metadata = {"title": "Local PDF Title"}
+        page_count = 2
+
+        def load_page(self, idx: int) -> FakePage:
+            texts = [
+                "Abstract first sentence. More detail here.",
+                "Second page extra context.",
+            ]
+            return FakePage(texts[idx])
+
+        def close(self) -> None:
+            return None
+
+    class FakeFitzModule:
+        @staticmethod
+        def open(path: Path) -> FakeDocument:
+            assert path == pdf_path
+            return FakeDocument()
+
+    monkeypatch.setitem(sys.modules, "fitz", FakeFitzModule())
+
+    result = rc_executor._resolve_user_reference(str(pdf_path))
+
+    assert result is not None
+    assert result["title"] == "Local PDF Title"
+    assert result["source"] == "user_reference_local_pdf"
+    assert result["url"] == pdf_path.resolve().as_uri()
+    assert "Abstract first sentence." in result["abstract"]
+
+
+def test_resolve_user_reference_falls_back_when_local_pdf_parse_fails(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, caplog: pytest.LogCaptureFixture
+) -> None:
+    pdf_path = tmp_path / "broken.pdf"
+    pdf_path.write_bytes(b"%PDF-1.4 broken")
+
+    class BrokenFitzModule:
+        @staticmethod
+        def open(_path: Path) -> None:
+            raise RuntimeError("fitz parse failed")
+
+    class BrokenPypdfModule:
+        class PdfReader:
+            def __init__(self, *_args: object, **_kwargs: object) -> None:
+                raise ValueError("pypdf parse failed")
+
+    monkeypatch.setitem(sys.modules, "fitz", BrokenFitzModule())
+    monkeypatch.setitem(sys.modules, "pypdf", BrokenPypdfModule())
+
+    with caplog.at_level("WARNING"):
+        result = rc_executor._resolve_user_reference(str(pdf_path))
+
+    assert result is not None
+    assert result["title"] == "broken"
+    assert result["source"] == "user_reference_local_pdf_parse_failed"
+    assert result["abstract"] == ""
+    assert "Failed to parse local PDF reference" in caplog.text
+
+
 def test_build_context_preamble_basic_fields(
     rc_config: RCConfig, run_dir: Path
 ) -> None:

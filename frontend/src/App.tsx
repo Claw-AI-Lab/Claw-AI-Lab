@@ -14,6 +14,8 @@ import { LocaleContext, makeT } from './i18n';
 import type { Locale } from './i18n';
 import './App.css';
 
+type ReferencePdfUpload = { name: string; contentBase64: string };
+
 type Action =
   | WSMessage
   | { type: 'set_connected'; payload: boolean }
@@ -368,7 +370,7 @@ export default function App() {
                 }
               }
             }}
-            onQuickSubmit={(topic, mode, researchAngles, referencePapers, paths) => {
+            onQuickSubmit={(topic, mode, researchAngles, referencePapers, referenceFiles, paths) => {
               const ws = agentWsRef.current;
               if (ws && ws.readyState === WebSocket.OPEN) {
                 ws.send(JSON.stringify({
@@ -377,6 +379,7 @@ export default function App() {
                   mode,
                   researchAngles: researchAngles.length > 0 ? researchAngles : undefined,
                   referencePapers: referencePapers || undefined,
+                  referenceFiles: referenceFiles.length > 0 ? (referenceFiles as ReferencePdfUpload[]) : undefined,
                   codebasesDir: paths?.codebases || undefined,
                   datasetsDir: paths?.datasets || undefined,
                   checkpointsDir: paths?.checkpoints || undefined,
