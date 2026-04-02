@@ -20,6 +20,7 @@
 
 ## 🔥 Updates
 
+- __[2026.04.02]__: We released Claw AI Lab Preview v1.1.0 powered by claw-code harness.
 - __[2026.03.25]__: We released Claw AI Lab Preview v1.0.0.
 
 ---
@@ -318,7 +319,7 @@ prompts:
 
 ## 🙏 Acknowledgement
 
-We learned and reused code from the following projects: [AutoResearchClaw](https://github.com/aiming-lab/AutoResearchClaw), [AutoResearch](https://github.com/karpathy/autoresearch).
+We learned and reused code from the following projects: [AutoResearchClaw](https://github.com/aiming-lab/AutoResearchClaw), [AutoResearch](https://github.com/karpathy/autoresearch), [claw-code](https://github.com/ultraworkers/claw-code).
 
 We thank the authors for their contributions to the community!
 
