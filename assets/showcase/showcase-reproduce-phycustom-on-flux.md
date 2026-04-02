@@ -18,7 +18,7 @@ PhyCustom studies whether customized concepts can preserve **physical properties
 
 ## ⚙️ Pipeline Journey
 
-| | |
+| Field | Details |
 | :--- | :--- |
 | **Track** | Reproduce — PhyCustom-style regularization on FLUX |
 | **Topic** | Reproduce PhyCustom on FLUX and test whether intervention-consistency gains survive the architecture transfer |

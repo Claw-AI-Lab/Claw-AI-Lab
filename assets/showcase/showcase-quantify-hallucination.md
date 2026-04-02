@@ -18,7 +18,7 @@ Hallucination in generated videos is not just a matter of low visual quality. It
 
 ## ⚙️ Pipeline Journey
 
-| | |
+| Field | Details |
 | :--- | :--- |
 | **Track** | Lab Explore — CV evaluation pipeline for generated-video hallucination |
 | **Topic** | Quantify hallucination exhibited in generated results of video models |
