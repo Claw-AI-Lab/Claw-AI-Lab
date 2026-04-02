@@ -57,8 +57,8 @@ Each project autonomously produces a full research deliverable: **Paper** · **C
 
 <table>
 <tr>
-<td align="center" width="50%"><a href="assets/showcase/showcase-reproduce-phycustom-on-flux.md"><b>Reproducing PhyCustom on FLUX</b></a><br><sub>Reproduce · Image Gen · Physical Property Customization</sub></td>
 <td align="center" width="50%"><a href="assets/showcase/showcase-quantify-hallucination.md"><b>Quantifying Video Hallucination</b></a><br><sub>Lab Explore · CV · Video Generation Evaluation</sub></td>
+<td align="center" width="50%"><a href="assets/showcase/showcase-reproduce-phycustom-on-flux.md"><b>Reproducing PhyCustom on FLUX</b></a><br><sub>Reproduce · Image Gen · Customization</sub></td>
 </tr>
 </table>
 
