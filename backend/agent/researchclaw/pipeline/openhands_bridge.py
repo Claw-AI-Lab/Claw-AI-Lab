@@ -819,7 +819,7 @@ class OpenHandsBridge:
         metric: str,
         pkg_hint: str = "",
         extra_guidance: str = "",
-        time_budget_sec: int = 300,
+        time_budget_sec: int = 3600,
         codebases_dir: str = "",
         datasets_dir: str = "",
         checkpoints_dir: str = "",

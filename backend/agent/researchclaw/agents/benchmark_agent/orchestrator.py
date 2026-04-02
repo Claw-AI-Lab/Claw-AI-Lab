@@ -169,7 +169,7 @@ class BenchmarkOrchestrator(AgentOrchestrator):
         config: BenchmarkAgentConfig | None = None,
         *,
         gpu_memory_mb: int = 49000,
-        time_budget_sec: int = 300,
+        time_budget_sec: int = 3600,
         network_policy: str = "setup_only",
         stage_dir: Path | None = None,
     ) -> None:

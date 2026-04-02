@@ -24,9 +24,9 @@ from pathlib import Path
 from typing import Any
 
 from researchclaw.pipeline.codegen.session import CodegenSession
-from researchclaw.pipeline.codegen.tools.definitions import TOOL_SPECS
-from researchclaw.pipeline.codegen.tools.executor import ToolExecutor
-from researchclaw.pipeline.codegen.tools.permissions import SandboxPermissionPolicy
+from researchclaw.pipeline.claw_engine.tools.definitions import TOOL_SPECS
+from researchclaw.pipeline.claw_engine.tools.executor import ToolExecutor
+from researchclaw.pipeline.claw_engine.tools.permissions import SandboxPermissionPolicy
 from researchclaw.pipeline.codegen.types import CodegenPhase, GeneratedFiles
 
 logger = logging.getLogger(__name__)
@@ -232,12 +232,23 @@ class ClawTurnLoop:
                 model=self._llm_config.primary_model,
             )
 
-            try:
-                response = self._call_llm()
-            except Exception as exc:
-                error_msg = f"LLM call failed at iteration {iter_num}: {exc}"
-                self._session.log_error(CodegenPhase.GENERATE, error_msg, exc)
-                result.errors.append(error_msg)
+            response = None
+            for _retry in range(3):
+                try:
+                    response = self._call_llm()
+                    break
+                except Exception as exc:
+                    self._session.log(
+                        CodegenPhase.GENERATE,
+                        f"LLM call attempt {_retry + 1}/3 failed: {exc}",
+                    )
+                    if _retry < 2:
+                        time.sleep(2 ** _retry)
+                    else:
+                        error_msg = f"LLM call failed after 3 retries at iteration {iter_num}: {exc}"
+                        self._session.log_error(CodegenPhase.GENERATE, error_msg, exc)
+                        result.errors.append(error_msg)
+            if response is None:
                 break
 
             result.iterations = iter_num

@@ -89,7 +89,7 @@ Step 3 — WRITE main.py using write_file:
   - `SMOKE_TEST=1 python3 main.py` must run a LIGHTWEIGHT verification path using the SAME algorithms
   - Smoke mode may only reduce counts (steps / prompts / seeds / inference steps); it must NOT remove conditions, swap algorithms, or use fake metrics
   - Print "{ctx.metric}: <value>" for each condition and seed
-  - Save visual artifacts to outputs/
+  - Save project-appropriate artifacts to outputs/ based on the task modality and plan
 
 Step 4 — VERIFY (quick smoke test only):
   - Run a QUICK syntax + import check: `python3 -c "import main; print('imports OK')"`
@@ -112,7 +112,9 @@ Step 5 — ANTI-SIMULATION SELF-CHECK (mandatory before finishing):
   If any check fails, REWRITE the offending code with a real implementation.
 
 Step 6 — VERIFY outputs:
-  - Check that outputs/ contains at least one .png or .jpg file
+  - Check that outputs/ contains at least one project-appropriate artifact
+    (for example: PNG/JPG for image tasks, MP4/GIF or representative frame sequences for video tasks,
+    WAV for audio tasks, plots/tables for analysis-heavy tasks)
   - Check that the printed primary metric is a real number (not 0.0 or NaN)
   - If an optional metric cannot run offline, print an explicit skipped status/reason instead of NaN or a fake number
 
@@ -385,7 +387,8 @@ def _constraints_section(ctx: CodegenContext) -> str:
         "# Constraints\n"
         " - Each experimental condition must implement a genuinely DIFFERENT algorithm\n"
         " - Metrics must be computed from actual model outputs — NEVER hardcode values\n"
-        " - Save visual artifacts to `outputs/` directory (PNG, plots, samples)\n"
+        " - Save project-appropriate artifacts to `outputs/` directory based on the task modality and plan "
+        "(e.g. PNG/JPG for images, MP4/GIF or representative frames for video, WAV for audio, plots/tables for analysis)\n"
         " - Use 3 random seeds (42, 123, 456) for each condition\n"
         " - Print results in format: `{metric}: <value>` for pipeline parsing\n"
         " - Support both full mode (`python main.py`) and lightweight smoke mode (`SMOKE_TEST=1 python main.py`)\n"

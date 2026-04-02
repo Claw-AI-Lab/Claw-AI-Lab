@@ -32,7 +32,7 @@ class SelectorAgent(BaseAgent):
         llm: Any,
         *,
         gpu_memory_mb: int = 49000,
-        time_budget_sec: int = 300,
+        time_budget_sec: int = 3600,
         network_policy: str = "setup_only",
         tier_limit: int = 2,
         min_benchmarks: int = 1,

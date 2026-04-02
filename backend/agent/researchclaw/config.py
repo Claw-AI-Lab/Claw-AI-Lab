@@ -302,7 +302,7 @@ class FigureAgentConfig:
 @dataclass(frozen=True)
 class ExperimentConfig:
     mode: str = "simulated"
-    time_budget_sec: int = 300
+    time_budget_sec: int = 3600
     max_iterations: int = 10
     max_refine_duration_sec: int = 0  # 0 = auto (3× time_budget_sec)
     metric_key: str = "primary_metric"
@@ -625,7 +625,7 @@ def _parse_experiment_config(data: dict[str, Any]) -> ExperimentConfig:
     colab_data = data.get("colab_drive") or {}
     return ExperimentConfig(
         mode=data.get("mode", "simulated"),
-        time_budget_sec=int(data.get("time_budget_sec", 300)),
+        time_budget_sec=int(data.get("time_budget_sec", 3600)),
         max_iterations=int(data.get("max_iterations", 10)),
         max_refine_duration_sec=int(data.get("max_refine_duration_sec", 0)),
         metric_key=data.get("metric_key", "primary_metric"),
