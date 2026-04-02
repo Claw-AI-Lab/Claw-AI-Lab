@@ -2174,6 +2174,39 @@ def _build_local_pdf_reference_entry(
     }
 
 
+def _extract_full_pdf_text(pdf_path: Path, max_chars: int = 80_000) -> str:
+    """Extract full text from a local PDF for downstream stages (S9, S11).
+
+    Uses the PDFExtractor utility which reads all pages.  Falls back to
+    the simpler fitz/pypdf page loop if the extractor is unavailable.
+    Returns empty string on failure.
+    """
+    try:
+        from researchclaw.web.pdf_extractor import PDFExtractor
+        result = PDFExtractor(max_pages=0, extract_sections=False).extract(pdf_path)
+        if result.success and result.text:
+            return result.text[:max_chars]
+    except Exception:  # noqa: BLE001
+        pass
+
+    try:
+        import fitz
+        doc = fitz.open(pdf_path)
+        try:
+            pages = []
+            for idx in range(doc.page_count):
+                text = doc.load_page(idx).get_text("text")
+                if text:
+                    pages.append(text)
+            return "\n".join(pages)[:max_chars]
+        finally:
+            doc.close()
+    except Exception:  # noqa: BLE001
+        pass
+
+    return ""
+
+
 def _extract_local_pdf_reference(pdf_path: Path) -> dict[str, Any]:
     title = pdf_path.stem
     abstract = ""
@@ -2444,6 +2477,7 @@ def _execute_literature_collect(
     if _user_refs:
         _existing_titles = {c.get("title", "").lower() for c in candidates}
         _ref_injected = 0
+        _ref_full_texts: list[str] = []
         for ref_str in _user_refs:
             ref_str = ref_str.strip()
             if not ref_str:
@@ -2453,6 +2487,29 @@ def _execute_literature_collect(
                 _existing_titles.add(_resolved["title"].lower())
                 candidates.append(_resolved)
                 _ref_injected += 1
+
+            # Extract full text for local PDFs (used by S9 experiment design)
+            _pdf_path = Path(ref_str).expanduser()
+            if _pdf_path.is_file() and _pdf_path.suffix.lower() == ".pdf":
+                _full_text = _extract_full_pdf_text(_pdf_path)
+                if _full_text:
+                    _ref_title = (_resolved or {}).get("title", _pdf_path.stem)
+                    _ref_full_texts.append(
+                        f"# {_ref_title}\n\n{_full_text}"
+                    )
+
+        if _ref_full_texts:
+            _combined = "\n\n---\n\n".join(_ref_full_texts)
+            (stage_dir / "reference_paper_text.md").write_text(
+                _combined, encoding="utf-8",
+            )
+            artifacts.append("reference_paper_text.md")
+            logger.info(
+                "Stage 4: Extracted full text from %d reference PDF(s) "
+                "(%d chars total)",
+                len(_ref_full_texts), len(_combined),
+            )
+
         if _ref_injected:
             logger.info("Stage 4: Injected %d user-provided reference papers", _ref_injected)
 
@@ -3134,6 +3191,16 @@ def _execute_experiment_design(
     )
     plan: dict[str, Any] | None = None
 
+    # ── Load reference paper full text (produced by S4) ───────────────────
+    _reference_paper_text = _read_prior_artifact(run_dir, "reference_paper_text.md") or ""
+    if _reference_paper_text:
+        _reference_paper_text = _reference_paper_text[:30_000]
+        logger.info(
+            "Stage 09: Found reference paper text (%d chars) — "
+            "will inject into experiment design prompt",
+            len(_reference_paper_text),
+        )
+
     # ── Domain detection ──────────────────────────────────────────────────
     # Detect the research domain early so we can adapt experiment design
     # and code generation. For ML domains, existing behavior is unchanged.
@@ -3260,6 +3327,25 @@ def _execute_experiment_design(
                     _dg_block += _fw_docs
         except Exception:  # noqa: BLE001
             pass
+        # ── Build reference paper block for reproduce-mode projects ────
+        _ref_block = ""
+        if _reference_paper_text:
+            _ref_block = (
+                "REFERENCE PAPER REPRODUCTION (HIGHEST PRIORITY):\n"
+                "You are designing an experiment to REPRODUCE the following paper.\n"
+                "Extract the EXACT algorithm, architecture, loss functions, training\n"
+                "procedure, and hyperparameters from the paper text below.\n\n"
+                "Your `proposed_methods` MUST include `implementation_spec` with:\n"
+                "  - class_name matching the paper's described components\n"
+                "  - algorithm_steps that faithfully reproduce the paper's method\n"
+                "  - loss_function matching the paper's stated objective\n"
+                "  - key_hyperparameters matching the paper's reported values\n"
+                "Do NOT invent generic placeholders — extract details FROM THE PAPER.\n\n"
+                "--- BEGIN REFERENCE PAPER TEXT ---\n"
+                f"{_reference_paper_text}\n"
+                "--- END REFERENCE PAPER TEXT ---\n\n"
+            )
+
         _overlay = _get_evolution_overlay(run_dir, "experiment_design")
         sp = _pm.for_stage(
             "experiment_design",
@@ -3270,6 +3356,7 @@ def _execute_experiment_design(
             time_budget_sec=config.experiment.time_budget_sec,
             metric_key=config.experiment.metric_key,
             metric_direction=config.experiment.metric_direction,
+            reference_paper_block=_ref_block,
         )
         resp = _chat_with_prompt(
             llm,
@@ -3401,20 +3488,105 @@ def _execute_experiment_design(
             "risks": ["validity threats", "confounding variables"],
             "compute_budget": {"max_gpu": 1, "max_hours": 4},
         }
+    # ── Validate implementation_spec presence ────────────────────────────
+    # When reference paper text was provided (reproduce mode), the plan
+    # MUST contain implementation_spec in proposed_methods.  If missing,
+    # retry once with a targeted prompt.
+    if (
+        _reference_paper_text
+        and isinstance(plan, dict)
+        and llm is not None
+    ):
+        _methods = plan.get("proposed_methods", [])
+        _has_impl = any(
+            isinstance(m, dict) and "implementation_spec" in m
+            for m in _methods
+            if isinstance(m, dict)
+        )
+        if not _has_impl:
+            logger.warning(
+                "Stage 09: Plan missing implementation_spec for reproduce project "
+                "— retrying with targeted prompt",
+            )
+            _impl_retry_prompt = (
+                "The experiment plan you produced is missing `implementation_spec` "
+                "under `proposed_methods`. This is required for code generation.\n\n"
+                "Re-read the reference paper text and for EACH proposed method, "
+                "add an `implementation_spec` block with:\n"
+                "  - class_name\n"
+                "  - algorithm_steps (3-10 concrete steps from the paper)\n"
+                "  - loss_function (the exact loss from the paper)\n"
+                "  - key_hyperparameters (values from the paper)\n"
+                "  - key_methods\n"
+                "  - differentiator\n\n"
+                "Output the COMPLETE updated `proposed_methods` list as YAML.\n"
+                "Include ONLY the `proposed_methods` key.\n\n"
+                "Reference paper (first 15000 chars):\n"
+                f"{_reference_paper_text[:15000]}\n\n"
+                "Current proposed_methods:\n"
+                f"{yaml.dump(_methods, default_flow_style=False)}"
+            )
+            try:
+                _impl_resp = _chat_with_prompt(
+                    llm,
+                    "You are a research engineer. Output ONLY valid YAML.",
+                    _impl_retry_prompt,
+                    max_tokens=8192,
+                )
+                _impl_yaml = _extract_yaml_block(_impl_resp.content)
+                _impl_parsed = yaml.safe_load(_impl_yaml)
+                if not isinstance(_impl_parsed, dict):
+                    _impl_parsed = yaml.safe_load(_impl_resp.content)
+                if isinstance(_impl_parsed, dict):
+                    _new_methods = _impl_parsed.get("proposed_methods", [])
+                    if _new_methods and any(
+                        isinstance(m, dict) and "implementation_spec" in m
+                        for m in _new_methods
+                        if isinstance(m, dict)
+                    ):
+                        plan["proposed_methods"] = _new_methods
+                        logger.info(
+                            "Stage 09: implementation_spec retry succeeded "
+                            "(%d methods with specs)",
+                            sum(1 for m in _new_methods
+                                if isinstance(m, dict) and "implementation_spec" in m),
+                        )
+                    else:
+                        logger.warning(
+                            "Stage 09: implementation_spec retry returned no specs",
+                        )
+            except Exception:  # noqa: BLE001
+                logger.warning(
+                    "Stage 09: implementation_spec retry failed",
+                    exc_info=True,
+                )
+
     # ── BA: BenchmarkAgent — intelligent dataset/baseline selection ──────
     _benchmark_plan = None
     # BUG-40: Skip BenchmarkAgent for non-ML domains — it has no relevant
     # benchmarks for physics/chemistry/mathematics/etc. and would inject
     # wrong datasets (e.g., CIFAR-10 for PDE topics).
-    _ba_domain_id, _, _ = _detect_domain(
-        config.research.topic,
-        tuple(config.research.domains) if config.research.domains else (),
-    )
-    _ba_domain_ok = _ba_domain_id == "ml"
+    _ba_domain_hint_ids: list[str] = []
+    _ba_domain_label = ""
+    if _domain_profile is not None:
+        _ba_domain_hint_ids = [_domain_profile.domain_id]
+        _ba_domain_label = _domain_profile.domain_id
+        try:
+            from researchclaw.domains.detector import is_ml_domain as _is_ml_domain_profile
+            _ba_domain_ok = _is_ml_domain_profile(_domain_profile)
+        except Exception:  # noqa: BLE001
+            _ba_domain_ok = _domain_profile.domain_id.startswith("ml_")
+    else:
+        _ba_domain_id, _, _ = _detect_domain(
+            config.research.topic,
+            tuple(config.research.domains) if config.research.domains else (),
+        )
+        _ba_domain_label = _ba_domain_id
+        _ba_domain_ok = _ba_domain_id == "ml"
     if not _ba_domain_ok:
         logger.info(
             "BenchmarkAgent skipped: domain '%s' is not ML (topic: %s)",
-            _ba_domain_id, config.research.topic[:80],
+            _ba_domain_label, config.research.topic[:80],
         )
     if (
         _ba_domain_ok
@@ -3462,6 +3634,7 @@ def _execute_experiment_design(
                 "topic": config.research.topic,
                 "hypothesis": hypotheses,
                 "experiment_plan": plan.get("objectives", "") if isinstance(plan, dict) else "",
+                "domain_hints": _ba_domain_hint_ids,
             })
 
             # Inject BenchmarkAgent selections into experiment plan

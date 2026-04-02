@@ -28,10 +28,16 @@ _NEW_PARAM_MODELS = frozenset(
         "o3",
         "o3-mini",
         "o4-mini",
+        "gpt-5.4",
+    }
+)
+
+# Models routed through the Responses API that need max_output_tokens
+_RESPONSES_API_MODELS = frozenset(
+    {
         "gpt-5",
         "gpt-5.1",
         "gpt-5.2",
-        "gpt-5.4",
     }
 )
 
@@ -396,10 +402,14 @@ class LLMClient:
                 "temperature": temperature,
             }
 
-            # Use correct token parameter based on model
+            # Use correct token parameter based on model.
+            # Check _NEW_PARAM_MODELS first — "gpt-5.4" must NOT fall through
+            # to _RESPONSES_API_MODELS whose "gpt-5" prefix would also match.
             if any(model.startswith(prefix) for prefix in _NEW_PARAM_MODELS):
                 reasoning_min = 32768
                 body["max_completion_tokens"] = max(max_tokens, reasoning_min)
+            elif any(model.startswith(prefix) for prefix in _RESPONSES_API_MODELS):
+                body["max_output_tokens"] = max(max_tokens, 32768)
             else:
                 body["max_tokens"] = max_tokens
 

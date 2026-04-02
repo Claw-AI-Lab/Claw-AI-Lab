@@ -240,6 +240,11 @@ def generate_codegen_md(ctx: CodegenContext, target_path: Path) -> str:
     sections.append("- Smoke run: `SMOKE_TEST=1 python main.py` must execute the SAME logic with smaller counts only.")
     sections.append("- Smoke mode may reduce steps / prompts / seeds / inference steps, but MUST NOT remove conditions or change algorithms.")
     sections.append("- If a metric is skipped in smoke/offline mode, report an explicit skipped reason instead of `NaN` or a fake number.")
+    sections.append("\n## Epistemic honesty")
+    sections.append("- Do NOT derive human labels, semantic ratings, or ground-truth classes from prompt text, file names, paths, clip IDs, or other heuristics unless the plan explicitly defines that as the official supervision source.")
+    sections.append("- If the workspace does not contain the required annotations, trackers, judge outputs, or metadata for a planned metric/method, mark it as `not_implemented` or emit an explicit `skipped_reason` instead of inventing labels or surrogate scores.")
+    sections.append("- Output summaries, reports, and artifact JSON files may only contain results that were actually computed during execution. Do NOT copy plan metadata into outputs just to satisfy coverage checks.")
+    sections.append("- Declaring a method name in a summary/report does NOT count as implementing it. Only include methods that are actually executed in the experiment loop.")
 
     # ── Training ──
     training_info = plan_dict.get("training", {})
@@ -290,6 +295,17 @@ def generate_codegen_md(ctx: CodegenContext, target_path: Path) -> str:
     sections.append(
         "- Do NOT share one mutable pipeline instance across multiple trained conditions."
     )
+
+    # ── Reference paper algorithm details (for reproduce projects) ──
+    if ctx.reference_paper_text:
+        _paper_excerpt = ctx.reference_paper_text[:12000]
+        sections.append("\n## Reference paper (algorithm details)")
+        sections.append(
+            "This is a REPRODUCE project. The following is the reference paper text. "
+            "Your implementation MUST faithfully reproduce the algorithms, loss "
+            "functions, and training procedures described here."
+        )
+        sections.append(f"\n```\n{_paper_excerpt}\n```")
 
     content = "\n".join(sections)
     try:
@@ -417,6 +433,7 @@ class CodegenRuntime:
 
         exp_plan = _read_prior_artifact(run_dir, "exp_plan.yaml") or ""
         codebase_info = _read_prior_artifact(run_dir, "codebase_candidates.json") or "[]"
+        reference_paper_text = _read_prior_artifact(run_dir, "reference_paper_text.md") or ""
 
         datasets_dir = getattr(exp, "datasets_dir", "") or ""
         checkpoints_dir = getattr(exp, "checkpoints_dir", "") or ""
@@ -441,6 +458,7 @@ class CodegenRuntime:
             datasets_dir=datasets_dir,
             checkpoints_dir=checkpoints_dir,
             codebases_dir=codebases_dir,
+            reference_paper_text=reference_paper_text,
             run_dir=run_dir,
             stage_dir=stage_dir,
             discovered=discovered,

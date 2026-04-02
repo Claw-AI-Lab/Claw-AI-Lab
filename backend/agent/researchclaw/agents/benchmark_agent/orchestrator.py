@@ -219,10 +219,12 @@ class BenchmarkOrchestrator(AgentOrchestrator):
             topic (str): Research topic/title
             hypothesis (str): Research hypothesis
             experiment_plan (str): Experiment plan text
+            domain_hints (list[str]): upstream detected domain IDs
         """
         t0 = time.monotonic()
         topic = context.get("topic", "")
         hypothesis = context.get("hypothesis", "")
+        domain_hints = context.get("domain_hints", []) or []
 
         self.logger.info("BenchmarkAgent starting for: %s", topic[:80])
 
@@ -234,6 +236,7 @@ class BenchmarkOrchestrator(AgentOrchestrator):
             "topic": topic,
             "hypothesis": hypothesis,
             "experiment_plan": context.get("experiment_plan", ""),
+            "domain_hints": domain_hints,
         })
         self._accumulate(survey_result)
 

@@ -100,6 +100,7 @@ class CodegenContext:
     pkg_hint: str = ""
     compute_budget: str = ""
     extra_guidance: str = ""
+    reference_paper_text: str = ""
 
     run_dir: Path | None = None
     stage_dir: Path | None = None

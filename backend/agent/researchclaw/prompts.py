@@ -1681,6 +1681,7 @@ _DEFAULT_STAGES: dict[str, dict[str, Any]] = {
         "system": "You are a principal investigator designing rigorous research experiments.",
         "user": (
             "{preamble}\n\n"
+            "{reference_paper_block}"
             "Design an experiment plan as YAML.\n"
             "Required keys: objectives,datasets,baselines,proposed_methods,"
             "ablations,metrics,risks,compute_budget.\n\n"

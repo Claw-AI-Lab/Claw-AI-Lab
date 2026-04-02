@@ -44,6 +44,56 @@ _DOMAIN_TO_HF_TASK: dict[str, list[str]] = {
     "llm_finetuning": ["text-generation"],
 }
 
+_WEAK_LLM_KEYWORDS = {
+    "fine-tuning",
+    "fine tuning",
+    "finetuning",
+    "lora",
+    "qlora",
+    "adapter tuning",
+}
+
+_LLM_CONTEXT_KEYWORDS = (
+    "llm",
+    "language model",
+    "instruction tuning",
+    "instruction-following",
+    "chat model",
+    "chatbot",
+    "rlhf",
+    "dpo",
+    "mmlu",
+    "hellaswag",
+    "alpaca",
+    "truthfulqa",
+    "qa",
+    "question answering",
+    "text generation",
+)
+
+_GENERATIVE_VISION_KEYWORDS = (
+    "diffusion",
+    "flux",
+    "image generation",
+    "text-to-image",
+    "text to image",
+    "text-to-video",
+    "text to video",
+    "dreambooth",
+    "custom diffusion",
+    "physical customization",
+    "image customization",
+    "video generation",
+    "generative model",
+)
+
+_EXPLICIT_DOMAIN_MAP: dict[str, list[str]] = {
+    "ml_generative": ["generative_models"],
+    "ml_nlp": ["llm_finetuning"],
+    "llm_finetuning": ["llm_finetuning"],
+    "generative_models": ["generative_models"],
+}
+
 
 class SurveyorAgent(BaseAgent):
     """Searches local knowledge base and HuggingFace Hub for benchmarks."""
@@ -81,10 +131,44 @@ class SurveyorAgent(BaseAgent):
         for domain_id, info in self._knowledge.items():
             keywords = info.get("keywords", [])
             for kw in keywords:
+                if not self._keyword_allowed(domain_id, kw, topic_lower):
+                    continue
                 if kw in topic_lower:
                     matched.append(domain_id)
                     break
         return matched
+
+    @staticmethod
+    def _contains_any(text: str, keywords: tuple[str, ...] | set[str]) -> bool:
+        return any(kw in text for kw in keywords)
+
+    def _keyword_allowed(self, domain_id: str, keyword: str, text: str) -> bool:
+        """Reject ambiguous keyword matches that commonly leak across domains."""
+        if domain_id != "llm_finetuning" or keyword not in _WEAK_LLM_KEYWORDS:
+            return True
+        has_llm_context = self._contains_any(text, _LLM_CONTEXT_KEYWORDS)
+        has_generative_vision_context = self._contains_any(text, _GENERATIVE_VISION_KEYWORDS)
+        return has_llm_context and not has_generative_vision_context
+
+    def _normalize_domain_hints(
+        self,
+        hints: list[str],
+        *,
+        topic: str,
+        hypothesis: str,
+    ) -> list[str]:
+        """Map upstream domain profiles to benchmark-knowledge domains."""
+        combined = f"{topic} {hypothesis}".lower()
+        normalized: list[str] = []
+        for hint in hints:
+            hint_lower = str(hint).strip().lower()
+            mapped = _EXPLICIT_DOMAIN_MAP.get(hint_lower, [])
+            if hint_lower == "ml_vision" and self._contains_any(combined, _GENERATIVE_VISION_KEYWORDS):
+                mapped = ["generative_models"]
+            for domain_id in mapped:
+                if domain_id in self._knowledge and domain_id not in normalized:
+                    normalized.append(domain_id)
+        return normalized
 
     def _get_local_candidates(self, domain_ids: list[str]) -> dict[str, Any]:
         """Retrieve benchmarks and baselines from local knowledge base."""
@@ -248,9 +332,11 @@ class SurveyorAgent(BaseAgent):
             topic (str): Research topic/title
             hypothesis (str): Research hypothesis
             experiment_plan (str): Experiment plan from previous stages
+            domain_hints (list[str]): upstream detected domain IDs
         """
         topic = context.get("topic", "")
         hypothesis = context.get("hypothesis", "")
+        domain_hints = context.get("domain_hints", []) or []
 
         if not topic:
             return self._make_result(False, error="No topic provided")
@@ -258,8 +344,14 @@ class SurveyorAgent(BaseAgent):
         self.logger.info("Surveying benchmarks for topic: %s", topic[:80])
 
         # 1. Match domains from knowledge base
-        domain_ids = self._match_domains(topic)
-        if hypothesis:
+        domain_ids = self._normalize_domain_hints(
+            list(domain_hints),
+            topic=topic,
+            hypothesis=hypothesis,
+        )
+        topic_matches = self._match_domains(topic)
+        domain_ids = list(dict.fromkeys(domain_ids + topic_matches))
+        if hypothesis and not domain_ids:
             domain_ids = list(dict.fromkeys(
                 domain_ids + self._match_domains(hypothesis)
             ))

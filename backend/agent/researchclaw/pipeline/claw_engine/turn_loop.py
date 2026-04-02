@@ -240,19 +240,31 @@ class AgentTurnLoop:
             )
 
             response = None
-            for _retry in range(3):
+            _max_retries = 5
+            for _retry in range(_max_retries):
                 try:
                     response = self._call_llm()
+                    _usage = (response or {}).get("usage", {})
+                    _comp = _usage.get("completion_tokens", -1)
+                    if _comp == 0:
+                        self._session.log(
+                            "EXECUTE",
+                            f"LLM attempt {_retry + 1}/{_max_retries}: "
+                            "empty completion (0 tokens) — retrying",
+                        )
+                        response = None
+                        time.sleep(2 ** min(_retry, 3))
+                        continue
                     break
                 except Exception as exc:
                     self._session.log(
                         "EXECUTE",
-                        f"LLM call attempt {_retry + 1}/3 failed: {exc}",
+                        f"LLM call attempt {_retry + 1}/{_max_retries} failed: {exc}",
                     )
-                    if _retry < 2:
-                        time.sleep(2 ** _retry)
+                    if _retry < _max_retries - 1:
+                        time.sleep(2 ** min(_retry, 3))
                     else:
-                        error_msg = f"LLM call failed after 3 retries at iteration {iter_num}: {exc}"
+                        error_msg = f"LLM call failed after {_max_retries} retries at iteration {iter_num}: {exc}"
                         self._session.log_error("EXECUTE", error_msg, exc)
                         result.errors.append(error_msg)
             if response is None:
@@ -411,21 +423,29 @@ class AgentTurnLoop:
             if _coding and self._is_claude_model(_coding):
                 model = _coding
 
+        _RESPONSES_API = ("gpt-5.", "gpt-5")
+        _is_responses_model = (
+            any(model.startswith(p) for p in _RESPONSES_API)
+            and not model.startswith("gpt-5.4")
+        )
+        _tok_key = "max_output_tokens" if _is_responses_model else "max_tokens"
+        _tok_val = 8192
+
         body: dict[str, Any] = {
             "model": model,
             "messages": [
                 {"role": "system", "content": system_prompt},
                 *self._messages,
             ],
-            "max_tokens": 8192,
+            _tok_key: _tok_val,
         }
 
         if not self._use_text_tools:
             body["tools"] = self._api_tools
             body["tool_choice"] = "auto"
 
-        if any(cfg.primary_model.startswith(p) for p in ("o3", "o4", "gpt-5")):
-            body["max_tokens"] = 16384
+        if any(model.startswith(p) for p in ("o3", "o4", "gpt-5")):
+            body[_tok_key] = 16384
 
         payload = json.dumps(body).encode("utf-8")
         headers = {

@@ -245,19 +245,32 @@ class ClawTurnLoop:
             )
 
             response = None
-            for _retry in range(3):
+            _max_retries = 5
+            for _retry in range(_max_retries):
                 try:
                     response = self._call_llm()
+                    # Guard against proxy returning valid JSON but empty content
+                    _usage = (response or {}).get("usage", {})
+                    _comp = _usage.get("completion_tokens", -1)
+                    if _comp == 0:
+                        self._session.log(
+                            CodegenPhase.GENERATE,
+                            f"LLM attempt {_retry + 1}/{_max_retries}: "
+                            "empty completion (0 tokens) — retrying",
+                        )
+                        response = None
+                        time.sleep(2 ** min(_retry, 3))
+                        continue
                     break
                 except Exception as exc:
                     self._session.log(
                         CodegenPhase.GENERATE,
-                        f"LLM call attempt {_retry + 1}/3 failed: {exc}",
+                        f"LLM call attempt {_retry + 1}/{_max_retries} failed: {exc}",
                     )
-                    if _retry < 2:
-                        time.sleep(2 ** _retry)
+                    if _retry < _max_retries - 1:
+                        time.sleep(2 ** min(_retry, 3))
                     else:
-                        error_msg = f"LLM call failed after 3 retries at iteration {iter_num}: {exc}"
+                        error_msg = f"LLM call failed after {_max_retries} retries at iteration {iter_num}: {exc}"
                         self._session.log_error(CodegenPhase.GENERATE, error_msg, exc)
                         result.errors.append(error_msg)
             if response is None:
@@ -484,21 +497,29 @@ class ClawTurnLoop:
             if _coding and self._is_claude_model(_coding):
                 model = _coding
 
+        _RESPONSES_API = ("gpt-5.", "gpt-5")
+        _is_responses_model = (
+            any(model.startswith(p) for p in _RESPONSES_API)
+            and not model.startswith("gpt-5.4")
+        )
+        _tok_key = "max_output_tokens" if _is_responses_model else "max_tokens"
+        _tok_val = 8192
+
         body: dict[str, Any] = {
             "model": model,
             "messages": [
                 {"role": "system", "content": system_prompt},
                 *self._messages,
             ],
-            "max_tokens": 8192,
+            _tok_key: _tok_val,
         }
 
         if not self._use_text_tools:
             body["tools"] = self._api_tools
             body["tool_choice"] = "auto"
 
-        if any(cfg.primary_model.startswith(p) for p in ("o3", "o4", "gpt-5")):
-            body["max_tokens"] = 16384
+        if any(model.startswith(p) for p in ("o3", "o4", "gpt-5")):
+            body[_tok_key] = 16384
 
         payload = json.dumps(body).encode("utf-8")
         headers = {
@@ -934,6 +955,52 @@ class ClawTurnLoop:
                         f"Video evaluation should iterate over `output.frames[0]` unless the plan explicitly says first-frame-only."
                     )
                     break
+
+        # 2f. Detect heuristic "human labels" or ratings derived from prompts / filenames.
+        suspicious_targets = (
+            "human_rating", "human_score", "semantic_rating", "rating",
+            "label", "ground_truth", "gt_label", "target_label",
+        )
+        suspicious_sources = (
+            "prompt", "filename", "file_name", "path", "stem", "clip_id",
+        )
+        for i, line in enumerate(code.splitlines(), 1):
+            lowered = line.strip().lower()
+            if "=" not in lowered:
+                continue
+            if any(target in lowered for target in suspicious_targets) and any(source in lowered for source in suspicious_sources):
+                violations.append(
+                    f"HEURISTIC LABEL SOURCE: Line {i} appears to derive ratings/labels from prompt or filename metadata. "
+                    "Human labels / ground truth must come from real annotations or an explicitly plan-defined supervision source, "
+                    "not from prompts, paths, clip IDs, or file names."
+                )
+                break
+
+        # 2g. Detect outputs that claim methods were implemented without being executed.
+        planned_method_names = set(re.findall(r"name:\s*([A-Za-z0-9_]+)", plan))
+        if planned_method_names:
+            executed_methods: set[str] = set()
+            for method_name in planned_method_names:
+                if f'condition == "{method_name}"' in code or f"condition == '{method_name}'" in code:
+                    executed_methods.add(method_name)
+                elif f'"{method_name}"' in code and "conditions = [" in code:
+                    list_pos = code.find("conditions = [")
+                    if list_pos != -1:
+                        list_end = code.find("]", list_pos)
+                        if list_end != -1 and method_name in code[list_pos:list_end]:
+                            executed_methods.add(method_name)
+            metadata_only = sorted(
+                method_name
+                for method_name in planned_method_names
+                if method_name in code and method_name not in executed_methods
+            )
+            if metadata_only:
+                violations.append(
+                    "METADATA-ONLY METHODS: The code references planned methods in summaries/strings but does not execute them: "
+                    + ", ".join(metadata_only[:6])
+                    + (", ..." if len(metadata_only) > 6 else "")
+                    + ". Do not claim method coverage in outputs unless those methods are actually implemented and run."
+                )
 
         # 3. Check training: if plan specifies training steps, code must have training loop
         if any(kw in plan for kw in ("max_steps", "training", "train_", "optimizer")):

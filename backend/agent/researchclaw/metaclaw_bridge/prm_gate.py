@@ -77,12 +77,18 @@ def _single_judge_call(
             ),
         },
     ]
-    body = json.dumps({
+    _RESPONSES_PREFIXES = ("gpt-5.", "gpt-5")
+    _is_responses = any(model.startswith(p) for p in _RESPONSES_PREFIXES) and not model.startswith("gpt-5.4")
+    req_body: dict = {
         "model": model,
         "messages": messages,
         "temperature": temperature,
-        "max_completion_tokens": 512,
-    }).encode("utf-8")
+    }
+    if _is_responses:
+        req_body["max_output_tokens"] = 512
+    else:
+        req_body["max_completion_tokens"] = 512
+    body = json.dumps(req_body).encode("utf-8")
 
     url = f"{api_base.rstrip('/')}/chat/completions"
     req = urllib.request.Request(

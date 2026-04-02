@@ -88,6 +88,7 @@ Step 3 — WRITE main.py using write_file:
   - `python3 main.py` must run the FULL experiment specified in `EXPERIMENT_PLAN.yaml`
   - `SMOKE_TEST=1 python3 main.py` must run a LIGHTWEIGHT verification path using the SAME algorithms
   - Smoke mode may only reduce counts (steps / prompts / seeds / inference steps); it must NOT remove conditions, swap algorithms, or use fake metrics
+  - If required supervision is missing (human labels, metadata, judge outputs, tracker outputs), DO NOT invent it from prompt text, filenames, paths, or heuristics; fail clearly or mark the affected metric/method as skipped/not implemented
   - Print "{ctx.metric}: <value>" for each condition and seed
   - Save project-appropriate artifacts to outputs/ based on the task modality and plan
 
@@ -115,8 +116,9 @@ Step 6 — VERIFY outputs:
   - Check that outputs/ contains at least one project-appropriate artifact
     (for example: PNG/JPG for image tasks, MP4/GIF or representative frame sequences for video tasks,
     WAV for audio tasks, plots/tables for analysis-heavy tasks)
-  - Check that the printed primary metric is a real number (not 0.0 or NaN)
+  - Check that the printed primary metric is a real number only when the required supervision/annotations actually exist
   - If an optional metric cannot run offline, print an explicit skipped status/reason instead of NaN or a fake number
+  - Any report/summary/output JSON must contain only measured results or explicit skipped/not-implemented statuses; do NOT copy plan metadata into outputs to make the experiment look complete
 
 CRITICAL RULES:
 - Use REAL pretrained models — NEVER simulate with nn.Linear or random numbers
@@ -125,6 +127,8 @@ CRITICAL RULES:
 - NO try/except blocks around model loading or training — if it crashes, we need the traceback
 - The ONLY place try/except is allowed is inside a save_outputs() function for file I/O
 - NO hardcoded fallback metrics — if the model fails, the code must crash, not return fake numbers
+- NO heuristic "human labels" or "ground truth" derived from prompt text, filenames, paths, or clip IDs unless the plan explicitly defines those strings as the label source
+- NO copying plan fields into summary/report/output files unless those values are computed from actual execution
 - NO argparse — hardcode all parameters as constants
 - NO mock functions — every metric must come from real model computation
 - Default execution (`python3 main.py`) must run the FULL experiment plan
@@ -186,10 +190,11 @@ def _actions_section() -> str:
         " - `SMOKE_TEST=1 python3 main.py` must execute a LIGHTWEIGHT verification path.\n"
         " - Smoke mode may only shrink counts (steps, prompts, seeds, inference steps); it must NOT change algorithms.\n"
         " - Verify with a QUICK smoke test only: `timeout 30 env SMOKE_TEST=1 python3 main.py`\n"
-        " - If the smoke test shows model loading + evaluation starting + first training step starting → DONE.\n"
+        " - Smoke-test success is only a runtime gate; it does NOT justify inventing labels, fake summaries, or claiming unimplemented methods are complete.\n"
+        " - If the smoke test shows model loading + evaluation starting + first training step starting, that is sufficient for runtime verification only.\n"
         " - Do NOT remove training/evaluation code because the smoke test times out.\n"
         " - If OOM during smoke test → reduce only smoke-mode counts or batch size. Keep the full experiment path intact.\n"
-        " - Once code is verified (imports work, model loads, training starts), STOP calling tools."
+        " - Once code is verified (imports work, model loads, training starts), STOP calling tools only if the implementation is also honest about missing supervision, missing methods, and skipped metrics."
     )
 
 
@@ -210,6 +215,9 @@ STRICTLY FORBIDDEN and will cause the experiment to be rejected:
  - `try/except` around model loading/training that returns hardcoded fallback metrics
  - `except: pass` or `except: return` with fake values — if the model fails to load, the code MUST crash
  - Loading a model with the WRONG class — always read config/metadata files first to determine the correct loader
+ - Deriving `human_rating`, `label`, `ground_truth`, or equivalent supervision from prompts, filenames, paths, or clip IDs unless the plan explicitly defines that mapping
+ - Writing plan metadata into summary/report/output files as if it were measured experimental output
+ - Listing a method in outputs/reports if that method is not actually executed
 
 ## Required Patterns (must be present)
  - Load a REAL pretrained model via the appropriate library API (e.g. `from_pretrained`, `torch.hub.load`, etc.)
@@ -217,6 +225,8 @@ STRICTLY FORBIDDEN and will cause the experiment to be rejected:
  - Training must use a proper task-specific loss — NOT `output.mean()`
  - If CHECKPOINTS_DIR contains model weights, you MUST load them with the appropriate library
  - Every metric in the return dict must be computed from real data, NEVER hardcoded to 0.0 or any constant
+ - If required labels/annotations are missing, explicitly mark the affected metric/method as skipped or not implemented
+ - Final output artifacts must clearly distinguish measured results from plan metadata and from skipped items
 
 ## Self-Verification Protocol
 After writing main.py, you MUST verify it is not a simulation by running:
