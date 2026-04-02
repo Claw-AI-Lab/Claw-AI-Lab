@@ -4,9 +4,9 @@
 
 <h2 align="center"><b>Autonomous Multi-Agent Research Team</b></h2>
 
-<p align="center">
+<!-- <p align="center">
   <b><i>One Command. A Complete Team.</i></b>
-</p>
+</p> -->
 
 <p align="center">
   <a href="https://clawailab.ai"><img src="https://img.shields.io/badge/Homepage-clawailab.ai-E63946?logo=google-chrome&logoColor=white" alt="Homepage"></a>
@@ -20,8 +20,8 @@
 
 ## 🔥 Updates
 
-- __[2026.04.02]__: We released Claw AI Lab Preview v1.1.0 powered by claw-code harness.
-- __[2026.03.25]__: We released Claw AI Lab Preview v1.0.0.
+- __[2026.04.02]__: We released Preview v1.1.0 powered by **claw-code harness**.
+- __[2026.03.25]__: We released Preview v1.0.0.
 
 ---
 
