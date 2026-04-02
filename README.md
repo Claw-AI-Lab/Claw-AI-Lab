@@ -161,8 +161,12 @@ Thanks a lot for [KOKONI's](https://www.kokoni3d.com/) support for this project,
 
 Open **http://localhost:5903/** → Submit your research topic and let the agents work.
 
+#### Web UI Preview
+
 <p align="center">
-  <img src="assets/ui.png" width="720" alt="Claw AI Lab UI"/>
+  <img src="assets/ui.png" width="900" alt="Claw AI Lab UI"/>
+  <br/>
+  <sub>Claw AI Lab web interface for launching and monitoring research runs</sub>
 </p>
 
 ---
