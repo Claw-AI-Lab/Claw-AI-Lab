@@ -38,7 +38,7 @@ openclaw_bridge:
 llm:
   provider: "openai-compatible"
   base_url: "https://api.vectorengine.ai/v1"
-  api_key: "sk-96BESwAtQGdcttOoFhDqnbAx7sdYn3nIRmZ4xQXw61uGwATk"
+  api_key: "__API_KEY__"
   api_key_env: "RESEARCHCLAW_API_KEY"
   primary_model: "gpt-5.4"
   coding_model: "claude-opus-4-6"
@@ -62,10 +62,10 @@ experiment:
   datasets_dir: ""
   checkpoints_dir: ""
   codebases_dir: ""
-  shared_results_dir: "/workspace/wuf16@xiaopeng.com/codes/Claw-AI-Lab/backend/shared_results"
+  shared_results_dir: "__SHARED_RESULTS_DIR__"
   paper_length: "long"
   sandbox:
-    python_path: "/dataset_rc_mm/wuf16@xiaopeng.com/models/miniforge3/envs/clawailab/bin/python"
+    python_path: "__PYTHON_PATH__"
     gpu_required: true
     gpus_per_project: 1
     max_memory_mb: 16384
