@@ -2117,25 +2117,39 @@ def _expand_search_queries(queries: list[str], topic: str) -> list[str]:
             expanded.append(variant)
             seen.add(variant.lower().strip())
 
-    return expanded
+    return expanded[:6]
 
 
-def _check_literature_sites_reachable(timeout: float = 8.0) -> dict[str, bool]:
-    """Quick connectivity check for literature API endpoints."""
+def _check_literature_sites_reachable(timeout: float = 4.0) -> dict[str, bool]:
+    """Quick connectivity check for literature API endpoints (parallel)."""
     import urllib.request
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+
     sites = {
         "openalex": "https://api.openalex.org/works?filter=title.search:test&per_page=1",
         "semantic_scholar": "https://api.semanticscholar.org/graph/v1/paper/search?query=test&limit=1",
         "arxiv": "https://export.arxiv.org/api/query?search_query=test&max_results=1",
     }
-    results: dict[str, bool] = {}
-    for name, url in sites.items():
+
+    def _probe(name: str, url: str) -> tuple[str, bool]:
         try:
             req = urllib.request.Request(url, headers={"User-Agent": "ResearchClaw/0.3"})
             with urllib.request.urlopen(req, timeout=timeout) as resp:
-                results[name] = resp.status < 500
+                return name, resp.status < 500
         except Exception:
-            results[name] = False
+            return name, False
+
+    results: dict[str, bool] = {}
+    with ThreadPoolExecutor(max_workers=len(sites)) as pool:
+        futures = {pool.submit(_probe, n, u): n for n, u in sites.items()}
+        for fut in as_completed(futures, timeout=timeout + 2):
+            try:
+                name, ok = fut.result()
+                results[name] = ok
+            except Exception:
+                results[futures[fut]] = False
+    for name in sites:
+        results.setdefault(name, False)
     return results
 
 
@@ -2299,12 +2313,12 @@ def _execute_literature_collect(
     topic = config.research.topic
 
     # Pre-flight: check if any literature site is reachable
-    site_status = _check_literature_sites_reachable(timeout=8.0)
+    site_status = _check_literature_sites_reachable(timeout=4.0)
     reachable = [name for name, ok in site_status.items() if ok]
     unreachable = [name for name, ok in site_status.items() if not ok]
     if unreachable:
         logger.warning(
-            "Literature sites unreachable: %s (reachable: %s)",
+            "Literature sites unreachable (will be skipped): %s — reachable: %s",
             ", ".join(unreachable), ", ".join(reachable) or "none",
         )
     if not reachable:
@@ -2338,7 +2352,10 @@ def _execute_literature_collect(
     bibtex_entries: list[str] = []
     real_search_succeeded = False
 
+    _SEARCH_TIMEOUT_SEC = 60  # hard cap on API search phase
+
     try:
+        from concurrent.futures import ThreadPoolExecutor, TimeoutError as FuturesTimeout
         from researchclaw.literature.search import (
             search_papers_multi_query,
             papers_to_bibtex,
@@ -2346,21 +2363,38 @@ def _execute_literature_collect(
 
         # Expand queries for broader coverage
         expanded_queries = _expand_search_queries(queries, config.research.topic)
+        reachable_sources = tuple(reachable) if reachable else ("openalex", "semantic_scholar", "arxiv")
         logger.info(
             "[literature] Searching %d queries (expanded from %d) "
-            "across OpenAlex → S2 → arXiv…",
+            "across %s (skipped unreachable: %s) — timeout %ds",
             len(expanded_queries),
             len(queries),
+            " → ".join(reachable_sources),
+            ", ".join(unreachable) if unreachable else "none",
+            _SEARCH_TIMEOUT_SEC,
         )
-        papers = search_papers_multi_query(
-            expanded_queries,
-            limit_per_query=40,
-            year_min=year_min,
-            s2_api_key=config.llm.s2_api_key,
-        )
+
+        with ThreadPoolExecutor(max_workers=1) as _pool:
+            _fut = _pool.submit(
+                search_papers_multi_query,
+                expanded_queries,
+                limit_per_query=40,
+                sources=reachable_sources,
+                year_min=year_min,
+                s2_api_key=config.llm.s2_api_key,
+            )
+            try:
+                papers = _fut.result(timeout=_SEARCH_TIMEOUT_SEC)
+            except FuturesTimeout:
+                logger.warning(
+                    "[literature] API search timed out after %ds — skipping",
+                    _SEARCH_TIMEOUT_SEC,
+                )
+                _fut.cancel()
+                papers = []
+
         if papers:
             real_search_succeeded = True
-            # Count by source
             src_counts: dict[str, int] = {}
             for p in papers:
                 src_counts[p.source] = src_counts.get(p.source, 0) + 1
@@ -2422,18 +2456,34 @@ def _execute_literature_collect(
         if _ref_injected:
             logger.info("Stage 4: Injected %d user-provided reference papers", _ref_injected)
 
-    # --- arXiv recent papers auto-discovery ---
+    # --- arXiv recent papers auto-discovery (30s timeout) ---
+    _ARXIV_DISC_TIMEOUT = 30
     try:
+        from concurrent.futures import ThreadPoolExecutor, TimeoutError as FuturesTimeout
         from researchclaw.literature.arxiv_client import search_arxiv as _arxiv_search
         _topic_kw = _extract_keywords(topic)
         if _topic_kw:
             _arxiv_query = " AND ".join(
                 f"all:{w}" for w in _topic_kw[:5]
             )
-            _recent = _arxiv_search(
-                _arxiv_query, limit=30, sort_by="submitted_date",
-                year_min=2025,
-            )
+
+            def _do_arxiv_disc() -> list:
+                return _arxiv_search(
+                    _arxiv_query, limit=30, sort_by="submitted_date",
+                    year_min=2025,
+                )
+
+            with ThreadPoolExecutor(max_workers=1) as _pool:
+                _fut = _pool.submit(_do_arxiv_disc)
+                try:
+                    _recent = _fut.result(timeout=_ARXIV_DISC_TIMEOUT)
+                except FuturesTimeout:
+                    logger.warning(
+                        "arXiv recent discovery timed out after %ds — skipping",
+                        _ARXIV_DISC_TIMEOUT,
+                    )
+                    _recent = []
+
             _existing_titles_lower = {c.get("title", "").lower() for c in candidates}
             _disc = 0
             for p in _recent:
@@ -2474,10 +2524,12 @@ def _execute_literature_collect(
         if isinstance(payload, dict) and isinstance(payload.get("candidates"), list):
             candidates = [row for row in payload["candidates"] if isinstance(row, dict)]
 
-    # --- Web search augmentation (Tavily/DDG + Google Scholar + Crawl4AI) ---
+    # --- Web search augmentation (Tavily/DDG + Google Scholar + Crawl4AI) — 60s timeout ---
+    _WEB_SEARCH_TIMEOUT = 60
     web_context_parts: list[str] = []
     if config.web_search.enabled:
         try:
+            from concurrent.futures import ThreadPoolExecutor, TimeoutError as FuturesTimeout
             from researchclaw.web.agent import WebSearchAgent
             import os
 
@@ -2493,9 +2545,23 @@ def _execute_literature_collect(
                 max_scholar_results=config.web_search.max_scholar_results,
                 max_crawl_urls=config.web_search.max_crawl_urls,
             )
-            web_result = web_agent.search_and_extract(
-                topic, search_queries=queries,
-            )
+
+            with ThreadPoolExecutor(max_workers=1) as _pool:
+                _fut = _pool.submit(
+                    web_agent.search_and_extract,
+                    topic, search_queries=queries,
+                )
+                try:
+                    web_result = _fut.result(timeout=_WEB_SEARCH_TIMEOUT)
+                except FuturesTimeout:
+                    logger.warning(
+                        "[web-search] Timed out after %ds — skipping",
+                        _WEB_SEARCH_TIMEOUT,
+                    )
+                    web_result = None
+
+            if web_result is None:
+                raise RuntimeError("web search timed out")
 
             # Convert Google Scholar papers into candidates
             for sp in web_result.scholar_papers:

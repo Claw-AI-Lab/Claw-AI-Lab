@@ -35,9 +35,9 @@ logger = logging.getLogger(__name__)
 # Circuit breaker (kept for extra safety on top of arxiv library retries)
 # ---------------------------------------------------------------------------
 
-_CB_THRESHOLD = 3
-_CB_INITIAL_COOLDOWN = 180
-_CB_MAX_COOLDOWN = 600
+_CB_THRESHOLD = 2
+_CB_INITIAL_COOLDOWN = 15
+_CB_MAX_COOLDOWN = 30
 
 _CB_CLOSED = "closed"
 _CB_OPEN = "open"
@@ -121,7 +121,7 @@ def _get_client() -> arxiv.Client:
         _client = arxiv.Client(
             page_size=100,       # fetch up to 100 per API call
             delay_seconds=3.1,   # arXiv requires ≥3s between requests
-            num_retries=3,       # built-in retry on failure
+            num_retries=1,       # fail fast on network issues
         )
     return _client
 

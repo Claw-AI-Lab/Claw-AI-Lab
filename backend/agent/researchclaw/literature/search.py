@@ -237,27 +237,52 @@ def search_papers_multi_query(
     sources: Sequence[str] = _DEFAULT_SOURCES,
     year_min: int = 0,
     s2_api_key: str = "",
-    inter_query_delay: float = 1.5,
+    inter_query_delay: float = 1.0,
+    max_time_sec: float = 45,
 ) -> list[Paper]:
     """Run multiple queries and return deduplicated union.
 
-    Adds a delay between queries to respect rate limits.
+    Stops early when *max_time_sec* is exceeded or two consecutive
+    queries return zero results (likely rate-limited).
     """
     all_papers: list[Paper] = []
+    _deadline = time.monotonic() + max_time_sec
+    _consecutive_empty = 0
 
     for i, q in enumerate(queries):
+        if time.monotonic() > _deadline:
+            logger.warning(
+                "[literature] Time budget exhausted (%.0fs) after %d/%d queries — stopping early",
+                max_time_sec, i, len(queries),
+            )
+            break
         if i > 0:
             time.sleep(inter_query_delay)
-        results = search_papers(
-            q,
-            limit=limit_per_query,
-            sources=sources,
-            year_min=year_min,
-            s2_api_key=s2_api_key,
-            deduplicate=False,  # we dedup globally below
-        )
+        try:
+            results = search_papers(
+                q,
+                limit=limit_per_query,
+                sources=sources,
+                year_min=year_min,
+                s2_api_key=s2_api_key,
+                deduplicate=False,
+            )
+        except Exception:  # noqa: BLE001
+            logger.warning("[literature] Query %d/%d failed — skipping", i + 1, len(queries))
+            results = []
         all_papers.extend(results)
         logger.info("Query %d/%d %r → %d papers", i + 1, len(queries), q, len(results))
+
+        if not results:
+            _consecutive_empty += 1
+            if _consecutive_empty >= 2:
+                logger.warning(
+                    "[literature] %d consecutive empty results (likely rate-limited) — stopping early",
+                    _consecutive_empty,
+                )
+                break
+        else:
+            _consecutive_empty = 0
 
     deduped = _deduplicate(all_papers)
     deduped.sort(key=lambda p: (p.citation_count, p.year), reverse=True)

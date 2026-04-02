@@ -35,17 +35,17 @@ _BASE_URL = "https://api.semanticscholar.org/graph/v1/paper/search"
 _FIELDS = "paperId,title,abstract,year,venue,citationCount,authors,externalIds,url"
 _MAX_PER_REQUEST = 100
 _RATE_LIMIT_SEC = 1.5  # conservative spacing between requests
-_MAX_RETRIES = 3
-_MAX_WAIT_SEC = 60
-_TIMEOUT_SEC = 30
+_MAX_RETRIES = 2
+_MAX_WAIT_SEC = 20
+_TIMEOUT_SEC = 12
 
 # ---------------------------------------------------------------------------
 # Three-state circuit breaker
 # ---------------------------------------------------------------------------
 
-_CB_THRESHOLD = 3           # consecutive 429s to trip
-_CB_INITIAL_COOLDOWN = 120  # seconds before first HALF_OPEN probe
-_CB_MAX_COOLDOWN = 600      # cap cooldown at 10 minutes
+_CB_THRESHOLD = 2           # consecutive 429s to trip
+_CB_INITIAL_COOLDOWN = 30   # seconds before first HALF_OPEN probe
+_CB_MAX_COOLDOWN = 60       # cap cooldown at 1 minute
 
 # States
 _CB_CLOSED = "closed"

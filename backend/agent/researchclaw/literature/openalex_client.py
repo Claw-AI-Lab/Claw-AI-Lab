@@ -35,9 +35,9 @@ logger = logging.getLogger(__name__)
 _BASE_URL = "https://api.openalex.org/works"
 _POLITE_EMAIL = "researchclaw@users.noreply.github.com"
 _MAX_PER_REQUEST = 50
-_MAX_RETRIES = 3
-_MAX_WAIT_SEC = 60
-_TIMEOUT_SEC = 20
+_MAX_RETRIES = 2
+_MAX_WAIT_SEC = 20
+_TIMEOUT_SEC = 10
 _RATE_LIMIT_SEC = 0.2  # OpenAlex is generous; 200ms is more than enough
 
 

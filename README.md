@@ -38,6 +38,19 @@ You’re also warmly invited to scroll to the bottom of the page to join our gro
 
 ---
 
+## ✨ Key Features
+
+<table>
+<tr><td>🖥️</td><td><b>Interactive UI</b></td><td>Real-time web dashboard with event stream, data shelf, and multi-project monitoring</td></tr>
+<tr><td>🧬</td><td><b>Claw Code Harness</b></td><td>Reads your local codebases, datasets &amp; checkpoints — writes runnable code back to disk</td></tr>
+<tr><td>⚡</td><td><b>GPU &amp; NPU Ready</b></td><td>Dynamic scheduling across CUDA and Ascend NPU hardware</td></tr>
+<tr><td>🔬</td><td><b>End-to-End Pipeline</b></td><td>One prompt → paper + code + figures + experiment logs, fully autonomous</td></tr>
+<tr><td>🤝</td><td><b>Three Research Modes</b></td><td><b>Explore</b> · <b>Discussion</b> (multi-agent debate) · <b>Reproduce</b></td></tr>
+<!-- <tr><td>📄</td><td><b>PDF Reference Upload</b></td><td>Upload reference papers as PDF — the system extracts and cites them automatically</td></tr> -->
+</table>
+
+---
+
 ### 🏆 Generated Project Showcase
 
 Each project autonomously produces a full research deliverable: **Paper** · **Code** · **Figures** · **Experiment Logs**
@@ -95,18 +108,6 @@ Multi-agent discussion on: **"What is the most deployable direction for Video Ac
 
 ---
 
-## ✨ Key Features
-
-<table>
-<tr><td><b>End-to-End Hierarchical Pipeline</b></td><td>Topic in → paper + code + figures out, 22 stages fully autonomous</td></tr>
-<tr><td><b>Three Research Modes</b></td><td>Lab Explore · Lab Discussion (multi-agent debate) · Reproduce</td></tr>
-<tr><td><b>Real-Time Dashboard</b></td><td>Live web UI with event logs, data shelf, and project monitoring</td></tr>
-<tr><td><b>GPU & NPU Support</b></td><td>Dynamic scheduling on your own hardware (CUDA / Ascend NPU)</td></tr>
-<tr><td><b>Local Code Editing</b></td><td>Reads local codebases, datasets & checkpoints, then writes local files</td></tr>
-</table>
-
----
-
 ## 🚀 Quick Start
 
 ### 1. Install
@@ -133,9 +134,6 @@ cd ..
 # You can add more packages based on your research project
 pip install torch torchvision diffusers transformers accelerate safetensors datasets \
             huggingface_hub opencv-python pandas matplotlib scikit-image scipy einops tqdm
-
-# For coding
-pip install aider-chat
 ```
 
 ### 2. Configure
