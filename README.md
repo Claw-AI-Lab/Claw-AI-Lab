@@ -159,13 +159,13 @@ pip install torch torchvision diffusers transformers accelerate safetensors data
 Fill in following configurations in examples/config_template.yaml:
 ```
 llm:
-  provider: "openai-compatible"
   api_key: "your-api-key"
   primary_model: "gpt-5.4"
-  coding_model: "claude-opus-4-6"
+  coding_model: "gpt-5.4"
   image_model: "gemini-3-pro-image-preview"
   fallback_models:
-    - "gpt-4o"
+    - "qwen3.5-plus"
+    - "qwen-plus"
 
 sandbox:
   python_path: "/path/to/your/python3"
@@ -192,16 +192,17 @@ Open **http://localhost:5903/** → Submit your research topic and let the agent
 | # | Recommendation | Why |
 |---|---|---|
 | 1 | **Prepare local codebases, datasets & checkpoints** — enter their paths when submitting a project | Avoids download delays and network failures during runs |
-| 2 | **Use a strong coding model like Claude Opus 4.6** | Significantly better code quality and fewer iteration cycles |
+| 2 | **Use a strong coding model like GPT 5.4** | Significantly better code quality and fewer iteration cycles |
 | 3 | **Review the `IMPORTANT` fields in [Configuration Details](#️-configuration-details)** | Misconfigured keys or resource limits are the #1 cause of failed runs |
 
 ---
 
 ## ⚙️ Configuration Details
 
-Description of each configuration in examples/config_template.yaml.
+Every field in `examples/config_template.yaml` explained. Fields marked **IMPORTANT** are the ones you almost always need to set.
+
 <details>
-<summary>Click to expand</summary>
+<summary>Click to expand full reference</summary>
 
 ```yaml
 # === Project ===
@@ -216,20 +217,12 @@ research:
     - "deep-learning"
   daily_paper_count: 5            # Number of papers to retrieve per search query
   quality_threshold: 3.0          # Minimum relevance score (1-5) for literature screening
-
-# === Runtime ===
-runtime:
-  timezone: "Asia/Shanghai"       # Timezone for timestamps in logs and reports
-  max_parallel_tasks: 1           # Max concurrent tasks per agent (keep 1 for stability)
-  approval_timeout_hours: 1       # Timeout for human approval at gate stages
-  retry_limit: 2                  # Number of retries on stage failure before giving up
+  reference_papers: []            # List of reference paper titles or arXiv IDs
 
 # === Notifications ===
 notifications:
   channel: "console"              # Notification channel: "console" | "discord" | "slack"
-  target: ""                      # Channel target (e.g. Discord webhook URL, leave empty for console)
   on_stage_start: true            # Notify when a stage begins
-  on_stage_fail: true             # Notify when a stage fails
   on_gate_required: true          # Notify when human approval is needed
 
 # === Knowledge Base ===
@@ -239,76 +232,41 @@ knowledge_base:
 
 # === OpenClaw Bridge ===
 openclaw_bridge:
-  use_cron: false                 # Enable scheduled research runs
   use_message: false              # Enable progress notifications via messaging platforms
   use_memory: false               # Enable cross-session knowledge persistence
-  use_sessions_spawn: false       # Enable spawning parallel sub-sessions
   use_web_fetch: false            # Enable live web search during literature review
-  use_browser: false              # Enable browser-based paper collection
 
 # === LLM ===
 llm:
   provider: "openai-compatible"   # LLM provider: "openai-compatible" | "openai" | "deepseek" | "acp"
-  api_key: "sk-your-key"          # **IMPORTANT** API key (can also use api_key_env to read from environment)
-  api_key_env: "RESEARCHCLAW_API_KEY"     # Environment variable name for API key (fallback if api_key is empty)
-  primary_model: "gpt-5.4"       # **IMPORTANT** Main model for research, analysis, and writing stages
-  coding_model: "claude-opus-4-6"        # **IMPORTANT** Model for code generation (S11). Leave empty to use primary_model
-  image_model: "gemini-3-pro-image-preview"  # **IMPORTANT** Model for figure generation in paper writing (L5)
+  api_key: "sk-your-key"          # ⚠️ **IMPORTANT** API key (or use api_key_env to read from environment)
+  api_key_env: "RESEARCHCLAW_API_KEY"  # Environment variable name for API key (fallback)
+  primary_model: "gpt-5.4"       # ⚠️ **IMPORTANT** Main model for research, analysis, and writing
+  coding_model: "gpt-5.4" # ⚠️ **IMPORTANT** Model for code generation (S11)
+  image_model: "gemini-3-pro-image-preview"  # ⚠️ **IMPORTANT** Model for figure generation in paper
   fallback_models:                # Fallback model chain — used when primary model fails
-    - "qwen3-max"
     - "qwen3.5-plus"
-    - "qwen-max"
     - "qwen-plus"
-    - "qwen2.5-72b-instruct"
-  timeout_sec: 6000
 
 # === Security ===
 security:
   hitl_required_stages: []        # Stage numbers requiring human approval (e.g. [5, 9, 20])
-  allow_publish_without_approval: true   # Allow paper export without human review
-  redact_sensitive_logs: false    # Redact API keys and sensitive data in logs
 
 # === Experiment ===
 experiment:
   mode: "sandbox"                 # Execution mode: "sandbox" (local Python) | "docker" | "simulated"
-  time_budget_sec: 6000           # **IMPORTANT** Max time budget per experiment run in seconds
+  time_budget_sec: 2400           # ⚠️ **IMPORTANT** Max wall-clock time per experiment run (seconds)
   max_iterations: 3               # Number of iterative refinement cycles in S15 (Edit-Run-Eval loop)
   metric_key: "primary_metric"    # Name of the primary evaluation metric
   metric_direction: "minimize"    # Optimization direction: "minimize" | "maximize"
-  datasets_dir: "/path/to/datasets"      # **IMPORTANT** Absolute path to datasets directory
-  checkpoints_dir: "/path/to/checkpoints"  # **IMPORTANT** Absolute path to model weights directory
-  codebases_dir: ""    # Absolute path to reference codebases directory
-  shared_results_dir: "/path/to/shared_results"  # Directory for cross-project shared results
-  paper_length: "short"           # Paper length: "short" (~4 pages) | "long" (~8 pages)
-
-  # Sandbox execution environment
+  datasets_dir: ""                # ⚠️ **IMPORTANT** Absolute path to datasets directory
+  checkpoints_dir: ""             # ⚠️ **IMPORTANT** Absolute path to model weights directory
+  codebases_dir: ""               # Absolute path to reference codebases directory
+  shared_results_dir: ""          # Directory for cross-project shared results
+  paper_length: "long"            # Paper length: "short" (~4 pages) | "long" (~8 pages)
   sandbox:
-    python_path: "/path/to/python3"  # **IMPORTANT** Python interpreter path for running experiments
-    gpu_required: true            # Whether experiments require GPU
-    gpus_per_project: 1           # Number of GPUs allocated per project
-    max_memory_mb: 16384          # Max memory limit for experiment processes (MB)
-    allowed_imports:              # Whitelist of allowed Python packages in sandbox
-      - "numpy"
-      - "torch"
-      - "transformers"
-      - "diffusers"
-      # ... add packages as needed
-
-  sanity_check_max_iterations: 18  # **IMPORTANT** Max fix attempts in S12 code testing. 0 = skip fixes, trigger intervention immediately
-
-  # Legacy code agent (disabled by default, use opencode instead)
-  code_agent:
-    enabled: false
-
-  # OpenHands Beast Mode — delegates complex code generation to OpenHands agent
-  opencode:
-    enabled: true                 # Master switch for Beast Mode
-    auto: true                    # Auto-trigger based on complexity score (vs. manual)
-    complexity_threshold: 0.2     # Complexity score threshold (0.0-1.0). Lower = more likely to use Beast Mode
-    model: "claude-opus-4-6"      # **IMPORTANT** LLM model used by OpenHands agent
-    timeout_sec: 2400             # Max time for Beast Mode code generation (seconds)
-    max_retries: 1                # Number of retries if Beast Mode fails to produce main.py
-    workspace_cleanup: false      # Whether to delete temporary workspace after completion
+    python_path: "/path/to/python3"  # ⚠️ **IMPORTANT** Python interpreter for running experiments
+  sanity_check_max_iterations: 100   # Max fix attempts in S12 code testing
 
 # === Prompts ===
 prompts:

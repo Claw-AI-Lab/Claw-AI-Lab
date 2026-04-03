@@ -10,17 +10,9 @@ research:
   quality_threshold: 3.0
   reference_papers: __REFERENCE_PAPERS__
 
-runtime:
-  timezone: "Asia/Shanghai"
-  max_parallel_tasks: 1
-  approval_timeout_hours: 1
-  retry_limit: 2
-
 notifications:
   channel: "console"
-  target: ""
   on_stage_start: true
-  on_stage_fail: true
   on_gate_required: true
 
 knowledge_base:
@@ -28,12 +20,9 @@ knowledge_base:
   root: "docs/kb"
 
 openclaw_bridge:
-  use_cron: false
   use_message: false
   use_memory: false
-  use_sessions_spawn: false
   use_web_fetch: false
-  use_browser: false
 
 llm:
   provider: "openai-compatible"
@@ -41,17 +30,14 @@ llm:
   api_key: "__API_KEY__"
   api_key_env: "RESEARCHCLAW_API_KEY"
   primary_model: "gpt-5.4"
-  coding_model: "claude-opus-4-6"
+  coding_model: "gpt-5.4"
   image_model: "gemini-3-pro-image-preview"
   fallback_models:
     - "qwen3.5-plus"
     - "qwen-plus"
-  timeout_sec: 600
 
 security:
   hitl_required_stages: []
-  allow_publish_without_approval: true
-  redact_sensitive_logs: false
 
 experiment:
   mode: "sandbox"
@@ -62,55 +48,11 @@ experiment:
   datasets_dir: ""
   checkpoints_dir: ""
   codebases_dir: ""
-  shared_results_dir: "__SHARED_RESULTS_DIR__"
+  shared_results_dir: "runs/shared_results"
   paper_length: "long"
   sandbox:
     python_path: "__PYTHON_PATH__"
-    gpu_required: true
-    gpus_per_project: 1
-    max_memory_mb: 16384
-    allowed_imports:
-      - "numpy"
-      - "scipy"
-      - "matplotlib"
-      - "torch"
-      - "torchvision"
-      - "transformers"
-      - "diffusers"
-      - "PIL"
-      - "skimage"
-      - "cv2"
-      - "json"
-      - "time"
-      - "os"
-      - "sys"
-      - "math"
-      - "random"
-      - "collections"
-      - "itertools"
-      - "functools"
-      - "typing"
-      - "dataclasses"
-      - "pathlib"
-      - "csv"
-      - "tqdm"
-      - "pandas"
-      - "sklearn"
-      - "accelerate"
-      - "safetensors"
-      - "huggingface_hub"
-      - "einops"
   sanity_check_max_iterations: 100
-  code_agent:
-    enabled: false
-  opencode:
-    enabled: true
-    auto: true
-    complexity_threshold: 0.2
-    model: "claude-opus-4-6"
-    timeout_sec: 2400
-    max_retries: 0
-    workspace_cleanup: false
 
 prompts:
   custom_file: ""
