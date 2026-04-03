@@ -31,10 +31,15 @@
 
 ## 🤔 What Is This?
 
-**Claw AI Lab** is a lab-native multi-agent research platform for interactive and scalable AI-driven science. It enables users to create a full AI research lab from a single prompt, with customizable roles, research directions, and collaborative workflows, rather than relying on a single-agent or fixed serial pipeline. Claw orchestrates multiple agents and projects in parallel through a FIFO-based scheduling framework, maximizing compute utilization while supporting cross-project knowledge sharing and mutual improvement. Crucially, the system keeps humans in the loop: users can intervene whenever needed, provide feedback under ambiguity, inject new ideas, and iteratively refine the research process through rollback and continuation. Combined with a simple UI that reduces everything to prompts and clicks, Claw transforms automated research into a more intuitive, steerable, and laboratory-like experience.
+**Claw AI Lab** Claw AI Lab is a lab-native multi-agent research platform for interactive and scalable AI-driven science. It enables users to create a full AI research lab from a single prompt, with customizable roles, research directions, and collaborative workflows, rather than relying on a single-agent or fixed serial pipeline. Claw orchestrates multiple agents and projects in parallel through a FIFO-based scheduling framework, maximizing compute utilization while supporting cross-project knowledge sharing and mutual improvement. Crucially, the system keeps humans in the loop: users can intervene whenever needed, provide feedback under ambiguity, inject new ideas, and iteratively refine the research process through rollback and continuation. Combined with a simple UI that reduces everything to prompts and clicks, Claw transforms automated research into a more intuitive, steerable, and laboratory-like experience.
 
-**We welcome contributions from the community to make this project better together! 
-You’re also warmly invited to scroll to the bottom of the page to join our group for beta testing and discussion.**
+<p align="center">
+  <img src="assets/ui.png" width="900" alt="Claw AI Lab UI"/>
+  <br/>
+  <sub>Web interface — launch projects, monitor agents, and inspect every artifact in real time</sub>
+</p>
+
+<p align="center"><b>We welcome contributions from the community to make this project better together!</b><br><sub>You are warmly invited to scroll to the bottom of the page to join our group for beta testing and discussion.</sub></p>
 
 ---
 
@@ -90,7 +95,7 @@ Multi-agent discussion on: **"What is the most deployable direction for Video Ac
 
 **Consensus:** The most deployable form is not a single end-to-end model, but a **layered, modular system** — use video supervision during training to learn rich dynamics, output actions directly at inference for low latency, and layer planning/MPC/safety modules on top for closed-loop robustness and recovery.
 
-<details open>
+<details>
 <summary><b>Top 3 Research Directions (ranked by deployability)</b></summary>
 
 | # | Direction | Deployability |
@@ -101,7 +106,7 @@ Multi-agent discussion on: **"What is the most deployable direction for Video Ac
 
 </details>
 
-<details open>
+<details>
 <summary><b>Key Contradictions Resolved</b></summary>
 
 | Debate | Resolution |
@@ -174,14 +179,6 @@ Thanks a lot for [KOKONI's](https://www.kokoni3d.com/) support for this project,
 ```
 
 Open **http://localhost:5903/** → Submit your research topic and let the agents work.
-
-#### Web UI Preview
-
-<p align="center">
-  <img src="assets/ui.png" width="900" alt="Claw AI Lab UI"/>
-  <br/>
-  <sub>Claw AI Lab web interface for launching and monitoring research runs</sub>
-</p>
 
 ---
 
