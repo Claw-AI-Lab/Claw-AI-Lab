@@ -4,42 +4,44 @@
 
 ---
 
-## 📄 Paper Title
+## Paper Title
 
-> **Reproducing PhyCustom-Style Physical Property Customization on FLUX**
+> **Reproducing PhyCustom on FLUX: An Empirical Reproduction Study**
 
 ---
 
-## 💡 Idea
+## Idea
 
 PhyCustom studies whether customized concepts can preserve **physical properties** under interventions such as viewpoint, lighting, context, and carrier-object changes. This project asks a stricter reproduction question: when the idea is ported to **FLUX**, do the claimed gains still hold under **intervention-based evaluation**, or do they disappear once we measure descriptor confusion, prompt-background leakage, and physical-transfer robustness rather than only generic realism? The generated code implements multiple FLUX-native adaptation variants, including attention-only LoRA, output-space prompt-swapped regularization, hidden-state proxy regularization, and hybrid LoRA plus selective block unfreezing.
 
 ---
 
-## ⚙️ Pipeline Journey
+## Pipeline Journey
 
 | Field | Details |
 | :--- | :--- |
 | **Track** | Reproduce — PhyCustom-style regularization on FLUX |
 | **Topic** | Reproduce PhyCustom on FLUX and test whether intervention-consistency gains survive the architecture transfer |
 | **Anchor** | PhyCustom-style physical-property customization benchmark on the local `PhyDiff` dataset |
-| **Stages** | Available artifacts currently cover **S11 → S12**: code generation → sanity check |
+| **Stages Completed** | **S9 → S22**: experiment design → code generation → sanity check → experiment run → iterative refinement → result analysis → paper writing → peer review → paper revision |
 | **Data** | Local `PhyDiff` dataset with `objects` and `verbs` concept families, prompt YAMLs, and concept images |
 | **Model Anchor** | Local `FLUX.1-dev` checkpoint |
-| **Compute Plan** | Single CUDA GPU, bf16 by default, 512 resolution full run, reduced smoke-test schedule |
-| **Experimental Grid** | Full plan registers **14 conditions**: 3 baselines + 5 proposed methods + 6 ablations |
-| **Artifacts** | `experiment_spec.md`, generated `main.py`, `EXPERIMENT_PLAN.yaml`, sanity outputs, metrics summary JSON |
+| **Compute Plan** | Single CUDA GPU, bf16, 512 resolution, 3 seeds per method |
+| **Experimental Grid** | **5 methods** × **3 seeds** = **15 runs** |
+| **Deliverables** | Revised paper (`paper_revised.md`), LaTeX package, experiment summary, analysis charts, generated figures |
 
 ### Stage Breakdown
 
 | Phase | Stages | Description |
 | :--- | :--- | :--- |
 | **L2 · Experiment Design** | S9 | Reproduction plan built around H1-H3: PhyCustom regularization advantage, output-space vs hidden-state portability, and adaptation-capacity placement |
-| **L3 · Coding** | S11 → S12 | Generated single-file FLUX experiment harness, passed sanity check, emitted output grids and summary JSON under smoke-test settings |
+| **L3 · Coding** | S11 → S12 | Generated single-file FLUX experiment harness, passed sanity check |
+| **L4 · Execution** | S14 → S15 | Full experiment run (15 runs) + iterative refinement |
+| **L5 · Analysis & Writing** | S16 → S22 | Agentic result analysis, research decision, paper draft, peer review, paper revision with LaTeX export |
 
 ---
 
-## 🧪 Registered Reproduction Agenda
+## Reproduction Agenda
 
 ### Main Hypotheses
 
@@ -47,107 +49,63 @@ PhyCustom studies whether customized concepts can preserve **physical properties
 2. **H2**: Prompt/output-space decoupling should be a more portable FLUX-native bridge than hidden-state proxy regularization.
 3. **H3**: Adaptation capacity and placement should matter: attention-only, MLP-inclusive, and hybrid unfreezing may separate prompt binding from deeper physical transfer.
 
-### Implemented Method Family
+### Implemented Methods
 
-- **Baselines (3)**: few-shot prompt binding, prior-preservation variant, and other lightweight FLUX adaptation references from the registered plan
-- **Proposed methods (5)**: attention-only PhyCustom intervention consistency, prompt-swapped output-space decoupling, hidden-state proxy hooks, attention+MLP LoRA, and hybrid LoRA plus selective block unfreezing
-- **Ablations (6)**: mechanism-isolation variants registered in `EXPERIMENT_PLAN.yaml`
-
----
-
-## 🎯 Pilot Smoke-Test Output
-
-The project has not yet produced full reproduction results, but the sanity run already emitted one pilot summary entry for the smoke-test condition:
-
-| Method | Primary Metric (↓) | Descriptor Confusion | Prompt Leakage | Reference Fidelity Error | Physical Transfer Error | FID |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| AttentionOnlyLoRA + PhyCustom Regularization | **0.0591** | 0.0059 | 0.0451 | 0.3543 | 0.0656 | 14.94 |
-
-These numbers should be read only as a **pipeline sanity signal**, not as a scientific conclusion.
+- **AttentionOnlyLoRA + PhyCustom Intervention Consistency** — attention-only LoRA with same-concept pull, different-concept margin, and leakage penalties
+- **AttentionOnlyLoRA + Prompt-Swapped Output-Space Decoupling** — output-space regularization via prompt swapping
+- **HiddenStateProxyLoRA + Internal Feature Consistency Hooks** — hidden-state-level regularization
+- **AttentionAndMLPLoRA + Prompt-Swapped Decoupling** — expanded adaptation capacity (attention + MLP)
+- **HybridLoRA + Selective Block Unfreezing + Prompt-Swapped Decoupling** — broadest adaptation with block-level unfreezing
 
 ---
 
-## 🔑 Key Code Snippets
+## Experiment Results
 
-### FLUX-side LoRA attachment
+**15 runs** across 5 methods, 3 seeds each. Primary metric: composite intervention error (lower is better).
 
-The reproduction is implemented directly on the FLUX transformer, with method-specific target modules controlling what adaptation capacity is exposed:
+| Method | Primary Metric (↓) | Descriptor Confusion | Prompt Leakage | Ref. Fidelity Error | FID |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **Prompt-Swapped Decoupling (Attn-only)** | **0.2813** | 0.1091 | 0.0236 | 0.2976 | 22.94 |
+| Hidden-State Proxy | 0.2815 | 0.1117 | 0.0235 | 0.2963 | 22.95 |
+| PhyCustom Intervention Consistency | 0.2820 | 0.1097 | 0.0240 | 0.2992 | 22.96 |
+| Attn+MLP Prompt-Swapped | 0.2815 | 0.1100 | 0.0237 | 0.2986 | 22.99 |
+| Hybrid LoRA + Block Unfreezing | 0.2900 | 0.1147 | 0.0253 | 0.3054 | 22.85 |
 
-```python
-def attach_lora(self, pipe: FluxPipeline, method: Dict):
-    lora_config = LoraConfig(
-        r=16,
-        lora_alpha=32,
-        lora_dropout=0.05,
-        bias='none',
-        target_modules=method['target_modules'],
-    )
-    pipe.transformer = get_peft_model(pipe.transformer, lora_config)
-    return pipe
-```
+### Key Findings
 
-### Intervention-aware prompt construction
-
-Instead of evaluating only one prompt per concept, the code builds a small intervention suite that probes viewpoint, lighting, context, carrier-object transfer, and descriptor swap behavior:
-
-```python
-def build_intervention_pairs(self, concept: ConceptRecord) -> Dict[str, str]:
-    base = concept.base_prompt
-    if concept.family == 'verbs':
-        mismatched = base.replace('burn', 'melt').replace('melt', 'shatter').replace('shatter', 'expand')
-    else:
-        mismatched = base + ', made of transparent crystal'
-    return {
-        'base': base,
-        'viewpoint_change': base + ', from a high-angle viewpoint',
-        'lighting_change': base + ', with warm sunset lighting',
-        'scene_context_change': base + ', inside a kitchen scene',
-        'carrier_object_change': base + ', transferred to an unseen carrier-object setting',
-        'descriptor_swap': mismatched,
-    }
-```
-
-### PhyCustom-style regularized training step
-
-The core reproduction path combines the diffusion objective with same-concept pull, different-concept margin, and leakage penalties, with warmup to reduce instability:
-
-```python
-if method['name'] == 'AttentionOnlyLoRA_FLUX_WithPhyCustomInterventionConsistencyRegularization':
-    images = self.generate_images(pipe, [intervention_pairs['base'], intervention_pairs['viewpoint_change'], intervention_pairs['descriptor_swap']], seed + step)
-    embeddings = self.encode_output_embeddings(images)
-    sameconcept_pull_loss = self.compute_sameconcept_pull_loss(embeddings)
-    diffconcept_margin_loss = self.compute_diffconcept_margin_loss(embeddings, method['margin'])
-    leakage_penalty = self.compute_leakage_penalty(embeddings[0:1], intervention_pairs['base'], intervention_pairs['scene_context_change'])
-    total_loss = diffusion_loss + warmup * (
-        method['lambda_pull'] * sameconcept_pull_loss
-        + method['lambda_margin'] * diffconcept_margin_loss
-        + method['lambda_leak'] * leakage_penalty
-    )
-```
-
-### Intervention-based evaluation metrics
-
-The evaluation code measures whether generated outputs preserve the intended concept under controlled perturbations, rather than only scoring generic realism:
-
-```python
-intervention_consistency_score = F.cosine_similarity(generated_embeddings[0:1], generated_embeddings[1:4]).mean().item()
-descriptor_swap_confusion_error = max(
-    0.0,
-    F.cosine_similarity(generated_embeddings[0:1], generated_embeddings[4:5]).mean().item() - intervention_consistency_score,
-)
-prompt_background_leakage_error = max(
-    0.0,
-    F.cosine_similarity(generated_embeddings[0:1], context_text_embed).mean().item() - text_alignment + 0.05,
-)
-reference_fidelity_error = 1.0 - torch.mm(generated_embeddings[0:1], reference_embeddings.T).max().item()
-discovery_aligned_endpoint_physical_transfer_error = 1.0 - F.cosine_similarity(generated_embeddings[0:1], generated_embeddings[3:4]).mean().item()
-```
+- All five regularization/placement variants perform **similarly** on the primary metric — the best-to-worst spread is only **~0.009**.
+- **Output-space prompt-swapped decoupling** edges the aggregate mean, consistent with **H2**.
+- **Hybrid selective unfreezing** is the weakest variant, suggesting that broader adaptation capacity introduces noise rather than capturing deeper physical transfer.
+- **Paired t-tests** show most differences are **not statistically significant** at n=3 seeds (e.g., prompt-swap vs hidden-state proxy p ≈ 0.45).
+- **Descriptor-swap confusion** and **prompt leakage** remain relatively low across all methods; **text-alignment error** stays high regardless of regularizer — pointing to a possible semantic alignment bottleneck in FLUX independent of the regularization strategy.
 
 ---
 
-## 💻 Code
+## Generated Figures
 
-👉 Generated [`main.py`](reproduce-phycustom/main.py)
+<p align="center">
+<img src="reproduce-phycustom/stage-22/figures/method_flip_pipeline_overview.png" width="700"><br>
+<sub>FLIP pipeline overview — FLUX-side LoRA attachment with intervention-based evaluation</sub>
+</p>
+
+<p align="center">
+<img src="reproduce-phycustom/stage-22/latex_package/figures/fig_main_comparison.png" width="600"><br>
+<sub>Main comparison — primary metric across all 5 methods (3 seeds, error bars = std)</sub>
+</p>
+
+<p align="center">
+<img src="reproduce-phycustom/stage-22/latex_package/figures/fig_metric_breakdown.png" width="600"><br>
+<sub>Per-metric breakdown across methods</sub>
+</p>
+
+---
+
+## Code & Manuscript
+
+- Generated experiment code: [`main.py`](reproduce-phycustom/main.py)
+- Revised paper: [`paper_revised.md`](reproduce-phycustom/stage-22/paper_revised.md)
+- Compiled manuscript: [`manuscript.pdf`](reproduce-phycustom/manuscript.pdf)
+- LaTeX package: [`latex_package/`](reproduce-phycustom/stage-22/latex_package/)
 
 ---
 
@@ -155,4 +113,4 @@ discovery_aligned_endpoint_physical_transfer_error = 1.0 - F.cosine_similarity(g
 
 ---
 
-*Generated by Claw AI Lab pipeline · Reproduce · showcase currently reflects code generation and sanity-stage pilot outputs*
+*Generated end-to-end by Claw AI Lab pipeline · Reproduce track · S9 → S22 fully autonomous*

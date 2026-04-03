@@ -905,6 +905,28 @@ def _collect_experiment_results(
                 parsed["metrics"] = parsed.pop("key_metrics")
                 runs_data.append(parsed)
 
+    # Fallback: synthesise runs_data from structured_results if it has summaries
+    if not runs_data and isinstance(structured_results, dict):
+        _summaries = structured_results.get("summaries", [])
+        if isinstance(_summaries, list):
+            for _s in _summaries:
+                if not isinstance(_s, dict):
+                    continue
+                _synth_metrics: dict[str, float] = {}
+                for _mk, _mv in _s.items():
+                    if _mk == "method":
+                        continue
+                    try:
+                        _synth_metrics[_mk] = float(_mv)
+                    except (ValueError, TypeError):
+                        if isinstance(_mv, list):
+                            continue
+                if _synth_metrics:
+                    runs_data.append({
+                        "metrics": _synth_metrics,
+                        "condition": _s.get("method", "unknown"),
+                    })
+
     if not runs_data:
         result: dict[str, Any] = {"runs": [], "metrics_summary": {}, "best_run": None, "latex_table": ""}
         if structured_results is not None:
@@ -4088,6 +4110,30 @@ def _execute_iterative_refine(
     )
 
 
+def _run_chart_generation(
+    stage_dir: Path,
+    run_dir: Path,
+    config: RCConfig,
+    llm: Any | None = None,
+) -> None:
+    """Generate charts for S16 using visualize.py (shared by agentic and legacy paths)."""
+    try:
+        from researchclaw.experiment.visualize import (
+            generate_all_charts as _gen_charts,
+        )
+        _charts_dir = stage_dir / "charts"
+        _charts_dir.mkdir(exist_ok=True)
+        _generated = _gen_charts(
+            run_dir,
+            _charts_dir,
+            metric_key=config.experiment.metric_key,
+        )
+        if _generated:
+            logger.info("S16: Generated %d charts", len(_generated))
+    except Exception as _exc:
+        logger.warning("S16: Chart generation failed: %s", _exc)
+
+
 def _execute_result_analysis(
     stage_dir: Path,
     run_dir: Path,
@@ -4097,7 +4143,44 @@ def _execute_result_analysis(
     llm: LLMClient | None = None,
     prompts: PromptManager | None = None,
 ) -> StageResult:
-    # --- Collect experiment data ---
+    # --- Agentic analysis: let the LLM read files, write scripts, produce summary ---
+    from researchclaw.pipeline.result_analysis import ResultAnalysisRuntime
+    _agent_rt = ResultAnalysisRuntime()
+    _agent_result = _agent_rt.execute(
+        stage_dir=stage_dir,
+        run_dir=run_dir,
+        config=config,
+        adapters=adapters,
+        llm=llm,
+    )
+    # If the agent produced both analysis.md and experiment_summary.json, use
+    # them directly and skip the legacy hardcoded collection path.
+    _agent_summary = stage_dir / "experiment_summary.json"
+    _agent_analysis = stage_dir / "analysis.md"
+    if _agent_summary.is_file() and _agent_analysis.is_file():
+        try:
+            _parsed = json.loads(_agent_summary.read_text(encoding="utf-8"))
+            if isinstance(_parsed, dict) and _parsed.get("metrics_summary"):
+                logger.info(
+                    "S16: Using agentic experiment_summary.json (%d metric keys)",
+                    len(_parsed["metrics_summary"]),
+                )
+                # Still run chart generation from the legacy path
+                _run_chart_generation(stage_dir, run_dir, config, llm)
+                artifacts = ["analysis.md", "experiment_summary.json"]
+                if (stage_dir / "charts").is_dir() and any((stage_dir / "charts").iterdir()):
+                    artifacts.append("charts/")
+                return StageResult(
+                    stage=Stage.RESULT_ANALYSIS,
+                    status=StageStatus.DONE,
+                    artifacts=tuple(artifacts),
+                    evidence_refs=tuple(f"stage-16/{a}" for a in artifacts),
+                )
+        except (json.JSONDecodeError, OSError):
+            pass
+    logger.info("S16: Agentic analysis insufficient, falling back to legacy path")
+
+    # --- Legacy: Collect experiment data ---
     exp_data = _collect_experiment_results(run_dir)
     runs_dir = _read_prior_artifact(run_dir, "runs/") or ""
     context = ""
@@ -4810,6 +4893,8 @@ def _execute_research_decision(
         try:
             _rl = json.loads(_refine_log)
             _iters = _rl.get("iterations", [])
+            if not isinstance(_iters, list):
+                _iters = []
             _metrics = [it.get("metric") for it in _iters if isinstance(it, dict)]
             _valid = [m for m in _metrics if m is not None]
             _all_saturated = _valid and all(m <= 0.001 or m >= 0.999 for m in _valid)
@@ -5181,7 +5266,10 @@ def _collect_raw_experiment_metrics(run_dir: Path) -> tuple[str, bool]:
         try:
             _rlog = json.loads(_rl_path.read_text(encoding="utf-8"))
             _best_ver = _rlog.get("best_version", "")
-            for _it in _rlog.get("iterations", []):
+            _rlog_iters = _rlog.get("iterations", [])
+            if not isinstance(_rlog_iters, list):
+                _rlog_iters = []
+            for _it in _rlog_iters:
                 for _sbx_key in ("sandbox", "sandbox_after_fix"):
                     _sbx = _it.get(_sbx_key, {})
                     if not isinstance(_sbx, dict):
@@ -7348,7 +7436,7 @@ def _collect_experiment_evidence(run_dir: Path) -> str:
         try:
             rlog = json.loads(refine_log_text)
             summary = {
-                "iterations_executed": len(rlog.get("iterations", [])),
+                "iterations_executed": len(rlog.get("iterations", []) if isinstance(rlog.get("iterations"), list) else []),
                 "converged": rlog.get("converged"),
                 "stop_reason": rlog.get("stop_reason"),
                 "best_metric": rlog.get("best_metric"),
@@ -7601,11 +7689,62 @@ def _execute_paper_revision(
 
     _revision_artifacts = ["paper_revised.md"]
     _topic = config.research.topic if hasattr(config, "research") else ""
+
+    # Reuse figures from S20 (PAPER_DRAFT) instead of regenerating
+    _s20_figures_dir = None
+    for _sd in sorted(run_dir.glob("stage-20*"), reverse=True):
+        _candidate = _sd / "figures"
+        if _candidate.is_dir() and any(_candidate.iterdir()):
+            _s20_figures_dir = _candidate
+            break
+
     _fig_prompts = _extract_figure_prompts(revised, topic=_topic)
     if _fig_prompts:
-        _fig_prompts = _render_figure_prompts(
-            _fig_prompts, stage_dir, config, llm, topic=_topic,
-        )
+        _s22_figures_dir = stage_dir / "figures"
+        _s22_figures_dir.mkdir(parents=True, exist_ok=True)
+
+        # Copy existing figures from S20 before rendering new ones
+        _reused_ids: set[str] = set()
+        if _s20_figures_dir:
+            import shutil as _shutil_fig
+            for _existing_fig in _s20_figures_dir.iterdir():
+                if _existing_fig.suffix.lower() in {".png", ".jpg", ".jpeg", ".pdf", ".eps"}:
+                    _dest = _s22_figures_dir / _existing_fig.name
+                    if not _dest.exists():
+                        _shutil_fig.copy2(_existing_fig, _dest)
+            # Mark prompts as already rendered if their output file exists
+            for _fp in _fig_prompts:
+                _fid = _fp.get("figure_id", "")
+                # Check common naming patterns
+                for _ext in (".png", ".jpg", ".jpeg"):
+                    _candidate_name = _s22_figures_dir / f"{_fid}{_ext}"
+                    if _candidate_name.exists():
+                        _fp["output_path"] = str(_candidate_name)
+                        _fp["success"] = True
+                        _reused_ids.add(_fid)
+                        break
+            if _reused_ids:
+                logger.info(
+                    "Stage 22: Reused %d/%d figures from S20",
+                    len(_reused_ids), len(_fig_prompts),
+                )
+
+        # Only render prompts that don't already have figures
+        _new_prompts = [fp for fp in _fig_prompts if fp.get("figure_id") not in _reused_ids]
+        if _new_prompts:
+            _new_prompts = _render_figure_prompts(
+                _new_prompts, stage_dir, config, llm, topic=_topic,
+            )
+            # Merge back into _fig_prompts
+            _new_map = {fp["figure_id"]: fp for fp in _new_prompts}
+            for _fp in _fig_prompts:
+                if _fp["figure_id"] in _new_map:
+                    _fp.update(_new_map[_fp["figure_id"]])
+            logger.info(
+                "Stage 22: Rendered %d new figures (reused %d from S20)",
+                len(_new_prompts), len(_reused_ids),
+            )
+
         _fp_path = stage_dir / "figure_prompts.json"
         _fp_path.write_text(
             json.dumps(_fig_prompts, indent=2, ensure_ascii=False),
@@ -7617,7 +7756,7 @@ def _execute_paper_revision(
                 _rel = Path(_fp["output_path"]).name
                 _revision_artifacts.append(f"figures/{_rel}")
         logger.info(
-            "Stage 22: Extracted %d figure prompts from revised paper → %s",
+            "Stage 22: Total %d figure prompts → %s",
             len(_fig_prompts), _fp_path,
         )
 
