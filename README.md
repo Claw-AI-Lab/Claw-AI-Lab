@@ -20,7 +20,7 @@
 
 ## 🔥 Updates
 
-- __[2026.04.02]__: Preview v1.1.0 — introducing **Claw-Code Harness**.
+- __[2026.04.02]__: Preview v1.1.0 — powered by **Claw-Code Harness**.
 - __[2026.03.25]__: Preview v1.0.0 - initial release.
 
 ---
