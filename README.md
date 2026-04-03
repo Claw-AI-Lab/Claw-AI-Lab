@@ -70,10 +70,10 @@ Each project autonomously produces a full research deliverable: **Paper** · **C
 <sub>5 methods × 3 seeds = 15 runs; output-space decoupling edges at <b>0.2813</b></sub>
 </td>
 </tr>
-<tr>
+<!-- <tr>
 <td align="center"><img src="assets/showcase/quantifying-hallucination/stage-22/latex_package/figures/fig_main_comparison.png" width="360"><br><sub>Main comparison across 19 conditions</sub></td>
 <td align="center"><img src="assets/showcase/reproduce-phycustom/stage-22/latex_package/figures/fig_main_comparison.png" width="360"><br><sub>Main comparison across 5 methods</sub></td>
-</tr>
+</tr> -->
 </table>
 
 ---
