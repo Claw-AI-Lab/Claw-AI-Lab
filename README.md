@@ -31,15 +31,22 @@
 
 ## 🤔 What Is This?
 
-**Claw AI Lab** Claw AI Lab is a lab-native multi-agent research platform for interactive and scalable AI-driven science. It enables users to create a full AI research lab from a single prompt, with customizable roles, research directions, and collaborative workflows, rather than relying on a single-agent or fixed serial pipeline. Claw orchestrates multiple agents and projects in parallel through a FIFO-based scheduling framework, maximizing compute utilization while supporting cross-project knowledge sharing and mutual improvement. Crucially, the system keeps humans in the loop: users can intervene whenever needed, provide feedback under ambiguity, inject new ideas, and iteratively refine the research process through rollback and continuation. Combined with a simple UI that reduces everything to prompts and clicks, Claw transforms automated research into a more intuitive, steerable, and laboratory-like experience.
+**Claw AI Lab** is a lab-native multi-agent research platform for interactive and scalable AI-driven science. It enables users to create a full AI research lab from a single prompt, with customizable roles, research directions, and collaborative workflows, rather than relying on a single-agent or fixed serial pipeline. Claw orchestrates multiple agents and projects in parallel through a FIFO-based scheduling framework, maximizing compute utilization while supporting cross-project knowledge sharing and mutual improvement. Crucially, the system keeps humans in the loop: users can intervene whenever needed, provide feedback under ambiguity, inject new ideas, and iteratively refine the research process through rollback and continuation. Combined with a simple UI that reduces everything to prompts and clicks, Claw transforms automated research into a more intuitive, steerable, and laboratory-like experience.
 
+<p align="center"><b>We welcome contributions from the community to make this project better together!</b><br>You are warmly invited to scroll to the bottom of the page to join our group for beta testing and discussion.</p>
+
+---
+
+## 🖥️ Claw AI Lab Dashboard
+
+<table align="center"><tr><td>
 <p align="center">
-  <img src="assets/ui.png" width="900" alt="Claw AI Lab UI"/>
-  <br/>
-  <sub>Web interface — launch projects, monitor agents, and inspect every artifact in real time</sub>
+  <img src="assets/ui.png" width="860" alt="Claw AI Lab UI"/>
 </p>
-
-<p align="center"><b>We welcome contributions from the community to make this project better together!</b><br><sub>You are warmly invited to scroll to the bottom of the page to join our group for beta testing and discussion.</sub></p>
+</td></tr><tr><td align="center">
+<b>Launch projects, monitor agents, and inspect every artifact — all from a single interface.</b><br>
+<sub>Real-time event stream · Multi-project overview · One-click rollback & resume · Artifact inspector</sub>
+</td></tr></table>
 
 ---
 
