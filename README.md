@@ -59,13 +59,13 @@ Each project autonomously produces a full research deliverable: **Paper** · **C
 <tr>
 <td align="center" width="50%">
 <a href="assets/showcase/showcase-quantify-hallucination.md"><b>OATH: Quantifying Video Hallucination via Occlusion Debt</b></a><br>
-<sub>Lab Explore · CV · Video Generation Evaluation · S9→S22</sub><br><br>
+<sub>Lab Explore · CV · Video Generation Evaluation</sub><br><br>
 <a href="assets/showcase/showcase-quantify-hallucination.md"><img src="assets/showcase/quantifying-hallucination/stage-22/figures/oath_pipeline_overview.png" width="380"></a><br>
 <sub>Best method achieves <b>0.1714</b> primary error vs CLIP-T baseline <b>0.2393</b> (↓28%)</sub>
 </td>
 <td align="center" width="50%">
 <a href="assets/showcase/showcase-reproduce-phycustom-on-flux.md"><b>Reproducing PhyCustom on FLUX</b></a><br>
-<sub>Reproduce · Image Gen · Customization · S9→S22</sub><br><br>
+<sub>Reproduce · Image Gen · Multi-Concept Customization</sub><br><br>
 <a href="assets/showcase/showcase-reproduce-phycustom-on-flux.md"><img src="assets/showcase/reproduce-phycustom/stage-22/figures/method_flip_pipeline_overview.png" width="380"></a><br>
 <sub>5 methods × 3 seeds = 15 runs; output-space decoupling edges at <b>0.2813</b></sub>
 </td>
