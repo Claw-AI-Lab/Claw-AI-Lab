@@ -193,7 +193,7 @@ Open **http://localhost:5903/** → Submit your research topic and let the agent
 |---|---|---|
 | 1 | **Prepare local codebases, datasets & checkpoints** — enter their paths when submitting a project | Avoids download delays and network failures during runs |
 | 2 | **Use a strong coding model like GPT 5.4** | Significantly better code quality and fewer iteration cycles |
-| 3 | **Review the `IMPORTANT` fields in [Configuration Details](#️-configuration-details)** | Misconfigured keys or resource limits are the #1 cause of failed runs |
+| 3 | **Review the `IMPORTANT` fields in [Configuration Details](#️-configuration-details)** | Misconfigured API keys or resource limits are the #1 cause of failed runs |
 
 ---
 
