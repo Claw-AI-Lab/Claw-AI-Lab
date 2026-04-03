@@ -241,8 +241,8 @@ llm:
   provider: "openai-compatible"   # LLM provider: "openai-compatible" | "openai" | "deepseek" | "acp"
   api_key: "sk-your-key"          # ⚠️ **IMPORTANT** API key (or use api_key_env to read from environment)
   api_key_env: "RESEARCHCLAW_API_KEY"  # Environment variable name for API key (fallback)
-  primary_model: "gpt-5.4"       # ⚠️ **IMPORTANT** Main model for research, analysis, and writing
-  coding_model: "gpt-5.4" # ⚠️ **IMPORTANT** Model for code generation (S11)
+  primary_model: "gpt-5.4"        # ⚠️ **IMPORTANT** Main model for research, analysis, and writing
+  coding_model: "gpt-5.4"         # ⚠️ **IMPORTANT** Model for code generation (S11)
   image_model: "gemini-3-pro-image-preview"  # ⚠️ **IMPORTANT** Model for figure generation in paper
   fallback_models:                # Fallback model chain — used when primary model fails
     - "qwen3.5-plus"
