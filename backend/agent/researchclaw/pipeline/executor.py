@@ -1702,6 +1702,7 @@ def _execute_topic_init(
         resp = llm.chat(
             [{"role": "user", "content": sp.user}],
             system=sp.system,
+            max_tokens=8192,
         )
         goal_md = resp.content
     else:
