@@ -26,6 +26,11 @@ PROVIDER_PRESETS = {
     "novita": {
         "base_url": "https://api.novita.ai/openai",
     },
+    "minimax": {
+        "base_url": "https://api.minimax.io/v1",
+        # Recommended models: MiniMax-M2.7 (default), MiniMax-M2.7-highspeed
+        # API key env: MINIMAX_API_KEY
+    },
     "openai-compatible": {
         "base_url": None,  # Use user-provided base_url
     },
@@ -41,11 +46,16 @@ def create_llm_client(config: RCConfig) -> LLMClient | ACPClient:
     - ``"openai"`` → :class:`LLMClient` with OpenAI base URL
     - ``"deepseek"`` → :class:`LLMClient` with DeepSeek base URL
     - ``"novita"`` → :class:`LLMClient` with Novita AI base URL
+    - ``"minimax"`` → :class:`LLMClient` with MiniMax OpenAI-compatible API
     - ``"openai-compatible"`` (default) → :class:`LLMClient` with custom base_url
 
     OpenRouter is fully compatible with the OpenAI API format, making it
     a drop-in replacement with access to 200+ models from Anthropic, Google,
     Meta, Mistral, and more. See: https://openrouter.ai/models
+
+    MiniMax uses an OpenAI-compatible API. Set ``MINIMAX_API_KEY`` and use
+    models ``MiniMax-M2.7`` (default) or ``MiniMax-M2.7-highspeed``.
+    API docs: https://platform.minimax.io/docs/api-reference/text-openai-api
     """
     if config.llm.provider == "acp":
         from researchclaw.llm.acp_client import ACPClient as _ACP

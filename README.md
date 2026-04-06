@@ -220,7 +220,7 @@ openclaw_bridge:
 
 # === LLM ===
 llm:
-  provider: "openai-compatible"   # LLM provider: "openai-compatible" | "openai" | "deepseek" | "acp"
+  provider: "openai-compatible"   # LLM provider: "openai-compatible" | "openai" | "deepseek" | "minimax" | "acp"
   base_url: "https://api.example.com/v1"  # API endpoint (OpenAI-compatible format)
   api_key: "sk-your-key"          # API key (can also use api_key_env to read from environment)
   api_key_env: "RESEARCHCLAW_API_KEY"     # Environment variable name for API key (fallback if api_key is empty)

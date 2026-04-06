@@ -11,11 +11,44 @@ from researchclaw.llm.client import LLMClient, LLMConfig, LLMResponse, _NEW_PARA
 
 
 class _DummyHTTPResponse:
+    """Fake HTTP response that produces streaming SSE lines from a payload dict."""
+
     def __init__(self, payload: Mapping[str, Any]):
         self._payload = payload
+        self._lines = self._build_sse_lines(payload)
+
+    @staticmethod
+    def _build_sse_lines(payload: Mapping[str, Any]) -> list[bytes]:
+        """Convert a final response dict into SSE streaming lines."""
+        choices = payload.get("choices", [])
+        content = ""
+        finish_reason = None
+        if choices:
+            choice = choices[0]
+            msg = choice.get("message", {})
+            content = msg.get("content") or ""
+            finish_reason = choice.get("finish_reason")
+
+        model = payload.get("model", "")
+        usage = payload.get("usage", {})
+
+        # Single data chunk with the full content
+        chunk = {
+            "choices": [{"delta": {"content": content}, "finish_reason": finish_reason}],
+            "model": model,
+            "usage": usage,
+        }
+        lines = [
+            f"data: {json.dumps(chunk)}\n".encode("utf-8"),
+            b"data: [DONE]\n",
+        ]
+        return lines
 
     def read(self) -> bytes:
-        return json.dumps(self._payload).encode("utf-8")
+        return json.dumps(dict(self._payload)).encode("utf-8")
+
+    def __iter__(self):
+        return iter(self._lines)
 
     def __enter__(self) -> _DummyHTTPResponse:
         return self
@@ -321,3 +354,138 @@ def test_chat_uses_fallback_after_first_model_error(monkeypatch: pytest.MonkeyPa
     response = client.chat([{"role": "user", "content": "x"}])
     assert calls == ["gpt-5.2", "gpt-5.1"]
     assert response.model == "gpt-5.1"
+
+
+# ---------------------------------------------------------------------------
+# MiniMax provider tests
+# ---------------------------------------------------------------------------
+
+
+def test_minimax_preset_has_correct_base_url():
+    from researchclaw.llm import PROVIDER_PRESETS
+
+    assert "minimax" in PROVIDER_PRESETS
+    assert PROVIDER_PRESETS["minimax"]["base_url"] == "https://api.minimax.io/v1"
+
+
+def test_minimax_from_rc_config_uses_preset_base_url(monkeypatch: pytest.MonkeyPatch):
+    monkeypatch.setenv("MINIMAX_API_KEY", "mm-test-key")
+    rc_config = SimpleNamespace(
+        llm=SimpleNamespace(
+            provider="minimax",
+            base_url="",
+            api_key="",
+            api_key_env="MINIMAX_API_KEY",
+            primary_model="MiniMax-M2.7",
+            fallback_models=("MiniMax-M2.7-highspeed",),
+            timeout_sec=120,
+        )
+    )
+    client = LLMClient.from_rc_config(rc_config)
+    assert client.config.base_url == "https://api.minimax.io/v1"
+    assert client.config.api_key == "mm-test-key"
+    assert client.config.primary_model == "MiniMax-M2.7"
+
+
+def test_minimax_from_rc_config_reads_minimax_api_key_env(
+    monkeypatch: pytest.MonkeyPatch,
+):
+    monkeypatch.setenv("MINIMAX_API_KEY", "mm-env-key")
+    rc_config = SimpleNamespace(
+        llm=SimpleNamespace(
+            provider="minimax",
+            base_url="",
+            api_key="",
+            api_key_env="",
+            primary_model="MiniMax-M2.7",
+            fallback_models=(),
+            timeout_sec=120,
+        )
+    )
+    client = LLMClient.from_rc_config(rc_config)
+    assert client.config.api_key == "mm-env-key"
+
+
+def test_minimax_temperature_zero_clamped_to_one(monkeypatch: pytest.MonkeyPatch):
+    """MiniMax requires temperature > 0; zero should be clamped to 1.0."""
+    captured_body: dict = {}
+
+    def fake_urlopen(req: urllib.request.Request, timeout: int) -> _DummyHTTPResponse:
+        body = json.loads(req.data.decode("utf-8"))
+        captured_body.update(body)
+        return _DummyHTTPResponse(
+            {"choices": [{"message": {"content": "ok"}, "finish_reason": "stop"}]}
+        )
+
+    monkeypatch.setattr(urllib.request, "urlopen", fake_urlopen)
+    config = LLMConfig(
+        base_url="https://api.minimax.io/v1",
+        api_key="mm-key",
+        primary_model="MiniMax-M2.7",
+    )
+    client = LLMClient(config)
+    client._raw_call(
+        "MiniMax-M2.7", [{"role": "user", "content": "hi"}], 100, 0.0, False
+    )
+    assert captured_body["temperature"] == 1.0
+
+
+def test_minimax_positive_temperature_unchanged(monkeypatch: pytest.MonkeyPatch):
+    """MiniMax temperature > 0 should be passed through unchanged."""
+    captured_body: dict = {}
+
+    def fake_urlopen(req: urllib.request.Request, timeout: int) -> _DummyHTTPResponse:
+        body = json.loads(req.data.decode("utf-8"))
+        captured_body.update(body)
+        return _DummyHTTPResponse(
+            {"choices": [{"message": {"content": "ok"}, "finish_reason": "stop"}]}
+        )
+
+    monkeypatch.setattr(urllib.request, "urlopen", fake_urlopen)
+    config = LLMConfig(
+        base_url="https://api.minimax.io/v1",
+        api_key="mm-key",
+        primary_model="MiniMax-M2.7",
+    )
+    client = LLMClient(config)
+    client._raw_call(
+        "MiniMax-M2.7", [{"role": "user", "content": "hi"}], 100, 0.7, False
+    )
+    assert captured_body["temperature"] == 0.7
+
+
+def test_minimax_json_mode_uses_prompt_injection(monkeypatch: pytest.MonkeyPatch):
+    """MiniMax doesn't support response_format; json_mode must use prompt injection."""
+    captured_body: dict = {}
+
+    def fake_urlopen(req: urllib.request.Request, timeout: int) -> _DummyHTTPResponse:
+        body = json.loads(req.data.decode("utf-8"))
+        captured_body.update(body)
+        return _DummyHTTPResponse(
+            {"choices": [{"message": {"content": "{}"}, "finish_reason": "stop"}]}
+        )
+
+    monkeypatch.setattr(urllib.request, "urlopen", fake_urlopen)
+    config = LLMConfig(
+        base_url="https://api.minimax.io/v1",
+        api_key="mm-key",
+        primary_model="MiniMax-M2.7",
+    )
+    client = LLMClient(config)
+    client._raw_call(
+        "MiniMax-M2.7", [{"role": "user", "content": "json"}], 100, 0.7, True
+    )
+    assert "response_format" not in captured_body
+    # Verify prompt injection was used (system message with JSON instruction)
+    messages = captured_body.get("messages", [])
+    assert any(
+        "JSON" in str(m.get("content", "")) for m in messages
+    )
+
+
+def test_minimax_model_names_not_in_new_param_models():
+    """MiniMax models use max_tokens, not max_completion_tokens."""
+    assert not any(
+        "MiniMax-M2.7".startswith(prefix) for prefix in _NEW_PARAM_MODELS
+    )
+
