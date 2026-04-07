@@ -158,6 +158,7 @@ pip install torch torchvision diffusers transformers accelerate safetensors data
 Fill in following configurations in examples/config_template.yaml:
 ```
 llm:
+  base_url: "http://www.longcatcloud.com/v1"
   api_key: "your-api-key"
   primary_model: "gpt-5.4"
   coding_model: "gpt-5.4"
