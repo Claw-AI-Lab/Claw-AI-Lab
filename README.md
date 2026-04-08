@@ -168,7 +168,7 @@ llm:
     - "qwen-plus"
 
 sandbox:
-  python_path: "/path/to/your/python3"
+  python_path: "/absolute/path/to/clawailab/bin/python"  # Get this path by running: conda activate clawailab && which python
 ```
 
 ### 3. Run
