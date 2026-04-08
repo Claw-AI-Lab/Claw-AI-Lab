@@ -171,8 +171,6 @@ sandbox:
   python_path: "/path/to/your/python3"
 ```
 
-Thanks a lot for [KOKONI's](https://www.kokoni3d.com/) support for this project.
-
 ### 3. Run
 
 ```bash
