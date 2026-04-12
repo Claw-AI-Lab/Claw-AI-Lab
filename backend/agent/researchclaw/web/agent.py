@@ -24,6 +24,7 @@ from dataclasses import dataclass, field
 from typing import Any
 
 from researchclaw.web.crawler import CrawlResult, WebCrawler
+from researchclaw.web.exa_search import ExaSearchClient
 from researchclaw.web.pdf_extractor import PDFContent, PDFExtractor
 from researchclaw.web.scholar import GoogleScholarClient, ScholarPaper
 from researchclaw.web.search import SearchResult, WebSearchClient, WebSearchResponse
@@ -156,6 +157,7 @@ class WebSearchAgent:
         self,
         *,
         tavily_api_key: str = "",
+        exa_api_key: str = "",
         enable_scholar: bool = True,
         enable_crawling: bool = True,
         enable_pdf: bool = True,
@@ -164,6 +166,7 @@ class WebSearchAgent:
         max_crawl_urls: int = 5,
     ) -> None:
         self.web_client = WebSearchClient(api_key=tavily_api_key)
+        self.exa_client = ExaSearchClient(api_key=exa_api_key)
         try:
             self.scholar_client = GoogleScholarClient()
         except ImportError:
@@ -242,7 +245,7 @@ class WebSearchAgent:
     def _run_web_search(
         self, result: WebSearchAgentResult, queries: list[str]
     ) -> None:
-        """Run web search across all queries."""
+        """Run web search across all queries (Tavily + Exa)."""
         try:
             responses = self.web_client.search_multi(
                 queries, max_results=self.max_web_results
@@ -253,6 +256,21 @@ class WebSearchAgent:
                     result.search_answer = resp.answer
         except Exception as exc:  # noqa: BLE001
             logger.warning("Web search failed: %s", exc)
+
+        # Exa search (complementary — results are merged and deduplicated)
+        if self.exa_client.available:
+            try:
+                seen_urls = {r.url for r in result.web_results}
+                exa_responses = self.exa_client.search_multi(
+                    queries, num_results=self.max_web_results
+                )
+                for resp in exa_responses:
+                    for r in resp.results:
+                        if r.url not in seen_urls:
+                            seen_urls.add(r.url)
+                            result.web_results.append(r)
+            except Exception as exc:  # noqa: BLE001
+                logger.warning("Exa search failed: %s", exc)
 
     def _run_scholar_search(
         self, result: WebSearchAgentResult, topic: str
