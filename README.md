@@ -305,7 +305,7 @@ If you find Claw AI Lab useful, please cite:
 
 ```bibtex
 @misc{wu2026clawailab,
-  author       = {Wu, Fan and Chen, Cheng and Tan, Zhenshan and Zhang, Taiyu, and Xu Xinzhen, Qian Yanyu, and
+  author       = {Wu, Fan and Chen, Cheng and Tan, Zhenshan and Zhang, Taiyu and Xu, Xinzhen and Qian, Yanyu and
                   Gao, Dingcheng and Zhu, Lanyun and Zhu, Qi and Tan, Yi and Ji, Deyi and 
                   Lin, Guosheng and Chen, Tianrun and Ye, Deheng and Liu, Fayao},
   title        = {Claw AI Lab: An Autonomous Multi-Agent Research Team},
