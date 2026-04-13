@@ -23,6 +23,7 @@ _ENDPOINTS = [
     ("duckduckgo", "https://html.duckduckgo.com/", 3),
     ("google_scholar", "https://scholar.google.com/", 3),
     ("tavily", "https://api.tavily.com/", 5),
+    ("exa", "https://api.exa.ai/", 5),
 ]
 
 _USER_AGENT = "Mozilla/5.0 (ResearchClaw connectivity probe)"

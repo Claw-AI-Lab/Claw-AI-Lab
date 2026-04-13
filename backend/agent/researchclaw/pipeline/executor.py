@@ -2616,8 +2616,12 @@ def _execute_literature_collect(
             tavily_key = config.web_search.tavily_api_key or os.environ.get(
                 config.web_search.tavily_api_key_env, ""
             )
+            exa_key = config.web_search.exa_api_key or os.environ.get(
+                config.web_search.exa_api_key_env, ""
+            )
             web_agent = WebSearchAgent(
                 tavily_api_key=tavily_key,
+                exa_api_key=exa_key,
                 enable_scholar=config.web_search.enable_scholar,
                 enable_crawling=config.web_search.enable_crawling,
                 enable_pdf=config.web_search.enable_pdf_extraction,

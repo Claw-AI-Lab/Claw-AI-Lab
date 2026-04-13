@@ -369,6 +369,9 @@ class WebSearchConfig:
     enabled: bool = True
     tavily_api_key: str = ""
     tavily_api_key_env: str = "TAVILY_API_KEY"
+    exa_api_key: str = ""
+    exa_api_key_env: str = "EXA_API_KEY"
+    exa_search_type: str = "auto"  # auto | neural | fast
     enable_scholar: bool = True
     enable_crawling: bool = True
     enable_pdf_extraction: bool = True
@@ -500,6 +503,9 @@ class RCConfig:
                 enabled=bool(web_search.get("enabled", True)),
                 tavily_api_key=str(web_search.get("tavily_api_key", "")),
                 tavily_api_key_env=str(web_search.get("tavily_api_key_env", "TAVILY_API_KEY")),
+                exa_api_key=str(web_search.get("exa_api_key", "")),
+                exa_api_key_env=str(web_search.get("exa_api_key_env", "EXA_API_KEY")),
+                exa_search_type=str(web_search.get("exa_search_type", "auto")),
                 enable_scholar=bool(web_search.get("enable_scholar", True)),
                 enable_crawling=bool(web_search.get("enable_crawling", True)),
                 enable_pdf_extraction=bool(web_search.get("enable_pdf_extraction", True)),

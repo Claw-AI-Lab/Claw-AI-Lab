@@ -17,6 +17,7 @@ Public API
 
 from researchclaw.web.crawler import WebCrawler
 from researchclaw.web.search import WebSearchClient
+from researchclaw.web.exa_search import ExaSearchClient
 from researchclaw.web.scholar import GoogleScholarClient
 from researchclaw.web.pdf_extractor import PDFExtractor
 from researchclaw.web.agent import WebSearchAgent
@@ -24,6 +25,7 @@ from researchclaw.web.agent import WebSearchAgent
 __all__ = [
     "WebCrawler",
     "WebSearchClient",
+    "ExaSearchClient",
     "GoogleScholarClient",
     "PDFExtractor",
     "WebSearchAgent",
