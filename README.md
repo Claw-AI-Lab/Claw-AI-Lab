@@ -321,5 +321,4 @@ If you find Claw AI Lab useful, please cite:
 
 <p align="center">
   <img src="assets/Group.png" height="420" alt="WeChat Group 1 QR Code"/>
-  <img src="assets/Group2.png" height="420" alt="WeChat Group 2 QR Code"/>
 </p>
