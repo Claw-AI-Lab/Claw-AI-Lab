@@ -2526,7 +2526,6 @@ def _execute_literature_collect(
             (stage_dir / "reference_paper_text.md").write_text(
                 _combined, encoding="utf-8",
             )
-            artifacts.append("reference_paper_text.md")
             logger.info(
                 "Stage 4: Extracted full text from %d reference PDF(s) "
                 "(%d chars total)",
@@ -2753,6 +2752,8 @@ def _execute_literature_collect(
 
     # Write references.bib (F2.4)
     artifacts = ["candidates.jsonl"]
+    if (stage_dir / "reference_paper_text.md").exists():
+        artifacts.append("reference_paper_text.md")
     if web_context_parts:
         artifacts.append("web_context.md")
     if (stage_dir / "web_search_result.json").exists():
