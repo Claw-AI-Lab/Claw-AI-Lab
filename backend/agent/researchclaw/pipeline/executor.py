@@ -5784,11 +5784,13 @@ def _render_figure_prompts(
     from researchclaw.agents.figure_agent.nano_banana import NanoBananaAgent
 
     from researchclaw.llm import resolve_provider_base_url
-    base_url = resolve_provider_base_url(
+    image_base_url = getattr(config.llm, "image_base_url", "") or ""
+    image_api_key = getattr(config.llm, "image_api_key", "") or ""
+    base_url = image_base_url or resolve_provider_base_url(
         getattr(config.llm, "provider", "openai-compatible"),
         getattr(config.llm, "base_url", ""),
     )
-    api_key = getattr(config.llm, "api_key", "") or ""
+    api_key = image_api_key or getattr(config.llm, "api_key", "") or ""
     if not api_key:
         logger.warning(
             "NanoBanana render skipped — no llm.api_key"
