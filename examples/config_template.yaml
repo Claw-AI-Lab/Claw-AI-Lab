@@ -32,6 +32,8 @@ llm:
   primary_model: "gpt-5.4"
   coding_model: "gpt-5.4"
   image_model: "gemini-3-pro-image-preview"
+  image_base_url: ""   # Optional: separate API endpoint for image generation; falls back to base_url if empty
+  image_api_key: ""    # Optional: separate API key for image generation; falls back to api_key if empty
   fallback_models:
     - "qwen3.5-plus"
     - "qwen-plus"

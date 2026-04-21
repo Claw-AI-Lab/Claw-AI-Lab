@@ -134,6 +134,8 @@ class LlmConfig:
     primary_model: str = ""
     coding_model: str = ""
     image_model: str = ""
+    image_base_url: str = ""
+    image_api_key: str = ""
     fallback_models: tuple[str, ...] = ()
     s2_api_key: str = ""
     notes: str = ""
@@ -611,6 +613,8 @@ def _parse_llm_config(data: dict[str, Any]) -> LlmConfig:
         primary_model=data.get("primary_model", ""),
         coding_model=data.get("coding_model", ""),
         image_model=data.get("image_model", ""),
+        image_base_url=data.get("image_base_url", ""),
+        image_api_key=data.get("image_api_key", ""),
         fallback_models=tuple(data.get("fallback_models") or ()),
         s2_api_key=data.get("s2_api_key", ""),
         notes=data.get("notes", ""),
