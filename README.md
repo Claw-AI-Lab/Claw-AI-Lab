@@ -304,6 +304,13 @@ MIT — see [LICENSE](LICENSE) for details.
 If you find Claw AI Lab useful, please cite:
 
 ```bibtex
+@article{wu2026claw,
+  title={Claw AI Lab: An Autonomous Multi-Agent Research Team},
+  author={Wu, Fan and Chen, Cheng and Tan, Zhenshan and Zhang, Taiyu and Xu, Xinzhen and Qian, Yanyu and Gao, Dingcheng and Zhu, Lanyun and Zhu, Qi and Tan, Yi and others},
+  journal={arXiv preprint arXiv:2605.22662},
+  year={2026}
+}
+
 @misc{wu2026clawailab,
   author       = {Wu, Fan and Chen, Cheng and Tan, Zhenshan and Zhang, Taiyu and Xu, Xinzhen and Qian, Yanyu and
                   Gao, Dingcheng and Zhu, Lanyun and Zhu, Qi and Tan, Yi and Ji, Deyi and 
