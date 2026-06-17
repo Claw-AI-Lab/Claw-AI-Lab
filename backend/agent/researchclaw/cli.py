@@ -340,13 +340,15 @@ _PROVIDER_CHOICES = {
     "1": ("openai", "OPENAI_API_KEY"),
     "2": ("openrouter", "OPENROUTER_API_KEY"),
     "3": ("deepseek", "DEEPSEEK_API_KEY"),
-    "4": ("acp", ""),
+    "4": ("atlas", "ATLASCLOUD_API_KEY"),
+    "5": ("acp", ""),
 }
 
 _PROVIDER_URLS = {
     "openai": "https://api.openai.com/v1",
     "openrouter": "https://openrouter.ai/api/v1",
     "deepseek": "https://api.deepseek.com/v1",
+    "atlas": "https://api.atlascloud.ai/v1",
 }
 
 _PROVIDER_MODELS = {
@@ -356,6 +358,10 @@ _PROVIDER_MODELS = {
         ["google/gemini-pro-1.5", "meta-llama/llama-3.1-70b-instruct"],
     ),
     "deepseek": ("deepseek-chat", ["deepseek-reasoner"]),
+    "atlas": (
+        "deepseek-ai/deepseek-v4-pro",
+        ["deepseek-ai/deepseek-v3.2", "anthropic/claude-sonnet-4.5"],
+    ),
 }
 
 
@@ -390,7 +396,8 @@ def cmd_init(args: argparse.Namespace) -> int:
         print("  1) openai       (requires OPENAI_API_KEY)")
         print("  2) openrouter   (requires OPENROUTER_API_KEY)")
         print("  3) deepseek     (requires DEEPSEEK_API_KEY)")
-        print("  4) acp          (local AI agent — no API key needed)")
+        print("  4) atlas        (Atlas Cloud — requires ATLASCLOUD_API_KEY)")
+        print("  5) acp          (local AI agent — no API key needed)")
         try:
             raw = input("Choice [1]: ").strip()
         except (EOFError, KeyboardInterrupt):
