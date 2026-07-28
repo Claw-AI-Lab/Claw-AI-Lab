@@ -26,6 +26,9 @@ PROVIDER_PRESETS = {
     "novita": {
         "base_url": "https://api.novita.ai/openai",
     },
+    "atlascloud": {
+        "base_url": "https://api.atlascloud.ai/v1",
+    },
     "openai-compatible": {
         "base_url": None,  # Use user-provided base_url
     },
@@ -60,6 +63,7 @@ def create_llm_client(config: RCConfig) -> LLMClient | ACPClient:
     - ``"openai"`` → :class:`LLMClient` with OpenAI base URL
     - ``"deepseek"`` → :class:`LLMClient` with DeepSeek base URL
     - ``"novita"`` → :class:`LLMClient` with Novita AI base URL
+    - ``"atlascloud"`` → :class:`LLMClient` with Atlas Cloud base URL
     - ``"openai-compatible"`` (default) → :class:`LLMClient` with custom base_url
 
     OpenRouter is fully compatible with the OpenAI API format, making it
