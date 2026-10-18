@@ -70,6 +70,9 @@ class WebSearchClient:
     ----------
     api_key:
         Tavily API key. Falls back to ``TAVILY_API_KEY`` env var.
+    provider:
+        "auto" preserves Tavily/DuckDuckGo routing; "parallel" selects keyless MCP.
+        Explicit Parallel failures propagate without changing providers.
     max_results:
         Default number of results per query.
     search_depth:
@@ -82,10 +85,15 @@ class WebSearchClient:
         self,
         *,
         api_key: str = "",
+        provider: str = "auto",
         max_results: int = 10,
         search_depth: str = "advanced",
         include_answer: bool = True,
     ) -> None:
+        if provider not in ("auto", "parallel"):
+            raise ValueError(f"Unknown web search provider: {provider}")
+        self.provider = provider
+        self._parallel_client = None
         self.api_key = api_key or os.environ.get("TAVILY_API_KEY", "")
         self.max_results = max_results
         self.search_depth = search_depth
@@ -102,6 +110,15 @@ class WebSearchClient:
         """Search the web for a query."""
         limit = max_results or self.max_results
         t0 = time.monotonic()
+
+        if self.provider == "parallel":
+            if include_domains or exclude_domains:
+                raise ValueError("Parallel anonymous search does not support hard domain filters")
+            if self._parallel_client is None:
+                from researchclaw.web.parallel_search import ParallelSearchClient
+
+                self._parallel_client = ParallelSearchClient()
+            return self._parallel_client.search(query, max_results=limit)
 
         # Tavily is the primary engine
         if self.api_key:

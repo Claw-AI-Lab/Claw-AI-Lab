@@ -157,6 +157,7 @@ class WebSearchAgent:
         self,
         *,
         tavily_api_key: str = "",
+        search_provider: str = "auto",
         exa_api_key: str = "",
         enable_scholar: bool = True,
         enable_crawling: bool = True,
@@ -165,7 +166,7 @@ class WebSearchAgent:
         max_scholar_results: int = 10,
         max_crawl_urls: int = 5,
     ) -> None:
-        self.web_client = WebSearchClient(api_key=tavily_api_key)
+        self.web_client = WebSearchClient(api_key=tavily_api_key, provider=search_provider)
         self.exa_client = ExaSearchClient(api_key=exa_api_key)
         try:
             self.scholar_client = GoogleScholarClient()

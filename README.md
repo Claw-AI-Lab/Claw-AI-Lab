@@ -171,6 +171,33 @@ sandbox:
   python_path: "/absolute/path/to/clawailab/bin/python"  # Get this path by running: conda activate clawailab && which python
 ```
 
+### Optional keyless web search
+
+To use [Parallel Search MCP](https://docs.parallel.ai/integrations/mcp/search-mcp)
+for research web searches, install the lightweight extra from `backend/agent`:
+
+```bash
+pip install -e ".[parallel]"  # Already included in .[all]
+```
+
+Then set this in `examples/config_template.yaml`:
+
+```yaml
+web_search:
+  enabled: true
+  provider: "parallel"
+```
+
+Search uses Fast mode at `https://search.parallel.ai/mcp`, with no account or API
+key needed. Anonymous usage has service rate limits. Results and excerpts feed
+into the existing research context; crawling and PDF extraction keep their
+existing controls. Each Parallel query has a 20-second deadline. Search errors
+are logged and the research pipeline continues without switching providers.
+Hard domain filters and Tavily's generated answer are not available through this
+anonymous adapter; use `provider: "auto"` for the existing Tavily/DuckDuckGo path.
+The default remains `auto`, existing credentials are retained, complementary Exa
+search stays available, and `enabled: false` disables web augmentation.
+
 ### 3. Run
 
 ```bash

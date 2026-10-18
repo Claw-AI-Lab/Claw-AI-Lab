@@ -9,14 +9,16 @@ dependencies = [
     "arxiv>=2.1",
     "numpy>=1.24",
 ]
-readme = "../../README.md"
+readme = "README.md"
 license = {text = "MIT"}
 
 [project.optional-dependencies]
+parallel = ["mcp>=1.30,<2"]
 anthropic = ["httpx>=0.24"]
 web = ["scholarly>=1.7", "crawl4ai>=0.2", "tavily-python>=0.3", "exa-py>=2.0.0"]
 pdf = ["PyMuPDF>=1.23"]
 all = [
+    "mcp>=1.30,<2",
     "httpx>=0.24",
     "scholarly>=1.7",
     "crawl4ai>=0.2",
