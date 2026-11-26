@@ -10,7 +10,6 @@
 </p>
 
 <p align="center">
-  <a href="https://clawailab.ai"><img src="https://img.shields.io/badge/Homepage-clawailab.ai-E63946?logo=google-chrome&logoColor=white" alt="Homepage"></a>
   <a href="https://arxiv.org/abs/2605.22662"><img src="https://img.shields.io/badge/arXiv-2605.22662-b31b1b?logo=arxiv&logoColor=white" alt="arXiv"></a>
   <a href="#license"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="MIT License"></a>
   <a href="https://python.org"><img src="https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white" alt="Python 3.11+"></a>
