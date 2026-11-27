@@ -7,6 +7,7 @@ from typing import Any, Mapping
 
 import pytest
 
+from researchclaw.llm import PROVIDER_PRESETS, resolve_provider_base_url
 from researchclaw.llm.client import LLMClient, LLMConfig, LLMResponse, _NEW_PARAM_MODELS
 
 
@@ -70,6 +71,13 @@ def test_llm_config_defaults():
     assert config.primary_model == "gpt-4o"
     assert config.max_tokens == 4096
     assert config.temperature == 0.7
+
+
+def test_atlascloud_provider_preset_uses_openai_compatible_endpoint():
+    assert PROVIDER_PRESETS["atlascloud"] == {
+        "base_url": "https://api.atlascloud.ai/v1"
+    }
+    assert resolve_provider_base_url("atlascloud") == "https://api.atlascloud.ai/v1"
 
 
 def test_llm_config_custom_values():
