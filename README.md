@@ -12,7 +12,7 @@
 <p align="center">
   <a href="https://yedeheng.github.io/Claw-AI-Lab/"><img src="https://img.shields.io/badge/Homepage-Claw%20AI%20Lab-E63946?logo=google-chrome&logoColor=white" alt="Homepage"></a>
   <a href="https://arxiv.org/abs/2605.22662"><img src="https://img.shields.io/badge/arXiv-2605.22662-b31b1b?logo=arxiv&logoColor=white" alt="arXiv"></a>
-  <a href="#license"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="MIT License"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="MIT License"></a>
   <a href="https://python.org"><img src="https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white" alt="Python 3.11+"></a>
   <a href="https://nodejs.org"><img src="https://img.shields.io/badge/Node.js-18%2B-339933?logo=node.js&logoColor=white" alt="Node.js 18+"></a>
 </p>
@@ -368,7 +368,7 @@ If you find Claw AI Lab useful in your research, please cite:
 
 ## License
 
-This project is released under the **MIT License**.
+This project is released under the **[MIT License](LICENSE)**.
 
 ---
 
