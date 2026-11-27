@@ -1,0 +1,2177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Claw AI Lab — An Autonomous Multi-Agent Research Team</title>
+  <meta
+    name="description"
+    content="Claw AI Lab is a lab-native multi-agent research platform for interactive, scalable AI-driven science. One dashboard. An entire research team."
+  />
+  <meta property="og:title" content="Claw AI Lab — An Autonomous Multi-Agent Research Team" />
+  <meta
+    property="og:description"
+    content="One dashboard. An entire research team. From a single prompt to literature review, ideation, coding, experimentation, figures, and paper writing."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/ui.png" />
+  <link rel="icon" type="image/png" href="assets/logo_v1.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-subtle: #f8fafc;
+      --bg-tint: #fef2f2;
+      --surface: #ffffff;
+      --border: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --ink: #0f172a;
+      --ink-secondary: #334155;
+      --ink-muted: #64748b;
+      --accent: #b31b1b;
+      --accent-hover: #991b1b;
+      --accent-soft: rgba(179, 27, 27, 0.08);
+      --accent-border: rgba(179, 27, 27, 0.22);
+      --navy: #1e3a8a;
+      --navy-soft: rgba(30, 58, 138, 0.08);
+      --code-bg: #0f172a;
+      --code-header: #1e293b;
+      --code-ink: #e2e8f0;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 8px 24px -6px rgba(15, 23, 42, 0.08), 0 2px 6px -2px rgba(15, 23, 42, 0.04);
+      --shadow-lg: 0 20px 50px -16px rgba(15, 23, 42, 0.16), 0 4px 14px -4px rgba(15, 23, 42, 0.06);
+      --container: 1080px;
+      --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+    }
+
+    a:hover {
+      color: var(--accent-hover);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── Sticky Top Navbar ── */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 1.02rem;
+      letter-spacing: -0.02em;
+      flex-shrink: 0;
+    }
+
+    .brand:hover {
+      color: var(--ink);
+    }
+
+    .brand img {
+      height: 30px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: var(--ink-secondary);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-github {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: #ffffff;
+      font-size: 0.86rem;
+      font-weight: 600;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-github:hover {
+      background: #1e293b;
+      color: #ffffff;
+    }
+
+    .nav-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+      color: var(--ink);
+      cursor: pointer;
+    }
+
+    .mobile-menu {
+      display: none;
+      border-top: 1px solid var(--border);
+      background: #ffffff;
+      padding: 12px 24px 18px;
+    }
+
+    .mobile-menu.is-open {
+      display: block;
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 9px 0;
+      color: var(--ink-secondary);
+      font-weight: 500;
+      font-size: 0.95rem;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .mobile-menu a:last-child {
+      border-bottom: none;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 64px 0 44px;
+      background:
+        radial-gradient(640px 260px at 50% 0%, rgba(179, 27, 27, 0.055), transparent 72%),
+        linear-gradient(180deg, #ffffff 0%, #fcfcfd 100%);
+      text-align: center;
+    }
+
+    .hero-logo {
+      width: 172px;
+      margin: 0 auto 18px;
+      filter: drop-shadow(0 6px 14px rgba(15, 23, 42, 0.08));
+    }
+
+    .hero-title {
+      margin: 0;
+      font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.12;
+      color: var(--ink);
+    }
+
+    .hero-subtitle {
+      margin: 14px auto 0;
+      font-size: clamp(1.12rem, 2.2vw, 1.38rem);
+      font-weight: 600;
+      color: var(--ink-secondary);
+      letter-spacing: -0.015em;
+    }
+
+    .hero-tagline {
+      margin: 6px auto 0;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--ink-muted);
+    }
+
+    .meta-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin: 22px auto 0;
+    }
+
+    .meta-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 11px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--ink-secondary);
+    }
+
+    .meta-badge--arxiv {
+      background: var(--accent-soft);
+      border-color: var(--accent-border);
+      color: var(--accent);
+    }
+
+    .meta-badge--arxiv:hover {
+      background: rgba(179, 27, 27, 0.14);
+      color: var(--accent-hover);
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border-radius: 999px;
+      font-size: 0.94rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(179, 27, 27, 0.24);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .btn-dark {
+      background: var(--ink);
+      color: #ffffff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-dark:hover {
+      background: #1e293b;
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: var(--surface);
+      color: var(--ink);
+      border-color: var(--border-strong);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--ink);
+      color: var(--ink);
+      background: var(--bg-subtle);
+      transform: translateY(-1px);
+    }
+
+    /* ── Updates Strip ── */
+    .updates-wrap {
+      padding: 0 0 28px;
+      background: linear-gradient(180deg, #fcfcfd 0%, #ffffff 100%);
+    }
+
+    .updates-card {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px 22px;
+    }
+
+    .updates-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .updates-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 9px;
+    }
+
+    .updates-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      font-size: 0.93rem;
+      color: var(--ink-secondary);
+    }
+
+    .update-date {
+      flex-shrink: 0;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 2px 8px;
+      border-radius: 6px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      color: var(--ink);
+    }
+
+    /* ── Sections ── */
+    section {
+      padding: 68px 0;
+      scroll-margin-top: 72px;
+    }
+
+    .section-alt {
+      background: var(--bg-subtle);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-header {
+      max-width: 760px;
+      margin: 0 auto 40px;
+      text-align: center;
+    }
+
+    .section-eyebrow {
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: clamp(1.6rem, 3vw, 2.05rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    .section-lead {
+      margin: 14px auto 0;
+      font-size: 1.02rem;
+      color: var(--ink-secondary);
+      line-height: 1.7;
+    }
+
+    /* ── Core Pillars ── */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .pillar-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px 26px;
+      box-shadow: var(--shadow-sm);
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .pillar-card:hover {
+      border-color: var(--border-strong);
+      box-shadow: var(--shadow-md);
+    }
+
+    .pillar-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent-soft);
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .pillar-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.06rem;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+    }
+
+    .pillar-card p {
+      margin: 0;
+      font-size: 0.94rem;
+      color: var(--ink-secondary);
+      line-height: 1.65;
+    }
+
+    /* ── Dashboard Preview ── */
+    .browser-frame {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      background: #0f172a;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .browser-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 16px;
+      background: #1e293b;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .browser-dots {
+      display: flex;
+      gap: 7px;
+    }
+
+    .browser-dots span {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .browser-dots span:nth-child(1) { background: #ef4444; }
+    .browser-dots span:nth-child(2) { background: #f59e0b; }
+    .browser-dots span:nth-child(3) { background: #22c55e; }
+
+    .browser-url {
+      flex: 1;
+      max-width: 440px;
+      margin: 0 auto;
+      padding: 4px 12px;
+      border-radius: 6px;
+      background: rgba(15, 23, 42, 0.72);
+      color: #94a3b8;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      text-align: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .dashboard-caption {
+      text-align: center;
+      margin-top: 22px;
+    }
+
+    .dashboard-caption strong {
+      display: block;
+      font-size: 1.02rem;
+      color: var(--ink);
+    }
+
+    .dashboard-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .dashboard-tag {
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--ink-secondary);
+      background: #ffffff;
+      border: 1px solid var(--border);
+    }
+
+    /* ── Key Capabilities (5-item balanced 6-col grid) ── */
+    .cap-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .cap-card {
+      grid-column: span 2;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 22px 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .cap-card--wide {
+      grid-column: span 3;
+    }
+
+    .cap-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cap-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .cap-card p {
+      margin: 0;
+      font-size: 0.92rem;
+      color: var(--ink-secondary);
+      line-height: 1.62;
+    }
+
+    /* ── Showcases ── */
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .showcase-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+    }
+
+    .showcase-card:hover {
+      border-color: var(--border-strong);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .showcase-figure {
+      background: #ffffff;
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .showcase-figure img {
+      width: 100%;
+      aspect-ratio: 1408 / 768;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+
+    .showcase-body {
+      padding: 22px 24px 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .showcase-meta {
+      display: inline-block;
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--navy);
+      background: var(--navy-soft);
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+      width: fit-content;
+    }
+
+    .showcase-body h3 {
+      margin: 0 0 10px;
+      font-size: 1.12rem;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      line-height: 1.35;
+    }
+
+    .showcase-body h3 a {
+      color: var(--ink);
+    }
+
+    .showcase-body h3 a:hover {
+      color: var(--accent);
+    }
+
+    .showcase-metric {
+      margin: 0 0 18px;
+      padding: 10px 13px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-subtle);
+      border-left: 3px solid var(--accent);
+      font-size: 0.89rem;
+      color: var(--ink-secondary);
+    }
+
+    .showcase-metric strong {
+      color: var(--ink);
+    }
+
+    .showcase-link {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .more-showcases {
+      margin-top: 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+    }
+
+    .more-showcases-title {
+      margin: 0 0 14px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--ink-muted);
+    }
+
+    .more-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .more-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-subtle);
+      border: 1px solid transparent;
+    }
+
+    .more-item:hover {
+      border-color: var(--border);
+      background: #ffffff;
+    }
+
+    .more-item-title {
+      font-weight: 600;
+      font-size: 0.94rem;
+      color: var(--ink);
+    }
+
+    .more-item-title:hover {
+      color: var(--accent);
+    }
+
+    .more-item-tag {
+      flex-shrink: 0;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--ink-muted);
+      background: #ffffff;
+      border: 1px solid var(--border);
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+
+    /* ── Discussion Mode Highlight ── */
+    .discussion-box {
+      margin-top: 32px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 30px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .discussion-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .discussion-header h3 {
+      margin: 0;
+      font-size: 1.24rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .discussion-prompt {
+      margin: 0 0 20px;
+      font-size: 0.98rem;
+      color: var(--ink-secondary);
+    }
+
+    .agents-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .agent-card {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 15px 16px;
+    }
+
+    .agent-label {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .agent-card p {
+      margin: 0;
+      font-size: 0.89rem;
+      color: var(--ink-secondary);
+      line-height: 1.55;
+    }
+
+    .consensus-callout {
+      background: var(--bg-tint);
+      border: 1px solid var(--accent-border);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius-sm);
+      padding: 16px 18px;
+      margin-bottom: 22px;
+      font-size: 0.94rem;
+      color: var(--ink);
+    }
+
+    .consensus-callout strong.consensus-title {
+      color: var(--accent);
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      margin-bottom: 16px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      background: #ffffff;
+    }
+
+    th,
+    td {
+      text-align: left;
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    thead th {
+      background: var(--bg-subtle);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink-muted);
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .rank-cell {
+      width: 48px;
+      text-align: center;
+      font-weight: 700;
+      color: var(--accent);
+      font-family: var(--font-mono);
+    }
+
+    details.clean-details {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--bg-subtle);
+      padding: 12px 16px;
+      margin-bottom: 18px;
+    }
+
+    details.clean-details summary {
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--ink);
+      user-select: none;
+    }
+
+    details.clean-details[open] summary {
+      margin-bottom: 12px;
+    }
+
+    .discussion-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    /* ── Quick Start Tabs & Code Blocks ── */
+    .prereq-note {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 14px;
+      font-size: 0.9rem;
+      color: var(--ink-secondary);
+    }
+
+    .prereq-pill {
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--ink);
+    }
+
+    .qs-shell {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .tab-bar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--ink-secondary);
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .tab-btn:hover {
+      border-color: var(--border-strong);
+      color: var(--ink);
+    }
+
+    .tab-btn.is-active {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: #ffffff;
+    }
+
+    .tab-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      font-size: 0.75rem;
+      background: rgba(100, 116, 139, 0.15);
+      color: inherit;
+    }
+
+    .tab-btn.is-active .tab-num {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.is-active {
+      display: block;
+    }
+
+    .code-card {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--code-bg);
+      border: 1px solid #1e293b;
+      box-shadow: var(--shadow-md);
+    }
+
+    .code-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      background: var(--code-header);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .code-lang {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: #94a3b8;
+    }
+
+    .copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 11px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.06);
+      color: #e2e8f0;
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+
+    .copy-btn:hover {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: rgba(255, 255, 255, 0.28);
+    }
+
+    .copy-btn.is-copied {
+      background: rgba(34, 197, 94, 0.2);
+      border-color: rgba(34, 197, 94, 0.5);
+      color: #86efac;
+    }
+
+    .code-card pre {
+      margin: 0;
+      padding: 18px 20px;
+      overflow-x: auto;
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      line-height: 1.65;
+      color: var(--code-ink);
+    }
+
+    .qs-hint {
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      font-size: 0.88rem;
+      color: var(--ink-secondary);
+    }
+
+    .qs-hint code {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: #e2e8f0;
+      color: var(--ink);
+    }
+
+    /* ── Citation ── */
+    .citation-stack {
+      max-width: 860px;
+      margin: 0 auto;
+      display: grid;
+      gap: 20px;
+    }
+
+    .cite-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .cite-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 18px;
+      background: var(--bg-subtle);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cite-label {
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .cite-copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--border-strong);
+      background: #ffffff;
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .cite-copy-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .cite-copy-btn.is-copied {
+      background: #ecfdf5;
+      border-color: #34d399;
+      color: #065f46;
+    }
+
+    .cite-card pre {
+      margin: 0;
+      padding: 18px 20px;
+      overflow-x: auto;
+      font-family: var(--font-mono);
+      font-size: 0.83rem;
+      line-height: 1.62;
+      color: var(--ink-secondary);
+      background: #ffffff;
+    }
+
+    /* ── Community & Acknowledgements ── */
+    .community-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      max-width: 720px;
+      margin: 0 auto 44px;
+    }
+
+    .qr-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .qr-card img {
+      width: 100%;
+      max-width: 280px;
+      margin: 0 auto 12px;
+      border-radius: var(--radius-sm);
+    }
+
+    .qr-card span {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--ink-secondary);
+    }
+
+    .ack-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 20px;
+    }
+
+    .info-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 22px 24px;
+    }
+
+    .info-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .info-card p {
+      margin: 0;
+      font-size: 0.92rem;
+      color: var(--ink-secondary);
+      line-height: 1.65;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      background: #ffffff;
+      font-size: 0.86rem;
+      color: var(--ink-muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .footer-links a {
+      color: var(--ink-muted);
+      font-weight: 500;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+      }
+
+      .cap-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .cap-card,
+      .cap-card--wide {
+        grid-column: span 1;
+      }
+
+      .showcase-grid,
+      .agents-grid,
+      .ack-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding: 44px 0 32px;
+      }
+
+      section {
+        padding: 48px 0;
+      }
+
+      .pillars-grid,
+      .cap-grid,
+      .community-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .updates-list li {
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .more-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .discussion-box {
+        padding: 20px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Sticky Top Navbar -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <a class="brand" href="#">
+        <img src="assets/logo_v1.png" alt="Claw AI Lab logo" />
+        <span>Claw AI Lab</span>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <ul class="nav-links">
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#dashboard">Dashboard</a></li>
+          <li><a href="#showcase">Showcase</a></li>
+          <li><a href="#quick-start">Quick Start</a></li>
+          <li><a href="#citation">Citation</a></li>
+          <li><a href="#community">Community</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a
+          class="nav-github"
+          href="https://github.com/Claw-AI-Lab/Claw-AI-Lab"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 0.3C5.37 0.3 0 5.67 0 12.3c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.05-.02-2.06-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22 0 1.61-.01 2.9-.01 3.29 0 .32.22.7.82.58C20.56 22.1 24 17.6 24 12.3 24 5.67 18.63 0.3 12 0.3z"/>
+          </svg>
+          <span>GitHub</span>
+        </a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          id="navToggle"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#overview">Overview</a>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#showcase">Showcase</a>
+      <a href="#quick-start">Quick Start</a>
+      <a href="#citation">Citation</a>
+      <a href="#community">Community</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <img class="hero-logo" src="assets/logo_v1.png" alt="Claw AI Lab" />
+        <h1 class="hero-title">Claw AI Lab</h1>
+        <p class="hero-subtitle">An Autonomous Multi-Agent Research Team</p>
+        <p class="hero-tagline">One dashboard. An entire research team.</p>
+
+        <div class="meta-badges">
+          <a
+            class="meta-badge meta-badge--arxiv"
+            href="https://arxiv.org/abs/2605.22662"
+            target="_blank"
+            rel="noopener noreferrer"
+          >arXiv:2605.22662</a>
+          <span class="meta-badge">MIT License</span>
+          <span class="meta-badge">Python 3.11+</span>
+          <span class="meta-badge">Node.js 18+</span>
+        </div>
+
+        <div class="hero-cta">
+          <a
+            class="btn btn-primary"
+            href="https://arxiv.org/abs/2605.22662"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+            Read Paper (arXiv:2605.22662)
+          </a>
+          <a
+            class="btn btn-dark"
+            href="https://github.com/Claw-AI-Lab/Claw-AI-Lab"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 0.3C5.37 0.3 0 5.67 0 12.3c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.05-.02-2.06-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22 0 1.61-.01 2.9-.01 3.29 0 .32.22.7.82.58C20.56 22.1 24 17.6 24 12.3 24 5.67 18.63 0.3 12 0.3z"/>
+            </svg>
+            View on GitHub
+          </a>
+          <a class="btn btn-outline" href="#quick-start">Quick Start</a>
+          <a class="btn btn-outline" href="#citation">Cite</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Updates Strip -->
+    <div class="updates-wrap">
+      <div class="container">
+        <div class="updates-card">
+          <div class="updates-label">Updates</div>
+          <ul class="updates-list">
+            <li>
+              <span class="update-date">2026.05</span>
+              <span>
+                Technical report released on arXiv:
+                <a href="https://arxiv.org/abs/2605.22662" target="_blank" rel="noopener noreferrer">
+                  <em>Claw AI Lab: An Autonomous Multi-Agent Research Team</em>
+                </a>.
+              </span>
+            </li>
+            <li>
+              <span class="update-date">2026.04.02</span>
+              <span>Preview v1.1.0 — powered by <strong>Claw-Code Harness</strong>.</span>
+            </li>
+            <li>
+              <span class="update-date">2026.03.25</span>
+              <span>Preview v1.0.0 — initial release.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Overview & 4 Core Pillars -->
+    <section id="overview">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Overview</div>
+          <h2 class="section-title">Lab-Native Multi-Agent Scientific Discovery</h2>
+          <p class="section-lead">
+            <strong>Claw AI Lab</strong> is a lab-native multi-agent research platform for interactive,
+            scalable AI-driven science. From a single prompt, it spins up a coordinated AI research
+            team—complete with literature review, ideation, coding, experimentation, figure generation,
+            and paper writing—managed through a unified web dashboard.
+          </p>
+        </div>
+
+        <div class="pillars-grid">
+          <article class="pillar-card">
+            <div class="pillar-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <h3>Lab-Native Multi-Agent Team</h3>
+            <p>
+              Configure customizable roles, research directions, and collaborative workflows instead of
+              relying on a single agent or a rigid serial pipeline.
+            </p>
+          </article>
+
+          <article class="pillar-card">
+            <div class="pillar-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7"/>
+                <rect x="14" y="3" width="7" height="7"/>
+                <rect x="14" y="14" width="7" height="7"/>
+                <rect x="3" y="14" width="7" height="7"/>
+              </svg>
+            </div>
+            <h3>Parallel Scheduling &amp; Knowledge Sharing</h3>
+            <p>
+              Orchestrate multiple agents and projects concurrently with a FIFO-based scheduler,
+              maximizing compute utilization while sharing findings across runs.
+            </p>
+          </article>
+
+          <article class="pillar-card">
+            <div class="pillar-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="1 4 1 10 7 10"/>
+                <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+              </svg>
+            </div>
+            <h3>Human-in-the-Loop Control</h3>
+            <p>
+              Intervene at any point to resolve ambiguity, inject new ideas, or iteratively refine
+              research via rollback and continuation.
+            </p>
+          </article>
+
+          <article class="pillar-card">
+            <div class="pillar-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+            </div>
+            <h3>Unified Dashboard</h3>
+            <p>
+              Turn end-to-end automated research into prompts and clicks—monitor live events, manage
+              queues, and inspect every artifact in one place.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dashboard Preview -->
+    <section id="dashboard" class="section-alt">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Dashboard</div>
+          <h2 class="section-title">One Interface for the Entire Research Lifecycle</h2>
+        </div>
+
+        <div class="browser-frame">
+          <div class="browser-bar">
+            <div class="browser-dots" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="browser-url">http://localhost:5903/ — Claw AI Lab</div>
+          </div>
+          <img src="assets/ui.png" alt="Claw AI Lab Dashboard" />
+        </div>
+
+        <div class="dashboard-caption">
+          <strong>Launch projects, monitor agents, and inspect every artifact from a single interface.</strong>
+          <div class="dashboard-tags">
+            <span class="dashboard-tag">Real-time event stream</span>
+            <span class="dashboard-tag">Multi-project overview</span>
+            <span class="dashboard-tag">One-click rollback &amp; resume</span>
+            <span class="dashboard-tag">Artifact inspector</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Capabilities -->
+    <section id="features">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Key Capabilities</div>
+          <h2 class="section-title">Built for Real Codebases, Real Experiments, and Full Deliverables</h2>
+        </div>
+
+        <div class="cap-grid">
+          <article class="cap-card">
+            <h3><span class="cap-dot"></span>Interactive Dashboard</h3>
+            <p>
+              Real-time web UI with live event stream, data shelf, multi-project monitoring,
+              rollback/resume, and artifact inspection.
+            </p>
+          </article>
+
+          <article class="cap-card">
+            <h3><span class="cap-dot"></span>Claw-Code Harness</h3>
+            <p>
+              Reads your local codebases, datasets, and checkpoints—and writes runnable experimental
+              code directly back to disk.
+            </p>
+          </article>
+
+          <article class="cap-card">
+            <h3><span class="cap-dot"></span>End-to-End Pipeline</h3>
+            <p>
+              Goes from one prompt to a complete deliverable: paper, runnable code, figures, and
+              experiment logs.
+            </p>
+          </article>
+
+          <article class="cap-card cap-card--wide">
+            <h3><span class="cap-dot"></span>Three Research Modes</h3>
+            <p>
+              <strong>Explore</strong> (open-ended research), <strong>Discussion</strong> (multi-agent
+              debate &amp; consensus), and <strong>Reproduce</strong> (empirical reproduction).
+            </p>
+          </article>
+
+          <article class="cap-card cap-card--wide">
+            <h3><span class="cap-dot"></span>Flexible Model &amp; Search Stack</h3>
+            <p>
+              Supports OpenAI-compatible, OpenAI, DeepSeek, and ACP providers; separate
+              text/coding/image model endpoints; fallback chains; and optional Exa/Tavily web search.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Generated Project Showcases & Discussion Mode -->
+    <section id="showcase" class="section-alt">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Showcase</div>
+          <h2 class="section-title">Autonomously Generated Research Packages</h2>
+          <p class="section-lead">
+            Each project autonomously produces a complete research package:
+            <strong>Paper · Code · Figures · Experiment Logs</strong>.
+          </p>
+        </div>
+
+        <!-- Two Flagship Visual Cards -->
+        <div class="showcase-grid">
+          <article class="showcase-card">
+            <a
+              class="showcase-figure"
+              href="https://github.com/Claw-AI-Lab/Claw-AI-Lab/blob/preview-v1.1.0/assets/showcase/showcase-quantify-hallucination.md"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="assets/oath_pipeline_overview.png"
+                alt="OATH: Quantifying Video Hallucination via Occlusion Debt Pipeline Overview"
+              />
+            </a>
+            <div class="showcase-body">
+              <span class="showcase-meta">Lab Explore · CV · Video Generation Evaluation</span>
+              <h3>
+                <a
+                  href="https://github.com/Claw-AI-Lab/Claw-AI-Lab/blob/preview-v1.1.0/assets/showcase/showcase-quantify-hallucination.md"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  OATH: Quantifying Video Hallucination via Occlusion Debt
+                </a>
+              </h3>
+              <p class="showcase-metric">
+                Best method achieves <strong>0.1714</strong> primary error vs. CLIP-T baseline
+                <strong>0.2393</strong> (<strong>↓28%</strong>).
+              </p>
+              <a
+                class="showcase-link"
+                href="https://github.com/Claw-AI-Lab/Claw-AI-Lab/blob/preview-v1.1.0/assets/showcase/showcase-quantify-hallucination.md"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Read Full Report &rarr;
+              </a>
+            </div>
+          </article>
+
+          <article class="showcase-card">
+            <a
+              class="showcase-figure"
+              href="https://github.com/Claw-AI-Lab/Claw-AI-Lab/blob/preview-v1.1.0/assets/showcase/showcase-reproduce-phycustom-on-flux.md"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="assets/method_flip_pipeline_overview.png"
+                alt="Reproducing PhyCustom on FLUX Pipeline Overview"
+              />
+            </a>
+            <div class="showcase-body">
+              <span class="showcase-meta">Reproduce · Image Gen · Multi-Concept Customization</span>
+              <h3>
+                <a
+                  href="https://github.com/Claw-AI-Lab/Claw-AI-Lab/blob/preview-v1.1.0/assets/showcase/showcase-reproduce-phycustom-on-flux.md"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Reproducing PhyCustom on FLUX
+                </a>
+              </h3>
+              <p class="showcase-metric">
+                <strong>5 methods &times; 3 seeds = 15 runs</strong>; output-space decoupling leads at
+                <strong>0.2813</strong>.
+              </p>
+              <a
+                class="showcase-link"
+                href="https://github.com/Claw-AI-Lab/Claw-AI-Lab/blob/preview-v1.1.0/assets/showcase/showcase-reproduce-phycustom-on-flux.md"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Read Full Report &rarr;
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Additional Generated Showcases -->
+        <div class="more-showcases">
+          <h3 class="more-showcases-title">More Generated Project Showcases</h3>
+          <ul class="more-list">
+            <li class="more-item">
+              <a
+                class="more-item-title"
+                href="https://github.com/Claw-AI-Lab/Claw-AI-Lab/blob/preview-v1.1.0/assets/showcase/showcase-adaptive-mrsa.md"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                ReMRSA: Adaptive Reference Attention for FreeCustom Composition
+              </a>
+              <span class="more-item-tag">Lab Explore · Discussion Mode</span>
+            </li>
+            <li class="more-item">
+              <a
+                class="more-item-title"
+                href="https://github.com/Claw-AI-Lab/Claw-AI-Lab/blob/preview-v1.1.0/assets/showcase/showcase-dropout-cross-domain.md"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Architecture-Conditioned Dropout: A Cross-Domain Benchmark Across CV, NLP, and Speech
+              </a>
+              <span class="more-item-tag">Lab Explore · Discussion Mode (3 Angles)</span>
+            </li>
+            <li class="more-item">
+              <a
+                class="more-item-title"
+                href="https://github.com/Claw-AI-Lab/Claw-AI-Lab/blob/preview-v1.1.0/assets/showcase/showcase-flowedit-wan21-t2v.md"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                WAF: Empirical Reproduction of FlowEdit on Wan2.1-T2V
+              </a>
+              <span class="more-item-tag">Reproduce</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Discussion Mode Highlight -->
+        <div class="discussion-box">
+          <div class="discussion-header">
+            <h3>Discussion Mode Highlight</h3>
+            <span class="showcase-meta" style="margin-bottom: 0;">3-Agent Debate &amp; Synthesis</span>
+          </div>
+          <p class="discussion-prompt">
+            Multi-agent debate on:
+            <strong>&ldquo;What is the most deployable direction for Video Action Models in Embodied AI?&rdquo;</strong>
+          </p>
+
+          <div class="agents-grid">
+            <div class="agent-card">
+              <span class="agent-label">Agent A</span>
+              <p>World Model + MPC (Model Predictive Control) is the most industrially stable path.</p>
+            </div>
+            <div class="agent-card">
+              <span class="agent-label">Agent B</span>
+              <p>&ldquo;Train with video, infer with action&rdquo; is the most deployable policy paradigm.</p>
+            </div>
+            <div class="agent-card">
+              <span class="agent-label">Agent C</span>
+              <p>Execution monitoring &amp; SOP (Standard Operating Procedure) automation lands fastest as a product.</p>
+            </div>
+          </div>
+
+          <div class="consensus-callout">
+            <strong class="consensus-title">Consensus:</strong>
+            The most deployable form is not a single end-to-end model, but a
+            <strong>layered, modular system</strong>—use video supervision during training to learn rich
+            dynamics, output actions directly at inference for low latency, and layer planning, MPC, and
+            safety modules on top for closed-loop robustness and recovery.
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th style="text-align: center;">#</th>
+                  <th>Top 3 Research Directions (ranked by deployability)</th>
+                  <th>Deployability</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="rank-cell">1</td>
+                  <td>
+                    <strong>Layered Video-Action Stack</strong> — video-action joint training + direct
+                    action inference + MPC safety
+                  </td>
+                  <td>Highest — best balance of latency, interpretability, and safety</td>
+                </tr>
+                <tr>
+                  <td class="rank-cell">2</td>
+                  <td>
+                    <strong>Video-to-Plan / SOP</strong> — demo videos &rarr; step sequences &amp; skill
+                    graphs for existing robots
+                  </td>
+                  <td>High — smallest embodiment gap, clearest commercial path</td>
+                </tr>
+                <tr>
+                  <td class="rank-cell">3</td>
+                  <td>
+                    <strong>Execution Monitor</strong> — real-time step tracking, anomaly detection, and
+                    re-planning triggers
+                  </td>
+                  <td>High — fastest to production; critical for industrial reliability</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <details class="clean-details">
+            <summary>Key Contradictions Resolved</summary>
+            <div class="table-wrap" style="margin-bottom: 0;">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Debate</th>
+                    <th>Resolution</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>World Model + MPC vs. Direct Action?</td>
+                    <td>
+                      <strong>Combine both</strong> — world model for representation, direct action for
+                      control, MPC for safety
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Human video: valuable or too much gap?</td>
+                    <td>
+                      <strong>Pre-training yes</strong>; direct low-level transfer is not yet reliable
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Is monitoring a &ldquo;real&rdquo; action model?</td>
+                    <td>Not the backbone, but <strong>fastest to reach production value</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+
+          <div class="discussion-links">
+            <a
+              href="https://github.com/Claw-AI-Lab/Claw-AI-Lab/blob/preview-v1.1.0/assets/showcase/discussion_transcript.md"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Full Transcript &rarr;</a>
+            <a
+              href="https://github.com/Claw-AI-Lab/Claw-AI-Lab/blob/preview-v1.1.0/assets/showcase/consensus_synthesis.md"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Consensus Synthesis &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Start -->
+    <section id="quick-start">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Quick Start</div>
+          <h2 class="section-title">Up and Running in Three Steps</h2>
+          <div class="prereq-note">
+            <span>Prerequisites:</span>
+            <span class="prereq-pill">Python 3.11+ (Conda recommended)</span>
+            <span class="prereq-pill">Node.js 18+</span>
+          </div>
+        </div>
+
+        <div class="qs-shell">
+          <div class="tab-bar" role="tablist" aria-label="Quick Start steps">
+            <button
+              class="tab-btn is-active"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="panel-install"
+              data-tab="panel-install"
+            >
+              <span class="tab-num">1</span> Install
+            </button>
+            <button
+              class="tab-btn"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-configure"
+              data-tab="panel-configure"
+            >
+              <span class="tab-num">2</span> Configure
+            </button>
+            <button
+              class="tab-btn"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-run"
+              data-tab="panel-run"
+            >
+              <span class="tab-num">3</span> Run
+            </button>
+          </div>
+
+          <!-- Step 1: Install -->
+          <div class="tab-panel is-active" id="panel-install" role="tabpanel">
+            <div class="code-card">
+              <div class="code-header">
+                <span class="code-lang">bash</span>
+                <button class="copy-btn" type="button" data-copy-target="code-install">Copy</button>
+              </div>
+              <pre><code id="code-install">git clone https://github.com/Claw-AI-Lab/Claw-AI-Lab.git
+cd Claw-AI-Lab
+
+# Create Python environment
+conda create -n clawailab python=3.11
+conda activate clawailab
+
+# Backend
+cd backend/agent
+pip install -e ".[all]"
+pip install websockets
+
+# Frontend
+cd ../../frontend
+npm install
+cd ..
+
+# ML dependencies (add extra packages as needed for your domain)
+pip install torch torchvision diffusers transformers accelerate safetensors datasets \
+            huggingface_hub opencv-python pandas matplotlib scikit-image scipy einops tqdm</code></pre>
+            </div>
+          </div>
+
+          <!-- Step 2: Configure -->
+          <div class="tab-panel" id="panel-configure" role="tabpanel">
+            <div class="code-card">
+              <div class="code-header">
+                <span class="code-lang">examples/config_template.yaml</span>
+                <button class="copy-btn" type="button" data-copy-target="code-configure">Copy</button>
+              </div>
+              <pre><code id="code-configure">llm:
+  base_url: "your-api-endpoint"
+  api_key: "your-api-key"
+  primary_model: "gpt-5.4"
+  coding_model: "gpt-5.4"
+  image_model: "gemini-3-pro-image-preview"
+  image_base_url: ""   # Optional: separate endpoint for image generation (defaults to base_url)
+  image_api_key: ""    # Optional: separate API key for image generation (defaults to api_key)
+  fallback_models:
+    - "qwen3.5-plus"
+    - "qwen-plus"
+
+experiment:
+  sandbox:
+    python_path: "/absolute/path/to/clawailab/bin/python"  # Run: conda activate clawailab &amp;&amp; which python</code></pre>
+            </div>
+            <div class="qs-hint">
+              See the full field-by-field
+              <a
+                href="https://github.com/Claw-AI-Lab/Claw-AI-Lab#configuration-reference"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Configuration Reference</a>
+              in the repository README.
+            </div>
+          </div>
+
+          <!-- Step 3: Run -->
+          <div class="tab-panel" id="panel-run" role="tabpanel">
+            <div class="code-card">
+              <div class="code-header">
+                <span class="code-lang">bash</span>
+                <button class="copy-btn" type="button" data-copy-target="code-run">Copy</button>
+              </div>
+              <pre><code id="code-run">./start.sh              # Start all services (resource monitor, agent bridge, frontend)
+./start.sh status       # Check service status
+./start.sh restart      # Restart all services
+./start.sh stop         # Stop all services
+./start.sh reset-state  # Clear persisted projects, queues, and shared indices (run after stop)
+./start.sh fresh        # Stop, reset state, and start cleanly</code></pre>
+            </div>
+            <div class="qs-hint">
+              Open <code>http://localhost:5903/</code> in your browser, submit a research topic, and
+              monitor your agents live. If default ports (<code>5903</code>, <code>8905</code>,
+              <code>8906</code>) are in use, override them at launch:
+              <code>RESOURCE_MONITOR_PORT=8915 AGENT_BRIDGE_PORT=8916 FRONTEND_PORT=5913 ./start.sh</code>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Citation -->
+    <section id="citation" class="section-alt">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Citation</div>
+          <h2 class="section-title">Cite Claw AI Lab</h2>
+          <p class="section-lead">If you find Claw AI Lab useful in your research, please cite:</p>
+        </div>
+
+        <div class="citation-stack">
+          <div class="cite-card">
+            <div class="cite-header">
+              <span class="cite-label">Technical Report (arXiv:2605.22662)</span>
+              <button class="cite-copy-btn" type="button" data-copy-target="bib-paper">Copy BibTeX</button>
+            </div>
+            <pre><code id="bib-paper">@article{wu2026claw,
+  title={Claw AI Lab: An Autonomous Multi-Agent Research Team},
+  author={Wu, Fan and Chen, Cheng and Tan, Zhenshan and Zhang, Taiyu and Xu, Xinzhen and Qian, Yanyu and Gao, Dingcheng and Zhu, Lanyun and Zhu, Qi and Tan, Yi and others},
+  journal={arXiv preprint arXiv:2605.22662},
+  year={2026}
+}</code></pre>
+          </div>
+
+          <div class="cite-card">
+            <div class="cite-header">
+              <span class="cite-label">GitHub Repository</span>
+              <button class="cite-copy-btn" type="button" data-copy-target="bib-repo">Copy BibTeX</button>
+            </div>
+            <pre><code id="bib-repo">@misc{wu2026clawailab,
+  author       = {Wu, Fan and Chen, Cheng and Tan, Zhenshan and Zhang, Taiyu and Xu, Xinzhen and Qian, Yanyu and
+                  Gao, Dingcheng and Zhu, Lanyun and Zhu, Qi and Tan, Yi and Ji, Deyi and 
+                  Lin, Guosheng and Chen, Tianrun and Ye, Deheng and Liu, Fayao},
+  title        = {Claw AI Lab: An Autonomous Multi-Agent Research Team},
+  year         = {2026},
+  url          = {https://github.com/Claw-AI-Lab/Claw-AI-Lab},
+  note         = {GitHub repository}
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Community, Acknowledgements & License -->
+    <section id="community">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Community</div>
+          <h2 class="section-title">Join the Community</h2>
+          <p class="section-lead">
+            Join our WeChat groups for beta testing, Q&amp;A, and research discussions, or contribute
+            directly on
+            <a href="https://github.com/Claw-AI-Lab/Claw-AI-Lab" target="_blank" rel="noopener noreferrer">GitHub</a>.
+          </p>
+        </div>
+
+        <div class="community-grid">
+          <div class="qr-card">
+            <img src="assets/Group.png" alt="WeChat Group 1 QR Code" />
+            <span>WeChat Group 1</span>
+          </div>
+          <div class="qr-card">
+            <img src="assets/Group2_new.png" alt="WeChat Group 2 QR Code" />
+            <span>WeChat Group 2</span>
+          </div>
+        </div>
+
+        <div class="ack-grid">
+          <div class="info-card">
+            <h3>Acknowledgements</h3>
+            <p>
+              Claw AI Lab builds upon ideas and code from
+              <a href="https://github.com/aiming-lab/AutoResearchClaw" target="_blank" rel="noopener noreferrer">AutoResearchClaw</a>,
+              <a href="https://github.com/karpathy/autoresearch" target="_blank" rel="noopener noreferrer">AutoResearch</a>, and
+              <a href="https://github.com/ultraworkers/claw-code" target="_blank" rel="noopener noreferrer">claw-code</a>.
+              We thank the authors for their contributions to the open-source research community.
+            </p>
+          </div>
+          <div class="info-card">
+            <h3>License &amp; Contributing</h3>
+            <p>
+              Released under the <strong>MIT License</strong>. Bug reports, feature proposals,
+              documentation improvements, and pull requests against <code>preview-v1.1.0</code> are
+              warmly welcome via
+              <a href="https://github.com/Claw-AI-Lab/Claw-AI-Lab/issues" target="_blank" rel="noopener noreferrer">GitHub Issues</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>Claw AI Lab &middot; Released under the MIT License</div>
+      <div class="footer-links">
+        <a href="https://arxiv.org/abs/2605.22662" target="_blank" rel="noopener noreferrer">arXiv:2605.22662</a>
+        <a href="https://github.com/Claw-AI-Lab/Claw-AI-Lab" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://github.com/Claw-AI-Lab/Claw-AI-Lab/issues" target="_blank" rel="noopener noreferrer">Issues</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // Mobile nav toggle
+      var navToggle = document.getElementById("navToggle");
+      var mobileMenu = document.getElementById("mobileMenu");
+      if (navToggle && mobileMenu) {
+        navToggle.addEventListener("click", function () {
+          var open = mobileMenu.classList.toggle("is-open");
+          navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+        mobileMenu.querySelectorAll("a").forEach(function (link) {
+          link.addEventListener("click", function () {
+            mobileMenu.classList.remove("is-open");
+            navToggle.setAttribute("aria-expanded", "false");
+          });
+        });
+      }
+
+      // Quick Start tabs
+      var tabButtons = document.querySelectorAll(".tab-btn");
+      var tabPanels = document.querySelectorAll(".tab-panel");
+      tabButtons.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var targetId = btn.getAttribute("data-tab");
+          tabButtons.forEach(function (b) {
+            var active = b === btn;
+            b.classList.toggle("is-active", active);
+            b.setAttribute("aria-selected", active ? "true" : "false");
+          });
+          tabPanels.forEach(function (panel) {
+            panel.classList.toggle("is-active", panel.id === targetId);
+          });
+        });
+      });
+
+      // Copy-to-clipboard buttons
+      function copyText(text, onDone) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(onDone, function () {
+            fallbackCopy(text, onDone);
+          });
+        } else {
+          fallbackCopy(text, onDone);
+        }
+      }
+
+      function fallbackCopy(text, onDone) {
+        var ta = document.createElement("textarea");
+        ta.value = text;
+        ta.setAttribute("readonly", "");
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          document.execCommand("copy");
+          onDone();
+        } finally {
+          document.body.removeChild(ta);
+        }
+      }
+
+      document.querySelectorAll("[data-copy-target]").forEach(function (btn) {
+        var originalLabel = btn.textContent;
+        btn.addEventListener("click", function () {
+          var target = document.getElementById(btn.getAttribute("data-copy-target"));
+          if (!target) return;
+          copyText(target.textContent, function () {
+            btn.textContent = "Copied!";
+            btn.classList.add("is-copied");
+            setTimeout(function () {
+              btn.textContent = originalLabel;
+              btn.classList.remove("is-copied");
+            }, 1800);
+          });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
