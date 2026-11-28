@@ -380,6 +380,7 @@ class WebSearchConfig:
     max_web_results: int = 10
     max_scholar_results: int = 10
     max_crawl_urls: int = 5
+    provider: str = "auto"  # auto (Tavily/DuckDuckGo) | parallel
 
 
 @dataclass(frozen=True)
@@ -502,6 +503,7 @@ class RCConfig:
                 custom_file=prompts.get("custom_file", ""),
             ),
             web_search=WebSearchConfig(
+                provider=str(web_search.get("provider", "auto")),
                 enabled=bool(web_search.get("enabled", True)),
                 tavily_api_key=str(web_search.get("tavily_api_key", "")),
                 tavily_api_key_env=str(web_search.get("tavily_api_key_env", "TAVILY_API_KEY")),

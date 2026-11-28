@@ -2620,6 +2620,7 @@ def _execute_literature_collect(
             )
             web_agent = WebSearchAgent(
                 tavily_api_key=tavily_key,
+                search_provider=config.web_search.provider,
                 exa_api_key=exa_key,
                 enable_scholar=config.web_search.enable_scholar,
                 enable_crawling=config.web_search.enable_crawling,
